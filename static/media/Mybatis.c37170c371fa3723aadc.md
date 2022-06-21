@@ -90,7 +90,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insert" parameterType="StudentVO">
-	 	<selectKey keyProperty="b_seq" resultType="Long" order="BEFORE"> // 시퀀스키 사용할 경우
+	 	<selectKey keyProperty="b_seq" resultType="Long" order="BEFORE">
  			SELECT seq_bbs.NEXTVAL FROM DUAL	
  		</selectKey>
 		INSERT INTO tbl_student
@@ -104,6 +104,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{st_tel}
 			)
 	</insert>
+
+ 	<insert id="insertFiles" parameterType="FilesVO">
+ 		INSERT INTO tbl_images(
+ 			i_seq, 
+ 			i_bseq, 
+ 			i_originalName, 
+ 			i_imageName
+ 		)
+ 		SELECT seq_image.NEXTVAL, SUB.* FROM (
+ 		<foreach collection="list" separator="UNION ALL" item="vo">
+ 				SELECT	#{vo.i_bseq}, 
+ 						#{vo.i_originalName}, 
+	 					#{vo.i_imageName}
+ 				FROM DUAL
+ 		</foreach>
+ 		) SUB
+ 	</insert>
+
 	<update id="update" parameterType="StudentVO">
 		UPDATE tbl_student SET
 				st_name = #{st_name}, 
@@ -112,6 +130,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				st_tel = #{st_tel}
 		WHERE st_num = #{st_num} 
 	</update>
+
 	<delete id="delete">
 		DELETE FROM tbl_student WHERE st_num = #{st_num}
 	</delete>
