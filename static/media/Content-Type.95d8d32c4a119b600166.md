@@ -1,4 +1,4 @@
-# Content-Type
+# Content-Type & MIME
 ## 1) Multipart Related MIME 타입
 
   - Content-Type: Multipart/related <-- 기본형태
