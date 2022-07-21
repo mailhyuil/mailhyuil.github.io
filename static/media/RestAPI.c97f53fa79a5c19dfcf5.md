@@ -48,6 +48,8 @@ public String getAPI() {
 
 # Jackson
 
+- Jackson-bind 사용시 @ResponseBody는 json으로 리턴
+
 - ObjectMapper는 API의 데이터를 VO에 매핑시켜주는 역할을 한다
 
 * 선언하지 않은 Property 무시하기

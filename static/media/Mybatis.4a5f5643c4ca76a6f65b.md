@@ -20,14 +20,14 @@
 
 - DataSource
 ```
-<bean id="mysqlDS" class="org.apache.commons.dbcp2.BasicDataSource"> // mySQL
+<bean id="mysqlDS" class="org.apache.commons.dbcp2.BasicDataSource"> <!-- mySQL -->
 	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
 	<property name="url" value="jdbc:mysql://localhost:3306/mydb" />
 	<property name="username" value="user1"/>
 	<property name="password" value="!Korea8080"/>
 </bean>
 
-<bean id="oracleDS" class="org.apache.commons.dbcp2.BasicDataSource"> // Oracle
+<bean id="oracleDS" class="org.apache.commons.dbcp2.BasicDataSource"> <!-- Oracle -->
 	<property name="driverClassName"
 			  value="oracle.jdbc.driver.OracleDriver" />
 	<property name="url"
@@ -41,8 +41,8 @@
 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="oracleDS"></property>
 	<property name="typeAliasesPackage"
-			  value="com.sb.school.model"></property>
-	<property name="mapperLocations" value="/WEB-INF/spring/mapper/*-mapper.xml"/> // mapper를 사용한다면..
+			  value="com.sb.school.model"></property> <!-- Model 위치 -->
+	<property name="mapperLocations" value="/WEB-INF/spring/mapper/*-mapper.xml"/> <!-- Mapper 사용 -->
 	<property name="configuration">
 		<bean class="org.apache.ibatis.session.Configuration">
 			<property name="jdbcTypeForNull" value="VARCHAR"/>
@@ -61,7 +61,7 @@
 ```
 - package scan
 ```
-<mybatis-spring:scan base-package="com.sb.school.dao" />
+<mybatis-spring:scan base-package="com.sb.school.dao" /> <!-- Dao 위치 -->
 ```
 
 
