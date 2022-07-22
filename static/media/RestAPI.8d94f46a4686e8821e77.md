@@ -62,8 +62,9 @@ ObjectMapper mapper = new ObjectMapper(); // Json to VO, String to VO, String to
 
 mapper.getFactory().configure(JsonWriteFeature.ESCAPE_NON_ASCII.mappedFeature(), true); // UTF-8로 인코딩
 
-.writeValueAsString (VO->JSON)
-.readValue(Json, VO.class);
+//mapper.writeValueAsString (VO) // VO to JSON
+
+//mapper.readValue(Json, VO.class); // JSON to VO
 ```
 
 # RestTemplate
