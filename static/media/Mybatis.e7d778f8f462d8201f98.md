@@ -80,7 +80,7 @@ public List<StudentVO> selectAll();
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sb.school.Daopath">
+<mapper namespace="com.sb.school.persistence.dao">
 	<select id="selectAll" resultType="StudentVO">
 		SELECT * FROM tbl_student
 	</select>
