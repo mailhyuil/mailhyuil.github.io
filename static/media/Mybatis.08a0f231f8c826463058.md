@@ -7,6 +7,49 @@
 - spring-jdbc
 - oracle-jdbc(ojdbc8)
 
+```
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-jdbc</artifactId>
+	<version>${org.springframework-version}</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.5.9</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis-spring</artifactId>
+    <version>2.0.7</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-dbcp2</artifactId>
+    <version>2.9.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc8</artifactId>
+    <version>21.5.0.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.29</version>
+</dependency>
+```
 
 ## 2. web.xml
 ```
@@ -136,10 +179,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 </mapper>
 ```
+## 4-3. resultMap
+```
+<select id="findByIdScore" resultType="ScoreVO">
+	SELECT * FROM tbl_score
+		LEFT JOIN tbl_subject
+			ON sc_sbcode = sb_code
+	WHERE sc_stnum = #{sc_stnum}
+</select>
+
+<resultMap type="StudentVO" id="findByIdAndScore">
+	<id property="st_num" column="st_num"/>
+
+	<!-- @위의 쿼리를 실행시켜서 StudentVO에 있는 List<ScoreVO> 에 담는다 -->
+	<collection property="scoreList" column="st_num"
+			ofType="ScoreVO" select="findByIdScore">
+	</collection>
+</resultMap>
+
+<!-- @위의 resultMap을 아래의 쿼리를 실행시킬 때 매핑한다 -->
+<select id="findById" resultMap="findByIdAndScore">
+	SELECT * FROM tbl_student WHERE st_num = #{st_num}
+</select>
+```
 
 ## 5. interface Service extends DAO
 - Service interface가 DAO 상속
-
 
 ## 6. class ServiceImpl implements Service
 - Service interface 구현
@@ -159,6 +224,4 @@ public ServiceImpl(DAO dao){
 	@Qualifier("ServiceImpl")
 	private Service service;
 ```
-
-
 ---
