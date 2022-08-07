@@ -1,5 +1,6 @@
 # Thymeleaf(타임리프)
-
+* 자동완성 플러그인
+`http://www.thymeleaf.org/eclipse-plugin-update-site/`
 1. dependency 설정
 ```
 <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
@@ -23,7 +24,7 @@
     class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
     <beans:property name="prefix" value="/WEB-INF/views/" />
     <beans:property name="suffix" value=".html" />
-    <beans:property name="templateMode" value="HTML5" />
+    <beans:property name="templateMode" value="HTML" />
     <beans:property name="cacheable" value="false" />
 </beans:bean>
 

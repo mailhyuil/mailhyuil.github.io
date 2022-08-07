@@ -84,3 +84,32 @@ public class AuthorityVO {
 	private String authority;
 }
 ```
+
+- UserDetailsServiceImpl
+```
+public class UserDetailsServiceImpl implements UserDetailsService{
+
+	private final UserDao userDao;
+
+	public UserDetailsServiceImpl(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	/*
+	 * 로그인 한 사용자의 username 을 매개변수로 전달받아
+	 * UserDao 를 통해 로그인한 사용자 정보를 DB 로 부터 가져온다
+	 */
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		UserVO userVO = userDao.findById(username);
+
+		// 로그인 한 사용자의 username 이 table 에 없으면
+		if(userVO == null) {
+			throw new UsernameNotFoundException(username + " : 회원가입을 먼저하세요");
+		}
+
+		return userVO;
+	}
+
+}
+```
