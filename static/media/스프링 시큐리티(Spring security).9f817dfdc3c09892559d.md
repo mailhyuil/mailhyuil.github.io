@@ -113,3 +113,41 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
 }
 ```
+
+- AuthenticationProviderImpl
+
+```
+public class AuthenticationProviderImpl implements AuthenticationProvider{
+
+	@Autowired
+	@Qualifier("userDetailsService")
+	UserDetailsService userService;
+	
+	@Override
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+		String username = (String) authentication.getPrincipal();
+		String password = (String) authentication.getCredentials();
+		
+		UserVO user = (UserVO) userService.loadUserByUsername(username);
+		
+		if(user == null) {
+			throw new UsernameNotFoundException(username + "은 존재하지 않은 아이디입니다.");
+		}
+		
+		if(user.getPassword().equals(password) == false) {
+			throw new BadCredentialsException("비밀번호가 틀립니다");
+		}
+		
+		UsernamePasswordAuthenticationToken
+		token = new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
+		
+		return token;
+	}
+
+	@Override
+	public boolean supports(Class<?> authentication) {
+		return true;
+	}
+
+}
+```
