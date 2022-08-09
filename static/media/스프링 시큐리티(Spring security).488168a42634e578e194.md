@@ -103,10 +103,19 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserVO userVO = userDao.findById(username);
 
-		// 로그인 한 사용자의 username 이 table 에 없으면
 		if(userVO == null) {
 			throw new UsernameNotFoundException(username + " : 회원가입을 먼저하세요");
 		}
+
+		List<AuthorityVO> authList = userDao.select_auths(username);
+
+		List<GrantedAuthority> grantList = new ArrayList<>();
+		
+		for(AuthorityVO auth : authList) {
+			grantList.add(new SimpleGrantedAuthority(auth.getAuthority()));
+		}
+
+		userVO.setAuthorities(grantList);
 
 		return userVO;
 	}
