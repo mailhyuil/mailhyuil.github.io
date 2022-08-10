@@ -2,7 +2,7 @@
 
 - watch
 
-`npx tailwindcss -i ./src/style.css -o ./public/style.css --watch`
+`npx tailwindcss ./src/style.css -o ./public/style.css --watch`
 
 ## flowbite
 
