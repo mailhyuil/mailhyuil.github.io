@@ -334,3 +334,17 @@ public class UserService {
 
 2. servlet-context.xml
 `<jpa:repositories base-package="com.sb.school.repository"></jpa:repositories>`
+
+3. repository
+```
+public interface UserRepository extends JpaRepository<User, String>{
+    
+	public User findOneByUsername(String username);
+    
+    public List<User> findByPassword(String password);
+    
+    public List<User> findByClassCode(Classes classCode);
+    
+    public User findOneByName(String name);
+}
+```
