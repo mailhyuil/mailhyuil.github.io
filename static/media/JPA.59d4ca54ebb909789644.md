@@ -277,6 +277,7 @@ public class UserService {
     <version>5.0.0</version>
 </dependency>
 ```
+
 - plugin 추가
 ```
 <plugin>
@@ -297,41 +298,8 @@ public class UserService {
 </plugin>
 ```
 
-2. 기본 문법
-```
-//	JPAQuery<EntityManager> query = new JPAQuery<>(em);
-    JPAQueryFactory queryFactory = new JPAQueryFactory(em);
-		  
-//	QUser user = new QUser("u");
-	QUser user = QUser.user;
-		  
-	User foundUser = (User) queryFactory
-//				  .selectFrom(qUser) // select + from
-				  .from(user)
-				  .where(user.username.eq("sb"))
-				  .orderBy(user.username.desc())
-				  .fetchOne();
-		  
-	System.out.println("result : " + foundUser);
-```
-# spring-data
+- build.gradle
 
-1. pom.xml
-```
-<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
-<dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-commons</artifactId>
-    <version>2.3.9.RELEASE</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
-<dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-jpa</artifactId>
-    <version>2.3.9.RELEASE</version>
-</dependency>
-```
-1. build.gradle
 ```
 buildscript {
     dependencies {
@@ -371,6 +339,41 @@ compileQuerydsl{
 configurations {
     querydsl.extendsFrom compileClasspath
 }
+```
+
+2. 기본 문법
+```
+//	JPAQuery<EntityManager> query = new JPAQuery<>(em);
+    JPAQueryFactory queryFactory = new JPAQueryFactory(em);
+		  
+//	QUser user = new QUser("u");
+	QUser user = QUser.user;
+		  
+	User foundUser = (User) queryFactory
+//				  .selectFrom(qUser) // select + from
+				  .from(user)
+				  .where(user.username.eq("sb"))
+				  .orderBy(user.username.desc())
+				  .fetchOne();
+		  
+	System.out.println("result : " + foundUser);
+```
+# spring-data
+
+1. pom.xml
+```
+<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-commons</artifactId>
+    <version>2.3.9.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+    <version>2.3.9.RELEASE</version>
+</dependency>
 ```
 
 2. servlet-context.xml
