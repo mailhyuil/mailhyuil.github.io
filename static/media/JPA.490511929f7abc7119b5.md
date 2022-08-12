@@ -331,6 +331,47 @@ public class UserService {
     <version>2.3.9.RELEASE</version>
 </dependency>
 ```
+1. build.gradle
+```
+buildscript {
+    dependencies {
+        classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10")
+    }
+}
+
+apply plugin: "com.ewerk.gradle.plugins.querydsl"
+
+dependencies {
+    //querydsl 추가
+    implementation 'com.querydsl:querydsl-jpa'
+    //querydsl 추가
+    implementation 'com.querydsl:querydsl-apt'
+}
+
+def querydslDir = "$buildDir/generated/querydsl"
+
+querydsl {
+    library = "com.querydsl:querydsl-apt"
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', querydslDir]
+        }
+    }
+}
+
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+```
 
 2. servlet-context.xml
 `<jpa:repositories base-package="com.sb.school.repository"></jpa:repositories>`
