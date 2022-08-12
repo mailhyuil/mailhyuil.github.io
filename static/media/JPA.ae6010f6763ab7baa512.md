@@ -301,7 +301,7 @@ public class UserService {
 - build.gradle
 
 ```
-buildscript {
+buildscript { // 맨위에 위치
     dependencies {
         classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10")
     }
