@@ -392,3 +392,10 @@ public interface UserRepository extends JpaRepository<User, String>{
     public User findOneByName(String name);
 }
 ```
+
+## hibernate-dialect (방언)
+
+- oracle : `org.hibernate.dialect.OracleDialect`
+- mysql : `org.hibernate.dialect.MySQLDialect`
+- mariaDB : `org.hibernate.dialect.MariaDBDialect`
+- progress : `org.hibernate.dialect.ProgressDialect`
