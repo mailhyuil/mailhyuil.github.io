@@ -358,6 +358,20 @@ configurations {
 		  
 	System.out.println("result : " + foundUser);
 ```
+
+- java config (QueryDSL-JPAQueryFactory)
+
+```
+@PersistenceContext
+private EntityManager entityManager;
+
+@Bean
+public JPAQueryFactory jpaQueryFactory() {
+    return new JPAQueryFactory(entityManager);
+}
+```
+
+
 # spring-data
 
 1. pom.xml

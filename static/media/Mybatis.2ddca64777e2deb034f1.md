@@ -179,6 +179,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 </mapper>
 ```
+
 ## 4-3. resultMap
 ```
 <select id="findByIdScore" resultType="ScoreVO">
@@ -223,5 +224,18 @@ public ServiceImpl(DAO dao){
 	@Qualifier("ServiceImpl")
 	private Service service;
 ```
+- spring boot scan
 
+`@MapperScan(value = {"com.sb.firstboot.persistence"})`
+
+- java config (mybatis-mapper)
+```
+@Autowired
+private SqlSessionTemplate sqlSession;
+
+@Bean
+public UserDao userDao(){
+	return sqlSession.getMapper(UserDao.class);
+}
+```
 ---
