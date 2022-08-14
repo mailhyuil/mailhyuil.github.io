@@ -118,6 +118,20 @@ th:each="num : ${#numbers.sequence(from,to,step)}}"
     <p th:text="${numStat.first}"></p>
     <p th:text="${numStat.last}"></p>
 </th:block>
+
+/* or */
+
+<th:block th:each="num,index : ${#numbers.sequence(1,5)}">
+	<div th:text="${num}"></div>
+    <p th:text="${index.index}"></p>
+    <p th:text="${index.count}"></p>
+    <p th:text="${index.size}"></p>
+    <p th:text="${index.current}"></p>
+    <p th:text="${index.even}"></p>
+    <p th:text="${index.odd}"></p>
+    <p th:text="${index.first}"></p>
+    <p th:text="${index.last}"></p>
+</th:block>
 ```
 
 - 문자열 리터럴
