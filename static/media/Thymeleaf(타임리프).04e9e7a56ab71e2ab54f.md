@@ -76,9 +76,9 @@ th:insert="~{파일경로 :: 조각이름}"
 - thymeleaf 문법
 ```
 th:text="${}" : <div th:text="${data}"></div>
-th:href="@{}" : <a th:hrf="@{/boardListPage?currentPageNum={page}}"></a>
-th:with="${}" : <div th:with=”userId=${number}” th:text=”${usesrId}”>
 th:value="${}" : <input type="text" id="userId" th:value="${userId} + '의 이름은 ${userName}"/>
+th:href="@{}" : <a th:hrf="@{/boardListPage?currentPageNum={page}}"></a> // @는 루트패스를 뜻함
+th:with="${}" : <div th:with=”userId=${number}” th:text=”${usesrId}”> // 변수 선언
 
 <!-- form -->
 th:action="@{}"
@@ -86,8 +86,8 @@ th:object="${}"
 th:field="*{}" // id, name, value 속성값이 자동으로 매핑된다
 
 <!-- 조건, 반복 -->
-th:if="${}" = <span th:if="${userNum} == 1"></span> 
-th:unless="${}" = <span th:unless="${userNum} == 2"></span>
+th:if="${}" : <span th:if="${userNum} == 1"></span> 
+th:unless="${}" : <span th:unless="${userNum} == 2"></span> // else, otherwise
 th:each="변수 : ${list}" =  <li th:each="pageButton" : ${#numbers.sequece(paging.firstPage, paging.lastPage)}></li>
 
 <th:block th:switch="${userNum}"> 
@@ -96,6 +96,28 @@ th:each="변수 : ${list}" =  <li th:each="pageButton" : ${#numbers.sequece(pagi
 </th:block>
 
 th:block
+```
+
+- 반복 값 넣기
+```
+th:each="num : ${#numbers.sequence(from,to)}"
+th:each="num : ${#numbers.sequence(from,to,step)}}"
+
+//상태변수
+반복할 오브젝트 명 + Stat ex)numStat
+
+// ex)
+<th:block th:each="num : ${#numbers.sequence(1,5)}">
+	<div th:text="${num}"></div>
+    <p th:text="${numStat.index}"></p>
+    <p th:text="${numStat.count}"></p>
+    <p th:text="${numStat.size}"></p>
+    <p th:text="${numStat.current}"></p>
+    <p th:text="${numStat.even}"></p>
+    <p th:text="${numStat.odd}"></p>
+    <p th:text="${numStat.first}"></p>
+    <p th:text="${numStat.last}"></p>
+</th:block>
 ```
 
 - 문자열 리터럴
