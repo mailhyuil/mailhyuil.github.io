@@ -134,6 +134,17 @@ th:each="num : ${#numbers.sequence(from,to,step)}}"
 </th:block>
 ```
 
+- 자바스크립트에 변수 사용하기
+```
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+const thymeleafVar = [[pagination.search]];
+
+/*]]>*/
+</script>
+```
+
 - 문자열 리터럴
 
 `"|문자열 혹은 ${}|"`
