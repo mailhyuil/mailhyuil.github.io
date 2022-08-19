@@ -109,3 +109,31 @@ public class MovieParent<VO> {
 	public VO data;
 }
 ```
+
+# RestTemplate 302 응답값 받기
+> 302 : redirect 상태 // restTemplate은 기본으로 302시 redirect된 응답값을 보내는게 아니라 redirect 정보를 받는다
+
+- Apache HttpClient dependency 추가
+```
+<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.13</version>
+</dependency>
+```
+
+- Redirect 전략 변경
+```
+RestTemplate restTemplate = new RestTemplate();
+
+HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
+
+CloseableHttpClient httpClient = HttpClientBuilder.create()
+        .setRedirectStrategy(new LaxRedirectStrategy())
+        .build();
+
+factory.setHttpClient(httpClient);
+
+restTemplate.setRequestFactory(factory);
+```

@@ -79,6 +79,8 @@ th:text="${}" : <div th:text="${data}"></div>
 th:value="${}" : <input type="text" id="userId" th:value="${userId} + '의 이름은 ${userName}"/>
 th:href="@{}" : <a th:hrf="@{/boardListPage?currentPageNum={page}}"></a> // @는 루트패스를 뜻함
 th:with="${}" : <div th:with=”userId=${number}” th:text=”${usesrId}”> // 변수 선언
+th:attr="data-id=${id}" : <tr th:attr="data-id=${id}"></tr> // 태그에 attribute 넣기
+th:src="@{}" : <img th:src="|@{/upload/}${BBS.img}|"/> // @{}${} 이어붙여 쓰기
 
 <!-- form -->
 th:action="@{}"
@@ -87,6 +89,11 @@ th:field="*{}" // id, name, value 속성값이 자동으로 매핑된다
 
 <!-- 조건, 반복 -->
 th:if="${}" : <span th:if="${userNum} == 1"></span> 
+
+// if문 null값 체크
+<input name="isbn" placeholder="isbn" th:if="${not #strings.isEmpty(value)}" th:value="${value.isbn}">
+<input name="isbn" placeholder="isbn" th:if="${#strings.isEmpty(value)}">
+
 th:unless="${}" : <span th:unless="${userNum} == 2"></span> // else, otherwise
 th:each="변수 : ${list}" =  <li th:each="pageButton" : ${#numbers.sequece(paging.firstPage, paging.lastPage)}></li>
 
@@ -148,3 +155,23 @@ const thymeleafVar = [[pagination.search]];
 - 문자열 리터럴
 
 `"|문자열 혹은 ${}|"`
+
+# thymeleaf 내장객체, 내장함수
+
+## #strings
+
+## #numbers
+
+## #objects
+
+## #arrays
+
+## #lists
+
+## #maps
+
+## #messages
+
+## #dates
+
+## #calendars
