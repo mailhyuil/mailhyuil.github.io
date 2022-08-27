@@ -1,5 +1,9 @@
 # RestAPI
 
+> HttpEntity
+> RequestEntity: HttpEntity + URI, Method
+> ResponseEntity: HttpEntity + Status(상태코드)
+
 * URL 읽기
 
 ```

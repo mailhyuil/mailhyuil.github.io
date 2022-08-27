@@ -1,4 +1,4 @@
-# Jasypt를 사용한 프로퍼티 암호화
+# Jasypt(Java Simplified Encryption)를 사용한 프로퍼티 암호화
 
 1. denpendencies
 
@@ -7,14 +7,14 @@
 <dependency>
 	<groupId>org.jasypt</groupId>
 	<artifactId>jasypt</artifactId>
-	<version>${org.jasypt-version}</version>
+	<version>1.9.3</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.jasypt/jasypt-spring31 -->
 <dependency>
 	<groupId>org.jasypt</groupId>
 	<artifactId>jasypt-spring31</artifactId>
-	<version>${org.jasypt-version}</version>
+	<version>1.9.3</version>
 </dependency>
 ```
 
