@@ -56,3 +56,19 @@ StandardPBEStringEncryptor pbEnc = new StandardPBEStringEncryptor();
 
 pbEnc.encrypt(value)
 ```
+
+### jasypt bean은 가장 먼저 생성되어야 한다. (web.xml)
+```
+<context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>
+		/WEB-INF/spring/jasypt-context.xml,
+		/WEB-INF/spring/properties-context.xml,
+		/WEB-INF/spring/data-context.xml,
+		/WEB-INF/spring/hibernate-context.xml,
+		/WEB-INF/spring/mybatis-context.xml,
+		/WEB-INF/spring/root-context.xml,
+		/WEB-INF/spring/security-context.xml
+	</param-value>
+</context-param>
+```
