@@ -35,6 +35,8 @@
         <beans:set>
             <beans:bean class="nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect">
             </beans:bean>			
+            <beans:bean	class="org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect">
+			</beans:bean>
         </beans:set>	
     </beans:property>
 </beans:bean>
@@ -176,3 +178,21 @@ const thymeleafVar = [[pagination.search]];
 ## #dates
 
 ## #calendars
+
+## #ctx
+
+## #locale
+
+## param
+
+## session
+
+## application
+
+## #request
+
+## #session
+
+## #servletContext
+
+## #uris
