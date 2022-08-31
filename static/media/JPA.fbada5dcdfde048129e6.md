@@ -413,3 +413,6 @@ public interface UserRepository extends JpaRepository<User, String>{
 - mysql : `org.hibernate.dialect.MySQLDialect`
 - mariaDB : `org.hibernate.dialect.MariaDBDialect`
 - progress : `org.hibernate.dialect.ProgressDialect`
+
+- onDelete & cascade = CascadeType.REMOVE
+> onDelete는 DB 레벨, CascadeType.REMOVE은 JPA 레벨
