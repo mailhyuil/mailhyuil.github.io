@@ -1,6 +1,7 @@
-# 도커 (Docker)
+# Docker (도커)
 
 ## 기본 명령어
+
 ```
 docker ps
 docker stop
@@ -12,12 +13,56 @@ docker image build --tag 이미지_이름 경로
 
 docker network create nat
 
-docker volume ls
-
-docker container run
+// 컨테이너 실행
+docker container run 
 docker container run --name 이름 -d -p 800:80 --network 네트워크이름 이미지이름
 docker container logs
+
+// 볼륨 생성
+docker volume create 볼륨이름 
+// 볼륨 연결
+docker container run -d -p 8080:80 -v 볼륨이름:/경로 --name 이름
+ 
+// 마운트 : 호스트 컴퓨터의 파일 시스템에 직접 저장
+docker container run --mount type=bind,source=$source,target=$target -d -p 8080:80 이미지
 ```
+
+## docker-compose
+
+> Docker-compose를 사용하여 분산 애플리케이션을 실행시킬 수 있다.
+> 
+
+```
+docker-compose up // 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾는다
+docker-compose logs
+docker-compose down
+docker-compose stop
+docker-compose start
+```
+
+## docker-compose.yml
+
+```yaml
+version: '3.7'
+
+services:
+	서비스이름:
+		image: "이미지"
+		ports:
+			- "8080:80"
+		networks:
+			- app-net
+			
+networks:
+	app-net:
+		external:
+			name: nat
+
+secrets:
+	postgres-connection:
+		file: ./config/secrets.json
+```
+
 ## DockerHub Registry에 push&pull
 
 ```
@@ -35,7 +80,9 @@ docker image pull
 ```
 
 ## Dockerfile
+
 > Dockerfile -> build -> image -> container
+> 
 
 ```
 # 베이스 이미지
@@ -52,7 +99,11 @@ ENV INTERVAL="3000"
 # 이미지 파일 디렉터리를 만들고 해당 디렉터리를 작업 디렉터리로 지정하는 인스트럭션
 WORKDIR /web-ping
 
-ENTRYPOINT
+# 포트를 외부로 공개
+EXPOSE 80
+
+# CMD와 같은 기능
+ENTRYPOINT ["java", "-jar", "/app/*.jar]
 
 VOLUME /data
 
@@ -64,13 +115,17 @@ CMD ["node", "/web-ping/app.js"]
 ```
 
 ## 환경변수 값 가져오기
-* Node
+
+- Node
+
 ```
 process.env.TARGET
 process.env.METHOD
 ```
-* Java
+
+- Java
+
 ```
-System.getenv("TARGET") 
-System.getenv("METHOD") 
+System.getenv("TARGET")
+System.getenv("METHOD")
 ```

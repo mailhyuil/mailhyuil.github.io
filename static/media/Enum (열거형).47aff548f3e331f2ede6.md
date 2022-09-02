@@ -1,4 +1,4 @@
-# 열거형 (Enum)
+# Enum (열거형)
 
 ```
 public enum Level {

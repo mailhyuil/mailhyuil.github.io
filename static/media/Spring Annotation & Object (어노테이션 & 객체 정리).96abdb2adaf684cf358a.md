@@ -1,4 +1,4 @@
-# 어노테이션 & 객체 정리
+# Spring Annotation & Object (어노테이션 & 객체 정리)
 
 ### @RequestParam
 > HttpServletRequest 객체를 사용하는 방식과 동일, name, required, defaultValue 사용 가능

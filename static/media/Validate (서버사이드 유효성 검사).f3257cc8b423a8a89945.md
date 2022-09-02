@@ -1,4 +1,4 @@
-# 서버사이드 유효성 검사
+# Validate (서버사이드 유효성 검사)
 
 ```
 <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->

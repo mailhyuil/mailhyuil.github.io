@@ -1,4 +1,4 @@
-# 커맨드 객체
+# Command Object (커맨드 객체)
 
 - 컨트롤러에 @ModelAttribute("")를 사용하여 객체함수 생성
 

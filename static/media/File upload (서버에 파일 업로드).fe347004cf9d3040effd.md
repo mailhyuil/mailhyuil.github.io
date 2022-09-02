@@ -1,4 +1,4 @@
-# 서버에 파일 업로드 (file upload)
+# File upload (서버에 파일 업로드)
 
 1. pom.xml
 ```

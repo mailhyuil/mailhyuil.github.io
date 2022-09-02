@@ -1,4 +1,4 @@
-# Reactor (반응형 프로그래밍)
+# Reactor (스프링 리액터)
 
 - pom.xml
 

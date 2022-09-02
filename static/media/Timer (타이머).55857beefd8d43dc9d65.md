@@ -1,4 +1,4 @@
-# 타이머 (Timer)
+# Timer (타이머)
 
 ```
 private Timer timer; // Timer 생성

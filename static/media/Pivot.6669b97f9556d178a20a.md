@@ -1,4 +1,4 @@
-# 데이터베이스 Pivot
+# Pivot
 
 - mySQL
 ```
