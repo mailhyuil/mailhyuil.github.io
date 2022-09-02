@@ -2,22 +2,38 @@
 
 ## 기본 명령어
 ```
-docker login --username 아이디
-
-docker image tag 이미지이름 아이디/이미지이름:태그
-
-docker image push 아이디/이미지이름:태그
-
-docker image pull
+docker ps
+docker stop
+docker rm
+docker rmi
+docker exec // 실행중인 컨테이너에 명령어주기 ex) docker exec -it mysql mysql -uroot
 
 docker image build --tag 이미지_이름 경로
 
 docker network create nat
 
+docker volume ls
+
 docker container run
 docker container run --name 이름 -d -p 800:80 --network 네트워크이름 이미지이름
 docker container logs
 ```
+## DockerHub Registry에 push&pull
+
+```
+// 로그인
+docker login --username 아이디
+
+// 이미지에 참조 부여
+docker image tag 이미지이름 아이디/이미지이름:태그
+
+// 이미지를 docker hub에 올리기
+docker image push 아이디/이미지이름:태그
+
+// 이미지 가져오기
+docker image pull
+```
+
 ## Dockerfile
 > Dockerfile -> build -> image -> container
 
