@@ -1,30 +1,57 @@
 # Docker (도커)
 
 ## 기본 명령어
-
+### 기본 명령
 ```
 docker ps
-docker stop
-docker rm
-docker rmi
-docker exec // 실행중인 컨테이너에 명령어주기 ex) docker exec -it mysql mysql -uroot
+docker stop 컨테이너 이름
+docker start 컨테이너 이름
+docker restart 컨테이너 이름
+docker rm 컨테이너 이름
+docker rmi 이미지 이름
+docker exec 컨테이너 이름 // 실행중인 컨테이너에 명령어주기 ex) docker exec -it mysql mysql -uroot
+* -it 옵션은 터미널과 컨테이너가 지속적으로 연결되도록 하는 옵션
+docker exec -itu 0 컨테이너 이름 /bin/bash // 접속하기
 
+docker cp 컨테이너패스 로컬호스트패스 // 파일 옮기기
+```
+
+### image 명령
+- image 빌드
+```
 docker image build --tag 이미지_이름 경로
+```
 
-docker network create nat
-
-// 컨테이너 실행
+### container 명령
+- 컨테이너 실행
+```
 docker container run 
-docker container run --name 이름 -d -p 800:80 --network 네트워크이름 이미지이름
-docker container logs
+docker container run --name 이름 -d -p 호스트포트:도커포트 --network 네트워크이름 이미지이름
+```
+- 볼륨 연결
+```
+docker container run -d -p 호스트포트:도커포트 -v 볼륨이름:/경로 --name 이름
+```
 
-// 볼륨 생성
-docker volume create 볼륨이름 
-// 볼륨 연결
-docker container run -d -p 8080:80 -v 볼륨이름:/경로 --name 이름
- 
-// 마운트 : 호스트 컴퓨터의 파일 시스템에 직접 저장
+- 마운트 : 호스트 컴퓨터의 파일 시스템에 직접 저장
+```
 docker container run --mount type=bind,source=$source,target=$target -d -p 8080:80 이미지
+```
+
+- 컨테이너 로그
+```
+docker container logs
+```
+
+### 기타 명령
+- 네트워크 생성
+```
+docker network create nat
+```
+
+- 볼륨 생성
+```
+docker volume create 볼륨이름 
 ```
 
 ## docker-compose
@@ -38,29 +65,6 @@ docker-compose logs
 docker-compose down
 docker-compose stop
 docker-compose start
-```
-
-## docker-compose.yml
-
-```yaml
-version: '3.7'
-
-services:
-	서비스이름:
-		image: "이미지"
-		ports:
-			- "8080:80"
-		networks:
-			- app-net
-			
-networks:
-	app-net:
-		external:
-			name: nat
-
-secrets:
-	postgres-connection:
-		file: ./config/secrets.json
 ```
 
 ## DockerHub Registry에 push&pull
@@ -128,4 +132,37 @@ process.env.METHOD
 ```
 System.getenv("TARGET")
 System.getenv("METHOD")
+```
+
+## docker-compose.yml
+
+```yaml
+version: '3.7'
+
+services:
+	서비스이름:
+		image: "이미지"
+		ports:
+			- "8080:80"
+		networks:
+			- app-net
+			
+networks:
+	app-net:
+		external:
+			name: nat
+
+secrets:
+	postgres-connection:
+		file: ./config/secrets.json
+```
+
+## docker-mysql
+
+```
+docker pull mysql
+
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d -p 호스트포트:3306 mysql:latest
+
+docker exec -it mysql-container mysql -u root -p
 ```
