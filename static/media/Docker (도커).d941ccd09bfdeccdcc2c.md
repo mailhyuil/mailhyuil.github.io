@@ -1,6 +1,7 @@
 # Docker (도커)
+> 도커 컨테이너는 하드웨어 에뮬레이션 없이 `리눅스 커널`을 공유해서 바로 프로세스를 실행한다.
 
-## 기본 명령어
+## 명령어
 ### 기본 명령
 ```
 docker ps
@@ -165,4 +166,9 @@ docker pull mysql
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d -p 호스트포트:3306 mysql:latest
 
 docker exec -it mysql-container mysql -u root -p
+```
+## docker tomcat & spring
+```
+
+docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
 ```

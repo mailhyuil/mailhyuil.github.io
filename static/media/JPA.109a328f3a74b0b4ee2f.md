@@ -198,6 +198,14 @@ public static void logic(EntityManager em) {
         </props>
     </property>
 </bean>
+
+<default-servlet-handler/>
+
+<interceptors>
+    <beans:bean class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
+        <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+    </beans:bean>
+</interceptors>
 ```
 
 - domain (vo)
