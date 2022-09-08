@@ -169,6 +169,7 @@ docker exec -it mysql-container mysql -u root -p
 ```
 ## docker tomcat & spring
 ```
+docker run --name my-tomcat -e db_password=password -d -p 9000:8080 tomcat:9
 
 docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
 ```
