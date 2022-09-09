@@ -20,7 +20,7 @@ docker cp 컨테이너패스 로컬호스트패스 // 파일 옮기기
 ## docker image
 - image 빌드
 ```
-docker image build --tag 이미지_이름 경로
+docker image build --tag 이미지_이름 .
 ```
 
 ## docker container
@@ -57,19 +57,6 @@ docker network rm my-network
 docker volume create my-volume 
 ```
 
-## docker-compose
-
-> Docker-compose를 사용하여 분산 애플리케이션을 실행시킬 수 있다.
-> 
-
-```
-docker-compose up // 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾는다
-docker-compose logs
-docker-compose down
-docker-compose stop
-docker-compose start
-```
-
 ## DockerHub Registry에 push&pull
 
 ```
@@ -89,7 +76,6 @@ docker image pull
 ## Dockerfile
 
 > Dockerfile -> build -> image -> container
-> 
 
 ```
 # 베이스 이미지
@@ -137,6 +123,19 @@ System.getenv("TARGET")
 System.getenv("METHOD")
 ```
 
+## docker-compose
+
+> Docker-compose를 사용하여 분산 애플리케이션을 실행시킬 수 있다.
+> 
+
+```
+docker-compose up // 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾는다
+docker-compose logs
+docker-compose down
+docker-compose stop
+docker-compose start
+```
+
 ## docker-compose.yml
 
 ```yaml
@@ -159,6 +158,8 @@ secrets:
 	postgres-connection:
 		file: ./config/secrets.json
 ```
+
+> Dockerfile -> images -> docker-compose.yml -> containers
 
 ## docker-mysql
 
