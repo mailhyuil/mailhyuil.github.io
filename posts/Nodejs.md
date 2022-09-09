@@ -1,6 +1,6 @@
 # Nodejs (노드js)
 
-- 내장객체
+## 내장객체
 ```js
 global.message
 global.console();
@@ -25,7 +25,7 @@ process.cpuUsage();
 process.nextTick();
 ```
 
--내장모듈
+## 내장모듈
 ```
 os
 path
