@@ -17,13 +17,13 @@ docker exec -itu 0 컨테이너 이름 /bin/bash // 접속하기
 docker cp 컨테이너패스 로컬호스트패스 // 파일 옮기기
 ```
 
-### image 명령
+## docker image
 - image 빌드
 ```
 docker image build --tag 이미지_이름 경로
 ```
 
-### container 명령
+## docker container
 - 컨테이너 실행
 ```
 docker container run 
@@ -44,15 +44,17 @@ docker container run --mount type=bind,source=$source,target=$target -d -p 8080:
 docker container logs
 ```
 
-### 기타 명령
-- 네트워크 생성
+
+## docker network
 ```
-docker network create nat
+docker network create my-network
+docker network ls
+docker network rm my-network
 ```
 
-- 볼륨 생성
+## docker volume
 ```
-docker volume create 볼륨이름 
+docker volume create my-volume 
 ```
 
 ## docker-compose
@@ -166,6 +168,8 @@ docker pull mysql
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d -p 호스트포트:3306 mysql:latest
 
 docker exec -it mysql-container mysql -u root -p
+
+grant all privileges on *.* to 'root'@'%';
 ```
 ## docker tomcat & spring
 ```
