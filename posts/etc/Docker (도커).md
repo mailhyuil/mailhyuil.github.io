@@ -198,3 +198,10 @@ docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
 ## container에서 localhost에 접근하기
 > `localhost` 대신 `host.docker.internal` 사용!
 ## container에서 container에 접근하기
+- tomcat & mysql
+```bash
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d --network my-network mysql:latest
+docker run --name my-tomcat -e db_password=password -d --network my-network -p 9000:8080 hyuil/my-tomcat9:v1
+
+# datasource url : jdbc:mysql://mysql-container:3306/mydb?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true
+```
