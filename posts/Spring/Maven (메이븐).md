@@ -17,3 +17,10 @@ mvn package
     <finalName>ROOT</finalName>
     <plugins>
 ```
+
+- test skip
+```xml
+<properties>
+   <maven.test.skip>true</maven.test.skip>
+</properties>
+```

@@ -152,9 +152,10 @@ services:
 	서비스1:
 		image: 이미지1
 		command: 
-		working_dir: 
 		volumes: 
-		environment: 
+		environment:
+		working_dir: 
+		depends_on:
 		ports:
 			- "8080:80"
 		networks:
@@ -192,3 +193,6 @@ docker run --name my-tomcat -e db_password=password -d -p 9000:8080 tomcat:9
 
 docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
 ```
+
+## container에서 localhost에 접근하기
+> localhost 대신 host.docker.internal 사용!
