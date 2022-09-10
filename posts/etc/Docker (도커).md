@@ -183,16 +183,18 @@ docker pull mysql
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d -p 호스트포트:3306 mysql:latest
 
 docker exec -it mysql-container mysql -u root -p
-
+```
+```sql
 grant all privileges on *.* to 'root'@'%';
 ```
 
 ## docker tomcat & spring
 ```bash
-docker run --name my-tomcat -e db_password=password -d -p 9000:8080 tomcat:9
+docker run --name my-tomcat -e db_password=password -d -p 9000:8080 hyuil/my-tomcat9:v1
 
 docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
 ```
 
 ## container에서 localhost에 접근하기
-> localhost 대신 host.docker.internal 사용!
+> `localhost` 대신 `host.docker.internal` 사용!
+## container에서 container에 접근하기
