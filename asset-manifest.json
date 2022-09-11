@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5aeaf888.css",
-    "main.js": "/static/js/main.066e7869.js",
+    "main.js": "/static/js/main.2ae0f4b6.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/JPA.md": "/static/media/JPA.8342100e419886a74356.md",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).234e49f03132b7e1f9e3.md",
@@ -32,6 +32,7 @@
     "static/media/tailwindcss 테일윈드.md": "/static/media/tailwindcss 테일윈드.ba0e84b475edb5afaee5.md",
     "index.html": "/index.html",
     "static/media/JSTL.md": "/static/media/JSTL.27e7826ac26ab53e788d.md",
+    "static/media/nginx.md": "/static/media/nginx.4ea149d4e6edf2f5f2d5.md",
     "static/media/VNC.md": "/static/media/VNC.c2d90e65a03a0f82bc6a.md",
     "static/media/Command Object (커맨드 객체).md": "/static/media/Command Object (커맨드 객체).ea6036f4a02112f0b72d.md",
     "static/media/UTF-8_filter.md": "/static/media/UTF-8_filter.830b0351beda6d6d1bdb.md",
@@ -51,10 +52,10 @@
     "static/media/UUID 생성.md": "/static/media/UUID 생성.4fb79e3900bda9925bbc.md",
     "static/media/Gradle (그레들).md": "/static/media/Gradle (그레들).694e375942e633361b1f.md",
     "main.5aeaf888.css.map": "/static/css/main.5aeaf888.css.map",
-    "main.066e7869.js.map": "/static/js/main.066e7869.js.map"
+    "main.2ae0f4b6.js.map": "/static/js/main.2ae0f4b6.js.map"
   },
   "entrypoints": [
     "static/css/main.5aeaf888.css",
-    "static/js/main.066e7869.js"
+    "static/js/main.2ae0f4b6.js"
   ]
 }
