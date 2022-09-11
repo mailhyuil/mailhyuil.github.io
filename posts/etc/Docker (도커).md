@@ -52,6 +52,7 @@ docker container logs
 > overlay : 여러 호스트에 분산된 컨테이너들이 서로 소통할 수 있게
 
 > 컨테이너들은 172.17.0.x ip를 순서대로 받는다
+> 컨테이너의 이름은 ip를 참조한다
 ```bash
 docker network create my-network
 docker network ls
