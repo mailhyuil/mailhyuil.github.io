@@ -47,13 +47,24 @@ docker container logs
 
 
 ## docker network
+> host : localhost와 동일한 네트워크를 사용
+> bridge : 하나의 호스트에 있는 컨테이너들이 서로 소통할 수 있게
+> overlay : 여러 호스트에 분산된 컨테이너들이 서로 소통할 수 있게
+
+> 컨테이너들은 172.17.0.x ip를 순서대로 받는다
 ```bash
 docker network create my-network
 docker network ls
 docker network rm my-network
+docker network inspect my-network
+docker network connect my-network 컨테이너
+docker network disconnect my-network 컨테이너
 ```
 
 ## docker volume
+> 데이터는 쓰기 가능 레이어에 저장된다
+> 쓰기가능 레이어의 생명주기는 컨테이너가 생성되고 삭제될때까지
+> 그렇기 때문에 데이터는 볼륨에 저장해야한다.
 ```bash
 docker volume create my-volume 
 ```
@@ -197,6 +208,7 @@ docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
 
 ## container에서 localhost에 접근하기
 > `localhost` 대신 `host.docker.internal` 사용!
+
 ## container에서 container에 접근하기
 - tomcat & mysql
 ```bash
@@ -204,4 +216,5 @@ docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d --network
 docker run --name my-tomcat -e db_password=password -d --network my-network -p 9000:8080 hyuil/my-tomcat9:v1
 
 # datasource url : jdbc:mysql://mysql-container:3306/mydb?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true
+# 이클립스는 & 대신 &amp;을 써야함
 ```
