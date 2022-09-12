@@ -110,3 +110,7 @@ sftp -p port hostname@ip
 ```
 sudo mount path /media/
 ```
+
+### 다운로드 할 것
+- iputils-ping
+- net-tools

@@ -3,7 +3,8 @@
 ## EC2 인스턴스 만들기
 1. 서비스 -> EC2
 2. 인스턴스 시작하기 (ubuntu)
-3. window는 putty를 사용해서 ssh 연결
+3. .ppk key 생성 인스턴스에 연결 # puttyGen 다운로드 .pem키를 .ppk로 변환
+4. window는 putty를 사용해서 ssh 연결
 4. username은 ubuntu
 
 ## docker 설치하기
