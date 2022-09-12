@@ -13,9 +13,12 @@ docker rm 컨테이너 이름
 docker rmi 이미지 이름
 docker exec 컨테이너 이름 // 실행중인 컨테이너에 명령어주기 # ex) docker exec -it mysql mysql -uroot
 # -it 옵션은 터미널과 컨테이너가 지속적으로 연결되도록 하는 옵션
-docker exec -itu 0 컨테이너 이름 /bin/bash # 접속하기
+docker exec 컨테이너이름 /bin/bash # bash 접속하기
 
 docker cp 컨테이너패스 로컬호스트패스 // 파일 옮기기
+
+# container log 보기
+docker logs 컨테이너이름
 ```
 
 ## docker image
@@ -218,4 +221,11 @@ docker run --name my-tomcat -e db_password=password -d --network my-network -p 9
 
 # datasource url : jdbc:mysql://mysql-container:3306/mydb?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true
 # 이클립스는 & 대신 &amp;을 써야함
+```
+
+## 멈춰있는 도커 bash 열기
+```bash
+docker commit CONTAINER_ID 새로운이미지이름
+
+docker run -ti --entrypoint=sh 이미지이름
 ```

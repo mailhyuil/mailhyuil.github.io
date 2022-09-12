@@ -6,6 +6,23 @@
 > tomcat 컨테이너 run
 > nginx 컨테이너 run
 
+- /etc/nginx/conf.d/*.conf
+```sh
+server { # 하나의 웹사이트 선언
+  listen 80; # 리스닝 포트
+  server_name abc.test.com;
+  
+  location / { # 특정 URL 처리
+    root /home/nginx; 
+    index index.html, index.htm; # 초기 페이지 설정
+  }
+  
+  location ~ \.do$ { # 특정 확장자 요청 넘기기 (nginx 뒷단의 WAS로)
+    proxy_pass http://localhost:8080; # 
+  }
+}
+```
+
 - /etc/nginx/nginx.conf 수정
 ```sh
 #include /etc/nginx/conf.d/*.conf;
