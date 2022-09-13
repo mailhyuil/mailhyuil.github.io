@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5aeaf888.css",
-    "main.js": "/static/js/main.c7c8959b.js",
+    "main.js": "/static/js/main.cc61dd90.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/JPA.md": "/static/media/JPA.8342100e419886a74356.md",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).234e49f03132b7e1f9e3.md",
@@ -30,6 +30,7 @@
     "static/media/Linux (리눅스).md": "/static/media/Linux (리눅스).75b4771330a1db833e02.md",
     "static/media/Enum (열거형).md": "/static/media/Enum (열거형).3cf6b5471223720435c1.md",
     "static/media/tailwindcss 테일윈드.md": "/static/media/tailwindcss 테일윈드.18dfcb6aa536ce1a2ffe.md",
+    "static/media/Swap memory (스왑 메모리).md": "/static/media/Swap memory (스왑 메모리).cd550f6d80220c19f10c.md",
     "static/media/nginx.md": "/static/media/nginx.127584d158c733ecfc6d.md",
     "static/media/AuditorAware.md": "/static/media/AuditorAware.9f9aa128c944592cced8.md",
     "index.html": "/index.html",
@@ -53,10 +54,10 @@
     "static/media/UUID 생성.md": "/static/media/UUID 생성.4fb79e3900bda9925bbc.md",
     "static/media/Gradle (그레들).md": "/static/media/Gradle (그레들).694e375942e633361b1f.md",
     "main.5aeaf888.css.map": "/static/css/main.5aeaf888.css.map",
-    "main.c7c8959b.js.map": "/static/js/main.c7c8959b.js.map"
+    "main.cc61dd90.js.map": "/static/js/main.cc61dd90.js.map"
   },
   "entrypoints": [
     "static/css/main.5aeaf888.css",
-    "static/js/main.c7c8959b.js"
+    "static/js/main.cc61dd90.js"
   ]
 }
