@@ -45,3 +45,27 @@ module.exports = {
 - sm: md: lg: xl: 2xl:
 > default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
 - ex) w-full // 스마트폰 xl:w-64
+
+## group
+- single group
+```
+class="group ..."
+class="group-hover:block"
+```
+- nested group
+```bash
+npm i tailwindcss-scoped-groups
+```
+```js
+plugins: [
+    require("tailwindcss-scoped-groups")({
+        groups: ["one", "two"],
+    }),
+   ],
+```
+```
+class="group-one ..."
+class="group-one-hover:block"
+class="group-two ..."
+class="group-two-hover:block"
+```
