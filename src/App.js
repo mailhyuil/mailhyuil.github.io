@@ -1,16 +1,25 @@
-import './App.css';
-import { useState } from 'react';
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from "react-router-dom";
+import Main from "./routes/Main"
+import Detail from "./routes/Detail"
+import { AnimatePresence } from "framer-motion";
+import "./css/global.css"
 
 function App() {
-  const [a, b] = useState(1);
-  return (
-    <div>
-      <h1>안녕하세요!</h1>
-      <h1>반갑습니다!</h1>
-      <h1>❤️{a}❤️</h1>
-      <button onClick={() => { b(a + 1) }}>Click me!</button>
-    </div>
-  );
+
+  return <BrowserRouter>
+    <Switch>
+      <Route path="/movie/:id" >
+        <Detail />
+      </Route>
+      <Route path="/">
+        <Main />
+      </Route>
+    </Switch>
+  </BrowserRouter>;
 }
 
 export default App;
