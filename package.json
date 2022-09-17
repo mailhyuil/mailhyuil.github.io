@@ -12,6 +12,7 @@
     "react-markdown": "^8.0.3",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.1",
+    "remark-gfm": "^3.0.1",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-scoped-groups": "^2.0.0",
     "web-vitals": "^2.1.4"
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.7",
     "autoprefixer": "^10.4.8",
     "gh-pages": "^4.0.0",
     "postcss": "^8.4.16",

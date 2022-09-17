@@ -15,6 +15,7 @@ module.exports = {
     require("tailwind-scrollbar-hide"),
     require("tailwindcss-scoped-groups")({
       groups: ["one", "two"],
-    })
+    }),
+    require("@tailwindcss/typography")
   ],
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import '../css/markdown.css';
+import remarkGfm from 'remark-gfm';
 
 const importAll = (e) => e.keys().map(e);
 const markdownFiles = importAll(require.context('/public/posts', true, /\.md$/))
@@ -22,10 +22,11 @@ const Blog = ({ fileName }) => {
     }, [fileName]);
 
     return (
-        <div className="markdown-body font-primary">
-            <div className="card">
-                <ReactMarkdown children={post} />
-            </div>
+        <div className="mx-4 my-3">
+            <ReactMarkdown className="prose max-w-none"
+                children={post}
+                remarkPlugins={remarkGfm}
+            />
         </div>
     );
 }

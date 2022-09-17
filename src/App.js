@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import Main from "./routes/Main"
 import Detail from "./routes/Detail"
-import { AnimatePresence } from "framer-motion";
 import "./css/global.css"
 
 function App() {

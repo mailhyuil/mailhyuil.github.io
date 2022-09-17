@@ -4,7 +4,7 @@ import Home from '../components/Home';
 import About from '../components/About';
 import Donot from '../components/Donot';
 import Face from '../components/Face';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const Main = () => {

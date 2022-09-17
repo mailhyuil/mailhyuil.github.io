@@ -69,3 +69,8 @@ class="group-one-hover:block"
 class="group-two ..."
 class="group-two-hover:block"
 ```
+
+## @typography
+- tailwindcss는 @base 부분에서 텍스트의 스타일을 전부 초기화한다
+- 스타일을 사용하는 플러그인 ex) markdown을 사용하기 위해 text부분을 초기화 하지않도록 @typography 플러그인을 사용한다
+- @typography 플러그인을 설치한 후 클래스명에 "prose"를 넣어주면 된다
