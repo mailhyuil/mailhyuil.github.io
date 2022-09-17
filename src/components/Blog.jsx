@@ -22,7 +22,7 @@ const Blog = ({ fileName }) => {
     }, [fileName]);
 
     return (
-        <div className="mx-4 my-3">
+        <div className="mx-4 my-3 font-primary">
             <ReactMarkdown className="prose max-w-none"
                 children={post}
                 remarkPlugins={remarkGfm}
