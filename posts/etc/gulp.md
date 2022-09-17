@@ -1,13 +1,13 @@
 # gulp
 
 ## add gulp
-`npm i gulp-cli -g`
-`npm i gulp`
+```npm i gulp-cli -g```
+```npm i gulp```
 
 ## to use babel
-`npm i @babel/core`
-`npm i @babel/preset-env`
-`npm i @babel/register`
+```npm i @babel/core```
+```npm i @babel/preset-env```
+```npm i @babel/register```
 ## .babelrc
 ```
 {

@@ -38,9 +38,9 @@
 @Disabled
 ```
 
-`@WebMvcTest(.class)`
-`@AutoConfigureWebMvc`
-`@MockBean`
+```@WebMvcTest(.class)```
+```@AutoConfigureWebMvc```
+```@MockBean```
 
 - BDDMockito 객체
 ```
