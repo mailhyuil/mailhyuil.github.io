@@ -1,7 +1,7 @@
 # React에서 Local Image 불러오기
 
 ## public 폴더 사용
-`<img src="/img/file.jpg"/>`
+```<img src="/img/file.jpg"/>```
 ## import 사용
 ```
 import file from './file.jpg';

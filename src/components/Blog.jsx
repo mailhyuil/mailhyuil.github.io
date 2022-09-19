@@ -22,8 +22,8 @@ const Blog = ({ fileName }) => {
     }, [fileName]);
 
     return (
-        <div className="mx-4 my-3 font-primary">
-            <ReactMarkdown className="prose max-w-none"
+        <div className="mx-4 my-3 font-primary flex justify-center lg:block">
+            <ReactMarkdown className="prose lg:max-w-none"
                 children={post}
                 remarkPlugins={remarkGfm}
             />

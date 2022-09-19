@@ -103,7 +103,7 @@ const Main = () => {
             </div>
             <footer className="text-white/80 p-4 fixed right-4 bottom-4 flex flex-col items-end">
                 <p className="lg:text-lg text-sm">This blog is built with react.js by <span className="bg-pink-500/50 p-0.5">Yoo Sangbaek</span></p>
-                <p className="lg:text-lg text-sm">copyright &copy; mailhyuil@gmail.com </p>
+                <a className="mt-2" href="https://github.com/mailhyuil/mailhyuil.github.io"><img src="https://img.shields.io/badge/source code-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" /></a>
             </footer>
         </div >
     );
