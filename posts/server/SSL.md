@@ -2,7 +2,7 @@
 
 ## docker + nginx + ssl
 - nginx 컨테이너 포트 80, 443 열기
-- EC2 인스턴스 방화벽 443 열기
+- EC2 인스턴스 방화벽 80, 443 열기
 
 ```
 mkdir /root/ssl/
