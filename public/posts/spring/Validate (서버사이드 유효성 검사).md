@@ -126,3 +126,12 @@ public String join(@Valid User user, BindingResult result){
 
 </spring:hasBindErrors>
 ```
+
+## Error 추가하기
+```
+if(ret == -1) {
+	result.addError(new FieldError("User", "username", "이미 존재하는 아이디입니다."));
+	return "/user/join";
+}
+```
+

@@ -62,20 +62,26 @@
     layout:decorate="~{layout 경로}">
 ```
 
-- layout 문법
-```
-layout:fragment="content"
-```
-
+## layout 문법
+- 기본 문법
 ```
 th:fragment=""
 th:replace="~{파일경로 :: 조각이름}"
 th:insert="~{파일경로 :: 조각이름}"
 ```
+- fragment를 담을 html파일 생성
+```
+<th:block th:fragment="camp_home_js">
+	<script th:inline="javascript" th:src="@{/static/js/camp_home.js}"></script>
+</th:block>
+```
+- fragment를 html에 삽입하기
+```
+<th:block th:replace="fragment/config :: camp_home_js">
+</th:block>
+```
 
-
-
-- thymeleaf 문법
+## thymeleaf 문법
 ```
 th:text="${}" : <div th:text="${data}"></div>
 th:value="${}" : <input type="text" id="userId" th:value="${userId} + '의 이름은 ${userName}"/>
