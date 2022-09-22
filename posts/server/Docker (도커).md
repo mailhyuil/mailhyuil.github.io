@@ -215,7 +215,7 @@ grant all privileges on *.* to 'root'@'%';
 
 ## docker tomcat & spring
 ```bash
-docker run --name my-tomcat -e db_password=password -d -p 9000:8080 hyuil/my-tomcat9:v1
+docker run --name my-tomcat --network my-network -e db_password=password -d hyuil/my-tomcat9:v1
 
 docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
 ```

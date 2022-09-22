@@ -20,7 +20,7 @@ newgrp docker
 ```bash
 # pscp.exe 다운로드 
 # pscp -i ppk_path file_path username@ip:path
-./pscp.exe -i ./hyuil.ppk ./ROOT.war ubuntu@3.38.165.109:/home/ubuntu/ROOT.war
+./pscp.exe -i ./hyuil.ppk ./ROOT.war ubuntu@3.34.191.96:/home/ubuntu/ROOT.war
 ```
 
 ## 포트 열어주기
