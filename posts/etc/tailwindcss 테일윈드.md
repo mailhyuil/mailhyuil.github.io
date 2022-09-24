@@ -41,10 +41,22 @@ module.exports = {
 - script 파일 추가
 `<script src="../node_modules/flowbite/dist/flowbite.js"></script>`
 
+
+## Reusing Styles
+```
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+}
+```
+
+
 ## 반응형 (Responsive)
 - sm: md: lg: xl: 2xl:
 > default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
 - ex) w-full // 스마트폰 xl:w-64
+
 
 ## group
 - single group
@@ -69,6 +81,7 @@ class="group-one-hover:block"
 class="group-two ..."
 class="group-two-hover:block"
 ```
+
 
 ## @typography
 - tailwindcss는 @base 부분에서 텍스트의 스타일을 전부 초기화한다
