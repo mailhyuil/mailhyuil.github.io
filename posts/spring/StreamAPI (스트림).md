@@ -31,8 +31,8 @@ Stream.of(1,2,3)
 - distinct() : 중복제거
 - sorted() or sorted(Comparator.*): 정렬
 - map : 각 요소를 순회
-- flatMap() : 배열을 제거 // 자바스크립트의 […array]
-- reduce(BinaryOperator) = reduce(초기값, (누적값, 요소)→{…}) : 요소를 하나씩 줄여가며 연산 // 자바스크립트의 reduce() : 배열.reduce((누적값, 현잿값, 인덱스, 요소) => {…}, 초깃값);
+- flatMap() : 배열을 제거
+- reduce(BinaryOperator) = reduce(초기값, (누적값, 요소)→{…}) : 요소를 하나씩 줄여가며 연산
 - mapToInt(), mapToLong(), mapToDouble() : 변환 (처음부터 IntStream을 사용하길 권장)
 
 ---
