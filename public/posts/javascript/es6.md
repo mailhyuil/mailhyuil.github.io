@@ -19,8 +19,23 @@ array.filter((e)=>{
 ## destructuring 할당
 ```js
 const [data, setData] = useState();
+const [a,b] = [1,2];
+const {a,b} = {
+    a:10, 
+    b:20
+    };
 ```
 ## spread 문법
 ```js
-const newArr = […array];
+const newArr = [...array];
+[a, ...aray]
+```
+
+## import & export
+```js
+export {a, b, c};
+export default a;
+
+import {a, b, c} from './path';
+import a from './path';
 ```
