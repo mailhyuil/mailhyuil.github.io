@@ -38,3 +38,16 @@ applyForce(force) {
 
 ### 힘이 될 벡터/질량 = 힘벡터
 - 힘벡터 + 가속도
+
+### 배경에 애니메이션 넣기
+```js
+function setup() {
+    canvas = createCanvas(500, 500);
+    canvas.position(10,10);
+    canvas.style('z-index', -1);
+}
+
+function draw() {
+    clear();
+}
+```
