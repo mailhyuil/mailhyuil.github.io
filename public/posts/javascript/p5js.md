@@ -1,0 +1,53 @@
+# p5js
+
+## Perlin Noise
+- 자연적인 질서를 가진 임의값을 생성하는 알고리즘
+
+## Vector (벡터)
+- 크기와 방향을 가진 물리량
+> 화살표 방향 : 벡터의 방향
+> 화살표 길이 : 벡터의 크기
+## Scala (스칼라)
+- 크기만 가진 물리량
+## 유클리드 벡터 
+- 크기와 방향을 가진 객체
+
+## 위치 구하기
+- 다음 위치 : position + velocity (위치 + 속도)
+    1. 위치 + 속도
+    2. 속도 + 가속도
+    3. 가속도 = 힘
+
+- 힘은 전부 더하면 된다
+
+## 뉴턴 1법칙
+- 벡터의 속도는 그대로 유지된다.
+
+## 뉴턴 2법칙
+힘 = 질량 * 가속도
+힘 벡터 = 질량 * 가속도 벡터
+```js
+applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+}
+```
+
+## 뉴턴 3법칙
+- a가 b에 F라는 힘을 준다면 b도 a에게 -F의 힘을 줘야한다
+
+### 힘이 될 벡터/질량 = 힘벡터
+- 힘벡터 + 가속도
+
+### 배경에 애니메이션 넣기
+```js
+function setup() {
+    canvas = createCanvas(500, 500);
+    canvas.position(10,10);
+    canvas.style('z-index', -1);
+}
+
+function draw() {
+    clear();
+}
+```
