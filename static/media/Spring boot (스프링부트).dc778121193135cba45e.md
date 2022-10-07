@@ -66,7 +66,7 @@ mybatis:
 
 - JPA(hibernate)
 ```
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 
 spring.jpa.properties.hibernate.show_sql=true
 
@@ -84,7 +84,7 @@ spring:
     open-in-view: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         show_sql: true
         format_sql: true
         use_sql_comments: true
