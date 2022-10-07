@@ -19,9 +19,9 @@
 @MapperScan(value = {"com.sb.firstboot.repository"})
 ```
 
-## application.properties 세팅
+## application.properties or application.yml
 
-- database(Oracle)
+### Database(Oracle)
 ```
 spring.datasource.driver-class-name:oracle.jdbc.driver.OracleDriver
 spring.datasource.url:jdbc:oracle:thin:@localhost:1521:xe
@@ -37,7 +37,7 @@ spring:
     password: 1234
 ```
 
-- database(MySQL)
+### Database(MySQL)
 ```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
@@ -53,7 +53,7 @@ spring:
     password: 1234
 ```
 
-- mybatis
+### Mybatis
 ```
 mybatis.type-aliases-package:com.example.demo.model
 mybatis.mapper-locations:mybatis/mapper/*.xml
@@ -64,7 +64,7 @@ mybatis:
   mapper-locations: classpath:resources/mapper/*.xml
 ```
 
-- JPA(hibernate)
+### JPA(hibernate)
 ```
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 
@@ -91,6 +91,17 @@ spring:
         hbm2ddl:
           auto: create
 
+```
+### Slf4j
+```
+logging:
+  file:
+    name: ${user.dir}/log/test.log  # 로깅 파일 위치이다.
+    max-history: 7 # 로그 파일 삭제 주기이다. 7일 이후 로그는 삭제한다.
+    max-size: 10MB  # 로그 파일 하나당 최대 파일 사이즈이다.
+  level:  # 각 package 별로 로깅 레벨을 지정할 수 있다.
+    com.project.study : error
+    com.project.study.controller : debug
 ```
 
 ## Working-Directory path 가져오기 (작업 디렉토리)

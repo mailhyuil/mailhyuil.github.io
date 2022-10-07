@@ -16,4 +16,5 @@ private BBsVO bbsVO() {
 	return bbsVO;
 	}
 ```
+
 - jstl form 을 사용

@@ -1,6 +1,6 @@
 # Pagination (페이징 처리)
 
-- pagination 처리용 객체
+## pagination 처리용 객체
 
 ```java
 public class Pagination {
@@ -40,7 +40,7 @@ public class Pagination {
 }
 ```
 
-- mySQL pagination query
+## mySQL pagination query
 
 ```xml
 <select id="getTotalListSize" resultType="int">
@@ -52,7 +52,7 @@ public class Pagination {
 </select>
 ```
 
-- controller
+## controller
 ```java
 @GetMapping("/board")
 public String board(Model model,
@@ -69,7 +69,7 @@ public String board(Model model,
 }
 ```
 
-- view
+## view
 ```html
 <ul style="list-style:none; display: flex">
     <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
@@ -121,7 +121,7 @@ public String board(Model model,
 
 # 페이징 처리 + 검색
 
-- pagination 처리용 객체 + search 필드
+## pagination 처리용 객체 + search 필드
 ```java
 public class Pagination {
     private String search = "";
@@ -163,7 +163,7 @@ public class Pagination {
 }
 ```
 
-- mySQL pagination query + search query
+## mySQL pagination query + search query
 ```xml
 <select id="getBoardListCnt" resultType="int">
     select count(*) as listCnt
@@ -201,7 +201,7 @@ public String board(Model model,
 }
 ```
 
-- view + search
+## view + search
 ```html
 <form>
     <input type="text" name="search" th:value="${pagination.search}"> // 검색어를 유지시키기 위해 value 값에 넣어두기
@@ -262,7 +262,7 @@ public String board(Model model,
 </script>
 ```
 
-- QueryDsl
+## QueryDsl
 ```java
 QueryModifiers queryModifiers = new QueryModifiers(20L, 10L); //limit, offset
 List<Item> list = query

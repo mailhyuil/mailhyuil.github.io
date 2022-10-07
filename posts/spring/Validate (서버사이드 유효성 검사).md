@@ -16,7 +16,7 @@
 </dependency>
 ```
 
-- VO 클래스
+## VO 클래스
 ```java
 public class VO {
 
@@ -57,11 +57,11 @@ public class VO {
 
 }
 ```
-> Errors
-> BindingResult: Errors를 상속받아 추가적인 기능을 제공
+## Errors
+## BindingResult: Errors를 상속받아 추가적인 기능을 제공
 > 둘다 사용가능 //@Valid 객체 뒤에 위치해야함
 
-- Controller
+## Controller
 ```java
 @GetMapping("join")
 public String join(@ModelAttribute("user") User user) { // User entity를 뷰로 넘겨준다
@@ -81,7 +81,7 @@ public String join(@Valid User user, BindingResult result){
 ```
 * BindingResult는 DispatcherServlet이 뷰에 넘겨준다
 
-- View (thymeleaf)
+## View (thymeleaf)
 ```html
 <form th:action="@{/user/join}" method="post" th:object="${user}">
 	<div>
@@ -114,7 +114,7 @@ public String join(@Valid User user, BindingResult result){
 </form>
 ```
 
-- View (JSP)
+## View (JSP)
 ```jsp
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 

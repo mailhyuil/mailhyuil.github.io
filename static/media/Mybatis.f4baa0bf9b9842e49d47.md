@@ -1,6 +1,6 @@
 # Spring Mybatis 세팅 순서!
 
-## 1. pom.xml
+## pom.xml
 - mybatis
 - mybatis-spring
 - apache-commons(commons-dbcp2)
@@ -51,14 +51,14 @@
 </dependency>
 ```
 
-## 2. web.xml
+## web.xml
 ```xml
 <param-name>contextConfigLocation</param-name>
 <param-value>../*-context.xml</param-value>
 ```
 
 
-## 3. mybatis-context.xml
+## mybatis-context.xml
 - beans, context, mybatis-spring, tx
 
 - DataSource
@@ -108,7 +108,7 @@
 ```
 
 
-## 4-1. interface DAO
+## interface DAO 에서 작성시
 - SQL DAO에서 작성
 ```java
 @Select("SELECT * FROM tbl_student")
@@ -116,7 +116,7 @@ public List<StudentVO> selectAll();
 ```
 > return값 `VO` or `int`
 
-## 4-2. mapper/*-mapper.xml 에서 작성
+## mapper/*-mapper.xml 에서 작성시
 - SQL *-mapper에서 작성
 ```xml
 <!DOCTYPE mapper
@@ -180,7 +180,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </mapper>
 ```
 
-## 4-3. resultMap
+## resultMap
 ```xml
 <select id="findByIdScore" resultType="ScoreVO">
 	SELECT * FROM tbl_score
@@ -204,10 +204,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 ```
 
-## 5. interface Service extends DAO
-- Service interface가 DAO 상속
-
-## 6. class ServiceImpl implements Service
+## class ServiceImpl implements Service
 - Service interface 구현
 
 - in Service..

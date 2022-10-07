@@ -9,7 +9,9 @@
 or
 <jpa:auditing auditor-aware-ref="yourAuditorAwareBean" />
 ```
+
 2. AuditorAware 설정
+
 ```java
 @Configuration
 public class AwareAuditConfig implements AuditorAware<String> {
@@ -28,7 +30,8 @@ public class AwareAuditConfig implements AuditorAware<String> {
     }
 }
 ```
-3. AuditorAware 빈 등록
+
+3. AuditorAware Bean 등록
 ```java
 @Bean
 public AuditorAware<String> auditorAware(){

@@ -6,14 +6,15 @@
 
 > 예외는 의미가 분명한(비즈니스적 의미가 담긴) 런타임예외로 만들어라 (예외 커스텀)
 
-### exception 생성 RuntimeException 확장
+## exception 생성 RuntimeException 확장
 ```java
 @ResponseStatus(value = HttpStatus.CONFLICT, reason = "A video with this name already exists")
 public class VideoAlreadyExistsException extends RuntimeException{
 }
 ```
 
-### CustomException 만들기
+## CustomException 만들기
+
 1. CustomException Class
 ```java
 @Getter
@@ -54,7 +55,7 @@ public enum ErrorCode {
 ```
 
 ---
-### RestController 에서 발생하는 예외 잡아서 ResponseEntity에 담아서 반환하기
+## RestController 에서 발생하는 예외 잡아서 ResponseEntity에 담아서 반환하기
 1. ErrorResponse class
 
 ```java

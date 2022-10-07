@@ -1,6 +1,6 @@
 # Spring Security (스프링시큐리티)
 
-- web.xml filter 추가
+## web.xml filter 추가
 ```xml
 <filter>
     <filter-name>springSecurityFilterChain</filter-name>
@@ -14,7 +14,7 @@
     <url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
-- root-context 설정
+## root-context 설정
 ```xml
 <sec:http auto-config="true" use-expressions="true">
 
@@ -55,7 +55,7 @@
 </sec:authentication-manager>
     -->
 ```
-- UserVO
+## UserVO
 ```java
 public class UserVO implements UserDetails  {
 
@@ -76,7 +76,7 @@ public class UserVO implements UserDetails  {
 	private String nickname;
 }
 ```
-- AuthorityVO
+## AuthorityVO
 ```java
 public class AuthorityVO {
 	private long seq;
@@ -85,7 +85,7 @@ public class AuthorityVO {
 }
 ```
 
-- UserDetailsServiceImpl
+## UserDetailsServiceImpl
 ```java
 public class UserDetailsServiceImpl implements UserDetailsService{
 
@@ -123,7 +123,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 }
 ```
 
-- AuthenticationProviderImpl
+## AuthenticationProviderImpl
 
 ```java
 public class AuthenticationProviderImpl implements AuthenticationProvider{

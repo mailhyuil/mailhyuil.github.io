@@ -1,6 +1,6 @@
 # Reactor (스프링 리액터)
 
-- pom.xml
+## pom.xml
 
 ```xml
 <!-- webflux 웹에서 Flux를 사용할 수 있게 -->
@@ -78,7 +78,6 @@ Subscriber<Integer> subscriber = new Subscriber<>() {
 
 		seq.subscribe(sub);
 ```
-
 ## WebClient
 ```java
 WebClient webClient = WebClient.create("https://api.openweathermap.org/data/2.5/weather");
