@@ -24,7 +24,16 @@
 	<property name="maxUploadSize" value="20000000"/>
 </bean>
 ```
-
+2. application.yml
+```yml
+spring:
+  servlet:
+    multipart:
+      file-size-threshold: 1MB
+      location: C:/Temp/upload
+      max-file-size: 100MB
+      max-request-size: 100MB
+```
 3. jsp
 ```jsp
 <form method="POST" class="bbs_write" enctype="multipart/form-data">

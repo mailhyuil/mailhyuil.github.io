@@ -10,5 +10,5 @@
 
 3. 엔드포인트/3306 으로 접속 (mysql)
 ```
-mysql -u 'root' --host 'campdb.c6gozi1vwykq.ap-northeast-2.rds.amazonaws.com' -P '3306' -p
+mysql -u 'root' --host "campdb.c6gozi1vwykq.ap-northeast-2.rds.amazonaws.com" -P "3306" -p
 ```

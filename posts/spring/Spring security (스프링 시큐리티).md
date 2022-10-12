@@ -160,3 +160,35 @@ public class AuthenticationProviderImpl implements AuthenticationProvider{
 
 }
 ```
+
+## spring-boot-security-config
+```java
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("admin")
+                .password("1234")
+                .roles("admin_role");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.
+                httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/admin/**").hasRole("admin_role")
+                .anyRequest().permitAll()
+                .and()
+                .formLogin();
+    }
+
+    @Bean
+    public PasswordEncoder getPasswordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
+}
+```

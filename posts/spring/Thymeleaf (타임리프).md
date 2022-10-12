@@ -92,6 +92,7 @@ th:href="@{}" : <a th:hrf="@{/boardListPage?currentPageNum={page}}"></a> // @는
 th:with="${}" : <div th:with=”userId=${number}” th:text=”${usesrId}”> // 변수 선언
 th:attr="data-id=${id}" : <tr th:attr="data-id=${id}"></tr> // 태그에 attribute 넣기
 th:src="@{}" : <img th:src="|@{/upload/}${BBS.img}|"/> // @{}${} 이어붙여 쓰기
+th:selected="${category=='poster'}"
 
 <!-- form -->
 th:action="@{}"
@@ -171,7 +172,9 @@ const thymeleafVar = [[pagination.search]];
 # thymeleaf 내장객체, 내장함수
 
 ## #strings
-
+```
+th:if="${#strings.equals('a','a')}"
+```
 ## #numbers
 
 ## #objects
@@ -179,7 +182,9 @@ const thymeleafVar = [[pagination.search]];
 ## #arrays
 
 ## #lists
-
+```
+th:if="${not #lists.isEmpty(works.get(num).imageList)}"
+```
 ## #maps
 
 ## #messages
