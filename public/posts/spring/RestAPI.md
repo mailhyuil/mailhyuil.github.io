@@ -4,7 +4,7 @@
 > RequestEntity: HttpEntity + URI, Method
 > ResponseEntity: HttpEntity + Status(상태코드)
 
-* URL 읽기
+## URL 읽기
 
 ```java
 public String getAPI() {
@@ -50,7 +50,7 @@ public String getAPI() {
 }
 ```
 
-# Jackson
+## Jackson
 
 - Jackson-bind 사용시 @ResponseBody는 json으로 리턴
 
@@ -71,7 +71,7 @@ mapper.getFactory().configure(JsonWriteFeature.ESCAPE_NON_ASCII.mappedFeature(),
 //mapper.readValue(Json, VO.class); // JSON to VO
 ```
 
-# RestTemplate
+## RestTemplate
 
 - restTemplate은 API의 데이터를 VO에 매핑시켜주는 역할
 - Json데이터가 중첩되어 있을 시 Parent 클래스를 만들어 데이터를 추출한다
@@ -114,7 +114,7 @@ public class MovieParent<VO> {
 }
 ```
 
-# RestTemplate 302 응답값 받기
+## RestTemplate 302 응답값 받기
 > 302 : redirect 상태 // restTemplate은 기본으로 302시 redirect된 응답값을 보내는게 아니라 redirect 정보를 받는다
 
 - Apache HttpClient dependency 추가
@@ -140,4 +140,17 @@ CloseableHttpClient httpClient = HttpClientBuilder.create()
 factory.setHttpClient(httpClient);
 
 restTemplate.setRequestFactory(factory);
+```
+
+## WebClient
+```java
+WebClient webClient = WebClient.create("https://api.openweathermap.org/data/2.5/weather");
+
+WeatherRoot weather = webClient.get().uri("?lat=37.7278127"
+        + "&lon=127.5112565"
+        + "&appid=945a820a0cfd85e6354d9c2a9a628ba9")
+        .accept(MediaType.APPLICATION_JSON)
+        .exchange().flatMap(res -> {
+            return res.bodyToMono(WeatherRoot.class);
+        }).block();
 ```

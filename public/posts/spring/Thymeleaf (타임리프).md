@@ -1,7 +1,10 @@
 # Thymeleaf (타임리프)
+
 * 자동완성 플러그인
 `http://www.thymeleaf.org/eclipse-plugin-update-site/`
-1. dependency 설정
+
+
+## dependency 설정
 ```xml
 <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
 <dependency>
@@ -18,7 +21,7 @@
 </dependency>
 ```
 
-2. context 설정
+## context 설정
 ```xml
 <beans:bean id="templateResolver"
     class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
@@ -48,13 +51,13 @@
 </beans:bean>
 ```
 
-- html에 추가
+## html에 추가
 ```html
 <html lang="ko"
 	xmlns:th="http://www.thymeleaf.org">
 ```
 
-- layout에 추가
+## layout에 추가
 ```html
 <html lang="ko"
 	xmlns:th="http://www.thymeleaf.org"
@@ -62,7 +65,7 @@
     layout:decorate="~{layout 경로}">
 ```
 
-## layout 문법
+# layout 문법
 - 기본 문법
 ```
 th:fragment=""
@@ -81,7 +84,7 @@ th:insert="~{파일경로 :: 조각이름}"
 </th:block>
 ```
 
-## thymeleaf 문법
+# thymeleaf 문법
 ```
 th:text="${}" : <div th:text="${data}"></div>
 th:value="${}" : <input type="text" id="userId" th:value="${userId} + '의 이름은 ${userName}"/>
@@ -89,6 +92,7 @@ th:href="@{}" : <a th:hrf="@{/boardListPage?currentPageNum={page}}"></a> // @는
 th:with="${}" : <div th:with=”userId=${number}” th:text=”${usesrId}”> // 변수 선언
 th:attr="data-id=${id}" : <tr th:attr="data-id=${id}"></tr> // 태그에 attribute 넣기
 th:src="@{}" : <img th:src="|@{/upload/}${BBS.img}|"/> // @{}${} 이어붙여 쓰기
+th:selected="${category=='poster'}"
 
 <!-- form -->
 th:action="@{}"
@@ -114,7 +118,7 @@ th:each="변수 : ${list}" =  <li th:each="pageButton" : ${#numbers.sequece(pagi
 th:block
 ```
 
-- 반복 값 넣기
+## 반복 값 넣기
 ```html
 th:each="num : ${#numbers.sequence(from,to)}"
 th:each="num : ${#numbers.sequence(from,to,step)}}"
@@ -150,7 +154,7 @@ th:each="num : ${#numbers.sequence(from,to,step)}}"
 </th:block>
 ```
 
-- 자바스크립트에 변수 사용하기
+## 자바스크립트에 변수 사용하기
 ```html
 <script th:inline="javascript">
 /*<![CDATA[*/
@@ -161,14 +165,16 @@ const thymeleafVar = [[pagination.search]];
 </script>
 ```
 
-- 문자열 리터럴
+## 문자열 리터럴
 
 `"|문자열 혹은 ${}|"`
 
 # thymeleaf 내장객체, 내장함수
 
 ## #strings
-
+```
+th:if="${#strings.equals('a','a')}"
+```
 ## #numbers
 
 ## #objects
@@ -176,7 +182,9 @@ const thymeleafVar = [[pagination.search]];
 ## #arrays
 
 ## #lists
-
+```
+th:if="${not #lists.isEmpty(works.get(num).imageList)}"
+```
 ## #maps
 
 ## #messages

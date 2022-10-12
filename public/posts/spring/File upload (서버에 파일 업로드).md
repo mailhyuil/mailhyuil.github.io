@@ -24,7 +24,16 @@
 	<property name="maxUploadSize" value="20000000"/>
 </bean>
 ```
-
+2. application.yml
+```yml
+spring:
+  servlet:
+    multipart:
+      file-size-threshold: 1MB
+      location: C:/Temp/upload
+      max-file-size: 100MB
+      max-request-size: 100MB
+```
 3. jsp
 ```jsp
 <form method="POST" class="bbs_write" enctype="multipart/form-data">
@@ -38,8 +47,11 @@
 				value="${BBS.b_writer}" readonly="readonly">
 				
 	<input name="b_subject" placeholder="제목">
+
 	<textarea rows="5" cols="20" name="b_content" placeholder="내용"></textarea>
+
 	<input type="file" name="up_file" accept="image/*">
+
 	<button>저장</button>
 </form>
 <%/*  
@@ -79,7 +91,7 @@ File upLoadFile = new File(upLoadPath, fileName);
 file.transferTo(upLoadFile);
 ```
 
-- 해킹방지
+### 해킹방지
 
 ```java
 String strUUID = UUID.randomUUID().toString();
@@ -100,7 +112,7 @@ public String write(@ModelAttribute("bbsVO") BBsVO bbsVO, @RequestParam("up_file
 }
 ```
 
-- MultipartHttpServletRequest 여러개의 파일을 동시에 업로드 할때
+### MultipartHttpServletRequest 여러개의 파일을 동시에 업로드 할때
 
 ```jsp
 <form:form modelAttribute="bbsVO" enctype="multipart/form-data">
@@ -121,7 +133,7 @@ public String upFiles(@ModelAttribute("bbsVO") BBsVO bbsVO,	MultipartHttpServlet
 }
 ```
 
-## 파일 지우기 (file delete)
+### 파일 지우기 (file delete)
 ```java
 public void fileDelete(String fileName) {
 		
@@ -140,7 +152,7 @@ public void fileDelete(String fileName) {
 
 }
 ```
-## 비디오 영상 업로드(video upload)
+### 비디오 영상 업로드(video upload)
 
 - domain
 ```java

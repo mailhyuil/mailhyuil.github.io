@@ -93,3 +93,57 @@ mysql.password=ENC(gJa/MRSqwHysvGCGye56N9UHX08Eo1L3)
 	</param-value>
 </context-param>
 ```
+
+# spring-boot-starter
+## gradle.build
+```
+implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
+```
+## application.yml
+```
+jasypt:
+  encryptor:
+    bean: jasyptEncryptor
+```
+## config
+```
+@Configuration
+public class JasyptConfig {
+    @Value("${jasypt.encryptor.password}")
+    private String password;
+
+    @Bean("jasyptEncryptor")
+    public StringEncryptor stringEncryptor(){
+        PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
+        SimpleStringPBEConfig config = new SimpleStringPBEConfig();
+        config.setPassword(password);
+        config.setPoolSize("1");
+        config.setAlgorithm("PBEWithMD5AndDES");
+        config.setStringOutputType("base64");
+        config.setKeyObtentionIterations("1000");
+        config.setSaltGeneratorClassName("org.jasypt.salt.RandomSaltGenerator");
+        encryptor.setConfig(config);
+
+        return encryptor;
+    }
+}
+```
+## test
+```
+public class JasyptConfigTest extends JasyptConfig {
+    @Test
+    public void jasypt_encrypt_decrypt_test() {
+        String plainText = "tkdanwlrn!1";
+
+        StandardPBEStringEncryptor jasypt = new StandardPBEStringEncryptor();
+        jasypt.setPassword("password");
+
+        String encryptedText = jasypt.encrypt(plainText);
+        String decryptedText = jasypt.decrypt(encryptedText);
+
+        System.out.println(encryptedText);
+
+        assertThat(plainText).isEqualTo(decryptedText);
+    }
+}
+```
