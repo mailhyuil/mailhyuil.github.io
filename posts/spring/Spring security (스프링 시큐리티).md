@@ -14,6 +14,7 @@
     <url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
+
 ## root-context 설정
 ```xml
 <sec:http auto-config="true" use-expressions="true">
@@ -55,6 +56,7 @@
 </sec:authentication-manager>
     -->
 ```
+
 ## UserVO
 ```java
 public class UserVO implements UserDetails  {
@@ -76,6 +78,7 @@ public class UserVO implements UserDetails  {
 	private String nickname;
 }
 ```
+
 ## AuthorityVO
 ```java
 public class AuthorityVO {
@@ -190,5 +193,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder getPasswordEncoder(){
         return NoOpPasswordEncoder.getInstance();
     }
+}
+```
+- HttpSecurity
+```java
+@Configuration
+public class SecurityConfiguration {
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((authz) -> authz
+                .anyRequest().authenticated()
+            )
+            .httpBasic(withDefaults());
+        return http.build();
+    }
+
+}
+```
+- WebSecurityCustomizer
+```java
+@Configuration
+public class SecurityConfiguration {
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().antMatchers("/ignore1", "/ignore2");
+    }
+
 }
 ```
