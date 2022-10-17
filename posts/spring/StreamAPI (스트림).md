@@ -1,6 +1,6 @@
 # StreamAPI (스트림)
 
-- 함수형 인터페이스
+## 함수형 인터페이스
     - Runnable : 매개변수 x 반환값 x
     - Supplier : 매개변수 x 반환값 o
     - Consumer : 매개변수 o 반환값 x
@@ -8,11 +8,10 @@
     - Predicate : 조건식 반환값 boolean
 
 > 스트림은 내부 반복자다, 개발자가 요소 처리 코드에만 집중할 수 있게 한다 병렬처리를 지원한다 (더 빠르다) 순서가 정해져있지 않다!
-> 
 
 > 스트림으로 병렬처리를 할 경우 내부에서 ForkJoinFramework를 사용한다 (대표 클래스 : ForkJoinPool) 기본 개념은 큰 업무를 작은 업무 단위로 쪼개고, 그것을 각기 다른 CPU 코어에서 병렬로 실행한후 결과를 취합하는 방식이다 (재귀적으로 동작, 분할정복)
-> 
-- 변환
+
+## 변환
 
 ```java
 //collection
@@ -24,7 +23,7 @@ Arrays.stream(new int[]{1,2,3})
 //Stream static method
 Stream.of(1,2,3)
 ```
-
+## 메소드
 - skip(3) : 처음 3개를 건너뜀
 - limit(5) : 스트림의 요소를 5개로 제한
 - filter(Predicate predicate) : 조건 제거
