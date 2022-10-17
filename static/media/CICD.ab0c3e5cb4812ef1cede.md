@@ -1,6 +1,8 @@
 # CI/CD
 > github actions, jenkins CI, travis CI
 
+![](/img/cicd.png)
+
 ## github actions
 ```yml
 # workflow의 이름
@@ -51,5 +53,3 @@ git update-index --chmod=+x gradlew
  - name: Run chmod to make gradlew executable
    run: chmod +x ./gradlew
 ```
-
-![test](/public/img/cicd.png)
