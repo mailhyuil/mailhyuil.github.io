@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 const importAll = (e) => e.keys().map(e);
 const markdownFiles = importAll(require.context('/public/posts', true, /\.md$/))
@@ -24,8 +23,8 @@ const Blog = ({ fileName }) => {
     return (
         <div className="mx-4 my-3 font-primary flex justify-center lg:block">
             <ReactMarkdown className="prose lg:max-w-none"
+                components={{ img: ({ node, ...props }) => <img style={{ maxWidth: '50%' }}{...props} alt="" /> }}
                 children={post}
-                remarkPlugins={remarkGfm}
             />
         </div>
     );

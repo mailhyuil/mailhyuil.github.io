@@ -1,4 +1,0 @@
-# “But man is not made for defeat," he said. "A man can be destroyed but not defeated.”
-> Ernest Hemingway, The Old Man and the Sea
-
----

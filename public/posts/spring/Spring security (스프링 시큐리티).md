@@ -165,6 +165,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider{
 ```
 
 ## spring-boot-security-config
+### old version
 ```java
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -195,6 +196,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 }
 ```
+### new version
 - HttpSecurity
 ```java
 @Configuration

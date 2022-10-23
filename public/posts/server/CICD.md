@@ -1,6 +1,8 @@
 # CI/CD
 > github actions, jenkins CI, travis CI
 
+![](/img/cicd.png)
+
 ## github actions
 ```yml
 # workflow의 이름
