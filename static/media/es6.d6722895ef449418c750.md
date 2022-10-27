@@ -21,7 +21,7 @@ array.filter((e)=>{
 const [data, setData] = useState();
 const [a,b] = [1,2];
 const {a,b} = {
-    a:10, 
+    a:10,
     b:20
     };
 ```
