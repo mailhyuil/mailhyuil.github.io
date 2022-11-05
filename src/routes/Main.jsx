@@ -53,27 +53,28 @@ const Main = () => {
     }
     return (
         <div className="flex w-full h-full">
-            <div className="h-full flex flex-1 lg:flex-row flex-col bg-slate-100">
+            <div className="h-full flex flex-1 lg:flex-row flex-col bg-white">
                 <nav className="lg:h-full overflow-y-auto scrollbar-hide font-primary">
                     <div className="flex justify-center p-3">
-                        <Face />
+                        <img className="mt-5 w-[11rem] hidden lg:block" src="/img/myblog_logo.png" />
+                        <img className="w-24 lg:hidden" src="/img/myblog_logo2.png" />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
                             className="w-12 h-12 lg:hidden absolute left-3 top-1"
                             onClick={() => { nav_ul.current.classList.toggle("hidden") }}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </div>
-                    <ul className="nav-ul p-3 cursor-pointer lg:block hidden"
+                    <ul className="nav-ul px-4 cursor-pointer lg:flex hidden flex-col items-center"
                         ref={nav_ul}>
-                        <motion.li initial={{ x: -400 }} animate={{ x: 0 }} className="mb-4 mt-4 font-black text-gray-800"
+                        <motion.li initial={{ x: -400 }} animate={{ x: 0 }} className="mb-4 mt-4 font-black text-gray-800 text-2xl"
                             onClick={() => { setNavIndex("home"); nav_ul.current.classList.toggle("hidden"); }}>Home</motion.li>
 
-                        <motion.ul className="blog mb-4 font-black text-gray-800"
+                        <motion.ul className="blog mb-4 font-black text-gray-800 text-2xl"
                             initial={{ x: -400 }} animate={{ x: 0 }}
                             onClick={(e) => { onClickBlog(e, blog_category) }}>
                             Blog
                             {Array.from(categories).map((e, index) => {
-                                return <ul className="blog-category font-semibold hidden border-b border-slate-400 border-dashed text-gray-800 hover:text-pink-500 transition-all ease-in"
+                                return <ul className="blog-category font-semibold hidden border-b border-slate-400 border-dashed text-gray-800 text-xl hover:text-pink-500 transition-all ease-in"
                                     key={index}
                                     ref={el => blog_category.current[index] = el}
                                     onClick={(event) => { onClickBlogCategory(event, e) }}>
@@ -92,9 +93,8 @@ const Main = () => {
                             })}
                         </motion.ul>
 
-                        <motion.li initial={{ x: -400 }} animate={{ x: 0 }} className="mb-4 font-black text-gray-800" onClick={() => { setNavIndex("about"); nav_ul.current.classList.toggle("hidden"); }}>About</motion.li>
-                        <motion.li initial={{ x: -400 }} animate={{ x: 0 }} className="mb-4 font-black text-gray-800" onClick={() => { setNavIndex("movie"); nav_ul.current.classList.toggle("hidden"); }}>Movie</motion.li>
-                        <motion.li initial={{ x: -400 }} animate={{ x: 0 }} className="mb-4 font-black text-red-500" onClick={() => { setNavIndex("donot"); nav_ul.current.classList.toggle("hidden"); }}>DO NOT CLICK ME!</motion.li>
+                        <motion.li initial={{ x: -400 }} animate={{ x: 0 }} className="mb-4 font-black text-gray-800 text-2xl" onClick={() => { setNavIndex("about"); nav_ul.current.classList.toggle("hidden"); }}>About</motion.li>
+                        <motion.li initial={{ x: -400 }} animate={{ x: 0 }} className="mb-4 font-black text-gray-800 text-2xl" onClick={() => { setNavIndex("movie"); nav_ul.current.classList.toggle("hidden"); }}>Movie</motion.li>
                     </ul>
                 </nav>
                 <motion.main className="flex-1 overflow-scroll scrollbar-hide">
