@@ -1,6 +1,7 @@
 # String
 > String은 원시타입은 아니지만 원시타입으로 취급한다. = 특별한 객체이다.. 그렇기 때문에 null값을 허용
 >> String은 한번 객체가 생성되면 해당 값은 변하지 않는다.
+>>> String을 객체 취급하게 된다면 같은 값이여도 두개의 객체가 생성된다 (비효율적이다 그래서 String Constant Pool에 저장해서 같은 값이면 참조시킨다.)
 
 ## "" 리터럴 VS new String()
 > "" 리터럴 : 스택 메모리의 `String Constant Pool` 영역에 저장
@@ -9,6 +10,7 @@
 
 ## String Constant Pool
 > 반복적으로 String 객체가 생성되는 것을 어느정도(같은 값일때) 방지하기 위한 메모리 영역
+>> Heap 내부에 있음
 
 ## intern()
 > intern() 메소드를 사용하면 힙 영역에 있는 인스턴스를 String Constant Pool 영역으로 이동시킨다.
