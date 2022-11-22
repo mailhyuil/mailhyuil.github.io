@@ -1,12 +1,14 @@
 # typescript (타입스크립트)
 
 1. npm i -D typescript
+
 2. package.json
 ```json
   "scripts": {
     "build": "tsc"
   }
 ```
+
 3. tsconfig.json
 ```json
 {
