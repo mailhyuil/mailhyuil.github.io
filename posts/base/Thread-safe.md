@@ -14,8 +14,16 @@
 3. 전역 변수는 ThreadLocal 클래스 사용하기
 > 쓰레드 영역에 변수를 설정할 수 있다
 
-4. 동기화 시키기 (synchronized) (lock)
+4. 동기화 시키기 synchronized (lock) {}
 > synchronized 키워드를 사용해 lock을 걸어 한 쓰레드가 사용 중일때는 다른 쓰레드가 사용하지 못하게 한다.
 >> 동기화를 지원하는 자료구조를 사용하자
 
 ## synchronized
+```java
+private Object lock = new Object();
+private static int gIndex = 0;
+
+synchronized (lock){
+    gIndex++
+}
+```
