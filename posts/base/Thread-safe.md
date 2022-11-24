@@ -19,11 +19,28 @@
 >> 동기화를 지원하는 자료구조를 사용하자
 
 ## synchronized
-```java
-private Object lock = new Object();
-private static int gIndex = 0;
+> 임계영역(critical section)과 잠금장치(monitor lock)
+>> 임계영역 : 다른 스레드가 끼어들지 말아야하는 영역
+>>> gIndex를 증가시키고 출력하는 부분은 동시에 실행되어서는 안됨
 
-synchronized (lock){
-    gIndex++
+```java
+static int gIndex = 1;
+static Object lock = new Object();
+
+private void print() {
+    int index = 1;
+    for (int i = 0; i < 100; i++) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        synchronized (lock) {
+            System.out.printf("%d, index : %d, gIndex : %d", Thread.currentThread().getId(), index, gIndex);
+            System.out.println();
+            index++;
+            gIndex++;
+        }
+    }
 }
 ```
