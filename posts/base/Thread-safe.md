@@ -12,8 +12,11 @@
 >>> 매개변수로 받아서 지역변수에 복사하여 사용
 
 3. 전역 변수는 ThreadLocal 클래스 사용하기
-> 쓰레드 영역에 변수를 설정할 수 있다
-
+> 쓰레드마다 제공되는 별도의 내부 저장소
+>> 쓰레드에 알맞은 데이터를 구분해서 꺼내주기 때문에 안전
+```
+private ThreadLocal<String > nameStore = new ThreadLocal<>();
+```
 4. 동기화 시키기 synchronized (lock) {}
 > synchronized 키워드를 사용해 lock을 걸어 한 쓰레드가 사용 중일때는 다른 쓰레드가 사용하지 못하게 한다.
 >> 동기화를 지원하는 자료구조를 사용하자
