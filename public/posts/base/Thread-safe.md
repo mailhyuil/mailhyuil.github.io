@@ -12,10 +12,38 @@
 >>> 매개변수로 받아서 지역변수에 복사하여 사용
 
 3. 전역 변수는 ThreadLocal 클래스 사용하기
-> 쓰레드 영역에 변수를 설정할 수 있다
-
-4. 동기화 시키기 (synchronized) (lock)
+> 쓰레드마다 제공되는 별도의 내부 저장소
+>> 쓰레드에 알맞은 데이터를 구분해서 꺼내주기 때문에 안전
+```
+private ThreadLocal<String > nameStore = new ThreadLocal<>();
+```
+4. 동기화 시키기 synchronized (lock) {}
 > synchronized 키워드를 사용해 lock을 걸어 한 쓰레드가 사용 중일때는 다른 쓰레드가 사용하지 못하게 한다.
 >> 동기화를 지원하는 자료구조를 사용하자
 
 ## synchronized
+> 임계영역(critical section)과 잠금장치(monitor lock)
+>> 임계영역 : 다른 스레드가 끼어들지 말아야하는 영역
+>>> gIndex를 증가시키고 출력하는 부분은 동시에 실행되어서는 안됨
+
+```java
+static int gIndex = 1;
+static Object lock = new Object();
+
+private void print() {
+    int index = 1;
+    for (int i = 0; i < 100; i++) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        synchronized (lock) {
+            System.out.printf("%d, index : %d, gIndex : %d", Thread.currentThread().getId(), index, gIndex);
+            System.out.println();
+            index++;
+            gIndex++;
+        }
+    }
+}
+```
