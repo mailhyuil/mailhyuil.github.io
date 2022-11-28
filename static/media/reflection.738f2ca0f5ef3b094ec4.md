@@ -11,6 +11,7 @@ String name = "name";
 int length = name.length();
 ```
 - 2
+> reflection 구현 방법
 ```
 String name = "name";
 Method lengthMethod = String.class.getMethod("length");
