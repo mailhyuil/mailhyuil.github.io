@@ -1,6 +1,6 @@
 # Pivot
 
-- mySQL
+## mySQL
 ```SQL
 SELECT sc_stnum,
    SUM(IF(sc_sbcode = 'SB001', sc_score, 0)) as 국어,
@@ -16,7 +16,7 @@ FROM tbl_score
 GROUP BY sc_stnum, st_name;
 ```
 
-- 오라클, mySQL
+## 오라클, mySQL
 ```SQL
 SELECT sc_stnum,
     SUM(CASE WHEN sc_sbcode = 'SB001' THEN sc_score ELSE 0 END) as 국어,
