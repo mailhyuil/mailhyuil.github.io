@@ -1,14 +1,14 @@
 # Stored Procedure
 > 저장 프로시저는 하나 이상으로 구성된 쿼리문의 집합
 >> 재사용이 가능
->> SQL Server의 성능 향상
->> 보안을 강화할 수 있다.
+>>> SQL Server의 성능 향상
+>>>> 보안을 강화할 수 있다.
 
 ## 기본 문법
 > CREATE PROCEDURE or CREATE PROC
-> EXECUTE or EXEC
->> AS 쿼리문 한개
->> BEGIN 쿼리문 여러개 END
+>> EXECUTE or EXEC
+>>> AS 쿼리문 한개
+>>> BEGIN 쿼리문 여러개 END
 
 ### 변수가 1개일 시
 ```sql
