@@ -60,13 +60,17 @@ export function exit(code) {
 }
 ```
 
-- ```npm i -D ts-node```
+```
+npm i -D ts-node
+```
 
----
+```
+npm i -D @types/node
+```
 
-- ```npm i -D @types/node```
-or
--  ```npm i -D @types/packageName```
+```
+npm i -D @types/packageName
+```
 
 ## Class & Getter, Setter
 
@@ -97,8 +101,9 @@ console.log(vo.title);
 ```yarn create react-app my-app --template typescript```
 
 ## error
+> useState hook을 사용하여 배열을 정의할 때 타입스크립트 에러가 발생함.
 
-useState hook을 사용하여 배열을 정의할 때 타입스크립트 에러가 발생함.
-
-useState 뒤에 <any[]> 를 명시해준다.
-```const [arr, setArr] = useState<any[]>([])```
+- useState 뒤에 <any[]> 를 명시해준다.
+```
+const [arr, setArr] = useState<any[]>([])
+```
