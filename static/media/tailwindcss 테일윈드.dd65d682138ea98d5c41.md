@@ -2,7 +2,7 @@
 
 - watch
 
-`npx tailwindcss ./src/style.css -o ./public/style.css --watch`
+```npx tailwindcss ./src/style.css -o ./public/style.css --watch```
 
 ## flowbite
 
@@ -81,7 +81,18 @@ class="group-one-hover:block"
 class="group-two ..."
 class="group-two-hover:block"
 ```
-
+## peer
+> input, label을 순서대로 넣어야 작동
+```js
+<input id="1" className="peer/a hidden" type="radio" name="radio" />
+<label htmlFor="1" className="peer-checked/a:bg-red-500 peer-checked/a:text-white">
+    A
+</label>
+<input id="2" className="peer/b hidden" type="radio" name="radio" defaultChecked />
+<label htmlFor="2" className="peer-checked/b:bg-red-500 peer-checked/b:text-white">
+    B
+</label>
+```
 
 ## @typography
 - tailwindcss는 @base 부분에서 텍스트의 스타일을 전부 초기화한다
