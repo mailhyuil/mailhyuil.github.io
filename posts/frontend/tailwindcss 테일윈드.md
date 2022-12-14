@@ -39,8 +39,7 @@ module.exports = {
 ```
 
 - script 파일 추가
-`<script src="../node_modules/flowbite/dist/flowbite.js"></script>`
-
+```<script src="../node_modules/flowbite/dist/flowbite.js"></script>```
 
 ## Reusing Styles
 ```
@@ -51,7 +50,6 @@ module.exports = {
 }
 ```
 
-
 ## 반응형 (Responsive)
 - sm: md: lg: xl: 2xl:
 > default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
@@ -59,12 +57,12 @@ module.exports = {
 
 
 ## group
-- single group
+### single group
 ```
 class="group ..."
 class="group-hover:block"
 ```
-- nested group
+### nested group
 ```bash
 npm i tailwindcss-scoped-groups
 ```
@@ -81,6 +79,7 @@ class="group-one-hover:block"
 class="group-two ..."
 class="group-two-hover:block"
 ```
+
 ## peer
 > input, label을 순서대로 넣어야 작동
 ```js
