@@ -2,7 +2,7 @@
 
 - watch
 
-`npx tailwindcss ./src/style.css -o ./public/style.css --watch`
+```npx tailwindcss ./src/style.css -o ./public/style.css --watch```
 
 ## flowbite
 
@@ -39,8 +39,7 @@ module.exports = {
 ```
 
 - script 파일 추가
-`<script src="../node_modules/flowbite/dist/flowbite.js"></script>`
-
+```<script src="../node_modules/flowbite/dist/flowbite.js"></script>```
 
 ## Reusing Styles
 ```
@@ -51,7 +50,6 @@ module.exports = {
 }
 ```
 
-
 ## 반응형 (Responsive)
 - sm: md: lg: xl: 2xl:
 > default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
@@ -59,12 +57,12 @@ module.exports = {
 
 
 ## group
-- single group
+### single group
 ```
 class="group ..."
 class="group-hover:block"
 ```
-- nested group
+### nested group
 ```bash
 npm i tailwindcss-scoped-groups
 ```
@@ -82,6 +80,18 @@ class="group-two ..."
 class="group-two-hover:block"
 ```
 
+## peer
+> input, label을 순서대로 넣어야 작동
+```js
+<input id="1" className="peer/a hidden" type="radio" name="radio" />
+<label htmlFor="1" className="peer-checked/a:bg-red-500 peer-checked/a:text-white">
+    A
+</label>
+<input id="2" className="peer/b hidden" type="radio" name="radio" defaultChecked />
+<label htmlFor="2" className="peer-checked/b:bg-red-500 peer-checked/b:text-white">
+    B
+</label>
+```
 
 ## @typography
 - tailwindcss는 @base 부분에서 텍스트의 스타일을 전부 초기화한다
