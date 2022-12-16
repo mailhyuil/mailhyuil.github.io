@@ -166,10 +166,14 @@ console.log(vo.title);
 ```
 
 ## next.js with typescript
-```npx create-next-app --typescript new-project```
+```
+npx create-next-app --typescript new-project
+```
 
 ## create-react-app typescript
-```yarn create react-app my-app --template typescript```
+```
+yarn create react-app my-app --template typescript
+```
 
 ## error
 > useState hook을 사용하여 배열을 정의할 때 타입스크립트 에러가 발생함.
