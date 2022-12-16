@@ -1,7 +1,7 @@
 # Webpack (웹팩)
 
-- require.context
-
+## require.context
+> 웹팩이 모듈을 탐색할 때 특정 경로에 존재하는 파일을 탐색하기 위한 함수
 ```js
 require.context(directory, useSubdirectories = false, regExp = /^\.\//)
 // directory: 검색 할 디렉터리
