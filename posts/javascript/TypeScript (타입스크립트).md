@@ -35,7 +35,7 @@ declare module "myPackage" {
 }
 ```
 ## 기본문법
-```js
+```ts
 const areYouCool: boolean = true;
 const answer: number = 42;
 const typescript: string = "great";
@@ -49,7 +49,7 @@ const hasType: Object = {
 };
 ```
 ## 특별한 타입
-```js
+```ts
 // any 타입은 모든 타입과 호환 가능하다. 즉, 모든 값의 타입을 any 로 지정할 수 있고, any 타입의 변수에는 모든 값을 할당할 수 있다.
 let bool: any = true;
 bool = 3;
@@ -78,19 +78,19 @@ type User = {
 
 ## 유니온 타입
 > A 또는 B 타입일 수 있는 타입”을 A | B 로 쓰는 식이다
-```js
+```ts
 const stringOrNumber: string | number = square(randomNumber, randomBoolean);
 ```
 
 ## 인터섹션 타입
 > 여러 타입을 앰퍼샌드(&) 기호로 이어서 인터섹션 타입
-```js
+```ts
 type Infeasible = string & number
 type Awesome = Programmer & BeerLover & CatLover;
 ```
 
 ## 열거형
-```js
+```ts
 enum Direction {
   East,
   West,
@@ -106,7 +106,7 @@ enum ExplicitDirection {
 ```
 
 ## JSDoc
-```js
+```ts
 // @ts-check
 
 /**
@@ -131,15 +131,15 @@ export function exit(code) {
 }
 ```
 
-```
+```shell
 npm i -D ts-node
 ```
 
-```
+```shell
 npm i -D @types/node
 ```
 
-```
+```shell
 npm i -D @types/packageName
 ```
 
@@ -165,20 +165,10 @@ vo.title = "love and thunder"
 console.log(vo.title);
 ```
 
-## next.js with typescript
-```
-npx create-next-app --typescript new-project
-```
-
-## create-react-app typescript
-```
-yarn create react-app my-app --template typescript
-```
-
 ## error
 > useState hook을 사용하여 배열을 정의할 때 타입스크립트 에러가 발생함.
 
 - useState 뒤에 <any[]> 를 명시해준다.
-```
+```ts
 const [arr, setArr] = useState<any[]>([])
 ```

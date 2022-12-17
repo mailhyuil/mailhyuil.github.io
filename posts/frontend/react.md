@@ -9,9 +9,15 @@ npm install -g create-react-app #전역설치
 npx create-react-app hello-world
 ```
 
+## create-react-app typescript
+```
+yarn create react-app my-app --template typescript
+```
+
 ### npm
 ```
 npm init react-app <프로젝트>
+
 ```
 
 ### yarn
