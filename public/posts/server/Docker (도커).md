@@ -22,7 +22,9 @@ docker rm 컨테이너 이름
 docker rmi 이미지 이름
 docker exec 컨테이너 이름 // 실행중인 컨테이너에 명령어주기 # ex) docker exec -it mysql mysql -uroot
 # -it 옵션은 터미널과 컨테이너가 지속적으로 연결되도록 하는 옵션
+
 docker exec 컨테이너이름 /bin/bash # bash 접속하기
+docker attach ubuntu # 접속
 
 docker cp 컨테이너패스 로컬호스트패스 // 파일 옮기기
 
