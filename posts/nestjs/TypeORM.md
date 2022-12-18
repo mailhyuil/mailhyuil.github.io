@@ -8,39 +8,40 @@ npm install --save typeorm mysql2
 ```ts
 import { DataSource } from 'typeorm';
 
-export const databaseProviders = [
-  {
-    provide: 'DATA_SOURCE',
-    useFactory: async () => {
-      const dataSource = new DataSource({
-        type: 'mysql',
-        host: 'localhost',
-        port: 3306,
-        username: 'root',
-        password: 'root',
-        database: 'test',
-        entities: [
-            __dirname + '/../**/*.entity{.ts,.js}',
-        ],
-        synchronize: true,
-      });
+export const DatabaseProviders = [
+    {
+        provide: 'DATA_SOURCE',
+        useFactory: async () => {
+            const dataSource = new DataSource({
+                type: 'mysql',
+                host: 'localhost',
+                port: 3306,
+                username: 'root',
+                password: '1234',
+                database: 'testdb',
+                entities: [
+                    __dirname + '/../**/*.entity{.ts,.js}',
+                ],
+                synchronize: true,
+            });
 
-      return dataSource.initialize();
+            return dataSource.initialize();
+        },
     },
-  },
 ];
 ```
 
 ### database.module.ts
 ```ts
 import { Module } from '@nestjs/common';
-import { databaseProviders } from './database.providers';
+import { DatabaseProviders } from './database.providers';
 
 @Module({
-  providers: [...databaseProviders],
-  exports: [...databaseProviders],
+    providers: [...DatabaseProviders],
+    exports: [...DatabaseProviders],
 })
-export class DatabaseModule {}
+
+export class DatabaseModule { }
 ```
 
 ## photo db config
