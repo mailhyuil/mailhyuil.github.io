@@ -42,6 +42,7 @@ import { databaseProviders } from './database.providers';
 })
 export class DatabaseModule {}
 ```
+
 ## photo db config
 
 ### photo.entity.ts
