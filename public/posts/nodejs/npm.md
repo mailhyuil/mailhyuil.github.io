@@ -8,3 +8,6 @@
 ```
 npm i degit
 ```
+## --save
+>   --save 옵션은 package.json의 dependency 항목에 모듈을 추가한다는 의미
+>> node_modules에 직접 추가하는게 아니라 dependency로 추가 npm에서 다운받아줌
