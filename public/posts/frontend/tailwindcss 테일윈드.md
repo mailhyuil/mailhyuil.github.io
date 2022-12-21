@@ -1,13 +1,9 @@
-# tailwindcss 테일윈드
+# tailwindcss 테일윈드css
 
-- watch
-
-```npx tailwindcss ./src/style.css -o ./public/style.css --watch```
-
-## flowbite
-
-- npm 설치
-`npm i flowbite`
+## install 
+```bash
+npm install -D tailwindcss postcss autoprefixer
+```
 
 ## tailwind.config.js
 ```js
@@ -38,11 +34,20 @@ module.exports = {
 }
 ```
 
-- script 파일 추가
-```<script src="../node_modules/flowbite/dist/flowbite.js"></script>```
+## style.css
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## watch
+```bash
+npx tailwindcss -i ./src/style.css -o ./public/style.css --watch
+```
 
 ## Reusing Styles
-```
+```css
 @layer components {
   .btn-primary {
     @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
@@ -97,3 +102,13 @@ class="group-two-hover:block"
 - tailwindcss는 @base 부분에서 텍스트의 스타일을 전부 초기화한다
 - 스타일을 사용하는 플러그인 ex) markdown을 사용하기 위해 text부분을 초기화 하지않도록 @typography 플러그인을 사용한다
 - @typography 플러그인을 설치한 후 클래스명에 "prose"를 넣어주면 된다
+
+---
+
+## flowbite
+- npm 설치
+```
+npm i flowbite
+```
+### flowbite script 파일 추가
+```<script src="../node_modules/flowbite/dist/flowbite.js"></script>```
