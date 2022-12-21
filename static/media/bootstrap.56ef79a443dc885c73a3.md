@@ -46,12 +46,22 @@ $theme-colors: (
 $utilities: (
     "width": (property: width,
         class:w,
-        values: (0: 5px,
+        values: (
+            0: 5px,
             1: 10px,
             2: 20px,
             3: 30px,
             4: 40px,
-        ))
+        )),
+    "height": (property: height,
+        class:h,
+        values: (
+            0: 5px,
+            1: 10px,
+            2: 20px,
+            3: 30px,
+            4: 40px,
+        )),
 );
 
 $spacer: 1rem;
