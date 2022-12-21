@@ -54,5 +54,15 @@ $utilities: (
         ))
 );
 
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
 @import "~bootstrap/scss/bootstrap";
 ```
