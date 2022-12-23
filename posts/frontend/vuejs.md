@@ -3,7 +3,7 @@
 ```
 npm init vue@latest
 ```
-## test
+## text
 > {{}} 로 사용
 ```
 <span>Message: {{ msg }}</span>
