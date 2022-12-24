@@ -5,3 +5,23 @@
 ```bash
 npx nuxi init <project-name>
 ```
+
+## pages
+> app.vue에 NuxtPage 모듈 임포트
+>> pages 폴더에 들어있는 index.vue파일을 / path로 자동 매핑
+>>> about.vue 파일은 /about path로 매핑
+>>>> template 태그로 감싸져있어야 한다.
+
+### app.vue
+```
+<template>
+  <div>
+    <NuxtPage />
+  </div>
+</template>
+```
+## layouts
+## components
+## composables
+## stores
+## assets
