@@ -23,8 +23,10 @@ onMounted(() => {
 ```
 ## Reactivity API
 ### ref()
-### computed()
+>> ref()는 객체, 원시값 둘 다 가능
 ### reactive()
+> reactive()는 객체만 할당 가능
+### computed()
 ### readonly()
 ### watchEffect()
 ### watchPostEffect()
