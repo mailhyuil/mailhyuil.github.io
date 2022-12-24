@@ -3,6 +3,8 @@
 ```bash
 npm init vue@latest
 ```
+## nextTick()
+## defineComponent()
 
 ## OptionAPI VS CompositionAPI
 ### OptionAPI
@@ -62,19 +64,65 @@ onMounted(() => {
 </template>
 ```
 
-
-## text
+## Built-in Directives
+### v-text
 > {{}} 로 사용
 ```
 <span>Message: {{ msg }}</span>
 ```
-## html
+### v-html
 > v-html Built-in Directives 사용
 ```
 <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 ```
-## bind
+### v-bind
 ```
 <div v-bind:id="dynamicId"></div>
 <div :id="dynamicId"></div> <!-- shorthand -->
 ```
+### v-show
+> display style의 토글
+### v-if / v-else
+```
+<div v-if="Math.random() > 0.5">
+  Now you see me
+</div>
+<div v-else>
+  Now you don't
+</div>
+```
+### v-else-if
+```
+<div v-if="type === 'A'">
+  A
+</div>
+<div v-else-if="type === 'B'">
+  B
+</div>
+<div v-else-if="type === 'C'">
+  C
+</div>
+<div v-else>
+  Not A/B/C
+</div>
+```
+### v-for
+```
+<div v-for="item in items">
+  {{ item.text }}
+</div>
+
+<div v-for="(item, index) in items"></div>
+<div v-for="(value, key) in object"></div>
+<div v-for="(value, name, index) in object"></div>
+```
+### v-on
+> event listener
+>> short hand @
+### v-model
+> two-way binding on a form input
+### v-slot
+### v-pre
+### v-once
+### v-memo 
+### v-cloak
