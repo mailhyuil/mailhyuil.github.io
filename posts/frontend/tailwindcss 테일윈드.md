@@ -112,6 +112,14 @@ class="group-two-hover:block"
 
 ---
 
+## button hover effect
+```html
+<li
+    class="ring ring-transparent hover:ring-red-400 hover:scale-125 linear duration-200">
+    <NuxtLink to="/about">About</NuxtLink>
+</li>
+```
+
 ## flowbite
 - npm 설치
 ```
