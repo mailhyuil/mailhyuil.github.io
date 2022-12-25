@@ -1,4 +1,4 @@
-# nestjs + typeORM
+# TypeORM + Nest.js
 
 ## /src/orm.config.ts
 ```ts
