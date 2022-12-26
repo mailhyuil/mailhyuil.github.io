@@ -1,4 +1,4 @@
-# nestjs + typeORM
+# TypeORM + Nest.js
 
 ## /src/orm.config.ts
 ```ts
@@ -50,9 +50,9 @@ import { ormConfig } from './orm.config';
 NODE_ENV=local
 DB_HOST=localhost
 DB_PORT=3306
-DB_USER=slider
+DB_USER=root
 DB_PASS=1234
-DB_NAME=slider
+DB_NAME=mydb
 ```
 
 ## /src/app.module.ts

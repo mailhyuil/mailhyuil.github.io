@@ -1,35 +1,53 @@
 # vue.js
+
 ## install
+
 ```bash
 npm init vue@latest
 ```
+
 ## nextTick()
+
 > 리렌더링이 되는 지점
 
 ## defineComponent()
 
 ## Built-in Directives
+
 ### v-text
+
 > {{}} 로 사용
+
 ```
 <span>Message: {{ msg }}</span>
 ```
+
 ### v-html
+
 > v-html Built-in Directives 사용
+
 ```
 <p>Using v-html directive: <span v-html="rawHtml"></span></p>
 ```
+
 ### v-bind
+
 > reactive한 변수에 사용 ex) props, ref, reactive
->> class에 바인딩하면 동적으로 class를 이용한 style 변경 가능
+>
+> > class에 바인딩하면 동적으로 class를 이용한 style 변경 가능
+
 ```
 <div v-bind:id="dynamicId"></div>
 <div :id="dynamicId"></div> <!-- shorthand -->
 ```
+
 ### v-show
+
 > display style의 토글
+
 ### v-if / v-else / v-else-if
-```
+
+```vue
 <div v-if="type === 'A'">
   A
 </div>
@@ -43,9 +61,12 @@ npm init vue@latest
   Not A/B/C
 </div>
 ```
+
 ### v-for
+
 > forEach와 같음
-```
+
+```vue
 <div v-for="item in items">
   {{ item.text }}
 </div>
@@ -54,12 +75,19 @@ npm init vue@latest
 <div v-for="(value, key) in object"></div>
 <div v-for="(value, name, index) in object"></div>
 ```
+
 ### v-on
+
 > event listener
->> @
+>
+> > @
+
 ### v-model
+
 > 양방향 바인딩을 가능하게 한다
->> 밑의 코드와 같다
+>
+> > 밑의 코드와 같다
+
 ```
 <input v-model="searchText" />
 
@@ -77,13 +105,49 @@ npm init vue@latest
   @update:modelValue="newValue => searchText = newValue"
 />
 ```
+
 ### v-slot
+
 > #slotname
+
+- Slot.vue
+
+```
+<script lang="ts" setup>
+</script>
+<template>
+    <button class="p-2 bg-red-500">
+        <slot name="slot1" />
+    </button>
+    <button class="p-2 bg-blue-500">
+        <slot name="slot2" />
+    </button>
+</template>
+```
+
+- index.vue
+
+```
+<Slot>
+    <template #slot1>
+        slot 1
+    </template>
+    <template #slot2>
+        slot 2
+    </template>
+</Slot>
+```
+
 ### v-pre
+
 ### v-once
-### v-memo 
+
+### v-memo
+
 ### v-cloak
 
 ## composables
+
 > 재사용될 함수를 넣는 곳
->> use* 컨벤션을 사용
+>
+> > use\* 컨벤션을 사용
