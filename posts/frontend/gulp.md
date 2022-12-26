@@ -1,14 +1,31 @@
 # gulp
 
 ## add gulp
-```npm i gulp-cli -g```
-```npm i gulp```
+
+```
+npm i gulp-cli -g
+```
+
+```
+npm i gulp
+```
 
 ## to use babel
-```npm i @babel/core```
-```npm i @babel/preset-env```
-```npm i @babel/register```
+
+```
+npm i @babel/core
+```
+
+```
+npm i @babel/preset-env
+```
+
+```
+npm i @babel/register
+```
+
 ## .babelrc
+
 ```
 {
     "presets": [
@@ -16,7 +33,9 @@
     ]
 }
 ```
+
 ## gulpfile.babel.js
+
 ```js
 import gulp from "gulp";
 import gpug from "gulp-pug";
@@ -36,45 +55,39 @@ const routes = {
   pug: {
     watch: "src/**/*.pug",
     src: "src/*.pug",
-    dest: "build"
+    dest: "build",
   },
   img: {
     src: "src/img/*",
-    dest: "build/img"
+    dest: "build/img",
   },
   scss: {
     watch: "src/scss/**/*.scss",
     src: "src/scss/style.scss",
-    dest: "build/css"
+    dest: "build/css",
   },
   js: {
     watch: "src/js/**/*.js",
     src: "src/js/main.js",
-    dest: "build/js"
-  }
+    dest: "build/js",
+  },
 };
 const pug = () =>
-  gulp
-    .src(routes.pug.src)
-    .pipe(gpug())
-    .pipe(gulp.dest(routes.pug.dest));
+  gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pug.dest));
 
 const clean = () => del(["build/", ".publish"]);
 
 const webserver = () => gulp.src("build").pipe(ws({ livereload: true }));
 
 const img = () =>
-  gulp
-    .src(routes.img.src)
-    .pipe(image())
-    .pipe(gulp.dest(routes.img.dest));
+  gulp.src(routes.img.src).pipe(image()).pipe(gulp.dest(routes.img.dest));
 const styles = () =>
   gulp
     .src(routes.scss.src)
     .pipe(sass().on("error", sass.logError))
     .pipe(
       autoprefixer({
-        browsers: ["last 2 versions"]
+        browsers: ["last 2 versions"],
       })
     )
     .pipe(miniCSS())
@@ -86,8 +99,8 @@ const js = () =>
       bro({
         transform: [
           babelify.configure({ presets: ["@babel/preset-env"] }),
-          ["uglifyify", { global: true }]
-        ]
+          ["uglifyify", { global: true }],
+        ],
       })
     )
     .pipe(gulp.dest(routes.js.dest));

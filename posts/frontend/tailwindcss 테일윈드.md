@@ -1,11 +1,15 @@
 # tailwindcss 테일윈드css
 
-## install 
+## install
+
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 ```
+
 ### @nuxtjs/tailwindcss
+
 > 설치 후 nuxt.config.js에 추가하면 끝
+
 ```
 modules: [
     '@nuxtjs/tailwindcss'
@@ -13,35 +17,31 @@ modules: [
 ```
 
 ## tailwind.config.js
+
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        "./public/**/*.html", 
-        "./node_modules/flowbite/**/*.js"
-        ],
-    theme: {
-        extend: {
-                colors:{
-                    primary: '#FF6363',
-                    secondary: ''
-                },
-                fontFamily:{
-                    body: ['fontName']
-                },
-                backgroundImage: {
-                    "hyuil": "url('/public/img/hyuil.jpg')"
-                }
-            },
+  content: ["./public/**/*.html", "./node_modules/flowbite/**/*.js"],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#FF6363",
+        secondary: "",
+      },
+      fontFamily: {
+        body: ["fontName"],
+      },
+      backgroundImage: {
+        hyuil: "url('/public/img/hyuil.jpg')",
+      },
     },
-    plugins: [
-        require('flowbite/plugin'),
-        require("tailwind-scrollbar-hide")
-    ],
-}
+  },
+  plugins: [require("flowbite/plugin"), require("tailwind-scrollbar-hide")],
+};
 ```
 
 ## style.css
+
 ```css
 @tailwind base;
 @tailwind components;
@@ -49,11 +49,13 @@ module.exports = {
 ```
 
 ## watch
+
 ```bash
 npx tailwindcss -i ./src/style.css -o ./public/style.css --watch
 ```
 
 ## Reusing Styles
+
 ```css
 @layer components {
   .btn-primary {
@@ -63,21 +65,26 @@ npx tailwindcss -i ./src/style.css -o ./public/style.css --watch
 ```
 
 ## 반응형 (Responsive)
+
 - sm: md: lg: xl: 2xl:
-> default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
+  > default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
 - ex) w-full // 스마트폰 xl:w-64
 
-
 ## group
+
 ### single group
+
 ```
 class="group ..."
 class="group-hover:block"
 ```
+
 ### nested group
+
 ```bash
 npm i tailwindcss-scoped-groups
 ```
+
 ```js
 plugins: [
     require("tailwindcss-scoped-groups")({
@@ -85,6 +92,7 @@ plugins: [
     }),
    ],
 ```
+
 ```
 class="group-one ..."
 class="group-one-hover:block"
@@ -93,7 +101,9 @@ class="group-two-hover:block"
 ```
 
 ## peer
+
 > input, label을 순서대로 넣어야 작동
+
 ```js
 <input id="1" className="peer/a hidden" type="radio" name="radio" />
 <label htmlFor="1" className="peer-checked/a:bg-red-500 peer-checked/a:text-white">
@@ -106,6 +116,7 @@ class="group-two-hover:block"
 ```
 
 ## @typography
+
 - tailwindcss는 @base 부분에서 텍스트의 스타일을 전부 초기화한다
 - 스타일을 사용하는 플러그인 ex) markdown을 사용하기 위해 text부분을 초기화 하지않도록 @typography 플러그인을 사용한다
 - @typography 플러그인을 설치한 후 클래스명에 "prose"를 넣어주면 된다
@@ -113,17 +124,23 @@ class="group-two-hover:block"
 ---
 
 ## button hover effect
+
 ```html
 <li
-    class="ring ring-transparent hover:ring-red-400 hover:scale-125 linear duration-200">
-    <NuxtLink to="/about">About</NuxtLink>
+  class="ring ring-transparent hover:ring-red-400 hover:scale-125 linear duration-200"
+>
+  <NuxtLink to="/about">About</NuxtLink>
 </li>
 ```
 
 ## flowbite
+
 - npm 설치
+
 ```
 npm i flowbite
 ```
+
 ### flowbite script 파일 추가
-```<script src="../node_modules/flowbite/dist/flowbite.js"></script>```
+
+`<script src="../node_modules/flowbite/dist/flowbite.js"></script>`
