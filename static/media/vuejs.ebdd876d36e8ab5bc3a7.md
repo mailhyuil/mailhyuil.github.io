@@ -79,6 +79,30 @@ npm init vue@latest
 ```
 ### v-slot
 > #slotname
+- Slot.vue
+```
+<script lang="ts" setup>
+</script>
+<template>
+    <button class="p-2 bg-red-500">
+        <slot name="slot1" />
+    </button>
+    <button class="p-2 bg-blue-500">
+        <slot name="slot2" />
+    </button>
+</template>
+```
+- index.vue
+```
+<Slot>
+    <template #slot1>
+        slot 1
+    </template>
+    <template #slot2>
+        slot 2
+    </template>
+</Slot>
+```
 ### v-pre
 ### v-once
 ### v-memo 
