@@ -27,13 +27,15 @@ onMounted(() => {
 
 ### ref()
 
-> > ref()는 객체, 원시값 둘 다 가능
+> ref()는 객체, 원시값 둘 다 가능
 
 ### reactive()
 
 > reactive()는 객체만 할당 가능
 
 ### computed()
+
+> template 안에 있는 표현식을 script부분으로 뺄 수 있다.
 
 ### readonly()
 

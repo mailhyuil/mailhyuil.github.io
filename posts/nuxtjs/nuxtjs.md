@@ -40,6 +40,7 @@ npx nuxi init <project-name>
   <div>
     <Header />
     <slot />
+    <Footer />
   </div>
 </template>
 ```

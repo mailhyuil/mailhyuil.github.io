@@ -110,7 +110,7 @@ npm init vue@latest
 
 > #slotname
 
-- Slot.vue
+#### Slot.vue
 
 ```
 <script lang="ts" setup>
@@ -125,7 +125,7 @@ npm init vue@latest
 </template>
 ```
 
-- index.vue
+#### index.vue
 
 ```
 <Slot>
