@@ -30,6 +30,34 @@ npx nuxi init <project-name>
 
 ## layouts
 
+> layouts 폴더에 default.vue 생성
+
+### layouts/default.vue
+
+```vue
+<script lang="ts" setup></script>
+<template>
+  <div>
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</template>
+```
+
+### app.vue
+
+```vue
+<script lang="ts" setup></script>
+<template>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
+</template>
+```
+
 ## components
 
 ## composables
