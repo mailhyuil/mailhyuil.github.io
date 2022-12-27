@@ -28,6 +28,13 @@ onMounted(() => {
 ### ref()
 
 > ref()는 객체, 원시값 둘 다 가능
+>
+> > querySelector 대신 사용 가능
+
+```
+const 변수 = ref(null);
+<div ref='변수'></div>
+```
 
 ### reactive()
 
