@@ -28,12 +28,19 @@ onMounted(() => {
 ### ref()
 
 > ref()는 객체, 원시값 둘 다 가능
->
-> > querySelector 대신 사용 가능
 
 ```
 const 변수 = ref(null);
 <div ref='변수'></div>
+```
+
+> querySelector 대신 사용 가능
+>
+> > v-for로 생성된 요소만 ref로 배열로 받아올 수 있다.
+
+```
+const heys = ref<string[]>(["hey1", "hey2", "hey3"]);
+const h1 = ref<HTMLHeadElement[]>();
 ```
 
 ### reactive()

@@ -76,6 +76,12 @@ npm init vue@latest
 <div v-for="(value, name, index) in object"></div>
 ```
 
+> v-for 안에서 map도 사용 가능
+
+```
+v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
+```
+
 ### v-on
 
 > event listener
@@ -104,6 +110,17 @@ npm init vue@latest
   :modelValue="searchText"
   @update:modelValue="newValue => searchText = newValue"
 />
+```
+
+> modelValue로 props 변수로 받을 수 있다.
+>
+> > update:modelValue emits으로 업데이트 할 수 있다.
+
+```
+const props = defineProps<{
+  modelValue:string
+}>()
+const emits = defineEmits(["update:modelValue"]);
 ```
 
 ### v-slot
