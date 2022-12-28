@@ -120,7 +120,8 @@ v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
 const props = defineProps<{
   modelValue:string
 }>()
-const emits = defineEmits(["update:modelValue"]);
+const emits = defineEmits(['update:modelValue']);
+emits('update:modelValue', '안녕') // 따옴표 모양이 같아야한다 "" 안됨
 ```
 
 ### v-slot

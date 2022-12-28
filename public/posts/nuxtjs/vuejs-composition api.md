@@ -2,7 +2,7 @@
 
 ```vue
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue';
 
 // reactive state
 const count = ref(0);
@@ -88,15 +88,69 @@ const props = defineProps<{
 
 ### emit
 
+> 부모에서 자식으로 보내기
+
+#### 부모
+
+```vue
+<script>
+const dismiss = () => {
+  console.log('dismissed!');
+};
+</script>
+
+<template>
+  <button @dismiss="dismiss"></button>
+</template>
+```
+
+#### 자식
+
 ```vue
 <script>
 const emits = defineEmits<{
   (event: 'dismiss'): void;
-  (event: 'click'): void;
 }>()
+// or
+// const emits = defineEmits(['dismiss'])
 </script>
+
+<template>
+  <button @click="emits('dismiss')"></button>
+</template>
+```
+
+> 자식에서 부모로 보내기
+
+#### 자식
+
+```vue
+<script>
+const val = ref('hi')
+const emits = defineEmits<{
+  (event: 'dismiss'): void;
+}>()
+// or
+// const emits = defineEmits(['dismiss'])
+emits('dismiss', val)
+</script>
+
 <template>
   <button @click="emits('click')"></button>
+</template>
+```
+
+#### 부모
+
+```vue
+<script>
+const dismiss = (val) => {
+  console.log(val.value); // 'hi'
+};
+</script>
+
+<template>
+  <button @dismiss="dismiss"></button>
 </template>
 ```
 
@@ -108,5 +162,5 @@ const emits = defineEmits<{
   @dismiss="dismiss"
   @click="isInquiryOpen = true"
 >
-      </Inquiry>
+</Inquiry>
 ```
