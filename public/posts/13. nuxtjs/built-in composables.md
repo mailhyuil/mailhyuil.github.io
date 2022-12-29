@@ -58,22 +58,28 @@
 
 ## useRoute
 
-> 현재 route를 반환
+> 현재 페이지의 route를 담은 객체 반환
 >
 > > setup 에서만 사용
-> >
-> > > template에서는 $route로 사용 가능
 
 ## useRouter
 
 > router 인스턴스를 반환
 >
 > > setup 에서만 사용
-> >
-> > > template에서는 $router로 사용 가능
 
 ## useRuntimeConfig
 
 ## useState
 
-> key
+> simple key-based system 사용하여 state를 전역으로 관리
+>
+> > 대신 Pinia를 많이 사용
+
+```
+// In one component
+const sharedState = useState('share-this', 'default value');
+
+// In another component
+const alsoSharedState = useState('share-this');
+```

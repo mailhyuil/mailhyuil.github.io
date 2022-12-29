@@ -1,28 +1,5 @@
 # CompositionAPI
 
-```vue
-<script setup>
-import { ref, onMounted } from 'vue';
-
-// reactive state
-const count = ref(0);
-
-// functions that mutate state and trigger updates
-function increment() {
-  count.value++;
-}
-
-// lifecycle hooks
-onMounted(() => {
-  console.log(`The initial count is ${count.value}.`);
-});
-</script>
-
-<template>
-  <button @click="increment">Count is: {{ count }}</button>
-</template>
-```
-
 ## Reactivity API
 
 ### ref()
@@ -51,6 +28,19 @@ const h1 = ref<HTMLHeadElement[]>();
 
 > template 안에 있는 표현식을 script부분으로 뺄 수 있다.
 
+### toRef()
+
+> reactive 객체에서 property만 가져올 때 사용
+
+```
+const state = reactive({
+  foo: 1,
+  bar: 2
+})
+
+const fooRef = toRef(state, 'foo')
+```
+
 ### readonly()
 
 ### watchEffect()
@@ -60,6 +50,34 @@ const h1 = ref<HTMLHeadElement[]>();
 ### watchSyncEffect()
 
 ### watch()
+
+> 값이 변할때마다 함수를 실행시킬 수 있다.
+
+```
+const val = ref(0)
+
+watch(val, (mutatedVal)=>{console.log(mutatedVal)})
+```
+
+> 변한 값의 전처리도 가능
+
+```
+watch(
+  () => val.value + 10, // 먼저 연산
+  (mutatedVal) => { //연산한 값을 파라미터로 받음
+    console.log(mutatedVal);
+  }
+);
+```
+
+> 여러 값을 넣을 수도 있다.
+
+```
+const x = ref(0)
+const y = ref(0)
+
+watch([x, y], (x, y)=>{console.log(x, y)})
+```
 
 ### props
 
@@ -95,7 +113,7 @@ const props = defineProps<{
 ```vue
 <script>
 const dismiss = () => {
-  console.log('dismissed!');
+  console.log("dismissed!");
 };
 </script>
 
