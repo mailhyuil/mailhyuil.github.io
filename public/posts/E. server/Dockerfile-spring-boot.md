@@ -1,4 +1,5 @@
-# spring-boot-Dockerfile
+# Dockerfile-spring-boot
+
 - spring-boot 프로젝트는 톰캣이 내장되어있기때문에 tomcat을 따로 설치할 필요가 없다
 - open-jdk만 설치해서 빌드한 jar파일을 실행시켜주면된다
 
