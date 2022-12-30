@@ -1,9 +1,11 @@
 # CI/CD
+
 > github actions, jenkins CI, travis CI
 
 ![](/img/cicd.png)
 
 ## github actions
+
 ```yml
 # workflow의 이름
 name: actions-name
@@ -42,9 +44,10 @@ jobs:
 
 ```
 
-### Error Gradle Script ‘/Home/Runner/Work/*/Gradlew’ Is Not Executable
+### Error Gradle Script ‘/Home/Runner/Work/\*/Gradlew’ Is Not Executable
 
 - gradle 권한 부여
+
 ```
 git update-index --chmod=+x gradlew
 ```
@@ -57,7 +60,9 @@ git update-index --chmod=+x gradlew
 ## Jenkins
 
 ### docker jenkins
+
 1. jenkins container
+
 ```shell
 docker pull jenkins/jenkins
 
@@ -65,6 +70,7 @@ docker run -d -p 49001:8080 jenkins/jenkins
 ```
 
 2. localhost:49001 접속 후 password 입력
+
 ```
 Jenkins initial setup is required. An admin user has been created and a password generated.
 Please use the following password to proceed to installation:
@@ -82,4 +88,4 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
 
 6. Build Steps -> Execute shell 선택 후 shell script 입력
 
-5. github repository -> settings -> add service -> Jenkins 플러그인 설치
+7. github repository -> settings -> add service -> Jenkins 플러그인 설치
