@@ -1,7 +1,10 @@
 # JWT
+
 > jwt: json web token
 > claim: 속성 정보
+
 ## dependency
+
 ```xml
 <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
 <dependency>
@@ -26,7 +29,9 @@
     <scope>runtime</scope>
 </dependency>
 ```
+
 ## response jwt
+
 ```
 SecretKey key = Keys.hmacShaKeyFor(signingKey.getBytes(StandardCharsets.UTF_8));
 
@@ -37,7 +42,9 @@ String jwt = Jwts.builder()
 
 response.setHeader("Authorization", jwt); // *reponse* header에 jwt 넣기
 ```
+
 ## request jwt
+
 ```
 String jwt = request.getHeader("Authorization"); // *reqeust*에서 jwt 읽기
 

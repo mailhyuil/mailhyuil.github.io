@@ -7,6 +7,7 @@
 > 예외는 의미가 분명한(비즈니스적 의미가 담긴) 런타임예외로 만들어라 (예외 커스텀)
 
 ## exception 생성 RuntimeException 확장
+
 ```java
 @ResponseStatus(value = HttpStatus.CONFLICT, reason = "A video with this name already exists")
 public class VideoAlreadyExistsException extends RuntimeException{
@@ -16,6 +17,7 @@ public class VideoAlreadyExistsException extends RuntimeException{
 ## CustomException 만들기
 
 1. CustomException Class
+
 ```java
 @Getter
 public class CustomException extends RuntimeException {
@@ -34,11 +36,12 @@ public class CustomException extends RuntimeException {
 ```
 
 2. ErrorCode Enum
+
 ```java
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
-    
+
     //공통 예외
     BAD_REQUEST_PARAM(HttpStatus.BAD_REQUEST, "잘못된 요청입니다."),
     BAD_REQUEST_VALIDATION(HttpStatus.BAD_REQUEST, "검증에 실패하였습니다."),
@@ -55,7 +58,9 @@ public enum ErrorCode {
 ```
 
 ---
+
 ## RestController 에서 발생하는 예외 잡아서 ResponseEntity에 담아서 반환하기
+
 1. ErrorResponse class
 
 ```java
@@ -112,7 +117,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         return ErrorResponse.toResponseEntity(e);
     }
-    
+
     //모델 검증 실패
     @Override
     protected ResponseEntity<Object> handleBindException(BindException ex,

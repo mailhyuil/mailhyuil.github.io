@@ -1,6 +1,7 @@
 # Jasypt(Java Simplified Encryption)를 사용한 프로퍼티 암호화
 
 1. denpendencies
+
 ```xml
 <!-- https://mvnrepository.com/artifact/org.jasypt/jasypt -->
 <dependency>
@@ -18,48 +19,50 @@
 ```
 
 1. 암호화 (Jasypt util)
+
 ```java
 public static void main(String[] args) {
 	StandardPBEStringEncryptor jasypt = new StandardPBEStringEncryptor();
-	
+
 	jasypt.setAlgorithm("PBEWithMD5AndDES");
 	jasypt.setPassword("password");
-	
+
 	String encryptedUsername = jasypt.encrypt("root");
 	String encryptedPwd = jasypt.encrypt("1234");
-	
+
 	System.out.println(encryptedUsername);
 	System.out.println(encryptedPwd);
-	
+
 	String decryptedUsername = jasypt.decrypt(encryptedUsername);
 	String decryptedPwd = jasypt.decrypt(encryptedPwd);
-	
+
 	System.out.println(decryptedUsername);
 	System.out.println(decryptedPwd);
 }
 ```
 
 2. properties 파일에 암호화된 값 저장
+
 ```
 mysql.username=ENC(IS/UoVWaEE0tyiG8ZaLN2w==)
 mysql.password=ENC(gJa/MRSqwHysvGCGye56N9UHX08Eo1L3)
 ```
 
 - properties-context.xml (property 사용을 위한 설정)
+
 ```xml
 <!-- properties 파일의 내용을 Controller, Service 에서 사용하기 위한 설정 -->
 <context:property-placeholder location="/WEB-INF/spring/props/db.properties"/>
-	
+
 <util:properties  id="mysql" location="/WEB-INF/spring/props/db.properties" />
 ```
 
-
-
 3. jasypt-context (복호화 하기 위한 설정)
+
 ```
 <bean id="encryptorConfig" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
 	<property name="algorithm" value="PBEWithMD5AndDES" />
-	<property name="passwordEnvName" value="서버 환경변수에 넣은 키값" />		
+	<property name="passwordEnvName" value="서버 환경변수에 넣은 키값" />
 </bean>
 
 <bean id="encryptor"
@@ -79,6 +82,7 @@ mysql.password=ENC(gJa/MRSqwHysvGCGye56N9UHX08Eo1L3)
 ```
 
 ### jasypt bean은 가장 먼저 생성되어야 한다. (web.xml)
+
 ```
 <context-param>
 	<param-name>contextConfigLocation</param-name>
@@ -95,17 +99,23 @@ mysql.password=ENC(gJa/MRSqwHysvGCGye56N9UHX08Eo1L3)
 ```
 
 # spring-boot-starter
+
 ## gradle.build
+
 ```
 implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
 ```
+
 ## application.yml
+
 ```
 jasypt:
   encryptor:
     bean: jasyptEncryptor
 ```
+
 ## config
+
 ```
 @Configuration
 public class JasyptConfig {
@@ -128,7 +138,9 @@ public class JasyptConfig {
     }
 }
 ```
+
 ## test
+
 ```
 public class JasyptConfigTest extends JasyptConfig {
     @Test

@@ -1,6 +1,7 @@
 # File upload (서버에 파일 업로드)
 
 1. pom.xml
+
 ```xml
 <!-- commons-io -->
 <dependency>
@@ -18,13 +19,16 @@
 ```
 
 2. root-context
+
 ```xml
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	<property name="maxUploadSizePerFile" value="2000000"/>
 	<property name="maxUploadSize" value="20000000"/>
 </bean>
 ```
+
 2. application.yml
+
 ```yml
 spring:
   servlet:
@@ -34,18 +38,20 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
 ```
+
 3. jsp
+
 ```jsp
 <form method="POST" class="bbs_write" enctype="multipart/form-data">
 	<h2>게시판 글쓰기</h2>
-	<input name="b_date" type="date" value="${BBS.b_date}" 
-						hidden="hidden"> 
-	<input name="b_time" type="time" value="${BBS.b_time}" 
+	<input name="b_date" type="date" value="${BBS.b_date}"
 						hidden="hidden">
-		
-	<input name="b_writer" placeholder="작성자" 
+	<input name="b_time" type="time" value="${BBS.b_time}"
+						hidden="hidden">
+
+	<input name="b_writer" placeholder="작성자"
 				value="${BBS.b_writer}" readonly="readonly">
-				
+
 	<input name="b_subject" placeholder="제목">
 
 	<textarea rows="5" cols="20" name="b_content" placeholder="내용"></textarea>
@@ -54,7 +60,7 @@ spring:
 
 	<button>저장</button>
 </form>
-<%/*  
+<%/*
 file input box 에 선택하는 파일 제한하기
 accept=".hwp" : 확장자가 hwp 인 파일만 선택할 수 있께
 accept=".jpg", accept=".png", accept=".gif" : 이미지 파일들중에서
@@ -68,6 +74,7 @@ accept="image/*, video/*, audio/*" : 이미지, 동영상, 음성 파일
 ```
 
 4. 파일 업로드
+
 ```java
 // Spring 에서 Server 의 특정한 폴더에 접근하기 위한 중간 도구
 private final ServletContext context;
@@ -104,10 +111,10 @@ fileName = String.format("%s-%s",strUUID, fileName);
 ```java
 @RequestMapping(value="/write",method=RequestMethod.POST)
 public String write(@ModelAttribute("bbsVO") BBsVO bbsVO, @RequestParam("up_file") MultipartFile file, Model model) {
-	
+
 	String imageFile = bbsService.insertBbsAndFile(bbsVO, file);
 	model.addAttribute("IMAGE",imageFile);
-	
+
 	return "redirect:/";
 }
 ```
@@ -134,16 +141,17 @@ public String upFiles(@ModelAttribute("bbsVO") BBsVO bbsVO,	MultipartHttpServlet
 ```
 
 ### 파일 지우기 (file delete)
+
 ```java
 public void fileDelete(String fileName) {
-		
+
 	if(fileName == null) {
 		return;
 	}
-	
+
 	// 업로드 폴더와 파일이름묶어 파일 객체 생성
 	File file = new File(파일의 경로, fileName);
-	
+
 	// 실제 파일이 존재하는 확인하고
 	if(file.exists()) {
 		// 존재하면 파일을 삭제
@@ -152,9 +160,11 @@ public void fileDelete(String fileName) {
 
 }
 ```
+
 ### 비디오 영상 업로드(video upload)
 
 - domain
+
 ```java
 @Data
 @NoArgsConstructor
@@ -178,6 +188,7 @@ public class Video{
 ```
 
 - repository
+
 ```java
 public interface VideoRepository extends JpaRepository<Video, Long> {
     Video findByName(String name); // 이름을 찾기
@@ -190,6 +201,7 @@ public interface VideoRepository extends JpaRepository<Video, Long> {
 ```
 
 - service
+
 ```java
 public interface VideoService {
     Video getVideo(String name); // 비디오 얻기
@@ -201,6 +213,7 @@ public interface VideoService {
 ```
 
 - serviceImpl
+
 ```java
 @Service
 @AllArgsConstructor
@@ -230,7 +243,9 @@ public class VideoServiceImpl implements VideoService {
     }
 }
 ```
+
 - RestController
+
 ```java
 @RestController
 @RequestMapping("video")
@@ -257,85 +272,106 @@ public class VideoController {
     }
 }
 ```
+
 - controller
+
 ```java
 @GetMapping("/video")
 public String video(){
 	return null;
 }
 ```
+
 - video.html (view)
+
 ```html
 <main>
-    <!-- video list -->
-    <div id="video-list">
-        <header>
-            <h3>Your videos</h3>
-        </header>
-        <ul id="your-videos">
-        </ul>
-    </div>
-    <!-- video player -->
-    <div id="video-player">
-        <header>
-            <h3 id="now-playing"></h3>
-        </header>
-        <video id="video-screen" width="720px" height="480px" controls></video>
-    </div>
-    <!-- video input -->
-    <form id="video-form">
-        <fieldset>
-            <legend>Upload a video</legend>
-            <label for="file">Video File</label>
-            <input id="file" name="file" type="file" accept="application/mp4">
-            <label for="name">Video Name</label>
-            <input id="name" name="name" type="text">
-            <button type="submit">Save</button>
-        </fieldset>
-    </form>
+  <!-- video list -->
+  <div id="video-list">
+    <header>
+      <h3>Your videos</h3>
+    </header>
+    <ul id="your-videos"></ul>
+  </div>
+  <!-- video player -->
+  <div id="video-player">
+    <header>
+      <h3 id="now-playing"></h3>
+    </header>
+    <video
+      id="video-screen"
+      width="720px"
+      height="480px"
+      controls></video>
+  </div>
+  <!-- video input -->
+  <form id="video-form">
+    <fieldset>
+      <legend>Upload a video</legend>
+      <label for="file">Video File</label>
+      <input
+        id="file"
+        name="file"
+        type="file"
+        accept="application/mp4" />
+      <label for="name">Video Name</label>
+      <input
+        id="name"
+        name="name"
+        type="text" />
+      <button type="submit">Save</button>
+    </fieldset>
+  </form>
 </main>
 ```
-- js
-```js
-const form = document.querySelector('#video-form');
-const videoDiv = document.querySelector('#video-player');
-const videoScreen = document.querySelector('#video-screen');
 
-const queryParams = Object.fromEntries(new URLSearchParams(window.location.search));
+- js
+
+```js
+const form = document.querySelector("#video-form");
+const videoDiv = document.querySelector("#video-player");
+const videoScreen = document.querySelector("#video-screen");
+
+const queryParams = Object.fromEntries(
+  new URLSearchParams(window.location.search)
+);
 /* get videoList */
-fetch('http://localhost:8080/video/all')
-	.then(result => result.json())
-	.then(result => {
-		const myVids = document.querySelector('#your-videos');
-		if (result.length > 0) {
-			for (let vid of result) {
-				const li = document.createElement('LI');
-				const link = document.createElement('A');
-				link.innerText = vid;
-				link.href = window.location.origin + window.location.pathname + '?video=' + vid;
-				li.appendChild(link);
-				myVids.appendChild(li);
-			}
-		} else {
-			myVids.innerHTML = 'No videos found';
-		}
-	});
+fetch("http://localhost:8080/video/all")
+  .then((result) => result.json())
+  .then((result) => {
+    const myVids = document.querySelector("#your-videos");
+    if (result.length > 0) {
+      for (let vid of result) {
+        const li = document.createElement("LI");
+        const link = document.createElement("A");
+        link.innerText = vid;
+        link.href =
+          window.location.origin + window.location.pathname + "?video=" + vid;
+        li.appendChild(link);
+        myVids.appendChild(li);
+      }
+    } else {
+      myVids.innerHTML = "No videos found";
+    }
+  });
 /* get videoData */
 if (queryParams.video) {
-	videoScreen.src = `http://localhost:8080/video/${queryParams.video}`;
-	videoDiv.style.display = 'block';
-	document.querySelector('#now-playing')
-		.innerText = 'Now playing ' + queryParams.video;
+  videoScreen.src = `http://localhost:8080/video/${queryParams.video}`;
+  videoDiv.style.display = "block";
+  document.querySelector("#now-playing").innerText =
+    "Now playing " + queryParams.video;
 }
 /* save video */
-form.addEventListener('submit', ev => {
-	ev.preventDefault();
-	let data = new FormData(form);
-	fetch('http://localhost:8080/video', {
-		method: 'POST',
-		body: data
-	}).then(result => result.text()).then(_ => {
-		window.location.reload();
-	});
+form.addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  let data = new FormData(form);
+  fetch("http://localhost:8080/video", {
+    method: "POST",
+    body: data,
+  })
+    .then((result) => result.text())
+    .then((_) => {
+      window.location.reload();
+    });
 });
 ```

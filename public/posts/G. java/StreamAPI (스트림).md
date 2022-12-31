@@ -1,6 +1,7 @@
 # StreamAPI (스트림)
 
 ## 함수형 인터페이스
+
     - Runnable : 매개변수 x 반환값 x
     - Supplier : 매개변수 x 반환값 o
     - Consumer : 매개변수 o 반환값 x
@@ -23,12 +24,14 @@ Arrays.stream(new int[]{1,2,3})
 //Stream static method
 Stream.of(1,2,3)
 ```
+
 ## 메소드
+
 - skip(3) : 처음 3개를 건너뜀
 - limit(5) : 스트림의 요소를 5개로 제한
 - filter(Predicate predicate) : 조건 제거
 - distinct() : 중복제거
-- sorted() or sorted(Comparator.*): 정렬
+- sorted() or sorted(Comparator.\*): 정렬
 - map : 각 요소를 순회
 - flatMap() : 배열을 제거
 - reduce(BinaryOperator) = reduce(초기값, (누적값, 요소)→{…}) : 요소를 하나씩 줄여가며 연산
@@ -47,18 +50,18 @@ Stream.of(1,2,3)
 
 ---
 
-- collect(Collectors.*)
-- Collectors.*
-    - toList(), toSet(), toCollection(), toArray() : 컬렉션으로 변환 (toCollections(ArrayList:new)
-    - toMap(p→p.getId(), p→p) : 맵은 키와 값으로 저장하므로 키와 값을 지정해줘야한다.
-    - counting(), summingInt(), averagingInt(), maxBy(), minBy()
-    - reducing()
-    - joining()
-    - groupBy()
-    - partitioningBy()
-    - comparingInt()
-    - collectingAndThen(?, Optional::get)
-    - mapping
+- collect(Collectors.\*)
+- Collectors.\*
+  - toList(), toSet(), toCollection(), toArray() : 컬렉션으로 변환 (toCollections(ArrayList:new)
+  - toMap(p→p.getId(), p→p) : 맵은 키와 값으로 저장하므로 키와 값을 지정해줘야한다.
+  - counting(), summingInt(), averagingInt(), maxBy(), minBy()
+  - reducing()
+  - joining()
+  - groupBy()
+  - partitioningBy()
+  - comparingInt()
+  - collectingAndThen(?, Optional::get)
+  - mapping
 
 ```java
 //partitioningBy()

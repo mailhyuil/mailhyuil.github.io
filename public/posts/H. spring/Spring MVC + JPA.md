@@ -33,6 +33,7 @@
 ```
 
 - servlet-context 에 추가
+
 ```xml
 <tx:annotation-driven/>
 
@@ -79,6 +80,7 @@
 ```
 
 - domain (vo)
+
 ```java
 @Entity
 @Table(name = "TBL_USER")
@@ -94,17 +96,18 @@ public class User {
 ```
 
 - repository (dao)
+
 ```java
 @Repository
 public class UserRepository {
-	
+
     @PersistenceContext
     EntityManager em;
-    
+
     public void save(User user) {
     	em.persist(user);
     }
-    
+
     public User findById(String username) {
     	return em.find(User.class, username);
     }
@@ -112,12 +115,13 @@ public class UserRepository {
 ```
 
 - service
+
 ```java
 @Service
 public class UserService {
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Transactional // transaction 처리 안하면 에러
     public String join(User user) {
         userRepository.save(user);
@@ -127,11 +131,12 @@ public class UserService {
 ```
 
 # JPQL
+
 ```java
-	Query query1 = em.createQuery("select u from User u where u.username = :username", User.class); 
+	Query query1 = em.createQuery("select u from User u where u.username = :username", User.class);
 	query1.setParameter("username", "sb"); // 선택이 아닌 필수
 	System.out.println("result1 : " + query1.getSingleResult());
-		 
+
 //	Query query2 = em.createQuery("select u from User u", User.class);
 //	System.out.println("result2 : " + query2.getResultList());
 ```
@@ -139,7 +144,9 @@ public class UserService {
 # QueryDSL
 
 1. pom.xml
+
 - dependency 추가
+
 ```xml
 <!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa -->
 <dependency>
@@ -157,6 +164,7 @@ public class UserService {
 ```
 
 - plugin 추가
+
 ```xml
 <plugin>
     <groupId>com.mysema.maven</groupId>
@@ -220,20 +228,21 @@ configurations {
 ```
 
 2. 기본 문법
+
 ```java
 //	JPAQuery<EntityManager> query = new JPAQuery<>(em);
     JPAQueryFactory queryFactory = new JPAQueryFactory(em);
-		  
+
 //	QUser user = new QUser("u");
 	QUser user = QUser.user;
-		  
+
 	User foundUser = (User) queryFactory
 //				  .selectFrom(qUser) // select + from
 				  .from(user)
 				  .where(user.username.eq("sb"))
 				  .orderBy(user.username.desc())
 				  .fetchOne();
-		  
+
 	System.out.println("result : " + foundUser);
 ```
 

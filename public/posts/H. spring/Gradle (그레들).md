@@ -1,19 +1,27 @@
 # Gradle (그레들)
-> Groovy 또는 Kotlin *도메인 특화 언어(DSL)을 사용하여 작성
->> DSL 특정한 도메인을 적용하는데 특화된 컴퓨터 언어
+
+> Groovy 또는 Kotlin \*도메인 특화 언어(DSL)을 사용하여 작성
+>
+> > DSL 특정한 도메인을 적용하는데 특화된 컴퓨터 언어
 
 ## print hello
+
 1. build.gradle 작성
+
 ```groovy
 task hello{  // hello 라는 태스크 정의
     println "Hello Gradle World!!" // {} 안에 처리내용 기술
 }
 ```
+
 2. gradle 실행
+
 ```bash
 gradle hello
 ```
+
 ## 빌드스크립트 구조
+
 allprojects { } = 이 프로젝트와 각 하위 프로젝트를 구성합니다.
 artifacts { } = 이 프로젝트에 대해 게시된 아티팩트를 구성합니다.
 buildscript { } = 이 프로젝트에 대한 빌드 스크립트 클래스 경로를 구성합니다.
@@ -24,8 +32,8 @@ sourceSets { } = 이 프로젝트의 소스 세트를 구성합니다.
 subprojects { } = 이 프로젝트의 하위 프로젝트를 구성합니다.
 publishing { } = PublishingExtension 게시 플러그인에 의한 추가된 항목을 구성합니다.
 
-
 ## build.gradle
+
 ```
 buildscript {
     // build.gradle에서 사용하는 전역변수 설정

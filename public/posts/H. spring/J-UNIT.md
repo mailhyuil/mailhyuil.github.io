@@ -1,5 +1,7 @@
 # Junit (유닛 테스트)
+
 ## spring-test & j-unit
+
 ```
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 <dependency>
@@ -10,8 +12,10 @@
 </dependency>
 
 ```
+
 - spring-test annotation
-> 필요한 설정만 따로 만들기!
+  > 필요한 설정만 따로 만들기!
+
 ```
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -38,11 +42,12 @@
 @Disabled
 ```
 
-```@WebMvcTest(.class)```
-```@AutoConfigureWebMvc```
-```@MockBean```
+`@WebMvcTest(.class)`
+`@AutoConfigureWebMvc`
+`@MockBean`
 
 - BDDMockito 객체
+
 ```
 new BDDMockito().given(bbsService.selectAll()).willReturn(
         new ArrayList<Bbs>()
@@ -50,6 +55,7 @@ new BDDMockito().given(bbsService.selectAll()).willReturn(
 ```
 
 - Assertions(단언) 객체 // 주로 static으로 선언
+
 ```
 //일반 단언
 assertEquals();
@@ -61,7 +67,9 @@ assertThat(a, is(a));
 assertThat(a, equalsTo(a));
 ...
 ```
+
 - 예외
+
 ```java
 @Test(expected=Exception.class)
 

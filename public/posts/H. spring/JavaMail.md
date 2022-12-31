@@ -1,12 +1,16 @@
 # Javamail
+
 - pom.xl
+
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-mail</artifactId>
 </dependency>
 ```
+
 - application.properties
+
 ```
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
@@ -15,7 +19,9 @@ spring.mail.password=poobzwctplkhoakc
 spring.mail.properties.mail.smtp.starttls.enable=true
 spring.mail.properties.mail.smtp.auth=true
 ```
+
 - pojo
+
 ```java
 @Service
 public class MailService {

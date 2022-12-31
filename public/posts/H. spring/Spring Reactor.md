@@ -38,9 +38,11 @@
     <version>2.13.3</version>
 </dependency>
 ```
+
 ## Observer pattern
+
 - Publisher(Provider)
-`Flux` `Mono`
+  `Flux` `Mono`
 - Subscriber(Consumer) // Publisher에게 데이터를 받을 객체
 - Subscription(Message) // Publisher가 보내는 데이터
 - Processor<T,R> // Publisher이면서 Subscriber T: Processor가 생산하는 원소타입 R: Processor가 소비하는 원소타입
@@ -71,14 +73,16 @@ Subscriber<Integer> subscriber = new Subscriber<>() {
 			public void onComplete() {
 				System.out.println("onComplete");
 			}
-			
+
 		};
 
 		Flux<Integer> seq = Flux.just(1,2,3);
 
 		seq.subscribe(sub);
 ```
+
 ## WebClient
+
 ```java
 WebClient webClient = WebClient.create("https://api.openweathermap.org/data/2.5/weather");
 

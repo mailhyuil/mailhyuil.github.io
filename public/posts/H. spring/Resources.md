@@ -1,6 +1,5 @@
 # Resources
 
-
 ## servlet-context.xml
 
 ```
@@ -8,6 +7,7 @@
 <resources mapping="/upload/**/*" location="file:///tmp/upload/" />
 <resources mapping="/node_modules/**/*" location="/node_modules/" />
 ```
+
 ## java-config
 
 ```
@@ -22,11 +22,12 @@ public class MvcConfig implements WebMvcConfigurer {
 ```
 
 ## application.yml
+
 ```yml
-spring: 
-    web:
-        resources:
-        static-locations: file:///c:/Temp/upload
-    mvc:
-        static-path-pattern: /upload/**
+spring:
+  web:
+    resources:
+    static-locations: file:///c:/Temp/upload
+  mvc:
+    static-path-pattern: /upload/**
 ```

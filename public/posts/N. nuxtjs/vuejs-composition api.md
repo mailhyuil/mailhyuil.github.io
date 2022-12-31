@@ -178,7 +178,6 @@ const dismiss = (val) => {
 <Inquiry
   :is-open="isInquiryOpen"
   @dismiss="dismiss"
-  @click="isInquiryOpen = true"
->
+  @click="isInquiryOpen = true">
 </Inquiry>
 ```

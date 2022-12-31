@@ -33,7 +33,7 @@
             <property name="javax.persistence.jdbc.user" value="test"/>
             <property name="javax.persistence.jdbc.password" value="1234"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-            
+
             <property name="hibernate.dialect" value="	org.hibernate.dialect.OracleDialect" />
 
             <!-- 옵션 -->
@@ -107,7 +107,7 @@ public static void logic(EntityManager em) {
 	em.persist(member);
 	Member findMember = em.find(Member.class, "0");
 	findMember.setUsername("영한");
-	
+
 	//수정
 	member.setAge(20);
 
@@ -117,7 +117,7 @@ public static void logic(EntityManager em) {
 
 	//목록 조회
 	List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
-	
+
 	for(Member member:members) {
 		System.out.println(member.getUsername());
 	}

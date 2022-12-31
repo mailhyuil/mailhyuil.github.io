@@ -22,6 +22,7 @@
 ## application.properties or application.yml
 
 ### Database(Oracle)
+
 ```
 spring.datasource.driver-class-name:oracle.jdbc.driver.OracleDriver
 spring.datasource.url:jdbc:oracle:thin:@localhost:1521:xe
@@ -38,6 +39,7 @@ spring:
 ```
 
 ### Database(MySQL)
+
 ```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
@@ -54,6 +56,7 @@ spring:
 ```
 
 ### Mybatis
+
 ```
 mybatis.type-aliases-package:com.example.demo.model
 mybatis.mapper-locations:mybatis/mapper/*.xml
@@ -65,6 +68,7 @@ mybatis:
 ```
 
 ### JPA(hibernate)
+
 ```
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 
@@ -92,7 +96,9 @@ spring:
           auto: create
 
 ```
+
 ### Slf4j
+
 ```
 logging:
   file:
@@ -105,4 +111,5 @@ logging:
 ```
 
 ## Working-Directory path 가져오기 (작업 디렉토리)
+
 `System.getProperty("user.dir")`

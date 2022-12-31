@@ -1,8 +1,12 @@
 # controller
+
 > Get(), Post(), Delete(), Patch(), Put() 데코레이터를 사용하여 매핑
->> @Param("id:) "/:id", @Query, @Body 데코레이터를 사용하여 값 바인딩
->>> @Render() 렌더링
->>>> @Redirect() 리다이렉트
+>
+> > @Param("id:) "/:id", @Query, @Body 데코레이터를 사용하여 값 바인딩
+> >
+> > > @Render() 렌더링
+> > >
+> > > > @Redirect() 리다이렉트
 
 ```js
 @Controller('movies')

@@ -29,25 +29,24 @@ useForm({
 <template>
   <div class="flex flex-col items-center">
     <h1 class="text-red-500">FormTest</h1>
-    <Form :validation-schema="schema" class="flex flex-col">
+    <Form
+      :validation-schema="schema"
+      class="flex flex-col">
       <Field
         class="px-4 my-4 border-2 rounded shadow-lg text-slate-500 font-bold text-3xl
             hover:ring ring-blue-300 linear duration-200"
-        name="email"
-      />
+        name="email" />
       <ErrorMessage name="email" />
       <Field
         class="px-4 my-4 border-2 rounded shadow-lg text-slate-500 font-bold text-3xl
             hover:ring ring-blue-300 linear duration-200"
-        name="name"
-      />
+        name="name" />
       <ErrorMessage name="name" />
       <Field
         class="px-4 my-4 border-2 rounded shadow-lg text-slate-500 font-bold text-3xl
             hover:ring ring-blue-300 linear duration-200"
         name="password"
-        type="password"
-      />
+        type="password" />
       <ErrorMessage name="password" />
       <button class="bg-blue-500 p-4 rounded">Submit</button>
     </Form>

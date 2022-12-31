@@ -13,7 +13,7 @@
 		<param-value>true</param-value>
 	</init-param>
 </filter>
-	
+
 <filter-mapping>
 	<filter-name>encKor</filter-name>
 	<url-pattern>*</url-pattern>

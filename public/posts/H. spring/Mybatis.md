@@ -1,6 +1,7 @@
 # Spring Mybatis 세팅 순서!
 
 ## pom.xml
+
 - mybatis
 - mybatis-spring
 - apache-commons(commons-dbcp2)
@@ -52,16 +53,18 @@
 ```
 
 ## web.xml
+
 ```xml
 <param-name>contextConfigLocation</param-name>
 <param-value>../*-context.xml</param-value>
 ```
 
-
 ## mybatis-context.xml
+
 - beans, context, mybatis-spring, tx
 
 - DataSource
+
 ```xml
 <bean id="mysqlDS" class="org.apache.commons.dbcp2.BasicDataSource"> <!-- mySQL -->
 	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -79,7 +82,9 @@
 	<property name="password" value="12341234" />
 </bean>
 ```
+
 - SQLSessionFactory
+
 ```xml
 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="oracleDS"></property>
@@ -96,28 +101,36 @@
 	</property>
 </bean>
 ```
+
 - SQLSessionTemplate
+
 ```xml
 <bean class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="sqlSession" />
 </bean>
 ```
+
 - package scan
+
 ```xml
 <mybatis-spring:scan base-package="com.sb.school.dao" /> <!-- Dao 위치 -->
 ```
 
-
 ## interface DAO 에서 작성시
+
 - SQL DAO에서 작성
+
 ```java
 @Select("SELECT * FROM tbl_student")
 public List<StudentVO> selectAll();
 ```
+
 > return값 `VO` or `int`
 
-## mapper/*-mapper.xml 에서 작성시
-- SQL *-mapper에서 작성
+## mapper/\*-mapper.xml 에서 작성시
+
+- SQL \*-mapper에서 작성
+
 ```xml
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -127,22 +140,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectAll" resultType="StudentVO">
 		SELECT * FROM tbl_student
 	</select>
-	
+
 	<select id="findById" resultType="StudentVO">
 		SELECT * FROM tbl_student WHERE st_num = #{st_num}
 	</select>
-	
+
 	<insert id="insert" parameterType="StudentVO">
 	 	<selectKey keyProperty="b_seq" resultType="Long" order="BEFORE">
- 			SELECT seq_bbs.NEXTVAL FROM DUAL	
+ 			SELECT seq_bbs.NEXTVAL FROM DUAL
  		</selectKey>
 		INSERT INTO tbl_student
 			(
-				st_num,	st_name, 
+				st_num,	st_name,
 				st_grade, st_addr,
 				st_tel
 			) VALUES (
-				#{st_num}, #{st_name}, 
+				#{st_num}, #{st_name},
 				#{st_grade}, #{st_addr},
 				#{st_tel}
 			)
@@ -150,15 +163,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  	<insert id="insertFiles" parameterType="FilesVO">
  		INSERT INTO tbl_images(
- 			i_seq, 
- 			i_bseq, 
- 			i_originalName, 
+ 			i_seq,
+ 			i_bseq,
+ 			i_originalName,
  			i_imageName
  		)
  		SELECT seq_image.NEXTVAL, SUB.* FROM (
  		<foreach collection="list" separator="UNION ALL" item="vo">
- 				SELECT	#{vo.i_bseq}, 
- 						#{vo.i_originalName}, 
+ 				SELECT	#{vo.i_bseq},
+ 						#{vo.i_originalName},
 	 					#{vo.i_imageName}
  				FROM DUAL
  		</foreach>
@@ -167,11 +180,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="update" parameterType="StudentVO">
 		UPDATE tbl_student SET
-				st_name = #{st_name}, 
-				st_grade = #{st_grade}, 
+				st_name = #{st_name},
+				st_grade = #{st_grade},
 				st_addr = #{st_addr},
 				st_tel = #{st_tel}
-		WHERE st_num = #{st_num} 
+		WHERE st_num = #{st_num}
 	</update>
 
 	<delete id="delete">
@@ -181,6 +194,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 ```
 
 ## resultMap
+
 ```xml
 <select id="findByIdScore" resultType="ScoreVO">
 	SELECT * FROM tbl_score
@@ -205,9 +219,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 ```
 
 ## class ServiceImpl implements Service
+
 - Service interface 구현
 
 - in Service..
+
 ```java
 private final DAO dao;
 
@@ -215,17 +231,21 @@ public ServiceImpl(DAO dao){
     this.dao = dao
 }
 ```
+
 - in Controller..
+
 ```java
 	@Autowired
 	@Qualifier("ServiceImpl")
 	private Service service;
 ```
+
 - spring boot scan
 
 `@MapperScan(value = {"com.sb.firstboot.persistence"})`
 
 - java config (mybatis-mapper)
+
 ```java
 @Autowired
 private SqlSessionTemplate sqlSession;
@@ -235,4 +255,5 @@ public UserDao userDao(){
 	return sqlSession.getMapper(UserDao.class);
 }
 ```
+
 ---

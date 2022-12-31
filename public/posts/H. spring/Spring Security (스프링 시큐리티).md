@@ -1,6 +1,7 @@
 # Spring Security (스프링시큐리티)
 
 ## web.xml filter 추가
+
 ```xml
 <filter>
     <filter-name>springSecurityFilterChain</filter-name>
@@ -16,25 +17,26 @@
 ```
 
 ## root-context 설정
+
 ```xml
 <sec:http auto-config="true" use-expressions="true">
 
     <sec:csrf disabled="false"/>
 
     <sec:intercept-url pattern="/static/**" access="permitAll" />
-    
+
     <sec:intercept-url pattern="/user/login" access="permitAll"/>
     <sec:intercept-url pattern="/user/join" access="permitAll"/>
     <sec:intercept-url pattern="/guest" access="permitAll"/>
     <sec:intercept-url pattern="/" access="permitAll"/>
     <sec:intercept-url pattern="/**" access="isAuthenticated()"/>
-    
-    <sec:form-login login-page="/user/login?error=LOGIN_NEED" 
+
+    <sec:form-login login-page="/user/login?error=LOGIN_NEED"
             login-processing-url="/user/login"
             username-parameter="username"
             password-parameter="password"/>
-    
-    <sec:logout 
+
+    <sec:logout
         invalidate-session="true"
         logout-success-url="/"
         delete-cookies="JSESSIONID"
@@ -45,11 +47,11 @@
     <sec:authentication-provider ref="authenticationProvider"/>
 </sec:authentication-manager>
 
-<!-- 
+<!--
 <sec:authentication-manager>
     <sec:authentication-provider>
         <sec:user-service>
-            <sec:user name="callor"  
+            <sec:user name="callor"
                     password="{noop}!korea8080" authorities="ROLE_ADMIN"/>
         </sec:user-service>
     </sec:authentication-provider>
@@ -58,20 +60,21 @@
 ```
 
 ## UserVO
+
 ```java
 public class UserVO implements UserDetails  {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String username;
 	private String password;
 	private boolean enabled;
 	private boolean accountNonExpired;
 	private boolean accountNonLocked;
 	private boolean credentialsNonExpired;
-	
+
 	private Collection<? extends GrantedAuthority> authorities;
-	
+
 	private String email;
 	private String tel;
 	private String realname;
@@ -80,6 +83,7 @@ public class UserVO implements UserDetails  {
 ```
 
 ## AuthorityVO
+
 ```java
 public class AuthorityVO {
 	private long seq;
@@ -89,6 +93,7 @@ public class AuthorityVO {
 ```
 
 ## UserDetailsServiceImpl
+
 ```java
 public class UserDetailsServiceImpl implements UserDetailsService{
 
@@ -113,7 +118,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		List<AuthorityVO> authList = userDao.select_auths(username);
 
 		List<GrantedAuthority> grantList = new ArrayList<>();
-		
+
 		for(AuthorityVO auth : authList) {
 			grantList.add(new SimpleGrantedAuthority(auth.getAuthority()));
 		}
@@ -134,25 +139,25 @@ public class AuthenticationProviderImpl implements AuthenticationProvider{
 	@Autowired
 	@Qualifier("userDetailsService")
 	UserDetailsService userService;
-	
+
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String username = (String) authentication.getPrincipal();
 		String password = (String) authentication.getCredentials();
-		
+
 		UserVO user = (UserVO) userService.loadUserByUsername(username);
-		
+
 		if(user == null) {
 			throw new UsernameNotFoundException(username + "은 존재하지 않은 아이디입니다.");
 		}
-		
+
 		if(user.getPassword().equals(password) == false) {
 			throw new BadCredentialsException("비밀번호가 틀립니다");
 		}
-		
+
 		UsernamePasswordAuthenticationToken
 		token = new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
-		
+
 		return token;
 	}
 
@@ -165,7 +170,9 @@ public class AuthenticationProviderImpl implements AuthenticationProvider{
 ```
 
 ## spring-boot-security-config
+
 ### old version
+
 ```java
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -196,8 +203,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 }
 ```
+
 ### new version
+
 - HttpSecurity
+
 ```java
 @Configuration
 public class SecurityConfiguration {
@@ -214,7 +224,9 @@ public class SecurityConfiguration {
 
 }
 ```
+
 - WebSecurityCustomizer
+
 ```java
 @Configuration
 public class SecurityConfiguration {

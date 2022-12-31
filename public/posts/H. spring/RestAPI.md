@@ -17,7 +17,7 @@ public String getAPI() {
 		httpCon = (HttpURLConnection) url.openConnection();
 		httpCon.setRequestMethod("GET");
 		int resCode = httpCon.getResponseCode();
-		
+
 		InputStreamReader is = null;
 		BufferedReader buffer = null;
 
@@ -57,10 +57,13 @@ public String getAPI() {
 - ObjectMapper는 API의 데이터를 VO에 매핑시켜주는 역할을 한다
 
 * 선언하지 않은 Property 무시하기
+
 ```
 @JsonIgnoreProperties(ignoreUnknown = true)
 ```
-* ObjectMapper
+
+- ObjectMapper
+
 ```
 ObjectMapper mapper = new ObjectMapper(); // Json to VO, String to VO, String to Json ...
 
@@ -78,25 +81,26 @@ mapper.getFactory().configure(JsonWriteFeature.ESCAPE_NON_ASCII.mappedFeature(),
 
 ```java
 HttpHeaders headers = new HttpHeaders();
-		
+
 headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-		
+
 HttpEntity<String> entity = new HttpEntity<String>("parameter", headers);
 // 헤더에 넣은 데이터를 엔티티로 변환 * 헤더에 넣을 데이터가 없다면 null로 설정
-		
+
 RestTemplate restTemplate  = new RestTemplate();
-		
+
 ResponseEntity<MovieParent<MoviesVO>> respEntity =
 restTemplate.exchange(
-		uri, 
+		uri,
 		HttpMethod.GET,
 		entity,
 		new ParameterizedTypeReference<MovieParent<MoviesVO>>() {});
-		
+
 model.addAttribute("VO", respEntity.getBody().data.getMovie());
 ```
 
 - VO 객체
+
 ```java
 public class MoviesVO {
 	private int id;
@@ -106,6 +110,7 @@ public class MoviesVO {
 ```
 
 - Parent 객체
+
 ```java
 public class MovieParent<VO> {
 	public String status;
@@ -115,9 +120,11 @@ public class MovieParent<VO> {
 ```
 
 ## RestTemplate 302 응답값 받기
+
 > 302 : redirect 상태 // restTemplate은 기본으로 302시 redirect된 응답값을 보내는게 아니라 redirect 정보를 받는다
 
 - Apache HttpClient dependency 추가
+
 ```xml
 <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
 <dependency>
@@ -128,6 +135,7 @@ public class MovieParent<VO> {
 ```
 
 - Redirect 전략 변경
+
 ```java
 RestTemplate restTemplate = new RestTemplate();
 
@@ -143,6 +151,7 @@ restTemplate.setRequestFactory(factory);
 ```
 
 ## WebClient
+
 ```java
 WebClient webClient = WebClient.create("https://api.openweathermap.org/data/2.5/weather");
 

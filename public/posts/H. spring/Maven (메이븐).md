@@ -1,4 +1,5 @@
 # Maven (메이븐)
+
 ```
 mvn update
 
@@ -12,6 +13,7 @@ mvn package
 ```
 
 - 패키지 war파일 이름
+
 ```xml
 <build>
     <finalName>ROOT</finalName>
@@ -19,6 +21,7 @@ mvn package
 ```
 
 - test skip
+
 ```xml
 <properties>
    <maven.test.skip>true</maven.test.skip>

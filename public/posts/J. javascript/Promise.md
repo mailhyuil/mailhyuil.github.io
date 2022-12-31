@@ -10,7 +10,7 @@
 
 ## 콜백지옥
 
-```
+```js
 import fs from "fs";
 
 fs.readFile("./README.md", "utf-8", (err, data) => {
@@ -33,27 +33,10 @@ fs.readFile("./README.md", "utf-8", (err, data) => {
 ## resolve
 
 > resolve(data)는 data를 .then의 콜백함수에 전달
+>
+> > then의 콜백함수에서 값을 리턴하면 다음 then으로 잡아서 처리할 수 있다.
 
-```
-import fs from "fs";
-
-const promise = () =>
-  new Promise((resolve, reject) => {
-    fs.readFile("./README.md", "utf-8", (err, data) => {
-      resolve(data); // data를 .then의 콜백함수에 전달
-    });
-  });
-
-promise().then((data) => console.log(data, 1));
-promise().then((data) => console.log(data, 2));
-promise().then((data) => console.log(data, 3));
-```
-
-## then 콜백함수의 리턴
-
-> then의 콜백함수에서 값을 리턴하면 다음 then으로 잡아서 처리할 수 있다.
-
-```
+```js
 import fs from "fs";
 
 const promise = () =>
@@ -75,7 +58,7 @@ promise()
 
 > reject(error)는 error를 .catch의 콜백함수에 전달
 
-```
+```js
 import fs from "fs";
 
 const promise = () =>

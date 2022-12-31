@@ -20,7 +20,7 @@ public class Pagination {
         this.LIST_SIZE = LIST_SIZE;
 
         this.theLastPage = (int) Math.ceil(totalListSize / (double) LIST_SIZE); // * int값으로만 나누면 자동 형변환 돼버린다
-        
+
         this.currentPage = currentPage;
 
         this.endPage = (int) (Math.ceil(currentPage / (double) PAGE_SIZE)) * PAGE_SIZE;
@@ -53,6 +53,7 @@ public class Pagination {
 ```
 
 ## controller
+
 ```java
 @GetMapping("/board")
 public String board(Model model,
@@ -70,58 +71,70 @@ public String board(Model model,
 ```
 
 ## view
+
 ```html
 <ul style="list-style:none; display: flex">
-    <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-            th:onclick="|location.href = '/bbs/board?page=1'|">&#60;&#60;</a>
+  <li
+    style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+    <a th:onclick="|location.href = '/bbs/board?page=1'|">&#60;&#60;</a>
+  </li>
+  <th:block th:if="${pagination.prev}">
+    <li
+      style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+      <a th:onclick="|fn_prev(${pagination.currentPage})|">&#60;</a>
     </li>
-    <th:block th:if="${pagination.prev}">
-        <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-                th:onclick="|fn_prev(${pagination.currentPage})|">&#60;</a>
-        </li>
-    </th:block>
-    <th:block th:each="index:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
-        <li th:style="|padding:.5rem 1rem;margin:2px;color:white;${pagination.currentPage==index?'background-color:red':'background-color:skyblue'}|">
-            <a th:onclick="|fn_pagination(${index})|"
-               th:text="${index}"></a>
-        </li>
-    </th:block>
-    <th:block th:if="${pagination.next}">
-        <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-                th:onclick="|fn_next(${pagination.currentPage})|">&#62;</a>
-        </li>
-    </th:block>
-    <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-            th:onclick="|location.href = '/bbs/board?page=${pagination.theLastPage}'|">&#62;&#62;</a>
+  </th:block>
+  <th:block
+    th:each="index:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+    <li
+      th:style="|padding:.5rem 1rem;margin:2px;color:white;${pagination.currentPage==index?'background-color:red':'background-color:skyblue'}|">
+      <a
+        th:onclick="|fn_pagination(${index})|"
+        th:text="${index}"></a>
     </li>
+  </th:block>
+  <th:block th:if="${pagination.next}">
+    <li
+      style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+      <a th:onclick="|fn_next(${pagination.currentPage})|">&#62;</a>
+    </li>
+  </th:block>
+  <li
+    style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+    <a
+      th:onclick="|location.href = '/bbs/board?page=${pagination.theLastPage}'|"
+      >&#62;&#62;</a
+    >
+  </li>
 </ul>
 
 <script>
-    function fn_prev(currentPage) {
-        var page = currentPage - 1;
-        var url = "/bbs/board";
-        url = url + "?page=" + page;
-        location.href = url;
-    }
+  function fn_prev(currentPage) {
+    var page = currentPage - 1;
+    var url = "/bbs/board";
+    url = url + "?page=" + page;
+    location.href = url;
+  }
 
-    function fn_pagination(page) {
-        var url = "/bbs/board";
-        url = url + "?page=" + page;
-        location.href = url;
-    }
+  function fn_pagination(page) {
+    var url = "/bbs/board";
+    url = url + "?page=" + page;
+    location.href = url;
+  }
 
-    function fn_next(currentPage) {
-        var page = currentPage + 1;
-        var url = "/bbs/board";
-        url = url + "?page=" + page;
-        location.href = url;
-    }
+  function fn_next(currentPage) {
+    var page = currentPage + 1;
+    var url = "/bbs/board";
+    url = url + "?page=" + page;
+    location.href = url;
+  }
 </script>
 ```
 
 # 페이징 처리 + 검색
 
 ## pagination 처리용 객체 + search 필드
+
 ```java
 public class Pagination {
     private String search = "";
@@ -164,6 +177,7 @@ public class Pagination {
 ```
 
 ## mySQL pagination query + search query
+
 ```xml
 <select id="getBoardListCnt" resultType="int">
     select count(*) as listCnt
@@ -186,6 +200,7 @@ public class Pagination {
 ```
 
 - controller + search
+
 ```java
 @GetMapping("/board")
 public String board(Model model,
@@ -202,67 +217,83 @@ public String board(Model model,
 ```
 
 ## view + search
+
 ```html
 <form>
-    <input type="text" name="search" th:value="${pagination.search}"> // 검색어를 유지시키기 위해 value 값에 넣어두기
-    <button>검색</button>
+  <input
+    type="text"
+    name="search"
+    th:value="${pagination.search}" />
+  // 검색어를 유지시키기 위해 value 값에 넣어두기
+  <button>검색</button>
 </form>
 
 <ul style="list-style:none; display: flex">
-    <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-            th:onclick="|location.href = '/bbs/board?page=1'|">&#60;&#60;</a>
+  <li
+    style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+    <a th:onclick="|location.href = '/bbs/board?page=1'|">&#60;&#60;</a>
+  </li>
+  <th:block th:if="${pagination.prev}">
+    <li
+      style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+      <a th:onclick="|fn_prev(${pagination.currentPage})|">&#60;</a>
     </li>
-    <th:block th:if="${pagination.prev}">
-        <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-                th:onclick="|fn_prev(${pagination.currentPage})|">&#60;</a>
-        </li>
-    </th:block>
-    <th:block th:each="index:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
-        <li th:style="|padding:.5rem 1rem;margin:2px;color:white;${pagination.currentPage==index?'background-color:red':'background-color:skyblue'}|">
-            <a th:onclick="|fn_pagination(${index})|"
-               th:text="${index}"></a>
-        </li>
-    </th:block>
-    <th:block th:if="${pagination.next}">
-        <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-                th:onclick="|fn_next(${pagination.currentPage})|">&#62;</a>
-        </li>
-    </th:block>
-    <li style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;"><a
-            th:onclick="|location.href = '/bbs/board?page=${pagination.theLastPage}'|">&#62;&#62;</a>
+  </th:block>
+  <th:block
+    th:each="index:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+    <li
+      th:style="|padding:.5rem 1rem;margin:2px;color:white;${pagination.currentPage==index?'background-color:red':'background-color:skyblue'}|">
+      <a
+        th:onclick="|fn_pagination(${index})|"
+        th:text="${index}"></a>
     </li>
+  </th:block>
+  <th:block th:if="${pagination.next}">
+    <li
+      style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+      <a th:onclick="|fn_next(${pagination.currentPage})|">&#62;</a>
+    </li>
+  </th:block>
+  <li
+    style="padding:.5rem 1rem;margin:2px;background-color:skyblue;color:white;">
+    <a
+      th:onclick="|location.href = '/bbs/board?page=${pagination.theLastPage}'|"
+      >&#62;&#62;</a
+    >
+  </li>
 </ul>
 
 /* 현재 페이지를 바꿔도 검색어 유지되게 */
 <script th:inline="javascript">
-    /*<![CDATA[*/
-    function fn_prev(currentPage) {
-        var page = currentPage - 1;
-        var url = "/bbs/board";
-        url = url + "?page=" + page;
-        url = url + "&search="+ [[${pagination.search}]];
-        location.href = url;
-    }
+  /*<![CDATA[*/
+  function fn_prev(currentPage) {
+      var page = currentPage - 1;
+      var url = "/bbs/board";
+      url = url + "?page=" + page;
+      url = url + "&search="+ [[${pagination.search}]];
+      location.href = url;
+  }
 
-    function fn_pagination(page) {
-        var url = "/bbs/board";
-        url = url + "?page=" + page;
-        url = url + "&search="+ [[${pagination.search}]];
-        location.href = url;
-    }
+  function fn_pagination(page) {
+      var url = "/bbs/board";
+      url = url + "?page=" + page;
+      url = url + "&search="+ [[${pagination.search}]];
+      location.href = url;
+  }
 
-    function fn_next(currentPage) {
-        var page = currentPage + 1;
-        var url = "/bbs/board";
-        url = url + "?page=" + page;
-        url = url + "&search="+ [[${pagination.search}]];
-        location.href = url;
-    }
-    /*]]>*/
+  function fn_next(currentPage) {
+      var page = currentPage + 1;
+      var url = "/bbs/board";
+      url = url + "?page=" + page;
+      url = url + "&search="+ [[${pagination.search}]];
+      location.href = url;
+  }
+  /*]]>*/
 </script>
 ```
 
 ## QueryDsl
+
 ```java
 QueryModifiers queryModifiers = new QueryModifiers(20L, 10L); //limit, offset
 List<Item> list = query

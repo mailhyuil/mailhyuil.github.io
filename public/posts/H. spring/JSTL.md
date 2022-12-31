@@ -1,6 +1,7 @@
 # JSTL
 
 - forEach에서 변수 두개 사용하기
+
 ```jsp
 <c:forEach items="${CLASS}" var="CLASS" varStatus="status">
     <c:set var="SCHE" value="${SCHE}"/>

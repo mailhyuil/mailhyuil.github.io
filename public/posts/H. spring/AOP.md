@@ -1,30 +1,47 @@
 # AOP
+
 > Aspected Oriented Programming 관점 지향 프로그래밍
->> 부가기능을 분리
->>> 비즈니스 논리에 집중할 수 있도록 다른 코드를 분리하는 것
->>>> 프록시 패턴, 데코레이터 패턴 사용
+>
+> > 부가기능을 분리
+> >
+> > > 비즈니스 논리에 집중할 수 있도록 다른 코드를 분리하는 것
+> > >
+> > > > 프록시 패턴, 데코레이터 패턴 사용
 
 ## 용어
+
 ### JoinPoint : 코드가 들어갈 위치
->메소드가 호출되는 부분 또는 리턴되는 부분
->>인스턴스가 만들어지는 지점
->>>예외가 던져지는 지점
->>>>클래스가 초기화 되는 곳(별도의 init메소드가 호출될때) 
+
+> 메소드가 호출되는 부분 또는 리턴되는 부분
+>
+> > 인스턴스가 만들어지는 지점
+> >
+> > > 예외가 던져지는 지점
+> > >
+> > > > 클래스가 초기화 되는 곳(별도의 init메소드가 호출될때)
+
 ### Pointcut : 특정 Joinpoint를 골라내는 코드를 담은 오브젝트 // 메소드 선정 알고리즘을 담은 오브젝트
+
 ### Advice : 각 Joinpoint에 삽입되어 동작할 코드를 담은 오브젝트
+
 1. Before Advice : Joinpoint 전에 실행
 2. Around Advice : Joinpoint 앞과 뒤에서 실행
 3. After Returning Advice : Joinpoint 메소드가 리턴될시 실행. Return된 object에 접근가능
 4. After Advice : Joinpoint후에 무조건 실행됨(예외발생시에도 실행. finally와 유사함.)
 5. After Throwing Advice : Jointpoint 메소드 실행중 예외발생시 실행
+
 ### Weaving : Pointcut에 의해서 결정된 Joinpoint에 지정된 Advice 를 삽입하는 과정
+
 1. 컴파일시에 Weaving하기
 2. 클래스 로딩 시에 Weaving하기
 3. 런타임시에 Weaving하기
+
 ### Adviser : Pointcut + Advice // 어드바이스와 포인트컷을 묶은 오브젝트
 
 ## 동작원리
+
 > UserService -> UserServiceTx -> UserServiceImpl
+
 ```java
 @Service
 public class UserServiceTx implements UserService{ // 프록시 객체
@@ -40,6 +57,7 @@ public class UserServiceTx implements UserService{ // 프록시 객체
     }
 }
 ```
+
 ```java
 @Controller
 public class Controller{
@@ -48,8 +66,11 @@ public class Controller{
 ```
 
 ## 다이내믹 프록시
+
 > API를 이용해 프록시처럼 동작하는 오브젝트를 다이내믹하게 생성하는 것
->> InvocationHandler 인터페이스 or FactoryBean 구현하여 사용
+>
+> > InvocationHandler 인터페이스 or FactoryBean 구현하여 사용
+
 ```java
 public class TransactionHandler implements InvocationHandler {
   private Object target;

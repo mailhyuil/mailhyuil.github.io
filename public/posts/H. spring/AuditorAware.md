@@ -1,9 +1,11 @@
 # AuditorAware
+
 > AuditorAware 인터페이스를 상속시켜서 @EntityListeners가 들을 수 있게
 
->@CreatedBy @LastModifiedBy @CreatedDate @LastModifiedDate를 사용하기 위해 설정
+> @CreatedBy @LastModifiedBy @CreatedDate @LastModifiedDate를 사용하기 위해 설정
 
 1. auditing 켜기
+
 ```
 @EnableJpaAuditing
 or
@@ -32,6 +34,7 @@ public class AwareAuditConfig implements AuditorAware<String> {
 ```
 
 3. AuditorAware Bean 등록
+
 ```java
 @Bean
 public AuditorAware<String> auditorAware(){

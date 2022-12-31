@@ -1,11 +1,14 @@
 # ActiveMQ
+
 - apache-ActiveMQ 설치
 
 - ActiveMQQueue, ActiveMQConnectionFactory, JMSTemplate
-> spring.activemq.broker-url = tcp://localhost:61616
-> jmsTemplate.convertAndSend(queue, json) -> ActiveMQ -> @JMSListener(destination="queue")
+
+  > spring.activemq.broker-url = tcp://localhost:61616
+  > jmsTemplate.convertAndSend(queue, json) -> ActiveMQ -> @JMSListener(destination="queue")
 
 - application.yml
+
 ```yml
 spring:
   activemq:
@@ -13,6 +16,7 @@ spring:
 ```
 
 ## config
+
 ```java
 @Configuration
 @EnableJms
@@ -42,6 +46,7 @@ public class ActiveMQConfig {
 ```
 
 ### producer
+
 ```java
 @RestController
 @RequestMapping("/produce")
@@ -67,7 +72,9 @@ public class Producer {
     }
 }
 ```
+
 ### consumer
+
 ```java
 @Component
 public class Consumer {
