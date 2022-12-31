@@ -13,6 +13,7 @@
 ```
 
 3. tsconfig.json
+   > tsc --optionName 대신 tsconfig.json의 설정을 읽어서 실행시킬 수 있다.
 
 ```json
 {
@@ -24,17 +25,6 @@
     "strict": true,
     "allowJs": true
   }
-}
-```
-
-4. \*.d.ts
-   > 타입스크립트 선언 파일
-   >
-   > > 코드의 타입 추론을 돕는 파일
-
-```ts
-declare module "myPackage" {
-  function init(config: Config): boolean;
 }
 ```
 
