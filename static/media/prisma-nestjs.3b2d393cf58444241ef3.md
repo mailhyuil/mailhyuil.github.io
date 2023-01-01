@@ -4,9 +4,9 @@
 
 ## prisma.service.ts
 
-```
-import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+```ts
+import { INestApplication, Injectable, OnModuleInit } from "@nestjs/common";
+import { PrismaClient } from "@prisma/client";
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
@@ -15,7 +15,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
   }
 
   async enableShutdownHooks(app: INestApplication) {
-    this.$on('beforeExit', async () => {
+    this.$on("beforeExit", async () => {
       await app.close();
     });
   }
@@ -32,17 +32,17 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 > > >
 > > > > 리턴값 Promise<>
 
-```
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from './prisma.service';
-import { User, Prisma } from '@prisma/client';
+```ts
+import { Injectable } from "@nestjs/common";
+import { PrismaService } from "./prisma.service";
+import { User, Prisma } from "@prisma/client";
 
 @Injectable()
 export class UserService {
   constructor(private prisma: PrismaService) {} // prismaService injection
 
   async user(
-    userWhereUniqueInput: Prisma.UserWhereUniqueInput,
+    userWhereUniqueInput: Prisma.UserWhereUniqueInput
   ): Promise<User | null> {
     return this.prisma.user.findUnique({
       where: userWhereUniqueInput,

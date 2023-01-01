@@ -70,16 +70,16 @@ npm install @prisma/client
 
 ### script.ts
 
-```
-import { PrismaClient } from '@prisma/client';
+```ts
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
   const user = await prisma.user.create({
     data: {
-      name: 'Alice',
-      email: 'alice@prisma.io',
+      name: "Alice",
+      email: "alice@prisma.io",
     },
   });
   console.log(user);
