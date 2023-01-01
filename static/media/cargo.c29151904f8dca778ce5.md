@@ -39,3 +39,13 @@ cargo build
 ```
 cargo build --release
 ```
+
+## run
+
+> 실행시켜주는 명령어
+>
+> > 자동으로 빌드를 하고 실행시켜준다
+
+```
+cargo run
+```
