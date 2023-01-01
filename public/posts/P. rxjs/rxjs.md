@@ -9,3 +9,31 @@
 ## 데이터 스트림
 
 > 변화의 전파
+> Observable = publisher = subject
+> Observer = consumer
+
+## 사용법
+
+> 비동기 함수의 콜백함수 내에서 실행(subscribe)
+>
+> > Operators를 사용하여 중간연산
+> >
+> > > subscribe는 최종연산
+
+```
+import { Observable } from "rxjs/internal/Observable";
+import fs from "fs";
+
+const observable = new Observable((observer) => {
+  observer.next(1);
+  observer.complete();
+});
+
+fs.readFile("README.md", "utf-8", (err, data) => {
+  observable.subscribe({
+    next: (x) => console.log(data, x),
+    error: (y) => console.error(err, y),
+    complete: () => console.log("completed!"),
+  });
+});
+```
