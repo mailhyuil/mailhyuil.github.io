@@ -22,6 +22,8 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 }
 ```
 
+## prisa.service를 user.module.ts의 provider에 넣기
+
 ## user.service.ts
 
 > prismaService 주입
@@ -90,3 +92,5 @@ export class UserService {
   }
 }
 ```
+
+## user.controller.ts

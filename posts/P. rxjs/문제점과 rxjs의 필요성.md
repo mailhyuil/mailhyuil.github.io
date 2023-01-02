@@ -13,7 +13,7 @@
    >
    > > Promise는 불변이라 취소를 할 수 없습니다.
 
-# Rxjs의 필요성
+## Rxjs의 필요성
 
 > for나 while같은 반복문은 비동기를 인식하지 못하므로 제대로 작동하지 않습니다.
 >
@@ -26,3 +26,32 @@
 > > > > > 시스템 과부화
 > > > > >
 > > > > > > 메모리 누수
+
+## rxjs 사용 이유
+
+1. 순수성
+2. 이벤트나 데이터가 흐르는 과정을 제어(pipe)
+3. 결과 값을 각 단계별로 가공하는 과정을 거쳐 원하는 형태의 데이터가 반환되도록 할 수 있다.(pipe)
+
+## rxjs 순서
+
+1. Observable생성 콜백함수 내에서 fetch(비동기함수) 호출
+2. next()에 데이터 넣기
+
+```
+const observable = new Observable((observer) => {
+  fs.readFile("README.md", "utf-8", (err, data) => {
+    observer.next(data);
+  });
+});
+```
+
+3. .subscribe({next:콜백, complete:콜백, error:콜백})
+
+```
+observable.subscribe({
+  next: (data) => {
+    console.log(data);
+  },
+});
+```
