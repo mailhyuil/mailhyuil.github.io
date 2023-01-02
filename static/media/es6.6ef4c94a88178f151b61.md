@@ -11,7 +11,38 @@ array.map((e) => {
 ## reduce
 
 ```js
-array.reduce((누적값, 현잿값, 인덱스, 요소) => {…}, 초깃값);
+array.reduce((누적값, 현잿값, 인덱스, array) => {…}, 초깃값);
+
+const arr = [1, 2, 3, 4, 5, 6];
+
+arr.reduce((a, b, c, d) => {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+  console.log(d);
+});
+/* result
+1 // 누적값
+2 // 현잿값
+1 // 인덱스
+[ 1, 2, 3, 4, 5, 6 ] // arr
+undefined
+3
+2
+[ 1, 2, 3, 4, 5, 6 ]
+undefined
+4
+3
+[ 1, 2, 3, 4, 5, 6 ]
+undefined
+5
+4
+[ 1, 2, 3, 4, 5, 6 ]
+undefined
+6
+5
+[ 1, 2, 3, 4, 5, 6 ]
+*/
 ```
 
 ## filter
