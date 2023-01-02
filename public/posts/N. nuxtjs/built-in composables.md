@@ -10,7 +10,21 @@
 
 ## useFetch
 
-> useAsyncData와 $fetch를 감싼 래퍼 객체를 제공
+> useAsyncData 와 $fetch의 Wrapper
+>
+> > fetch와 사용법은 같다
+> >
+> > > option {pick:[]}을 이용해서 원하는 데이터만 추출할 수 있다.
+
+```
+const getMovies = async () => {
+  const { data } = await useFetch(
+    `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=year/`,
+    { pick: ["data"] }
+  );
+  console.log(data);
+};
+```
 
 ## useLazyAsyncData
 

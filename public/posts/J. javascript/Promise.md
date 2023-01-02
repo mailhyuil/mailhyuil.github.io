@@ -73,3 +73,30 @@ promise()
   .then((data) => console.log(data, 1))
   .catch((err) => console.error(err));
 ```
+
+## to make async function
+
+1. Promise를 리턴시키기
+2. async 키워드 사용하기
+
+```
+const a = async () => {
+  return 1;
+};
+const b = async () => {
+  return 2;
+};
+const c = async () => {
+  return 3;
+};
+const d = async () => {
+  const data = Promise.all([a(), b(), c()]);
+  return data;
+};
+
+d().then((e) => {
+  console.log(e);
+});
+
+console.log("this is called first");
+```
