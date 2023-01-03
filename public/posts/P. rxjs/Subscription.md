@@ -1,11 +1,16 @@
 # Subscription
 
-> 일회성 객체
+> .subscribe는 subscription 객체를 리턴한다
 >
-> > Observable의 실행 객체
-
-## 구성
+> > subscription.unsubscribe() 함수를 사용해서 구독을 취소 할 수 있다.
 
 ```
+import { interval } from 'rxjs';
+
+const observable = interval(1000);
 const subscription = observable.subscribe(x => console.log(x));
+// Later:
+// This cancels the ongoing Observable execution which
+// was started by calling subscribe with an Observer.
+subscription.unsubscribe();
 ```
