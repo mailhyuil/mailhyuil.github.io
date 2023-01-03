@@ -16,6 +16,16 @@
 > >
 > > > option {pick:[]}을 이용해서 원하는 데이터만 추출할 수 있다.
 
+### 옵션 lazy
+
+> useLazyFetch를 사용한 것과 같다
+>
+> > true 데이터를 들어오지 않아도 렌더한다.
+> >
+> > > false 데이터가 들어오지 않으면 렌더하지 않는다.
+> > >
+> > > > true 상태면 loading.. 을 띄울 수 있다.
+
 ```
 const getMovies = async () => {
   const { data } = await useFetch(
@@ -26,17 +36,38 @@ const getMovies = async () => {
 };
 ```
 
+### useFetch pending
+
+> fetch를 기다리는 동안 pending property는 true
+>
+> > fetch가 되면 false로 바뀜
+> >
+> > > SSR이라면 fetch가 이미 되서 가져오기 때문에 항상 false임
+
+#### pending property 뽑기
+
+```
+const {pending, data} = await useFetch();
+```
+
+#### template에서 사용
+
+```
+<div v-if="pending">Loading....</div>
+<div v-else v-for="i of data?.data.movies">
+  <h1>{{ i.id }}</h1>
+  <h1>{{ i.title }}</h1>
+  <img :src="i.medium_cover_image" />
+</div>
+```
+
 ## useLazyAsyncData
 
 > 핸들러가 찾아지기 전에 useAsyncData를 감싼 래퍼객체를 반환
->
-> > lazy 옵션이 true일 때
 
 ## useLazyFetch
 
 > useFetch를 감싼 래퍼객체 반환
->
-> > lazy 옵션이 true일 때
 
 ## useCookie
 

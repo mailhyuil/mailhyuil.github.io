@@ -65,3 +65,35 @@ type NameTypes = {
 
 const yc: NameTypes = { firstName: 'hi', lastName: 'yc' }
 ```
+
+## 인터페이스나 타입으로 미리 만들기
+
+```
+interface Movie {
+  id: number;
+  title: string;
+  medium_cover_image: string;
+}
+```
+
+## 제네릭 안에서 선언
+
+```
+<{
+  id: number;
+  title: string;
+  medium_cover_image: string;
+}>
+
+ // or
+
+<{
+  "@meta": any;
+  data: {
+    limit: number;
+    movie_count: number;
+    movies: Movie[];
+    page_number: 1;
+  };
+}>
+```
