@@ -3,15 +3,15 @@
 ## 생성
 
 ```
-let s = String::from("hello")
+let s = String::from("hello");
 ```
 
 ## 변경
 
 ```
-let must s = String::from("hello")
+let mut s = String::from("hello");
 
-s.push_str("w")
+s.push_str("w");
 
-println!("{}", s) // hellow
+println!("{}", s); // hellow
 ```
