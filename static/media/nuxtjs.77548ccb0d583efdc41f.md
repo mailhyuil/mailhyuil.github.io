@@ -57,11 +57,3 @@ npx nuxi init <project-name>
   </div>
 </template>
 ```
-
-## components
-
-## composables
-
-## stores
-
-## assets

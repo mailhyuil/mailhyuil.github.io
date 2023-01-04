@@ -1,5 +1,7 @@
 # get started
 
+> Visual Studio Build Tools를 설치해야 빌드 가능
+
 ## rustup
 
 ```

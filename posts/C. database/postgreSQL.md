@@ -64,5 +64,6 @@ select 컬럼 from 테이블 where 조건;
 
 ```
 \h help
+\c database 연결
 \dt 테이블 보기
 ```

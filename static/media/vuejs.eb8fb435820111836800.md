@@ -136,34 +136,36 @@ update:title
 
 ### v-slot
 
-> #slotname
+> 컴포넌트 재사용할 때 유용한 기능!
+>
+> > slot이 두개일 땐 네임을 붙이고 템플릿으로 가져오기
+> >
+> > > #slotname
 
-#### Slot.vue
+#### Name.vue
 
 ```
-<script lang="ts" setup>
-</script>
 <template>
     <button class="p-2 bg-red-500">
-        <slot name="slot1" />
+        <slot />
     </button>
     <button class="p-2 bg-blue-500">
-        <slot name="slot2" />
+        <slot name="slotName" />
     </button>
 </template>
 ```
 
-#### index.vue
+#### other.vue
 
 ```
-<Slot>
-    <template #slot1>
-        slot 1
-    </template>
-    <template #slot2>
-        slot 2
-    </template>
-</Slot>
+<Name>
+  <template>
+//  "이름이 없는 <slot/>으로 들어갑니다."
+  </template>
+  <template #slotName>
+//  "<slot name="slotName"/>으로 들어갑니다."
+  </template>
+</Name>
 ```
 
 ### v-pre
