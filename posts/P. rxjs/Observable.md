@@ -14,9 +14,7 @@ new Observable((observer)=>{
 
 ## of
 
-> Converts the arguments to an observable sequence.
->
-> > of(1,2,3)는 observer.next(1), observer.next(2), observer.next(3)과 같다
+> 단일 동기
 
 ```
 of([1, 2, 3, 4]).subscribe({
@@ -31,6 +29,18 @@ of([1, 2, 3, 4]).subscribe({
   },
 });
 ```
+
+## from
+
+> 다중 동기
+
+## fromPromise
+
+> 단일 비동기
+
+## fromEvent
+
+> 다중 비동기
 
 ## class
 
