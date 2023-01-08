@@ -1,6 +1,8 @@
 # typescript에서 js 사용
 
 > javascript로 작성된 파일은 타입지정이 안되어있기에 에러가 발생한다
+>
+> > @types/패키지를 설치하고 ts파일로 작성하면 타입을 읽을 수 있다.
 
 ## @types
 
@@ -12,11 +14,17 @@
 npm i @types/<package>
 ```
 
-## \*.d.ts
+## \*.d.ts 파일이란?
 
 > 타입 정의 파일
 >
 > > 코드의 타입 추론을 돕는 파일
+
+## tsconfig.json
+
+```
+"include": ["**/*.ts"],
+```
 
 ## declare
 

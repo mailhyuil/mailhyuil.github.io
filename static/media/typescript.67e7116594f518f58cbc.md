@@ -17,7 +17,7 @@
 
 ```json
 {
-  "include": ["src"],
+  "include": ["src"], // 읽을 ts 파일 경로 **/*.ts로 하면 전부 읽음
   "compilerOptions": {
     "outDir": "build",
     "target": "ES6",
@@ -26,14 +26,4 @@
     "allowJs": true
   }
 }
-```
-
-## error
-
-> useState hook을 사용하여 배열을 정의할 때 타입스크립트 에러가 발생함.
-
-- useState 뒤에 <any[]> 를 명시해준다.
-
-```ts
-const [arr, setArr] = useState<any[]>([]);
 ```
