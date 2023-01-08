@@ -4,15 +4,7 @@
 
 1. npm i -D typescript
 
-2. package.json
-
-```json
-  "scripts": {
-    "build": "tsc"
-  }
-```
-
-3. tsconfig.json
+2. tsconfig.json
    > tsc --optionName 대신 tsconfig.json의 설정을 읽어서 실행시킬 수 있다.
 
 ```json
