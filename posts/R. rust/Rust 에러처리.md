@@ -11,3 +11,9 @@
 ## 회복 불가능한 에러 (unrecoverable error)
 
 ### panic!
+
+## unwrap() && expect()
+
+> 결과에 따라 Result와 panic!을 알아서 처리
+>
+> > expect는 panic!에 스트링을 보내줄 수 있음
