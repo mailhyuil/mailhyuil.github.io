@@ -49,3 +49,43 @@ cargo build --release
 ```
 cargo run
 ```
+
+## fmt
+
+> 러스트 코드를 포매팅한다.
+
+### install
+
+```
+rustup component add rustfmt
+```
+
+### 사용법
+
+```
+cargo fmt
+```
+
+## fix
+
+> 컴파일러의 권고를 자동으로 코드에 적용시킨다.
+
+```
+cargo fix
+```
+
+## clippy
+
+> 린트 사용
+
+### install
+
+```
+rustup component add clippy
+```
+
+### 사용법
+
+```
+cargo clippy
+```

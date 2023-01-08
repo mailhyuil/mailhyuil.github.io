@@ -4,20 +4,12 @@
 
 1. npm i -D typescript
 
-2. package.json
-
-```json
-  "scripts": {
-    "build": "tsc"
-  }
-```
-
-3. tsconfig.json
+2. tsconfig.json
    > tsc --optionName 대신 tsconfig.json의 설정을 읽어서 실행시킬 수 있다.
 
 ```json
 {
-  "include": ["src"],
+  "include": ["src"], // 읽을 ts 파일 경로 **/*.ts로 하면 전부 읽음
   "compilerOptions": {
     "outDir": "build",
     "target": "ES6",
@@ -26,14 +18,4 @@
     "allowJs": true
   }
 }
-```
-
-## error
-
-> useState hook을 사용하여 배열을 정의할 때 타입스크립트 에러가 발생함.
-
-- useState 뒤에 <any[]> 를 명시해준다.
-
-```ts
-const [arr, setArr] = useState<any[]>([]);
 ```
