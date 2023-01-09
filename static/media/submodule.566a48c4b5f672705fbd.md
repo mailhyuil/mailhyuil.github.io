@@ -1,5 +1,7 @@
 # git submodule
 
+> 인터페이스 같은 프론트와 백엔드에서 공통으로 정의될 것들을 submodule로 만든다
+
 ## submodule add
 
 ```
