@@ -29,9 +29,7 @@ useForm({
 <template>
   <div class="flex flex-col items-center">
     <h1 class="text-red-500">FormTest</h1>
-    <Form
-      :validation-schema="schema"
-      class="flex flex-col">
+    <Form :validation-schema="schema" class="flex flex-col">
       <Field
         class="px-4 my-4 border-2 rounded shadow-lg text-slate-500 font-bold text-3xl
             hover:ring ring-blue-300 linear duration-200"
@@ -52,4 +50,52 @@ useForm({
     </Form>
   </div>
 </template>
+```
+
+## useForm
+
+> values, handlesubmit .. 리턴
+>
+> > <Form></Form> 태그 안에 있는 인풋을 values에 담는다. 덕분에 name attribute가 필요 없다.
+
+```
+const {
+  values: body,
+  meta,
+  handleSubmit,
+  isSubmitting,
+} = useForm<ICreateReservationDTO>({
+  validationSchema: yup.object({
+    visitDate: yup.string().required("방문일자를 선택해 주세요."),
+    visitTime: yup.string().required("방문시간을 선택해 주세요."),
+  }),
+});
+```
+
+### values
+
+> values: body라고 하면 values가 const body = ref()안에 자동으로 담긴다.
+
+```
+v-model="body.visitTime"
+console.log(body);
+```
+
+### handleSubmit
+
+> submit을 해주는 함수 콜백을 넣는다
+>
+> > async 콜백을 사용하여 ajax할 수 있다.
+
+```
+const submit = handleSubmit(async (body: ICreateReservationDTO) => {
+  console.log(body);
+
+  useFetch<ICreateReservationDTO>(
+    `http://localhost:4000/api/v1/reservation/${1}`,
+    { method: "POST", body: body }
+  );
+
+  emits("update:isOpen", false);
+});
 ```
