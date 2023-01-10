@@ -1,5 +1,9 @@
 # Pinia
 
+> 전역 state를 저장하는 Store
+>
+> > Session처럼 사용
+
 ## install
 
 ```
