@@ -11,6 +11,16 @@ i8 i16 i32 i64 isize = 부호가 있는 정수
 u8 u16 u32 u64 usize = 부호가 없는 정수
 ```
 
+### 정수형 리터럴
+
+```
+Decimal	98_222
+Hex	0xff
+Octal	0o77
+Binary	0b1111_0000
+Byte (u8 only)	b'A'
+```
+
 ### 실수
 
 ```
