@@ -1,8 +1,12 @@
 # Pinia
 
-> 전역 state를 저장하는 Store
+> state를 전역으로 관리할 수 있다.
 >
-> > Session처럼 사용
+> > 새로고침시 데이터는 사라진다.
+> >
+> > > pinia-plugin-persistedstate 패키지를 사용해서 localStorage를 사용해 새로고침 시 상태유지를 시킬 수 있다.
+> > >
+> > > > stores 폴더 안에 생성
 
 ## install
 
@@ -16,53 +20,25 @@ yarn add @pinia/nuxt
 modules: ['@pinia/nuxt']
 ```
 
-## store directory
+## /stores/useRoomStore.ts
 
-```ts
-import { defineStore } from "pinia";
+```
+export const useRoomStore = defineStore(
+  "room",
+  () => {
+    const room = ref<ITenantMoveRoomDTO[]>([]);
 
-interface TestStore {
-  counter: number;
-}
-export type TestStoreActions = {
-  change: (number: number) => void;
-};
-const state = (): TestStore => ({
-  // 전역으로 관리할 state
-  counter: 0,
-});
+    const setRoom = (fetchedRoom: ITenantMoveRoomDTO[]) => {
+      room.value = fetchedRoom;
+    };
 
-const getters = {
-  // getter 메소드
-  getCounter(state: any) {
-    return state.counter;
+    const getRoom = () => {
+      return room.value;
+    };
+    return { getRoom, setRoom };
   },
-};
-
-const mutations = {
-  // setter 메소드
-  increment(state: any) {
-    state.counter++;
-  },
-};
-
-const actions = {
-  // 메소드
-  change(number: number): void {
-    this.counter = number;
-  },
-};
-
-export const useTestStore = defineStore<
-  "test",
-  TestStore,
-  {},
-  TestStoreActions
->("test", {
-  state,
-  actions,
-  getters,
-});
+  {}
+);
 ```
 
 ```ts
@@ -78,3 +54,13 @@ export const useCounterStore = defineStore("counter", () => {
   return { count, name, doubleCount, increment };
 });
 ```
+
+## @pinia-plugin-persistedstate/nuxt
+
+> state를 localStorage에 넣어서 새로고침시 값을 유지 시켜주는 플러그인
+
+```
+yarn add -D @pinia-plugin-persistedstate/nuxt
+```
+
+[@pinia-plugin-persistedstate/nuxt](https://prazdevs.github.io/pinia-plugin-persistedstate/frameworks/nuxt-3.html)
