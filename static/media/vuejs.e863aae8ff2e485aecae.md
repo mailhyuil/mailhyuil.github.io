@@ -88,6 +88,16 @@ v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
 >
 > > @
 
+#### @click.self
+
+> target만 click 이벤트를 받는다
+
+```
+<div @click.self=""> <- 이 요소만 click 이벤트
+  <div></div> <- 이 요소는 click 이벤트 받지 않음
+</div>
+```
+
 ### v-model
 
 > 양방향 바인딩을 가능하게 한다

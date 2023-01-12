@@ -108,6 +108,16 @@ const props = defineProps<{
 
 > 부모에서 자식으로 보내기
 
+```
+(event) => {
+  console.log(event)
+}
+
+// 위 코드와 아래 코드는 같다
+
+@event="console.log($event)"
+```
+
 #### 부모
 
 ```vue

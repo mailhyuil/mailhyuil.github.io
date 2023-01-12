@@ -49,3 +49,5 @@ for i in new_v{
 ```
 
 ## enumerate()
+
+## thread::sleep(Duration::from_secs(2));
