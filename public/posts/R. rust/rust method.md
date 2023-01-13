@@ -20,9 +20,11 @@
 
 ## collect()
 
-> iter().map()을 하면 iter에 map의 로직이 들어간다.
+> iterator를 모아준다!!
 >
-> > 뒤에 collect()를 해주면 실행이 된 뒤에 들어간다.
+> > <String>이면 단일 String으로
+> >
+> > > <Vec>이면 Vec으로 모아준다
 
 ```rs
 let v = vec![1,2,3,4,54];
@@ -51,3 +53,11 @@ for i in new_v{
 ## enumerate()
 
 ## thread::sleep(Duration::from_secs(2));
+
+## String.chars().count() == 문자열 길이
+
+## String::push()
+
+## String::push_str()
+
+## format!("{}",str)
