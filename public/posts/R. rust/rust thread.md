@@ -37,3 +37,34 @@ for i in 1..50 {
     thread::sleep(Duration::from_millis(1));
 }
 ```
+
+## 메세지 패싱
+
+> mpsc (multiple producer, single consumer)
+>
+> > tx (transmitter)
+> >
+> > > rx (receiver)
+
+```
+use std::thread;
+use std::sync::mpsc;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+        tx.send(val).unwrap();
+    });
+
+    let received = rx.recv().unwrap();
+    println!("Got: {}", received);
+}
+```
+
+## 공유
+
+### 뮤텍스
+
+> 상호 배제 (mutual exclusion)의 줄임말
