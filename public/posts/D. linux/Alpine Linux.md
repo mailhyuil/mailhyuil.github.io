@@ -17,6 +17,10 @@ apk info
 apk upgrade
 ```
 
+## SHELL
+
+> /bin/ash
+
 ## docekr 접속
 
 ```bash
