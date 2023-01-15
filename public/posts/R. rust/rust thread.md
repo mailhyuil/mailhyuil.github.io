@@ -6,7 +6,7 @@
 
 > spawn(알을 낳다) 메소드 사용
 
-```
+```rs
 use std::thread;
 
 thread::spawn()
@@ -22,7 +22,7 @@ thread::spawn()
 > > >
 > > > > 스레드를 블록 (Block) 한다는 것은 그 스레드의 작업을 수행하거나 종료되는 것이 방지된다는 의미
 
-```
+```rs
 let handle = thread::spawn(|| {
     for i in 1..50 {
         println!("hi number {} from the spawned thread!", i);
@@ -40,13 +40,15 @@ for i in 1..50 {
 
 ## 메세지 패싱
 
-> mpsc (multiple producer, single consumer)
+> mpsc 모듈 사용
 >
-> > tx (transmitter)
+> > mpsc (multiple producer, single consumer)
 > >
-> > > rx (receiver)
+> > > tx (transmitter)
+> > >
+> > > > rx (receiver)
 
-```
+```rs
 use std::thread;
 use std::sync::mpsc;
 
@@ -68,3 +70,9 @@ fn main() {
 ### 뮤텍스
 
 > 상호 배제 (mutual exclusion)의 줄임말
+>
+> > 데이터를 사용하기 전에 반드시 락을 얻는 시도를 해야 한다.
+> >
+> > > 뮤텍스가 보호하는 데이터의 사용이 끝났다면, 다른 스레드들이 락을 얻을 수 있도록 반드시 언락해야 한다.
+> > >
+> > > > Mutext struct 사용
