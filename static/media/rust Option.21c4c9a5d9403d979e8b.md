@@ -6,7 +6,7 @@
 > >
 > > > Java의 Optional과 비슷
 
-```
+```rs
 Some()
 None
 ```

@@ -1,6 +1,6 @@
 # rust IO
 
-```
+```rs
 use std::io::stdin;
 
 fn main() {

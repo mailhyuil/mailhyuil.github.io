@@ -1,6 +1,6 @@
 # enum
 
-```
+```rs
 enum IpAddrKind {
     V4,
     V6,
@@ -12,7 +12,7 @@ IpAddrKind::V6;
 
 ## 사용법
 
-```
+```rs
 fn route(ip_type: IpAddrKind){}
 
 route(IPAddrKind::V4);
@@ -21,7 +21,7 @@ route(IPAddrKind::V6);
 
 ## 열거값에 데이터 지정
 
-```
+```rs
 enum Message{
     Quit,
     Move{x:i32, y:i32}, // 익명 구조체
