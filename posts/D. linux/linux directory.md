@@ -22,7 +22,7 @@ dev = device
 media
 mnt
 
-lock
+lock = 잠금, 현재 실행 중일 때, 동일 인스턴스가 생성되지 않도록하는 파일
 proc
 
 opt = optional
