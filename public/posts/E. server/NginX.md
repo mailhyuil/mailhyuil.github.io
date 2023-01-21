@@ -33,7 +33,7 @@ server { # 하나의 웹사이트 선언
   }
 
   location ~ \.do$ { # 특정 확장자 요청 넘기기 (nginx 뒷단의 WAS로)
-    proxy_pass http://localhost:8080; #
+    proxy_pass http://localhost:8080;
   }
 }
 ```
@@ -68,5 +68,38 @@ http {
     client_max_body_size 5M; // 기본값 1m 제한없음 0
 
     ...
+}
+```
+
+## 회사 방법
+
+```
+server {
+  server_name ekr.lepisode.team;
+  listen 80;
+
+  return 301 https://ekr.lepisode.team;
+}
+
+server {
+  server_name ekr.lepisode.team;
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
+
+  ssl_certificate /etc/ssl/certs/ssl-cert-wildcard-cert.pem;
+  ssl_certificate_key /etc/ssl/certs/ssl-cert-wildcard-key.pem;
+  ssl_prefer_server_ciphers on;
+
+  root /home/lepisode/Workspace/ekr/ekr-client/src/dist/;
+
+  location / {
+    try_files $uri /index.html;
+    error_page 404 = @errors;
+  }
+
+  location @errors {
+    try_files $uri /index.html;
+    proxy_intercept_errors on;
+  }
 }
 ```
