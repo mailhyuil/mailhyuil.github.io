@@ -15,3 +15,14 @@ np.array(collection, dtype = np.float64)
 
 ## .shape
 > 행렬을 반환 (4, 1)
+
+## zeros, eye, 
+### zeros
+> 전부 0 인 배열 반환
+### eye
+> 대각행렬 반환
+### empty
+> zeros와 비슷하지만 다차원 배열의 값을 한번에 바꿀 수 있음
+```
+a = np.empty((3,5))
+```
