@@ -65,3 +65,50 @@ if (d < 100) {
 ## 흐름장 추적(Flow Field following)
 
 > 흐름장(벡터필드)의 벡터를 읽고 그 벡터를 참조해 조향하는 것.
+
+### 흐름장 생성
+
+> 2차원 배열(행렬) 사용
+>
+> > 배열 하나에 벡터 하나가 들어간다.
+
+```js
+let arr;
+const resolution = 10; // 해상도 ** 한 픽셀의 크기
+let cols;
+let rows;
+
+function setup() {
+  createCanvas(640, 360);
+
+  cols = width / resolution;
+  rows = height / resolution;
+
+  arr = new Array(cols);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = new Array(rows);
+  }
+
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      arr[i][j] = createVector(1, 1);
+    }
+  }
+}
+
+function draw() {
+  background(25);
+
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      push();
+      translate(i * resolution, j * resolution); // 한 픽셀의 위치 (행 * 해상도, 열 * 해상도)
+      stroke(200, 100);
+      rotate(arr[i][j].heading()); // 방향
+      let len = arr[i][j].mag() * resolution - 5; // 길이
+      line(0, 0, len, 0);
+      pop();
+    }
+  }
+}
+```
