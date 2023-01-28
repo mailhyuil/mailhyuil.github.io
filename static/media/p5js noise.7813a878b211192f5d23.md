@@ -5,6 +5,17 @@
 > Perlin Noise값(0과 1 사이) 생성
 >
 > > 자연적인 질서를 가진 임의값을 생성하는 알고리즘
+> >
+> > > map을 사용하여 noise값을 theta 값으로 변환한 뒤 sin의 theta로 사용
+
+```js
+let xoff = 0;
+let yoff = 0;
+let theta = map(noise(xoff, yoff), 0, 1, 0, TWO_PI);
+sin(theta);
+yoff += 0.1;
+xoff += 0.1;
+```
 
 ```
 noise(x, [y], [z])
