@@ -11,9 +11,15 @@ coordinate_vector p5.Vector: 좌표 벡터
 
 ## line
 
+> stroke(r,g,b)
+>
+> > strokeWeight()
+
 ```
 line(x1, y1, x2, y2);
 line(x1, y1, z1, x2, y2, z2)
+stroke(100)
+strokeWeight(10)
 ```
 
 ## arc

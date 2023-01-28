@@ -21,6 +21,21 @@ x === r * cos(theta)
 y/x === r * tan(theta)
 ```
 
+#### 삼각함수 회전시키기
+
+> angle(theta) 값과 r값을 가지고
+>
+> > x, y값을 구해서 angle++
+
+```
+  line(
+    width / 2,
+    height / 2,
+    sin(angle) * 50 + width / 2,
+    cos(angle) * 50 + height / 2
+  );
+```
+
 ### sin()
 
 ### cos()
