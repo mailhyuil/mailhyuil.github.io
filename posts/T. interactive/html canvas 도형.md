@@ -24,19 +24,25 @@ clip(); // 캔버스에 path를 따라 mask를 씌운다
 
 inPointInPath(); //point가 path 안에 있는지 검사
 
-lineCap();
-lineJoin();
-lineWidth();
-miterLimit();
+lineCap = "round"; // butt round square
+lineWidth = Math.sin(angle) ** 2 * 10 * 1;
+lineJoin = "round"; // bevel round miter
+miterLimit = 10;
 ```
+
+### beginPath()
+
+> path를 그릴 때 beginPath()를 반드시 호출해줘야한다
+>
+> > 그 전에 그린 path들이 쌓여서 속도가 느려진다.
 
 ## 사각형
 
 ```js
-fillRect();
+rect();
+fillRect(); // 여러 사각형을 그릴 때는 fillRect를 사용 // path로 구현된다!
 strokeRect();
 clearRect();
-rect();
 ```
 
 ## text
@@ -52,9 +58,9 @@ measureText();
 
 ## fill color
 
-```
-ctx.fillStyle = 'red';
-ctx.fill();
-// or //
+> 도형을 그리고 마지막에 칠해주기
+
+```js
+ctx.fillStyle = "red";
 ctx.fillRect();
 ```
