@@ -10,6 +10,7 @@ lineTo(); // path를 생성하며 특정 포인트로 커서를 이동
 
 beginPath(); // 그 전에 그린 path를 리셋시키고 새로운 path를 시작
 arc(); // 원을 그릴 때 사용 arc(95, 50, 40, 0, 2 * Math.PI);
+// arc(x, y, r, startAngle, endAngle) startAngle에 0, endAngle에 TWO_PI를 넣어주면 원이 된다.
 arcTo(); // 두 탄젠트 사이에 arc를 생성
 stroke(); // 실제로 path를 그린다 path를 그리고 마지막에 사용
 closePath(); // 닫힌 path를 생성
@@ -47,4 +48,13 @@ textBaseline();
 fillText();
 strokeText();
 measureText();
+```
+
+## fill color
+
+```
+ctx.fillStyle = 'red';
+ctx.fill();
+// or //
+ctx.fillRect();
 ```
