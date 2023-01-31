@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.cc1de15c.js",
+    "main.js": "/static/js/main.ff2b3db0.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -266,6 +266,7 @@
     "static/media/html canvas transformation.md": "/static/media/html canvas transformation.5640dbc22a4501b0eea6.md",
     "static/media/dump.md": "/static/media/dump.4ed555808cf7fa079a4c.md",
     "static/media/SSH.md": "/static/media/SSH.3e93a3244897510f0ecc.md",
+    "static/media/tailwindcss + nuxt.md": "/static/media/tailwindcss + nuxt.4ca27585f629303733ab.md",
     "static/media/p5js mode.md": "/static/media/p5js mode.53be4265b02d9a5d4153.md",
     "static/media/python 스레드&프로세스.md": "/static/media/python 스레드&프로세스.54adf8569fe9d20ac7a1.md",
     "static/media/auto import 안 찾아질 때.md": "/static/media/auto import 안 찾아질 때.1335793dad30c1b950e2.md",
@@ -300,10 +301,10 @@
     "static/media/prisma-query.md": "/static/media/prisma-query.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.cc1de15c.js.map": "/static/js/main.cc1de15c.js.map"
+    "main.ff2b3db0.js.map": "/static/js/main.ff2b3db0.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.cc1de15c.js"
+    "static/js/main.ff2b3db0.js"
   ]
 }
