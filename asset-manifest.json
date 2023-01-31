@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.2829241d.js",
+    "main.js": "/static/js/main.7b9036f4.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -265,6 +265,7 @@
     "static/media/rimraf.md": "/static/media/rimraf.4450b1ca5fb2926a225b.md",
     "static/media/Docker-ubuntu.md": "/static/media/Docker-ubuntu.f05b7a9b73cec81bed58.md",
     "static/media/html canvas transformation.md": "/static/media/html canvas transformation.5640dbc22a4501b0eea6.md",
+    "static/media/point-events 속성.md": "/static/media/point-events 속성.c2ff6c93a654d56ec55f.md",
     "static/media/dump.md": "/static/media/dump.4ed555808cf7fa079a4c.md",
     "static/media/SSH.md": "/static/media/SSH.3e93a3244897510f0ecc.md",
     "static/media/tailwindcss + nuxt.md": "/static/media/tailwindcss + nuxt.4ca27585f629303733ab.md",
@@ -302,10 +303,10 @@
     "static/media/prisma-query.md": "/static/media/prisma-query.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.2829241d.js.map": "/static/js/main.2829241d.js.map"
+    "main.7b9036f4.js.map": "/static/js/main.7b9036f4.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.2829241d.js"
+    "static/js/main.7b9036f4.js"
   ]
 }
