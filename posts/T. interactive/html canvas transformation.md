@@ -11,3 +11,10 @@ translate();
 transform();
 setTransform();
 ```
+
+## transformation reset
+
+```
+// Reset current transformation matrix to the identity matrix
+ctx.setTransform(1, 0, 0, 1, 0, 0);
+```
