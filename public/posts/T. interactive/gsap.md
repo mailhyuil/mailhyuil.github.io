@@ -17,21 +17,21 @@ yarn add gsap
 
 ## basic
 
-```
-gsap.set(".selector", {toVars});
+```js
+gsap.set(".selector", { toVars });
 ```
 
 ## Tween
 
-```
-gsap.to
-gsap.from
-gsap.fromTo
+```js
+gsap.to;
+gsap.from;
+gsap.fromTo;
 ```
 
 ## Timeline
 
-```
+```js
 let tl = gsap.timeline(...)
 
 tl.to(".selector", {duration: 1, x: 50, y: 0})
@@ -63,7 +63,7 @@ ease: "none" // no ease (same as "linear")
 
 ### tween
 
-```
+```vue
 <script lang="ts" setup>
 import gsap from "gsap";
 const box = ref();
@@ -87,7 +87,7 @@ onMounted(() => {
 
 ### timeline
 
-```
+```vue
 <script lang="ts" setup>
 import gsap from "gsap";
 const box = ref();
@@ -115,62 +115,8 @@ onMounted(() => {
 </template>
 ```
 
-## scrollTrigger
+## label
 
-```
-<script lang="ts" setup>
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+## timeline
 
-const box = ref();
-onMounted(() => {
-  gsap.to(box.value, {
-    scrollTrigger: box.value,
-    x: 500,
-    width: "100px", // css property
-    height: "100px",
-    backgroundColor: "red",
-    duration: 1,
-  });
-});
-</script>
-<template>
-  <div ref="body" class="w-screen h-screen">
-    <div
-      ref="box"
-      class="w-10 h-10 bg-blue-500 cursor-pointer mt-[2000px]"></div>
-  </div>
-</template>
-```
-
-```
-<script lang="ts" setup>
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-
-const box1 = ref();
-const box2 = ref();
-
-onMounted(() => {
-  ScrollTrigger.create({
-    trigger: box1.value,
-    start: "top top", // 시작 시점
-    end: "bottom bottom", // 끝나는 시점
-    onEnter: () => {
-      console.log("HI");
-      // gsap.to()
-    },
-  });
-});
-</script>
-<template>
-  <div ref="body" class="w-screen h-screen">
-    <div
-      ref="box1"
-      class="w-full h-[200%] bg-blue-500 cursor-pointer mt-[100%]"></div>
-    <div ref="box2" class="w-full h-[200%] bg-red-500 cursor-pointer"></div>
-  </div>
-</template>
-```
+## events
