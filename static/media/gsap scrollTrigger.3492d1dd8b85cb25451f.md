@@ -33,7 +33,7 @@ gsap.to(list.value.childNodes, {
 
 ## ScrollTrigger.create
 
-```js
+```vue
 <script lang="ts" setup>
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
