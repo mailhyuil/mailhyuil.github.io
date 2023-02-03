@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.62608a3a.js",
+    "main.js": "/static/js/main.207f4bcd.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -87,6 +87,7 @@
     "static/media/Spring Data.md": "/static/media/Spring Data.0c267f27522f85e0991f.md",
     "static/media/Shell (셸).md": "/static/media/Shell (셸).33bed0c6ced2d8d5d412.md",
     "static/media/pivot.md": "/static/media/pivot.ff77284c79188c9f19a1.md",
+    "static/media/text splitting.md": "/static/media/text splitting.6ea4b3367ca5d5b37b72.md",
     "static/media/dayjs.md": "/static/media/dayjs.f5e12b4f78376b0236a1.md",
     "static/media/논리.md": "/static/media/논리.f954836e6362fa7aa287.md",
     "static/media/custom-directive.md": "/static/media/custom-directive.25e1056a5a163e433206.md",
@@ -323,10 +324,10 @@
     "static/media/prisma-query.md": "/static/media/prisma-query.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.62608a3a.js.map": "/static/js/main.62608a3a.js.map"
+    "main.207f4bcd.js.map": "/static/js/main.207f4bcd.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.62608a3a.js"
+    "static/js/main.207f4bcd.js"
   ]
 }
