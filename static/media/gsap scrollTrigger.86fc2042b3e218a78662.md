@@ -80,3 +80,27 @@ ScrollTrigger.create({
   },
 });
 ```
+
+## timeline 넣기
+
+> animation에 timeline 추가
+
+```js
+const tl = gsap.timeline();
+
+ScrollTrigger.create({
+  animation: tl,
+});
+```
+
+## 여러 요소에 적용하기
+
+```js
+EleArray.forEach((span) => {
+  ScrollTrigger.create({
+    trigger: span,
+    start: "top center",
+    toggleClass: "active",
+  });
+});
+```

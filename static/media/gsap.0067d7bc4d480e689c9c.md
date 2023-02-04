@@ -21,35 +21,13 @@ yarn add gsap
 gsap.set(".selector", { toVars });
 ```
 
-## Tween
-
-```js
-gsap.to();
-gsap.from();
-gsap.fromTo();
-```
-
-## timeline
-
-```js
-const tl = gsap.timeline();
-```
-
 ## ease
 
 ```
-// see greensock.com/ease-visualizer
 ease: "none" // no ease (same as "linear")
 
-// basic core eases
 "power1", "power2", "power3", "power4",
 "circ", "expo", "sine"
-// each has .in, .out, and .inOut extensions
-// i.e. "power1.inOut"
 
-// expressive core eases
 "elastic", "back", "bounce", "steps(n)"
-
-// in EasePack plugin (not core)
-"rough", "slow", "expoScale(1, 2)"
 ```
