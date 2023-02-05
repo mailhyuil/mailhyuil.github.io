@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.47eee5f0.js",
+    "main.js": "/static/js/main.8f24697c.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -21,6 +21,7 @@
     "static/media/내장모듈.md": "/static/media/내장모듈.90e35e3e169489c7675c.md",
     "static/media/p5js 힘.md": "/static/media/p5js 힘.14e19715387e53c16403.md",
     "static/media/rust webserver.md": "/static/media/rust webserver.97204d71fee847056b8c.md",
+    "static/media/matterjs-boilerplate.md": "/static/media/matterjs-boilerplate.9329e17d84a336ae43d8.md",
     "static/media/typeORM-nest.js.md": "/static/media/typeORM-nest.js.ee217e490715cf641dc4.md",
     "static/media/NginX.md": "/static/media/NginX.09a23d3a7a3ac9f649a0.md",
     "static/media/JPA.md": "/static/media/JPA.8690ebc3210b3573d495.md",
@@ -60,7 +61,7 @@
     "static/media/CICD.md": "/static/media/CICD.38411b87572ac83e08cc.md",
     "static/media/rust thread.md": "/static/media/rust thread.4b09b187990795915a0b.md",
     "static/media/full calendar.md": "/static/media/full calendar.cc933c70d75e8d1e2510.md",
-    "static/media/nestjs-jwt.md": "/static/media/nestjs-jwt.df620dd1eb4353eb8ab5.md",
+    "static/media/nestjs-jwt-team.md": "/static/media/nestjs-jwt-team.df620dd1eb4353eb8ab5.md",
     "static/media/백준 입출력.md": "/static/media/백준 입출력.a7dfe64e1e7dffe8b67e.md",
     "static/media/Docker-deploy.md": "/static/media/Docker-deploy.5b4323753b0300d88b46.md",
     "static/media/type & interface.md": "/static/media/type & interface.7a4e82c17a972bbcf1ed.md",
@@ -158,6 +159,7 @@
     "static/media/Message Broker (메시지 브로커).md": "/static/media/Message Broker (메시지 브로커).260b579bf2a9f124b735.md",
     "static/media/rust format.md": "/static/media/rust format.9294c90cc93afa7a8959.md",
     "static/media/rust 참조.md": "/static/media/rust 참조.7c2065e0bd848eef52ce.md",
+    "static/media/nestjs-jwt.md": "/static/media/nestjs-jwt.c46dfa463d052f6ca972.md",
     "static/media/Thread.md": "/static/media/Thread.c0afde0e57259e56f48e.md",
     "static/media/tsc.md": "/static/media/tsc.d9869fded70e12c0eecd.md",
     "static/media/p5js transformation.md": "/static/media/p5js transformation.194c5edeeb2bade20dd5.md",
@@ -257,6 +259,7 @@
     "static/media/rust 테스트.md": "/static/media/rust 테스트.f1d00519460da376bb8f.md",
     "static/media/git.md": "/static/media/git.513e78f49cb69a71c5b0.md",
     "static/media/Docker-mysql.md": "/static/media/Docker-mysql.cc7e548a6f40f17e96f4.md",
+    "static/media/nuxt internationalization.md": "/static/media/nuxt internationalization.6cf9e2386e9af6e106f9.md",
     "static/media/decorator.md": "/static/media/decorator.51af19963b539349a092.md",
     "static/media/제네릭.md": "/static/media/제네릭.3effa946c849b2a5008e.md",
     "static/media/html canvas image.md": "/static/media/html canvas image.ef7f0dc4930d0c9e9233.md",
@@ -299,6 +302,7 @@
     "static/media/nuxtjs + sass.md": "/static/media/nuxtjs + sass.d7dd75c2d98cda030f04.md",
     "static/media/URLSearchParams.md": "/static/media/URLSearchParams.b5d6a62c4ad87dc38f22.md",
     "static/media/nodejs 사용법.md": "/static/media/nodejs 사용법.c56521bb679868354be9.md",
+    "static/media/nuxt swiper.md": "/static/media/nuxt swiper.280018fccd4889d7598a.md",
     "static/media/링크파일.md": "/static/media/링크파일.3047f7019f067ccda263.md",
     "static/media/entity.md": "/static/media/entity.8de311271949038a1c40.md",
     "static/media/css clamp.md": "/static/media/css clamp.90981b02874ab60a2af8.md",
@@ -330,10 +334,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.47eee5f0.js.map": "/static/js/main.47eee5f0.js.map"
+    "main.8f24697c.js.map": "/static/js/main.8f24697c.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.47eee5f0.js"
+    "static/js/main.8f24697c.js"
   ]
 }
