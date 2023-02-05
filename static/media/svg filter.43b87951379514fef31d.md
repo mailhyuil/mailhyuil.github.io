@@ -1,6 +1,14 @@
 # svg filter
 
-> defs 내에 넣어주기
+> defs 내에 필터를 정의
+>
+> > 필터에 아이디를 지정하고 css에서 적용
+
+```
+.blobs {
+  filter: url("#goo");
+}
+```
 
 ## feGaussianBlur
 
