@@ -58,6 +58,12 @@ model Post {
 npx prisma migrate dev --name init
 ```
 
+## prisma 환경변수 읽기
+
+```
+"migrate:dev": "dotenv -e ../.env.development -- npx prisma migrate dev",
+```
+
 ## @prisma/client
 
 ```
