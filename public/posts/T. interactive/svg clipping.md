@@ -17,12 +17,12 @@
 
 ## svg
 
-```svg
+```
 <svg class="absolute" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <clipPath id="svgPath">
-          <!-- path -->
-        </clipPath>
-      </svg>
+  <clipPath id="svgPath">
+    <!-- path -->
+  </clipPath>
+</svg>
 ```
 
 ## css

@@ -1,77 +1,56 @@
-# @nestjs/jwt
+# nestjs jwt
 
-## install
+[jwt.io](https://jwt.io/)
+
+## RandomKeygen
+
+(randomkeygen)[https://randomkeygen.com/]
+
+## jwt 구조
 
 ```
-yarn add @nestjs/jwt
-```
-
-## auth.util.ts
-
-```ts
-import { Injectable } from "@nestjs/common";
-import { JwtService } from "@nestjs/jwt";
-import { AccessTokenPayload } from "src/interface/type/auth/access-token-payload";
-import { RefreshTokenPayload } from "src/interface/type/auth/refresh-token-payload";
-import { PrismaService } from "src/prisma/prisma.service";
-
-@Injectable()
-export class AuthUtil {
-  constructor(
-    private readonly jwtService: JwtService,
-    private readonly prismaService: PrismaService
-  ) {}
-
-  createAccessToken(payload: AccessTokenPayload): string {
-    const accessToken = this.jwtService.sign(payload, {
-      expiresIn: "3h",
-    });
-    return accessToken;
-  }
-
-  createRefreshToken(payload: RefreshTokenPayload): string {
-    const refreshToken = this.jwtService.sign(payload);
-
-    return refreshToken;
-  }
-
-  verifyAccessToken(accessToken: string): AccessTokenPayload {
-    return this.jwtService.verify<AccessTokenPayload>(accessToken);
-  }
-
-  verifyRefreshToken(refreshToken: string): RefreshTokenPayload {
-    return this.jwtService.verify<RefreshTokenPayload>(refreshToken);
-  }
+{
+    "accessToken":
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. // header
+     eyJpZCI6MSwidXNlcm5hbWUiOiJjb2RlZ2VhciIsImlhdC
+     I6MTY0MzUxOTI2MCwiZXhwIjoxNjQzNTE5NTYwfQ. // payload
+     jxsk2FtHsRRhoAZrsUDgHaHOLCxI9IlSMKTrkZ0zUl4" // verify signature
 }
 ```
 
-## auth.module.ts
+## nest에서 jwt 사용하기
 
-```ts
-imports: [
-  JwtModule.registerAsync({ useClass: EnvironmentService }),
-],
-providers: [AuthUtil],
-exports: [AuthUtil]
+### install
+
+```
+npm i --save @nestjs/jwt
 ```
 
-## environment.service.ts
+## Jwt 옵션에 환경변수 적용
 
-```ts
-import { Injectable } from "@nestjs/common";
-import { ConfigService } from "@nestjs/config";
-import { JwtModuleOptions } from "@nestjs/jwt";
+```
+JwtModule.registerAsync({
+  useClass: EnvironmentService,
+}),
+```
 
+```
 @Injectable()
-export class EnvironmentService {
-  constructor(private configService: ConfigService) {}
+export class EnvironmentService implements JwtOptionsFactory {
+  constructor(private readonly configService: ConfigService) {}
 
   createJwtOptions(): JwtModuleOptions {
     return {
-      privateKey: this.configService.get<string>("JWT_PRIVATE_KEY"),
-      publicKey: this.configService.get<string>("JWT_PUBLIC_KEY"),
-      secret: this.configService.get<string>("JWT_SECRET"),
+      secret: this.configService.get<string>('JWT_SECRET_KEY'),
+      publicKey: this.configService.get<string>('JWT_PUBLIC_KEY'),
+      privateKey: this.configService.get<string>('JWT_PRIVATE_KEY'),
     };
   }
 }
+```
+
+## JwtService
+
+```
+const token = jwtService.sign(object)
 ```
