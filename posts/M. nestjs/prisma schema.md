@@ -4,7 +4,7 @@
 
 [prisma_schema](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference)
 
-```
+```prisma
 model Post {
   id       Int       @id @default(autoincrement())
   // Other fields
