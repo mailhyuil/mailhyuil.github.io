@@ -11,3 +11,4 @@ yarn add nuxt-swiper
 ```
 modules: ['nuxt-swiper']
 ```
+## !! event는 @ 를 써라

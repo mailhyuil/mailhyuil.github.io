@@ -19,7 +19,7 @@ end:""
 > 마우스의 스크롤 정도에 따라서 애니메이션이 반응
 
 ### pin
-
+> start를 top top으로 설정해야한다.
 ### toggleClass
 
 ### toggleActions
@@ -104,3 +104,4 @@ EleArray.forEach((span) => {
   });
 });
 ```
+
