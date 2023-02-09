@@ -93,4 +93,5 @@ export class UserService {
 }
 ```
 
-## user.controller.ts
+## prisma generate
+> auto create

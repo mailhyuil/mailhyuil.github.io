@@ -16,5 +16,10 @@ export class CreateCatDto {
 
   @ApiProperty()
   breed: string;
+
+  @ApiProperty({ example: 'hello' })
+  @ApiBearerAuth()
+  @ApiTags('게시물')
 }
 ```
+
