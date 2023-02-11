@@ -14,16 +14,16 @@ npm i --save @nestjs/config
 
 > ConfigService, ConfigModule 사용
 
-```
+```ts
 const envFilePath = path.join(
   __dirname,
-  '../../../',
-  `.env.${process.env.NODE_ENV}`,
+  "../../../",
+  `.env.${process.env.NODE_ENV}`
 );
 
 ConfigModule.forRoot({
-envFilePath,
-}) // 전역에서 사용
+  envFilePath,
+}); // 전역에서 사용
 ```
 
 ## OnModuleInit
@@ -34,7 +34,7 @@ envFilePath,
 > >
 > > > The onModuleInit() method runs only after all modules it depends upon have been initialized, so this technique is safe.
 
-```
+```ts
 onModuleInit() {
   const envFile = readFileSync(envFilePath, {});
   if (!envFile) {
@@ -42,8 +42,8 @@ onModuleInit() {
   }
 ```
 
-```
-ConfigService
+```ts
+ConfigService;
 
-this.configService.get<string>('TEST')
+this.configService.get<string>("TEST");
 ```

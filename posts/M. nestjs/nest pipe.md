@@ -4,7 +4,7 @@
 
 ## 인수 변환 파이프
 
-```
+```ts
 @Param('id', ParseIntPipe)
 @Param('id', ParseBoolPipe)
 @Param('id', ParseArrayPipe)
@@ -14,7 +14,7 @@
 
 ---
 
-## validation pipe
+## ValidationPipe
 
 ### validation 모듈 설치
 

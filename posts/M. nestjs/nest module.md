@@ -6,12 +6,12 @@
 
 ## basic
 
-```
+```ts
 @Module({
   imports: [],
   controllers: [],
   providers: [],
-  exports: []
+  exports: [],
 })
 export class SomeModule {}
 ```
@@ -22,7 +22,7 @@ export class SomeModule {}
 >
 > > 루트모듈이나 코어모듈에서 한번만 등록해야한다.
 
-```
+```ts
 @Global()
 ConfigModule.forRoot({
   envFilePath,
@@ -36,32 +36,9 @@ ConfigModule.forRoot({
 >
 > > register(), forRoot(), forFeature() 메소드는 동적모듈을 반환하는 메소드
 
-```
+```ts
 @Module({
   imports: [DynamicModule.forRoot()],
 })
 export class SomeModule {}
-```
-
----
-
-## app.module.ts
-
-```ts
-@Module({
-  imports: [MovieModule],
-  controllers: [AppController],
-  providers: [AppService],
-})
-export class AppModule {}
-```
-
-## movies.module.ts
-
-```ts
-@Module({
-  controllers: [MoviesController],
-  providers: [MoviesService],
-})
-export class MovieModule {}
 ```
