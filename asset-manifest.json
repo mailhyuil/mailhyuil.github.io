@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.04eccad0.js",
+    "main.js": "/static/js/main.d6c2384d.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -50,7 +50,6 @@
     "static/media/HttpClient.md": "/static/media/HttpClient.ed851ccd2e924ce817d2.md",
     "static/media/Promise.md": "/static/media/Promise.a087207ad7b3b9d6479c.md",
     "static/media/표준 스트림.md": "/static/media/표준 스트림.5673a7a18e0f3c9be8c0.md",
-    "static/media/prisma-nestjs.md": "/static/media/prisma-nestjs.7d1176b686d8688d62ea.md",
     "static/media/Thread-safe.md": "/static/media/Thread-safe.7605a12f61c68006b45c.md",
     "static/media/html canvas 도형.md": "/static/media/html canvas 도형.8f686c8dfa4f430210ab.md",
     "static/media/String.md": "/static/media/String.9a72cab2c1392af63522.md",
@@ -65,12 +64,12 @@
     "static/media/nestjs jwt-team.md": "/static/media/nestjs jwt-team.df620dd1eb4353eb8ab5.md",
     "static/media/p5js particle systems.md": "/static/media/p5js particle systems.b3b66fa668a5cb90d005.md",
     "static/media/백준 입출력.md": "/static/media/백준 입출력.a7dfe64e1e7dffe8b67e.md",
+    "static/media/prisma.md": "/static/media/prisma.5fd422abbd555639f7f5.md",
     "static/media/Docker-deploy.md": "/static/media/Docker-deploy.5b4323753b0300d88b46.md",
     "static/media/type & interface.md": "/static/media/type & interface.7a4e82c17a972bbcf1ed.md",
     "static/media/페이지 전환 이벤트.md": "/static/media/페이지 전환 이벤트.10047a431b2235896c8e.md",
     "static/media/svg gooey effect.md": "/static/media/svg gooey effect.9875034b95a87126c073.md",
     "static/media/지연 평가.md": "/static/media/지연 평가.78d532840184e9c3afcd.md",
-    "static/media/prisma.md": "/static/media/prisma.a8bb16aa010433ed263a.md",
     "static/media/decorator.md": "/static/media/decorator.c0b4e877b98fd100d5a6.md",
     "static/media/문제점과 rxjs의 필요성.md": "/static/media/문제점과 rxjs의 필요성.286c8852f69c754f425f.md",
     "static/media/환경변수.md": "/static/media/환경변수.0eb8afbca6b5f6f8f99a.md",
@@ -225,7 +224,6 @@
     "static/media/Subscription.md": "/static/media/Subscription.cf5452a5aa6ac6a8863f.md",
     "static/media/JSDoc.md": "/static/media/JSDoc.16d3b9c4c27de06c3b38.md",
     "static/media/인풋박스 안에 텍스트.md": "/static/media/인풋박스 안에 텍스트.3b0fa660696944546679.md",
-    "static/media/prisma schema.md": "/static/media/prisma schema.77f875abb1852947eec4.md",
     "static/media/customEvent.md": "/static/media/customEvent.34a16ce0c6c54379aef2.md",
     "static/media/ionic.md": "/static/media/ionic.b00e52a938961736a188.md",
     "static/media/gsap snap & mapRange & interpolate.md": "/static/media/gsap snap & mapRange & interpolate.d461e0dda0dd1b3c1f3b.md",
@@ -267,6 +265,7 @@
     "static/media/html canvas transformation.md": "/static/media/html canvas transformation.1e5aba653af2da9c3fe4.md",
     "static/media/gsap to.md": "/static/media/gsap to.f5025ddc68cccce64b7e.md",
     "static/media/Dokcer-nodejs.md": "/static/media/Dokcer-nodejs.0a9130cb4564671aa459.md",
+    "static/media/prisma api.md": "/static/media/prisma api.136bdd98bda5a10cd026.md",
     "static/media/Framer.md": "/static/media/Framer.44a7c18255165daa1a64.md",
     "static/media/victor.md": "/static/media/victor.99deb550e7c9b64990c4.md",
     "static/media/cold & hot observable.md": "/static/media/cold & hot observable.e508c316cd2a71c9a062.md",
@@ -357,15 +356,14 @@
     "static/media/nest logger.md": "/static/media/nest logger.e4bcaa9a1e0666e05ff9.md",
     "static/media/snapsvg.md": "/static/media/snapsvg.ca54309601f54d8bc6b1.md",
     "static/media/TCO.md": "/static/media/TCO.31d6cfe0d16ae931b73c.md",
-    "static/media/prisma-query.md": "/static/media/prisma-query.31d6cfe0d16ae931b73c.md",
     "static/media/skeleton loader.md": "/static/media/skeleton loader.31d6cfe0d16ae931b73c.md",
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.04eccad0.js.map": "/static/js/main.04eccad0.js.map"
+    "main.d6c2384d.js.map": "/static/js/main.d6c2384d.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.04eccad0.js"
+    "static/js/main.d6c2384d.js"
   ]
 }
