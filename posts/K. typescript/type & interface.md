@@ -8,7 +8,7 @@
 
 > Interface는 선언 병합이 가능하지만, Type Alias는 그렇지 않습니다.
 
-```
+```ts
 interface Window {
   title: string;
 }
@@ -21,54 +21,54 @@ declare function getWindow(): Window;
 
 const window = getWindow();
 const src = 'const a = "Hello World"';
-window.ts.transpileModule(src, {});    // transpileModule() 메서드 사용 가능
+window.ts.transpileModule(src, {}); // transpileModule() 메서드 사용 가능
 ```
 
 ## 확장하는 법
 
 ### interface
 
-```
+```ts
 interface PeopleInterface {
-  name: string
-  age: number
+  name: string;
+  age: number;
 }
 
 interface StudentInterface extends PeopleInterface {
-  school: string
+  school: string;
 }
 ```
 
 ### type
 
-```
+```ts
 type PeopleType = {
-  name: string
-  age: number
-}
+  name: string;
+  age: number;
+};
 
 type StudentType = PeopleType & {
-  school: string
-}
+  school: string;
+};
 ```
 
 ### computed value의 사용
 
 > type만 가능
 
-```
-type names = 'firstName' | 'lastName'
+```ts
+type names = "firstName" | "lastName";
 
 type NameTypes = {
-  [key in names]: string
-}
+  [key in names]: string;
+};
 
-const yc: NameTypes = { firstName: 'hi', lastName: 'yc' }
+const yc: NameTypes = { firstName: "hi", lastName: "yc" };
 ```
 
 ## 인터페이스나 타입으로 미리 만들기
 
-```
+```ts
 interface Movie {
   id: number;
   title: string;
@@ -78,7 +78,7 @@ interface Movie {
 
 ## 제네릭 안에서 선언
 
-```
+```ts
 <{
   id: number;
   title: string;

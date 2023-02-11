@@ -95,6 +95,8 @@ import { PrismaService } from "./prisma.service";
 export class PrismaModule {}
 ```
 
+# prismaService의 메소드는 비동기다! return이 먼저된다.
+
 ## prisma 환경변수 읽기
 
 ```
