@@ -1,6 +1,20 @@
 # pipe
 
-## validation pipe
+> 요청 객체를 변환할 수 있는 기회를 제공
+
+## 인수 변환 파이프
+
+```ts
+@Param('id', ParseIntPipe)
+@Param('id', ParseBoolPipe)
+@Param('id', ParseArrayPipe)
+@Param('id', ParseUUIDPipe)
+@Query('offset', new DefaultValuePipe(0))
+```
+
+---
+
+## ValidationPipe
 
 ### validation 모듈 설치
 
