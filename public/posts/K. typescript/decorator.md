@@ -11,3 +11,86 @@
 ```json
 "--experimentalDecorators":true
 ```
+
+## 데코레이터 생성
+
+> TypeScript Decorators extension 사용하여 쉽게 정의
+
+### ClassDecorator
+
+```ts
+/**
+ * Comment
+ *
+ * @returns {ClassDecorator}
+ */
+export function ClassDecoratorName(): ClassDecorator {
+  return function <TFunction extends Function>(target: TFunction): TFunction {
+    return null;
+  };
+}
+```
+
+### MethodDecorator
+
+```ts
+/**
+ * Comment
+ *
+ * @returns {MethodDecorator}
+ */
+export function MethodDecoratorName(): MethodDecorator {
+  return function (
+    target: any,
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor
+  ): PropertyDescriptor {
+    return null;
+  };
+}
+```
+
+### ParameterDecorator
+
+```ts
+/**
+ * Comment
+ *
+ * @returns {PropertyDecorator}
+ */
+export function ParameterDecoratorName(
+  target: any,
+  methodKey: string | symbol,
+  parameterIndex: number
+) {}
+```
+
+### ParameterDecorator with parmas
+
+```ts
+/**
+ * Comment
+ *
+ * @returns {PropertyDecorator}
+ */
+export function ParameterDecoratorName(listOfParams) {
+  return function (
+    target: any,
+    methodKey: string | symbol,
+    parameterIndex: number
+  ) {};
+}
+```
+
+### PropertyDecorator
+
+```ts
+/**
+ * Comment
+ *
+ * @returns {PropertyDecorator}
+ */
+export function PropertyDecoratorName(): PropertyDecorator {
+  return function (target: Object, propertyKey: string | symbol) {};
+}
+```
