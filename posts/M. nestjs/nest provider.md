@@ -1,4 +1,10 @@
-# service
+# nest provider
+
+> service, repository, factory... 비즈니스 로직을 처리하는 클래스
+>
+> > @Injectable() 데코레이터 사용
+
+## provider class
 
 ```js
 @Injectable()
@@ -22,4 +28,27 @@ export class MoviesService {
         })
     }
 }
+```
+
+## module에 등록
+
+> providers:[]에 넣어주기
+
+### basic
+
+```
+providers:[SomeService]
+```
+
+### custom providers
+
+> useValue, useClass, useFactory, useExisting
+
+```
+providers:[{
+    provide:SomeService, // Token -> string | symbol | Type | Abstract | Function
+    useClass:{
+
+    }
+}]
 ```
