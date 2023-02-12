@@ -6,12 +6,6 @@
 npm i prisma --save-dev
 ```
 
-## CLI
-
-```
-npx prisma
-```
-
 ## init
 
 > schema.prisma 파일 생성
@@ -22,10 +16,7 @@ npx prisma init
 
 ## schema.prisma
 
-```
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+```prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -52,16 +43,12 @@ model Post {
 }
 ```
 
-## db 연결
+## migration
+
+> 테이블 생성 및 업데이트
 
 ```
 npx prisma migrate dev --name init
-```
-
-## prisma 환경변수 읽기
-
-```
-"migrate:dev": "dotenv -e ../.env.development -- npx prisma migrate dev",
 ```
 
 ## @prisma/client
@@ -70,34 +57,48 @@ npx prisma migrate dev --name init
 npm install @prisma/client
 ```
 
-## script파일 생성 후 실행
+## PrismaClient 를 service로 주입하기
 
-> script.ts 파일의 쿼리를 읽고 실행시킨다
-
-### script.ts
+> PrismaClient를 서비스로 구현하여 사용
+>
+> > prisma.service.ts
 
 ```ts
+import { INestApplication, Injectable, OnModuleInit } from "@nestjs/common";
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+@Injectable()
+export class PrismaService extends PrismaClient implements OnModuleInit {
+  async onModuleInit() {
+    await this.$connect();
+  }
 
-async function main() {
-  const user = await prisma.user.create({
-    data: {
-      name: "Alice",
-      email: "alice@prisma.io",
-    },
-  });
-  console.log(user);
+  async enableShutdownHooks(app: INestApplication) {
+    this.$on("beforeExit", async () => {
+      await app.close();
+    });
+  }
 }
+```
 
-main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
-  .catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-  });
+## PrismaModule 생성 전역으로 사용하기
+
+```ts
+import { Global, Module } from "@nestjs/common";
+import { PrismaService } from "./prisma.service";
+
+@Global()
+@Module({
+  providers: [PrismaService],
+  exports: [PrismaService],
+})
+export class PrismaModule {}
+```
+
+# prismaService의 메소드는 비동기다! return이 먼저된다.
+
+## prisma 환경변수 읽기
+
+```
+"migrate:dev": "dotenv -e ../.env.development -- npx prisma migrate dev",
 ```

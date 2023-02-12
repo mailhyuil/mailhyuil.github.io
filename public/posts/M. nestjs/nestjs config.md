@@ -21,29 +21,31 @@ const envFilePath = path.join(
   `.env.${process.env.NODE_ENV}`
 );
 
-ConfigModule.forRoot({
-  envFilePath,
-}); // 전역에서 사용
-```
+@Global()
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath,
+      isGlobal: true,
+    }),
+  ],
+  providers: [EnvironmentService],
+})
+export class EnvironmentModule implements OnModuleInit {
+  constructor(private readonly configService: ConfigService) {}
 
-## OnModuleInit
-
-> 모듈 주입시 실행
->
-> > env 파일 잘 읽었는지 확인
-> >
-> > > The onModuleInit() method runs only after all modules it depends upon have been initialized, so this technique is safe.
-
-```ts
-onModuleInit() {
-  const envFile = readFileSync(envFilePath, {});
-  if (!envFile) {
-    throw new Error('ENV FILE NOT FOUND!');
+  onModuleInit() {
+    const envFile = readFileSync(envFilePath, {});
+    if (!envFile) {
+      throw new Error("ENV FILE NOT FOUND!");
+    }
   }
+}
 ```
 
-```ts
-ConfigService;
+## main.ts
 
-this.configService.get<string>("TEST");
+```
+const configService = app.get<ConfigService>(ConfigService);
+const port = configService.get<number>('SERVER_PORT');
 ```
