@@ -24,6 +24,14 @@
 npm i --save @nestjs/jwt
 ```
 
+## .env 파일에 key를 환경변수로 등록
+
+```
+JWT_SECRET_KEY=5BTENutJCTpGO2aHfDDs2u0KKKKpKV8s
+JWT_PUBLIC_KEY=Xv26XN6L86kGOvHMS2rfV2k9HsLVEEEp
+JWT_PRIVATE_KEY=PAwXjs5j7eLj8WIeczIRgZN2TdJqi2Bn
+```
+
 ## AuthModule에 JwtModule 등록
 
 ```ts
