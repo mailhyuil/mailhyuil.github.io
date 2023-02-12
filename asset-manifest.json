@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.6f8e2cc2.js",
+    "main.js": "/static/js/main.3653eea0.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -166,6 +166,7 @@
     "static/media/Observable.md": "/static/media/Observable.fb197b7959afc26719b1.md",
     "static/media/Resources.md": "/static/media/Resources.063c304d1121177f9373.md",
     "static/media/axios.md": "/static/media/axios.f148d29d21c7653ee3c3.md",
+    "static/media/prisma api.md": "/static/media/prisma api.00dae837d0013815f157.md",
     "static/media/python basic.md": "/static/media/python basic.e7a55bd8ebc234c4c40e.md",
     "static/media/reflection.md": "/static/media/reflection.d2e78dcc39f7acf6b363.md",
     "static/media/expressjs.md": "/static/media/expressjs.b75a07349a23ffebff94.md",
@@ -270,7 +271,6 @@
     "static/media/html canvas transformation.md": "/static/media/html canvas transformation.1e5aba653af2da9c3fe4.md",
     "static/media/gsap to.md": "/static/media/gsap to.f5025ddc68cccce64b7e.md",
     "static/media/Dokcer-nodejs.md": "/static/media/Dokcer-nodejs.0a9130cb4564671aa459.md",
-    "static/media/prisma api.md": "/static/media/prisma api.136bdd98bda5a10cd026.md",
     "static/media/Framer.md": "/static/media/Framer.44a7c18255165daa1a64.md",
     "static/media/victor.md": "/static/media/victor.99deb550e7c9b64990c4.md",
     "static/media/cold & hot observable.md": "/static/media/cold & hot observable.e508c316cd2a71c9a062.md",
@@ -365,10 +365,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.6f8e2cc2.js.map": "/static/js/main.6f8e2cc2.js.map"
+    "main.3653eea0.js.map": "/static/js/main.3653eea0.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.6f8e2cc2.js"
+    "static/js/main.3653eea0.js"
   ]
 }
