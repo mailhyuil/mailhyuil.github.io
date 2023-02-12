@@ -1,8 +1,10 @@
 # module
 
-> app.module에 다른 모듈을 import하여 사용
+> module에 다른 모듈을 import하여 사용
 >
-> > app.module은 appController, appService만 있어야한다
+> > controller, provider를 등록, import, export
+> >
+> > > module 클래스 내에는 lifecycle hooks나 middleware를 등록
 
 ## basic
 
