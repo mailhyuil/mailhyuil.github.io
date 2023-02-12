@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "hyuil": "url('/public/img/hyuil.jpg')"
+        hyuil: "url('/public/img/hyuil.jpg')",
       },
       fontFamily: {
-        "primary": ['Nunito', 'Noto Sans KR'],
-      }
+        primary: ["Nunito", "Noto Sans KR"],
+      },
     },
   },
   plugins: [
@@ -16,6 +16,6 @@ module.exports = {
     require("tailwindcss-scoped-groups")({
       groups: ["one", "two"],
     }),
-    require("@tailwindcss/typography")
+    require("@tailwindcss/typography"),
   ],
-}
+};
