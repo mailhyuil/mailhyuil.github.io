@@ -4,6 +4,7 @@
 
 ```
 yarn add dotenv
+yarn add dotenv-cli
 ```
 
 ## 파일 생성
