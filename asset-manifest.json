@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.3653eea0.js",
+    "main.js": "/static/js/main.fdcb1971.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -355,6 +355,7 @@
     "static/media/vuejs href 동적 할당.md": "/static/media/vuejs href 동적 할당.ae23a04b604057e2eea4.md",
     "static/media/cdn.md": "/static/media/cdn.73fd953820e74b4a1b38.md",
     "static/media/python io.md": "/static/media/python io.f1fbef6fc546e7f215f1.md",
+    "static/media/오프셋 페이징 vs 커서 페이징.md": "/static/media/오프셋 페이징 vs 커서 페이징.37d88b1d78e8fde3cc61.md",
     "static/media/ERD.md": "/static/media/ERD.c8505dbba82472954fb6.md",
     "static/media/nest main.md": "/static/media/nest main.8e60997c89746d6408dc.md",
     "static/media/python builtin method.md": "/static/media/python builtin method.198ec6b6166f033c4782.md",
@@ -365,10 +366,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.3653eea0.js.map": "/static/js/main.3653eea0.js.map"
+    "main.fdcb1971.js.map": "/static/js/main.fdcb1971.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.3653eea0.js"
+    "static/js/main.fdcb1971.js"
   ]
 }
