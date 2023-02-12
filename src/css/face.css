@@ -1,24 +1,24 @@
-  .face {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-  }
+.face {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
-  .eye {
-      position: relative;
-      width: 20px;
-      height: 20px;
-      background: white;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 0px 2px rgb(34, 34, 34);
-      -moz-box-shadow: 0px 0px 0px 2px rgb(34, 34, 34);
-      box-shadow: 0px 0px 0px 2px rgb(34, 34, 34);
-  }
+.eye {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 0px 2px rgb(34, 34, 34);
+  -moz-box-shadow: 0px 0px 0px 2px rgb(34, 34, 34);
+  box-shadow: 0px 0px 0px 2px rgb(34, 34, 34);
+}
 
-  .pill {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: rgb(34, 34, 34);
-      border-radius: 50%;
-  }
+.pill {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgb(34, 34, 34);
+  border-radius: 50%;
+}

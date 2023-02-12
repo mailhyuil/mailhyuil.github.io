@@ -28,11 +28,7 @@ const Blog = ({ fileName }) => {
         className="prose lg:max-w-none"
         components={{
           img: ({ node, ...props }) => (
-            <img
-              style={{ maxWidth: "50%" }}
-              {...props}
-              alt=""
-            />
+            <img style={{ maxWidth: "50%" }} {...props} alt="" />
           ),
         }}
         children={post}
