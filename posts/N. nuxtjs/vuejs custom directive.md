@@ -1,6 +1,8 @@
-# custom-directive
+# vuejs custom directive
 
-> directive를 커스텀할 수 있다.
+> vueApp 인스턴스로 directive를 등록할 수 있다.
+>
+> > nuxtApp.vueApp으로 vue 인스턴스를 가져올 수 있다.
 
 ```ts
 import { Directive } from "nuxt/dist/app/compat/capi";

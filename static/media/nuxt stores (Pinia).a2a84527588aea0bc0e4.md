@@ -1,4 +1,4 @@
-# Pinia
+# nuxt stores
 
 > state를 전역으로 관리할 수 있다.
 >
@@ -20,9 +20,11 @@ yarn add @pinia/nuxt
 modules: ['@pinia/nuxt']
 ```
 
-## /stores/useRoomStore.ts
+## format
 
-```
+> /stores/useRoomStore.ts
+
+```ts
 export const useRoomStore = defineStore(
   "room",
   () => {
