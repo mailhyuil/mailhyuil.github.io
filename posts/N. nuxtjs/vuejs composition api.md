@@ -74,6 +74,8 @@ watch([x, y], (x, y) => {
 > > > ref() 안에 계산식을 넣으면 값이 변하지 않는다 computed() 안에 넣어라
 > > >
 > > > > watch 보다는 선언형인 computed를 사용하는게 좋다!
+> > > >
+> > > > > computed 속성은 종속 대상을 따라 저장(캐싱) 되는 특징을 가지고 있다
 
 ```
 const startPage = computed(() => {
