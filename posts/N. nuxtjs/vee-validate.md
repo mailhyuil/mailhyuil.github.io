@@ -4,15 +4,25 @@
 >
 > > yup으로 schema 설정
 
+## useField
+
+> field 레벨 유효성 검사
+>
+> > 유효한 상태의 필드를 생성, 커스텀 인풋 컴포넌트 내에서 사용
+> >
+> > > 하나의 인풋 내에서 유효성을 검사할 때 사용
+
 ## useForm
 
 > form 레벨 유효성 검사
 >
-> > values, handleSubmit, meta, errors, validate, setValues, isSubmitting 리턴
+> > 여러 인풋을 한번에 유효성 검사할 때 사용
 > >
-> > > <Form></Form> 태그 안에 있는 인풋을 values에 담는다. 덕분에 name attribute가 필요 없다.
+> > > validationSchema가 필요 useForm option으로 schema를 넣는다. useForm({validationSchema})
 > > >
-> > > > useForm option으로 schema를 넣는다. useForm({validationSchema})
+> > > > values, handleSubmit, meta, errors, validate, setValues, isSubmitting .. 리턴
+> > > >
+> > > > > <Form></Form> 태그 안에 있는 인풋을 values에 담는다. 덕분에 name attribute가 필요 없다.
 
 ```ts
 const {
@@ -28,6 +38,18 @@ const {
     field1: yup.string().required("field1을 입력해 주세요."),
     field2: yup.string().required("field2를 입력해 주세요."),
   }),
+});
+```
+
+### reactive schema
+
+> 값이 변하는 스키마를 생성할 땐 computed 사용
+
+```
+const schema = computed(() => {
+  return yup.object({
+    password: yup.string().min(min.value),
+  });
 });
 ```
 
@@ -79,9 +101,7 @@ interface FieldMeta {
 
 > 모든 필드에 value를 넣기
 
-## useField
-
----
+## displaying errors
 
 ```vue
 <script lang="ts" setup>

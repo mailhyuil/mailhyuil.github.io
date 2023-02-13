@@ -72,6 +72,8 @@ watch([x, y], (x, y) => {
 > > 초기값을 계산식을 넣을 때 사용!
 > >
 > > > ref() 안에 계산식을 넣으면 값이 변하지 않는다 computed() 안에 넣어라
+> > >
+> > > > watch 보다는 선언형인 computed를 사용하는게 좋다!
 
 ```
 const startPage = computed(() => {
