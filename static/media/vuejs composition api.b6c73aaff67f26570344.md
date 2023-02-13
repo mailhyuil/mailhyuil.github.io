@@ -6,16 +6,16 @@
 
 > ref()는 객체, 원시값 둘 다 가능
 
-```
+```js
 const 변수 = ref(null);
-<div ref='변수'></div>
+<div ref="변수"></div>;
 ```
 
 > querySelector 대신 사용 가능
 >
 > > v-for로 생성된 요소만 ref로 배열로 받아올 수 있다.
 
-```
+```js
 const heys = ref<string[]>(["hey1", "hey2", "hey3"]);
 const h1 = ref<HTMLHeadElement[]>();
 ```
@@ -24,47 +24,25 @@ const h1 = ref<HTMLHeadElement[]>();
 
 > reactive()는 객체만 할당 가능
 
-### computed()
-
-> template 안에 있는 표현식을 script부분으로 뺄 수 있다.
-
-### toRef()
-
-> reactive 객체에서 property만 가져올 때 사용
-
-```
-const state = reactive({
-  foo: 1,
-  bar: 2
-})
-
-const fooRef = toRef(state, 'foo')
-```
-
-### readonly()
-
-### watchEffect()
-
-### watchPostEffect()
-
-### watchSyncEffect()
-
 ### watch()
 
 > 값이 변할때마다 함수를 실행시킬 수 있다.
 
-```
-const val = ref(0)
+```js
+const val = ref(0);
 
-watch(val, (mutatedVal)=>{console.log(mutatedVal)})
+watch(val, (mutatedVal) => {
+  console.log(mutatedVal);
+});
 ```
 
 > 변한 값의 전처리도 가능
 
-```
+```js
 watch(
   () => val.value + 10, // 먼저 연산
-  (mutatedVal) => { //연산한 값을 파라미터로 받음
+  (mutatedVal) => {
+    //연산한 값을 파라미터로 받음
     console.log(mutatedVal);
   }
 );
@@ -72,12 +50,51 @@ watch(
 
 > 여러 값을 넣을 수도 있다.
 
-```
-const x = ref(0)
-const y = ref(0)
+```js
+const x = ref(0);
+const y = ref(0);
 
-watch([x, y], (x, y)=>{console.log(x, y)})
+watch([x, y], (x, y) => {
+  console.log(x, y);
+});
 ```
+
+### watchEffect()
+
+### watchPostEffect()
+
+### watchSyncEffect()
+
+### computed()
+
+> Takes a getter function and returns a readonly reactive ref object for the returned value from the getter.
+>
+> > 초기값을 계산식을 넣을 때 사용!
+> >
+> > > ref() 안에 계산식을 넣으면 값이 변하지 않는다 computed() 안에 넣어라
+
+```
+const startPage = computed(() => {
+  return endPage.value - (PAGE_SIZE - 1);
+});
+```
+
+### toRef()
+
+> reactive 객체에서 property만 가져올 때 사용
+>
+> > toRef(object, key of object)
+
+```js
+const state = reactive({
+  foo: 1,
+  bar: 2,
+});
+
+const fooRef = toRef(state, "foo");
+```
+
+### readonly()
 
 ### props
 
