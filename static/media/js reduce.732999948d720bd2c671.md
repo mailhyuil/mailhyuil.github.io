@@ -16,3 +16,25 @@ arr.reduce((a, b, c, d) => {
   console.log(d);
 });
 ```
+
+## 객체 배열 값 가져오기
+
+> 초깃값에 빈배열 넣기
+
+### 조건에 맞는 객체 이름 배열에 넣기
+
+```js
+let result = userList.reduce((prev, cur) => {
+  if (cur.age > 19) {
+    prev.push(cur.name);
+  }
+}, []); // [] 배열이 prev로 들어간다
+```
+
+### 나이 다 더하기
+
+```js
+let result = userList.reduce((prev, cur) => {
+  prev += cur.age;
+}, 0);
+```
