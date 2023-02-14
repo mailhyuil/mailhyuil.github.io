@@ -16,10 +16,51 @@ plainToInstance(DTO, obj) // js object를 Class로 바꿔준다
 
 ## decorator
 
+### @Expose()
+
+> getter나 메소드를 리턴 할 수 있게 해준다.
+>
+> > 프로퍼티 이름을 바꿀 수 있다
+
 ```
-@Exclude()
-@Expose()
-@Type(() => Photo)
+@Expose({ name: 'uid' })
+id: number;
+```
+
+### @Exclude()
+
+> 프로퍼티를 스킵 할 수 있다
+
+```
+export class User {
+  id: number;
+
+  email: string;
+
+  @Exclude()
+  password: string;
+}
+```
+
+### @Type()
+
+> 어레이를 사용 시 어레이 요소에 타입을 지정해준다
+>
+> > Set Map에도 필요
+
+```
+@Type(() => Post)
+posts: Post[];
+```
+
+### @Transform()
+
+> 추가적인 데이터 변환을 할 수 있다
+>
+> > dayjs같은 함수를 이용하여 추가 작업이 요구 시
+
+```
+@Type(() => Date)
 @Transform(({ value }) => moment(value), { toClassOnly: true })
-@TransformClassToPlain({ groups: ['user.email'] })
+date: Moment;
 ```
