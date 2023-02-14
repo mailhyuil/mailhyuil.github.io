@@ -8,6 +8,8 @@
 > > >
 > > > > @Redirect() 리다이렉트
 
+## 'Query()'를 받는 핸들러메소드가 'Param()'을 받는 핸들러메소드보다 "위에" 있어야한다!!!
+
 ```js
 @Controller('movies')
 export class MoviesController {

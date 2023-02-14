@@ -10,6 +10,8 @@ array.map((e) => {
 
 ## reduce
 
+> 누적값, 현재값이 중요
+
 ```js
 array.reduce((누적값, 현잿값, 인덱스, array) => {…}, 초깃값);
 

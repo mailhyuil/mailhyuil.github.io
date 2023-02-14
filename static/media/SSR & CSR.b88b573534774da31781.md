@@ -6,4 +6,4 @@
 
 ## CSR : 데이터를 클라이언트에서 가져온다. (fetch가 완료되지 않은 상태 -> fetch 완료)
 
-## <ClientOnly> : 감싼 영역을 CSR 한다. ex) full calendar는 window 객체를 사용하므로 CSR해야한다.
+## <ClientOnly> : 감싼 영역을 CSR 한다. 서버가 가지고 있지 않은 것들은 ClientOnly해야한다. ex) window 객체

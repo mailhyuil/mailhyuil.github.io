@@ -1,4 +1,6 @@
-# nest routing
+# nest app-routing
+
+> url에 자동으로 path를 붙여준다
 
 ## app-routing.module.ts
 
@@ -12,11 +14,11 @@ import { RouterModule, Routes } from "@nestjs/core";
 
 const routes: Routes = [
   { path: "auth", module: AuthModule },
-  { path: "post", module: PostModule },
+  { path: "post", module: PostModule }, // path 추가
 ];
 
 @Module({
-  imports: [RouterModule.register(routes), PostModule],
+  imports: [RouterModule.register(routes), PostModule], // Module 추가
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

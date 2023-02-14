@@ -1,0 +1,19 @@
+# js switch
+
+> 조건이 3개 이상이면 switch를 고려
+
+```js
+switch(x) {
+  case 'value1':  // if (x === 'value1')
+    ...
+    [break]
+
+  case 'value2':  // if (x === 'value2')
+    ...
+    [break]
+
+  default:
+    ...
+    [break]
+}
+```
