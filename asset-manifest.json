@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.aabc2c8f.js",
+    "main.js": "/static/js/main.e1086f69.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -28,9 +28,9 @@
     "static/media/vuejs composition api.md": "/static/media/vuejs composition api.94c94f7a50e5c59c0c91.md",
     "static/media/typeORM-nest.js.md": "/static/media/typeORM-nest.js.ee217e490715cf641dc4.md",
     "static/media/NginX.md": "/static/media/NginX.09a23d3a7a3ac9f649a0.md",
+    "static/media/vuejs.md": "/static/media/vuejs.694dc56a504d14cd9d02.md",
     "static/media/JPA.md": "/static/media/JPA.8690ebc3210b3573d495.md",
     "static/media/SEO.md": "/static/media/SEO.33bca553b73ca0e2c6df.md",
-    "static/media/vuejs.md": "/static/media/vuejs.e863aae8ff2e485aecae.md",
     "static/media/tailwindcss.md": "/static/media/tailwindcss.67719d7167289e20b1a8.md",
     "static/media/SSL.md": "/static/media/SSL.26b274ed9e8df0fb96ec.md",
     "static/media/Spring Boot (스프링부트).md": "/static/media/Spring Boot (스프링부트).b809bbaa8de331795573.md",
@@ -158,6 +158,7 @@
     "static/media/nest module.md": "/static/media/nest module.bca50f83e4b24344ed9c.md",
     "static/media/IDP.md": "/static/media/IDP.8c51a0b297d60622d360.md",
     "static/media/prisma where.md": "/static/media/prisma where.90d12f28365ab8e68670.md",
+    "static/media/FormData.md": "/static/media/FormData.223a8a6eef4df8c7e3a1.md",
     "static/media/Handler (Controller).md": "/static/media/Handler (Controller).ba6267a54ff775e54598.md",
     "static/media/rust 기초.md": "/static/media/rust 기초.871baa44e62da324204d.md",
     "static/media/lodash-operators.md": "/static/media/lodash-operators.839839272b129bfd01fe.md",
@@ -393,10 +394,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.aabc2c8f.js.map": "/static/js/main.aabc2c8f.js.map"
+    "main.e1086f69.js.map": "/static/js/main.e1086f69.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.aabc2c8f.js"
+    "static/js/main.e1086f69.js"
   ]
 }

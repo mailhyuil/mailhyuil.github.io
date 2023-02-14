@@ -103,6 +103,14 @@ v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
 > 양방향 바인딩을 가능하게 한다
 >
 > > 밑의 코드와 같다
+> >
+> > > v-model을 사용시 update:v-model emit을 사용하면 바로 값이 바뀐다!
+> > >
+> > > > v-model:변수명="값"으로 변수명 설정 가능
+> > > >
+> > > > > 변수명 설정하지 않으면 modelValue로 받을 수 있다.
+> > > > >
+> > > > > > update:modelValue 혹은 update:변수명 emits으로 업데이트 할 수 있다.
 
 ```
 <input v-model="searchText" />
@@ -121,12 +129,6 @@ v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
   @update:modelValue="newValue => searchText = newValue"
 />
 ```
-
-> v-model:변수명="값"으로 변수명 설정 가능
->
-> > 변수명 설정하지 않으면 modelValue로 받을 수 있다.
->
-> > > update:modelValue 혹은 update:변수명 emits으로 업데이트 할 수 있다.
 
 ```
 const props = defineProps<{
