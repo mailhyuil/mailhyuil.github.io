@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.19b5554a.js",
+    "main.js": "/static/js/main.3a5b81da.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -153,13 +153,14 @@
     "static/media/nest swagger.md": "/static/media/nest swagger.64d7951f3e7dcf82ab98.md",
     "static/media/nest guard.md": "/static/media/nest guard.edd8a07943c1d952fa8c.md",
     "static/media/rust 조건 제어.md": "/static/media/rust 조건 제어.7618d44c432e97dc564a.md",
+    "static/media/prisma client api.md": "/static/media/prisma client api.9a13526edb0374223fb8.md",
     "static/media/stored procedure.md": "/static/media/stored procedure.e8d15d68364d64cdc85c.md",
     "static/media/Static.md": "/static/media/Static.ce8cf240d94d3f875e62.md",
     "static/media/nest module.md": "/static/media/nest module.bca50f83e4b24344ed9c.md",
+    "static/media/prisma client api where.md": "/static/media/prisma client api where.c498d0f28e3f25c66f2c.md",
+    "static/media/js reduce.md": "/static/media/js reduce.544c0947874242238ade.md",
     "static/media/IDP.md": "/static/media/IDP.8c51a0b297d60622d360.md",
-    "static/media/prisma where.md": "/static/media/prisma where.90d12f28365ab8e68670.md",
     "static/media/FormData.md": "/static/media/FormData.223a8a6eef4df8c7e3a1.md",
-    "static/media/js reduce.md": "/static/media/js reduce.732999948d720bd2c671.md",
     "static/media/Handler (Controller).md": "/static/media/Handler (Controller).ba6267a54ff775e54598.md",
     "static/media/rust 기초.md": "/static/media/rust 기초.871baa44e62da324204d.md",
     "static/media/lodash-operators.md": "/static/media/lodash-operators.839839272b129bfd01fe.md",
@@ -172,7 +173,6 @@
     "static/media/Observable.md": "/static/media/Observable.fb197b7959afc26719b1.md",
     "static/media/Resources.md": "/static/media/Resources.063c304d1121177f9373.md",
     "static/media/axios.md": "/static/media/axios.f148d29d21c7653ee3c3.md",
-    "static/media/prisma api.md": "/static/media/prisma api.00dae837d0013815f157.md",
     "static/media/python basic.md": "/static/media/python basic.e7a55bd8ebc234c4c40e.md",
     "static/media/reflection.md": "/static/media/reflection.d2e78dcc39f7acf6b363.md",
     "static/media/expressjs.md": "/static/media/expressjs.b75a07349a23ffebff94.md",
@@ -236,6 +236,7 @@
     "static/media/Subscription.md": "/static/media/Subscription.cf5452a5aa6ac6a8863f.md",
     "static/media/typescript JSDoc.md": "/static/media/typescript JSDoc.16d3b9c4c27de06c3b38.md",
     "static/media/인풋박스 안에 텍스트.md": "/static/media/인풋박스 안에 텍스트.3b0fa660696944546679.md",
+    "static/media/prisma schema.md": "/static/media/prisma schema.384df7701a9669e6c209.md",
     "static/media/nuxt plugins.md": "/static/media/nuxt plugins.5a8c95e87d8c4f14e81f.md",
     "static/media/js customEvent.md": "/static/media/js customEvent.34a16ce0c6c54379aef2.md",
     "static/media/typescript index.d.ts.md": "/static/media/typescript index.d.ts.22eef9ae8bf7372e67f3.md",
@@ -375,6 +376,7 @@
     "static/media/UUID 생성.md": "/static/media/UUID 생성.eda7e788afb513239cf2.md",
     "static/media/ionic component.md": "/static/media/ionic component.f7367cf7daf5472b3eb2.md",
     "static/media/httpClient.md": "/static/media/httpClient.675cb6f66a7366f37358.md",
+    "static/media/prisma cli.md": "/static/media/prisma cli.01f7f7a6e9f74ed82cb9.md",
     "static/media/toast ui editor.md": "/static/media/toast ui editor.38df8bb35b9ef54805b7.md",
     "static/media/parallex background.md": "/static/media/parallex background.02eb4246240bed661e8c.md",
     "static/media/tailwindcss intellisense 작동 안될 때.md": "/static/media/tailwindcss intellisense 작동 안될 때.eaf3c388231118e30093.md",
@@ -395,10 +397,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.19b5554a.js.map": "/static/js/main.19b5554a.js.map"
+    "main.3a5b81da.js.map": "/static/js/main.3a5b81da.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.19b5554a.js"
+    "static/js/main.3a5b81da.js"
   ]
 }

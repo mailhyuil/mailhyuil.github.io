@@ -1,4 +1,4 @@
-# prisma where
+# prisma client api where
 
 > Prisma.[Name]WhereInput
 

@@ -38,3 +38,5 @@ let result = userList.reduce((prev, cur) => {
   prev += cur.age;
 }, 0);
 ```
+
+###
