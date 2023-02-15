@@ -67,7 +67,7 @@ watch([x, y], (x, y) => {
 
 ### computed()
 
-> Takes a getter function and returns a readonly reactive ref object for the returned value from the getter.
+> 계산하고 ref.value에 넣을거라면 그냥 computed() 안에 넣어라!
 >
 > > 초기값을 계산식을 넣을 때 사용!
 > >

@@ -1,22 +1,8 @@
-# prisma api
-
-## client api
-
-[client api]('https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#datasources')
-
-### crud
-
-### query options
-
-### filters
-
-### JSON filters
-
-## schema
+# prisma schema
 
 [schema]('https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference')
 
-### relation
+## relation
 
 ```prisma
 model Post {
@@ -33,16 +19,8 @@ model User {
 }
 ```
 
-### Json
+## Json
 
 ```
 some Json @db.JsonB
 ```
-
-## cli
-
-### migrate
-
-### generate
-
-### db pull & push
