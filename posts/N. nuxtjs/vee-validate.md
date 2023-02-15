@@ -12,6 +12,10 @@
 > >
 > > > 하나의 인풋 내에서 유효성을 검사할 때 사용
 
+```
+const { errorMessage, value } = useField(toRef(props, 'name'), yup.string().required().min(8));
+```
+
 ## useForm
 
 > form 레벨 유효성 검사
@@ -45,7 +49,7 @@ const {
 
 > 값이 변하는 스키마를 생성할 땐 computed 사용
 
-```
+```js
 const schema = computed(() => {
   return yup.object({
     password: yup.string().min(min.value),
