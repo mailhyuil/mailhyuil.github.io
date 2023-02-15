@@ -74,12 +74,9 @@ promise()
   .catch((err) => console.error(err));
 ```
 
-## to make async function
+## Primise.all
 
-1. Promise를 리턴시키기
-2. async 키워드 사용하기
-
-```
+```js
 const a = async () => {
   return 1;
 };
@@ -90,7 +87,7 @@ const c = async () => {
   return 3;
 };
 const d = async () => {
-  const data = Promise.all([a(), b(), c()]);
+  const data = Promise.all([a(), b(), c()]); // Promise.all([Promise... ]) 한번에 받기
   return data;
 };
 
