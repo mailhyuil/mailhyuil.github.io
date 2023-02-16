@@ -1,6 +1,8 @@
 # typescript union type
 
-> extends와 같다
+> | & 사용
+>
+> > & 은 extends와 같다
 
 ## union
 
