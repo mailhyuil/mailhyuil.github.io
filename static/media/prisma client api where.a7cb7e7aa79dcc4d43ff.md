@@ -19,7 +19,7 @@ if (option.status !== "ALL") {
 }
 ```
 
-## filters
+## 조건
 
 > field(column) 안에 들어간다
 
@@ -42,14 +42,41 @@ mode
 
 startsWith
 endsWith
-
 AND
 OR
 NOT
+```
 
+## Relation filters
+
+```
 some
 every
 none
 is
 isNot
+```
+
+## AND OR
+
+> 배열 사용
+
+```
+OR: [
+  {
+    title: {
+      contains: option.query,
+    },
+  },
+  {
+    content: {
+      contains: option.query,
+    },
+  },
+  {
+    name: {
+      contains: option.query,
+    },
+  },
+],
 ```
