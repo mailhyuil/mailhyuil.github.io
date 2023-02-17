@@ -118,6 +118,22 @@ setValues({memo:result.value.memo})
 
 ```vue
 <script lang="ts" setup>
+import { Field, useForm } from "vee-validate";
+import * as yup from "yup";
+const { values, errors } = useForm({
+  validationSchema: yup.object({
+    hi: yup.string().required("hi를 입력해주세요"),
+  }),
+});
+</script>
+<template>
+  <Field class="w-full bg-red-100" name="hi" />
+  <h1>{{ errors.hi }}</h1>
+</template>
+```
+
+```vue
+<script lang="ts" setup>
 import { Form, Field, useForm, useField, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 
