@@ -26,7 +26,7 @@ const { errorMessage, value } = useField(toRef(props, 'name'), yup.string().requ
 > > >
 > > > > values, handleSubmit, meta, errors, validate, setValues, isSubmitting .. 리턴
 > > > >
-> > > > > <Form></Form> 태그 안에 있는 인풋을 values에 담는다. 덕분에 name attribute가 필요 없다.
+> > > > > input에 name을 무조건 넣어줘야한다.
 
 ```ts
 const {
@@ -103,9 +103,18 @@ interface FieldMeta {
 
 ### setValues()
 
-> 모든 필드에 value를 넣기
+> values에 값 넣기
+>
+> > 유효성 검사를 할 요소만 들어가있는지 잘 확인해라
+
+```
+setValues({...result}) X
+setValues({memo:result.value.memo})
+```
 
 ## displaying errors
+
+> useForm errors 표시하려면 input 대신 Field 사용해야 함
 
 ```vue
 <script lang="ts" setup>
