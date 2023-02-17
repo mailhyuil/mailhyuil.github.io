@@ -47,3 +47,7 @@ export class CreateCatDto {
   @ApiTags('게시물')
 }
 ```
+
+## datetime
+
+> 2000-02-30 형식으로 입력
