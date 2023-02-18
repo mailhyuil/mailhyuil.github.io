@@ -26,7 +26,7 @@ const config = new DocumentBuilder()
 
 const document = SwaggerModule.createDocument(app, config);
 
-SwaggerModule.setup("api", app, document);
+SwaggerModule.setup("api", app, document); // api path로
 ```
 
 ```ts
