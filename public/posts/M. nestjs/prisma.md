@@ -4,6 +4,7 @@
 
 ```
 npm i prisma --save-dev
+npm install @prisma/client
 ```
 
 ## init
@@ -49,12 +50,6 @@ model Post {
 
 ```
 npx prisma migrate dev --name init
-```
-
-## @prisma/client
-
-```
-npm install @prisma/client
 ```
 
 ## PrismaClient 를 service로 주입하기
