@@ -70,3 +70,13 @@ model User {
   predecessor User?   @relation("BlogOwnerHistory")
 }
 ```
+
+## referential action
+
+> onDelete, onUpdate
+>
+> > Cascade, Restrict, NoAction, SetNull, SetDefault
+
+```
+@relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+```
