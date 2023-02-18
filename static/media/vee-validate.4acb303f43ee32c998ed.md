@@ -114,7 +114,18 @@ setValues({memo:result.value.memo})
 
 ## displaying errors
 
-> useForm errors 표시하려면 input 대신 Field 사용해야 함
+> useForm errors 표시하려면 input 대신 Field 사용해서 name을 넣어주기
+
+```
+<Field name='name'/>
+```
+
+> 아니면 useField() 사용
+
+```
+useField(props.name);
+<input name='props.name'/>
+```
 
 ```vue
 <script lang="ts" setup>
