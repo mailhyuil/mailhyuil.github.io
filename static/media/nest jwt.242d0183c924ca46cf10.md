@@ -32,23 +32,7 @@ JWT_PUBLIC_KEY=Xv26XN6L86kGOvHMS2rfV2k9HsLVEEEp
 JWT_PRIVATE_KEY=PAwXjs5j7eLj8WIeczIRgZN2TdJqi2Bn
 ```
 
-## AuthModule에 JwtModule 등록
-
-```ts
-@Module({
-  imports: [
-    JwtModule.register({
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: "60s" },
-    }),
-  ],
-  providers: [AuthService],
-  exports: [AuthService],
-})
-export class AuthModule {}
-```
-
-## JwtModule 옵션에 환경변수 적용
+## EnvironmentService에 JwtModuleOptions를 사용하여 환경변수 적용
 
 > ConfigModule을 import한 EnvironmentService에 JwtOptionsFactory를 구현하여 환경 설정
 
@@ -65,6 +49,26 @@ export class EnvironmentService implements JwtOptionsFactory {
     };
   }
 }
+```
+
+## AuthModule에 JwtModule 등록
+
+> EnvironmentService에 ConfigService로 환경변수에 등록된 키 사용
+>
+> > accessToken 발급, 검증하는 AuthUtils provider를 등록 및 export
+
+```ts
+@Module({
+  imports: [
+    JwtModule.registerAsync({
+      useClass: EnvironmentService,
+    }),
+  ],
+  providers: [AuthService, AuthUtils],
+  controllers: [AuthController],
+  exports: [AuthUtils, AuthService],
+})
+export class AuthModule {}
 ```
 
 ```ts
@@ -93,6 +97,38 @@ export class AuthService {
 
   create(data: Prisma.UserCreateInput) {
     return this.prismaService.user.create({ data });
+  }
+}
+```
+
+## AuthUtils
+
+> AccessToken 발급과 AccessToken을 검증하는 메소드 작성
+
+```ts
+import { AccessTokenPayload } from "@avirtual/interface";
+import { Injectable } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt/dist/jwt.service";
+@Injectable()
+export class AuthUtil {
+  constructor(private readonly jwtService: JwtService) {}
+
+  /**
+   * 1시간의 유효기간을 가진 Access Token을 발급합니다.
+   */
+  createAccessToken(payload: AccessTokenPayload): string {
+    const accessToken = this.jwtService.sign(payload, {
+      expiresIn: "60m",
+    });
+
+    return accessToken;
+  }
+
+  /**
+   * AccessToken을 검증합니다.
+   */
+  verifyAccessToken(accessToken: string): AccessTokenPayload {
+    return this.jwtService.verify<AccessTokenPayload>(accessToken);
   }
 }
 ```
@@ -127,6 +163,7 @@ export class AuthController {
     };
 
     // 유저 정보 객체를 signature로 사용하여 1시간짜리 토큰 생성
+    // AuthUtils으로 대체 가능
     const token = this.jwtService.sign(payload, {
       expiresIn: "60m",
     });
@@ -191,6 +228,7 @@ export class AuthGuard implements CanActivate {
     const authToken = authorization[1];
 
     // jwtService를 사용하여 토큰 검증
+    // AuthUtils으로 대체 가능
     try {
       const { id }: AccessTokenPayload =
         await this.jwtService.verify<AccessTokenPayload>(authToken);
