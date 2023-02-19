@@ -55,7 +55,7 @@ export class EnvironmentService implements JwtOptionsFactory {
 
 > EnvironmentService에 ConfigService로 환경변수에 등록된 키 사용
 >
-> > accessToken 발급, 검증하는 AuthUtils provider를 등록 및 export
+> > accessToken 발급, 검증을 분리하고싶다면 AuthUtils로 분리해서 provider를 등록 및 export
 
 ```ts
 @Module({
@@ -77,33 +77,9 @@ JwtModule.registerAsync({
 }),
 ```
 
-## AuthService
-
-```ts
-@Injectable()
-export class AuthService {
-  constructor(
-    private readonly prismaService: PrismaService,
-    private readonly jwtService: JwtService
-  ) {}
-
-  findUserById(userId: string) {
-    return this.prismaService.user.findUnique({ where: { id: userId } });
-  }
-
-  findUserByUsername(username: string) {
-    return this.prismaService.user.findUnique({ where: { username } });
-  }
-
-  create(data: Prisma.UserCreateInput) {
-    return this.prismaService.user.create({ data });
-  }
-}
-```
-
 ## AuthUtils
 
-> AccessToken 발급과 AccessToken을 검증하는 메소드 작성
+> AccessToken 발급과 AccessToken을 검증하는 메소드 분리
 
 ```ts
 import { AccessTokenPayload } from "@avirtual/interface";
@@ -129,6 +105,30 @@ export class AuthUtil {
    */
   verifyAccessToken(accessToken: string): AccessTokenPayload {
     return this.jwtService.verify<AccessTokenPayload>(accessToken);
+  }
+}
+```
+
+## AuthService
+
+```ts
+@Injectable()
+export class AuthService {
+  constructor(
+    private readonly prismaService: PrismaService,
+    private readonly jwtService: JwtService
+  ) {}
+
+  findUserById(userId: string) {
+    return this.prismaService.user.findUnique({ where: { id: userId } });
+  }
+
+  findUserByUsername(username: string) {
+    return this.prismaService.user.findUnique({ where: { username } });
+  }
+
+  create(data: Prisma.UserCreateInput) {
+    return this.prismaService.user.create({ data });
   }
 }
 ```
@@ -242,4 +242,23 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
+```
+
+## Auth decorator
+
+```ts
+export function Auth() {
+  return applyDecorators(UseGuards(AuthGuard));
+}
+```
+
+## GetUser decorator
+
+```ts
+export const GetUser = createParamDecorator<User>(
+  (data: User, ctx: ExecutionContext) => {
+    const request = ctx.switchToHttp().getRequest();
+    return request.user;
+  }
+);
 ```
