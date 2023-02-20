@@ -189,3 +189,9 @@ useForm({
   </div>
 </template>
 ```
+
+## button disabled 시키기
+
+```
+:disabled="!meta.valid"
+```
