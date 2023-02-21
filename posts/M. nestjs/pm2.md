@@ -1,0 +1,84 @@
+# pm2
+
+> 어플리케이션이 계속 온라인으로 구동되도록 도와주는 데몬 프로세스 매니저
+>
+> > Node.js를 사용할 때 배포 단계에서 서버를 무중단으로 설정해야 하는 상황에 사용
+
+## install
+
+```
+npm i -g pm2
+```
+
+## option
+
+```
+1. name : 실행 모드 이름
+
+2. script : 실행되는 파일
+
+3. instances : 프로세스 수
+
+4. autorestart : 재시작 on/off
+
+5. watch : watch on/off
+
+6. env: Node.js 환경변수
+```
+
+## ecosystem.config.js
+
+```
+module.exports={
+    apps: [
+        {
+            name: 'avirtual-client',
+            script: './client/.output/server/index.mjs',
+            env: {
+                NITRO_PORT: 13011,
+                SERVER: 'https://avirtual-api.lepisode.team/api/v1'
+            }
+        },
+        {
+            name: 'avirtual-server',
+            script: './server/dist/main.js',
+            env: {
+                NODE_ENV: 'production'
+            }
+        }
+    ]
+}
+```
+
+## .env.production
+
+```
+NODE_ENV=development
+
+SERVER_PORT=13012
+
+DATABASE_URL="postgresql://postgres:88782314p*@59.3.87.92:5432/avirtual?schema=public"
+
+JWT_SECRET_KEY=5BTENutJCTpGO2aHfDDs2u0KKKKpKV8s
+JWT_PUBLIC_KEY=Xv26XN6L86kGOvHMS2rfV2k9HsLVEEEp
+JWT_PRIVATE_KEY=PAwXjs5j7eLj8WIeczIRgZN2TdJqi2Bn
+
+SERVER=https://avirtual-api.lepisode.team/api/v1
+```
+
+## nuxt.config.ts
+
+```
+runtimeConfig: {
+  public: {
+    server: process.env.SERVER,
+  },
+  server: process.env.SERVER,
+},
+```
+
+## 실행
+
+```
+pm2 start ecosystem.config.js
+```
