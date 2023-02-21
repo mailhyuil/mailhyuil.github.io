@@ -5,9 +5,9 @@
 ## crud
 
 ```
-findUnique
+findUnique // unique value만 where 인풋에 넣을 수 있다.
 findUniqueOrThrow
-findFirst
+findFirst // unique value가 아닌것들도 넣을 수 있다.
 findFirstOrThrow
 findMany
 create
