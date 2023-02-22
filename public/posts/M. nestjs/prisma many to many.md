@@ -4,23 +4,6 @@
 >
 > > create 시 relationName:{/...connect}
 
-## create
-
-```ts
-async addCopyright(productId: number, body: CreateCopyrightDTO) {
-    await this.prismaService.copyright.create({
-      data: {
-        name: body.name,
-        products: {
-          connect: {
-            id: productId,
-          },
-        },
-      },
-    });
-  }
-```
-
 ## prisma는 조인테이블을 알아서 만들어준다.
 
 ```prisma
@@ -40,4 +23,33 @@ model Copyright{
   name String
   products Product[]
 }
+```
+
+## create
+
+```ts
+async addCopyright(productId: number, body: CreateCopyrightDTO){
+    await this.prismaService.copyright.create({
+      data: {
+        name: body.name,
+        products: {
+          connect: {
+            id: productId,
+          },
+        },
+      },
+    });
+  }
+```
+
+## findMany
+
+```ts
+async findMany(productId: number, body: CreateCopyrightDTO){
+const products = await this.prismaService.product.findMany({
+  include:{
+    copyrights:true
+  }
+})
+  }
 ```
