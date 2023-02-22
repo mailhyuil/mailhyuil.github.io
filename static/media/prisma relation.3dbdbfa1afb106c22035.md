@@ -80,3 +80,14 @@ model User {
 ```
 @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
 ```
+
+## create
+
+```ts
+this.prismaService.post.create({
+  data: {
+    content: "hi",
+    user: { connect: { id: "user_id" } },
+  },
+});
+```
