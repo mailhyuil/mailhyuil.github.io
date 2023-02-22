@@ -22,3 +22,9 @@ const [a, b, ...[c, d]] = array;
 ({ a, b, ...rest } = obj);
 ({ a: a1, b: b1, ...rest } = obj);
 ```
+
+## 이름 다르게 받기
+
+```ts
+const { value: _value, handleSubmit: _handleSubmit };
+```
