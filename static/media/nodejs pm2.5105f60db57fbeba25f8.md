@@ -10,7 +10,7 @@
 
 ## install
 
-```
+```sh
 npm i -g pm2
 ```
 
