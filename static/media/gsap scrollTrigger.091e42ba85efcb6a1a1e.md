@@ -19,7 +19,11 @@ end:""
 > 마우스의 스크롤 정도에 따라서 애니메이션이 반응
 
 ### pin
+
 > start를 top top으로 설정해야한다.
+>
+> > > 가장 밖에 있는 루트 container가 트리거인지 확인해라
+
 ### toggleClass
 
 ### toggleActions
@@ -104,4 +108,3 @@ EleArray.forEach((span) => {
   });
 });
 ```
-
