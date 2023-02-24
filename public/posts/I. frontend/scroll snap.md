@@ -1,5 +1,16 @@
 # scroll snap
 
+## tailwindcss scroll snap
+
+```html
+<!-- snap-proximity or snap-mandatory -->
+<div class="snap-y snap-mandatory h-screen overflow-y-scroll">
+  <div class="snap-start bg-amber-500 h-screen"></div>
+  <div class="snap-start bg-teal-500 h-screen"></div>
+  <div class="snap-start bg-cyan-500 h-screen"></div>
+</div>
+```
+
 ## scroll-snap-type
 
 ## scroll-snap-align

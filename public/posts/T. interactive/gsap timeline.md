@@ -55,3 +55,14 @@ tl.to(box2.value, {
 
 tl.play("rotate");
 ```
+
+# gsap label repeat
+
+```ts
+tl.eventCallback("onComplete", repeatLabel);
+
+function repeatLabel() {
+  tl.seek("repeatTl");
+  tl.play();
+}
+```
