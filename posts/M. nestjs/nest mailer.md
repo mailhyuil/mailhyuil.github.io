@@ -1,5 +1,7 @@
 # nest mailer
 
+> smtp 메일 서버가 필요 ex) 네이버 메일 서버, 구글 메일 서버
+
 ## install
 
 ```
@@ -26,17 +28,17 @@ import { EnvironmentService } from "src/environment/environment.service";
           from: "avirtual <info@avirtual.co.kr>",
         },
         transport: {
-          host: "email-smtp.ap-northeast-2.amazonaws.com",
-          port: 587,
-          secure: false,
+          host: "mail server 주소 ex) smtp.naver.com",
+          port: 587, // mail server port
+          secure: false, // ssl
           auth: {
-            user: "AKIA3NC4UZ7GJ3WVHZ5A",
-            pass: "BAv6OguzvP+41EY0Y261XMbGSK7RMaYWECACdLEiN1uk",
+            user: "mail server 아이디",
+            pass: "mail server 비밀번호",
           },
         },
         template: {
           dir: "",
-          adapter: new EjsAdapter(),
+          adapter: new EjsAdapter(), // ejs template engine 사용
           options: {
             strict: true,
           },
