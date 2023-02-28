@@ -1,5 +1,9 @@
 # ssh
 
+> 비밀번호로 접속하는 방법
+>
+> > 공개키로 접속하는 방법
+
 ## ssh-keygen
 
 > key pair C:/Users/user/.ssh/id_rsa 생성

@@ -14,12 +14,11 @@
 >
 > > 직교좌표값 === x, y
 
-```
-y === r * sin(theta)
-x === r * cos(theta)
+## y === sin(theta) \* r
 
-y/x === r * tan(theta)
-```
+## x === cos(theta) \* r
+
+## y/x === tan(theta) \* r
 
 #### 삼각함수 회전시키기
 
