@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.1d84b9d3.js",
+    "main.js": "/static/js/main.6cdfcb09.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -379,6 +379,7 @@
     "static/media/nuxt useSlots.md": "/static/media/nuxt useSlots.d8d156426a6849b137b0.md",
     "static/media/db dump.md": "/static/media/db dump.4ed555808cf7fa079a4c.md",
     "static/media/nuxt tailwindcss.md": "/static/media/nuxt tailwindcss.4ca27585f629303733ab.md",
+    "static/media/regex html 태그 제거.md": "/static/media/regex html 태그 제거.7da10a21302f90058d2a.md",
     "static/media/nuxt errors.md": "/static/media/nuxt errors.432f9741e97dbfca0617.md",
     "static/media/p5js mode.md": "/static/media/p5js mode.53be4265b02d9a5d4153.md",
     "static/media/nuxt swiper.md": "/static/media/nuxt swiper.0191329005ac10456fad.md",
@@ -446,10 +447,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.1d84b9d3.js.map": "/static/js/main.1d84b9d3.js.map"
+    "main.6cdfcb09.js.map": "/static/js/main.6cdfcb09.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.1d84b9d3.js"
+    "static/js/main.6cdfcb09.js"
   ]
 }
