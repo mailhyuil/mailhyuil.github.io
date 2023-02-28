@@ -29,6 +29,8 @@ const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup("api", app, document); // api path로
 ```
 
+## dto
+
 ```ts
 import { ApiProperty } from "@nestjs/swagger";
 
@@ -46,6 +48,15 @@ export class CreateCatDto {
   @ApiBearerAuth()
   @ApiTags('게시물')
 }
+```
+
+## controller
+
+```ts
+@ApiOperation({
+  summary: '지적재산권 추가',
+  description: '지적재산권을 추가합니다.',
+})
 ```
 
 ## datetime
