@@ -41,3 +41,32 @@ server.listen().then(({ url }) => {
   console.log(`running on ${url}`);
 });
 ```
+
+## scalar type
+
+```
+// scalar type
+ID
+Int
+String
+Boolean
+
+// object type
+Tweet
+
+// list
+[String]
+[Object]
+```
+
+## Non Nullable
+
+> 타입 뒤에 느낌표 ! 붙이기
+
+## Query type
+
+> Get 요청과 같다
+
+## Mutation type
+
+> Post, Put, Patch, Delete 요청과 같다
