@@ -42,7 +42,7 @@ server.listen().then(({ url }) => {
 });
 ```
 
-## scalar type
+## type
 
 ```
 // scalar type
@@ -59,7 +59,7 @@ Tweet
 [Object]
 ```
 
-## Non Nullable
+## Non Nullable Field
 
 > 타입 뒤에 느낌표 ! 붙이기
 
@@ -70,3 +70,5 @@ Tweet
 ## Mutation type
 
 > Post, Put, Patch, Delete 요청과 같다
+
+## Resolver
