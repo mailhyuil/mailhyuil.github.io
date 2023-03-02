@@ -14,14 +14,13 @@
 >
 > > 직교좌표값 === x, y
 
-```
-y === r * sin(theta)
-x === r * cos(theta)
+## y === sin(theta) \* r
 
-y/x === r * tan(theta)
-```
+## x === cos(theta) \* r
 
-#### 삼각함수 회전시키기
+## y/x === tan(theta) \* r
+
+### 삼각함수 회전시키기
 
 > angle(theta) 값과 r값을 가지고
 >
