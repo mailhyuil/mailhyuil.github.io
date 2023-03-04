@@ -7,12 +7,16 @@
 ```
 char(n)	고정 길이 문자열
 varchar(n)	가변 길이 문자열
+
 int2	2 bytes 정수형
 int	4 bytes 정수형
 int8	8 bytes 정수형
+
 float4	4 bytes 실수형
 float8	8 bytes 실수형
+
 bool	참/거짓 자료형
+
 date	년-월-일
 time	시-분-초
 timetz	시-분-초 + 시간대
