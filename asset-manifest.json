@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.8bf52311.js",
+    "main.js": "/static/js/main.2b22080d.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -222,7 +222,9 @@
     "static/media/launch.md": "/static/media/launch.0815dbbfb09cb9d78e93.md",
     "static/media/Command Object (커맨드 객체).md": "/static/media/Command Object (커맨드 객체).8e1b79c5625f41a22368.md",
     "static/media/nest cache.md": "/static/media/nest cache.a493b5204dcd4594fecf.md",
+    "static/media/postgres type.md": "/static/media/postgres type.b01490324bd2d509575c.md",
     "static/media/prisma raw query.md": "/static/media/prisma raw query.129057be33751ab51b1d.md",
+    "static/media/postgres foreign key.md": "/static/media/postgres foreign key.69929e9b4b4c161f9caa.md",
     "static/media/svg clipping.md": "/static/media/svg clipping.d0590a5e781e672ac33a.md",
     "static/media/rust self.md": "/static/media/rust self.9f1483b55bb8db975a2d.md",
     "static/media/yarn.md": "/static/media/yarn.89a981416b6797921c93.md",
@@ -260,6 +262,7 @@
     "static/media/typescript index.d.ts.md": "/static/media/typescript index.d.ts.22eef9ae8bf7372e67f3.md",
     "static/media/vue click-outside-vue3.md": "/static/media/vue click-outside-vue3.ec69423c13f4d64b3352.md",
     "static/media/ionic.md": "/static/media/ionic.b00e52a938961736a188.md",
+    "static/media/postgres where.md": "/static/media/postgres where.477b7a0ce521a1f561fa.md",
     "static/media/gsap snap & mapRange & interpolate.md": "/static/media/gsap snap & mapRange & interpolate.d461e0dda0dd1b3c1f3b.md",
     "static/media/단축키.md": "/static/media/단축키.486da3982005cabab978.md",
     "static/media/rust 에러처리.md": "/static/media/rust 에러처리.0c4ca4180ed5fa02db13.md",
@@ -307,7 +310,7 @@
     "static/media/git 되돌리기.md": "/static/media/git 되돌리기.907d0b676afc124fa5e8.md",
     "static/media/Maven (메이븐).md": "/static/media/Maven (메이븐).88b324316441791c6d60.md",
     "static/media/popup.md": "/static/media/popup.536d63941e1c581f3faa.md",
-    "static/media/postgreSQL 중앙값.md": "/static/media/postgreSQL 중앙값.0c9436b12129d0ab11d9.md",
+    "static/media/postgres 중앙값.md": "/static/media/postgres 중앙값.0c9436b12129d0ab11d9.md",
     "static/media/nuxt login with jwt.md": "/static/media/nuxt login with jwt.62cf6522df182998b3d9.md",
     "static/media/nuxt teleport.md": "/static/media/nuxt teleport.6a72f78b28b70c5e2de3.md",
     "static/media/calc().md": "/static/media/calc().2dadc2d0907707a2c772.md",
@@ -328,10 +331,9 @@
     "static/media/git.md": "/static/media/git.513e78f49cb69a71c5b0.md",
     "static/media/Docker-mysql.md": "/static/media/Docker-mysql.cc7e548a6f40f17e96f4.md",
     "static/media/class-validator.md": "/static/media/class-validator.7d50ead730b106292166.md",
-    "static/media/postgreSQL unnest.md": "/static/media/postgreSQL unnest.38f8345baa2339187f85.md",
+    "static/media/postgres unnest.md": "/static/media/postgres unnest.38f8345baa2339187f85.md",
     "static/media/typescript 제네릭.md": "/static/media/typescript 제네릭.3effa946c849b2a5008e.md",
     "static/media/nextTick.md": "/static/media/nextTick.06e5d31c44414e09ea62.md",
-    "static/media/prisma transaction.md": "/static/media/prisma transaction.3ae58d88bb516b62053c.md",
     "static/media/FTP.md": "/static/media/FTP.ac9bc0d818a51940e766.md",
     "static/media/html canvas image.md": "/static/media/html canvas image.ef7f0dc4930d0c9e9233.md",
     "static/media/초기 렌더링 시 transition 방지.md": "/static/media/초기 렌더링 시 transition 방지.be56403e87f74d6b5427.md",
@@ -347,7 +349,7 @@
     "static/media/Docker-postgreSQL.md": "/static/media/Docker-postgreSQL.836464b0d5bba073e6a5.md",
     "static/media/nuxt devtools.md": "/static/media/nuxt devtools.414f4e1646343bdff846.md",
     "static/media/nest static.md": "/static/media/nest static.59e72487eb293eac697b.md",
-    "static/media/postgreSQL psql.md": "/static/media/postgreSQL psql.5107bbaed9d1c1594e72.md",
+    "static/media/postgres psql.md": "/static/media/postgres psql.5107bbaed9d1c1594e72.md",
     "static/media/nuxt compasables.md": "/static/media/nuxt compasables.8580fe3541b67625110c.md",
     "static/media/js Symbol.md": "/static/media/js Symbol.b9a0f7154387764cc011.md",
     "static/media/pandas.md": "/static/media/pandas.9a44cc0ed2d0554a4494.md",
@@ -367,6 +369,7 @@
     "static/media/다차원 배열의 사용.md": "/static/media/다차원 배열의 사용.19b94969c88ee57dc423.md",
     "static/media/nuxt middleware.md": "/static/media/nuxt middleware.f51ce6eeb25c339a8314.md",
     "static/media/js return false.md": "/static/media/js return false.7bbe422ccc402d1de260.md",
+    "static/media/postgres copy.md": "/static/media/postgres copy.1052f5b2ac2ead49068a.md",
     "static/media/vee-validate yup.md": "/static/media/vee-validate yup.c7d650beb2076c9cc150.md",
     "static/media/nuxt layouts.md": "/static/media/nuxt layouts.10bbec331d2d980594c7.md",
     "static/media/nuxt page transition 버그.md": "/static/media/nuxt page transition 버그.2b4ce1078892c9ae8dc3.md",
@@ -392,6 +395,7 @@
     "static/media/p5js mode.md": "/static/media/p5js mode.53be4265b02d9a5d4153.md",
     "static/media/nuxt swiper.md": "/static/media/nuxt swiper.0191329005ac10456fad.md",
     "static/media/python 스레드&프로세스.md": "/static/media/python 스레드&프로세스.54adf8569fe9d20ac7a1.md",
+    "static/media/prisma transaction.md": "/static/media/prisma transaction.970b1b6293aa5653c15d.md",
     "static/media/typescript auto import 안 찾아질 때.md": "/static/media/typescript auto import 안 찾아질 때.1335793dad30c1b950e2.md",
     "static/media/Subject.md": "/static/media/Subject.25b92c2a04ee796fd615.md",
     "static/media/typescript enum.md": "/static/media/typescript enum.edea5c90b6c732eba53c.md",
@@ -423,6 +427,7 @@
     "static/media/js 타입 확인.md": "/static/media/js 타입 확인.64d885d575a07100cd49.md",
     "static/media/tailwindcss drop-shadow.md": "/static/media/tailwindcss drop-shadow.faed2ebfbe6e3a60c126.md",
     "static/media/backgroud.md": "/static/media/backgroud.9964bbcfcb78f7ae2f73.md",
+    "static/media/postgres cast.md": "/static/media/postgres cast.da23c165a20a17f68af4.md",
     "static/media/SCP.md": "/static/media/SCP.3a851587cb9dda750237.md",
     "static/media/마운트.md": "/static/media/마운트.0a766cd646f96c260056.md",
     "static/media/html 요소 위치값 얻기.md": "/static/media/html 요소 위치값 얻기.fe0aa95e459c5ede81f7.md",
@@ -457,10 +462,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.8bf52311.js.map": "/static/js/main.8bf52311.js.map"
+    "main.2b22080d.js.map": "/static/js/main.2b22080d.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.8bf52311.js"
+    "static/js/main.2b22080d.js"
   ]
 }
