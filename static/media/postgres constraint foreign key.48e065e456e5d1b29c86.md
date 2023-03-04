@@ -19,7 +19,7 @@ CREATE TABLE post(
 ## CONSTRAINT 이름 직접 지정
 
 ```sql
-CONSTRAINT 제약조건이름
-FOREIGN KEY (필드이름)
-REFERENCES 테이블이름 (필드이름)
+CONSTRAINT constraint_name
+FOREIGN KEY (field_name)
+REFERENCES table_name (field_name)
 ```

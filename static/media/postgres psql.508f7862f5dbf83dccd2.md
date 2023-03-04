@@ -17,3 +17,9 @@ ex) psql -d mydb -U postgres
 ```
 \c dbname
 ```
+
+## table 확인
+
+```
+\dt
+```
