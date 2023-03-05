@@ -7,9 +7,8 @@
 ## install
 
 ```
-npm i dotenv
-
 yarn add dotenv
+yarn add dotenv-cli
 ```
 
 ## .env
@@ -28,6 +27,12 @@ MAIL_USER=test@gmail.com
 MAIL_PASSWORD=test
 # Session Cookie Sign code
 SECRET=mycode
+```
+
+## dotenv-cli
+
+```
+dotenv -e .env.development -- nest start --watch
 ```
 
 ## 사용법

@@ -59,3 +59,9 @@ export class EnvironmentModule implements OnModuleInit {
 ```
 this.configService.get<string>('JWT_SECRET_KEY'),
 ```
+
+## dotenv-cli
+
+```
+dotenv -e .env.development -- nest start --watch
+```
