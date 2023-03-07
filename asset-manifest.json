@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.44a23929.css",
-    "main.js": "/static/js/main.c30f1cc8.js",
+    "main.js": "/static/js/main.39518904.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -441,6 +441,7 @@
     "static/media/UUID 생성.md": "/static/media/UUID 생성.eda7e788afb513239cf2.md",
     "static/media/ionic component.md": "/static/media/ionic component.f7367cf7daf5472b3eb2.md",
     "static/media/페이지 전환 시 scrollToTop.md": "/static/media/페이지 전환 시 scrollToTop.dda3ba4831cd5db7c657.md",
+    "static/media/vuejs class binding.md": "/static/media/vuejs class binding.d75290539860894f20c3.md",
     "static/media/httpClient.md": "/static/media/httpClient.675cb6f66a7366f37358.md",
     "static/media/prisma cli.md": "/static/media/prisma cli.01f7f7a6e9f74ed82cb9.md",
     "static/media/toast ui editor.md": "/static/media/toast ui editor.38df8bb35b9ef54805b7.md",
@@ -468,10 +469,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.44a23929.css.map": "/static/css/main.44a23929.css.map",
-    "main.c30f1cc8.js.map": "/static/js/main.c30f1cc8.js.map"
+    "main.39518904.js.map": "/static/js/main.39518904.js.map"
   },
   "entrypoints": [
     "static/css/main.44a23929.css",
-    "static/js/main.c30f1cc8.js"
+    "static/js/main.39518904.js"
   ]
 }
