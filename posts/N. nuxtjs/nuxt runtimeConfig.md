@@ -14,3 +14,9 @@ export default defineNuxtConfig({
   },
 });
 ```
+
+## 환경변수 확인
+
+```
+useRuntimConfig()
+```

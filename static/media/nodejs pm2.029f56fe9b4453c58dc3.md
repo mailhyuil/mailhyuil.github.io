@@ -95,3 +95,9 @@ runtimeConfig: {
 ```
 pm2 start ecosystem.config.js
 ```
+
+## log 확인
+
+```
+pm2 log avirtual-server --lines 300
+```
