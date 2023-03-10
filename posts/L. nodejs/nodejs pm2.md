@@ -101,3 +101,7 @@ pm2 start ecosystem.config.js
 ```
 pm2 log avirtual-server --lines 300
 ```
+
+## restart를 해줘야 반영 됨
+
+> pm2 restart server_name

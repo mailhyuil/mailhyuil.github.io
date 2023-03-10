@@ -16,6 +16,9 @@ yarn add dayjs
 import dayjs from "dayjs";
 
 dayjs().format("YYYY-MM-DD hh:mm:ss")
+
+dayjs().format("YYYY-MM-DD 00:00")
+dayjs().format("YYYY-MM-DD 23:59")
 ```
 
 ## get()

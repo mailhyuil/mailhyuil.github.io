@@ -24,6 +24,13 @@ defineNuxtPlugin((nuxtApp) => {
 
 ## series
 
-### x / y
+> ApexAxisChartSeries
 
-### data
+```
+// {date, totalUsers}를 [{x:date,y:totalUsers},...]로
+
+const totalUserSeries: ApexAxisChartSeries = {
+  name: "전체 방문수",
+  data: data.map((item) => ({ x: item.date, y: item.totalUsers })),
+};
+```
