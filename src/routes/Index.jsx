@@ -56,8 +56,8 @@ const Main = () => {
   };
   return (
     <div className="flex w-full h-full">
-      <div className="h-full flex flex-1 lg:flex-row flex-col bg-white">
-        <nav className="lg:h-full overflow-y-auto scrollbar-hide font-primary">
+      <div className="flex flex-col flex-1 h-full bg-white lg:flex-row">
+        <nav className="overflow-y-auto lg:h-full scrollbar-hide font-primary">
           <div className="flex justify-center p-3">
             <img
               className="mt-5 w-[11rem] hidden lg:block"
@@ -75,7 +75,7 @@ const Main = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-12 h-12 lg:hidden absolute left-3 top-1"
+              className="absolute w-12 h-12 lg:hidden left-3 top-1"
               onClick={() => {
                 nav_ul.current.classList.toggle("hidden");
               }}>
@@ -87,12 +87,12 @@ const Main = () => {
             </svg>
           </div>
           <ul
-            className="nav-ul px-4 cursor-pointer lg:flex hidden flex-col items-center"
+            className="flex-col items-center hidden px-4 cursor-pointer nav-ul lg:flex"
             ref={nav_ul}>
             <motion.li
               initial={{ x: -400 }}
               animate={{ x: 0 }}
-              className="mb-4 mt-4 font-black text-gray-800 text-2xl"
+              className="mt-4 mb-4 text-2xl font-black text-gray-800"
               onClick={() => {
                 setNavIndex("home");
                 nav_ul.current.classList.toggle("hidden");
@@ -101,7 +101,7 @@ const Main = () => {
             </motion.li>
 
             <motion.ul
-              className="blog mb-4 font-black text-gray-800 text-2xl"
+              className="mb-4 text-2xl font-black text-gray-800 blog"
               initial={{ x: -400 }}
               animate={{ x: 0 }}
               onClick={(e) => {
@@ -111,7 +111,7 @@ const Main = () => {
               {Array.from(categories).map((e, index) => {
                 return (
                   <ul
-                    className="blog-category font-semibold hidden border-b border-slate-400 border-dashed text-gray-800 text-xl hover:text-pink-500 transition-all ease-in"
+                    className="hidden text-xl font-semibold text-gray-800 transition-all ease-in border-b border-dashed blog-category border-slate-400 hover:text-pink-500"
                     key={index}
                     ref={(el) => (blog_category.current[index] = el)}
                     onClick={(event) => {
@@ -121,7 +121,7 @@ const Main = () => {
                     {getMDFilesByCategory(e).map((md, index) => {
                       return (
                         <li
-                          className="blog-list hidden text-sm font-light text-gray-700 hover:bg-gray-900 hover:text-white transition-all ease-in duration-200"
+                          className="hidden text-sm font-light text-gray-700 transition-all duration-200 ease-in blog-list hover:bg-gray-900 hover:text-white"
                           key={index}
                           onClick={() => {
                             setNavIndex("blog");
@@ -140,7 +140,7 @@ const Main = () => {
             <motion.li
               initial={{ x: -400 }}
               animate={{ x: 0 }}
-              className="mb-4 font-black text-gray-800 text-2xl"
+              className="mb-4 text-2xl font-black text-gray-800"
               onClick={() => {
                 setNavIndex("about");
                 nav_ul.current.classList.toggle("hidden");
@@ -150,7 +150,7 @@ const Main = () => {
             <motion.li
               initial={{ x: -400 }}
               animate={{ x: 0 }}
-              className="mb-4 font-black text-gray-800 text-2xl"
+              className="mb-4 text-2xl font-black text-gray-800"
               onClick={() => {
                 setNavIndex("movie");
                 nav_ul.current.classList.toggle("hidden");
@@ -163,8 +163,8 @@ const Main = () => {
           {menuList[navIndex]}
         </motion.main>
       </div>
-      <footer className="text-white/80 p-4 fixed right-4 bottom-4 flex flex-col items-end">
-        <p className="lg:text-lg text-sm">
+      <footer className="fixed flex flex-col items-end p-4 text-white/80 right-4 bottom-4">
+        <p className="text-sm lg:text-lg">
           This blog is built with react.js by{" "}
           <span className="bg-pink-500/50 p-0.5">Yoo Sangbaek</span>
         </p>
