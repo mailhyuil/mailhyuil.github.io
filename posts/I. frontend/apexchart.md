@@ -37,9 +37,40 @@ const series = ref<ApexAxisChartSeries>([
 </template>
 ```
 
-## series
+## Series
 
 > ApexAxisChartSeries
+
+### Single values
+
+```js
+data: [23, 34, 12, 54, 32, ... , 43]
+categories: ["Jan", "Feb", "Mar", ... , "Dec"]
+```
+
+### Paired values
+
+```js
+data: [[1, 34]]
+
+data: [{x: 20, y: 54}],
+
+data: [{x: 'Apple', y: 54}],
+```
+
+### Timeline Series
+
+```js
+data: [[1324508400000, 34]]; // timestamp
+data: [{ x: "05/06/2014", y: 54 }]; // date
+```
+
+### Data for Pie/Donuts/RadialBars
+
+```js
+series: [23, 11, 54, 72, 12],
+labels: ["Apple", "Mango", "Banana", "Papaya", "Orange"]
+```
 
 ```ts
 // {date, totalUsers}를 [{x:date,y:totalUsers},...]로
