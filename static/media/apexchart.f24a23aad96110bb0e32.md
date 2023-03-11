@@ -11,7 +11,8 @@ npm install --save vue3-apexcharts
 
 ```ts
 import VueApexCharts from "vue3-apexcharts";
-defineNuxtPlugin((nuxtApp) => {
+
+export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(VueApexCharts);
 });
 ```
