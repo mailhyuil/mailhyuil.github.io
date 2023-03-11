@@ -20,14 +20,28 @@ export default defineNuxtPlugin((nuxtApp) => {
 ## 사용
 
 ```vue
-<apexchart type="" series="" width="" height="" options=""></apexchart>
+<script lang="ts" setup>
+import { ApexOptions } from "apexcharts";
+
+const options = ref<ApexOptions>({});
+const series = ref<ApexAxisChartSeries>([
+  { name: "hi", data: [{ x: 1, y: 1 }] },
+]);
+</script>
+
+<template>
+  <div>
+    <apexchart width="500" type="bar" :options="options" :series="series">
+    </apexchart>
+  </div>
+</template>
 ```
 
 ## series
 
 > ApexAxisChartSeries
 
-```
+```ts
 // {date, totalUsers}를 [{x:date,y:totalUsers},...]로
 
 const totalUserSeries: ApexAxisChartSeries = {
