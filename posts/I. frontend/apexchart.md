@@ -22,17 +22,32 @@ export default defineNuxtPlugin((nuxtApp) => {
 ```vue
 <script lang="ts" setup>
 import { ApexOptions } from "apexcharts";
+import dayjs from "dayjs";
 
-const options = ref<ApexOptions>({});
+const data = [1, 2, 3, 4, 5, 6, 11].map((e) => {
+  return { x: dayjs().add(e, "M").toDate(), y: e };
+});
+
+const options = ref<ApexOptions>({
+  chart: {
+    type: "bar",
+  },
+  xaxis: {
+    type: "category",
+    categories: data.map((e) => dayjs(e.x).format("MM-DD")),
+  },
+});
 const series = ref<ApexAxisChartSeries>([
-  { name: "hi", data: [{ x: 1, y: 1 }] },
+  {
+    name: "월간 방문수",
+    data: data.map((e) => e.y),
+  },
 ]);
 </script>
 
 <template>
   <div>
-    <apexchart width="500" type="bar" :options="options" :series="series">
-    </apexchart>
+    <apexchart width="100%" :options="options" :series="series"> </apexchart>
   </div>
 </template>
 ```
