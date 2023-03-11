@@ -20,7 +20,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 ## 사용
 
 ```vue
-<apexcharts type="" series="" width="" height="" options=""></apexcharts>
+<apexchart type="" series="" width="" height="" options=""></apexchart>
 ```
 
 ## series
