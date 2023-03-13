@@ -8,7 +8,9 @@
 
 ### refresh
 
-> fetch 시 리렌더링
+> 데이터를 다시 fetch하여 리렌더링
+>
+> > 안먹히면 async가 잘 됐는지 확인
 
 ### execute
 
