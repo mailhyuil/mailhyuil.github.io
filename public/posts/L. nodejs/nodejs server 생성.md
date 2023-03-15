@@ -3,9 +3,31 @@
 ```js
 import http from "http";
 
-const server = http.createServer((res, req) => {
-  console.log("server started!");
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.end("hi");
 });
 
-server.listen("8080");
+const PORT = 4000;
+
+server.listen(port, () => {
+  console.log(`The server is listening at port : ${PORT}`);
+});
+```
+
+## createServer res
+
+```
+res.statusCode
+res.end
+res.setHeaders
+```
+
+## createServer req
+
+```
+req.url
+req.method
+req.on('data',(data)=>{})
+req.setEncoding("utf-8")
 ```
