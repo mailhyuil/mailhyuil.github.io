@@ -3,6 +3,8 @@
 > .env 파일을 생성하여 민감한 정보를 환경변수로 넣기
 >
 > > process.env는 OS의 환경변수
+> >
+> > > .gitignore 에 .env 반드시 넣어주기!
 
 ## install
 

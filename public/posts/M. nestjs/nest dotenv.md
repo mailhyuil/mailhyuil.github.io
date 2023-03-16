@@ -1,5 +1,7 @@
 # nest dotenv
 
+> .gitignore 에 .env 반드시 넣어주기!
+
 ## install
 
 ```
