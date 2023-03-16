@@ -44,3 +44,7 @@ ConfigModule.forRoot({
 })
 export class SomeModule {}
 ```
+
+## authmodule
+
+> authmodule을 사용하려면(ex GetUser 데코레이터) authmodule을 import해라
