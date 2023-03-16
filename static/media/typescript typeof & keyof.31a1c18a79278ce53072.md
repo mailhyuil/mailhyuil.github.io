@@ -70,3 +70,45 @@ let ob2: Key = "apple";
 let ob3: Key = "banana";
 let ob4: Key = "cucumber";
 ```
+
+## Enum 대체하기
+
+```ts
+/* 기존의 Enum 방식 */
+enum EDirection {
+  Up,
+  Down,
+  Left,
+  Right,
+}
+
+console.log(EDirection.Left); // 2
+
+function walk(dir: EDirection) {
+  console.log(dir);
+}
+
+/* 객체를 Enum으로 활용 */
+const ODirection = {
+  Up: 0,
+  Down: 1,
+  Left: 2,
+  Right: 3,
+} as const;
+
+console.log(ODirection.Right); // 3
+
+type Direction = typeof ODirection[keyof typeof ODirection];
+
+function run(dir: Direction) {
+  console.log(dir);
+}
+```
+
+## 객체의 키값을 유니온으로 매개변수 타입에 넣기
+
+```ts
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
+}
+```
