@@ -32,3 +32,24 @@ formElement.onsubmit = async (e) => {
   alert(result.message);
 };
 ```
+
+## formData로 파일 데이터 보내기
+
+```
+const submit = handleSubmit(async (body) => {
+    formData.append('title', body.title);
+    formData.append('content', body.content);
+    formData.append('category', body.category);
+    await useApi<ICreateWebPostDTO>('/web-post', {
+        method: 'POST',
+        body: formData,
+    });
+    navigateTo('/home-page/post');
+});
+```
+
+```vue
+<InputFileUploader
+  @update:model-value="formData.append('file', $event)"
+  name="file">참고 문서</InputFileUploader>
+```
