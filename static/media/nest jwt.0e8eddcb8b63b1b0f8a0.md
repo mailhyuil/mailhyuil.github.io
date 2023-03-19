@@ -265,3 +265,45 @@ export const GetUser = createParamDecorator<User>(
   }
 );
 ```
+
+## client
+
+```ts
+const login = handleSubmit(async (values) => {
+  if (isChecked.value) {
+    localStorage.setItem("admin_id", values.username);
+  } else {
+    localStorage.removeItem("admin_id");
+  }
+
+  try {
+    const { accessToken, refreshToken } = await useApi<{
+      accessToken: string;
+      refreshToken: string;
+    }>("/auth/login", { method: "POST", body: values });
+
+    if (!accessToken && !refreshToken) {
+      useToast("아이디 또는 비밀번호를 확인해 주세요.", "danger");
+      return;
+    }
+
+    const _accessToken = useCookie("access_token");
+    const _refreshToken = useCookie("refresh_token");
+
+    _accessToken.value = accessToken;
+    _refreshToken.value = refreshToken;
+
+    const { data: result, error } = await useApiFetch.get<IAuthDTO>("/auth", {
+      headers: { authorization: `Bearer ${accessToken}` },
+    });
+
+    if (result.value) {
+      authStore.setAuth(result.value);
+      useToast("로그인이 완료되었습니다.", "success");
+      await navigateTo(`/dashboard`, { replace: true, redirectCode: 200 });
+    }
+  } catch (error: any) {
+    throw error;
+  }
+});
+```
