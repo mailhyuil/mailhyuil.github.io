@@ -35,6 +35,12 @@ formElement.onsubmit = async (e) => {
 
 ## formData로 파일 데이터 보내기
 
+> object는 자동으로 casting해버린다 -> [Object object]
+>
+> > stringify 해서 서버에 보내기
+> >
+> > > 서버에서 parse
+
 ```
 const submit = handleSubmit(async (body) => {
     formData.append('title', body.title);
