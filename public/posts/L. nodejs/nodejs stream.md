@@ -38,7 +38,7 @@ ws.write('hello, world')
 ## duplex
 
 > 양방향 스트림
-> 입력을 받을 수도있고 출력을 보낼 수도 있따.
+> 입력을 받을 수도있고 출력을 보낼 수도 있다.
 
 ## transform
 
