@@ -2,6 +2,18 @@
 
 > layouts에 nested 레이아웃 생성 page위치에 slot넣기
 
+## layouts/default.vue
+
+```
+<template>
+  <div>
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</template>
+```
+
 ## layouts/nested.vue
 
 > layout 파일 이름은 무조건 케밥케이스 some-layout
@@ -23,9 +35,11 @@
 
 ```
 <template>
-  <NuxtLayout name="nested">
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout name="nested">
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>
 ```
 
@@ -35,4 +49,34 @@
 <template>
   <div>AAAAAAAA</div>
 </template>
+```
+
+## pages/nested/[id]
+
+## default.vue 바꾸기
+
+```
+definePageMeta({
+  layout: "other-layout",
+  title: "other",
+  name: "대시보드",
+});
+```
+
+## 주의
+
+> NuxtPage에 key 값을 넣으면 리프래쉬됨
+
+```
+<NuxtPage :key="$route.fullPath" />
+```
+
+## nuxt routing bug
+
+> app.vue에 하면 안된다!!
+
+```
+  <NuxtLayout name="admin-layout">
+    <NuxtPage :key="$route.fullPath" />
+  </NuxtLayout>
 ```
