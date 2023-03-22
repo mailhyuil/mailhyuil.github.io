@@ -70,3 +70,13 @@ definePageMeta({
 ```
 <NuxtPage :key="$route.fullPath" />
 ```
+
+## nuxt routing bug
+
+> app.vue에 하면 안된다!!
+
+```
+  <NuxtLayout name="admin-layout">
+    <NuxtPage :key="$route.fullPath" />
+  </NuxtLayout>
+```

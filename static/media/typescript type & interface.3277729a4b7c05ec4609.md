@@ -97,3 +97,9 @@ interface Movie {
   };
 }>
 ```
+
+## Index Signature Typing
+
+```ts
+{ [key: string | number]: string }
+```

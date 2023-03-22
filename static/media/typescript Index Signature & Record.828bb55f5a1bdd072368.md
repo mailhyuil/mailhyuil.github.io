@@ -12,6 +12,12 @@ foo['Hello'] = 'World';
 console.log(foo['Hello']); // World
 ```
 
+## Index Signature Typing
+
+```ts
+{ [key: string | number]: string }
+```
+
 ## Record<Key, Type>
 
 > key값에 string을 사용할 수 있다.
