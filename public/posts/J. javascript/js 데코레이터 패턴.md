@@ -2,28 +2,32 @@
 
 > 깔끔히 기능 늘리기
 
-```js
+```ts
 class Obj {
+  private arr: string[];
   constructor() {
-    this.values = ["a"];
+    this.arr = ["a"];
   }
-  getObj() {
-    return this.values;
+
+  getSome() {
+    return this.arr;
   }
 }
 
 class Decorator {
-  constructor(baseObj) {
+  private values: string[];
+  constructor(private baseObj: Obj) {
     this.baseObj = baseObj;
     this.values = ["b"];
   }
-  getObj() {
-    return [...this.baseObj.getObj, ...this.values];
+  getSome() {
+    return [...this.baseObj.getSome(), ...this.values];
   }
 }
 
-const obj = new Obj();
-const deco = new Deco(obj);
+const o = new Obj();
+const d = new Decorator(o);
+console.log(d.getSome());
 ```
 
 ## 함수형에서는 pipe로 구현
