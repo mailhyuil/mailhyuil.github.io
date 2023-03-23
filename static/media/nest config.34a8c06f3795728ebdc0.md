@@ -8,11 +8,15 @@
 
 ```
 npm i --save @nestjs/config
+npm i dotenv
+npm i dotenv-cli
 ```
 
 ## EnvironmentModule
 
 > ConfigService, ConfigModule 사용
+>
+> > envFilePath는 dist 폴더의 밖!!! (루트패스)
 
 ```ts
 const envFilePath = path.join(
@@ -45,7 +49,17 @@ export class EnvironmentModule implements OnModuleInit {
 
 ## main.ts
 
-```
+```ts
 const configService = app.get<ConfigService>(ConfigService);
-const port = configService.get<number>('SERVER_PORT');
+const port = configService.get<number>("SERVER_PORT");
+```
+
+## .env 파일
+
+> root 에 위치
+>
+> > nest가 dist밖의 패스(루트)를 읽게 해서 실행시킨다
+
+```
+"dev": "dotenv -e .env -- nest start --watch",
 ```
