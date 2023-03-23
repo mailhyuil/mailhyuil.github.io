@@ -82,17 +82,16 @@ JwtModule.registerAsync({
 > AccessToken 발급과 AccessToken을 검증하는 메소드 분리
 
 ```ts
-import { AccessTokenPayload } from "@avirtual/interface";
 import { Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt/dist/jwt.service";
 @Injectable()
-export class AuthUtil {
+export class AuthUtils {
   constructor(private readonly jwtService: JwtService) {}
 
   /**
    * 1시간의 유효기간을 가진 Access Token을 발급합니다.
    */
-  createAccessToken(payload: AccessTokenPayload): string {
+  createAccessToken(payload): string {
     const accessToken = this.jwtService.sign(payload, {
       expiresIn: "60m",
     });
@@ -103,8 +102,8 @@ export class AuthUtil {
   /**
    * AccessToken을 검증합니다.
    */
-  verifyAccessToken(accessToken: string): AccessTokenPayload {
-    return this.jwtService.verify<AccessTokenPayload>(accessToken);
+  verifyAccessToken(accessToken: string) {
+    return this.jwtService.verify(accessToken);
   }
 }
 ```
