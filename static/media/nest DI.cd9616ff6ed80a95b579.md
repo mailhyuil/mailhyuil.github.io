@@ -31,7 +31,7 @@ export class UserRepositoryImpl implements UserRepository {
   providers: [
     UserService,
     // provide: interface, useClass: DI 하려는 interface 구현체
-    { provide: 'UserRepository', useClass: InMemoryUserRepository }
+    { provide: 'UserRepository', useClass: UserRepositoryImpl }
   ],
 })
 export class UserModule {}
