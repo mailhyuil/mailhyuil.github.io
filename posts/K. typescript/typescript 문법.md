@@ -77,6 +77,8 @@ const stringOrNumber: string | number = square(randomNumber, randomBoolean);
 ## 인터섹션 타입
 
 > 여러 타입을 앰퍼샌드(&) 기호로 이어서 인터섹션 타입
+>
+> > 두개의 타입이 다 들어가있어야한다.
 
 ```ts
 type Infeasible = string & number;
