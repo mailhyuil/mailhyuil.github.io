@@ -13,7 +13,7 @@
 > > 데이터가 언제 올지 모르니까 스트림을 사용
 
 ```
-const rs = fs.createReadStream('file.txt')
+const rs = fs.createReadStream('file.txt', { encoding :'utf8' })
 
 rs.on('data',()=>{})
 rs.on('error',()=>{})
