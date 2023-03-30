@@ -22,3 +22,7 @@
 > 핸들러 메소드의 패스가 잘못됐다
 >
 > > 핸들러 Query 메소드가 맨 위에
+
+# {"statusCode":400,"message":"an unknown value was passed to the validate function","error":"Bad Request"}
+
+> dto에 class-transformer로 IsNotEmpty or IsOptional 데코레이터 선언
