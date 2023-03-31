@@ -13,7 +13,7 @@
 > > 데이터가 언제 올지 모르니까 스트림을 사용
 
 ```
-const rs = fs.createReadStream('file.txt')
+const rs = fs.createReadStream('file.txt', { encoding :'utf8' })
 
 rs.on('data',()=>{})
 rs.on('error',()=>{})
@@ -38,7 +38,8 @@ ws.write('hello, world')
 ## duplex
 
 > 양방향 스트림
-> 입력을 받을 수도있고 출력을 보낼 수도 있다.
+>
+> > 입력을 받을 수도있고 출력을 보낼 수도 있다.
 
 ## transform
 
