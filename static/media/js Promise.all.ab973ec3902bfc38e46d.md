@@ -26,3 +26,23 @@ const requests = urls.map(url => fetch(url))
 const [res1, res2] = await Promise.all(requests)
 const [data1, data2] = await Promise.all([res1.json(), res2.json()])
 ```
+
+# Promise.all()
+
+```
+const promises = views?.map((view) => {
+  return tx.webComplexView.create({ data: { ...view, webComplexId: updated.id } });
+});
+
+await Promise.all(promises);
+```
+
+or
+
+```
+await Promise.all(
+  views?.map((view) => {
+  return tx.webComplexView.create({ data: { ...view, webComplexId: updated.id } });
+})
+)
+```
