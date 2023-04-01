@@ -4,6 +4,8 @@
 >
 > > 클라이언트의 어떤 행위(메소드)에 따라 내부적으로 상태를 변경
 
+## 사용 예
+
 ```ts
 interface State {
   think(): string;

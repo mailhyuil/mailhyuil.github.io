@@ -4,6 +4,73 @@
 >
 > > 즉, 이벤트가 발생했을 때 실행될 기능이 다양하면서도 변경이 필요한 경우에 이벤트를 발생시키는 클래스를 변경하지 않고 재사용하고자 할 때 유용하다.
 
+## 구조
+
+```ts
+// Command 인터페이스
+class Command {
+  execute() {}
+}
+
+// Receiver 클래스
+class Receiver {
+  action1() {
+    console.log('Receiver executes action1');
+  }
+  action2() {
+    console.log('Receiver executes action2');
+  }
+}
+
+// ConcreteCommand 클래스 1
+class ConcreteCommand1 extends Command {
+  constructor(receiver) {
+    super();
+    this.receiver = receiver;
+  }
+  execute() {
+    this.receiver.action1();
+  }
+}
+
+// ConcreteCommand 클래스 2
+class ConcreteCommand2 extends Command {
+  constructor(receiver) {
+    super();
+    this.receiver = receiver;
+  }
+  execute() {
+    this.receiver.action2();
+  }
+}
+
+// Invoker 클래스
+class Invoker {
+  constructor(command) {
+    this.command = command;
+  }
+  setCommand(command) {
+    this.command = command;
+  }
+  executeCommand() {
+    this.command.execute();
+  }
+}
+
+// 객체 생성
+const receiver = new Receiver();
+const command1 = new ConcreteCommand1(receiver);
+const command2 = new ConcreteCommand2(receiver);
+const invoker = new Invoker(command1);
+
+// Command 패턴 사용
+invoker.executeCommand(); // "Receiver executes action1"
+invoker.setCommand(command2);
+invoker.executeCommand(); // "Receiver executes action2"
+```
+
+## 사용 예
+
 ```ts
 const calculationMethods = {
   add: function (x, y) {

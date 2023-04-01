@@ -1,5 +1,64 @@
 # observer
 
+## 구조
+
+```ts
+// Observer 클래스
+class Observer {
+  update(data) {}
+}
+
+// Subject 클래스
+class Subject {
+  constructor() {
+    this.observers = [];
+  }
+  attach(observer) {
+    this.observers.push(observer);
+  }
+  detach(observer) {
+    const index = this.observers.indexOf(observer);
+    if (index !== -1) {
+      this.observers.splice(index, 1);
+    }
+  }
+  notify(data) {
+    this.observers.forEach((observer) => observer.update(data));
+  }
+}
+
+// ConcreteObserver 클래스
+class ConcreteObserver extends Observer {
+  constructor(name) {
+    super();
+    this.name = name;
+  }
+  update(data) {
+    console.log(`${this.name} received data: ${data}`);
+  }
+}
+
+// 객체 생성
+const subject = new Subject();
+const observerA = new ConcreteObserver('Observer A');
+const observerB = new ConcreteObserver('Observer B');
+
+// Observer 추가
+subject.attach(observerA);
+subject.attach(observerB);
+
+// 상태 변경 및 Observer 알림
+subject.notify('Hello world!');
+
+// Observer 제거
+subject.detach(observerB);
+
+// 상태 변경 및 Observer 알림
+subject.notify('Goodbye world!');
+```
+
+## 사용 예
+
 ```ts
 function Subject() {
   this.observers = [];

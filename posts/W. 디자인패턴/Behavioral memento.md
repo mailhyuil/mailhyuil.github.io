@@ -4,6 +4,70 @@
 >
 > > 원하는 시점의 상태 복원이 가능하다
 
+## 구조
+
+```ts
+// Originator 클래스
+class Originator {
+  constructor(state) {
+    this.state = state;
+  }
+  createMemento() {
+    return new Memento(this.state);
+  }
+  restoreMemento(memento) {
+    this.state = memento.getState();
+  }
+  getState() {
+    return this.state;
+  }
+  setState(state) {
+    this.state = state;
+  }
+}
+
+// Memento 클래스
+class Memento {
+  constructor(state) {
+    this.state = state;
+  }
+  getState() {
+    return this.state;
+  }
+}
+
+// Caretaker 클래스
+class Caretaker {
+  constructor() {
+    this.mementos = [];
+  }
+  addMemento(memento) {
+    this.mementos.push(memento);
+  }
+  getMemento(index) {
+    return this.mementos[index];
+  }
+}
+
+// 객체 생성
+const originator = new Originator('Initial state');
+const caretaker = new Caretaker();
+
+// 상태 변경 후 Memento 저장
+originator.setState('Changed state');
+caretaker.addMemento(originator.createMemento());
+
+// 상태 변경 후 Memento 저장
+originator.setState('New state');
+caretaker.addMemento(originator.createMemento());
+
+// 이전 상태로 복원
+originator.restoreMemento(caretaker.getMemento(0));
+console.log(originator.getState()); // "Changed state"
+```
+
+## 사용 예
+
 ```ts
 class Person {
   constructor(name, street, city, state) {

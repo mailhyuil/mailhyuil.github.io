@@ -4,6 +4,62 @@
 >
 > > 로직과 구조를 분리하는 패턴 // 알고리즘을 객체 구조에서 분리시키는 디자인 패턴
 
+## 구조
+
+```ts
+// Visitor 인터페이스
+class Visitor {
+  visit(element) {}
+}
+
+// Element 추상 클래스
+class Element {
+  accept(visitor) {}
+}
+
+// ConcreteElement 클래스 1
+class ConcreteElement1 extends Element {
+  accept(visitor) {
+    visitor.visit(this);
+  }
+}
+
+// ConcreteElement 클래스 2
+class ConcreteElement2 extends Element {
+  accept(visitor) {
+    visitor.visit(this);
+  }
+}
+
+// ConcreteVisitor 클래스 1
+class ConcreteVisitor1 extends Visitor {
+  visit(element) {
+    console.log(`Visited ${element.constructor.name} with ConcreteVisitor1`);
+  }
+}
+
+// ConcreteVisitor 클래스 2
+class ConcreteVisitor2 extends Visitor {
+  visit(element) {
+    console.log(`Visited ${element.constructor.name} with ConcreteVisitor2`);
+  }
+}
+
+// 객체 구조
+const elements = [new ConcreteElement1(), new ConcreteElement2()];
+
+// Visitor 패턴 사용
+const visitor1 = new ConcreteVisitor1();
+const visitor2 = new ConcreteVisitor2();
+
+for (let element of elements) {
+  element.accept(visitor1);
+  element.accept(visitor2);
+}
+```
+
+## 사용 예
+
 ```ts
 class Employee {
   constructor(name, salary, vacation) {
