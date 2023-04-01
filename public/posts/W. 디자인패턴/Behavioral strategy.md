@@ -1,0 +1,51 @@
+# strategy
+
+> 실행 중에 알고리즘(로직)을 선택할 수 있게 하는 행위 소프트웨어 디자인 패턴
+>
+> > 클라이언트가 상태 클래스를 직접 넣어서 상태를 변경
+
+```ts
+class Context {
+  private strategy: Strategy;
+
+  constructor(strategy: Strategy) {
+    this.strategy = strategy;
+  }
+
+  public setStrategy(strategy: Strategy) {
+    this.strategy = strategy;
+  }
+
+  public doSomeBusinessLogic(): void {
+    console.log("Context: Sorting data using the strategy (not sure how it'll do it)");
+    const result = this.strategy.doAlgorithm(['a', 'b', 'c', 'd', 'e']);
+    console.log(result.join(','));
+  }
+}
+
+interface Strategy {
+  doAlgorithm(data: string[]): string[];
+}
+
+class ConcreteStrategyA implements Strategy {
+  public doAlgorithm(data: string[]): string[] {
+    return data.sort();
+  }
+}
+
+class ConcreteStrategyB implements Strategy {
+  public doAlgorithm(data: string[]): string[] {
+    return data.reverse();
+  }
+}
+
+const context = new Context(new ConcreteStrategyA());
+console.log('Client: Strategy is set to normal sorting.');
+context.doSomeBusinessLogic();
+
+console.log('');
+
+console.log('Client: Strategy is set to reverse sorting.');
+context.setStrategy(new ConcreteStrategyB());
+context.doSomeBusinessLogic();
+```
