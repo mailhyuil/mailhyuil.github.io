@@ -19,3 +19,19 @@ npm i degit
 > > node_modules에 직접 추가하는게 아니라 dependency로 추가 npm에서 다운받아줌
 > >
 > > > npm5 부터는 --save 옵션을 기본 옵션으로 적용
+
+## login
+
+```
+npm login
+
+npm whoami // 로그인이 되었는지 확인
+```
+
+## package 업로드
+
+> 한번 publish를 하고 업데이트 하려면 버전 넘버를 올려줘야한다.
+
+```
+npm publish --access=public
+```
