@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.86c7b46d.css",
-    "main.js": "/static/js/main.6904beb1.js",
+    "main.js": "/static/js/main.0bc853cf.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -322,6 +322,7 @@
     "static/media/nodejs server 생성.md": "/static/media/nodejs server 생성.31af00afd1a65b1510c6.md",
     "static/media/typescript JSDoc.md": "/static/media/typescript JSDoc.16d3b9c4c27de06c3b38.md",
     "static/media/인풋박스 안에 텍스트.md": "/static/media/인풋박스 안에 텍스트.3b0fa660696944546679.md",
+    "static/media/nodejs postgres.md": "/static/media/nodejs postgres.0a7a9b50493052391c67.md",
     "static/media/nuxt remember_me.md": "/static/media/nuxt remember_me.eb82109bcae652a8f2d0.md",
     "static/media/SSH.md": "/static/media/SSH.5cb871123bc0066757a9.md",
     "static/media/js polyfill.md": "/static/media/js polyfill.870a731e508783e8f818.md",
@@ -586,10 +587,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.86c7b46d.css.map": "/static/css/main.86c7b46d.css.map",
-    "main.6904beb1.js.map": "/static/js/main.6904beb1.js.map"
+    "main.0bc853cf.js.map": "/static/js/main.0bc853cf.js.map"
   },
   "entrypoints": [
     "static/css/main.86c7b46d.css",
-    "static/js/main.6904beb1.js"
+    "static/js/main.0bc853cf.js"
   ]
 }
