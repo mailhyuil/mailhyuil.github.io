@@ -1,6 +1,10 @@
 # event bus (Event Channel)
 
-```
+> broker or message broker or event bus or event channel,
+>
+> > 이벤트 버스는 메세지 브로커의 일종이다
+
+```ts
 class EventBus {
   constructor() {
     this.events = {};

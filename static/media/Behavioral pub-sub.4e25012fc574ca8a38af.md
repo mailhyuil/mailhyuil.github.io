@@ -80,3 +80,48 @@ publisher.unsubscribe('event1', subscriber2.update.bind(subscriber2));
 
 publisher.notify('event1', 'Hello again!');
 ```
+
+## publisher subscriber 객체 없이 구현
+
+```ts
+// Event bus 생성
+const EventBus = {
+  events: {},
+
+  // 이벤트 구독 함수
+  subscribe(event, listener) {
+    if (!this.events[event]) {
+      this.events[event] = [];
+    }
+    this.events[event].push(listener);
+  },
+
+  // 이벤트 발행 함수
+  publish(event, data) {
+    if (!this.events[event]) {
+      return;
+    }
+    this.events[event].forEach((listener) => {
+      listener(data);
+    });
+  },
+};
+
+// 구독자1
+function subscriber1(data) {
+  console.log('Subscriber 1 received data:', data);
+}
+
+// 구독자2
+function subscriber2(data) {
+  console.log('Subscriber 2 received data:', data);
+}
+
+// 구독자1, 구독자2 이벤트 구독
+EventBus.subscribe('event', subscriber1);
+EventBus.subscribe('event', subscriber2);
+
+// 발행자 이벤트 발행
+EventBus.publish('event', { message: 'Hello, World!' });
+EventBus.publish('event', { message: '야야야' });
+```
