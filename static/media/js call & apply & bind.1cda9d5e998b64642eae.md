@@ -27,18 +27,34 @@ console.log(sum.apply(this, [1, 2])); // 인자를 배열로 받음
 
 ## bind
 
-> 내부함수, 콜백함수는 this에 전역객체가 바인딩된다. (설계 오류랜다..;;)
+> 콜백함수나 다른 변수에 재할당한 함수는 this에 전역객체가 바인딩된다. (설계 오류랜다..;;)
 >
-> > 내부함수, 콜백함수의 this가 불일치하는 문제를 해결
+> > 콜백함수나 다른 변수에 재할당한 함수의 this가 불일치하는 문제를 해결
 
 ```js
 const person = {
-  name: "sb",
+  name: 'sb',
   foo(callback) {
     setTimeout(callback.bind(this), 100); //
   },
 };
+
 person.foo(function () {
   console.log(`my name is ${this.name}`);
 });
+```
+
+```js
+let user = {
+  firstName: 'John',
+  sayHi() {
+    console.log(`Hello, ${this.firstName}!`);
+  },
+};
+
+let sayHi1 = user.sayHi; // (*)
+sayHi1(); // Hello, undefined!
+
+let sayHi2 = user.sayHi.bind(user); // (*)
+sayHi2(); // Hello, John!
 ```

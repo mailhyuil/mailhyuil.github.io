@@ -18,17 +18,24 @@
 
 ## task queue 순서
 
-```
-process.nextTick queue -> promises microtask queue -> macrotask queue (setTimeout / setImmediate)
-```
+1. process.nextTick queue
+   > 현재 틱에서 바로 실행 됨
+2. promises microtask queue
+   > macrotask queue의 작업 전에 전부 실행됨
+3. macrotask queue (setTimeout / setImmediate)
+   > 마지막에 실행 됨
 
 ## nextTick
 
 > 가장 먼저 실행된다
+>
+> > 현재 틱내에서 바로 실행됨
 
 ## setImmediate
 
 > setImmediate() 함수는 현재 이벤트 루프의 다음 tick에서 실행되는 함수를 등록하는 데 사용됩니다. 이를 사용하면 이벤트 루프의 다음 tick에서 리스너 함수가 실행되므로, 다른 이벤트 핸들링과 병행하여 처리할 수 있습니다.
+>
+> > 다음 틱에서 실행됨
 
 ```
 myEmitter.on('event', function(a, b) {
