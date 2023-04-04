@@ -10,42 +10,45 @@
 
 ## 구조
 
+> visitor
+>
+> > element // 데이터를 가지고 있는 목적지와 같다 destination?
+> >
+> > > element를 배열에 담아 elements로 만들고 visitor들이 순회하도록
+
 ```ts
 // Visitor 인터페이스
-class Visitor {
-  visit(element) {}
+interface Visitor {
+  visit(element: Element): void;
 }
-
-// Element 추상 클래스
-class Element {
-  accept(visitor) {}
-}
-
-// ConcreteElement 클래스 1
-class ConcreteElement1 extends Element {
-  accept(visitor) {
-    visitor.visit(this);
-  }
-}
-
-// ConcreteElement 클래스 2
-class ConcreteElement2 extends Element {
-  accept(visitor) {
-    visitor.visit(this);
-  }
-}
-
 // ConcreteVisitor 클래스 1
-class ConcreteVisitor1 extends Visitor {
-  visit(element) {
+class ConcreteVisitor1 implements Visitor {
+  visit(element: Element) {
     console.log(`Visited ${element.constructor.name} with ConcreteVisitor1`);
   }
 }
 
 // ConcreteVisitor 클래스 2
-class ConcreteVisitor2 extends Visitor {
-  visit(element) {
+class ConcreteVisitor2 implements Visitor {
+  visit(element: Element) {
     console.log(`Visited ${element.constructor.name} with ConcreteVisitor2`);
+  }
+}
+
+// Element 추상 클래스
+interface Element {
+  accept(visitor: Visitor): void;
+}
+// ConcreteElement 클래스 1
+class ConcreteElement1 implements Element {
+  accept(visitor: Visitor) {
+    visitor.visit(this);
+  }
+}
+// ConcreteElement 클래스 2
+class ConcreteElement2 implements Element {
+  accept(visitor: Visitor) {
+    visitor.visit(this);
   }
 }
 

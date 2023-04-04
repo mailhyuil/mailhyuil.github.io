@@ -2,7 +2,7 @@
 
 ## install
 
-```
+```sh
 yarn add pg
 ```
 
@@ -20,8 +20,8 @@ const client = new Client({
 const main = async () => {
   await client.connect();
 
-  const res = await client.query('SELECT $1::text as message', ['Hello world!']);
-  console.log(res.rows[0].message); // Hello world!
+  const res = await client.query('SELECT * FROM "User"');
+  
   await client.end();
 };
 

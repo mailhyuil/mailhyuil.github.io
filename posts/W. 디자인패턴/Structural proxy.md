@@ -4,6 +4,39 @@
 >
 > > 행동에 다른 로직을 추가해서 행동시킬 수 있음
 
+## 구조
+
+```ts
+// Define the RealSubject class
+class RealSubject {
+  doSomething() {
+    console.log('RealSubject is doing something.');
+  }
+}
+
+// Define the Proxy class
+class ProxySubject {
+  constructor(realSubject) {
+    this.realSubject = realSubject;
+  }
+
+  doSomething() {
+    console.log('Proxy is doing something before calling RealSubject.');
+    this.realSubject.doSomething();
+    console.log('Proxy is doing something after calling RealSubject.');
+  }
+}
+
+// Usage example
+const realSubject = new RealSubject();
+const proxySubject = new ProxySubject(realSubject);
+
+// Call the method on the Proxy object
+proxySubject.doSomething();
+```
+
+## js Proxy api
+
 ```ts
 const person = {
   name: 'John Doe',

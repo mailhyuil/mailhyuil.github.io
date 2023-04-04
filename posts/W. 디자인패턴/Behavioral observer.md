@@ -3,58 +3,45 @@
 ## 구조
 
 ```ts
-// Observer 클래스
-class Observer {
-  update(data) {}
-}
-
-// Subject 클래스
 class Subject {
+  observers: Observer[];
   constructor() {
     this.observers = [];
   }
-  attach(observer) {
+  subscribe(observer: Observer) {
     this.observers.push(observer);
+    return;
   }
-  detach(observer) {
-    const index = this.observers.indexOf(observer);
-    if (index !== -1) {
-      this.observers.splice(index, 1);
+  unsubscribe(observer: Observer) {
+    const indexOfObserver = this.observers.indexOf(observer);
+    if (indexOfObserver > -1) {
+      this.observers.splice(indexOfObserver, 1);
     }
   }
-  notify(data) {
-    this.observers.forEach((observer) => observer.update(data));
+  notify(data: any) {
+    this.observers.forEach((observer) => {
+      observer.update(data);
+    });
   }
 }
-
-// ConcreteObserver 클래스
-class ConcreteObserver extends Observer {
-  constructor(name) {
-    super();
+class Observer {
+  name: string;
+  constructor(name: string) {
     this.name = name;
   }
-  update(data) {
-    console.log(`${this.name} received data: ${data}`);
+  update(data: any) {
+    console.log(`${this.name} got ${data}`);
   }
 }
 
-// 객체 생성
-const subject = new Subject();
-const observerA = new ConcreteObserver('Observer A');
-const observerB = new ConcreteObserver('Observer B');
+const sub = new Subject();
+const ob1 = new Observer('ob1');
+const ob2 = new Observer('ob2');
 
-// Observer 추가
-subject.attach(observerA);
-subject.attach(observerB);
+sub.subscribe(ob1);
+sub.subscribe(ob2);
 
-// 상태 변경 및 Observer 알림
-subject.notify('Hello world!');
-
-// Observer 제거
-subject.detach(observerB);
-
-// 상태 변경 및 Observer 알림
-subject.notify('Goodbye world!');
+sub.notify('hi data');
 ```
 
 ## 사용 예
