@@ -1,68 +1,35 @@
 # template method
 
 ```ts
-class HouseTemplate {
-  constructor(name, address) {
-    this.name = name;
-    this.address = address;
+abstract class AbstractClass {
+  // Template method
+  templateMethod() {
+    this.doOperation1();
+    this.doOperation2();
   }
 
-  buildHouse() {
-    this.buildFoundation();
-    this.buildPillars();
-    this.buildWalls();
-    this.buildWindows();
-    console.log(`${this.name} has been built successfully at ${this.address}`);
+  // Abstract methods to be implemented by subclasses
+  doOperation1() {
+    throw new Error('Abstract method not implemented');
   }
 
-  buildFoundation() {
-    console.log('Building foundation...');
-  }
-
-  buildPillars() {
-    throw new Error('You have to build your own pillars');
-  }
-
-  buildWalls() {
-    throw new Error('You have to build your own walls');
-  }
-
-  buildWindows() {
-    console.log('Building windows');
+  doOperation2() {
+    throw new Error('Abstract method not implemented');
   }
 }
 
-class WoodenHouse extends HouseTemplate {
-  constructor(name, address) {
-    super(name, address);
+class ConcreteClass extends AbstractClass {
+  // Implementation of abstract methods
+  doOperation1() {
+    console.log('ConcreteClass is doing operation 1.');
   }
 
-  buildPillars() {
-    console.log('Building pillars for a wooden house');
-  }
-
-  buildWalls() {
-    console.log('Building walls for a wooden house');
+  doOperation2() {
+    console.log('ConcreteClass is doing operation 2.');
   }
 }
 
-class BrickHouse extends HouseTemplate {
-  constructor(name, address) {
-    super(name, address);
-  }
-
-  buildPillars() {
-    console.log('Building pillars for a brick house');
-  }
-
-  buildWalls() {
-    console.log('Building walls for a brick house');
-  }
-}
-
-const woodenHouse = new WoodenHouse('Wooden house', '123 Maple Road');
-const brickHouse = new BrickHouse('Brick house', '456 Stone Lane');
-
-woodenHouse.buildHouse();
-brickHouse.buildHouse();
+// Usage example
+const concreteClass = new ConcreteClass();
+concreteClass.templateMethod();
 ```

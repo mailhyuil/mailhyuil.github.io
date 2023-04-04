@@ -9,74 +9,103 @@
 ## 구조
 
 ```ts
-// Mediator 클래스
-class Mediator {
-  constructor() {
-    this.colleagues = [];
-  }
-  register(colleague) {
+interface Mediator {
+  subscribe(colleague: Colleague): void;
+  unsubscribe(colleague: Colleague): void;
+  broadcast(sender: Colleague, message: string): void;
+}
+
+class ConcreteMediator implements Mediator {
+  private colleagues: Colleague[] = [];
+
+  public subscribe(colleague: Colleague): void {
     this.colleagues.push(colleague);
   }
-  send(message, colleague) {
-    for (let c of this.colleagues) {
-      if (c !== colleague) {
-        c.receive(message);
-      }
+
+  public unsubscribe(colleague: Colleague): void {
+    const index = this.colleagues.indexOf(colleague);
+    if (index !== -1) {
+      this.colleagues.splice(index, 1);
     }
   }
-}
 
-// Colleague 클래스
-class Colleague {
-  constructor(mediator) {
-    this.mediator = mediator;
-  }
-  send(message) {
-    this.mediator.send(message, this);
-  }
-  receive(message) {
-    console.log(`${this.constructor.name} received: ${message}`);
+  public broadcast(sender: Colleague, message: string): void {
+    this.colleagues.forEach((colleague) => {
+      if (colleague !== sender) {
+        colleague.receive(message);
+      }
+    });
   }
 }
 
-// ConcreteColleague 클래스
-class ConcreteColleague1 extends Colleague {
-  constructor(mediator) {
-    super(mediator);
+abstract class Colleague {
+  constructor(private mediator: Mediator) {}
+
+  public send(message: string): void {
+    this.mediator.broadcast(this, message);
+  }
+
+  public abstract receive(message: string): void;
+}
+
+class ConcreteColleagueA extends Colleague {
+  public receive(message: string): void {
+    console.log(`ConcreteColleagueA received: ${message}`);
   }
 }
 
-class ConcreteColleague2 extends Colleague {
-  constructor(mediator) {
-    super(mediator);
+class ConcreteColleagueB extends Colleague {
+  public receive(message: string): void {
+    console.log(`ConcreteColleagueB received: ${message}`);
   }
 }
 
-// 객체 생성
-const mediator = new Mediator();
-const colleague1 = new ConcreteColleague1(mediator);
-const colleague2 = new ConcreteColleague2(mediator);
+// Usage example
+const mediator = new ConcreteMediator();
+const colleagueA = new ConcreteColleagueA(mediator);
+const colleagueB = new ConcreteColleagueB(mediator);
 
-// Mediator에 Colleague 등록
-mediator.register(colleague1);
-mediator.register(colleague2);
+mediator.subscribe(colleagueA);
+mediator.subscribe(colleagueB);
 
-// Colleague1이 Colleague2에게 메시지 전송
-colleague1.send('Hello, colleague2!'); // "ConcreteColleague2 received: Hello, colleague2!"
+colleagueA.send('Hello from A!'); // Logs "ConcreteColleagueB received: Hello from A!"
+colleagueB.send('Hello from B!'); // Logs "ConcreteColleagueA received: Hello from B!"
+
+mediator.unsubscribe(colleagueA);
+
+colleagueA.send("This message won't be received by anyone!"); // Does not log anything
+colleagueB.send('Hello again from B!'); // Logs "ConcreteColleagueA received: Hello again from B!"
 ```
 
 ## 사용 예
 
+> 채팅방을 연상하면 된다.
+>
+> > 다수가 다수에게 메시지를 전달
+> >
+> > > mediator는 확성기 역할
+
 ```ts
+// Mediator
 class ChatRoom {
-  logMessage(user, message) {
+  users: User[];
+
+  constructor() {
+    this.users = [];
+  }
+
+  broadcast(user: User, message: string) {
     const sender = user.getName();
     console.log(`${new Date().toLocaleString()} [${sender}]: ${message}`);
   }
 }
 
+// Colleague
 class User {
-  constructor(name, chatroom) {
+  name: string;
+  chatroom: ChatRoom;
+
+  constructor(name: string, chatroom: ChatRoom) {
     this.name = name;
     this.chatroom = chatroom;
   }
@@ -85,15 +114,15 @@ class User {
     return this.name;
   }
 
-  send(message) {
-    this.chatroom.logMessage(this, message);
+  send(message: string) {
+    this.chatroom.broadcast(this, message);
   }
 }
 
 const chatroom = new ChatRoom();
 
-const user1 = new User('John Doe', chatroom);
-const user2 = new User('Jane Doe', chatroom);
+const user1 = new User('SB', chatroom);
+const user2 = new User('Hyuil', chatroom);
 
 user1.send('Hi there!');
 user2.send('Hey!');
