@@ -12,14 +12,14 @@ class EventBus {
     this.events = {};
   }
 
-  subscribe(eventName, callback) {
+  on(eventName, callback) {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
     }
     this.events[eventName].push(callback);
   }
 
-  unsubscribe(eventName, callback) {
+  off(eventName, callback) {
     if (this.events[eventName]) {
       const index = this.events[eventName].indexOf(callback);
       if (index > -1) {
@@ -28,7 +28,7 @@ class EventBus {
     }
   }
 
-  notify(eventName, data) {
+  emit(eventName, data) {
     if (this.events[eventName]) {
       this.events[eventName].forEach((callback) => {
         callback(data);
@@ -43,15 +43,15 @@ class Publisher {
   }
 
   subscribe(eventName, callback) {
-    this.eventBus.subscribe(eventName, callback);
+    this.eventBus.on(eventName, callback);
   }
 
   unsubscribe(eventName, callback) {
-    this.eventBus.unsubscribe(eventName, callback);
+    this.eventBus.off(eventName, callback);
   }
 
   notify(eventName, data) {
-    this.eventBus.notify(eventName, data);
+    this.eventBus.emit(eventName, data);
   }
 }
 
@@ -71,12 +71,15 @@ const publisher = new Publisher();
 const subscriber1 = new Subscriber('Subscriber 1');
 const subscriber2 = new Subscriber('Subscriber 2');
 
-publisher.subscribe('event1', subscriber1.update.bind(subscriber1));
-publisher.subscribe('event1', subscriber2.update.bind(subscriber2));
+subscriber1Callback = subscriber1.update.bind(subscriber1); // 변수에 넣어줘야 레퍼런스값이 유지 됨
+subscriber2Callback = subscriber1.update.bind(subscriber2);
+
+publisher.subscribe('event1', subscriber1Callback);
+publisher.subscribe('event1', subscriber2Callback);
 
 publisher.notify('event1', 'Hello, world!');
 
-publisher.unsubscribe('event1', subscriber2.update.bind(subscriber2));
+publisher.unsubscribe('event1', subscriber2Callback);
 
 publisher.notify('event1', 'Hello again!');
 ```

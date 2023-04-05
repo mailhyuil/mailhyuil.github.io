@@ -11,69 +11,98 @@
 ## 구조
 
 ```ts
-// Command 인터페이스
-class Command {
-  execute() {}
-}
+// receiver가 할 수 있는 여러가지 명령(command)를 각각의 클래스로 구현 commandA, commandB....
+const commandA = {
+  receiver: null,
+  setReceiver: (receiver) => {
+    commandA.receiver = receiver;
+  },
+  execute: () => {
+    commandA.receiver.doAction();
+  },
+  //   undo: () => { 이런게 될지도..
+  //     commandA.receiver.undoAction();
+  //   },
+};
 
-// Receiver 클래스
-class Receiver {
-  action1() {
-    console.log('Receiver executes action1');
-  }
-  action2() {
-    console.log('Receiver executes action2');
-  }
-}
+// command를 실행시키는 invoker 클래스
+const invoker = {
+  commands: [],
+  setCommand: (command) => {
+    invoker.commands.push(command);
+  },
+  invoker_did_something: () => {
+    // 명령들을 가지고 메소드를 구현
+    invoker.commands.pop();
+  },
+  invoker_did_something_else: () => {
+    invoker.commands.forEach((c) => {
+      c.execute();
+    });
+  },
+};
 
-// ConcreteCommand 클래스 1
-class ConcreteCommand1 extends Command {
-  constructor(receiver) {
-    super();
-    this.receiver = receiver;
-  }
-  execute() {
-    this.receiver.action1();
-  }
-}
+// 명령을 받게될 리시버
+const receiver = {
+  value: null,
+  doAction: () => {
+    console.log('do Action');
+  },
+};
 
-// ConcreteCommand 클래스 2
-class ConcreteCommand2 extends Command {
-  constructor(receiver) {
-    super();
-    this.receiver = receiver;
-  }
-  execute() {
-    this.receiver.action2();
-  }
-}
-
-// Invoker 클래스
-class Invoker {
-  constructor(command) {
-    this.command = command;
-  }
-  setCommand(command) {
-    this.command = command;
-  }
-  executeCommand() {
-    this.command.execute();
-  }
-}
-
-// 객체 생성
-const receiver = new Receiver();
-const command1 = new ConcreteCommand1(receiver);
-const command2 = new ConcreteCommand2(receiver);
-const invoker = new Invoker(command1);
-
-// Command 패턴 사용
-invoker.executeCommand(); // "Receiver executes action1"
-invoker.setCommand(command2);
-invoker.executeCommand(); // "Receiver executes action2"
+commandA.setReceiver(receiver);
+invoker.setCommand(commandA);
+invoker.setCommand(commandA);
+invoker.invoker_did_something();
+invoker.invoker_did_something_else();
 ```
 
-## 사용 예
+```ts
+// invoker & receiver
+class OrderManager {
+  constructor() {
+    this.orders = [];
+  }
+
+  execute(command, ...args) {
+    // 명령 객체가 Manager 객체의 order를 변경
+    return command.execute(this.orders, ...args);
+  }
+}
+
+// command
+class Command {
+  constructor(execute) {
+    this.execute = execute;
+  }
+}
+
+function PlaceOrderCommand(order, id) {
+  return new Command((orders) => {
+    orders.push(id);
+    console.log(`You have successfully ordered ${order} (${id})`);
+  });
+}
+
+function CancelOrderCommand(id) {
+  return new Command((orders) => {
+    orders = orders.filter((order) => order.id !== id);
+    console.log(`You have canceled your order ${id}`);
+  });
+}
+
+function TrackOrderCommand(id) {
+  return new Command(() => console.log(`Your order ${id} will arrive in 20 minutes.`));
+}
+
+const manager = new OrderManager();
+
+manager.execute(new PlaceOrderCommand('Pad Thai', '1234'));
+manager.execute(new TrackOrderCommand('1234'));
+manager.execute(new CancelOrderCommand('1234'));
+```
+
+## 간단한 구현 1
 
 ```ts
 const calculationMethods = {
@@ -106,47 +135,7 @@ console.log(calculator.execute('divide', 10, 2));
 console.log(calculator.execute('square root', 20));
 ```
 
-```ts
-class OrderManager {
-  constructor() {
-    this.orders = [];
-  }
-
-  execute(command, ...args) {
-    return command.execute(this.orders, ...args);
-  }
-}
-
-class Command {
-  constructor(execute) {
-    this.execute = execute;
-  }
-}
-
-function PlaceOrderCommand(order, id) {
-  return new Command((orders) => {
-    orders.push(id);
-    console.log(`You have successfully ordered ${order} (${id})`);
-  });
-}
-
-function CancelOrderCommand(id) {
-  return new Command((orders) => {
-    orders = orders.filter((order) => order.id !== id);
-    console.log(`You have canceled your order ${id}`);
-  });
-}
-
-function TrackOrderCommand(id) {
-  return new Command(() => console.log(`Your order ${id} will arrive in 20 minutes.`));
-}
-
-const manager = new OrderManager();
-
-manager.execute(new PlaceOrderCommand('Pad Thai', '1234'));
-manager.execute(new TrackOrderCommand('1234'));
-manager.execute(new CancelOrderCommand('1234'));
-```
+## 간단한 구현 2
 
 ```ts
 // The object that knows how to execute the command
