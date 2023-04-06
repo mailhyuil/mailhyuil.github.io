@@ -2,6 +2,52 @@
 
 > 여러 개의 객체들로 구성된 복합 객체와 단일 객체를 클라이언트에서 구별없이 다루게 해주는 패턴
 
+## 구조
+
+```ts
+interface Component {
+  operation(): void;
+}
+
+class Leaf implements Component {
+  operation(): void {
+    console.log('Leaf operation');
+  }
+}
+
+class Composite implements Component {
+  children: Component[] = [];
+
+  add(component: Component): void {
+    this.children.push(component);
+  }
+
+  remove(component: Component): void {
+    const index = this.children.indexOf(component);
+    if (index >= 0) {
+      this.children.splice(index, 1);
+    }
+  }
+
+  operation(): void {
+    console.log('Composite operation');
+    this.children.forEach((child) => {
+      child.operation();
+    });
+  }
+}
+
+// 예시 코드
+const leaf1 = new Leaf();
+const leaf2 = new Leaf();
+const composite = new Composite();
+composite.add(leaf1);
+composite.add(leaf2);
+composite.operation();
+```
+
+## 사용
+
 ```ts
 public abstract class ComputerDevice {
   public abstract int getPrice();
