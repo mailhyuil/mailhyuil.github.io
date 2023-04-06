@@ -8,6 +8,18 @@
 > > >
 > > > > 각각 독립적으로 개발할 수 있도록 하는 구조 디자인 패턴
 
+## 행위를 디자인
+
+1. Abstraction; 기능 Controller
+2. RefinedAbstraction; // 추가 기능 UpgradedRemoteController
+
+## get과 set 메소드로만 구현
+
+3. Implementor; 객체 인터페이스 Device
+4. ConcreteImplementor; // 객체 구현 Tv..
+
+## 구조
+
 ```ts
 interface Device {
   // 이런 디바이스 인터페이스가 있다..

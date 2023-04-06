@@ -17,45 +17,45 @@
 > > > element를 배열에 담아 elements로 만들고 visitor들이 순회하도록
 
 ```ts
-// Visitor 인터페이스
 interface Visitor {
   visit(element: Element): void;
 }
-// ConcreteVisitor 클래스 1
 class ConcreteVisitor1 implements Visitor {
   visit(element: Element) {
-    console.log(`Visited ${element.constructor.name} with ConcreteVisitor1`);
+    console.log(`ConcreteVisitor1 visited ${element.constructor.name} to get ${element.souvenir} `);
   }
 }
-
-// ConcreteVisitor 클래스 2
 class ConcreteVisitor2 implements Visitor {
   visit(element: Element) {
-    console.log(`Visited ${element.constructor.name} with ConcreteVisitor2`);
+    console.log(`ConcreteVisitor2 visited ${element.constructor.name} to get ${element.souvenir} `);
   }
 }
 
-// Element 추상 클래스
 interface Element {
+  souvenir: string;
   accept(visitor: Visitor): void;
 }
-// ConcreteElement 클래스 1
 class ConcreteElement1 implements Element {
+  souvenir: string;
+  constructor() {
+    this.souvenir = 'cheap souvenir';
+  }
   accept(visitor: Visitor) {
     visitor.visit(this);
   }
 }
-// ConcreteElement 클래스 2
 class ConcreteElement2 implements Element {
+  souvenir: string;
+  constructor() {
+    this.souvenir = 'expensive souvenir';
+  }
   accept(visitor: Visitor) {
     visitor.visit(this);
   }
 }
 
-// 객체 구조
 const elements = [new ConcreteElement1(), new ConcreteElement2()];
 
-// Visitor 패턴 사용
 const visitor1 = new ConcreteVisitor1();
 const visitor2 = new ConcreteVisitor2();
 
