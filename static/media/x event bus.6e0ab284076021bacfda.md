@@ -33,3 +33,5 @@ class EventBus {
   }
 }
 ```
+
+## sticky event
