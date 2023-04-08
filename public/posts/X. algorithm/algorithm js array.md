@@ -27,14 +27,14 @@ for (let i = 0; i < arr2.length; i++) {
 }
 ```
 
-## push
+## stack
+
+> linked list로 구현할 때 삽입과 삭제에 O(1)
+
+### push
 
 > O(1)
 
-## pop
+### pop
 
 > O(1)
-
-## top
-
-##

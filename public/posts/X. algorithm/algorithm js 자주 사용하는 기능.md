@@ -38,6 +38,16 @@ rl.on('line', (line: string) => {
 
 > 소수점 2자리에서 자르기
 
+## 값 변환
+
+```
+Number(input[0]) // 소수점도 그대로 놔둠
+parseInt() // 2020년도 -> 2020 integer로 변환
++input[0]
+input[0].toString()
+input+''
+```
+
 ## 빠른 출력
 
 > console.log를 한번만 호출 시켜라
