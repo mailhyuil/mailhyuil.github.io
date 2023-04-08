@@ -17,10 +17,10 @@ abstract class AbstractClass {
   }
 
   // subclass에서 구현할 추상 메소드1
-  abstract doOperation1();
+  abstract doOperation1(): void;
 
   // subclass에서 구현할 추상 메소드2
-  abstract doOperation2();
+  abstract doOperation2(): void;
 
   // 훅 메소드1 구현해도되고 안해도 됨
   hookMethod1() {}
