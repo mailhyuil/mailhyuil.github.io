@@ -25,7 +25,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "hompage": "https://mailhyuil.github.io",
+  "homepage": "https://mailhyuil.github.io",
   "eslintConfig": {
     "extends": [
       "react-app",
