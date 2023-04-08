@@ -16,6 +16,7 @@ class Context {
 }
 
 const context = new Context();
+
 context.run({
   runStrategy() {
     console.log('strategy!');
