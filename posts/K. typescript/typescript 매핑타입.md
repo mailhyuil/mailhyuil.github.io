@@ -4,10 +4,6 @@
 
 > 읽기전용으로 만들어주는 매핑타입
 
-```
-(person:Readonly<Person>)=>{}
-```
-
 ## Partial<T>
 
 > 프로퍼티를 선택사항으로 바꿔준다
@@ -16,13 +12,17 @@
 
 > 프로퍼티를 필수사항으로 바꿔준다
 
-## Awaited<T>
-
 ## Record<K, T>
+
+> object에 타입 지정
 
 ## Pick<T, K>
 
+> K의 값만 추출
+
 ## Omit<T, K>
+
+> K의 값을 누락시키기
 
 ## Exclude<T>
 

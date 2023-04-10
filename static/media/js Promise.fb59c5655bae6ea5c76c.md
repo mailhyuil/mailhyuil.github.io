@@ -112,3 +112,19 @@ d().then((e) => {
 
 console.log('this is called first');
 ```
+
+## new Promise() vs Promsie.resolve()
+
+```ts
+function async1(param: number) {
+  return new Promise(function (resolve, reject) {
+    resolve(param * 2);
+  });
+}
+
+// equals
+
+function async2(param: number) {
+  return Promise.resolve(param * 2);
+}
+```

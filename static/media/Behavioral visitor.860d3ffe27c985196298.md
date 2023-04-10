@@ -65,6 +65,36 @@ for (let element of elements) {
 }
 ```
 
+```ts
+const destinationA = {
+  name: 'destinationA',
+  souvenir: 'souvenirA',
+  accept: function (visitor: any) {
+    visitor.visit(this);
+  },
+};
+const destinationB = {
+  name: 'destinationB',
+  souvenir: 'souvenirB',
+  accept: function (visitor: any) {
+    visitor.visit(this);
+  },
+};
+
+const visitor = {
+  souvenirs: [],
+  visit: function (destination: any) {
+    console.log(`visitor visited ${destination.name}!`);
+    this.souvenirs.push(destination.souvenir);
+    console.log(`visitor bought ${destination.souvenir}!`);
+  },
+};
+
+const destinations = [destinationA, destinationB];
+destinations.forEach((d) => d.accept(visitor));
+console.log("visitor's souvenirs list : ", visitor.souvenirs);
+```
+
 ## 사용 예
 
 ```ts
