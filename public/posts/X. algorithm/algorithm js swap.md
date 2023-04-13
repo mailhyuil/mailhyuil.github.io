@@ -1,15 +1,38 @@
-# swap
+# js swap
 
-## 기존 방식
+## 기존 스타일
 
+```ts
+let a = 1;
+let b = 2;
+
+let temp = a;
+a = b;
+b = temp;
+
+console.log(a, b); // 2 1
 ```
-let temp = arr[j];
-arr[j] = arr[i];
-arr[i] = temp;
+
+## 분해 할당
+
+```ts
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+
+console.log(a, b); // 2 1
 ```
 
-## es6 방식
+## 함수형
 
-```
-[arr[j], arr[i]] = [arr[i], arr[j]];
+```ts
+let a = 1;
+let b = 2;
+
+const swap = (a, b) => [b, a];
+
+[a, b] = swap(a, b);
+
+console.log(a, b); // 2 1
 ```
