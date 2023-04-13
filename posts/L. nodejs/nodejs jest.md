@@ -26,7 +26,7 @@ jet --init
 >
 > > jest --watchAll 옵션 모든 파일 검사
 
-```
+```json
 "scripts": {
     "test": "jest --watch"
 },
