@@ -10,6 +10,38 @@ yarn add jest -g
 yarn add jest -D
 ```
 
+### http mock
+
+```
+yarn add node-mock-http -D
+```
+
+### babel
+
+> jest는 esmodule과 잘 동작하지 않아서 commonjs로 변환 작업을 해줘야한다. ㅠㅠ
+
+```
+npm i @babel/plugin-transform-modules-commonjs
+```
+
+- .babelrc
+
+```
+{
+    'env':{
+        'test':{
+            'plugins':[
+                '@babel/plugin-transform-modules-commonjs'
+            ]
+        }
+    }
+}
+```
+
+### faker.js
+
+> 이름, 이메일 등등 사용자들이 입력할만한 인풋을 랜덤으로 만들어줌
+
 ## init
 
 ```
@@ -31,3 +63,7 @@ jet --init
     "test": "jest --watch"
 },
 ```
+
+## mock
+
+## stub
