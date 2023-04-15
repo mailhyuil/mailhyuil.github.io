@@ -47,7 +47,7 @@ function mergeSort(arr, left, right) {
 }
 
 const arr = [2, 4, 5, 76, 78, 8, 7, 5, 4, 2, 32, 453, 345, 567, 6, 3];
-const sorted = Array.from({ length: arr.length }, () => 0);
+sorted = Array.from({ length: arr.length }, () => 0);
 mergeSort(arr, 0, arr.length - 1);
 
 console.log(arr);
