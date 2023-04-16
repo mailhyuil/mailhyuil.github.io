@@ -51,7 +51,11 @@ function recursive(n){
 
 ## 피보나치
 
-> n = n-1 + n-2
+> 재귀함수의 나쁜 예
+>
+> > 피보나치를 재귀함수로 푼다면.. 계산한 값을 또 계산하는 일이 빈번하게 일어난다. (return fibonacci(num - 1) + fibonacci(num - 2);)
+> >
+> > > 한 함수가 자기 자신을 여러번 호출할 경우에는 시간 복잡도가 매우 커져버릴 수 있다는 점을 조심
 
 ```js
 function fibonacci(num) {
