@@ -8,8 +8,6 @@
 > > >
 > > > > 분할 정복 알고리즘 중 하나
 
-## merging
-
 ```js
 // 병합(merge) 수행 함수
 function merge(arr, left, mid, right) {
