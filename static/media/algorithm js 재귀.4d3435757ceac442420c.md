@@ -49,9 +49,23 @@ function recursive(n){
 >
 > > 아직 모든 브라우저에서 지원하지는 않는다..
 
+## 팩토리얼
+
+> 시간복잡도 O(N)
+
+```js
+function factorial(num) {
+  if (num === 0 || num === 1) return 1; // 탈출 조건!
+  return num * factorial(num - 1); // num-1 팩토리얼을 곱하기
+}
+
+// 예시: 5!를 계산합니다.
+console.log(factorial(5)); // 출력 결과: 120
+```
+
 ## 피보나치
 
-> 재귀함수의 나쁜 예
+> 시간복잡도 O(2^N) (재귀함수의 나쁜 예)
 >
 > > 피보나치를 재귀함수로 푼다면.. 계산한 값을 또 계산하는 일이 빈번하게 일어난다. (return fibonacci(num - 1) + fibonacci(num - 2);)
 > >
@@ -69,14 +83,46 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-## 팩토리얼
+## 조합
+
+> 순서를 생각하지 않고 배열 (경우의 수)
+>
+> > 시간복잡도 O(2^N) (재귀함수의 나쁜 예)
 
 ```js
-function factorial(num) {
-  if (num === 0 || num === 1) return 1; // 탈출 조건!
-  return num * factorial(num - 1); // num-1 팩토리얼을 곱하기
-}
+function getCombinations(arr, selectNumber) {
+  const results = [];
+  if (selectNumber === 1) return arr.map((value) => [value]); // 1개씩 택할 때, 바로 모든 배열의 원소 return
 
-// 예시: 5!를 계산합니다.
-console.log(factorial(5)); // 출력 결과: 120
+  arr.forEach((fixed, index, origin) => {
+    const rest = origin.slice(index + 1); // 해당하는 fixed를 제외한 나머지 뒤
+    const combinations = getCombinations(rest, selectNumber - 1); // 나머지에 대해서 조합을 구한다.
+    const attached = combinations.map((combination) => [fixed, ...combination]); //  돌아온 조합에 떼 놓은(fixed) 값 붙이기
+    results.push(...attached); // 배열 spread syntax 로 모두다 push
+  });
+
+  return results; // 결과 담긴 results return
+}
+```
+
+## 순열
+
+> 순서를 생각하여 배열한 것 (경우의 수)
+>
+> > 시간복잡도 O(N!) (재귀함수의 나쁜 예)
+
+```js
+function permutation(arr, selectNum) {
+  const result = [];
+  if (selectNum === 1) return arr.map((v) => [v]);
+
+  arr.forEach((v, idx, arr) => {
+    const fixer = v;
+    const restArr = arr.filter((_, index) => index !== idx);
+    const permuationArr = permutation(restArr, selectNum - 1);
+    const combineFixer = permuationArr.map((v) => [fixer, ...v]);
+    result.push(...combineFixer);
+  });
+  return result;
+}
 ```
