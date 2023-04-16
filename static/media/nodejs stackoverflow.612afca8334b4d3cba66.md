@@ -4,10 +4,10 @@
 
 > 스택에 계속 쌓여버려서 스택 오버플로우 발생
 
-```
-function hi(){
-	console.log(1);
-	return hi();
+```js
+function hi() {
+  console.log(1);
+  return hi();
 }
 hi();
 ```
@@ -16,10 +16,10 @@ hi();
 
 > 콜백함수가 스택이 비워지면 실행되기 때문에 스택오버플로우가 발생하지 않음
 
-```
-function hi(){
-	console.log(1);
-	return setTimeout(hi,0); // or setImmediate, process.nextTick
+```js
+function hi() {
+  console.log(1);
+  return setTimeout(hi, 0); // or setImmediate, process.nextTick
 }
 hi();
 ```
