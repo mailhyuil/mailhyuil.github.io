@@ -1,6 +1,8 @@
 # js switch
 
 > 조건이 3개 이상이면 switch를 고려
+>
+> > switch문은 jump table을 사용 if else보다 빠름
 
 ```js
 switch(x) {
