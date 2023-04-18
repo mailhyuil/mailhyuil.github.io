@@ -28,74 +28,41 @@
 
 ## 구현
 
-### 인접 행렬 (adjacency matrix)
-
-> 2차원 배열을 사용하는 방식
-
-```js
-// directed graph (방향 그래프)
-// unweighted (비가중치)
-// adjacency matrix (인접 행렬)
-// 이해를 돕기 위해 기존 배열의 인덱스를 정점으로 사용합니다 (0, 1, 2, ... --> 정점)
-
-class GraphWithAdjacencyMatrix {
-  constructor() {
-    this.matrix = [];
-  }
-
-  addVertex() {
-    //버텍스를 추가합니다.
-    const currentLength = this.matrix.length;
-    for (let i = 0; i < currentLength; i++) {
-      this.matrix[i].push(0);
-    }
-    this.matrix.push(new Array(currentLength + 1).fill(0));
-  }
-
-  contains(vertex) {
-    //TODO: 버텍스가 있는지 확인합니다.
-    return vertex < this.matrix.length;
-  }
-
-  addEdge(from, to) {
-    const currentLength = this.matrix.length;
-    if (from === undefined || to === undefined) {
-      console.log('2개의 인자가 있어야 합니다.');
-      return;
-    }
-    //TODO: 간선을 추가할 수 없는 상황에서는 추가하지 말아야 합니다.
-    if (from + 1 > currentLength || to + 1 > currentLength || from < 0 || to < 0) {
-      console.log('범위가 매트릭스 밖에 있습니다.');
-      return;
-    }
-    //TODO: 간선을 추가해야 합니다.
-    this.matrix[from][to] = 1;
-  }
-
-  hasEdge(from, to) {
-    //TODO: 두 버텍스 사이에 간선이 있는지 확인합니다.
-    return this.matrix[from][to] === 1;
-  }
-
-  removeEdge(from, to) {
-    const currentLength = this.matrix.length;
-    if (from === undefined || to === undefined) {
-      console.log('2개의 인자가 있어야 합니다.');
-      return;
-    }
-    //TODO: 간선을 지울 수 없는 상황에서는 지우지 말아야 합니다.
-    if (from + 1 > currentLength || to + 1 > currentLength || from < 0 || to < 0) {
-      return;
-    }
-    //TODO: 간선을 지워야 합니다.
-    this.matrix[from][to] = 0;
-  }
-}
-```
-
 ### 인접 리스트 (adjacency list)
 
 > linked list를 사용하는 방식
+
+#### 간단 예
+
+```js
+// 노드 객체
+const node1 = { value: 'A' };
+const node2 = { value: 'B' };
+const node3 = { value: 'C' };
+const node4 = { value: 'D' };
+
+// 간선 배열
+const edges = [
+  { from: node1, to: node2 },
+  { from: node1, to: node3 },
+  { from: node2, to: node4 },
+  { from: node3, to: node4 },
+];
+
+function findConnectedNodes(node, edges) {
+  const connectedNodes = [];
+  for (const edge of edges) {
+    // edge.from이 node일 때
+    if (edge.from === node) {
+      // edge.to를 찾으면 됨
+      connectedNodes.push(edge.to);
+    }
+  }
+  return connectedNodes;
+}
+
+console.log(findConnectedNodes(node1, edges)); // [node2, node3]
+```
 
 ```js
 // undirected graph (무향 그래프)
@@ -181,6 +148,71 @@ class GraphWithAdjacencyList {
       // 최종적으로 해당 정점을 삭제합니다
       delete this.vertices[vertex];
     }
+  }
+}
+```
+
+### 인접 행렬 (adjacency matrix)
+
+> 2차원 배열을 사용하는 방식
+
+```js
+// directed graph (방향 그래프)
+// unweighted (비가중치)
+// adjacency matrix (인접 행렬)
+// 이해를 돕기 위해 기존 배열의 인덱스를 정점으로 사용합니다 (0, 1, 2, ... --> 정점)
+
+class GraphWithAdjacencyMatrix {
+  constructor() {
+    this.matrix = [];
+  }
+
+  addVertex() {
+    //버텍스를 추가합니다.
+    const currentLength = this.matrix.length;
+    for (let i = 0; i < currentLength; i++) {
+      this.matrix[i].push(0);
+    }
+    this.matrix.push(new Array(currentLength + 1).fill(0));
+  }
+
+  contains(vertex) {
+    //TODO: 버텍스가 있는지 확인합니다.
+    return vertex < this.matrix.length;
+  }
+
+  addEdge(from, to) {
+    const currentLength = this.matrix.length;
+    if (from === undefined || to === undefined) {
+      console.log('2개의 인자가 있어야 합니다.');
+      return;
+    }
+    //TODO: 간선을 추가할 수 없는 상황에서는 추가하지 말아야 합니다.
+    if (from + 1 > currentLength || to + 1 > currentLength || from < 0 || to < 0) {
+      console.log('범위가 매트릭스 밖에 있습니다.');
+      return;
+    }
+    //TODO: 간선을 추가해야 합니다.
+    this.matrix[from][to] = 1;
+  }
+
+  hasEdge(from, to) {
+    //TODO: 두 버텍스 사이에 간선이 있는지 확인합니다.
+    return this.matrix[from][to] === 1;
+  }
+
+  removeEdge(from, to) {
+    const currentLength = this.matrix.length;
+    if (from === undefined || to === undefined) {
+      console.log('2개의 인자가 있어야 합니다.');
+      return;
+    }
+    //TODO: 간선을 지울 수 없는 상황에서는 지우지 말아야 합니다.
+    if (from + 1 > currentLength || to + 1 > currentLength || from < 0 || to < 0) {
+      return;
+    }
+    //TODO: 간선을 지워야 합니다.
+    this.matrix[from][to] = 0;
   }
 }
 ```
