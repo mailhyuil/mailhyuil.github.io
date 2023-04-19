@@ -4,7 +4,7 @@
 >
 > > patch-package를 사용하면 수정본으로 받아올 수 있다.
 
-```
+```sh
 npm i patch-package
 
 npx patch-package [package-name]
