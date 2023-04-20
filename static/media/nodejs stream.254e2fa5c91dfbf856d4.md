@@ -12,28 +12,32 @@
 >
 > > 데이터가 언제 올지 모르니까 스트림을 사용
 
-```
-const rs = fs.createReadStream('file.txt', { encoding :'utf8' })
+```js
+const rs = fs.createReadStream('file.txt', { encoding: 'utf8' });
 
-rs.on('data',()=>{})
-rs.on('error',()=>{})
-rs.on('end',()=>{})
+rs.on('data', () => {});
+rs.on('error', () => {});
+rs.on('end', () => {});
 ```
 
 # 사용법
 
-```
-const fs = require('fs')
+```js
+const fs = require('fs');
 
-const ws = fs.createWriteStream('local/big-file')
-ws.write('hello, world')
+const ws = fs.createWriteStream('local/big-file');
+ws.write('hello, world');
 ```
 
 # stream 종류
 
 ## readable
 
+> 읽기 스트림
+
 ## writable
+
+> 쓰기 스트림
 
 ## duplex
 
@@ -51,7 +55,7 @@ ws.write('hello, world')
 >
 > > transform 스트림을 쉽게 활용할 수 있게 해준다
 
-```
+```js
 const stream = require('stream')
 
 stream.pipeline(
