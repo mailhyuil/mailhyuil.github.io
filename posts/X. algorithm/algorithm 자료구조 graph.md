@@ -12,6 +12,8 @@
 
 ## 구현
 
+> 비용 === 가중치
+
 ### 인접 리스트 (adjacency list)
 
 > linked list를 사용하는 방식
