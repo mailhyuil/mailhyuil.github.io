@@ -35,8 +35,9 @@ class Tree {
     return false;
   }
 }
-const t = new Tree('a');
-t.insertNode('b');
-t.insertNode('c');
-console.log(t.contains('a'));
+
+const tree = new Tree('a');
+tree.insertNode('b');
+tree.insertNode('c');
+console.log(tree.contains('a'));
 ```
