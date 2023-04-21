@@ -46,16 +46,19 @@ console.log(t.contains('a'));
 ### 전위 순회 (preorder traversal)
 
 ![](/img/전위순회-1.png)
+
 ![](/img/전위순회-2.png)
 
 ### 중위 순회 (inorder traversal)
 
 ![](/img/중위순회-1.png)
+
 ![](/img/중위순회-2.png)
 
 ### 후위 순회 (postorder traversal)
 
 ![](/img/후위순회-1.png)
+
 ![](/img/후위순회-2.png)
 
 ### 레벨 순회 (level traversal)
