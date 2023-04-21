@@ -41,16 +41,26 @@ t.insertNode('c');
 console.log(t.contains('a'));
 ```
 
-## 이진트리
+## tree traversal
 
-### 포화 이진트리
+### 전위 순회 (preorder traversal)
 
-> 자식을 전부 두개씩 가지고 있는 트리
+![](/img/전위순회-1.png)
 
-### 완전 이진트리
+![](/img/전위순회-2.png)
 
-> 모든 노드가 왼쪽 자식부터 차근차근 채워진 트리
+### 중위 순회 (inorder traversal)
 
-### 높이 균형트리
+![](/img/중위순회-1.png)
 
-> 왼쪽과 오른쪽이 높이가 1 이상 차이 나지 않는 트리
+![](/img/중위순회-2.png)
+
+### 후위 순회 (postorder traversal)
+
+![](/img/후위순회-1.png)
+
+![](/img/후위순회-2.png)
+
+### 레벨 순회 (level traversal)
+
+![](/img/레벨순회.png)
