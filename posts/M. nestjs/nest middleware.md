@@ -1,10 +1,12 @@
 # nest middleware
 
-> 쿠키파싱, 세션관리, 인증, 본문 파싱에 사용
+> 쿠키파싱, 세션관리, 본문, 파싱, \*인증에 사용
 >
 > > 요청에 대한 주어진 작업을 수행할 뿐
 > >
 > > > 컨텍스트에 접근할 수 없다
+> > >
+> > > > 인증 = 미들웨어 // 인가 = 가드
 
 ## 미들웨어 생성
 
@@ -16,7 +18,7 @@
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
-    console.log("Request...");
+    console.log('Request...');
     next();
   }
 }
@@ -33,7 +35,7 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(LoggerMiddleware) // 미들웨어 등록
-      .forRoutes("cats"); // 미들웨어가 작업을 수행할 라우팅 경로
+      .forRoutes('cats'); // 미들웨어가 작업을 수행할 라우팅 경로
   }
 }
 ```
