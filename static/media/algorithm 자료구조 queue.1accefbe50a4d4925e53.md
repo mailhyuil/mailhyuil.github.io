@@ -1,4 +1,4 @@
-# algorithm js queue
+# queue
 
 > linked list로 구현하면 삽입과 삭제에 O(1)
 >

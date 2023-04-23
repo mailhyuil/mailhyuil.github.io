@@ -1,4 +1,4 @@
-# algorithm js tree
+# tree
 
 > 루트노드 : 부모가 없는 최상위 노드
 >

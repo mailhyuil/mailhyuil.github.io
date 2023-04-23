@@ -1,4 +1,4 @@
-# algorithm js graph
+# graph
 
 > 정점(vertex or node)와 간선(edge)
 >
