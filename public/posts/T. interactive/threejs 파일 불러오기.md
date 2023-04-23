@@ -6,61 +6,54 @@
 
 ## GLTFLoader
 
-```html
-<body>
-  <canvas id="canvas" style="width: 100vw; height: 100vh"></canvas>
-</body>
+```js
+import { GLTFLoader } from 'GLTFLoader';
+import * as THREE from 'three';
 
-<script type="importmap">
-  {
-    "imports": {
-      "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
-      "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
-    }
-  }
-</script>
+let scene = new THREE.Scene();
+let renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#canvas'),
+});
 
-<script type="module">
-  import { GLTFLoader } from "GLTFLoader";
-  import * as THREE from "three";
+let camera = new THREE.PerspectiveCamera(30, 1);
+camera.position.set(0, 0, 5);
 
-  let scene = new THREE.Scene();
-  let renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector("#canvas"),
-  });
-
-  let camera = new THREE.PerspectiveCamera(30, 1);
-  camera.position.set(0, 0, 5);
-
-  let loader = new GLTFLoader();
-  loader.load("model/scene.gltf", (gltf) => {
-    scene.add(gltf.scene);
-    renderer.render(scene, camera);
-  });
-</script>
+let loader = new GLTFLoader();
+loader.load('model/scene.gltf', (gltf) => {
+  scene.add(gltf.scene);
+  renderer.render(scene, camera);
+});
 ```
 
 ## OBJLoader
 
 ```ts
-// instantiate a loader
-const loader = new OBJLoader();
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+const scene = new THREE.Scene(); // scene 생성
+const light = new THREE.AmbientLight(0xffffff, 0.5); // light 생성
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); // 카메라 생성
+const renderer = new THREE.WebGLRenderer(); // WebGL 렌더러 생성
+const loader = new OBJLoader(); // OBJLoader 생성
 
-// load a resource
+camera.position.z = 10; // 카메라 줌값
+scene.add(light);
+
 loader.load(
   // resource URL
-  "models/monster.obj",
+  'models/monster.obj',
   // called when resource is loaded
   function (object) {
     scene.add(object);
   },
   // called when loading is in progresses
   function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
   },
   // called when loading has errors
   function (error) {
-    console.log("An error happened");
+    console.log('An error happened');
   }
 );
+
+renderer.render(scene, camera);
 ```
