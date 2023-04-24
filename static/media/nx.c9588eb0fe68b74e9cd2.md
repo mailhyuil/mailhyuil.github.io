@@ -3,9 +3,16 @@
 ## install
 
 ```sh
-yarn add @nrwl/cli
-yarn add @nrwl/angular
-yarn add @nrwl/nest
+npm i -g create-nx-workspace
+yarn add @nrwl/cli -D
+yarn add @nrwl/angular -D
+yarn add @nrwl/nest -D
+```
+
+## create workspace
+
+```
+create-nx-workspace name
 ```
 
 ## create project
