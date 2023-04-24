@@ -9,12 +9,12 @@
 ## ts
 
 ```ts
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'some',
-  templateUrl: './some.component.html',
-  styleUrls: ['./some.component.scss'],
+  selector: "some",
+  templateUrl: "./some.component.html",
+  styleUrls: ["./some.component.scss"],
 })
 export class SomeComponent {}
 ```

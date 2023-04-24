@@ -1,5 +1,16 @@
 # angular form validate
 
+> ReactiveFormsModule을 import 해야함
+
+## import
+
+```ts
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+```
+
 ## html
 
 ```html
