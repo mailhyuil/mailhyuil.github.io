@@ -19,7 +19,24 @@
 ### 클러스터 인덱스
 
 > 페이지를 알기 때문에 바로 그 페이지를 펴는 것
+>
+> > 테이블당 한개만 생성가능
+> >
+> > > pk를 설정한 경우 default로 pk가 클러스터드 인덱스로 설정
+> > >
+> > > > 인덱스 자체에 data가 저장되어 있음
 
 ### 넌클러스터 인덱스
 
 > 목차에서 찾고자 하는 내용의 페이지를 찾고 그 페이지로 이동하는 것.
+>
+> > 하나의 테이블에 여러개의 인덱스 생성 가능
+> >
+> > > 인덱스 자체에 data가 저장되지 않고 data의 주소가 저장됨
+
+## index 생성 쿼리
+
+```sql
+CREATE INDEX "some_index" ON "some_table" (field_name)
+CREATE INDEX "some_index" ON "some_table" USING HASH (field_name)
+```

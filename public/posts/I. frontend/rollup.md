@@ -6,6 +6,6 @@
 
 ## install
 
-```
+```sh
 npm install --global rollup
 ```
