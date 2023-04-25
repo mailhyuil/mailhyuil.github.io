@@ -53,10 +53,6 @@ function myFunction(e) {
     var new_pill = getRelativeDot(eye_mid, degrees, distance);
     var minus = new Dot(pill.offsetWidth / 2, pill.offsetWidth / 2);
     new_pill.min(minus);
-    //console.log(degrees)
-    // console.log(minus)
-    //console.log(eye_mid)
-    //console.log(new_pill)
     pill.style.top = new_pill.y + "px";
     pill.style.left = new_pill.x + "px";
   }

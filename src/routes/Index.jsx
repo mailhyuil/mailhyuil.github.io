@@ -20,11 +20,9 @@ const Main = () => {
     const res = getAllMDFile().filter((md) => {
       const regex = new RegExp(query, "gi");
       const comparison = regex.test(md);
-      console.log(comparison);
       return comparison;
     });
     setFoundBlog([...res]);
-    console.log(foundBlog);
   };
 
   const getMDFilesByCategory = (cat) => {
