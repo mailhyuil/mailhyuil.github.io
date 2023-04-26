@@ -143,6 +143,8 @@ const Main = () => {
                             setNavIndex("blog");
                             setBlog(<Blog fileName={md} />);
                             nav_ul.current.classList.toggle("hidden");
+                            setFoundBlog([]);
+                            setQuery("");
                           }}
                         >
                           {md}
@@ -181,7 +183,7 @@ const Main = () => {
         <motion.main className="flex-1 overflow-scroll scrollbar-hide">
           <div className="p-2">
             <input
-              className="border w-full"
+              className="border-2 rounded-md py-1 px-2 font-bold w-full "
               value={query}
               onChange={onChange}
             />
