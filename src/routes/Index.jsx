@@ -3,7 +3,7 @@ import Movie from "../components/Movie";
 import Home from "../components/Home";
 import About from "../components/About";
 import Donot from "../components/Donot";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Main = () => {
@@ -14,15 +14,21 @@ const Main = () => {
   const getAllMDFile = () => {
     return require.context("/public/posts", true, /\.md$/).keys();
   };
-
-  const onChange = (e) => {
-    setQuery(e.target.value);
+  useEffect(() => {
     const res = getAllMDFile().filter((md) => {
       const regex = new RegExp(query, "gi");
       const comparison = regex.test(md);
       return comparison;
     });
-    setFoundBlog([...res]);
+    if (query !== "") {
+      setFoundBlog([...res]);
+    } else {
+      setFoundBlog([]);
+    }
+  }, [query]);
+
+  const onChange = (e) => {
+    setQuery(e.target.value);
   };
 
   const getMDFilesByCategory = (cat) => {
