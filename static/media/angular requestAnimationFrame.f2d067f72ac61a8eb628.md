@@ -1,6 +1,8 @@
 # angular requestAnimationFrame
 
 > NgZone을 사용
+>
+> > By default, all asynchronous operations are inside the Angular zone
 
 ```ts
 export class AppComponent implements AfterViewInit {
@@ -15,9 +17,7 @@ export class AppComponent implements AfterViewInit {
 
   draw() {
     this.ngZone.runOutsideAngular(() => {
-      requestAnimationFrame(() => {
-        this.draw();
-      });
+      requestAnimationFrame(() => this.draw());
       this.obj.nativeElement.style.left = this.x + "px";
       this.x++;
     });
