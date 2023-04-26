@@ -36,8 +36,15 @@ ng new my-app
 *ngIf="boolean"
 ```
 
-## class for style
+## class
 
 ```
 [class.className]="boolean"
+[ngClass]="{'className': boolean}"
+```
+
+## style
+
+```
+[ngStyle]="{ width: widthValue }
 ```
