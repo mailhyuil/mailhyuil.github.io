@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.fb275e8b.js",
+    "main.js": "/static/js/main.84d0da9f.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -53,6 +53,7 @@
     "static/media/Behavioral pub-sub.md": "/static/media/Behavioral pub-sub.380eb128d574c79eac9f.md",
     "static/media/angular form validate.md": "/static/media/angular form validate.9be674836a31edcc7021.md",
     "static/media/Spring Boot (스프링부트).md": "/static/media/Spring Boot (스프링부트).b809bbaa8de331795573.md",
+    "static/media/js marquee, infinity slider.md": "/static/media/js marquee, infinity slider.749a004803d22b0c0c1b.md",
     "static/media/x event bus.md": "/static/media/x event bus.ba23584cc918c0309c79.md",
     "static/media/StreamAPI (스트림).md": "/static/media/StreamAPI (스트림).01b10bd4801eca5fb321.md",
     "static/media/rust 클로저.md": "/static/media/rust 클로저.1279580d5e93110b91e9.md",
@@ -728,10 +729,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.fb275e8b.js.map": "/static/js/main.fb275e8b.js.map"
+    "main.84d0da9f.js.map": "/static/js/main.84d0da9f.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.fb275e8b.js"
+    "static/js/main.84d0da9f.js"
   ]
 }
