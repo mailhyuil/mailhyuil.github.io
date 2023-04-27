@@ -37,3 +37,9 @@
 ```
 trackByItem = (index: number, item: any): number => item.id;
 ```
+
+## 요소 반복시키기
+
+```
+*ngFor="let i of [].constructor(5)"
+```
