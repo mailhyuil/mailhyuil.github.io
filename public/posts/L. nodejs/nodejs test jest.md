@@ -53,11 +53,3 @@ npm i @babel/plugin-transform-modules-commonjs
     "test": "jest --watch"
 },
 ```
-
-## mock
-
-```
-jest.fn()
-```
-
-## stub
