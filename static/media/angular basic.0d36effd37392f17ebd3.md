@@ -39,8 +39,15 @@ ng new my-app
 ## class
 
 ```
-[class.className]="boolean"
-[ngClass]="{'className': boolean}"
+<div [ngClass]="{'enabled': item.checked, 'disabled': !item.checked}></div>
+<div [class.grey]="!item.checked"></div>
+
+<div [ngClass]="{'disabled grey': !item.checked}></div>
+<div [ngClass]="[disabled, grey]"></div>
+
+<div [ngClass]="item.checked ? 'enabled' : 'disabled'</div>
+
+<div [ngClass]="checkStatus()"></div>
 ```
 
 ## style

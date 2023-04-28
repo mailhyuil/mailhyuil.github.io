@@ -18,8 +18,28 @@
 },
 ```
 
-##
+## routerLink outlet
 
 ```html
 <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+```
+
+## routerLink param
+
+## html
+
+```
+<div [routerLink]="['./', 0]"></div>
+```
+
+## app.routes.ts
+
+```
+{
+  path: 'notice',
+  children: [
+    { path: '', component: NoticePage },
+    { path: ':id', component: NoticeDetailPage },
+  ],
+},
 ```
