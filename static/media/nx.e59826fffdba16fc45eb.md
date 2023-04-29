@@ -21,7 +21,7 @@ create-nx-workspace name
 
 ## create project
 
-## using NX Console
+### using NX Console
 
 ```
 Add Dev Dependency -> @nrwl/angular, @nrwl/nest
@@ -29,7 +29,7 @@ generate -> @nrwl/angular - application
 generate -> @nrwl/nest - application
 ```
 
-## using cli
+### using cli
 
 ```sh
 # angular
