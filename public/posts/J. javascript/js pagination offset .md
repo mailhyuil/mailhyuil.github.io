@@ -1,4 +1,8 @@
-# js pagination
+# js offset pagination
+
+> pageNumber
+>
+> > pageSize
 
 ## front-end
 
