@@ -1,9 +1,13 @@
 # nx
-
+> nx project에서는 npm 이나 nx 명령어만 사용
+>> yarn 사용 불가
 ## install
 
 ```sh
+npm install -g nx
+
 npm i -g create-nx-workspace
+
 yarn add @nrwl/cli -D
 yarn add @nrwl/angular -D
 yarn add @nrwl/nest -D
@@ -16,6 +20,16 @@ create-nx-workspace name
 ```
 
 ## create project
+
+## using NX Console
+
+```
+Add Dev Dependency -> @nrwl/angular, @nrwl/nest
+generate -> @nrwl/angular - application
+generate -> @nrwl/nest - application
+```
+
+## using cli
 
 ```sh
 # angular
@@ -30,7 +44,13 @@ nx g @nrwl/nest:app <프로젝트 이름>
 
 ```sh
 # angular
-nx g c <컴포넌트 이름> —project=<프로젝트 이름> —standalone
+nx g c <컴포넌트 이름> --project=<프로젝트 이름> --standalone
 # nestjs
 nx g @nrwl/nest:app <프로젝트 이름>
+```
+
+## env
+> apps/my-app/.env.[target-name].[configuration-name]
+```
+apps/server/.env.serve.development
 ```
