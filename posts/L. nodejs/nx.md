@@ -54,3 +54,10 @@ nx g @nrwl/nest:app <프로젝트 이름>
 ```
 apps/server/.env.serve.development
 ```
+# nx prisma
+## package.json
+```
+"scripts": {
+   "migrate:dev": "dotenv -e ./apps/server/.env.serve.development -- npx prisma migrate dev --schema=./apps/server/prisma/schema.prisma"
+},
+```
