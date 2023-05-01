@@ -24,3 +24,13 @@ cat ~/rsa.pub >> ~/.ssh/authorized_keys
 > > 개인 키 파일이 위치한 파일 경로가 서버 상에서 인식하고 있는 경로와 다를 경우 서버가 개인 키 파일을 찾지 못합니다.
 > >
 > > > 이 경우 ssh -i (파일경로) user@ip로
+
+## known_hosts vs authorized_keys
+
+> known_hosts에는 내가 다른 서버에 접속 할 때, 그 서버의 public key가 등록되고
+>
+> > authorized_keys는 다른 컴퓨터가 client로서 내 서버에 접속하려고 할 때, 그 client의 public key 다.
+> >
+> > > known_hosts는 해당 서버 접속 시 자동으로 등록이 되고
+> > >
+> > > > authorized_keys는 직접 등록을 해야 해당 클라이언트가 이 컴퓨터로 접속이 가능해진다.

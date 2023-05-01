@@ -1,6 +1,9 @@
 # nx
+
 > nx project에서는 npm 이나 nx 명령어만 사용
->> yarn 사용 불가
+>
+> > yarn 사용 불가
+
 ## install
 
 ```sh
@@ -50,14 +53,9 @@ nx g @nrwl/nest:app <프로젝트 이름>
 ```
 
 ## env
+
 > apps/my-app/.env.[target-name].[configuration-name]
+
 ```
 apps/server/.env.serve.development
-```
-# nx prisma
-## package.json
-```
-"scripts": {
-   "migrate:dev": "dotenv -e ./apps/server/.env.serve.development -- npx prisma migrate dev --schema=./apps/server/prisma/schema.prisma"
-},
 ```
