@@ -34,3 +34,12 @@ cat ~/rsa.pub >> ~/.ssh/authorized_keys
 > > > known_hosts는 해당 서버 접속 시 자동으로 등록이 되고
 > > >
 > > > > authorized_keys는 직접 등록을 해야 해당 클라이언트가 이 컴퓨터로 접속이 가능해진다.
+
+# ssh-copy-id [리눅스계정명]@[원격IP주소]
+
+# ssh-add
+
+# ssh -v user@ip
+
+> 디버깅
+> -v -vv -vvv 단계 설정
