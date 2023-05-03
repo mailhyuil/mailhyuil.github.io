@@ -8,7 +8,7 @@
 
 > key pair C:/Users/user/.ssh/id_rsa 생성
 
-## sshd.config
+## /etc/ssh/sshd.config
 
 ```
 # Logging
