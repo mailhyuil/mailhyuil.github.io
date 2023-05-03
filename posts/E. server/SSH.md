@@ -8,6 +8,18 @@
 
 > key pair C:/Users/user/.ssh/id_rsa 생성
 
+## sshd.config
+
+```
+# Logging
+SyslogFacility LOCAL0
+LogLevel Debug3
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+PasswordAuthentication no // yes로 돼있으면 password 인증이 우선 시 됨
+```
+
 ## ssh로 서버에 접속하기
 
 1. 나의 rsa.pub 파일을 접속할 서버로 전송
@@ -34,3 +46,18 @@ cat ~/rsa.pub >> ~/.ssh/authorized_keys
 > > > known_hosts는 해당 서버 접속 시 자동으로 등록이 되고
 > > >
 > > > > authorized_keys는 직접 등록을 해야 해당 클라이언트가 이 컴퓨터로 접속이 가능해진다.
+
+# ssh-copy-id [리눅스계정명]@[원격IP주소]
+
+# ssh-add key
+
+# ssh -v user@ip
+
+> 디버깅
+> -v -vv -vvv 단계 설정
+
+# ERROR
+
+> rsa 파일에 다른 문자가 추가되어있었음
+>
+> > 권한 600으로 주기
