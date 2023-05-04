@@ -18,9 +18,9 @@ ng g c modals/create-notice --type modal
 
 ```ts
 @Component({
-  selector: 'app-notice',
-  templateUrl: './notice.page.html',
-  styleUrls: ['./notice.page.scss'],
+  selector: "app-notice",
+  templateUrl: "./notice.page.html",
+  styleUrls: ["./notice.page.scss"],
   standalone: true,
   imports: [ButtonComponent, CommonModule, CreateNoticeModal],
 })
@@ -30,18 +30,12 @@ export class NoticePage {
   async openModal() {
     const modal = await this.modalController.create({
       component: CreateNoticeModal,
-      componentProps: {
-        key: 'value',
-      },
+      componentProps: {},
     });
 
     await modal.present();
 
-    modal.onDidDismiss().then((res) => {
-      if (res) {
-        // dismiss logic
-      }
-    });
+    const { data, role } = await modal.onDidDismiss();
   }
 
   dismiss() {
