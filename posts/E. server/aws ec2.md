@@ -6,6 +6,14 @@
 4. window는 putty를 사용해서 ssh 연결
 5. username은 ubuntu
 
+## 순서
+
+1. VPC 생성
+2. SUBNET 생성
+3. 보안그룹 생성
+4. EC2 인스턴스 생성
+5. ec2에 탄력적 ip 할당
+
 ## 사용자 데이터
 
 > 인스턴스 생성 시 실행시킬 커맨드
