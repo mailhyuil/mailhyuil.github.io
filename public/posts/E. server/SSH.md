@@ -7,6 +7,8 @@
 ## ssh-keygen
 
 > key pair C:/Users/user/.ssh/id_rsa 생성
+>
+> > pem으로 생성하기 ssh-keygen -t rsa -m pem
 
 ## /etc/ssh/sshd.config
 
