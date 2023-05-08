@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.ae4683be.js",
+    "main.js": "/static/js/main.a4b6df82.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -462,6 +462,7 @@
     "static/media/nest getStarted.md": "/static/media/nest getStarted.666da6d7456c1facfc90.md",
     "static/media/nuxt nuxtApp.md": "/static/media/nuxt nuxtApp.309c6f0a801642f56f0e.md",
     "static/media/monorepo.md": "/static/media/monorepo.52ce41ef4d0468c77200.md",
+    "static/media/prisma one to one relation.md": "/static/media/prisma one to one relation.96989d8a83fab8f08ccd.md",
     "static/media/angular standalone.md": "/static/media/angular standalone.92c34014b14cc11c775e.md",
     "static/media/database 성능 핵심.md": "/static/media/database 성능 핵심.7d2ac6b8e740b3d642c7.md",
     "static/media/nuxt. fetch 시 httpException 처리.md": "/static/media/nuxt. fetch 시 httpException 처리.2705afe97e59577f61da.md",
@@ -581,6 +582,7 @@
     "static/media/linux chmod777.md": "/static/media/linux chmod777.8c07e6929317cf91a8f4.md",
     "static/media/nuxt enter submit.md": "/static/media/nuxt enter submit.5a07344f07998d67dc9c.md",
     "static/media/IPC.md": "/static/media/IPC.5e010daf77e848f95340.md",
+    "static/media/prisma return Class.md": "/static/media/prisma return Class.97cb5d17c43c44275167.md",
     "static/media/nx prisma.md": "/static/media/nx prisma.f25b47818a7d833ef5b9.md",
     "static/media/js currying.md": "/static/media/js currying.8038b4dad9aa207f0a14.md",
     "static/media/postgres copy.md": "/static/media/postgres copy.1052f5b2ac2ead49068a.md",
@@ -763,10 +765,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.ae4683be.js.map": "/static/js/main.ae4683be.js.map"
+    "main.a4b6df82.js.map": "/static/js/main.a4b6df82.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.ae4683be.js"
+    "static/js/main.a4b6df82.js"
   ]
 }
