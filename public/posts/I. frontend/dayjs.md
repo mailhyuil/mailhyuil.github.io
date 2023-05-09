@@ -26,14 +26,29 @@ dayjs().format("YYYY-MM-DD 23:59")
 > 날짜 및 시간 얻기
 
 ```
-dayjs().get("year") // y
-dayjs().get("month") // M
-dayjs().get("date") // D
+dayjs().get("year")
+dayjs().year()
+
+dayjs().get("month")
+dayjs().month()
+
+dayjs().get("day") // 주를 반환
+dayjs().day()
+
+dayjs().get("date") // 날짜를 반환
+dayjs().date()
 
 dayjs().get("hour") // h
+dayjs().hour()
+
 dayjs().get("minute") // m
+dayjs().minute()
+
 dayjs().get("second") // s
+dayjs().second()
+
 dayjs().get("millisecond") // ms
+dayjs().millisecond()
 ```
 
 ## set()
@@ -73,9 +88,9 @@ date2.format("YYYY-MM-DD HH:mm:ss.SSS"); // 2020-04-08 13:25:30.000
 date1.diff(date2, "year"); // 1
 ```
 
-## isSame()
+## isBefore() && isAfter && isSame() && IsSameOrBefore && IsSameOrAfter && IsBetween
 
-> 날짜 및 시간이 일치하는 구하기
+> <, >, <=, >=, === 로직과 비슷하다고 생각하면 된다
 
 ```
 var date = dayjs("2021-10-11");
