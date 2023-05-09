@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.825d3672.js",
+    "main.js": "/static/js/main.4ffa6b93.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -404,6 +404,7 @@
     "static/media/angular props & emits.md": "/static/media/angular props & emits.cad95ad091bbe26601aa.md",
     "static/media/typescript JSDoc.md": "/static/media/typescript JSDoc.16d3b9c4c27de06c3b38.md",
     "static/media/인풋박스 안에 텍스트.md": "/static/media/인풋박스 안에 텍스트.3b0fa660696944546679.md",
+    "static/media/prisma transaction timeout.md": "/static/media/prisma transaction timeout.ad49e9fe7b9cd070170d.md",
     "static/media/nuxt remember_me.md": "/static/media/nuxt remember_me.eb82109bcae652a8f2d0.md",
     "static/media/js polyfill.md": "/static/media/js polyfill.870a731e508783e8f818.md",
     "static/media/nuxt plugins.md": "/static/media/nuxt plugins.5a8c95e87d8c4f14e81f.md",
@@ -770,10 +771,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.825d3672.js.map": "/static/js/main.825d3672.js.map"
+    "main.4ffa6b93.js.map": "/static/js/main.4ffa6b93.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.825d3672.js"
+    "static/js/main.4ffa6b93.js"
   ]
 }
