@@ -5,3 +5,13 @@
 > > 한국시간인 KTC는 9시간을 더해줘야한다. (dayjs 사용)
 > >
 > > > UTC + 9 hours === KTC
+
+# prisma time
+
+> 시간만 저장
+>
+> > 변수로 정밀도 지정
+
+```
+time DateTime @db.Time(0)
+```
