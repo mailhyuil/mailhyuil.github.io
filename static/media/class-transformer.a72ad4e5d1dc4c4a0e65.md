@@ -64,3 +64,15 @@ posts: Post[];
 @Transform(({ value }) => moment(value), { toClassOnly: true })
 date: Moment;
 ```
+
+## DTO에 선언된 필드만 body에서 가져오기
+
+```
+@Exclude()
+export class SomeDTO {
+  @Expose()
+  field1:string
+  @Expose()
+  field2:string
+}
+```
