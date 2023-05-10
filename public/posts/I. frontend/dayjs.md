@@ -32,8 +32,13 @@ dayjs().year()
 dayjs().get("month")
 dayjs().month()
 
-dayjs().get("day") // 주를 반환
+dayjs().get("day") // 주를 0 ~ 6으로 반환
 dayjs().day()
+
+// 토요일 일요일 제외시키기
+if(dayjs().day() === (0 || 6)){
+
+}
 
 dayjs().get("date") // 날짜를 반환
 dayjs().date()
@@ -65,6 +70,14 @@ date.set("year", 2022).format();
 
 ## startOf() / endOf()
 
+> startOf 시작 시간 또는 시작 날짜를 반환
+>
+> > endOf 끝 시간 또는 끝 날짜를 반환
+
+```
+dayjs().startOf('hour')
+```
+
 ## add() / subtract()
 
 > 날짜 및 시간 더하기, 빼기
@@ -88,14 +101,29 @@ date2.format("YYYY-MM-DD HH:mm:ss.SSS"); // 2020-04-08 13:25:30.000
 date1.diff(date2, "year"); // 1
 ```
 
-## isBefore() && isAfter && isSame() && IsSameOrBefore && IsSameOrAfter && IsBetween
+## isBefore() && isAfter && isSame()
 
-> <, >, <=, >=, === 로직과 비슷하다고 생각하면 된다
+> <, >, === 로직과 비슷하다고 생각하면 된다
 
 ```
 var date = dayjs("2021-10-11");
 
 date.isSame("2021-10-11"); // true
+```
+
+### IsSameOrBefore && IsSameOrAfter && IsBetween plugin
+
+> <=, >=, between
+
+```
+const isSameOrBefore = require('dayjs/plugin/isSameOrBefore')
+dayjs.extend(isSameOrBefore)
+
+const isSameOrAfter = require('dayjs/plugin/isSameOrAfter')
+dayjs.extend(isSameOrAfter)
+
+const isBetween = require('dayjs/plugin/isBetween')
+dayjs.extend(isBetween)
 ```
 
 # dayjs hour min

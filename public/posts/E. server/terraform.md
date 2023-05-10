@@ -25,6 +25,10 @@ npm install --global cdktf-cli@latest
 > terraform 전용 언어
 
 ```
+provider = aws
+
 resource = 가상 네트워크, 인스턴스 같은 객체
 data = terraform 외부에서 정의 된 정보 ex) ami id, iam policy id
+
+
 ```
