@@ -70,12 +70,13 @@ date.set("year", 2022).format();
 
 ## startOf() / endOf()
 
-> startOf 시작 시간 또는 시작 날짜를 반환
+> startOf 매개변수에 들어간 단위뒤로는 0으로 초기화 ex) startOf('hour') === 분까지는 0으로 설정
 >
-> > endOf 끝 시간 또는 끝 날짜를 반환
+> > endOf 매개변수가 들어간 단위뒤로는 단위의 끝값으로 설정 ex) endOf('hour') === 분까지는 59으로 설정
 
 ```
 dayjs().startOf('hour')
+dayjs().endOf('hour')
 ```
 
 ## add() / subtract()
