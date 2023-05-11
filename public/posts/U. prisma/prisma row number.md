@@ -1,6 +1,6 @@
 # prisma row number
 
-```
+```ts
 const entities = await this.prismaService.$queryRaw`
       SELECT ${count}  + 1 - "row_number"() over (ORDER BY "createdAt" DESC) as row, web.*
       FROM (SELECT "WebPost".*, "Auth"."name"
