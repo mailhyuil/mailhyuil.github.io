@@ -53,17 +53,13 @@ await Promise.all(
 
 ## 병렬 순차 처리
 
-```
-const requestList = [
-    request('A'),
-    request('B'),
-    request('C'),
-];
+```ts
+const requestList = [request("A"), request("B"), request("C")];
 
 Promise.all(requestList).then((responses) => {
-    for (const response of responses) {
-        console.log(response);
-    }
+  for (const response of responses) {
+    console.log(response);
+  }
 });
 ```
 
@@ -73,5 +69,35 @@ const arrFunc = arr.map((type) => request(type));
 
 for (const func of arrFunc) {
     console.log(await func);
+}
+```
+
+## wrong
+
+> ?. 사용
+
+```ts
+const promises = datas?.map((i) => {
+  return useApi(`web-name-change-application/${i.id}/hide`, {
+    method: "PATCH",
+  });
+});
+
+await Promise.all([promises]);
+```
+
+## correct
+
+> if로 null 체크
+
+```ts
+if (datas) {
+  const promises = datas.map((i) => {
+    return useApi(`web-name-change-application/${i.id}/hide`, {
+      method: "PATCH",
+    });
+  });
+
+  await Promise.all(promises);
 }
 ```
