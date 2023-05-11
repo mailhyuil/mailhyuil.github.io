@@ -6,27 +6,27 @@
 
 ## ts
 
-```
-import { Component, computed, signal } from '@angular/core';
+```ts
+import { Component, computed, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  sig = signal('hi');
-  com = computed(() => 'com');
+  sig = signal("hi");
+  com = computed(() => "com");
 
   hi() {
-    this.sig.set('hellow');
+    this.sig.set("hellow");
   }
 }
 ```
 
 ## html
 
-```
+```html
 <h1>{{ sig() }}</h1>
 <h1>{{ com() }}</h1>
 ```

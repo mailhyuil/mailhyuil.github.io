@@ -6,7 +6,7 @@
 
 1. types/package.d.ts 파일 생성
 
-```
+```ts
 declare module "v-click-outside";
 ```
 
