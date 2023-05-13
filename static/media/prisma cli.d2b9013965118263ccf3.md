@@ -12,4 +12,12 @@
 
 > prisma client에 반영
 
-## db pull & push
+## db push & pull
+
+> push => schema를 db에 바로 적용
+>
+> > pull => db를 schema에 적용
+
+## studio
+
+> prisma가 잘 작동하는지 대쉬보드 형태로 볼 수 있다.
