@@ -6,7 +6,7 @@
 > >
 > > > 그걸 terraform용으로 바꾼 것
 
-### install
+## install
 
 > terraform cli 설치
 >
@@ -16,4 +16,14 @@
 
 ```
 npm install --global cdktf-cli@latest
+```
+
+## authentication config
+
+> $HOME/.aws/credentials
+
+```
+AWS_ACCESS_KEY_ID="anaccesskey"
+AWS_SECRET_ACCESS_KEY="asecretkey"
+AWS_REGION="us-west-2"
 ```

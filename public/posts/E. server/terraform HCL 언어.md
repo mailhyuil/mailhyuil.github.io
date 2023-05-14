@@ -1,4 +1,4 @@
-# HCL
+# terraform HCL
 
 > terraform 전용 언어
 
@@ -19,3 +19,40 @@
 > > > reading local files
 > > >
 > > > > string값 같은 data 비밀번호 .. 등등
+
+## AWS Provider
+
+```tf
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1" # ap-northeast-2 한국 리전
+}
+
+# Create a VPC
+resource "aws_vpc" "default" {
+  cidr_block = "10.0.0.0/16"
+}
+```
+
+## module
+
+> 함께 사용되는 여러개의 resource에 대한 컨테이너
+>
+> > 디렉토리 안에 여러개의 .tf 파일로 구성됨
+> >
+> > > 리소스 설정을 패키징하거나 재사용하기 위한 주요 방법 중 하나
+> > >
+> > > > 테라폼은 적어도 하나의 모듈(root module)로 구성
+
+### source
+
+### version
