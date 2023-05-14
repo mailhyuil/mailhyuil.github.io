@@ -24,6 +24,6 @@ sudo /etc/init.d/ssh start
 
 ### local
 
-```
+```sh
 ssh root@localhost
 ```
