@@ -11,3 +11,19 @@ docker run -d --name ubuntu -p 22:22 -it --privileged ubuntu:20.04
 ```bash
 docker attach ubuntu
 ```
+
+## ssh로 접속
+
+### ubuntu
+
+```
+apt install openssh-server
+
+sudo /etc/init.d/ssh start
+```
+
+### local
+
+```
+ssh root@localhost
+```
