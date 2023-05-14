@@ -1,6 +1,8 @@
 # terraform HCL
 
 > terraform 전용 언어
+>
+> > main.tf 파일 내에 작성
 
 ## resource
 
@@ -52,7 +54,25 @@ resource "aws_vpc" "default" {
 > > > 리소스 설정을 패키징하거나 재사용하기 위한 주요 방법 중 하나
 > > >
 > > > > 테라폼은 적어도 하나의 모듈(root module)로 구성
+> > > >
+> > > > > resource 설정을 다른 디렉토리의 main.ts 파일에 넣고 module로 불러서 사용
 
 ### source
 
+> 디렉토리 위치를 넣어주기
+
 ### version
+
+# 변수
+
+## (input) variable
+
+> module에 대한 변수
+
+## local
+
+> 표현식에 할당하는 짧은 이름
+
+## output
+
+> module이 리턴하는 값
