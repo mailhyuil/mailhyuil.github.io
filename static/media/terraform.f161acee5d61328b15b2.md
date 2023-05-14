@@ -1,5 +1,11 @@
 # terraform
 
+> IaC 플랫폼
+>
+> > .tf 포멧 사용
+> >
+> > > HCL언어 사용
+
 ## install
 
 ```
@@ -20,3 +26,10 @@ brew install terraform
    > 적용
 4. Destory
    > 삭제
+
+```
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+```
