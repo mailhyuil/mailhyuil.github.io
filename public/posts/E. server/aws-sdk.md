@@ -1,5 +1,7 @@
 # aws-sdk
 
+> software development kit
+
 ## install
 
 ```
