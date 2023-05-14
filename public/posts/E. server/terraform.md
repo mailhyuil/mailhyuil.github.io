@@ -4,31 +4,19 @@
 
 ```
 choco install terraform
+
+brew install terraform
 ```
 
-## CDKTF
+## workflow
 
-> terraform cli 설치
->
-> > nodejs 설치
-> >
-> > > docker 설치
-
-### install
-
-```
-npm install --global cdktf-cli@latest
-```
-
-## HCL
-
-> terraform 전용 언어
-
-```
-provider = aws
-
-resource = 가상 네트워크, 인스턴스 같은 객체
-data = terraform 외부에서 정의 된 정보 ex) ami id, iam policy id
-
-
-```
+1. Refresh
+   > 현재 인프라 상태 확인
+2. Plan
+   > 현재 상태 -> 원하는 상태로 구성
+   >
+   > > 예상되는 변경 지점 확인
+3. Apply
+   > 적용
+4. Destory
+   > 삭제
