@@ -17,3 +17,17 @@ docker network inspect my-network
 docker network connect my-network 컨테이너
 docker network disconnect my-network 컨테이너
 ```
+
+## docker0
+
+> 도커 데몬에 의해 생성되는 기본 브릿지 네트워크
+>
+> > veth(virtual eth)와 eth 간 다리 역할
+
+## --expose
+
+> 문서화 용도
+
+```
+docker run -d --expose 80 --name my-nginx nginx
+```

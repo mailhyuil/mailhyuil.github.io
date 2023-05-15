@@ -71,3 +71,7 @@ sudo swapon /swapfile
 # /swapfile swap swap defaults 0 0
 sudo nano /etc/fstab
 ```
+
+## ec2metadata 명령어
+
+> metadata를 출력 ex) ip

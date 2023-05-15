@@ -20,10 +20,20 @@
 
 ```bash
 docker ps
+
 docker stop 컨테이너_이름
+# 모든 컨테이너 stop
+docker stop $(docker ps -a -q)
+
 docker start 컨테이너_이름
 docker restart 컨테이너_이름
+
 docker rm 컨테이너_이름
+# 실행 중인 컨테이너 삭제
+docker rm -f 컨테이너_이름
+# 컨테이너 실행이 종료되면 자동 삭제
+docker rm --rm 컨테이너_이름
+
 docker rmi 이미지_이름
 
 # 실행중인 컨테이너에 명령어주기
