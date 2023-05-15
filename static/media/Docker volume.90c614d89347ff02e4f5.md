@@ -36,6 +36,17 @@ docker volume create --name my-volume
 
 docker run -d --name my-sql -v my-volume:/var/lib/mysql -p 3306:3306 mysql
 # /var/lib/mysql은 mysql이 데이터를 쌓는 경로이다
+# /var/lib/postgresql/<version>/main postgresql
+```
+
+## 볼륨을 읽기 전용으로 마운트
+
+> -v my-volume:/usr/share/nginx/html:ro
+>
+> > :ro 옵션
+
+```
+docker run -d --name nginx -v web-volume:/usr/share/nginx/html:ro nginx
 ```
 
 ## 연결되지 않은 볼륨 전부 삭제
