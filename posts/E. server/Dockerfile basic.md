@@ -1,7 +1,8 @@
 ## Dockerfile basic
 
 > image를 생성하기 위한 스크립트파일
-> Docker는 Dockerfile에 나열된 명령문을 차례대로 수행
+>
+> > Docker는 Dockerfile에 나열된 명령문을 차례대로 수행
 
 ```Dockerfile
 # 베이스 이미지
