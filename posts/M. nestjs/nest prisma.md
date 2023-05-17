@@ -4,7 +4,7 @@
 
 ```
 npm i prisma --save-dev
-npm install @prisma/client
+npm i @prisma/client
 ```
 
 ## init
