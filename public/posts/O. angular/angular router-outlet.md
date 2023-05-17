@@ -34,7 +34,7 @@
 
 ## app.routes.ts
 
-```
+```ts
 {
   path: 'notice',
   children: [

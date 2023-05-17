@@ -1,6 +1,6 @@
 # angular click-outside
 
-```
+```ts
 constructor(private ele: ElementRef<HTMLDivElement>) {}
 
 @HostListener('document:click', ['$event'])

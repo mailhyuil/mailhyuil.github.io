@@ -65,10 +65,7 @@ import { MailerService } from "@nestjs-modules/mailer";
 
 @Injectable()
 export class EmailService {
-  constructor(
-    private readonly jwtService: JwtService,
-    private readonly mailerService: MailerService
-  ) {}
+  constructor(private readonly jwtService: JwtService, private readonly mailerService: MailerService) {}
 
   generateCode() {
     let result = "";
@@ -110,16 +107,12 @@ import { EmailService } from "./email.service";
 @ApiTags("이메일")
 @Controller({ version: "1" })
 export class EmailController {
-  constructor(
-    private readonly emailService: EmailService,
-    private readonly authService: AuthService
-  ) {}
+  constructor(private readonly emailService: EmailService, private readonly authService: AuthService) {}
 
   @Post("auth/password")
   @ApiOperation({
     summary: "비밀번호 변경 이메일 인증",
-    description:
-      "입력한 이메일로 비밀번호 변경을 위한 이메일 인증 메일을 전송합니다.",
+    description: "입력한 이메일로 비밀번호 변경을 위한 이메일 인증 메일을 전송합니다.",
   })
   async requestSignupEmailAuth(@Body() body: { username: string }) {
     const user = await this.authService.findUserByUsername(body.username);

@@ -5,10 +5,10 @@
 ## ng-template
 
 ```html
-<ng-template [ngIf]='isOpen'>
+<ng-template [ngIf]="isOpen">
   <h1>hi</h1>
 </ng-template>
 
 <!-- shorthand -->
-<h1 *ngIf="isOpen">hi</hi>
+<h1 *ngIf="isOpen">hi</h1>
 ```

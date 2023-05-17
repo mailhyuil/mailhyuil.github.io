@@ -16,8 +16,7 @@ export const appRoutes: Route[] = [
       { path: "signin", redirectTo: "login", pathMatch: "full" },
       {
         path: "login",
-        loadComponent: () =>
-          import("./layout/layout.component").then((m) => m.LayoutComponent),
+        loadComponent: () => import("./layout/layout.component").then((m) => m.LayoutComponent),
       }, // lazy loading..
     ],
   },
@@ -39,10 +38,8 @@ export const appRoutes: Route[] = [
 
 ## main.ts
 
-```
+```ts
 bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(appRoutes),
-  ],
+  providers: [provideRouter(appRoutes)],
 }).catch((err) => console.error(err));
 ```

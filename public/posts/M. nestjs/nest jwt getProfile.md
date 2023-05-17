@@ -13,12 +13,10 @@ request.user = user; // user data를 request안에 저장해두기
 ## GetUser param decorator
 
 ```ts
-export const GetUser = createParamDecorator<User>(
-  (data: User, ctx: ExecutionContext) => {
-    const request = ctx.switchToHttp().getRequest();
-    return request.user;
-  }
-);
+export const GetUser = createParamDecorator<User>((data: User, ctx: ExecutionContext) => {
+  const request = ctx.switchToHttp().getRequest();
+  return request.user;
+});
 ```
 
 ## controller

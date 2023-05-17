@@ -2,16 +2,15 @@
 
 ## install
 
-```
-yarn add class-transformer
-
-npm install reflect-metadata --save # reflection 사용 시
+```bash
+npm i class-transformer
+npm i reflect-metadata --save # reflection 사용 시
 ```
 
 ## method
 
-```
-plainToInstance(DTO, obj) // js object를 Class로 바꿔준다
+```ts
+plainToInstance(DTO, obj); // js object를 Class로 바꿔준다
 ```
 
 ## decorator
@@ -22,7 +21,7 @@ plainToInstance(DTO, obj) // js object를 Class로 바꿔준다
 >
 > > 프로퍼티 이름을 바꿀 수 있다
 
-```
+```ts
 @Expose({ name: 'uid' })
 id: number;
 ```
@@ -31,7 +30,7 @@ id: number;
 
 > 프로퍼티를 스킵 할 수 있다
 
-```
+```ts
 export class User {
   id: number;
 
@@ -48,7 +47,7 @@ export class User {
 >
 > > Set Map에도 필요
 
-```
+```ts
 @Type(() => Post)
 posts: Post[];
 ```
@@ -59,7 +58,7 @@ posts: Post[];
 >
 > > dayjs같은 함수를 이용하여 추가 작업이 요구 시
 
-```
+```ts
 @Type(() => Date)
 @Transform(({ value }) => moment(value), { toClassOnly: true })
 date: Moment;
@@ -67,12 +66,12 @@ date: Moment;
 
 ## DTO에 선언된 필드만 body에서 가져오기
 
-```
+```ts
 @Exclude()
 export class SomeDTO {
   @Expose()
-  field1:string
+  field1: string;
   @Expose()
-  field2:string
+  field2: string;
 }
 ```

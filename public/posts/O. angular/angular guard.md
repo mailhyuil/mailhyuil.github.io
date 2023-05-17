@@ -2,6 +2,8 @@
 
 ## guards/auth.guard.ts
 
+> 함수형
+
 ```ts
 export const AuthGuard = (next: ActivatedRouteSnapshot) => {
   const store = inject(Store);

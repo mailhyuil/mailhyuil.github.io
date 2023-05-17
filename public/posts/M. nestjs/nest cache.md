@@ -3,7 +3,7 @@
 ## install
 
 ```
-yarn add cache-manager
+npm i cache-manager
 ```
 
 ## 사용

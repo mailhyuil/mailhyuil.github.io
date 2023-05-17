@@ -27,10 +27,7 @@ providers: [
 })
 @Injectable()
 export class AuthState implements NgxsOnInit {
-  constructor(
-    private httpService: HttpService,
-    private readonly store: Store
-  ) {}
+  constructor(private httpService: HttpService, private readonly store: Store) {}
 
   /**
    * 앱 실행 시 저장된 토큰을 이용해 사용자 정보를 조회하고 저장합니다.

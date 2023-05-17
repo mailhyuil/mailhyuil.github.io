@@ -2,8 +2,8 @@
 
 ## install
 
-```
-npm install @aws-sdk/client-s3
-npm install aws-sdk
-npm install multer-s3
+```bash
+npm i @aws-sdk/client-s3
+npm i aws-sdk
+npm i multer-s3
 ```

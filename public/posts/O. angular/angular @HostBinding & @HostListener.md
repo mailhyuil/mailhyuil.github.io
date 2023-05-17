@@ -20,7 +20,9 @@ class NgModelStatus {
 
 @Component({
   selector: "app",
-  template: `<input [(ngModel)]="prop" />`,
+  template: `
+    <input [(ngModel)]="prop" />
+  `,
 })
 class App {
   prop;

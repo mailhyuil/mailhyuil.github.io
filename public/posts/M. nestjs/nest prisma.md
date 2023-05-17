@@ -92,10 +92,10 @@ export class PrismaModule {}
 
 ## AppModule
 
-```
-  imports: [
-    PrismaModule,
-  ],
+```ts
+imports: [
+  PrismaModule,
+],
 ```
 
 # prismaService의 메소드는 비동기다! return이 먼저된다.

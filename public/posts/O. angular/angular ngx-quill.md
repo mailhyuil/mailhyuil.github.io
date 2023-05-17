@@ -3,5 +3,5 @@
 ## install
 
 ```
-yarn add ngx-quill
+npm i ngx-quill
 ```

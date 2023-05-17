@@ -12,7 +12,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "some",
+  selector: "app-some",
   templateUrl: "./some.component.html",
   styleUrls: ["./some.component.scss"],
 })
@@ -21,8 +21,6 @@ export class SomeComponent {}
 
 ## 사용
 
-```
-<some>
-    add something!
-</some>
+```html
+<app-some>add something!</app-some>
 ```

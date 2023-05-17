@@ -10,8 +10,8 @@ ng new routing-app --routing --defaults
 
 ```ts
 const routes: Routes = [
-  { path: 'first-component', component: FirstComponent },
-  { path: 'second-component', component: SecondComponent },
+  { path: "first-component", component: FirstComponent },
+  { path: "second-component", component: SecondComponent },
 ];
 ```
 
@@ -29,8 +29,8 @@ const routes: Routes = [
 
 ```ts
 const routes: Routes = [
-  { path: 'some', component: SomeComponent },
-  { path: '', redirectTo: '/some', pathMatch: 'full' },
-  { path: '**', redirectTo: '/some', pathMatch: 'full' },
+  { path: "some", component: SomeComponent },
+  { path: "", redirectTo: "/some", pathMatch: "full" },
+  { path: "**", redirectTo: "/some", pathMatch: "full" },
 ];
 ```

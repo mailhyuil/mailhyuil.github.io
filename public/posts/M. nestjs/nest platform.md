@@ -6,12 +6,12 @@
 
 ## platform-express
 
-```
+```ts
 const app = await NestFactory.create<NestExpressApplication>(AppModule);
 ```
 
 ## platform-fastify
 
-```
+```ts
 const app = await NestFactory.create<NestFastifyApplication>(AppModule);
 ```

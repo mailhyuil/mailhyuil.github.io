@@ -28,11 +28,7 @@ JWT_PRIVATE_KEY=PAwXjs5j7eLj8WIeczIRgZN2TdJqi2Bn
 ## .env 파일 읽기
 
 ```ts
-const envFilePath = path.join(
-  __dirname,
-  "../../../",
-  `.env.${process.env.NODE_ENV}`
-);
+const envFilePath = path.join(__dirname, "../../../", `.env.${process.env.NODE_ENV}`);
 
 @Global()
 @Module({

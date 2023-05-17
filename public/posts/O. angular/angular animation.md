@@ -22,10 +22,10 @@ bootstrapApplication(AppComponent, {
 })
 ```
 
-```
-  public getRouterOutletState(outlet: RouterOutlet) {
-    return outlet.isActivated ? outlet.activatedRoute : '';
-  }
+```ts
+public getRouterOutletState(outlet: RouterOutlet) {
+  return outlet.isActivated ? outlet.activatedRoute : '';
+}
 ```
 
 ### html

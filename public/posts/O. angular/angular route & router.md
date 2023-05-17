@@ -1,9 +1,9 @@
 # angular route & router
 
 ```ts
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private httpClient: HttpClient,
-  ) {}
+constructor(
+  private readonly router: Router,
+  private readonly route: ActivatedRoute,
+  private readonly httpClient: HttpClient,
+) {}
 ```
