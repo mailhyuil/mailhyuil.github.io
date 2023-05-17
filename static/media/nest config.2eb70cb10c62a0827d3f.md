@@ -19,11 +19,7 @@ npm i dotenv-cli
 > > envFilePath는 dist 폴더의 밖!!! (루트패스)
 
 ```ts
-const envFilePath = path.join(
-  __dirname,
-  "../../../",
-  `.env.${process.env.NODE_ENV}`
-);
+const envFilePath = path.join(__dirname, "../../../", `.env.${process.env.NODE_ENV}`);
 
 @Global()
 @Module({
@@ -45,6 +41,14 @@ export class EnvironmentModule implements OnModuleInit {
     }
   }
 }
+```
+
+## AppModule
+
+```ts
+imports: [
+  EnvironmentModule,
+],
 ```
 
 ## main.ts

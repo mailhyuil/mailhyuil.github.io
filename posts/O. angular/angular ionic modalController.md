@@ -1,9 +1,3 @@
-# @ionic/angular alert
-
-# @ionic/angular actionSheet
-
-# @ionic/angular toast
-
 # @ionic/angular modal
 
 > ModalController 사용

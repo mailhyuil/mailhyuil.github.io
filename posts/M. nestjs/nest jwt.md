@@ -113,10 +113,7 @@ export class AuthUtils {
 ```ts
 @Injectable()
 export class AuthService {
-  constructor(
-    private readonly prismaService: PrismaService,
-    private readonly jwtService: JwtService
-  ) {}
+  constructor(private readonly prismaService: PrismaService, private readonly jwtService: JwtService) {}
 
   findUserById(userId: string) {
     return this.prismaService.user.findUnique({ where: { id: userId } });
@@ -138,10 +135,7 @@ export class AuthService {
 @ApiTags("인증")
 @Controller({ version: "1" })
 export class AuthController {
-  constructor(
-    private readonly authService: AuthService,
-    private readonly jwtService: JwtService
-  ) {}
+  constructor(private readonly authService: AuthService, private readonly jwtService: JwtService) {}
 
   @Post("login") //로그인
   async login(@Body() body: LoginDTO) {
@@ -151,9 +145,7 @@ export class AuthController {
 
     const isEqual = bcrypt.compare(password, user.password);
     if (!isEqual) {
-      throw new UnauthorizedException(
-        "아이디 또는 비밀번호가 올바르지 않습니다."
-      );
+      throw new UnauthorizedException("아이디 또는 비밀번호가 올바르지 않습니다.");
     }
     ///////////////////////-- JWT logic --////////////////////////////////
     // payload에 유저 정보 담기
@@ -176,8 +168,7 @@ export class AuthController {
   async register(@Body() body: RegisterDTO) {
     const { username, password, passwordConfirm } = body;
     const checkUsername = await this.authService.findUserByUsername(username);
-    if (checkUsername)
-      throw new BadRequestException("이미 등록된 아이디 입니다.");
+    if (checkUsername) throw new BadRequestException("이미 등록된 아이디 입니다.");
 
     if (password !== passwordConfirm) {
       throw new BadRequestException("비밀번호가 일치하지 않습니다.");
@@ -198,10 +189,7 @@ export class AuthController {
 ```ts
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(
-    private readonly authService: AuthService,
-    private readonly jwtService: JwtService
-  ) {}
+  constructor(private readonly authService: AuthService, private readonly jwtService: JwtService) {}
 
   async canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest();
@@ -232,8 +220,7 @@ export class AuthGuard implements CanActivate {
     // jwtService를 사용하여 토큰 검증
     // AuthUtils으로 대체 가능
     try {
-      const { id }: AccessTokenPayload =
-        await this.jwtService.verify<AccessTokenPayload>(accessToken);
+      const { id }: AccessTokenPayload = await this.jwtService.verify<AccessTokenPayload>(accessToken);
       const user = await this.authService.findUserById(id);
       if (!user) throw new NotFoundException("사용자를 찾을 수 없습니다.");
 
@@ -257,12 +244,10 @@ export function Auth() {
 ## GetUser decorator
 
 ```ts
-export const GetUser = createParamDecorator<User>(
-  (data: User, ctx: ExecutionContext) => {
-    const request = ctx.switchToHttp().getRequest();
-    return request.user;
-  }
-);
+export const GetUser = createParamDecorator<User>((data: User, ctx: ExecutionContext) => {
+  const request = ctx.switchToHttp().getRequest();
+  return request.user;
+});
 ```
 
 ## client
