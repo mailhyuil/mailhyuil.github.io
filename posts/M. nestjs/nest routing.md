@@ -23,3 +23,13 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 ```
+
+## AppModule
+
+```ts
+@Module({
+  imports: [
+    AppRoutingModule,
+  ],
+})
+```
