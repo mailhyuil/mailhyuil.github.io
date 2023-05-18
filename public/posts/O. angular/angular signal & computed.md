@@ -7,7 +7,7 @@
 ## ts
 
 ```ts
-import { Component, computed, signal } from "@angular/core";
+import { Component, computed, signal, effect } from "@angular/core";
 
 @Component({
   selector: "app-root",
@@ -17,7 +17,9 @@ import { Component, computed, signal } from "@angular/core";
 export class AppComponent {
   sig = signal("hi");
   com = computed(() => "com");
-
+  constructor() {
+    effect(() => console.log(this.sig())); // hellow
+  }
   hi() {
     this.sig.set("hellow");
   }

@@ -13,6 +13,6 @@ export const User = createParamDecorator((data: unknown, ctx: ExecutionContext) 
 
 ## 데코레이터 사용
 
-```
+```ts
 @User()
 ```
