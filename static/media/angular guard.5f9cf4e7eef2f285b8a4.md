@@ -1,8 +1,32 @@
 # angular guard
 
-## guards/auth.guard.ts
+> 인터페이스는 deprecated
+>
+> > 함수형으로 작성
 
-> 함수형
+```ts
+const canActivateTeam: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  return inject(PermissionsService).canActivate(inject(UserToken), route.params.id);
+};
+```
+
+## AppModule
+
+```ts
+bootstrapApplication(App, {
+  providers: [
+    provideRouter([
+      {
+        path: "team/:id",
+        component: TeamComponent,
+        canActivate: [canActivateTeam],
+      },
+    ]),
+  ],
+});
+```
+
+## guards/auth.guard.ts
 
 ```ts
 export const AuthGuard = (next: ActivatedRouteSnapshot) => {

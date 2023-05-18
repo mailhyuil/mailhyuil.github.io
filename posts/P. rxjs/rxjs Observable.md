@@ -6,17 +6,15 @@
 
 ## 생성
 
-```
-new Observable((observer)=>{
-
-})
+```ts
+new Observable((observer) => {});
 ```
 
 ## of
 
 > 단일 동기
 
-```
+```ts
 of([1, 2, 3, 4]).subscribe({
   next: () => {
     console.log("next");
@@ -44,14 +42,14 @@ of([1, 2, 3, 4]).subscribe({
 
 ## class
 
-```
+```ts
 getHeroes(): Observable<Hero[]> {
   const heroes = of(HEROES);
   return heroes;
 }
 ```
 
-```
+```ts
 getHeroes(): void {
   this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
