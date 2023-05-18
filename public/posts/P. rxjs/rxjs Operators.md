@@ -10,22 +10,6 @@
 
 ## of and map()
 
-## fromEvent()
-
-> 이벤트로부터 observable 객체 생성
->
-> > event.target을 감싼 래퍼 객체를 생성
-
-```
-fromEvent<MouseEvent>(document, "mousemove")
-```
-
-## lastValueFrom()
-
-## firstValueFrom()
-
-## filter()
-
 ## first()
 
 ## debounceTime()
@@ -62,23 +46,9 @@ obs1$.pipe(
     )
 ```
 
-## pluck()
-
-## merge()
-
-> observable을 전부 합쳐준다. 동시성 보장
-
-```
-merge(a,b,c,d)
-```
-
 ## mergeMap()
 
-## switchMap()
-
 ## concatWith()
-
-## takeUntil()
 
 ## distinctUnitChanged()
 

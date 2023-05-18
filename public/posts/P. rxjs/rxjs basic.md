@@ -9,8 +9,10 @@
 ## 데이터 스트림
 
 > 변화의 전파
-> Observable = publisher = subject
-> Observer = consumer
+>
+> > Observable = publisher = subject
+> >
+> > > Observer = consumer
 
 ## 사용법
 
@@ -37,3 +39,15 @@ fs.readFile("README.md", "utf-8", (err, data) => {
   });
 });
 ```
+
+## 용어
+
+> mirroring : 옵저버블에서 발생하는 이벤트들을 다른 옵저버블에도 동일하게 전달하는 것
+>
+> > subscribe : 이벤트를 구독하는 동작
+> >
+> > > notifier : 상태 변화를 알리는 역할
+> > >
+> > > > emit : 새로운 값을 발생시키다 next같은 이벤트를 사용
+> > > >
+> > > > > project : 값들을 다른 형태로 변환하는 동작
