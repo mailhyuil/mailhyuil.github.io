@@ -1,6 +1,10 @@
 # nest jwt refreshToken
 
-> payload에 isRefreshToken 이라는 값만 추가해준다
+> jwt를 refreshToken으로 사용하는 방법과 uuid를 refreshToken으로 사용하는 방법이 존재
+>
+> > jwt는 토큰을 무효화 할 수 없지만 uuid로 하면 데이터베이스에 넣어두기 때문에 무효화 가능 (삭제하면 되니까)
+> >
+> > > jwt refreshToken 사용시 payload에 isRefreshToken 이라는 값만 추가해준다
 
 ```ts
 { id: auth.id, role: _role, isRefreshToken: true }
@@ -43,9 +47,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (refreshToken.value) {
       try {
-        const { data } = await useApiFetch.post<string>(
-          `/auth/refresh?refreshToken=${refreshToken.value}`
-        );
+        const { data } = await useApiFetch.post<string>(`/auth/refresh?refreshToken=${refreshToken.value}`);
         if (data.value) {
           const accessToken = useCookie("samil_access_token");
           accessToken.value = data.value;
