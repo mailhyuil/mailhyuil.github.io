@@ -35,71 +35,74 @@ export class SomeService {
       },
     };
     const count = await this.prismaService.post.count({ where });
-    const posts = await this.prismaService.post.findMany({
+    const entities = await this.prismaService.post.findMany({
       where,
+      orderBy: {
+        createdAt: "desc",
+      },
       take: option.pageSize,
       skip: (option.pageNo - 1) * option.pageSize,
     });
-    return [posts, count];
+    return [entities, count];
   }
 }
 ```
 
 ## html
 
-```
+```html
 <script lang="ts" setup>
-import _ from 'lodash';
-import { PageInfo } from '~/src/interface/type/page-info.type';
+  import _ from "lodash";
+  import { PageInfo } from "~/src/interface/type/page-info.type";
 
-const props = defineProps<{
-  pageInfo: PageInfo;
-}>();
+  const props = defineProps<{
+    pageInfo: PageInfo;
+  }>();
 
-const emit = defineEmits(['update:modelValue']);
+  const emit = defineEmits(["update:modelValue"]);
 
-const pages = ref<number[]>([]);
+  const pages = ref<number[]>([]);
 
-const generateRange = (pageInfo: PageInfo): void => {
-  if (pageInfo) {
-    if (typeof pageInfo.currentPage === 'string') {
-      pageInfo.currentPage = parseInt(pageInfo.currentPage as unknown as string, 10);
-    }
-
-    if (typeof pageInfo.totalPages === 'string') {
-      pageInfo.totalPages = parseInt(pageInfo.totalPages as unknown as string, 10);
-    }
-
-    if (pageInfo.totalPages <= 5) {
-      pages.value = [];
-      for (let i = 1; i <= pageInfo.totalPages; i++) {
-        pages.value.push(i);
+  const generateRange = (pageInfo: PageInfo): void => {
+    if (pageInfo) {
+      if (typeof pageInfo.currentPage === "string") {
+        pageInfo.currentPage = parseInt(pageInfo.currentPage as unknown as string, 10);
       }
-    } else if (pageInfo.currentPage > pageInfo.totalPages - 3) {
-      pages.value = [];
-      for (let i = pageInfo.totalPages - 4; i <= pageInfo.totalPages; i++) {
-        pages.value.push(i);
+
+      if (typeof pageInfo.totalPages === "string") {
+        pageInfo.totalPages = parseInt(pageInfo.totalPages as unknown as string, 10);
       }
-    } else if (pageInfo.currentPage >= 3) {
-      pages.value = [];
-      for (let i = pageInfo.currentPage - 2; i <= pageInfo.currentPage + 2; i++) {
-        pages.value.push(i);
+
+      if (pageInfo.totalPages <= 5) {
+        pages.value = [];
+        for (let i = 1; i <= pageInfo.totalPages; i++) {
+          pages.value.push(i);
+        }
+      } else if (pageInfo.currentPage > pageInfo.totalPages - 3) {
+        pages.value = [];
+        for (let i = pageInfo.totalPages - 4; i <= pageInfo.totalPages; i++) {
+          pages.value.push(i);
+        }
+      } else if (pageInfo.currentPage >= 3) {
+        pages.value = [];
+        for (let i = pageInfo.currentPage - 2; i <= pageInfo.currentPage + 2; i++) {
+          pages.value.push(i);
+        }
+      } else if (pageInfo.currentPage < 3) {
+        pages.value = [1, 2, 3, 4, 5];
       }
-    } else if (pageInfo.currentPage < 3) {
-      pages.value = [1, 2, 3, 4, 5];
     }
-  }
-};
+  };
 
-watch(
-  props,
-  (value) => {
-    generateRange(value.pageInfo);
-  },
-  { deep: true, immediate: true }
-);
+  watch(
+    props,
+    (value) => {
+      generateRange(value.pageInfo);
+    },
+    { deep: true, immediate: true }
+  );
 
-onMounted(() => generateRange(props.pageInfo));
+  onMounted(() => generateRange(props.pageInfo));
 </script>
 
 <template>
