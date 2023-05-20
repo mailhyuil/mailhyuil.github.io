@@ -1,5 +1,5 @@
 # tailwindcss text wrap
 
 ```
-break-words
+break-all
 ```

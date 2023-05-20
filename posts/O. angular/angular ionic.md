@@ -41,5 +41,3 @@ npm i @ionic/core
 # @ionic/angular alert
 
 # @ionic/angular actionSheet
-
-# @ionic/angular toast

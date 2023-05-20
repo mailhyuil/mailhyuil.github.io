@@ -17,12 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
 ## 사용
 
 ```ts
-const req = http.get<Heroes>("/api/heroes");
-// 0 requests made - .subscribe() not called.
-req.subscribe();
-// 1 request made.
-req.subscribe();
-// 2 requests made.
+this.httpClient.get<T>(`${this.baseUrl}/${url}`, {
+  ...option,
+  withCredentials: true,
+});
 ```
 
 ```ts

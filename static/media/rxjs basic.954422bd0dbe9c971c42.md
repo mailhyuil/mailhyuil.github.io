@@ -8,11 +8,9 @@
 
 ## 데이터 스트림
 
-> 변화의 전파
+> 일반 function은 한번만 return이 가능
 >
-> > Observable = publisher = subject
-> >
-> > > Observer = consumer
+> > Observable은 generator와 같이 next를 이용해서 여러번 값을 방출 가능하다.
 
 ## 사용법
 
@@ -22,7 +20,7 @@
 > >
 > > > subscribe는 최종연산
 
-```
+```ts
 import { Observable } from "rxjs/internal/Observable";
 import fs from "fs";
 
