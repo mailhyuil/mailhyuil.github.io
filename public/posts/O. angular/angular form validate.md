@@ -2,9 +2,9 @@
 
 > 필요 modules = FormsModule, ReactiveFormsModule
 >
-> > 필요 providers = FormBuilder
+> > 필요 class = FormGroup, Validators
 > >
-> > > 필요 directives = formGroup, formControlName, (ngSubmit)
+> > > 필요 directives = formGroup, formControlName
 
 ## import
 
@@ -33,7 +33,7 @@ formGroup = new FormGroup({
 <form [formGroup]="formGroup">
   <input formControllerName="title" />
 </form>
-<button (ngSubmit)="submit()" [disabled]="form.invalid">submit</button>
+<button (click)="submit()" [disabled]="form.invalid">submit</button>
 ```
 
 ## formGroup 변화 check
@@ -44,27 +44,20 @@ this.formGroup.valueChanges.subscribe(observer => {
 });
 ```
 
-## submit
-
-```ts
-submit(e) {
-        const { item } = this.searchForm.controls;
-        console.log(item.value);
-  }
-```
-
 ## this.formGroup.invalid
 
 > 유효한지 확인
 
+## this.formGroup.controls
+
+> 필드 데이터 가져오기
+
+## this.formGroup.getRawValue
+
+> value만 가져오기
+
 ## error message
 
 ```html
-<input type="text" id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob" [(ngModel)]="hero.name" #name="ngModel" />
-
-<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
-  <div *ngIf="name.errors?.['required']">Name is required.</div>
-  <div *ngIf="name.errors?.['minlength']">Name must be at least 4 characters long.</div>
-  <div *ngIf="name.errors?.['forbiddenName']">Name cannot be Bob.</div>
-</div>
+<p *ngIf="formGroup.controls.username.invalid">errrrrr0r</p>
 ```
