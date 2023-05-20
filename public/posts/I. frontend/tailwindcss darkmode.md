@@ -16,7 +16,7 @@ module.exports = {
 
 ## set
 
-### 페이지에 들어올 때 확인해서 set
+### init
 
 ```ts
 if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
@@ -26,7 +26,7 @@ if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && w
 }
 ```
 
-### 버튼으로 셋
+### 버튼 logic
 
 ```ts
   setDarkMode() {
