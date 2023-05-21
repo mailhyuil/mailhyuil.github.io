@@ -3,19 +3,20 @@
 ## Dockerfile
 
 ```
-FROM node:18
+FROM docker.io/node:lts-alpine
 
-WORKDIR /usr/app
+WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm install
 
-COPY . ./
+COPY ./ ./
 
-EXPOSE 3000
+# EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["node", "main.js"]
+# CMD ["npm", "run", "serve"]
 ```
 
 ## build
