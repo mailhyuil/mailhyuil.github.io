@@ -11,6 +11,6 @@ arr = [1, 2, 3, 4, 5];
 ## html
 
 ```html
-<p>{{arr | slice : 0:3}}</p>
+arr | slice : 0:3
 <!-- result : 1,2,3 -->
 ```
