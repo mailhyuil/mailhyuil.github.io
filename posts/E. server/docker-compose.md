@@ -5,11 +5,9 @@
 > > Dockerfile -> images -> docker-compose.yml -> containers
 
 ```bash
-docker-compose up # 도커 컴포즈 프로젝트 실행
-# 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾아서 실행
-docker-compose down # 프로젝트 내 컨테이너 및 네트워크 종료 및 제거
-
+docker-compose up # 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾는다
 docker-compose logs
+docker-compose down
 docker-compose stop
 docker-compose start
 ```

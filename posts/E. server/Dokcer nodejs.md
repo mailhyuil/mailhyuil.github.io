@@ -3,9 +3,9 @@
 ## Dockerfile
 
 ```
-FROM docker.io/node:lts-alpine
+FROM node:18
 
-WORKDIR /app
+WORKDIR /usr/app
 
 COPY package*.json ./
 
