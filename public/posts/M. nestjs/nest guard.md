@@ -5,6 +5,8 @@
 > > 인증을 통과한 유저가 권한이 있는지를 판별
 > >
 > > > guard는 실행 컨텍스트를 매개변수로 받을 수 있다.
+> > >
+> > > > canActivate => route에 접근할 수 있냐는 뜻 && 라우팅 해도 되겠냐는 뜻 (activatedRoute : 현재 라우트)
 
 ## 가드 생성
 
@@ -13,9 +15,7 @@
 ```ts
 @Injectable()
 export class AuthGuard implements CanActivate {
-  canActivate(
-    context: ExecutionContext
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest();
     return validateRequest(request);
   }
