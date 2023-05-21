@@ -3,6 +3,8 @@
 > 인터페이스는 deprecated
 >
 > > 함수형으로 작성
+> >
+> > > canActivate => route에 접근할 수 있냐는 뜻 && 라우팅 해도 되겠냐는 뜻 (activatedRoute : 현재 라우트)
 
 ```ts
 const canActivateTeam: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
