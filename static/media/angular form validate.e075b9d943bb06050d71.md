@@ -56,6 +56,19 @@ this.formGroup.valueChanges.subscribe(observer => {
 
 > value만 가져오기
 
+## setValue
+
+```
+this.formGroup.setValue() // 전부 set
+this.formGroup.patchValue({ // 일부 set
+      username,
+      realname,
+      status,
+      phone,
+      role: roles[0],
+    });
+```
+
 ## error message
 
 ```html

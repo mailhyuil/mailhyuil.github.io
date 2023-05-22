@@ -10,3 +10,9 @@ const clicks = fromEvent(document, "click");
 const result = source.pipe(takeUntil(clicks));
 result.subscribe((x) => console.log(x));
 ```
+
+```
+some$?: Observable<{ name: string }>;
+
+this.httpService.get<{ name: string }>('').pipe(takeUntil(this.some$!));
+```

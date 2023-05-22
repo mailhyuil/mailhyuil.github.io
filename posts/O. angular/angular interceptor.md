@@ -18,3 +18,25 @@ export class HttpInterceptorImpl implements HttpInterceptor {
   }
 }
 ```
+
+## interceptor request clone
+
+### 요청에 직접 추가
+
+```ts
+req.headers.append("Authorization", `Bearer ${localStorage.getItem("accessToken")}`);
+```
+
+### 요청을 복사해서 추가
+
+```ts
+const request = req.clone(
+  accessToken
+    ? {
+        setHeaders: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    : {}
+);
+```
