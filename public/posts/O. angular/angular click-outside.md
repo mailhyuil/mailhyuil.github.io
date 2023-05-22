@@ -3,7 +3,7 @@
 ```ts
 constructor(private ele: ElementRef<HTMLDivElement>) {}
 
-@HostListener('document:click', ['$event'])
+@HostListener('document:mousedown', ['$event'])
 clickout(event: any) {
   if (this.ele.nativeElement.contains(event.target)) {
     this.toggle();

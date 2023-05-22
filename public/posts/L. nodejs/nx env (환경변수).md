@@ -47,3 +47,9 @@ ADMIN_PASSWORD=admin
 ADMIN_PHONE=01011111111
 ADMIN_ROLE=MASTER
 ```
+
+## 사용
+
+```
+private readonly API_ENDPOINT = process.env['NX_API_ENDPOINT'];
+```
