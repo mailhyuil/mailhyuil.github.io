@@ -21,13 +21,9 @@ export class HttpInterceptorImpl implements HttpInterceptor {
 
 ## interceptor request clone
 
-### 요청에 직접 추가
-
-```ts
-req.headers.append("Authorization", `Bearer ${localStorage.getItem("accessToken")}`);
-```
-
-### 요청을 복사해서 추가
+> HttpReqeust 은 immutable하다!
+>
+> > 원본 요청객체에 헤더를 추가한뒤 clone을 통해 복사해야 한다.
 
 ```ts
 const request = req.clone(
