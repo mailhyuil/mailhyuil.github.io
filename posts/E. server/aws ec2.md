@@ -8,11 +8,7 @@
 
 ## 순서
 
-1. VPC 생성
-2. SUBNET 생성
-3. 보안그룹 생성
-4. EC2 인스턴스 생성
-5. ec2에 탄력적 ip 할당
+> vpc 생성 -> 서브넷 생성 -> 인터넷 게이트웨이 생성 및 서브넷에 연결 -> 라우팅 테이블에 서브넷 연결 및 라우팅 인터넷 게이트웨이 -> ec2 연결
 
 ## 사용자 데이터
 
@@ -28,28 +24,13 @@ sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
 
-## docker 설치하기
-
-1. sudo apt update && sudo apt install docker.io
-2. docker 그룹에 유저 포함시키기
-
-```bash
-sudo groupadd docker # docker 그룹이 없을 시 생성
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
-- pscp로 EC2 서버에 파일 업로드
+## pscp로 EC2 서버에 파일 업로드
 
 ```bash
 # pscp.exe 다운로드
 # pscp -i ppk_path file_path username@ip:path
 ./pscp.exe -i ./hyuil.ppk ./ROOT.war ubuntu@3.34.191.96:/home/ubuntu/ROOT.war
 ```
-
-## 포트 열어주기
-
-> EC2 -> 보안그룹 -> 인바운드 규칙 포트 추가 (1. HTTP 모든 접근 허용하기, 2. 원하는 포트 열기)
 
 ## swap 메모리 (EC2가 멈출 때)
 
