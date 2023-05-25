@@ -19,19 +19,32 @@ docker-compose start
 version: '3.7'
 
 services:
-	서비스1:
+	db:
 		image: 이미지1
-		command:
-		volumes:
+		restart: unless-stopped # default 값은 always, unless-stopped를 사용 시 서버가 켜지면 컨테이너도 재시작 된다.
+	  # command:
+	    volumes:
+		- postgres-data:/var/lib/postgresql/<version>/main
 		environment:
-		working_dir:
-		depends_on:
+			POSTGRES_DB: mydb
+			POSTGRES_USER: postgres
+			POSTGRES_PASSWORD: 1234
+	  # working_dir:
 		ports:
 			- "8080:80"
 		networks:
 			- 네트워크1
-	서비스2:
+		logging:
+			driver: "json-file"
+			options:
+				max-size: "8m"
+				max-file: "10"
+	grafana:
+		depends_on: # db가 먼저 생성되도록
+		- my-db
 		image: 이미지2
+		restart: unless-stopped # default 값은 always, unless-stopped를 사용 시 서버가 켜지면 컨테이너도 재시작 된다.
+
 
 networks:
 	네트워크1:
