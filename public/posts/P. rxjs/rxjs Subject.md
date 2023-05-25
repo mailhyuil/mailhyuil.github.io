@@ -27,3 +27,9 @@
 > ReplaySubject는 bufferSize 개의 이벤트를 저장해 subscribe 될 때 저장된 이벤트를 모두 방출합니다
 >
 > > 사용 : 최신의 여러 값들을 보여주고 싶을 때 사용 (최근 검색어)
+
+## AsyncSubject
+
+> 완료되었을 때만 값을 방출하는 Subject
+>
+> > 완료 시 마지막 값을 모든 옵저버들에게 보내준다.
