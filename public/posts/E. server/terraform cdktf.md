@@ -14,7 +14,7 @@
 > >
 > > > docker 설치
 
-```
+```sh
 npm install --global cdktf-cli@latest
 ```
 
@@ -22,7 +22,7 @@ npm install --global cdktf-cli@latest
 
 > $HOME/.aws/credentials
 
-```
+```sh
 AWS_ACCESS_KEY_ID="anaccesskey"
 AWS_SECRET_ACCESS_KEY="asecretkey"
 AWS_REGION="us-west-2"
