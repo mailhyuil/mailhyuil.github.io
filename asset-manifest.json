@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.e061c82c.js",
+    "main.js": "/static/js/main.21bcc6a1.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -38,7 +38,7 @@
     "static/media/vuejs composition api.md": "/static/media/vuejs composition api.ca9e3f674e3c087e6adf.md",
     "static/media/threejs.md": "/static/media/threejs.97aea28a1eef223d09b6.md",
     "static/media/typeORM-nest.js.md": "/static/media/typeORM-nest.js.ee217e490715cf641dc4.md",
-    "static/media/nginX.md": "/static/media/nginX.09a23d3a7a3ac9f649a0.md",
+    "static/media/nginx.md": "/static/media/nginx.09a23d3a7a3ac9f649a0.md",
     "static/media/Structural bridge.md": "/static/media/Structural bridge.1fa3bc44cf101401e74e.md",
     "static/media/vuejs.md": "/static/media/vuejs.694dc56a504d14cd9d02.md",
     "static/media/Structural composite.md": "/static/media/Structural composite.c81056822525ab6ce074.md",
@@ -465,6 +465,7 @@
     "static/media/typescript JSDoc.md": "/static/media/typescript JSDoc.16d3b9c4c27de06c3b38.md",
     "static/media/인풋박스 안에 텍스트.md": "/static/media/인풋박스 안에 텍스트.3b0fa660696944546679.md",
     "static/media/prisma transaction timeout.md": "/static/media/prisma transaction timeout.ad49e9fe7b9cd070170d.md",
+    "static/media/typesciprt is.md": "/static/media/typesciprt is.665e3993646b258cba57.md",
     "static/media/nuxt remember_me.md": "/static/media/nuxt remember_me.eb82109bcae652a8f2d0.md",
     "static/media/js polyfill.md": "/static/media/js polyfill.870a731e508783e8f818.md",
     "static/media/nuxt plugins.md": "/static/media/nuxt plugins.5a8c95e87d8c4f14e81f.md",
@@ -767,6 +768,7 @@
     "static/media/js 매개변수를 배열로.md": "/static/media/js 매개변수를 배열로.b92e373de0b2ba33e5b7.md",
     "static/media/linux 링크파일.md": "/static/media/linux 링크파일.3047f7019f067ccda263.md",
     "static/media/terraform replace.md": "/static/media/terraform replace.d5062276b48c882e4f81.md",
+    "static/media/nginx 경로.md": "/static/media/nginx 경로.58e6c617ce6d261ad74e.md",
     "static/media/angular plugin.md": "/static/media/angular plugin.e5729346722e9dfdc56a.md",
     "static/media/git clone private repository.md": "/static/media/git clone private repository.138ad649513fd62039d0.md",
     "static/media/algorithm 최단경로 플로이드 워셜.md": "/static/media/algorithm 최단경로 플로이드 워셜.98008efa24ccc0452e57.md",
@@ -899,10 +901,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.e061c82c.js.map": "/static/js/main.e061c82c.js.map"
+    "main.21bcc6a1.js.map": "/static/js/main.21bcc6a1.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.e061c82c.js"
+    "static/js/main.21bcc6a1.js"
   ]
 }
