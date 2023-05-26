@@ -2,7 +2,7 @@
 
 ## install
 
-```
+```sh
 npm i --save @nestjs/event-emitter
 ```
 
@@ -13,7 +13,7 @@ import { Module } from "@nestjs/common";
 import { EventEmitterModule } from "@nestjs/event-emitter";
 
 @Module({
-  imports: [EventEmitterModule.forRoot()],
+  imports: [EventEmitterModule.forRoot(), EventModule],
 })
 export class AppModule {}
 ```

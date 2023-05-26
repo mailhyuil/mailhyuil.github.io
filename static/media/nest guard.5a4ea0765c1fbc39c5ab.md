@@ -11,6 +11,10 @@
 ## 가드 생성
 
 > CanActivate 인터페이스 구현
+>
+> > 가드를 통과시키려면 리턴 true로 해줘야한다
+> >
+> > > 금지하려면 false or throw error
 
 ```ts
 @Injectable()
@@ -22,7 +26,7 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
-## 가드 사용
+## 사용
 
 > @UseGuards() 데코레이터 사용
 
