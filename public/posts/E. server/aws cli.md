@@ -9,9 +9,9 @@ sudo installer -pkg AWSCLIV2.pkg -target /
 
 ## configure
 
-### credentials 파일로 등록
+1. credentials 파일로 등록
 
-#### credentails file
+### credentails file
 
 ```sh
 [default]
@@ -25,7 +25,7 @@ aws_secret_access_key=je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
 aws_session_token=fcZib3JpZ2luX2IQoJb3JpZ2luX2IQoJb3JpZ2luX2IQoJb3JpZ2luX2IQoJb3JpZVERYLONGSTRINGEXAMPLE
 ```
 
-#### config file
+### config file
 
 ```sh
 [default]
@@ -37,7 +37,7 @@ region=us-east-1
 output=text
 ```
 
-### 환경변수로 등록
+2. 환경변수로 등록
 
 ```sh
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
@@ -45,7 +45,7 @@ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_DEFAULT_REGION=us-west-2
 ```
 
-### cli로 등록하기
+3. cli로 등록하기
 
 > 계정 access key 등록
 >
