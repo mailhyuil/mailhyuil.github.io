@@ -16,8 +16,9 @@ aws_secret_access_key = <DEFAULT_SECRET_ACCESS_KEY>
 # aws_secret_access_key = <WORK_SECRET_ACCESS_KEY>
 ```
 
-## 환경변수에서 로드
+## ~/.aws/config 로드
 
-```
-
+```sh
+[default]
+region = YOUR_REGION
 ```
