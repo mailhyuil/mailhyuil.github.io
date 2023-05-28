@@ -6,11 +6,10 @@
 
 ## 순서 요약
 
-1. remote에 ssh-keygen으로 생성 (ssh-keygen -t rsa -m pem)
-2. 로컬 컴퓨터의 id_rsa.pub 파일의 내용을 ~/.ssh/authorized_key 파일에 추가
-3. 리모트 컴퓨터의 id_rsa 파일의 내용을 로컬 컴퓨터에 파일명.pem 로 복사
-4. ssh -i 파일명.pem username@ip
-5. 에러 뜨면 로컬 컴퓨터의 known_hosts 파일을 지워라
+1. 리모트 서버에 ssh-keygen으로 생성 (ssh-keygen -t rsa -m pem)
+2. 로컬 컴퓨터의 id_rsa.pub 파일의 내용을 리모트 서버의 ~/.ssh/authorized_key 파일에 추가
+3. ssh -i [로컬 컴퓨터의 private key] [username]@[ip_address] // -i를 입력안하면 자동으로 지정된 경로에서 찾는다.
+4. 에러 뜨면 로컬 컴퓨터의 known_hosts 파일을 지워라
 
 ## ssh-keygen
 
