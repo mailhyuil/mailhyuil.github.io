@@ -1,17 +1,16 @@
-# dump
+# postgres dump
 
-> 백업
-
-## postgreSQL
+## 쿼리
 
 ```sh
+# logical backup
 pg_dump DB_NAME > postgres_DB_NAME_bak.sql
-```
+# physical backup
+pg_basebackup
+# 복구
+pg_restore
 
-## mysql
-
-```sh
-mysqldump -u 유저명 -p DB명 > 아웃풋.sql
+pg_start_backup
 ```
 
 ## 스크립트
