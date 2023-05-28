@@ -14,33 +14,43 @@
 
 ---
 
-## 포트 바인딩
+## proxy_pass
 
 > 기본 바인딩 포트 80 // 포트 80은 표준 웹포트다.
 >
-> > Browser -> 80 port(Nginx) -> 8080 port(tomcat)
+> > Browser -> public_id:80 -> private_ip:3000
+> >
+> > > /etc/nginx/conf.d/\*.conf
 
-- /etc/nginx/conf.d/\*.conf
+```conf
+worker_processes  1;
+events {
+    worker_connections  1024;
+}
+http {
+    include mime.types;
+    server {
+        listen       80;
 
-```sh
-server { # 하나의 웹사이트 선언
-  listen 80; # 리스닝 포트
-  server_name abc.test.com;
+    #upstream my_server {
+    #    server http://10.0.0.36:3000;
+    #}
 
-  location / { # 특정 URL 처리
-    root /home/nginx;
-    index index.html, index.htm; # 초기 페이지 설정
-  }
+        location / {
+            proxy_pass http://10.0.0.36:3000;
 
-  location ~ \.do$ { # 특정 확장자 요청 넘기기 (nginx 뒷단의 WAS로)
-    proxy_pass http://localhost:8080;
-  }
+        # 502 Bad Gateway 에러 방지
+        proxy_buffer_size          128k;
+        proxy_buffers              4 256k;
+        proxy_busy_buffers_size    256k;
+        }
+    }
 }
 ```
 
-- /etc/nginx/nginx.conf 수정
+### upstream
 
-```sh
+```conf
 #include /etc/nginx/conf.d/*.conf;
 upstream upstream이름 {
     server tomcat컨테이너ip:8080;
@@ -61,9 +71,9 @@ server {
 
 ## 파일 크기 제한
 
-- nginx.conf
+> nginx.conf
 
-```
+```conf
 http {
     client_max_body_size 5M; // 기본값 1m 제한없음 0
 
@@ -73,7 +83,7 @@ http {
 
 ## 회사 방법
 
-```
+```conf
 server {
   server_name ekr.lepisode.team;
   listen 80;
