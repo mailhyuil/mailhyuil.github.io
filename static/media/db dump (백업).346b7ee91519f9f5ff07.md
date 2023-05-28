@@ -14,7 +14,7 @@ pg_dump DB_NAME > postgres_DB_NAME_bak.sql
 mysqldump -u 유저명 -p DB명 > 아웃풋.sql
 ```
 
-## script
+## 스크립트
 
 . Crontab에 걸어서 사용
 
@@ -75,7 +75,7 @@ ARCHIVE_DIR=
 
 ###아래 부분은 수정 금지
 
-###DB 백업
+### 1. DB 백업
 export DATEVAR=`date +%Y%m%d`
 export FILE_NAME=$DATEVAR
 
@@ -107,7 +107,8 @@ if [[ "$RECOVERY_STATUS" =~ "f" ]];
   else
     echo "wal_level fault"
 fi
-###아카이브 백업
+
+### 2. 아카이브 백업
 ARCHIVE_STAUS=`psql -t -U $DB_USER -c "show archive_mode;" | head -n 1`
 if [[ "$ARCHIVE_STAUS" =~ "on" ]];
   then
@@ -126,7 +127,7 @@ if [[ "$ARCHIVE_STAUS" =~ "on" ]];
       echo " DB archive mode = off"
 fi
 
-### 오래된 백업 삭제
+### 3. 오래된 백업 삭제
 if [ -z $(find $BACKUP_DIR -type f -mtime +3) ];
   then
     echo "There are no backup files"
