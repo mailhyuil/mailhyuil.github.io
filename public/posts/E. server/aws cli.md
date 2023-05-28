@@ -47,28 +47,16 @@ export AWS_DEFAULT_REGION=us-west-2
 
 3. cli로 등록하기
 
-> 계정 access key 등록
->
-> > sceret key 등록
-> >
-> > > default region name 등록
-> > >
-> > > > output format 설정 -> json
+> output format 설정 -> json
 
 ```sh
 aws configure
-aws sts get-caller-identity
+# aws sts get-caller-identity
 ```
 
 ### 유저가 여러개일 경우
 
 ```sh
 aws configure --profile [계정]
-aws sts get-caller-identity --profile [계정]
-```
-
-### --profile 생략하기
-
-```sh
-export AWS_PROFILE=[계정]
+# aws sts get-caller-identity --profile [계정] // 확인
 ```
