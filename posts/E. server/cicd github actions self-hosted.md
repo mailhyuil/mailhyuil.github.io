@@ -2,26 +2,26 @@
 
 1. Self-hosted Runner로 등록하고자 하는 기기에서 폴더 생성
 
-```
+```sh
 mkdir actions-runner && cd actions-runner
 ```
 
 2. 가장 최신의 Runner 패키지 다운로드
 
-```
+```sh
 curl -o actions-runner-osx-x64-2.295.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.295.0/actions-runner-osx-x64-2.295.0.tar.gz
 ```
 
 3. 다운로드 받은 압축파일 압축해제
 
-```
+```sh
 tar xzf ./actions-runner-osx-x64-2.295.0.tar.gz
 ```
 
 4. 저장소 연결
    > 토큰의 경우 개인 계정 Settings - Developer settings - Personal access tokens - Generate new token 에서 admin:enterprise - manage_runners:enterprise로 발급
 
-```
+```sh
 ./config.sh --url [저장소 주소] --token [토큰 값]
 ```
 
