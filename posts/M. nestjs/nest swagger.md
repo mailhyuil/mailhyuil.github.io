@@ -17,12 +17,7 @@ npm i @nestjs/swagger
 ## main.ts
 
 ```ts
-const config = new DocumentBuilder()
-  .setTitle("Cats example")
-  .setDescription("The cats API description")
-  .setVersion("1.0")
-  .addTag("cats")
-  .build();
+const config = new DocumentBuilder().setTitle("Cats example").setDescription("The cats API description").setVersion("1.0").addTag("cats").build();
 
 const document = SwaggerModule.createDocument(app, config);
 
@@ -62,3 +57,9 @@ export class CreateCatDto {
 ## datetime
 
 > 2000-02-30 형식으로 입력
+
+## swagger bearer token
+
+```ts
+new DocumentBuilder().addBearerAuth();
+```

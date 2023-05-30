@@ -85,31 +85,29 @@ http {
 
 ```conf
 server {
-  server_name ekr.lepisode.team;
-  listen 80;
-
-  return 301 https://ekr.lepisode.team;
+    listen 80;
+    listen [::]:80;
+    server_name my_server_name;
+    return 301 https://mailhyuil.com;
 }
 
 server {
-  server_name ekr.lepisode.team;
-  listen 443 ssl http2;
-  listen [::]:443 ssl http2;
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name my_server_name;
+    ssl_certificate /etc/nginx/ssl/unified.star.lepisode.team.pem; # key 파일
+    ssl_certificate_key /etc/nginx/ssl/star.lepisode.team.pem; # key 파일
+    ssl_password_file /etc/nginx/ssl/password.pass; # password 파일
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # 프로토콜 지정
 
-  ssl_certificate /etc/ssl/certs/ssl-cert-wildcard-cert.pem;
-  ssl_certificate_key /etc/ssl/certs/ssl-cert-wildcard-key.pem;
-  ssl_prefer_server_ciphers on;
+    location / {
+        root /home/lepisode/actions-runner/_work/wings/wings/dist/packages/client;
+        index index.html;
+        try_files $uri $uri/ /index.html =404;
+    }
 
-  root /home/lepisode/Workspace/ekr/ekr-client/src/dist/;
-
-  location / {
-    try_files $uri /index.html;
-    error_page 404 = @errors;
-  }
-
-  location @errors {
-    try_files $uri /index.html;
-    proxy_intercept_errors on;
-  }
+    location /api/v1/ {
+        proxy_pass http://localhost:20001;
+    }
 }
 ```
