@@ -9,4 +9,5 @@ npm i -D @types/bcrypt
 
 # c++ 의존성이 없다.
 npm i bcryptjs
+npm i -D @types/bcryptjs
 ```

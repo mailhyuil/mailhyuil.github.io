@@ -39,6 +39,5 @@ const swaggerConfig = new DocumentBuilder().setTitle("example").setDescription("
 const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
 SwaggerModule.setup("document", app, swaggerDocument); // document path로
 
-const configService = app.get<ConfigService>(ConfigService);
-const port = configService.get<number>("SERVER_PORT");
+const port = process.env.SERVER_PORT | 3000;
 ```
