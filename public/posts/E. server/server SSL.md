@@ -46,8 +46,9 @@
 ## key 생성
 
 ```sh
-openssl genrsa -des3 -out 파일이름.key 1024
-openssl genrsa -out 파일이름.key 1024 # 패스워드 제거 생성
+openssl genrsa -des3 -out 파일이름.key
+
+openssl genrsa -out 파일이름.key # 패스워드 제거 생성
 openssl rsa -in 기존파일이름.key -des3 -out 새로운파일이름.key # 기존에 생성된 key파일에 암호 추가하여 재생성
 openssl rsa -in 기존파일이름.key -out 새로운파일이름.key # 기존에 생성된 key파일의 암호를 제거하여 재생성
 ```
