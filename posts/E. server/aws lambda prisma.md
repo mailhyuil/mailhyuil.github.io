@@ -1,20 +1,20 @@
-# aws lambda
+# 람다 prisma
 
-> you must also use S3 to host the files and API Gateway to expose the API over HTTP.
+## zip 파일생성
 
-## trigger
+```sh
+#!/bin/sh
 
-> lambda function을 실행시키는 트리거가 될 서비스를 정하기
+set -eux
 
+rm -rf lambda.zip
+
+zip --symlinks -r lambda.zip index.js prisma/schema.prisma node_modules/@prisma/client node_modules/.pnpm/@prisma+client*
+
+du -b ./lambda.zip
 ```
-s3, dynamoDB, api gateway, sqs ...
-```
 
-## cloudwatch
-
-> 람다 함수 실행 로그를 볼 수 있음
-
-## function
+## 코드
 
 ```ts
 const { PrismaClient } = require("@prisma/client");
@@ -40,18 +40,4 @@ exports.handler = async (event, context, callback) => {
     };
   }
 };
-```
-
-# zip 파일생성
-
-```
-#!/bin/sh
-
-set -eux
-
-rm -rf lambda.zip
-
-zip --symlinks -r lambda.zip index.js prisma/schema.prisma node_modules/@prisma/client node_modules/.pnpm/@prisma+client*
-
-du -b ./lambda.zip
 ```
