@@ -14,28 +14,13 @@
 
 ## 사용법
 
-> 비동기 함수의 콜백함수 내에서 실행(subscribe)
->
-> > Operators를 사용하여 중간연산
-> >
-> > > subscribe는 최종연산
-
 ```ts
-import { Observable } from "rxjs/internal/Observable";
-import fs from "fs";
+/* Producer */
+const observable = of(1, 2, 3); // like this.httpService.get('api_path')
+/* Consumer */
+const observer = (data) => console.log(data);
 
-const observable = new Observable((observer) => {
-  observer.next(1);
-  observer.complete();
-});
-
-fs.readFile("README.md", "utf-8", (err, data) => {
-  observable.subscribe({
-    next: (x) => console.log(data, x),
-    error: (y) => console.error(err, y),
-    complete: () => console.log("completed!"),
-  });
-});
+const subscription = observable.subscribe(observer); // 구독을 관리하는 주체
 ```
 
 ## 용어
