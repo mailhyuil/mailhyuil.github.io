@@ -6,10 +6,7 @@
 npm i compression
 npm i helmet
 npm i cookie-parser
-npm i -D @types/cookie-parser
-
-npm i -D @types/multer
-npm i -D prisma
+npm i morgan
 npm i @prisma/client
 npm i @nestjs/config
 npm i @nestjs/jwt
@@ -19,6 +16,10 @@ npm i dotenv
 npm i dotenv-cli
 npm i class-validator
 npm i class-transformer
+
+npm i -D @types/cookie-parser
+npm i -D @types/multer
+npm i -D prisma
 ```
 
 ## main.ts
@@ -27,11 +28,13 @@ npm i class-transformer
 import cookieParser from "cookie-parser";
 import * as compression from "compression";
 import helmet from "helmet";
+import morgan from "morgan";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 
 app.use(cookieParser());
 app.use(compression());
 app.use(helmet());
+app.use(morgan("dev"));
 app.enableCors();
 app.disable("x-powered-by");
 
