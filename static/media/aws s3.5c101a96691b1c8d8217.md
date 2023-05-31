@@ -8,13 +8,20 @@
 > > >
 > > > > versioning 설정을 통해서 롤백할 수 있다. (항상 켜두자)
 
+## Pre-signed URL
+
+> 버킷에 접근 할 수 있는 url을 서버에서 받아서 클라이언트로 보내주기
+
+1. 이미지 업로드 요청 시 서버 api 호출
+2. 서버에서 AWS S3에 preSignedURL 요청
+3. AWS에서 preSignedURL을 return
+4. 서버는 브라우저로 preSignedURL을 전달
+5. 브라우저에서 AWS preSignedURL로 이미지 upload
+6. 서버에게 해당 요청이 종료 되었음을 알림
+
 ## accesspoint
 
-## image 저장
-
-> aws-sdk 사용
->
-> > 백엔드에서 작성
+## aws-sdk s3
 
 ```js
 const AWS = require("aws-sdk");

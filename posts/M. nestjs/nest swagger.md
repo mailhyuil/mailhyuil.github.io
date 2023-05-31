@@ -63,3 +63,13 @@ export class CreateCatDto {
 ```ts
 new DocumentBuilder().addBearerAuth();
 ```
+
+## swagger.json
+
+> 설정후 localhost/swagger.json으로 이동
+
+```
+  SwaggerModule.setup('document', app, document, {
+    jsonDocumentUrl: 'swagger.json',
+  }); // api path로
+```

@@ -28,15 +28,17 @@ pm2 monit
 ```
 1. --name : 실행 모드 이름
 
-2. --script : 실행되는 파일
+2. --script : 실행되는 파일 또는 스크립트
 
-3. --instances : 프로세스 수
+3. --args : script 실행 시 받을 인자
 
-4. --autorestart : 재시작 on/off
+4. --instances : 프로세스 수
 
-5. --watch : watch on/off // 변경사항을 감지하여 서버를 자동으로 리로드
+5. --autorestart : 재시작 on/off
 
-6. --env: Node.js 환경변수
+6. --watch : watch on/off // 변경사항을 감지하여 서버를 자동으로 리로드
+
+7. --env: Node.js 환경변수
 ```
 
 ## ecosystem.config.js
@@ -58,6 +60,20 @@ module.exports = {
       env: {
         NODE_ENV: "production",
       },
+    },
+  ],
+};
+```
+
+## nx
+
+```ts
+module.exports = {
+  apps: [
+    {
+      name: "@wings/server",
+      script: "nx",
+      args: "serve server --configuration production",
     },
   ],
 };
@@ -92,16 +108,18 @@ runtimeConfig: {
 
 ## 실행
 
-```
+```sh
 pm2 start ecosystem.config.js
 ```
 
 ## log 확인
 
-```
+```sh
 pm2 log avirtual-server --lines 300
 ```
 
 ## restart를 해줘야 반영 됨
 
-> pm2 restart server_name
+```sh
+pm2 restart server_name
+```
