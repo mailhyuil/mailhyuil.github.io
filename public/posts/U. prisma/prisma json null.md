@@ -1,3 +1,14 @@
 # prisma json null
 
-> null 대신 {}를 넣어주기
+> 빈 객체 {} 를 넣어주기
+
+```
+Prisma.DbNull // === {}
+```
+
+## null && 빈 오브젝트 check
+
+```ts
+if (json && Object.keys(json).length > 0) {
+}
+```
