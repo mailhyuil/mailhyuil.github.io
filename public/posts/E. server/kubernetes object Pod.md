@@ -15,7 +15,6 @@
 ## 명령어
 
 ```sh
-kubectl scale deployment my-app --replicas=3
-
-kubectl get pod # 3개의 pod 출력
+kubectl get pods
+kubectl delete pod <pod-name>
 ```
