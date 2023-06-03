@@ -18,3 +18,7 @@
 kubectl get pods
 kubectl delete pod <pod-name>
 ```
+
+## 단일 컨테이너 패턴
+
+> 하나의 pod에 하나의 container를 지향
