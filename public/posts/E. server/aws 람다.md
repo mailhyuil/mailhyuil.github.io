@@ -36,3 +36,19 @@ export const handler = async (event) => {
   return response;
 };
 ```
+
+## 람다함수를 처리한 뒤 리디렉션
+
+```ts
+export const handler = async (event) => {
+  // logic..
+  const response = {
+    statusCode: 302, // 302 리디렉션 코드
+    statusDescription: "Found",
+    headers: {
+      location: { value: "redirection_url" }, // 리디렉션할 url
+    },
+  };
+  return response;
+};
+```
