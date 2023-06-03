@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.038315ee.js",
+    "main.js": "/static/js/main.427ca7c9.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -261,6 +261,8 @@
     "static/media/svg filter.md": "/static/media/svg filter.43b87951379514fef31d.md",
     "static/media/nest module.md": "/static/media/nest module.a07d328298d2d024b0ac.md",
     "static/media/width, height 구하기.md": "/static/media/width, height 구하기.12ae74dc1e178a0dcfea.md",
+    "static/media/kubernetes kubectl.md": "/static/media/kubernetes kubectl.56626243f7fb820db90b.md",
+    "static/media/kubernetes resource.md": "/static/media/kubernetes resource.8745696f015bcdbb5ff0.md",
     "static/media/js MutationObserver.md": "/static/media/js MutationObserver.9e1de62c404c2f9004ba.md",
     "static/media/nuxt.md": "/static/media/nuxt.77548ccb0d583efdc41f.md",
     "static/media/nodejs 내장객체.md": "/static/media/nodejs 내장객체.e70b91482350f591dd78.md",
@@ -330,6 +332,7 @@
     "static/media/angular interceptor.md": "/static/media/angular interceptor.6dd2172ba3b1d7fac630.md",
     "static/media/nodejs path.md": "/static/media/nodejs path.0fd66a5de6353095ca77.md",
     "static/media/nest schedule.md": "/static/media/nest schedule.4b538539ecbb1b35c0db.md",
+    "static/media/kubernetes object Label & Selector.md": "/static/media/kubernetes object Label & Selector.42f8538c3f33f02cb655.md",
     "static/media/tailwindcss darkmode.md": "/static/media/tailwindcss darkmode.559c9bb0c0bda83b425d.md",
     "static/media/algorithm 자료구조 queue.md": "/static/media/algorithm 자료구조 queue.1accefbe50a4d4925e53.md",
     "static/media/linux Alpine Linux.md": "/static/media/linux Alpine Linux.5776e10376958a98078a.md",
@@ -345,7 +348,6 @@
     "static/media/terraform accessKey credentials.md": "/static/media/terraform accessKey credentials.8db92b37e2f05b8e877c.md",
     "static/media/dotenv.md": "/static/media/dotenv.01b903cb2281f471a4d4.md",
     "static/media/git reset (되돌리기).md": "/static/media/git reset (되돌리기).d929576364373296bb5b.md",
-    "static/media/kubernetes object Label & Selector.md": "/static/media/kubernetes object Label & Selector.f6b6ed357c735fb38d91.md",
     "static/media/npm.md": "/static/media/npm.428f87c4877be9c30088.md",
     "static/media/axios.md": "/static/media/axios.f148d29d21c7653ee3c3.md",
     "static/media/angular html element 참조.md": "/static/media/angular html element 참조.4872b0b2a491f6fbc442.md",
@@ -510,7 +512,6 @@
     "static/media/postgres where.md": "/static/media/postgres where.477b7a0ce521a1f561fa.md",
     "static/media/gsap snap & mapRange & interpolate.md": "/static/media/gsap snap & mapRange & interpolate.d461e0dda0dd1b3c1f3b.md",
     "static/media/rxjs takeUntil.md": "/static/media/rxjs takeUntil.6ad1f849b04784b31ae8.md",
-    "static/media/kubernetes kubectl.md": "/static/media/kubernetes kubectl.c7c000d84365d2662802.md",
     "static/media/rxjs switchMap.md": "/static/media/rxjs switchMap.0cdbab9ed5c3ebb0f659.md",
     "static/media/js sort.md": "/static/media/js sort.6b7a511eb62102bce23e.md",
     "static/media/angular tailwindcss.md": "/static/media/angular tailwindcss.ea14958dd1e2fac0c07a.md",
@@ -962,10 +963,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.038315ee.js.map": "/static/js/main.038315ee.js.map"
+    "main.427ca7c9.js.map": "/static/js/main.427ca7c9.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.038315ee.js"
+    "static/js/main.427ca7c9.js"
   ]
 }
