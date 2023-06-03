@@ -64,6 +64,19 @@ posts: Post[];
 date: Moment;
 ```
 
+```ts
+@Exclude()
+export class UserDTO implements IUserDTO {
+  @Expose()
+  // obj는 현재 클래스 즉, UserDTO
+  @Transform(({ obj }: { obj: UserDTO }) => {
+    return obj.profiles.find((item) => item.isMaster);
+  })
+  @Type(() => UserProfileDTO)
+  masterProfile: IUserProfileDTO;
+}
+```
+
 ## DTO에 선언된 필드만 body에서 가져오기
 
 ```ts

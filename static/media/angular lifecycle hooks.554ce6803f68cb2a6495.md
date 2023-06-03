@@ -27,6 +27,8 @@
 ## ngAfterViewInit()
 
 > 컴포넌트의 View와 ViewChild가 초기화된 이후 호출
+>
+> > ngAfterViewInit에서는 값을 변경하면 안된다 (onInit이나 constructor에서 변경해라)
 
 ## ngAfterViewChecked()
 

@@ -6,7 +6,7 @@
 
 ## 명령어
 
-```
+```sh
 kubectl config use-context minikube
 kubectl config current-context
 kubectl config get-contexts

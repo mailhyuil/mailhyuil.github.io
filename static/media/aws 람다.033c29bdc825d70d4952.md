@@ -17,14 +17,22 @@ s3, dynamoDB, api gateway, sqs ...
 ## 패키지 사용하기
 
 > "node_modules"와 "index.mjs" 파일을 zip 파일로 압축시켜서 업로드
+>
+> > 응답 헤더("Content-Type": "application/json")를 넣지 않으면 다운로드 돼버린다.
 
 ```ts
 import dayjs from "dayjs";
 
 export const handler = async (event) => {
-  return {
+  const currentDate = dayjs().format("YYYY-MM-DD");
+
+  const response = {
     statusCode: 200,
-    body: dayjs().format("YYYY-MM-DD"),
+    body: JSON.stringify({ date: currentDate }),
+    headers: {
+      "Content-Type": "application/json",
+    },
   };
+  return response;
 };
 ```
