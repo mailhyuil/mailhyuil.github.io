@@ -27,9 +27,9 @@ kubectl get <object type> --selector <label_query_1, label_query_2>
 # key in 'env in (dev, stage, prod)'
 
 kubectl get pod my-pod --show-labels
+kubectl get pod/my-pod --label-columns app.env
+
 kubectl label pod my-pod app=backend
 kubectl label pod my-pod version=v1
 kubectl label pod my-pod version=v2 --overwrite
-
-kubectl get pod/my-pod --label-columns[L] app.env
 ```
