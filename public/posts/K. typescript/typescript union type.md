@@ -6,13 +6,13 @@
 
 ## union
 
-```
-IPaginationOptionDTO & { status: PostType | "ALL" }
+```ts
+IPaginationOptionDTO & { status: PostType | "ALL" };
 ```
 
 ## extends
 
-```
+```ts
 export interface IPostPaginationDTO extends IPaginationOptionDTO {
   status: PostType | "ALL";
 }
