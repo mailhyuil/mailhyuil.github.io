@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: yoonjeong/my-app:1.0
+          image: hyuil/my-app:1.0
           ports:
             - containerPort: 8080
           resources:
