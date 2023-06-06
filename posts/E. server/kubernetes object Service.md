@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: order
-          image: yoonjeong/order:1.0
+          image: hyuil/order:1.0
           ports:
             - containerPort: 8080
           resources:
@@ -118,7 +118,7 @@ spec:
     spec:
       containers:
         - name: order
-          image: yoonjeong/order:1.0
+          image: hyuil/order:1.0
           ports:
             - containerPort: 8080
           resources:
@@ -175,7 +175,7 @@ spec:
     spec:
       containers:
         - name: order
-          image: yoonjeong/order:1.0
+          image: hyuil/order:1.0
           ports:
             - containerPort: 8080
           resources:

@@ -20,13 +20,12 @@ spec:
     metadata:
       labels:
         app: my-app
-        project: fastcampus
         env: production
         version: v1
     spec:
       containers:
         - name: my-app
-          image: yoonjeong/my-app:1.0
+          image: hyuil/my-app:1.0
           ports:
             - containerPort: 8080
           resources:

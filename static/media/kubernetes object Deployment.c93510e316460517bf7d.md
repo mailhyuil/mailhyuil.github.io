@@ -1,27 +1,31 @@
-# kubernetes replicaSet
+# kubernetes deployment
 
 ## manifest.yaml
 
 ```yaml
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: myapp-replicaset
+  name: my-app
   labels:
     app: my-app
 spec:
+  replicas: 3 # replicaSet
   selector:
     matchLabels:
       app: my-app
-  replicas: 1
+  strategy:
+    type: Recreate
   template: # pod
     metadata:
       labels:
         app: my-app
+        env: production
+        version: v1
     spec:
       containers:
         - name: my-app
-          image: yoonjeong/my-app:1.0
+          image: hyuil/my-app:1.0
           ports:
             - containerPort: 8080
           resources:
