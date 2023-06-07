@@ -2,9 +2,9 @@
 
 ## nest-cli.json
 
-```
-  "compilerOptions": {
-    "assets": ["**/*.ejs"],
-    "watchAssets": true
-  }
+```json
+"compilerOptions": {
+  "assets": ["**/*.ejs"],
+  "watchAssets": true
+}
 ```
