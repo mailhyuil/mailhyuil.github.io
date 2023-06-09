@@ -2,7 +2,7 @@
 
 > 쿼리를 충족시키는데 필요한 모든 데이터를 갖고 있는 인덱스
 >
-> > select할 필드들이 where, order by, limit, group by 혹은 index에 포함된 경우다.
+> > select할 필드들이 where, order by, group by 혹은 index에 포함된 경우다.
 > >
 > > > 인덱스 테이블에 필요한 필드가 있다면 데이터 블록에 접근하지 않아서 훨씬 빠르다
 > > >
