@@ -9,10 +9,24 @@
 > > > > 인덱스 테이블에 필요한 필드가 없다면, limit을 사용해서 필요한 entity만 index로 pk를 빠르게 조회하고 찾은 pk값으로 다시 조회하라
 
 ```sql
-with 커버링 as(
-  SELECT id
-  FROM Member
-  WHERE age < 30
-  LIMIT 2
+EXPLAIN ANALYSE WITH Covering
+AS (
+    SELECT id FROM "Notice"
+    WHERE "isPinned" = false
+    AND
+    "createdAt" > '2022-12-31'
+    LIMIT 100
 )
+
+SELECT Covering.id, "Notice".title FROM "Notice"
+INNER JOIN Covering
+ON "Notice".id = Covering.id;
+
+-- OR
+
+EXPLAIN ANALYSE SELECT id, title FROM "Notice"
+WHERE "isPinned" = false
+AND
+"createdAt" > '2022-12-31'
+LIMIT 100;
 ```
