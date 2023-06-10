@@ -7,7 +7,14 @@
 ```ts
 const { Worker } = require("worker_threads");
 
-const { isMainThread, parentPort, MessageChannel, workerData } = require("worker_threads");
+const { isMainThread, workerPort, parentPort, MessageChannel, workerData } = require("worker_threads");
+
+const worker = new Worker("./job.js", {
+  workerData: { data: "hi" }, // worker에게 전달할 데이터
+}); // worker 생성
+
+parentPort.postMessage("message"); // worker에게 메시지 전달
+workerPort.postMessage("message"); // main에게 메시지 전달
 ```
 
 ## 사용
