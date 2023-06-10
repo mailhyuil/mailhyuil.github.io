@@ -12,32 +12,55 @@ const { isMainThread, parentPort, MessageChannel, workerData } = require("worker
 
 ## 사용
 
+### main.js
+
 ```ts
 const { Worker, isMainThread, parentPort } = require("worker_threads");
 
-if (isMainThread) {
-  // 메인 스레드
-  const worker = new Worker(__filename);
+const main = async () => {
+  try {
+    const start = Date.now();
+    const values = await Promise.all([work(1), work(2), work(3)]);
+    console.log(values);
+    console.log(`done! total duration : ${Date.now() - start}ms`);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-  worker.on("message", (value) => {
-    console.log("워커로부터", value);
+const work = async (id) => {
+  return new Promise((resolve, reject) => {
+    const start = Date.now();
+    // worker 생성
+    const worker = new Worker("./job.js", {
+      workerData: { id },
+    });
+    // worker에서 parentPort.postMessage로 보낸 메시지를 받음
+    worker.once("message", (message) => {
+      console.log(`threadId : [${worker.threadId}] duration : ${Date.now() - start}ms`);
+      resolve(message);
+    });
+
+    worker.once("error", (error) => {
+      reject(error);
+    });
   });
+};
 
-  worker.on("exit", (value) => {
-    // parentPort.close()가 일어나면 이벤트 발생
-    console.log("워커 끝~");
-  });
+main();
+```
 
-  worker.postMessage("ping"); // 워커스레드에게 메세지를 보낸다.
-} else {
-  // 워커스레드
+### job.js
 
-  parentPort.on("message", (value) => {
-    console.log("부모로부터", value);
-    parentPort.postMessage("pong");
-    parentPort.close(); // 워커스레드 종료라고 메인스레드에 알려줘야 exit이벤트 발생
-  });
+```js
+const process = require("process");
+const { parentPort, workerData } = require("worker_threads");
+
+for (let i = 0; i < 1000000; i++) {
+  console.log(`i'm a worker [${workerData.id}] in pid [${process.pid}]!`);
 }
+
+parentPort.postMessage(`worker [${workerData.id}] done`);
 ```
 
 ## shared memory
