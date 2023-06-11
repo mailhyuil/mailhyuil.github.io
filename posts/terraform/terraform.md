@@ -5,6 +5,10 @@
 > > .tf 포멧 사용
 > >
 > > > HCL언어 사용
+> > >
+> > > > 기본적으로 main.tf, provider.tf, data.tf, output.tf, variables.tf, backend.tf 파일 생성하자
+> > > >
+> > > > > 모듈도 마찬가지
 
 ## install
 
