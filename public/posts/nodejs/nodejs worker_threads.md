@@ -70,6 +70,42 @@ for (let i = 0; i < 1000000; i++) {
 parentPort.postMessage(`worker [${workerData.id}] done`);
 ```
 
+## sample
+
+```ts
+const { Worker, isMainThread, parentPort } = require("worker_threads");
+
+if (isMainThread) {
+  console.time("start");
+  const worker = new Worker(__filename); // worker 생성
+
+  worker.on("message", (message) => {
+    console.log("from worker", message);
+    console.timeEnd("start");
+  });
+  worker.on("error", (message) => console.error(message));
+  worker.on("exit", (message) => console.log("worker exit", message));
+
+  console.log("i'm main");
+  let count = 0;
+  console.time("hi");
+  for (let i = 0; i < 10000000000; i++) {
+    count++;
+  }
+  console.timeEnd("hi");
+} else {
+  console.log("i'm worker");
+  let count = 0;
+  console.time("hi");
+  for (let i = 0; i < 10000000000; i++) {
+    count++;
+  }
+  console.timeEnd("hi");
+
+  parentPort.postMessage(count);
+}
+```
+
 ## shared memory
 
 ```ts
