@@ -1,5 +1,7 @@
 # kubernetes livenessProbe, readnessProbe
 
+> health check을 위한 기능
+
 ## livenessProbe
 
 > app이 충돌 또는 중단되었을 때 감지

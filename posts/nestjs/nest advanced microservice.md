@@ -6,7 +6,15 @@
 npm i @nestjs/microservices
 ```
 
-## main.ts
+## main.ts -> createMicroservice
+
+### options
+
+> 어떤 툴을 사용해서 통신할건지 설정
+>
+> > 기본 옵션 host, port, retryAttempts, retryDelay
+> >
+> > > 각 통신 툴마다 나머지 옵션값은 다르다
 
 ```ts
 const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
@@ -45,7 +53,7 @@ export class MathController {
 }
 ```
 
-# MQTT, NATS, RabbitMQ, Kafka, gRPC
+# NATS, gRPC, Kafka, RabbitMQ, MQTT
 
 > 메시징을 위한 tech stacks
 >
