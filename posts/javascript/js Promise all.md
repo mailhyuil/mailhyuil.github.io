@@ -1,8 +1,8 @@
 # Promise.all()
 
-> 병렬로 비동기 요청 보내기
+> 병렬로 비동기 요청 보내기 (멀티 스레딩이 아님)
 >
-> > await는 블로킹하는 코드!
+> > 여러개의 await를 병렬로 처리할 수 있음
 
 ## 직렬
 
@@ -63,12 +63,12 @@ Promise.all(requestList).then((responses) => {
 });
 ```
 
-```
+```ts
 const arr = ["A", "B", "C"];
 const arrFunc = arr.map((type) => request(type));
 
 for (const func of arrFunc) {
-    console.log(await func);
+  console.log(await func);
 }
 ```
 

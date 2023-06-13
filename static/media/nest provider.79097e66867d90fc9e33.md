@@ -36,19 +36,34 @@ export class MoviesService {
 
 ### basic
 
-```
-providers:[SomeService]
-```
-
-### custom providers
-
-> useValue, useClass, useFactory, useExisting
-
 ```ts
 providers: [
   {
     provide: SomeService, // Token -> string | symbol | Type | Abstract | Function
-    useClass: {},
+    useClass: SomeService,
   },
 ];
+
+// shorthand
+providers: [SomeService];
 ```
+
+## custom providers
+
+### useValue
+
+> library같은 constant value를 제공할 때 사용
+
+### useClass
+
+> @Injectable() 데코레이터가 붙은 클래스를 제공할 때 사용
+
+### useFactory
+
+> provider를 생성하여 등록할 때 사용
+
+### useExisting
+
+> 기존에 등록된 provider를 사용할 때 사용
+>
+> > 이 방식은 이미 존재하는 다른 의존성을 사용하도록 지정합니다. 즉, 이미 등록된 다른 클래스나 토큰을 가리키게 되며, 해당 의존성을 주입받을 수 있습니다.
