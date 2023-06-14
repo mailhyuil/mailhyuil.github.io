@@ -1,6 +1,6 @@
 # nestjs test
 
-## controller
+## test
 
 ```ts
 import { Test, TestingModule } from "@nestjs/testing";
@@ -11,47 +11,43 @@ import { SubscriptionModule } from "../subscription/subscription.module";
 import { ProfileModule } from "../profile/profile.module";
 import { PrismaModule } from "../../prisma/prisma.module";
 describe("UserController", () => {
-  let controller: UserController;
+  let userController: UserController;
+  let userService: UserService;
+  let authModule: AuthModule;
+  let subscriptionModule: SubscriptionModule;
+  let profileModule: ProfileModule;
+  let prismaModule: PrismaModule;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
+    const moduleRef: TestingModule = await Test.createTestingModule({
       imports: [AuthModule, SubscriptionModule, ProfileModule, PrismaModule],
       controllers: [UserController],
       providers: [UserService],
     }).compile();
 
-    controller = module.get<UserController>(UserController);
+    userController = moduleRef.get<UserController>(UserController);
+    userService = moduleRef.get<UserService>(UserService);
+    authModule = moduleRef.get<AuthModule>(AuthModule);
+    subscriptionModule = moduleRef.get<SubscriptionModule>(SubscriptionModule);
+    profileModule = moduleRef.get<ProfileModule>(ProfileModule);
+    prismaModule = moduleRef.get<PrismaModule>(PrismaModule);
   });
 
   it("should be defined", () => {
     expect(controller).toBeDefined();
   });
-});
-```
 
-## service
+  describe("findAll", () => {
+    it("should return an array of users", async () => {
+      const result = [
+        { username: "sangbaek", password: "1234" },
+        { username: "hyuil", password: "1234" },
+      ];
 
-```ts
-import { Test, TestingModule } from "@nestjs/testing";
-import { UserService } from "./user.service";
-import { AuthModule } from "../auth/auth.module";
-import { SubscriptionModule } from "../subscription/subscription.module";
-import { ProfileModule } from "../profile/profile.module";
-import { PrismaModule } from "../../prisma/prisma.module";
-describe("UserService", () => {
-  let service: UserService;
+      jest.spyOn(userService, "findAll").mockImplementation(() => result);
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      imports: [AuthModule, SubscriptionModule, ProfileModule, PrismaModule],
-      providers: [UserService],
-    }).compile();
-
-    service = module.get<UserService>(UserService);
-  });
-
-  it("should be defined", () => {
-    expect(service).toBeDefined();
+      expect(await userController.findAll()).toBe(result);
+    });
   });
 });
 ```
