@@ -17,11 +17,11 @@ describe("MoviesService", () => {
   let service: MoviesService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
+    const moduleRef: TestingModule = await Test.createTestingModule({
       providers: [MoviesService],
     }).compile();
 
-    service = module.get<MoviesService>(MoviesService);
+    service = moduleRef.get<MoviesService>(MoviesService);
   });
 
   it("should be defined", () => {
@@ -49,10 +49,7 @@ describe("AppController (e2e)", () => {
   });
 
   it("/ (GET)", () => {
-    return request(app.getHttpServer())
-      .get("/")
-      .expect(200)
-      .expect("Hello World!");
+    return request(app.getHttpServer()).get("/").expect(200).expect("Hello World!");
   });
 });
 ```

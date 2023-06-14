@@ -3,10 +3,10 @@
 1. 앱 생성
 2. 동의 항목 설정
 3. 카카오 로그인 활성화, OpenID Connect 활성화
-4. 앱키 -> REST API 키, Javascript 키, (네이티브 앱 키) 환경 변수로 설정
-   > REST API 키는 공개되면 안된다
+4. 앱키 -> REST API 키 또는 Javascript 키 (네이티브 앱 키) 환경 변수로 설정
+   > REST API 키는 공개되면 안된다 (REST API로 사용)
    >
-   > > Javascript 키는 공개되어도 상관없다
+   > > Javascript 키는 공개되어도 상관없다 (Javascript SDK를 사용할 때 사용)
 5. Redirect URL 설정
    > 사용자가 로그인에 성공했을 때 리디렉션 시킬 클라이언트의 URL
    >
@@ -15,6 +15,12 @@
    > > > query string으로 code를 받아서 서버에 로그인 또는 회원가입 요청
 6. 서버에서 받은 코드를 이용해서 카카오 인증 서버에 회원 정보 요청
 7. 카카오 인증 서버에서 회원 정보를 받아서 서버에서 로그인 또는 회원가입 처리
+
+## REST API vs SDK
+
+> SDK를 사용해서 구현하면 간편 로그인을 구현할 수 있고
+>
+> > REST API를 사용해서 구현하면 더 많은 정보를 받아올 수 있다.
 
 ## client
 
