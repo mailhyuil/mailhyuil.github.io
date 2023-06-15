@@ -8,11 +8,13 @@
    >
    > > Javascript 키는 공개되어도 상관없다 (Javascript SDK를 사용할 때 사용)
 5. Redirect URL 설정
-   > 사용자가 로그인에 성공했을 때 리디렉션 시킬 클라이언트의 URL
+   > 사용자가 로그인에 성공했을 때 리디렉션 시킬 "클라이언트"의 URL
    >
    > > REDIRECT_URL?code=fdhttfdhft6ht 코드 형식으로 리다이렉트 된다.
    > >
-   > > > query string으로 code를 받아서 서버에 로그인 또는 회원가입 요청
+   > > > querystring으로 code를 받아서 서버에 로그인 또는 회원가입 요청 (REST API 사용)
+   > > >
+   > > > > 또는 SDK를 사용하여 회원 정보만 서버에 요청. (Javascript SDK 사용)
 6. 서버에서 받은 코드를 이용해서 카카오 인증 서버에 회원 정보 요청
 7. 카카오 인증 서버에서 회원 정보를 받아서 서버에서 로그인 또는 회원가입 처리
 
@@ -35,7 +37,7 @@
 </head>
 ```
 
-### login.page.ts
+### login.page.ts (REST API 사용)
 
 ```ts
 import { CommonModule } from "@angular/common";
@@ -56,6 +58,38 @@ export class LoginPage {
   login() {
     Kakao.Auth.authorize({
       redirectUri: "http://localhost:3000/auth/kakao/callback",
+    });
+  }
+}
+```
+
+### login.page.ts (Javascript SDK 사용)
+
+```js
+export class JoinPage implements OnInit {
+  JAVASCRIPT_API_KEY = "50284f7f25fb25ad3f69339c6c605149";
+
+  ngOnInit(): void {
+    Kakao.init(this.JAVASCRIPT_API_KEY);
+    console.log(Kakao.isInitialized());
+  }
+
+  KaKaoLoginAPI(): void {
+    Kakao.Auth.login({
+      success: () => {
+        Kakao.API.request({
+          url: "/v2/user/me",
+          success: (res: any) => {
+            console.log("성공 : ", res);
+          },
+          fail: (err: any) => {
+            alert(`개인정보를 가져올 수 없습니다. ${JSON.stringify(err)}`);
+          },
+        });
+      },
+      fail: (err: any) => {
+        alert(`도메인을 확인해주세요. ${JSON.stringify(err)}`);
+      },
     });
   }
 }
