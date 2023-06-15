@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.ae29f4a7.js",
+    "main.js": "/static/js/main.c32cc993.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -969,6 +969,7 @@
     "static/media/cicd.md": "/static/media/cicd.c23fb9fabe08a078af00.md",
     "static/media/ionic component.md": "/static/media/ionic component.f7367cf7daf5472b3eb2.md",
     "static/media/mongodb operator.md": "/static/media/mongodb operator.bd6608b8cee3d84a47b4.md",
+    "static/media/nx @nxext.md": "/static/media/nx @nxext.cb5be3a579bc945c52a2.md",
     "static/media/prisma generate.md": "/static/media/prisma generate.8c0d4e2a6d45ab8a12ea.md",
     "static/media/rxjs firstValueFrom.md": "/static/media/rxjs firstValueFrom.9fe029995119d1a23ca5.md",
     "static/media/angular url parameter.md": "/static/media/angular url parameter.129d8a853f174c7e85ec.md",
@@ -1068,10 +1069,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.ae29f4a7.js.map": "/static/js/main.ae29f4a7.js.map"
+    "main.c32cc993.js.map": "/static/js/main.c32cc993.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.ae29f4a7.js"
+    "static/js/main.c32cc993.js"
   ]
 }
