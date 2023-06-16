@@ -12,3 +12,11 @@
 Key-kubernetes.io/cluster/<eks-cluster-name>
 Value-shared
 ```
+
+## aws-cli 로 eks cluster 접속
+
+```sh
+aws --profile sangbaek eks --region ap-northeast-2 update-kubeconfig --name my-cluster --alias my-cluster
+
+kubectl config use-context mycluster
+```
