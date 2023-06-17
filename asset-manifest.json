@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.7d78fa6d.js",
+    "main.js": "/static/js/main.152ba5dc.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -613,7 +613,6 @@
     "static/media/express on NestJs.md": "/static/media/express on NestJs.8bfa4b8f255d43f99049.md",
     "static/media/matterjs context.md": "/static/media/matterjs context.381ecd206deddc573284.md",
     "static/media/Docker system.md": "/static/media/Docker system.bfce6e7d657512174fc6.md",
-    "static/media/protocal.md": "/static/media/protocal.cb305328afc40995990b.md",
     "static/media/트래픽이란.md": "/static/media/트래픽이란.724be9ccab20ccd2cc2e.md",
     "static/media/rxjs tap.md": "/static/media/rxjs tap.7746781c01a5e5b06fc9.md",
     "static/media/algorithm sort 선택정렬(selection sort).md": "/static/media/algorithm sort 선택정렬(selection sort).da83d3e558acdb154e1f.md",
@@ -628,6 +627,7 @@
     "static/media/nest headers decorator.md": "/static/media/nest headers decorator.0dacb02f0cd56e4fd3fd.md",
     "static/media/angular ng-content.md": "/static/media/angular ng-content.77f3d18d7b3f5ef85d8e.md",
     "static/media/linux systemd & systemctl.md": "/static/media/linux systemd & systemctl.92d18034dfa911b5cee0.md",
+    "static/media/protocal.md": "/static/media/protocal.05cdc46eb539f8ab7a63.md",
     "static/media/angular standalone.md": "/static/media/angular standalone.92c34014b14cc11c775e.md",
     "static/media/db 성능 핵심.md": "/static/media/db 성능 핵심.7d2ac6b8e740b3d642c7.md",
     "static/media/nuxt. fetch 시 httpException 처리.md": "/static/media/nuxt. fetch 시 httpException 처리.2705afe97e59577f61da.md",
@@ -1081,10 +1081,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.7d78fa6d.js.map": "/static/js/main.7d78fa6d.js.map"
+    "main.152ba5dc.js.map": "/static/js/main.152ba5dc.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.7d78fa6d.js"
+    "static/js/main.152ba5dc.js"
   ]
 }
