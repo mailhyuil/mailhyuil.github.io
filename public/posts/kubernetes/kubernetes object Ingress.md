@@ -1,8 +1,8 @@
 # kubernetes Ingress
 
-> service들을 외부로 노출
+> 노출 된 여러개의 Service들을 하나의 엔드포인트로 외부에 노출
 >
-> > 클라이언트가 하나의 ip를 통해서 접근할 수 있게 도와줌
+> > rules에 정의된 host로 접근하면 해당 service로 라우팅
 
 ## manifest.yml
 
@@ -21,36 +21,44 @@ spec:
       port:
         number: 80
   rules:
-    - host: order.fast-snackbar.com
+    - host: order.fast-snackbar.com # 이 주소로 요청 하면
       http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
-                name: order
+                name: order # order Service로 라우팅
                 port:
                   number: 80
-    - host: payment.fast-snackbar.com
+    - host: payment.fast-snackbar.com # 이 주소로 요청 하면
       http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
-                name: payment
+                name: payment # payment Service로 라우팅
                 port:
                   number: 80
-    - host: delivery.fast-snackbar.com
+    - host: delivery.fast-snackbar.com # 이 주소로 요청 하면
       http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
-                name: delivery
+                name: delivery # delivery Service로 라우팅
                 port:
                   number: 80
 ```
 
 ## IngressController
+
+> Ingress를 만든 후
+>
+> > Cloud Provider가 Load Balancer를 Ingress Controller로 만들어준다
+> >
+> > > Ingress Controller는 HOST headers의 정보를 읽고 어떤 Service로 라우팅 할지 결정한다
+> > >
+> > > > 라우팅 규칙은 내가 생성한 Ingress를 참조한다.
