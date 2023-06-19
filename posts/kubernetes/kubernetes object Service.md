@@ -12,7 +12,7 @@
 
 ### ClusterIP
 
-> 내부 ip만 할당
+> 내부 IP만 할당
 >
 > > 기본 Service 타입
 > >
@@ -73,13 +73,15 @@ spec:
 
 ### NodePort
 
-> 외부 IP 대신 PORT를 할당
+> 외부 PORT를 할당
 >
 > > 트래픽만 받기 위한 용도
 > >
 > > > 포트만 여는 것과 같다
 > > >
 > > > > nodeIp:nodePort로 접근
+> > > >
+> > > > > 개발 및 테스트 환경에서 사용
 
 ```yaml
 ---
@@ -134,9 +136,11 @@ spec:
 
 ### LoadBalancer
 
-> 내부 ip와 외부 ip를 할당 받는다
+> 외부 IP를 할당 받는다 (클라우드 업체의 로드밸러서와 연동)
 >
-> > 클라우드 서비스에서 제공하는 load balancer를 프로비저닝하여 사용
+> > 클라우드 서비스에서 제공하는 LoadBalancer를 "프로비저닝" 즉 연동하여 사용
+> >
+> > > 프로덕션 환경에서 사용
 
 ```yaml
 ---
@@ -187,4 +191,19 @@ spec:
               memory: "64Mi"
               cpu: "50m"
 ---
+```
+
+## expose
+
+> 외부 IP를 할당 받으려면 expose 명령어를 사용해야 한다.
+>
+> > Kubernetes에서 사용되는 애플리케이션을 외부로 노출하는 명령어
+
+```sh
+# minikube
+minikube service <service-name> --url
+
+# Google cloud
+# 포트 허용
+# gcloud
 ```
