@@ -3,6 +3,10 @@
 > pod들을 외부에 노출 시킬 수 있는 단일 엔드포인트
 >
 > > 로드밸런서 역할
+> >
+> > > 내부 IP 통신 타입 : ClusterIP
+> > >
+> > > > 외부 IP 통신 타입 : NodePort, LoadBalancer
 
 ## type
 
