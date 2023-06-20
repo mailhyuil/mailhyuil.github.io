@@ -3,10 +3,12 @@
 > in, typeof, instanceof를 사용
 >
 > > type narrowing을 위해 사용
+> >
+> > > 인터페이스를 동적으로 선택하고싶을 때 사용
 
 ```ts
 function isFish(animal: Animal): Animal is Fish {
-  return 'swin' in Animal;
+  return "swin" in Animal;
 }
 
 function isAnimal(arg: any): arg is Animal {
