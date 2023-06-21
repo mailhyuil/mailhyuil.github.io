@@ -17,19 +17,25 @@ choco install kubernetes-helm
 
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
-# 리스트 출력
+# chart 리스트 출력
 helm repo list
 
-# 업데이트
+# charts 업데이트
 helm repo update
 
-# 검색
+# chart 검색
 helm search repo bitnami
 helm search repo bitnami/nginx
 
 # 템플릿 미리보기
 helm template [project_name] bitnami/nginx
 
-# 설치
+# chart 설치
 helm install [project_name] bitnami/nginx
+
+# chart 삭제
+helm delete bitnami/nginx
+
+# chart 생성
+helm create my-chart
 ```
