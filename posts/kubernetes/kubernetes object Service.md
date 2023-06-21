@@ -207,3 +207,19 @@ minikube service <service-name> --url
 # 포트 허용
 # gcloud
 ```
+
+## 환경변수
+
+> 서비스를 생성하면 자동으로 대문자 스테이크 케이스의 환경변수가 생성된다.
+
+```sh
+# ex) test
+# 확인 명령어 : kubectl exec <pod-name> -- env | grep TEST
+TEST_PORT
+TEST_PORT_80_TCP
+TEST_PORT_80_TCP_PROTO
+TEST_PORT_80_TCP_PORT
+TEST_PORT_80_TCP_ADDR
+TEST_SERVICE_HOST
+TEST_SERVICE_PORT
+```
