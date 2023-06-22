@@ -38,4 +38,7 @@ helm delete bitnami/nginx
 
 # chart 생성
 helm create my-chart
+
+# chart pull
+helm pull bitnami/nginx --untar
 ```
