@@ -1,4 +1,4 @@
-# apexChart
+# vue apexChart
 
 ## install
 
@@ -47,7 +47,7 @@ const series = ref<ApexAxisChartSeries>([
 
 <template>
   <div>
-    <apexchart width="100%" :options="options" :series="series"> </apexchart>
+    <apexchart width="100%" :options="options" :series="series"></apexchart>
   </div>
 </template>
 ```
