@@ -20,10 +20,12 @@ class Queue {
     this.tailIndex = 0;
   }
   enqueue(item) {
+    // 삽입 시 tailIndex를 올려줌 -> headIndex가 삽입된 item을 가르키게 된다
     this.items[this.tailIndex] = item;
     this.tailIndex++;
   }
   dequeue() {
+    // 삭제 시 headIndex가 가르키는 item을 삭제 -> headIndex를 올려줌 -> headIndex가 그 다음 item을 가르키게 된다
     const item = this.items[this.headIndex];
     delete this.items[this.headIndex];
     this.headIndex++;
