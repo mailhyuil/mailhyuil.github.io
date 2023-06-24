@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cb88a576.css",
-    "main.js": "/static/js/main.b5a9a0f2.js",
+    "main.js": "/static/js/main.09c6a05c.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/Pagination (페이징 처리).md": "/static/media/Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/File upload (서버에 파일 업로드).md": "/static/media/File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
@@ -31,7 +31,6 @@
     "static/media/phaser3 + angular.md": "/static/media/phaser3 + angular.b2034990bbb7a0416ed3.md",
     "static/media/nodejs 내장모듈.md": "/static/media/nodejs 내장모듈.90e35e3e169489c7675c.md",
     "static/media/p5js 힘.md": "/static/media/p5js 힘.14e19715387e53c16403.md",
-    "static/media/nginx.md": "/static/media/nginx.e5136d249ff40c232226.md",
     "static/media/rust webserver.md": "/static/media/rust webserver.97204d71fee847056b8c.md",
     "static/media/postgres dump (백업).md": "/static/media/postgres dump (백업).c3a58e732f7d57b9c201.md",
     "static/media/db dump (백업).md": "/static/media/db dump (백업).346b7ee91519f9f5ff07.md",
@@ -74,6 +73,7 @@
     "static/media/algorithm 최단경로 다익스트라.md": "/static/media/algorithm 최단경로 다익스트라.4b737ea767b9f150874d.md",
     "static/media/nuxt built-in composables.md": "/static/media/nuxt built-in composables.a6b87d2c15b55d981e7d.md",
     "static/media/data heap.md": "/static/media/data heap.bf3375128488752ece30.md",
+    "static/media/nginx.md": "/static/media/nginx.b7ae8089c455d093e4db.md",
     "static/media/Content-Type.md": "/static/media/Content-Type.374c55261a5132e1018a.md",
     "static/media/gulp.md": "/static/media/gulp.d6ac5cf79f88101dc0eb.md",
     "static/media/p5js 자율 에이전트.md": "/static/media/p5js 자율 에이전트.4b3f13de1f1b53c4a3fe.md",
@@ -162,6 +162,7 @@
     "static/media/nuxt stores (Pinia).md": "/static/media/nuxt stores (Pinia).a2a84527588aea0bc0e4.md",
     "static/media/이기적인 코드.md": "/static/media/이기적인 코드.1cdd9916e9098b7a9c30.md",
     "static/media/Spring Security (스프링 시큐리티) JWT.md": "/static/media/Spring Security (스프링 시큐리티) JWT.a1808236669eb75520ff.md",
+    "static/media/nginx cache.md": "/static/media/nginx cache.8fac08cee9647d84fcb7.md",
     "static/media/nest interceptor.md": "/static/media/nest interceptor.913efab9d4b254d57cfe.md",
     "static/media/class-transformer.md": "/static/media/class-transformer.de7782b673d2a072cca3.md",
     "static/media/FormData.md": "/static/media/FormData.7eb8c61ce1a67d1efbbb.md",
@@ -175,9 +176,11 @@
     "static/media/angular lifecycle hooks.md": "/static/media/angular lifecycle hooks.554ce6803f68cb2a6495.md",
     "static/media/nodejs stream.md": "/static/media/nodejs stream.254e2fa5c91dfbf856d4.md",
     "static/media/lazy vs idle.md": "/static/media/lazy vs idle.32481febcea30ef9e534.md",
+    "static/media/nginx openResty.md": "/static/media/nginx openResty.f5fe597686b43fcb9e71.md",
     "static/media/Structural flyweight.md": "/static/media/Structural flyweight.f67db87a479b6d15c1eb.md",
     "static/media/동시성 vs 병렬성.md": "/static/media/동시성 vs 병렬성.2e16839a4677d29f08c1.md",
     "static/media/html canvas pixel color 추출.md": "/static/media/html canvas pixel color 추출.aa398528f870c56af9bb.md",
+    "static/media/nginx upstream.md": "/static/media/nginx upstream.61fb777ca34460a76c37.md",
     "static/media/Docker volume.md": "/static/media/Docker volume.90c614d89347ff02e4f5.md",
     "static/media/rust 스마트 포인터.md": "/static/media/rust 스마트 포인터.fab718737726a8e80f45.md",
     "static/media/Spring Async (스프링 비동기).md": "/static/media/Spring Async (스프링 비동기).485ee501f147b9c0cf4e.md",
@@ -194,6 +197,7 @@
     "static/media/환경분리.md": "/static/media/환경분리.81e8d78e7fbe5112ff24.md",
     "static/media/js commonjs vs ESmodule.md": "/static/media/js commonjs vs ESmodule.240b01a63b119a1b6fde.md",
     "static/media/matterjs + angular.md": "/static/media/matterjs + angular.7141901d759f23faa5fd.md",
+    "static/media/kube nginx nestjs.md": "/static/media/kube nginx nestjs.83c256a7cabfae9271eb.md",
     "static/media/nest swagger.md": "/static/media/nest swagger.e1e30017bcac1be48f01.md",
     "static/media/nuxt nested routes.md": "/static/media/nuxt nested routes.a225f5a6da437609e805.md",
     "static/media/data linked list.md": "/static/media/data linked list.f2a5dcbef73000d0206b.md",
@@ -589,6 +593,7 @@
     "static/media/집합.md": "/static/media/집합.15828ec5fe762f8e3c55.md",
     "static/media/angular ssr platform 확인.md": "/static/media/angular ssr platform 확인.869ba017ae091beb8e54.md",
     "static/media/rust enum.md": "/static/media/rust enum.0d525bc7d5af8a9db344.md",
+    "static/media/nginx proxy_pass.md": "/static/media/nginx proxy_pass.1b3a057c67ea0d8bbbcb.md",
     "static/media/details.md": "/static/media/details.c8acaf6acf1d46411843.md",
     "static/media/prisma cli.md": "/static/media/prisma cli.d2b9013965118263ccf3.md",
     "static/media/kubernetes object Namespace.md": "/static/media/kubernetes object Namespace.4ab88dc8288cc04077ac.md",
@@ -765,6 +770,7 @@
     "static/media/db volume (볼륨).md": "/static/media/db volume (볼륨).585ab25e6f2a3d4b7619.md",
     "static/media/db index ESR Rule.md": "/static/media/db index ESR Rule.13145004c127a05b3fb1.md",
     "static/media/angular ngModel standalone.md": "/static/media/angular ngModel standalone.2e4bba928b0279ea2010.md",
+    "static/media/google-ads.md": "/static/media/google-ads.8b8b1e0713d0f8fe14e2.md",
     "static/media/js Symbol.md": "/static/media/js Symbol.b9a0f7154387764cc011.md",
     "static/media/prisma aggregate.md": "/static/media/prisma aggregate.77dc882ee4f071f61ade.md",
     "static/media/python pandas.md": "/static/media/python pandas.9a44cc0ed2d0554a4494.md",
@@ -941,6 +947,7 @@
     "static/media/nuxt pages.md": "/static/media/nuxt pages.8a2cba4d5b7456d55e9b.md",
     "static/media/nx tailwindcss.md": "/static/media/nx tailwindcss.27ee56945466f6761354.md",
     "static/media/tailwindcss text-gradient.md": "/static/media/tailwindcss text-gradient.a8ae0797f7e13b7322b1.md",
+    "static/media/docker-entrypoint-initdb.d.md": "/static/media/docker-entrypoint-initdb.d.4ea7273b35650b05297c.md",
     "static/media/nuxt path 감시(watch).md": "/static/media/nuxt path 감시(watch).26add9ea672352aa960b.md",
     "static/media/rxjs 구독 해제(unsubscribe).md": "/static/media/rxjs 구독 해제(unsubscribe).8fd75df9837d4f0b72ec.md",
     "static/media/typescript gts.md": "/static/media/typescript gts.2540b3034f0c9cf1315d.md",
@@ -1091,7 +1098,6 @@
     "static/media/aws redshift.md": "/static/media/aws redshift.a8b851fd124c52b155f4.md",
     "static/media/aws 람다 layer.md": "/static/media/aws 람다 layer.8d493cfc09bb10525798.md",
     "static/media/python builtin method.md": "/static/media/python builtin method.198ec6b6166f033c4782.md",
-    "static/media/nginx openResty.md": "/static/media/nginx openResty.d6da65bf5a631bfee30f.md",
     "static/media/aws sns.md": "/static/media/aws sns.b8b18f0f162c80c1896f.md",
     "static/media/aws sqs.md": "/static/media/aws sqs.4015cc926b6db30781b3.md",
     "static/media/phaser3.md": "/static/media/phaser3.460166d56637924bfd29.md",
@@ -1116,10 +1122,10 @@
     "static/media/svg morphing.md": "/static/media/svg morphing.31d6cfe0d16ae931b73c.md",
     "static/media/typeORM-query.md": "/static/media/typeORM-query.31d6cfe0d16ae931b73c.md",
     "main.cb88a576.css.map": "/static/css/main.cb88a576.css.map",
-    "main.b5a9a0f2.js.map": "/static/js/main.b5a9a0f2.js.map"
+    "main.09c6a05c.js.map": "/static/js/main.09c6a05c.js.map"
   },
   "entrypoints": [
     "static/css/main.cb88a576.css",
-    "static/js/main.b5a9a0f2.js"
+    "static/js/main.09c6a05c.js"
   ]
 }
