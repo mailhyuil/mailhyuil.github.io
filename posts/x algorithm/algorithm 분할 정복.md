@@ -17,22 +17,19 @@
 > > n-1개일때 가능하다면 n개일때도 가능하다
 
 ```js
-function solution(n) {
-  const answer = [];
+const answer = [];
 
-  const hanoi = (n, start, mid, end) => {
-    if (n === 1) answer.push([start, end]);
-    else {
-      hanoi(n - 1, start, end, mid);
-      answer.push([start, end]);
-      hanoi(n - 1, mid, start, end);
-    }
-  };
+const hanoi = (n, start, mid, end) => {
+  if (n === 1) {
+    answer.push([start, end]);
+  } else {
+    hanoi(n - 1, start, end, mid);
+    answer.push([start, end]);
+    hanoi(n - 1, mid, start, end);
+  }
+};
 
-  hanoi(n, 1, 2, 3);
-  return answer;
-}
-
-const res = solution(2);
-console.log(res);
+const N = 2;
+hanoi(N, 1, 2, 3);
+console.log(answer);
 ```
