@@ -33,17 +33,17 @@
 > 반복문을 이용해 초기 항부터 계산
 
 ```js
-// 앞서 계산된 결과를 저장하기 위한 DP 테이블 초기화
-const d = new Array(100).fill(0);
+// 한번 계산된 결과를 메모이제이션(Memoization)하기 위한 DP 테이블 초기화
+const table = new Array(100).fill(0);
 // 첫 번째 피보나치 수와 두 번째 피보나치 수는 1
-d[1] = 1;
-d[2] = 1;
+table[1] = 1;
+table[2] = 1;
 n = 99;
 // 피보나치 함수(Fibonacci Function) 반복문으로 구현(바텀업 다이나믹 프로그래밍)
 for (let i = 3; i <= n; i++) {
-  d[i] = d[i - 1] + d[i - 2];
+  table[i] = table[i - 1] + table[i - 2];
 }
-console.log(d[n]);
+console.log(table[n]);
 ```
 
 ### 하향식 (탑다운)
@@ -51,7 +51,8 @@ console.log(d[n]);
 > 재귀 함수를 이용해 큰 항을 구하기 위해 작은(이전) 항을 호출하는 방식
 
 ```js
-const d = new Array(100).fill(0); // 한 번 계산된 결과를 메모이제이션(Memoization)하기 위한 리스트 초기화
+// 한번 계산된 결과를 메모이제이션(Memoization)하기 위한 DP 테이블 초기화
+const table = new Array(100).fill(0);
 function fibo(x) {
   // 피보나치 함수(Fibonacci Function)를 재귀함수로 구현(탑다운 다이나믹 프로그래밍)
   if (x == 1 || x == 2) {
@@ -59,12 +60,12 @@ function fibo(x) {
     return 1;
   }
   // 이미 계산한 적 있는 문제라면 그대로 반환
-  if (d[x] != 0) {
-    return d[x];
+  if (table[x] != 0) {
+    return table[x];
   }
   // 아직 계산하지 않은 문제라면 점화식에 따라서 피보나치 결과 반환
-  d[x] = fibo(x - 1) + fibo(x - 2);
-  return d[x];
+  table[x] = fibo(x - 1) + fibo(x - 2);
+  return table[x];
 }
 console.log(fibo(99));
 ```
