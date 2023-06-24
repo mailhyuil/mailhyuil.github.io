@@ -22,7 +22,9 @@ const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule,
 });
 ```
 
-## controller
+## Server (Controller)
+
+### controller
 
 ```ts
 import { Controller } from "@nestjs/common";
@@ -53,10 +55,69 @@ export class MathController {
 }
 ```
 
-# NATS, gRPC, Kafka, RabbitMQ, MQTT
+## Client (Service)
 
-> 메시징을 위한 tech stacks
->
-> > 전부 server to server tech stack
-> >
-> > > gRPC, MQTT는 client to server tech stack이기도 함
+### tcp.module.ts
+
+```ts
+import { Module } from "@nestjs/common";
+import { TcpService } from "./tcp.service";
+import { ClientsModule, Transport } from "@nestjs/microservices";
+
+@Module({
+  imports: [
+    ClientsModule.register([
+      {
+        name: "TCP_SERVICE",
+        transport: Transport.TCP,
+        options: {
+          host: "localhost",
+          port: 3001,
+        },
+      },
+    ]),
+  ],
+  providers: [TcpService],
+  exports: [TcpService],
+})
+export class TcpModule {
+  constructor() {}
+}
+```
+
+### tcp.service.ts
+
+```ts
+import { Inject, Injectable } from "@nestjs/common";
+import { ClientProxy } from "@nestjs/microservices";
+@Injectable()
+export class TcpService {
+  constructor(@Inject("TCP_SERVICE") private client: ClientProxy) {}
+  async onApplicationBootstrap() {
+    console.log("onApplicationBootstrap");
+    await this.client.connect();
+  }
+  send<T, K>(pattern: any, data: T) {
+    return this.client.send<K>(pattern, data);
+  }
+}
+```
+
+### controller
+
+```ts
+import { Controller, Get } from "@nestjs/common";
+import { TcpService } from "./services/tcp.service";
+@Controller()
+export class AppController {
+  constructor(private readonly tcpService: TcpService) {}
+  @Get("order")
+  async order() {
+    this.tcpService.send<string, string>("order", JSON.stringify({ name: "SANGBAEK", order: "Iced Americano" })).subscribe({
+      next: (result) => console.log(result),
+      error: (error) => console.log(error),
+      complete: () => console.log("complete"),
+    });
+  }
+}
+```
