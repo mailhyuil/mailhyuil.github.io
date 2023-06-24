@@ -13,19 +13,12 @@ docker run --name openresty -d -p 9000:8080 bitnami/openresty:latest
 > nginx config 파일과 비슷하지만 lua 스크립트를 사용하여 동적으로 처리할 수 있다.
 
 ```conf
-worker_processes  1;
-error_log logs/error.log;
-events {
-    worker_connections 1024;
-}
-http {
-    server {
-        listen 8080;
-        location / {
-            default_type text/html;
-            content_by_lua_block { # lua 스크립트
-                ngx.say("<p>hello, world</p>")
-            }
+server {
+    listen 8080;
+    location / {
+        default_type text/html;
+        content_by_lua_block { # lua 스크립트
+            ngx.say("<p>hello, world</p>")
         }
     }
 }
