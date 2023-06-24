@@ -1,5 +1,9 @@
 # 이진 탐색
 
+> 데이터가 "정렬"되어 있는 경우 사용할 수 있다.
+>
+> > 데이터를 절반 씩 줄여나가면서 탐색
+
 ## 재귀함수
 
 ```js
@@ -20,7 +24,7 @@ let target = 7;
 arr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
 // 이진 탐색 수행 결과 출력
 let result = binarySearch(arr, target, 0, n - 1);
-if (result == -1) console.log('원소가 존재하지 않습니다.');
+if (result == -1) console.log("원소가 존재하지 않습니다.");
 else console.log(`${result + 1}번째 원소입니다.`);
 ```
 
@@ -46,6 +50,6 @@ let target = 7;
 arr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
 // 이진 탐색 수행 결과 출력
 let result = binarySearch(arr, target, 0, n - 1);
-if (result == -1) console.log('원소가 존재하지 않습니다.');
+if (result == -1) console.log("원소가 존재하지 않습니다.");
 else console.log(`${result + 1}번째 원소입니다.`);
 ```
