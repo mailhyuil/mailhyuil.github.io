@@ -12,63 +12,6 @@
 
 ![](img/apache&nginx.png)
 
----
-
-## proxy_pass
-
-> 기본 바인딩 포트 80 // 포트 80은 표준 웹포트다.
->
-> > Browser -> public_id:80 -> private_ip:3000
-> >
-> > > /etc/nginx/conf.d/\*.conf
-
-```conf
-worker_processes  1;
-events {
-    worker_connections  1024;
-}
-http {
-    include mime.types;
-    server {
-        listen       80;
-
-    #upstream my_server {
-    #    server http://10.0.0.36:3000;
-    #}
-
-        location / {
-            proxy_pass http://10.0.0.36:3000;
-
-        # 502 Bad Gateway 에러 방지
-        proxy_buffer_size          128k;
-        proxy_buffers              4 256k;
-        proxy_busy_buffers_size    256k;
-        }
-    }
-}
-```
-
-### upstream
-
-```conf
-#include /etc/nginx/conf.d/*.conf;
-upstream upstream이름 {
-    server tomcat컨테이너ip:8080;
-    server tomcat컨테이너ip:8080;
-}
-server {
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-        location / {
-            root   /usr/share/nginx/html;
-            index  index.html index.htm;
-            proxy_pass http://upstream이름;
-
-            }
-}
-```
-
 ## 파일 크기 제한
 
 > nginx.conf
@@ -76,8 +19,6 @@ server {
 ```conf
 http {
     client_max_body_size 5M; // 기본값 1m 제한없음 0
-
-    ...
 }
 ```
 
