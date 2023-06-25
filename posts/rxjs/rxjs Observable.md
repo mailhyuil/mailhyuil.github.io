@@ -3,6 +3,10 @@
 > Observer에게 값을 전달
 >
 > > 콜백함수에 후속조치를 정의
+> >
+> > > stream을 기반으로 한다.
+> > >
+> > > > 즉 Observable을 구독하는 행위는 stream에 connect하는 행위이다.
 
 ## 생성
 

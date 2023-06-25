@@ -14,12 +14,9 @@ choco install kubernetes-helm
 
 ```sh
 # helm repo add [repo name] [repo url]
-
 helm repo add bitnami https://charts.bitnami.com/bitnami
-
 # chart 리스트 출력
 helm repo list
-
 # charts 업데이트
 helm repo update
 
@@ -41,4 +38,15 @@ helm create my-chart
 
 # chart pull
 helm pull bitnami/nginx --untar
+
+helm get values
+helm get hooks
+helm get manifest
+helm get notes
+
+helm get history
+
+helm show
+
+helm upgrade
 ```
