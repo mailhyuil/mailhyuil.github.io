@@ -1,6 +1,6 @@
 # d3 dom
 
-> DOM이 svg 크기 밖으로 나가버리면 안보임 주의! 그래서 margin 주는 것
+> selection을 통해서 조작 가능
 
 ```js
 d3.select("div").style("background-color", "blue").style("color", "red");

@@ -63,3 +63,17 @@
   <text x="0" y="15" fill="red">I love SVG</text>
 </svg>
 ```
+
+## g
+
+> 도형 요소들을 그룹화
+
+```
+<svg>
+  <g>
+    <circle cx="50" cy="50" r="30" fill="red" />
+    <rect x="80" y="20" width="50" height="50" fill="blue" />
+    <path d="M20,80 L80,80 L50,120 Z" fill="green" />
+  </g>
+</svg>
+```
