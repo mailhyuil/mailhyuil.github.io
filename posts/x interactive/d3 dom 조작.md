@@ -4,7 +4,7 @@
 
 ```
 .attr()
-.classed()
+.classed() // .classed('text-red-400 font-bold text-3xl bg-yellow-300 my-10', true)
 .style()
 .text()
 .html()
