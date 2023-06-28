@@ -9,54 +9,37 @@
 > > > > 분할 정복 알고리즘 중 하나
 
 ```js
-// 병합 정렬(merge sort) 함수 // 나누고, 정렬하고, 합치는 과정
-function mergeSort(arr, left, right) {
-  // 원소가 1개인 경우, 해당 배열은 정렬이 된 상태
-  if (left < right) {
-    // 원소가 2개 이상이라면
-    let mid = parseInt((left + right) / 2); // 2개의 부분 배열로 분할(divide) // 중앙값 구하기 공식: (left + right) / 2
+function merge(left, right) {
+  const sortedArr = [];
 
-    mergeSort(arr, left, mid); // 왼쪽 부분을 다시 2개로 분할(divide)
-    mergeSort(arr, mid + 1, right); // 오른쪽 부분을 다시 2개로 분할(divide)
-    merge(arr, left, mid, right); // 정렬된 2개의 배열을 하나로 병합(conquer & combine)
-  }
-}
-
-// 병합(merge) 수행 함수
-function merge(arr, left, mid, right) {
-  let _left = left;
-  let _right = mid + 1;
-  let _cur = left; // 정렬된 원소를 저장할 배열의 인덱스
-  // case1 : 정렬할 배열의 왼쪽 부분과 오른쪽 부분을 비교하여, 작은 값이 sorted 배열에 저장
-  while (_left <= mid && _right <= right) {
-    if (arr[_left] <= arr[_right]) {
-      sorted[_cur++] = arr[_left++];
+  // 정렬
+  while (left.length && right.length) {
+    //left[0]이 더작을 경우 같을때는 누가 먼저 들어가도 상관X
+    if (left[0] <= right[0]) {
+      sortedArr.push(left.shift());
     } else {
-      sorted[_cur++] = arr[_right++];
-    }
-  }
-  // case2 : 왼쪽 부분 배열이 먼저 정렬이 끝난 경우(_left > mid), 오른쪽 부분 배열에 남은 원소들을 그대로 sorted 배열에 저장
-  if (_left > mid) {
-    for (; _right <= right; _right++) {
-      sorted[_cur++] = arr[_right];
-    }
-  } else {
-    // case3 : 오른쪽 부분 배열이 먼저 정렬이 끝난 경우(_left <= mid), 왼쪽 부분 배열에 남은 원소들을 그대로 sorted 배열에 저장
-    for (; _left <= mid; _left++) {
-      sorted[_cur++] = arr[_left];
+      sortedArr.push(right.shift());
     }
   }
 
-  // 정렬된 배열 결과(sorted)를 원본 배열(arr)에 반영
-  for (let x = left; x <= right; x++) {
-    arr[x] = sorted[x];
-  }
+  //left,right 둘 중 하나는 요소가 남아있기 때문에 sortedArr 뒤에 붙여서 출력
+  //비어있으면 spread Syntax에도 아무것도 없기 때문에 그냥 다 붙여준다.
+  return [...sortedArr, ...left, ...right];
 }
 
-///////////////////////-- 사용 --///////////////////////
-const arr = [2, 4, 5, 76, 78, 8, 7, 5, 4, 2, 32, 453, 345, 567, 6, 3];
-const sorted = Array.from({ length: arr.length }, () => 0);
-mergeSort(arr, 0, arr.length - 1);
+function mergeSort(arr) {
+  if (arr.length === 1) return arr;
+  const mid = Math.ceil(arr.length / 2);
+  //slice로 해주기 때문에 원본 arr은 손상 없다.
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+  //요소가 1개 일 때까지 재귀를 실행해 요소가 1개일 때 두 left,right부터
+  //차근차근 merge(정렬해서 합치기)해주면 된다.
+  return merge(mergeSort(left), mergeSort(right));
+}
 
-console.log(arr);
+const arr = [7, 4, 3, 2, 1, 6, 5];
+const sortedArray = mergeSort(arr);
+console.log(arr); //[7, 4, 3, 2, 1, 6, 5]
+console.log(sortedArray); //[1, 2, 3, 4,5, 6, 7]
 ```

@@ -23,6 +23,18 @@ svg
   .attr("x", (_, i) => x.bandwidth() * i); // bandwidth만큼 띄워서 그림
 //.attr("y", (d) => 500 - d * 100); // 막대 반대로 그리기
 
-// 5. x 길이에 맞춰서 axis 그리기
+// 5. 언더바 그리기
+svg
+  .selectAll(".underbar")
+  .data(data)
+  .enter() // 들어오는 데이터만큼 반복
+  .append("rect")
+  .attr("class", "underbar")
+  .attr("width", x.bandwidth())
+  .attr("height", 10)
+  .attr("x", (_, i) => x.bandwidth() * i) // bandwidth만큼 띄워서 그림
+  .attr("y", (d) => 498);
+
+// 6. x 길이에 맞춰서 axis 그리기
 svg.append("g").attr("transform", `translate(0, ${500})`).call(d3.axisTop(x));
 ```
