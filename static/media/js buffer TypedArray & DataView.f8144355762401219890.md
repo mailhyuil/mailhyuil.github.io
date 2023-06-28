@@ -1,5 +1,7 @@
 # js TypedArray & DataView
 
+> ArrayBuffer를 읽기, 쓰기 위해서는 TypedArray 또는 DataView를 사용해야 한다.
+
 ## TypedArray
 
 > UnitArray 8 16 32 // Uint8ClampedArray (부호 없는 정수)
