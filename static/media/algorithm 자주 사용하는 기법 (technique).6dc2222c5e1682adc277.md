@@ -98,3 +98,7 @@ console.log("Selected Server:", selectedServer);
 ```
 
 ## 감지 기법
+
+## 투포인터
+
+> start, end 또는 left, right 두개의 포인터를 이용해서 특정한 조건을 만족할 때까지 앞으로 나가거나 뒤로 나가는 기법

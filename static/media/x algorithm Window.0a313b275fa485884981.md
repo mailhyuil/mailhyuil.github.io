@@ -46,6 +46,12 @@ class AtomicInteger {
 
 ## Sliding Window Log
 
+> [1,[2,3,4],5,6] // [2,3,4] 가 윈도우
+>
+> > 1초마다 윈도우를 이동시키면서 윈도우에 포함된 요소의 개수를 세는 방식
+> >
+> > > 투포인터 사용
+
 ```js
 class SlidingWindowLog {
   constructor(maxRequestPerSec) {
