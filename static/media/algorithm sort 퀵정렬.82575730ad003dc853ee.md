@@ -1,8 +1,8 @@
 # 퀵정렬
 
-> 투 포인터 사용
+> pivot index를 사용
 >
-> > pivot index를 사용
+> > 병합정렬은 stable 하지만, 퀵 정렬은 unstable 하다.
 
 ```js
 const quickSort = function (arr) {
