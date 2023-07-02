@@ -34,6 +34,10 @@ rl.on("line", (line: string) => {
 
 ## new Array
 
+```js
+new Array(10).fill(0);
+```
+
 ## toFixed(2)
 
 > 소수점 2자리에서 자르기
@@ -61,44 +65,8 @@ for (let i = 0; i < 100; i++) {
 console.log(answer);
 ```
 
-## 분배 기법
-
-### Weighted Distribution
-
-> 난수를 이용해서 선택을 결정한다.
->
-> > weight대신 다른 값을 사용가능 ex) latency...
-
-```js
-const servers = [
-  { name: "Server1", weight: 0.5 },
-  { name: "Server2", weight: 0.5 },
-  { name: "Server3", weight: 0.5 },
-];
-
-function getWeightedServer() {
-  const totalWeight = servers.reduce((a, b) => a + b.weight, 0);
-  const random = Math.random() * totalWeight;
-  let cumulativeWeight = 0;
-
-  for (const server of servers) {
-    cumulativeWeight += server.weight;
-    console.log("cumulativeWeight:", cumulativeWeight);
-    console.log("random:", random);
-    if (random < cumulativeWeight) {
-      return server.name;
-    }
-  }
-
-  return false;
-}
-
-const selectedServer = getWeightedServer();
-console.log("Selected Server:", selectedServer);
-```
-
-## 감지 기법
-
 ## 투포인터
 
 > start, end 또는 left, right 두개의 포인터를 이용해서 특정한 조건을 만족할 때까지 앞으로 나가거나 뒤로 나가는 기법
+
+## 반복문 내에서는 반드시 조건문을 고려해라!

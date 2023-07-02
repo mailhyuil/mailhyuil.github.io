@@ -20,7 +20,6 @@ while (start < data.length) {
   // end를 가능한 만큼 이동시키기
   while (intervalSum < m && end < data.length) {
     intervalSum += data[end];
-    console.log(intervalSum);
     end++;
   }
 
