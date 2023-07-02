@@ -11,12 +11,12 @@
 ```js
 const data = [3, 2, 4, 1, 2, 2, 1, 5]; // 전체 수열
 const m = 5; // 찾고자 하는 부분합 M
-let count = 0;
-let intervalSum = 0;
 let start = 0;
 let end = 0;
+let intervalSum = 0;
+let count = 0;
 // start를 차례대로 증가시키며 반복
-for (; start < data.length; start++) {
+while (start < data.length) {
   // end를 가능한 만큼 이동시키기
   while (intervalSum < m && end < data.length) {
     intervalSum += data[end];
@@ -29,6 +29,7 @@ for (; start < data.length; start++) {
   }
 
   intervalSum -= data[start];
+  start++;
 }
 console.log(count);
 ```
