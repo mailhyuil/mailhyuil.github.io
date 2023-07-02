@@ -2,7 +2,7 @@
 
 1. VNC 서버 install
 
-```
+```sh
 sudo apt install gnome-panel gnome-settings-daemon metacity tightvnc
 ```
 
@@ -10,13 +10,13 @@ sudo apt install gnome-panel gnome-settings-daemon metacity tightvnc
 
 3. 1번 디스플레이 서비스 중지
 
-```
+```sh
 vncserver -kill :1
 ```
 
 4. `~/.vnc/xstartup` 파일 행 추가
 
-```
+```sh
 gnome-panel &
 gnome-settings-daemon &
 metacity &
