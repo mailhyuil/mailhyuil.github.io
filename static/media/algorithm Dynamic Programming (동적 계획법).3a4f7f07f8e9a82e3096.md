@@ -1,4 +1,4 @@
-# dynamic programming (동적 계획법)
+# Dynamic Programming (동적 계획법)
 
 > 메모리를 더 사용해서 시간 복잡도를 개선
 
@@ -33,17 +33,20 @@
 > 반복문을 이용해 초기 항부터 계산
 
 ```js
-// 한번 계산된 결과를 메모이제이션(Memoization)하기 위한 DP 테이블 초기화
-const DpTable = new Array(100).fill(0);
-// 첫 번째 피보나치 수와 두 번째 피보나치 수는 1
-DpTable[1] = 1;
-DpTable[2] = 1;
-n = 99;
-// 피보나치 함수(Fibonacci Function) 반복문으로 구현(바텀업 다이나믹 프로그래밍)
-for (let i = 3; i <= n; i++) {
-  DpTable[i] = DpTable[i - 1] + DpTable[i - 2];
-}
-console.log(DpTable[n]);
+const fibo = (n) => {
+  // 한번 계산된 결과를 메모이제이션(Memoization)하기 위한 DP 테이블 초기화
+  const dpTable = new Array(n + 1).fill(0);
+  // 첫 번째 피보나치 수와 두 번째 피보나치 수는 1
+  dpTable[1] = 1;
+  dpTable[2] = 1;
+  // 피보나치 함수(Fibonacci Function) 반복문으로 구현(바텀업 다이나믹 프로그래밍)
+  for (let i = 3; i <= n; i++) {
+    dpTable[i] = dpTable[i - 1] + dpTable[i - 2];
+  }
+  return dpTable[n];
+};
+
+console.log(fibo(10));
 ```
 
 ### 하향식 (탑다운)
@@ -51,21 +54,19 @@ console.log(DpTable[n]);
 > 재귀 함수를 이용해 큰 항을 구하기 위해 작은(이전) 항을 호출하는 방식
 
 ```js
-// 한번 계산된 결과를 메모이제이션(Memoization)하기 위한 DP 테이블 초기화
-const DpTable = new Array(100).fill(0);
-function fibo(x) {
-  // 피보나치 함수(Fibonacci Function)를 재귀함수로 구현(탑다운 다이나믹 프로그래밍)
-  if (x == 1 || x == 2) {
-    // 종료 조건(1 혹은 2일 때 1을 반환)
-    return 1;
-  }
+function fibo(n) {
+  const dpTable = new Array(n + 1).fill(0);
+
+  // 탈출 조건
+  if (n == 1 || n == 2) return 1;
+
   // 이미 계산한 적 있는 문제라면 그대로 반환
-  if (DpTable[x] != 0) {
-    return DpTable[x];
-  }
+  if (dpTable[n] != 0) return dpTable[n];
+
   // 아직 계산하지 않은 문제라면 점화식에 따라서 피보나치 결과 반환
-  DpTable[x] = fibo(x - 1) + fibo(x - 2);
-  return DpTable[x];
+  dpTable[n] = fibo(n - 1) + fibo(n - 2);
+
+  return dpTable[n];
 }
-console.log(fibo(99));
+console.log(fibo(10));
 ```
