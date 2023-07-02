@@ -1,10 +1,14 @@
 # linked list
 
+> LinkedList도 일종의 Graph 자료구조다. (단순 연결 리스트(Singly Linked List))
+
 ## js object로 linked list 구현하기
 
 > Node는 next를 가지고 있고, next는 다음 Node를 가리킨다.
 >
 > > LinkedList는 head를 가지고 있고, head는 처음으로 연결된 Node를 가리킨다.
+> >
+> > > LinkedList도 일종의 Graph 자료구조다.
 
 ```js
 const linkedList = {
