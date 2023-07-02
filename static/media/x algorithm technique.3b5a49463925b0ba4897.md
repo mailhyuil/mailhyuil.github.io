@@ -1,6 +1,6 @@
-# algorithm js 자주 사용하는 기능
+# algorithm js technique
 
-## fs 파일 읽기
+## 파일 읽기
 
 ```js
 const fs = require("fs");
@@ -12,7 +12,7 @@ const line1 = parseInt(lines[0]);
 const line2 = parseInt(lines[1]);
 ```
 
-## readline
+## console에서 입력받기
 
 ```js
 const rl = require("readline").createInterface({
@@ -35,12 +35,8 @@ rl.on("line", (line: string) => {
 ## new Array
 
 ```js
-new Array(10).fill(0);
+new Array(n + 1).fill(0);
 ```
-
-## toFixed(2)
-
-> 소수점 2자리에서 자르기
 
 ## 값 변환
 
@@ -55,6 +51,8 @@ input+''
 ## 빠른 출력
 
 > console.log를 한번만 호출 시켜라
+>
+> > minibatch
 
 ```js
 let answer = "";
@@ -68,5 +66,9 @@ console.log(answer);
 ## 투포인터
 
 > start, end 또는 left, right 두개의 포인터를 이용해서 특정한 조건을 만족할 때까지 앞으로 나가거나 뒤로 나가는 기법
+
+## visited table
+
+> 방문한 노드를 체크하는 배열
 
 ## 반복문 내에서는 반드시 조건문을 고려해라!
