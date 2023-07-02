@@ -13,13 +13,14 @@ const data = [3, 2, 4, 1, 2, 2, 1, 5]; // 전체 수열
 const m = 5; // 찾고자 하는 부분합 M
 let start = 0;
 let end = 0;
-let intervalSum = 0;
+let intervalSum = 0; // intervalSum은 부분합(구간합)을 의미
 let count = 0;
 // start를 차례대로 증가시키며 반복
 while (start < data.length) {
   // end를 가능한 만큼 이동시키기
   while (intervalSum < m && end < data.length) {
     intervalSum += data[end];
+    console.log(intervalSum);
     end++;
   }
 
@@ -28,7 +29,7 @@ while (start < data.length) {
     count++;
   }
 
-  intervalSum -= data[start];
+  intervalSum -= data[start]; // end의 합에서 start를 빼주면 부분합(구간합)이 됨
   start++;
 }
 console.log(count);
