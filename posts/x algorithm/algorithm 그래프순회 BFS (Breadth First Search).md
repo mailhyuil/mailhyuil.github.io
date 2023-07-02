@@ -29,9 +29,9 @@ function bfs(graph, start, visited) {
 }
 
 // 각 노드가 연결된 정보를 표현
-graph = [[], [2, 3, 4], [1], [1, 5, 6], [1, 7], [3, 8], [3], [4], [5]]; // 간편한 구현을 위해서 0번 노드를 사용하지 않는다..
+const graph = [[], [2, 3, 4], [1], [1, 5, 6], [1, 7], [3, 8], [3], [4], [5]]; // 간편한 구현을 위해서 0번 노드를 사용하지 않는다..
 // 각 노드가 방문된 정보를 표현
-visited = Array(9).fill(false);
+const visited = Array(9).fill(false);
 // 정의된 BFS 함수 호출
 bfs(graph, 1, visited);
 ```
