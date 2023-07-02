@@ -10,7 +10,7 @@
 
 ## 백트래킹 구조
 
-```
+```js
 function recursive(){
   if(종료조건){
     return
