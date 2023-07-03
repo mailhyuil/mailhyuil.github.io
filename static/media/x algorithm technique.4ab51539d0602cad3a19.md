@@ -84,3 +84,9 @@ console.log(answer);
 > > if로 조건을 걸어서 불필요한 탐색을 줄이기
 
 ## 반복문 내에서는 반드시 조건문을 고려해라!
+
+# object를 key로 쓰기 기법
+
+> Map, WeakMap으로 구현 가능
+>
+> > WeakMap을 고려

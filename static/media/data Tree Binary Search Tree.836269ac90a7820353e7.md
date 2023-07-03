@@ -1,5 +1,9 @@
 # 이진 검색 트리
 
+> 이진트리는 key와 value를 가지고 있어야 한다.
+>
+> > 이진 트리 구조는 항상 정렬이 되어있어야 한다.
+
 ```ts
 class BinarySearchTree {
   //BST의 constructor를 구현합니다.
