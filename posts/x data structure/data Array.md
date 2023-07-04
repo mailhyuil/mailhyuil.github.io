@@ -1,4 +1,4 @@
-# algorithm js array
+# Array
 
 > 동적 배열
 >

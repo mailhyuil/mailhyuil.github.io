@@ -1,4 +1,4 @@
-# tree
+# Tree
 
 > 루트노드 : 부모가 없는 최상위 노드
 >
@@ -36,8 +36,8 @@ class Tree {
   }
 }
 
-const tree = new Tree('a');
-tree.insertNode('b');
-tree.insertNode('c');
-console.log(tree.contains('a'));
+const tree = new Tree("a");
+tree.insertNode("b");
+tree.insertNode("c");
+console.log(tree.contains("a"));
 ```

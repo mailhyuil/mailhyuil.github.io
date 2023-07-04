@@ -1,4 +1,4 @@
-# graph
+# Graph
 
 > 정점(vertex === node && vertices === nodes)와 간선(edge)
 >

@@ -10,6 +10,20 @@
 > > > >
 > > > > > 재귀 함수에서 탈출 조건에 닿으면 풀리면서 탈출 조건에서 리턴한 값부터 다음 재귀함수에게 전달 전달 리턴한다.
 
+## 재귀 로직을 구현하기 전 생각할 것
+
+> f(𝑛) = f(𝑛−1) + f(𝑛−2) + ...
+
+```
+function recur(n: number): number {
+  if (n < 1) return 0;
+  return 1 + recur(n - 1);
+}
+
+const count = recur(10);
+console.log(count);
+```
+
 ```js
 const data = 'hello';
 
