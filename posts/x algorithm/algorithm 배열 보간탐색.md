@@ -38,15 +38,9 @@ function interpolationSearch(arr, target) {
   return -1; // 탐색 실패
 }
 
-// 예시 사용
 const sortedArray = [1, 3, 5, 7, 9, 11, 13, 15, 17];
-const targetValue = 11;
 
-const resultIndex = interpolationSearch(sortedArray, targetValue);
+const resultIndex = interpolationSearch(sortedArray, 11);
 
-if (resultIndex !== -1) {
-  console.log(`탐색 성공! 인덱스 ${resultIndex}에서 값을 찾았습니다.`);
-} else {
-  console.log("탐색 실패! 값을 찾지 못했습니다.");
-}
+console.log(resultIndex);
 ```
