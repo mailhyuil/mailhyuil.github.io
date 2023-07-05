@@ -10,6 +10,26 @@
 2. 정복(conquer) = 더 이상 쪼갤 수 없을 때까지 분할 하는 것
 3. 조합(combine)
 
+## divide conquer and combine
+
+1. 탈출조건에 가까워지도록 divide
+2. 탈출조건에 닿으면 conquer된 상태이다.
+3. combine 로직을 통해 남아있는 문제 해결
+
+```js
+function recur(){
+  if () return '' // conquer된 상태
+
+  // divide 로직
+
+  const res = recur()
+
+  // combine 로직
+
+  return res
+}
+```
+
 ## 하노이 탑
 
 > 분할 정복의 대표적인 예

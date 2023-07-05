@@ -85,8 +85,22 @@ console.log(answer);
 
 ## 반복문 내에서는 반드시 조건문을 고려해라!
 
-# object를 key로 쓰기 기법
+## object를 key로 쓰기 기법
 
 > Map, WeakMap으로 구현 가능
 >
 > > WeakMap을 고려
+
+## for/while 문 내의 재귀문
+
+> 재귀문을 반복적으로 호출
+>
+> > 조건문을 통해서 재귀문 호출을 줄여나가야함
+
+```js
+for (i of array) {
+  if (!visited[i]) {
+    dfs(graph, i, visited);
+  }
+}
+```

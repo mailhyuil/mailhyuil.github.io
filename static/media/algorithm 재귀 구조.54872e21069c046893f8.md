@@ -14,7 +14,7 @@
 
 > f(𝑛) = f(𝑛−1) + f(𝑛−2) + ...
 
-```
+```js
 function recur(n: number): number {
   if (n < 1) return 0;
   return 1 + recur(n - 1);

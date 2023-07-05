@@ -8,38 +8,23 @@
 > > >
 > > > > 이미 해결한 문제를 또 해결해야 한다. => 동적 계획법으로 해결
 
-## 재귀와 수학적 귀납법
+## divide conquer and combine
 
-> 어떤 문제를 재귀로 푼다는 것은 곧 귀납적인 방식으로 문제를 해결 하는 것이다.
->
-> > 수학적 귀납법을 이용해 정확성을 증명해야한다.
+1. 탈출조건에 가까워지도록 divide
+2. 탈출조건에 닿으면 conquer된 상태이다.
+3. combine 로직을 통해 남아있는 문제 해결
 
-```
-1. p(1) 이 참이다 // base case
-2. p(n) 이 참이면 p(n+1)도 참이다 // recursive case
-3. 1과 2를 모두 만족하면, 모든 자연수 n은 참이다.
-```
+```js
+function recur(){
+  if () return '' // conquer된 상태
 
-```
-1번이 쓰러지면 2번이 쓰러지고, 2번이 쓰러지면 3번이 쓰러지고 ...
-이렇게 계속 진행되기 때문에 모든 도미노가 쓰러진다고 할 수 있다.
+  // divide 로직
 
-/*귀납적 사고*/
-1. 1번이 쓰러진다 (1) // base case
-2. k번이 쓰러지면 k+1번도 쓰러진다
-3. 1과 2가 참이기 때문에 모든 도미노는 쓰러진다.
-```
+  const res = recur()
 
-## 구조
+  // combine 로직
 
-1. base case : 탈출 조건
-2. recursive case : 남아있는 문제 해결
-
-```
-function recursive(n){
-    if(n===0) return; // base case
-    /* add logic */
-    recursive(n-1); // recursive case
+  return res
 }
 ```
 
