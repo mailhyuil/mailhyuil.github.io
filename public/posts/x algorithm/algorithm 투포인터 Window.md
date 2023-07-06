@@ -75,6 +75,30 @@ class SlidingWindowLog {
 ## Sliding Window Counter
 
 ```js
+function slidingWindow(n, arr) {
+  let res = 0;
+  let sum = 0;
+
+  // 앞의 n개 더하기
+  for (let i = 0; i < n; i++) {
+    sum += arr[i];
+  }
+
+  res = sum;
+
+  // 슬라이딩 윈도
+  for (let i = n; i < arr.length; i++) {
+    sum += arr[i] - arr[i - n];
+    res = Math.max(res, sum);
+  }
+
+  return res;
+}
+
+console.log(slidingWindow(2, [7, 6, 5, 4, 3, 2, 1]));
+```
+
+```js
 class SlidingWindow {
   constructor(maxRequestPerSec, windowSizeInMs) {
     this.windows = new Map();

@@ -1,21 +1,21 @@
 # 투 포인터
 
-> 리스트에 순차적으로 접근할 때 두 개의 점의 위치를 기록하면서 처리하는 알고리즘
+> 두 포인터 사이의 "구간"을 조정하면서 "원하는 조건을 만족하는 부분"을 찾는 것
 >
-> > 시작점과 끝점 2개의 포인터를 슬라이딩 시키면서 포인터 인덱스로 접근
+> > 투 포인터 알고리즘은 중첩된 for 루프를 사용하는 방법보다 더 효율적입니다. 중첩된 for 루프를 사용할 경우 시간 복잡도가 O(n^2)가 되는 반면, 투 포인터 알고리즘을 사용하면 시간 복잡도를 O(n)으로 줄일 수 있습니다.
 > >
-> > > 인덱스로 접근하는 경우 전부 사용 가능
+> > > left는 0 right는 arr.length-1이여야한다.
 > > >
 > > > > 퀵정렬, 슬라이딩 윈도우 등에서 사용
 
-## 특정한 합을 가지는 부분 연속 수열 찾기
+## 특정한 합을 가지는 부분 연속 수열 찾기 (구간합)
 
 ```js
 const data = [3, 2, 4, 1, 2, 2, 1, 5]; // 전체 수열
-const m = 5; // 찾고자 하는 부분합 M
+const m = 5; // 찾고자 하는 구간합 M
 let start = 0;
 let end = 0;
-let intervalSum = 0; // intervalSum은 부분합(구간합)을 의미
+let intervalSum = 0; // intervalSum은 구간합을 의미
 let count = 0;
 // start를 차례대로 증가시키며 반복
 while (start < data.length) {
@@ -25,12 +25,12 @@ while (start < data.length) {
     end++;
   }
 
-  // 부분합이 m일 때 카운트 증가
+  // 구간합 m일 때 카운트 증가
   if (intervalSum == m) {
     count++;
   }
 
-  intervalSum -= data[start]; // end의 합에서 start를 빼주면 부분합(구간합)이 됨
+  intervalSum -= data[start]; // end의 합에서 start를 빼주면 구간합이 됨
   start++;
 }
 console.log(count);
