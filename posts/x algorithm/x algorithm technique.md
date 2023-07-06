@@ -104,3 +104,17 @@ for (i of array) {
   }
 }
 ```
+
+## 일단 더하고 빼면서 확인하기 기법
+
+```js
+while(){
+  while(){
+    intervalSum += arr[right]
+  }
+
+  intervalSum === m
+
+  intervalSum -= arr[left]
+}
+```
