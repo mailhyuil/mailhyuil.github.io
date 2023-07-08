@@ -1,4 +1,4 @@
-# ionic Capacitor
+# Capacitor
 
 > Cordova를 사용했으나 최신 버전부터는 Capacitor 사용 (deprecated)
 
