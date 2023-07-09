@@ -16,7 +16,6 @@
 
 ```js
 function dijkstra() {
-  // 다익스트라(Dijkstra) 알고리즘 수행
   let pq = new PriorityQueue((a, b) => b[0] - a[0]); // 최소힙(Min Heap) // 시작 노드로 가기 위한 최단 거리는 0으로 우선순위 큐에 삽입 pq.enq([0, start]);
   distance[start] = 0;
   while (pq.size() != 0) {
@@ -31,9 +30,7 @@ function dijkstra() {
     pq.enq([cost, i[0]]);
   }
 }
-```
 
-```js
 let INF = 1e9; // 무한을 의미하는 값으로 10억을 설정
 let n = 7; // 노드의 개수
 let start = 1; // 시작 노드 번호
