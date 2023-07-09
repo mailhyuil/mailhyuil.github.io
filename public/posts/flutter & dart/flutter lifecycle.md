@@ -1,4 +1,4 @@
-# Widget Liftcycle
+# Liftcycle
 
 ## initState()
 
@@ -11,6 +11,20 @@ void initState() {
   print('initState()');
 }
 ```
+
+## didChangeDependencies()
+
+## build()
+
+## didUpdateWidget()
+
+## deactivate()
+
+## reassemble()
+
+## didChangeAppLifecycleState()
+
+## setState()
 
 ## dispose()
 
