@@ -1,6 +1,8 @@
 # Capacitor
 
-> Cordova를 사용했으나 최신 버전부터는 Capacitor 사용 (deprecated)
+> The Native Bridge for Cross-Platform Web Apps
+>
+> > Ionic은 기존에 Cordova를 사용했으나 최신 버전부터는 Capacitor 사용
 
 ## install
 
