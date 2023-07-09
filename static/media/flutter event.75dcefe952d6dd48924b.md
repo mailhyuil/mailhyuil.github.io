@@ -17,3 +17,12 @@ RaisedButton(
 ```
 
 ## GestureDetector
+
+```dart
+body: GestureDetector(
+      onTap: () {
+        Navigator.push(context, route)
+      },
+      child: UserListV2(),
+      )
+```
