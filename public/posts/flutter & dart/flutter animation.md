@@ -1,15 +1,9 @@
 # flutter animation
 
-## AnimationController
+## 암묵적 애니메이션
 
-## Tween
+> 위젯 내에서 지원하는 애니메이션
 
-## AnimatedBuilder
+## 명시적 애니메이션
 
-## CustomPainter
-
-## Ticker
-
-## Curves
-
-## CurvedAnimation
+> 커스텀 애니메이션
