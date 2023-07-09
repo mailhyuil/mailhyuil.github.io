@@ -21,7 +21,11 @@ late final String name = "홍길동";
 // js의 const와 다르다
 // 값을 이미 알고있는 것
 // 컴파일 타임에 상수로 선언
-const name = "홍길동";
+const taxAmount = 15;
+const priceAmount = 30;
+var totalAmount = taxAmount + priceAmount;
+// const로 선언하면 compile시 const로 선언된 변수를 위한 메모리가 할당되는 대신 밑의 코드처럼 대체된다.
+var totalAmount = 15 + 30;
 ```
 
 ## dynamic
