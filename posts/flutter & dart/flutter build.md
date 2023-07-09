@@ -1,0 +1,12 @@
+# flutter build
+
+```
+flutter build apk
+flutter build ios
+flutter build web
+flutter build windows
+flutter build linux
+flutter build macos
+flutter build aot
+flutter build bundle
+```
