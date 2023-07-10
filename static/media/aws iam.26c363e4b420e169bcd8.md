@@ -1,6 +1,8 @@
 # aws iam
 
 > 보안, 인증, 인가
+>
+> > 개발을 위한 권한(Read & Write), Billing Viewer(예산 관리)(Read), Log Viewer 등의 권한(Read)을 부여할 수 있다.
 
 ## group
 
