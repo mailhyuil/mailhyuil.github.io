@@ -1,8 +1,11 @@
 # 기본 명령어
 
 ```
+sudo su
+
 cd
 ls
+ll
 whatis
 mkdir/rmdir
 pwd
