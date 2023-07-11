@@ -31,7 +31,6 @@ function dijkstra() {
   }
 }
 
-let INF = 1e9; // 무한을 의미하는 값으로 10억을 설정
 let n = 7; // 노드의 개수
 let start = 1; // 시작 노드 번호
 // 각 노드에 연결되어 있는 노드에 대한 정보를 담는 리스트를 만들기
@@ -66,14 +65,14 @@ let graph = [
 ];
 
 // 최단 거리 테이블을 모두 무한으로 초기화
-let distance = new Array(n + 1).fill(INF);
+let distance = new Array(n + 1).fill(Infinity);
 
 // 다익스트라 알고리즘을 수행
 dijkstra();
 
 // 모든 노드로 가기 위한 최단 거리를 출력 for (let i = 1; i <= n; i++) {
 // 도달할 수 없는 경우 무한(INFINITY)이라고 출력
-if (distance[i] == INF) {
+if (distance[i] == Infinity) {
   console.log("INFINITY");
 } // 도달할 수 있는 경우 거리를 출력
 else {
