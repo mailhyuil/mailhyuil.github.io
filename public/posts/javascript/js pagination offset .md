@@ -1,8 +1,8 @@
 # js offset pagination
 
-> pageNumber
+> 다양한 정렬 방식을 사용 가능
 >
-> > pageSize
+> > 뒤로 갈 수록 느린 쿼리
 
 ## front-end
 
@@ -22,7 +22,27 @@ const { data: result } = await useApiFetch.get<IPaginationDTO<IPostDTO>>("/post/
 });
 ```
 
-## back-end
+## controller
+
+```ts
+export class SomeController {
+  async search(@Query() option: PaginationOption) {
+    const [entities, count] = await this.someService.search(option);
+    return {
+      entities,
+      pageInfo: {
+        currentPage: option.pageNo,
+        itemsCount: entities.itemLength,
+        itemsPerPage: option.pageSize,
+        totalItems: count,
+        totalPages: Math.ceil(count / option.pageSize),
+      },
+    };
+  }
+}
+```
+
+## service
 
 ```ts
 export class SomeService {
