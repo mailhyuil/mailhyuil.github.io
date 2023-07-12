@@ -18,3 +18,9 @@ import AWS from "aws-sdk/global";
 // import individual service
 import S3 from "aws-sdk/clients/s3";
 ```
+
+## Endpoint
+
+```
+const endpoint = new AWS.Endpoint('https://kr.object.ncloudstorage.com');
+```
