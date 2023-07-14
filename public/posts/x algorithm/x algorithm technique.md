@@ -77,6 +77,14 @@ console.log(answer);
 > >
 > > > 2차원 배열: 방문한 노드의 좌표를 인덱스로 표현
 
+```js
+const visited = {};
+visited["A"] = true;
+if (!visited["A"]) {
+  console.log("방문하지 않음");
+}
+```
+
 ## pruning (가지치기)
 
 > 유망하지 않은 노드는 탐색하지 않는 것
