@@ -14,8 +14,31 @@ StatelessWidget
 >
 > > data가 변경될 때마다 화면을 다시 그려야 하는 위젯
 
-```
-StatefulWidget
+```dart
+import 'package:flutter/material.dart';
+import 'package:hahaha/widgets/button.dart';
+
+class CounterScreen extends StatefulWidget {
+  @override
+  CounterScreenState createState() => CounterScreenState();
+}
+
+class CounterScreenState extends State<CounterScreen> {
+  int counter = 0;
+
+  void increment() {
+    counter++;
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Button(
+      text: "Increment",
+      onClicked: () => increment(),
+    );
+  }
+}
 ```
 
 ## setState(() {})
@@ -32,8 +55,4 @@ void onPressed() {
   counter = counter + 1;
   setState(() {});
 }
-```
-
-```
-
 ```
