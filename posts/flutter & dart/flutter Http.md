@@ -1,9 +1,15 @@
 # flutter http
 
+> http 패키지 또는 dio 패키지를 사용하여 http 통신을 할 수 있다.
+
 ## install
 
 ```
 flutter pub add http
+
+# or
+
+flutter pub add dio
 ```
 
 ## 사용
