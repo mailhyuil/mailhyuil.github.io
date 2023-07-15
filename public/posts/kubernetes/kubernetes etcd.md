@@ -10,12 +10,21 @@
 
 ## Backup
 
-```
-etcdctl snapshot save <snapshot filename>
+> trusted-ca-file, cert-file, key-file 인증서가 필요
+>
+> > ps -ef | grep kube | grep <option_name> 으로 인증서 경로 확인
+
+```sh
+ETCDCTL_API=3 etcdctl \
+--endpoints=https://127.0.0.1:2379 \
+--cacert=<trusted-ca-file> \
+--cert=<cert-file> \
+--key=<key-file> \
+snapshot save <backup-file-location>
 ```
 
 ## Restore
 
-```
-etcdctl snapshot restore <snapshot filename>
+```sh
+ETCDCTL_API=3 etcdctl snapshot restore --data-dir <data-dir-location> snapshotdb
 ```
