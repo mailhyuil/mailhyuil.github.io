@@ -4,6 +4,7 @@
 
 ```json
 editor.codeActionsOnSave": {
+    "source.fixAll": true,
     "source.organizeImports": true
 },
 "dart.previewFlutterUiGuides": true,
