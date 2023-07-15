@@ -31,3 +31,79 @@ void getSomething(){
       http.get(url) // http 사용
 }
 ```
+
+## 필수 패키지
+
+```
+# http
+dio
+http
+
+# 상태관리
+provider
+get
+
+# rx
+rx_dart
+
+# image
+image_picker
+image_cropper
+cached_network_image
+
+# font
+google_fonts
+# svg
+flutter_svg
+
+# firebase
+firebase_core
+firebase_messaging
+firebase_analytics
+firebase_crashlytics
+firebase_auth
+firebase_dynamic_links
+
+# info
+package_info_plus
+device_info_plus
+
+# 권한
+permission_handler
+
+# local database
+shared_preferences
+sqflite
+hive
+
+#webview
+webview_flutter
+
+# chart
+charts_flutter
+# map
+google_maps_flutter
+
+# path
+path_provider
+
+# url
+url_launcher
+
+# push notification
+flutter_local_notifications
+
+# icon
+flutter_launcher_icons
+
+# location
+geolocator
+
+# format
+intl
+
+# animation
+animated_text_kit
+animations
+
+```
