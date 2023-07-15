@@ -5,3 +5,17 @@
 > > etcd가 다운되면 모든 컴포넌트가 고아상태가 되기 때문에 가용성이 중요
 > >
 > > > 클러스터링하여 분산 실행하는 RSM(Replicated State Machine) 구조
+> > >
+> > > > /var/lib/etcd/ 디렉토리에 데이터 저장
+
+## Backup
+
+```
+etcdctl snapshot save <snapshot filename>
+```
+
+## Restore
+
+```
+etcdctl snapshot restore <snapshot filename>
+```
