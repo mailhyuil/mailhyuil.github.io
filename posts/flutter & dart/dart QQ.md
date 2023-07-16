@@ -1,6 +1,6 @@
 # dart QQ
 
-```
+```dart
 null ?? 'hi'
 
 String? name;
