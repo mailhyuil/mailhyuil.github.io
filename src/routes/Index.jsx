@@ -10,10 +10,12 @@ const Main = () => {
   const [blog, setBlog] = useState("");
   const [foundBlog, setFoundBlog] = useState([]);
   const [query, setQuery] = useState("");
+
   const categories = new Set();
   const getAllMDFile = () => {
     return require.context("/public/posts", true, /\.md$/).keys();
   };
+
   useEffect(() => {
     const res = getAllMDFile().filter((md) => {
       const regex = new RegExp(query, "gi");
@@ -42,9 +44,7 @@ const Main = () => {
   };
 
   getAllMDFile()
-    .map((text) => {
-      return text.split("/")[1];
-    })
+    .map((text) => text.split("/")[1])
     .map((e) => categories.add(e));
 
   const [navIndex, setNavIndex] = useState("home");

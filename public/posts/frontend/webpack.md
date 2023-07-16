@@ -1,5 +1,17 @@
 # Webpack (웹팩)
 
+## install
+
+```sh
+npm i -D webpack
+npm i -D webpack-cli
+npm i -D webpack-dev-server
+npm i -D url-loader
+npm i -D css-loader
+npm i -D file-loader
+npm i -D style-loader
+```
+
 ## Entry
 
 > webpack이 내부의 디펜던시 그래프 를 생성하기 위해 사용해야 하는 모듈
