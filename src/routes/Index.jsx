@@ -1,10 +1,10 @@
-import Blog from "../components/Blog";
-import Movie from "../components/Movie";
-import Home from "../components/Home";
-import About from "../components/About";
-import Donot from "../components/Donot";
-import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import About from "../components/About";
+import Blog from "../components/Blog";
+import Donot from "../components/Donot";
+import Home from "../components/Home";
+import Movie from "../components/Movie";
 
 const Main = () => {
   const [blog, setBlog] = useState("");
@@ -189,14 +189,6 @@ const Main = () => {
           {menuList[navIndex]}
         </motion.main>
       </div>
-      <footer className="fixed flex flex-col items-end p-4 text-white/80 right-4 bottom-4">
-        <p className="text-sm lg:text-lg">
-          This blog is built with react.js by <span className="bg-pink-500/50 p-0.5">Yoo Sangbaek</span>
-        </p>
-        <a className="mt-2" href="https://github.com/mailhyuil/mailhyuil.github.io">
-          <img src="https://img.shields.io/badge/source code-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="github badge" />
-        </a>
-      </footer>
     </div>
   );
 };
