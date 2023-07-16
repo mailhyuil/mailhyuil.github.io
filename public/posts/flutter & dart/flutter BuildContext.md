@@ -1,23 +1,5 @@
 # flutter BuildContext
 
-## BuildContext
-
 > 위젯 트리에서 현재 위젯의 위치를 나타내는 객체
-
-```
-
-```
-
-## ThemeData
-
-```
-theme: ThemeData(
-    textTheme: TextTheme(
-        titleLarge: TextStyle(color: Colors.white),
-    ),
-)
-```
-
-```
-color: Theme.of(context).textTheme.titleLarge.color,
-```
+>
+> > BuildContext는 stateless 위젯이나 state 빌드 메서드에 의해서 리턴된 위젯의 부모가 된다.
