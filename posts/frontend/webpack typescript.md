@@ -3,7 +3,10 @@
 ## install
 
 ```sh
-npm i -D typescript ts-loader webpack webpack-cli
+npm i -D webpack
+npm i -D webpack-cli
+npm i -D typescript
+npm i -D ts-loader
 ```
 
 ## webpack.config.js
