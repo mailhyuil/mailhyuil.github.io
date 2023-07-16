@@ -1,6 +1,14 @@
 # flutter form
 
+```
+Form
+TextFormField
+TextField
+```
+
 ## Form with a GlobalKey
+
+> form을 위한 GlobalKey를 생성한다.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -42,6 +50,8 @@ class MyCustomFormState extends State<MyCustomForm> {
 
 ## TextFormFields
 
+> TextFormField를 사용하여 사용자 입력을 수집한다.
+
 ```dart
 TextFormField(
   // The validator receives the text that the user has entered.
@@ -55,6 +65,8 @@ TextFormField(
 ```
 
 ## Button to validate and submit
+
+> ElevatedButton을 사용하여 폼을 submit한다.
 
 ```dart
 ElevatedButton(
