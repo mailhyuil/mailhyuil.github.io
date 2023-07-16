@@ -2,7 +2,7 @@
 
 ## install
 
-```
+```sh
 dart pub add json_serializable --dev
 ```
 
