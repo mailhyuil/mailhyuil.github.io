@@ -2,13 +2,13 @@
 
 ## install
 
-```
+```sh
 flutter pub add flutter_dotenv
 ```
 
 ## .env
 
-```
+```sh
 SERVER=http://localhost:3000
 ```
 

@@ -1,6 +1,6 @@
 # flutter build
 
-```
+```sh
 flutter build apk
 flutter build ios
 flutter build web
