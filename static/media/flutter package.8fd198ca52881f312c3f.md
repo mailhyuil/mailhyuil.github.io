@@ -1,19 +1,17 @@
 # flutter package
 
-## dart pub
-
-> pub.dev에 있는 패키지들을 사용할 수 있습니다.
-
-```
-pub get
-pub upgrate
-pub outdated
-pub publish
-```
-
 ## flutter pub
 
-> flutter pub은 dart pub의 기능을 포함하고 있습니다.
+> flutter의 패키지 관리 명령어
+>
+> > dart pub과 동일
+
+```
+flutter pub get
+flutter pub upgrate
+flutter pub outdated
+flutter pub publish
+```
 
 ## pubspec.yaml
 
@@ -34,7 +32,7 @@ void getSomething(){
 
 ## 필수 패키지
 
-```
+```sh
 # http
 dio
 http
@@ -51,18 +49,16 @@ image_picker
 image_cropper
 cached_network_image
 
-# font
-google_fonts
 # svg
 flutter_svg
 
-# firebase
-firebase_core
-firebase_messaging
-firebase_analytics
-firebase_crashlytics
-firebase_auth
-firebase_dynamic_links
+# font
+google_fonts
+
+# local database
+shared_preferences
+sqflite
+hive
 
 # info
 package_info_plus
@@ -71,16 +67,12 @@ device_info_plus
 # 권한
 permission_handler
 
-# local database
-shared_preferences
-sqflite
-hive
-
 #webview
 webview_flutter
 
 # chart
 charts_flutter
+
 # map
 google_maps_flutter
 
@@ -106,4 +98,11 @@ intl
 animated_text_kit
 animations
 
+# firebase
+firebase_core
+firebase_messaging
+firebase_analytics
+firebase_crashlytics
+firebase_auth
+firebase_dynamic_links
 ```
