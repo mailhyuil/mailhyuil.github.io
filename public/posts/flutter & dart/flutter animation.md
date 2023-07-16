@@ -16,7 +16,6 @@ AnimatedDefaultTextStyle: 텍스트 스타일을 애니메이션화하여 부드
 AnimatedAlign: 위젯의 정렬을 애니메이션화하여 위치 이동 효과를 만듭니다.
 AnimatedPositioned: 위젯의 위치를 애니메이션화하여 부드러운 이동 효과를 만듭니다.
 AnimatedPadding: 패딩 값을 애니메이션화하여 부드러운 패딩 변경 효과를 생성합니다.
-Tween: 애니메이션 값 범위를 지정하고 애니메이션 효과를 만들기 위해 사용됩니다.
 AnimationController: 애니메이션의 제어를 위한 컨트롤러로, 애니메이션의 시작, 정지 및 반복을 관리합니다.
 ```
 
@@ -29,7 +28,8 @@ AnimationController: 애니메이션의 제어를 위한 컨트롤러로, 애니
 ```dart
 Animation: 애니메이션의 현재 값과 상태를 나타내는 클래스입니다.
 AnimationController: 애니메이션의 제어를 위한 컨트롤러로, 애니메이션의 시작, 정지, 반복 및 시간 제어를 관리합니다.
-Tween: 애니메이션 값 범위를 지정하고 애니메이션 효과를 만들기 위해 사용됩니다. 주어진 시작 값과 종료 값 사이의 애니메이션을 생성합니다.
+Tween: 애니메이션 값 범위를 지정하고 애니메이션 효과를 만들기 위해 사용됩니다. 주어진 시작 값과 종료 값 사이의 애니메이션을 생성합니다. AnimationController와 함께 사용됩니다.
+// Animation<double> _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
 CurvedAnimation: 애니메이션에 사용할 곡선을 정의하는 클래스입니다. 애니메이션의 진행률에 대한 커브를 지정하여 애니메이션 효과를 커스텀하게 조정할 수 있습니다.
 AnimatedBuilder: 커스텀 애니메이션을 구현하기 위해 사용되며, 애니메이션의 중간 값을 계산하는 데 사용됩니다. 애니메이션 값을 사용하여 위젯을 다시 빌드하고 업데이트할 수 있습니다.
 AnimatedWidget: 위젯의 특정 속성을 애니메이션화하는 데 사용되는 추상 클래스입니다. 자체적으로 위젯이므로 AnimatedBuilder와 같이 사용하지 않아도 됩니다.
