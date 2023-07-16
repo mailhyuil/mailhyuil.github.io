@@ -1,20 +1,22 @@
 # Intersection Observer
 
+## 사용
+
 ```js
-const observer = new IntersectionObserver((e) => {
-  e.forEach((box) => {
-    if (box.isIntersecting) {
-      box.target.style.opacity = 1;
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
     } else {
-      box.target.style.opacity = 0;
+      entry.target.style.opacity = 0;
     }
   });
 });
 
-const div = document.querySelectorAll("div");
+const boxes = document.querySelectorAll("div");
 
-observer.observe(div[0]);
-observer.observe(div[1]);
-observer.observe(div[2]);
-observer.observe(div[3]);
+observer.observe(boxes[0]);
+observer.observe(boxes[1]);
+observer.observe(boxes[2]);
+observer.observe(boxes[3]);
 ```
