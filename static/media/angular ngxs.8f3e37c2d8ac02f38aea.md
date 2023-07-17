@@ -14,13 +14,9 @@ npm i @ngxs/store
 importProvidersFrom(NgxsModule.forRoot([AdminStore])),
 ```
 
-## store/auth.store.ts
+## store/auth.action.ts
 
 ```ts
-import { Injectable } from "@nestjs/common";
-import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { IAdminDTO } from "interface";
-
 export class SetAdmin {
   static readonly type = "[Admin] Set Admin";
   constructor(public admin: IAdminDTO) {}
@@ -29,7 +25,11 @@ export class SetAdmin {
 export type AdminStateModel = {
   admin: IAdminDTO | null;
 };
+```
 
+## store/auth.store.ts
+
+```ts
 @State<AdminStateModel>({
   name: "admin",
   defaults: {
@@ -49,6 +49,8 @@ export class AdminStore {
   }
 }
 ```
+
+## auth.guard.ts
 
 ```ts
 export const AuthGuard = (next: ActivatedRouteSnapshot): boolean => {
