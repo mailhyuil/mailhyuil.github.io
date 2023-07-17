@@ -47,3 +47,11 @@ class App extends StatelessWidget {
   }
 }
 ```
+
+## flutter unable to find git in your path.
+
+> powershell 관리자모드에서
+
+```sh
+git config --global --add safe.directory '*'
+```
