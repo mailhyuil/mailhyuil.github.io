@@ -13,13 +13,18 @@ dart pub add json_serializable --dev
 ## 사용
 
 ```dart
+import 'package:json_annotation/json_annotation.dart';
+
 @JsonSerializable()
 class User {
-  User({
-    required this.data,
-  });
+  final String name;
+  final int age;
+  final String realname;
+  final String email;
+  final String tel;
+  final String address;
 
-  Data data;
+  User(this.name, this.age, this.realname, this.email, this.tel, this.address);
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
   Map<String, dynamic> toJson() => _$UserToJson(this);
