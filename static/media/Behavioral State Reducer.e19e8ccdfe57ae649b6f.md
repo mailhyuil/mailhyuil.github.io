@@ -1,4 +1,4 @@
-## Reducer
+## State Reducer
 
 > 리듀서 함수는 이전 상태 클래스와 액션 클래스를 입력으로 받고, 새로운 상태를 반환
 >
@@ -21,6 +21,6 @@ reducer(state, action);
 
 > action을 통해서 state를 변경해서 새로 반환
 
-```
-const newState = state.reduce(action, currentState)
+```js
+const newState = state.reduce(action, currentState);
 ```
