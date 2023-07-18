@@ -32,20 +32,18 @@ JWT_PUBLIC_KEY=Xv26XN6L86kGOvHMS2rfV2k9HsLVEEEp
 JWT_PRIVATE_KEY=PAwXjs5j7eLj8WIeczIRgZN2TdJqi2Bn
 ```
 
-## EnvironmentService에 JwtModuleOptions를 사용하여 환경변수 적용
+## JwtService에 JwtModuleOptions를 사용하여 환경변수 적용
 
-> ConfigModule을 import한 EnvironmentService에 JwtOptionsFactory를 구현하여 환경 설정
+> ConfigModule을 import한 JwtService에 JwtOptionsFactory를 구현하여 환경 설정
 
 ```ts
 @Injectable()
-export class EnvironmentService implements JwtOptionsFactory {
-  constructor(private readonly configService: ConfigService) {}
-
+export class JwtService implements JwtOptionsFactory {
   createJwtOptions(): JwtModuleOptions {
     return {
-      secret: this.configService.get<string>("JWT_SECRET_KEY"),
-      publicKey: this.configService.get<string>("JWT_PUBLIC_KEY"),
-      privateKey: this.configService.get<string>("JWT_PRIVATE_KEY"),
+      secret: process.env["JWT_SECRET_KEY"],
+      publicKey: process.env["JWT_PUBLIC_KEY"],
+      privateKey: process.env["JWT_PRIVATE_KEY"],
     };
   }
 }
@@ -53,7 +51,7 @@ export class EnvironmentService implements JwtOptionsFactory {
 
 ## AuthModule에 JwtModule 등록
 
-> EnvironmentService에 ConfigService로 환경변수에 등록된 키 사용
+> JwtService에 ConfigService로 환경변수에 등록된 키 사용
 >
 > > accessToken 발급, 검증을 분리하고싶다면 AuthUtils로 분리해서 provider를 등록 및 export
 
@@ -61,7 +59,7 @@ export class EnvironmentService implements JwtOptionsFactory {
 @Module({
   imports: [
     JwtModule.registerAsync({
-      useClass: EnvironmentService,
+      useClass: JwtService,
     }),
   ],
   providers: [AuthService, AuthUtils],
@@ -71,15 +69,11 @@ export class EnvironmentService implements JwtOptionsFactory {
 export class AuthModule {}
 ```
 
-```ts
-JwtModule.registerAsync({
-  useClass: EnvironmentService, // EnvironmentService는 ConfigModule을 등록함
-}),
-```
-
 ## AuthUtils
 
-> AccessToken 발급과 AccessToken을 검증하는 메소드 분리
+> AccessToken 발급과 AccessToken을 검증하는 메소드
+>
+> > @nestjs/jwt/dist/jwt.service에서 불러온 JwtService를 사용
 
 ```ts
 import { Injectable } from "@nestjs/common";

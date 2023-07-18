@@ -2,16 +2,16 @@
 
 ## install
 
-```
-npm i prisma --save-dev
-npm install @prisma/client
+```sh
+npm i -D prisma
+npm i @prisma/client
 ```
 
 ## init
 
 > schema.prisma 파일 생성
 
-```
+```sh
 npx prisma init
 ```
 
@@ -48,7 +48,7 @@ model Post {
 
 > 테이블 생성 및 업데이트
 
-```
+```sh
 npx prisma migrate dev --name init
 ```
 
@@ -67,12 +67,6 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
   async onModuleInit() {
     await this.$connect();
   }
-
-  async enableShutdownHooks(app: INestApplication) {
-    this.$on("beforeExit", async () => {
-      await app.close();
-    });
-  }
 }
 ```
 
@@ -90,10 +84,8 @@ import { PrismaService } from "./prisma.service";
 export class PrismaModule {}
 ```
 
-# prismaService의 메소드는 비동기다! return이 먼저된다.
-
 ## prisma 환경변수 읽기
 
-```
+```sh
 "migrate:dev": "dotenv -e ../.env.development -- npx prisma migrate dev",
 ```
