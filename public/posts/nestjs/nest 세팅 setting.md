@@ -3,23 +3,25 @@
 ## install
 
 ```bash
+npm i bcryptjs
 npm i compression
 npm i helmet
 npm i cookie-parser
 npm i morgan
+npm i dotenv
+npm i dotenv-cli
+npm i class-validator
+npm i class-transformer
 npm i @prisma/client
 npm i @nestjs/config
 npm i @nestjs/jwt
 npm i @nestjs/event-emitter
 npm i @nestjs/swagger
-npm i dotenv
-npm i dotenv-cli
-npm i class-validator
-npm i class-transformer
 
 npm i -D @types/cookie-parser
 npm i -D @types/multer
 npm i -D prisma
+npm i -D @types/bcryptjs
 ```
 
 ## main.ts
@@ -30,17 +32,50 @@ import * as compression from "compression";
 import helmet from "helmet";
 import morgan from "morgan";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  /** Global Prefix */
+  app.setGlobalPrefix("api/v1");
+  app.use(cookieParser());
+  app.use(compression());
+  app.use(helmet());
+  app.use(morgan("dev"));
+  app.enableCors();
 
-app.use(cookieParser());
-app.use(compression());
-app.use(helmet());
-app.use(morgan("dev"));
-app.enableCors();
-app.disable("x-powered-by");
+  /** Global Valdation Pipe */
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      exceptionFactory: (errors: ValidationError[]) => {
+        if (errors?.length > 0) {
+          const children = errors[0].children;
 
-const swaggerConfig = new DocumentBuilder().setTitle("example").setDescription("description").setVersion("1.0").addTag("example").build();
-const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
-SwaggerModule.setup("document", app, swaggerDocument); // document path로
+          if (children?.length > 0) {
+            const error = children[0].constraints;
+            const keys = Object.keys(error);
+            const type = keys[keys.length - 1];
+            const message = error[type];
+            return new BadRequestException(message);
+          }
 
-const port = process.env.SERVER_PORT | 3000;
+          const error = errors[0].constraints;
+          const keys = Object.keys(error);
+          const type = keys[keys.length - 1];
+          const message = error[type];
+          return new BadRequestException(message);
+        }
+      },
+    })
+  );
+
+  const swaggerConfig = new DocumentBuilder().setTitle("example").setDescription("description").setVersion("1.0").addTag("example").build();
+  const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup("document", app, swaggerDocument); // document path로
+
+  const port = process.env.SERVER_PORT | 3000;
+
+  await app.listen(port || 3000);
+  Logger.log(`🚀 Application is running on: http://localhost:${port}`);
+}
 ```
