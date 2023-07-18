@@ -6,7 +6,7 @@
 >
 > > dart pub과 동일
 
-```
+```sh
 flutter pub get
 flutter pub upgrate
 flutter pub outdated
@@ -21,7 +21,7 @@ flutter pub publish
 
 > import 구문 사용
 
-```
+```dart
 import 'package:http/http.dart' as http;
 
 void getSomething(){
