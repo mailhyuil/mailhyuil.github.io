@@ -1,6 +1,10 @@
 # Liftcycle
 
-## initState()
+## Statueful
+
+### createState()
+
+### initState()
 
 > before build
 
@@ -12,21 +16,9 @@ void initState() {
 }
 ```
 
-## didChangeDependencies()
+### build()
 
-## build()
-
-## didUpdateWidget()
-
-## deactivate()
-
-## reassemble()
-
-## didChangeAppLifecycleState()
-
-## setState()
-
-## dispose()
+### dispose()
 
 > api나 이벤트 등을 사용할 때 dispose()를 사용해 메모리 누수를 방지한다.
 
@@ -37,3 +29,15 @@ void dispose() {
   print('dispose()');
 }
 ```
+
+### didChangeDependencies()
+
+### didUpdateWidget()
+
+## Stateless
+
+### build()
+
+### createElement()
+
+### debugFillProperties()
