@@ -17,6 +17,7 @@ npm i @nestjs/config
 npm i @nestjs/jwt
 npm i @nestjs/event-emitter
 npm i @nestjs/swagger
+npm i dayjs
 
 npm i -D @types/cookie-parser
 npm i -D @types/multer
@@ -28,7 +29,7 @@ npm i -D @types/bcryptjs
 
 ```ts
 import cookieParser from "cookie-parser";
-import * as compression from "compression";
+import compression from "compression";
 import helmet from "helmet";
 import morgan from "morgan";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
