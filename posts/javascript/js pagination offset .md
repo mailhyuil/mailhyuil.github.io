@@ -32,7 +32,7 @@ export class SomeController {
       entities,
       pageInfo: {
         currentPage: option.pageNo,
-        itemsCount: entities.itemLength,
+        itemsCount: entities.length,
         itemsPerPage: option.pageSize,
         totalItems: count,
         totalPages: Math.ceil(count / option.pageSize),

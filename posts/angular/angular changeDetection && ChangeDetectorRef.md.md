@@ -10,7 +10,7 @@
 > > >
 > > > > "동적으로 변경할 수 없다!!"
 
-```
+```ts
 changeDetection: ChangeDetectionStrategy.OnPush,
 ```
 
@@ -18,9 +18,13 @@ changeDetection: ChangeDetectionStrategy.OnPush,
 
 > 동적으로 변경할 수 있게 하기 위해 사용
 
-```
+```ts
 constructor(private readonly cdr:ChangeDetectorRef){}
 ```
+
+### detectChanges(): void
+
+> 강제로 즉시 변경 감지 수행
 
 ### detach(): void
 
@@ -30,14 +34,8 @@ constructor(private readonly cdr:ChangeDetectorRef){}
 
 > 변경 감지 트리에서 합치기
 
-### detectChanges(): void
-
-> 강제로 즉시 변경 감지 수행
-
 ### markForCheck(): void
 
 > 변경 감지를 수행시키지 않는다
 
 ### checkNoChanges(): void
-
->
