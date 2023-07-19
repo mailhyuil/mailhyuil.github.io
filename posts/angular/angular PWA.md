@@ -1,4 +1,4 @@
-# angular pwa
+# angular PWA
 
 ## install
 
