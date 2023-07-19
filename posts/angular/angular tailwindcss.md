@@ -2,13 +2,13 @@
 
 ## install
 
-```
+```sh
 npm install -D tailwindcss postcss autoprefixer
 ```
 
 ## init
 
-```
+```sh
 npx tailwindcss init
 ```
 

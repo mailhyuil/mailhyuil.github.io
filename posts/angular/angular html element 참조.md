@@ -4,7 +4,7 @@
 
 ## 생성자 주입 방식
 
-```
+```ts
 constructor(private box:ElementRef<HTMLDivElement>){}
 ```
 
