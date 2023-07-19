@@ -1,5 +1,19 @@
 # angular file
 
+## html
+
 ```html
-<input type="file" onchange="console.log(event.target.files)" />
+<input type="file" (change)="onChange($event.target.files)" />
+```
+
+## ts
+
+```
+onChnage(){
+    // 업데이트
+}
+
+remove(){
+    // 업데이트 시 삭제
+}
 ```
