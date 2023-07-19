@@ -25,9 +25,16 @@ import { BreadcrumbModule, BreadcrumbService } from "xng-breadcrumb";
 export class DefaultLayout implements OnInit {
   constructor(private readonly breadcrumbService: BreadcrumbService) {}
   ngOnInit(): void {
-    this.breadcrumbService.set("@home", "홈");
+    // this.breadcrumbService.set("@home", "홈"); // 사용 안해도 됨
   }
 }
+```
+
+## app.routes.ts
+
+```
+data: { breadcrumb: { skip: true } },
+data: { breadcrumb: "홈" }
 ```
 
 ## layout.html

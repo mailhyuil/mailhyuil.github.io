@@ -2,13 +2,13 @@
 
 ## 자식 컴포넌트
 
-```
+```ts
 @Input() subject$ = new Subject<string | null>();
 ```
 
 ## 부모 컴포넌트
 
-```
+```ts
 subject$ = new Subject();
 
 ngOnInit(){
