@@ -2,14 +2,14 @@
 
 ## import
 
-```
-import { NgOptimizedImage } from '@angular/common'
+```ts
+import { NgOptimizedImage } from "@angular/common";
 ```
 
 ## 사용
 
 > ngSrc
 
-```
-<img ngSrc="cat.jpg">
+```html
+<img ngSrc="cat.jpg" />
 ```

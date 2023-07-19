@@ -1,5 +1,5 @@
 # angular url parameter
 
-```
-this.route.snapshot.params['id'];
+```ts
+this.route.snapshot.params["id"];
 ```
