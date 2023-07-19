@@ -64,3 +64,10 @@ export const AuthGuard = (next: ActivatedRouteSnapshot) => {
   return true;
 };
 ```
+
+## app.routes.ts
+
+```ts
+canActivate: [AuthGuard],
+canActivateChild: [AuthGuard], // 자식 라우트에도 적용하기
+```
