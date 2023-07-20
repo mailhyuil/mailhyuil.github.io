@@ -1,8 +1,22 @@
-# angular store
+# angular @ngxs/store
 
-> Selector = get
+> action, selector, state
 >
-> > Action = set
+> > Selector = get
+> >
+> > > Action = set
+
+## install
+
+```bash
+npm i @ngxs/store
+```
+
+## main.ts
+
+```ts
+importProvidersFrom(NgxsModule.forRoot([AdminStore])),
+```
 
 ## State
 
@@ -16,7 +30,7 @@
   },
 })
 @Injectable()
-export class AdminStore {}
+export class AdminState {}
 ```
 
 ## Action
@@ -63,4 +77,71 @@ this.store.selectOnce(state=>state.auth)
 this.store.select(state=>state.auth)
 
 this.store.subscribe()
+```
+
+## store/auth.store.ts
+
+```ts
+export type AdminStateModel = {
+  admin: IAdminDTO | null;
+};
+
+export class SetAdmin {
+  static readonly type = "[Admin] Set Admin";
+  constructor(public admin: IAdminDTO) {}
+}
+
+@State<AdminStateModel>({
+  name: "admin",
+  defaults: {
+    admin: null,
+  },
+})
+@Injectable()
+export class AdminState {
+  @Selector()
+  static getAdmin(state: AdminStateModel): IAdminDTO | null {
+    return state.admin;
+  }
+
+  @Action(SetAdmin)
+  setAdmin(ctx: StateContext<AdminStateModel>, action: SetAdmin) {
+    ctx.setState({ admin: action.admin });
+  }
+}
+```
+
+## auth.guard.ts
+
+```ts
+export const AuthGuard = (next: ActivatedRouteSnapshot): boolean => {
+  const store = inject(Store);
+  const router = inject(Router);
+  const toast = inject(ToastService);
+  const httpService = inject(HttpService);
+
+  return true;
+
+  const accessToken = localStorage.getItem("accessToken");
+  if (!accessToken) {
+    router.navigateByUrl("/login", { replaceUrl: true });
+    return false;
+  }
+
+  store
+    .selectOnce<AdminStateModel>((state) => state.admin)
+    .subscribe({
+      next: (state) => {
+        const loginedAdmin = state.admin;
+        if (!loginedAdmin) {
+          router.navigateByUrl("/login", { replaceUrl: true });
+          return false;
+        }
+
+        return true;
+      },
+    });
+
+  return false;
+};
 ```
