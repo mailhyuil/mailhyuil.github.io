@@ -6,8 +6,23 @@
 
 ## OPTIONS 헤더
 
-> preflight시 options 헤더를 날려서 안전한지 확인한다.
+> preflight시 Options 헤더를 날려서 안전한지 확인한다.
+>
+> > Options status가 200이 아니면 안전하지 않다고 판단한다.
+> >
+> > > Options를 잘 확인해라! 어떤 값을 받는지 거기 다 들어있다.
+
+```
+Access-Control-Request-Method // 허용된 메소드
+Access-Control-Request-Headers // 허용된 헤더
+Origin
+Access-Control-Request-Credentials
+```
 
 ## Access-Control-Max-Age
 
 > 클라이언트에서 Preflight 의 요청 결과를 저장할 기간을 지정
+
+## 오류
+
+> 인터셉터에서 Authorization을 넣는지 확인해라
