@@ -1,18 +1,31 @@
 # angluar signal
 
-> 16v 부터 생긴 api
+> V16 부터 생긴 api
 >
 > > nuxt의 ref, computed 와 같다
 
 ## signal
 
-### update
+```js
+// set
+this.signal.set("newValue");
 
-```
+// update
 this.option.update((option) => ({ ...option, status: segment }));
+
+// mutate
+this.todos.mutate((value) => {
+  // Change the first TODO in the array to 'done: true' without replacing it.
+  value[0].done = true;
+});
 ```
 
 ## computed
+
+```js
+const count: WritableSignal<number> = signal(0);
+const doubleCount: Signal<number> = computed(() => count() * 2);
+```
 
 ## effect
 
