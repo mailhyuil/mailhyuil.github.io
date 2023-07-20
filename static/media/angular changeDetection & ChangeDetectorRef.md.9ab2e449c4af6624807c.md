@@ -1,4 +1,4 @@
-# angular changeDetection && ChangeDetectorRef.md
+# angular changeDetection & ChangeDetectorRef.md
 
 ## ChangeDetectionStratey.OnPush
 
