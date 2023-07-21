@@ -37,3 +37,35 @@
 ## ngOnDestroy()
 
 > 컴포넌트나 디렉티브가 소멸하기 이전에 호출
+
+# angular LifeCycle
+
+> ~init은 처음에 한번만
+
+```ts
+ngOnChanges(changes: SimpleChanges): void {
+  // binding 된 Input 프로퍼티 값이 변경될 떄
+  console.log('ngOnChanges', changes);
+}
+ngOnInit(): void {
+  console.log('ngOnInit');
+}
+ngDoCheck(): void {
+  console.log('ngDoCheck');
+}
+ngAfterContentInit(): void {
+  console.log('ngAfterContentInit');
+}
+ngAfterContentChecked(): void {
+  console.log('ngAfterContentChecked');
+}
+ngAfterViewInit(): void {
+  console.log('ngAfterViewInit');
+}
+ngAfterViewChecked(): void {
+  console.log('ngAfterViewChecked');
+}
+ngOnDestroy(): void {
+  console.log('ngOnDestroy');
+}
+```

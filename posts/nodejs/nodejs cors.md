@@ -11,6 +11,8 @@
 > > Options status가 200이 아니면 안전하지 않다고 판단한다.
 > >
 > > > Options를 잘 확인해라! 어떤 값을 받는지 거기 다 들어있다.
+> > >
+> > > > > Options 응답은 chrome Network Other탭에 있음
 
 ```
 Access-Control-Request-Method // 허용된 메소드
