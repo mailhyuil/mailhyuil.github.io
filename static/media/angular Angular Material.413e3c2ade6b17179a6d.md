@@ -18,7 +18,7 @@ module.exports = {
 }
 ```
 
-## import
+## ts
 
 > Module명은 `Mat`으로 시작함
 >
@@ -26,9 +26,17 @@ module.exports = {
 
 ```ts
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-
+import { MatButtonModule } from "@angular/material/button";
 @Component({
-  imports: [MatSlideToggleModule],
+  imports: [MatSlideToggleModule, MatButtonModule],
 })
 class SomeComponent {}
+```
+
+## html
+
+```html
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+
+<button mat-button></button>
 ```
