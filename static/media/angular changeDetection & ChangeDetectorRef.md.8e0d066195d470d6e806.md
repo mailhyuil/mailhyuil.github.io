@@ -11,11 +11,17 @@
 > 동적으로 변경할 수 있게 하기 위해 사용
 
 ```ts
-constructor(private readonly cdr:ChangeDetectorRef){
+ngAfterViewInit(private readonly cdr:ChangeDetectorRef){
+    // View가 초기화 된 후에
     this.cdr.detach(); // 변경 감지 트리에서 분리
 }
+
 onClick(){
     this.cdr.detectChanges(); // 변경 감지를 수행
-    this.cdr.markForCheck(); // explicitly marks the view as changed so that it can be checked again.
+}
+
+onClick(){
+    this.obj.name = 'new name';
+    this.cdr.markForCheck(); // 참조값이 변경되지 않았음에도 변경 감지를 수행하도록 알리기
 }
 ```
