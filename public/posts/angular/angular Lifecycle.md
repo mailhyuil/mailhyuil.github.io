@@ -1,8 +1,14 @@
 # lifecycle hooks
 
+> ~Init은 처음 한번만 호출되고, ~Checked는 계속 호출된다
+>
+> > Do, Content, View 순으로 계속 호출된다.
+
 ## ngOnChanges()
 
-> 부모 컴포넌트에서 자식 컴포넌트의 입력 프로퍼티(@Input 데코레이터가 적용된 프로퍼티)에 바인딩한 값이 초기화 또는 변경되었을 때 호출
+> @Input에 바인딩한 값이 "부모 컴포넌트"에서 변경되었을 때
+>
+> > 자식 컴포넌트에서 호출
 
 ## ngOnInit()
 
@@ -32,15 +38,11 @@
 
 ## ngAfterViewChecked()
 
-> 컴포넌트의 View와 ViewChiled를 체크한 이후 호출
+> 컴포넌트의 View와 ViewChild를 체크한 이후 호출
 
 ## ngOnDestroy()
 
 > 컴포넌트나 디렉티브가 소멸하기 이전에 호출
-
-# angular LifeCycle
-
-> ~init은 처음에 한번만
 
 ```ts
 ngOnChanges(changes: SimpleChanges): void {
