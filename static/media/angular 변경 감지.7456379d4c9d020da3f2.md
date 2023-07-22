@@ -1,4 +1,4 @@
-# angular 변경 감지 트리
+# angular 변경 감지
 
 > angular의 UI는 ViewRef로 구성됨
 >
@@ -10,13 +10,15 @@
 
 ## 변경 감지 수행
 
-> Angular는 애플리케이션 시작 시 zone.js 의 zone을 하나 만듦.
+> 리액트는 내부적으로 Object.is() 함수를 사용하여 변경 감지 수행하기 때문에 참조값을 바꿔야 하는 것!!!
 >
-> > 해당 구역에서 애플리케이션을 구동
+> > Angular는 애플리케이션 시작 시 zone.js 의 zone을 하나 만듦.
 > >
-> > > 해당 구역에서 호출되는 Native API 호출에 대해 통지를 받음
+> > > 해당 구역에서 애플리케이션을 구동
 > > >
-> > > > 통지가 왔을 때 변경 감지(Change Detection) 수행
+> > > > 해당 구역에서 호출되는 Native API 호출에 대해 통지를 받음
+> > > >
+> > > > > 통지가 왔을 때 변경 감지(Change Detection) 수행
 
 ## OnChanges, DoCheck
 
