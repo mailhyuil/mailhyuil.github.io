@@ -16,5 +16,6 @@ constructor(private readonly cdr:ChangeDetectorRef){
 }
 onClick(){
     this.cdr.detectChanges(); // 변경 감지를 수행
+    this.cdr.markForCheck(); // explicitly marks the view as changed so that it can be checked again.
 }
 ```
