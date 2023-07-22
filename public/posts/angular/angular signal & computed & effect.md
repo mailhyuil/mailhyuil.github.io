@@ -11,57 +11,67 @@
 ## signal
 
 > 기존의 메모리 값을 변경하여 변경을 감지하는 방식이 아닌, getter, setter 를 통해 변경을 감지하는 방식
+>
+> > 기본으로 <WriteableSignal> 이다.
 
 ```js
-// set
+// set : 단순히 새로운 값을 할당할 때
 this.signal.set("newValue");
 
-// update
+// update : 그 전 값에 연산을 수행해서 새로운 값으로 만들 때
 this.option.update((option) => ({ ...option, status: segment }));
 
-// mutate
+// mutate : 객체나 배열 내의 값만 변경해도 변경을 감지한다.
 this.todos.mutate((value) => {
-  // 객체나 배열 내의 값만 변경해도 변경을 감지한다.
   value[0].done = true;
 });
 ```
 
 ## computed
 
-> Computed signals are not writable signals
+> computed는 읽기 전용이다.
 
 ```js
+// count(signal)이 변경 되면 doubleCount(computed)도 변경된다.
 const count: WritableSignal<number> = signal(0);
 const doubleCount: Signal<number> = computed(() => count() * 2);
 ```
 
-## effect
+## equal option
 
-> constructor 안에서 사용
+> isEqual 함수를 넣어주면 새로운 값을 할당했는지를 체크한다.
+>
+> > 이 옵션을 사용하면 mutate가 먹히지 않는다 (mutate는 새로운 객체를 할당한게 아니기 때문..)
 
 ```ts
-  option = signal({
-    pageNo: 1,
-    pageSize: 10,
-    query: '',
-    align: 'desc',
-    role: 'ALL',
-    status: 'ALL',
-    orderBy: 'createdAt',
-  });
+import _ from "lodash";
 
-  constructor(
-    private readonly modalController: ModalController,
-    private readonly httpService: HttpService
-  ) {
-    effect(async () => {
-      this.result = await lastValueFrom(
-        this.httpService.get<IPaginationDTO<IAdminDTO>>('admin/search', {
-          params: {
-            ...this.option(),
-          },
-        })
-      );
-    });
-  }
+const data = signal(["test"], { equal: _.isEqual });
+
+// Even though this is a different array instance, the deep equality
+// function will consider the values to be equal, and the signal won't
+// trigger any updates.
+data.set(["test"]);
+```
+
+## effect
+
+> computed와 비슷하지만 다른 signal들을 계속 감시한다.
+>
+> > constructor 내에서 사용
+> >
+> > > effect는 자주 사용되는 API는 아니다
+
+```
+# 사용 예시
+Logging data being displayed and when it changes, either for analytics or as a debugging tool
+Keeping data in sync with window.localStorage
+Adding custom DOM behavior that can't be expressed with template syntax
+Performing custom rendering to a <canvas>, charting library, or other third party UI library
+```
+
+```ts
+effect(() => {
+  console.log(`The current count is: ${count()}`);
+});
 ```

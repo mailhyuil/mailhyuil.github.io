@@ -1,4 +1,4 @@
-# angular 참조값!
+# angular 참조값
 
 > angular를 메모리 내에 저장된 "값"이 바뀌어야 변경을 감지
 >
