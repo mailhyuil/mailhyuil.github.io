@@ -1,14 +1,16 @@
 # flutter Interceptor
 
-> dio 패키지를 통해서 구현
+> dio 또는 http_interceptor 라이브러리로 구현
 
 ## install
 
-```
+```sh
 flutter pub add dio
+# or
+flutter pub add http_interceptor
 ```
 
-## 사용
+## dio 사용
 
 ```dart
 import 'package:flutter/material.dart';
@@ -49,5 +51,26 @@ class MyApp extends StatelessWidget {
     // 앱을 구성하는 나머지 코드
     // ...
   }
+}
+```
+
+# http_interceptor 사용
+
+```dart
+class WeatherApiInterceptor implements InterceptorContract {
+  @override
+  Future<RequestData> interceptRequest({required RequestData data}) async {
+    try {
+      data.params['appid'] = OPEN_WEATHER_API_KEY;
+      data.params['units'] = 'metric';
+      data.headers["Content-Type"] = "application/json";
+    } catch (e) {
+      print(e);
+    }
+    return data;
+  }
+
+  @override
+  Future<ResponseData> interceptResponse({required ResponseData data}) async => data;
 }
 ```
