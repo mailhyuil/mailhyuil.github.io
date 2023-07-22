@@ -8,7 +8,9 @@ TextField
 
 ## Form with a GlobalKey
 
-> form을 위한 GlobalKey를 생성한다.
+> StateFullWidget을 사용하여 form을 생성한다.
+>
+> > form을 위한 GlobalKey를 생성한다.
 
 ```dart
 import 'package:flutter/material.dart';
