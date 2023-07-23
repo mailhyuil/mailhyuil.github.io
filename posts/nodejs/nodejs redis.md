@@ -8,12 +8,12 @@ npm i redis
 
 ## 사용법
 
-```
+```js
+const axios = require("axios").default;
+
 const redis = require("redis");
 const REDIS_PORT = 6379;
 const redisClient = redis.createClient(REDIS_PORT);
-
-const axios = require("axios").default;
 
 const redisSet = (key, value) => {
   redisClient.set(key, JSON.stringify(value));
@@ -27,6 +27,7 @@ const redisGet = (req, res, next) => {
   });
 };
 
+// @Get("/redis/:id")
 app.get("/redis/:id", redisGet, async (req, res) => {
   const { id } = req.params;
   const { data } = await axios.request({

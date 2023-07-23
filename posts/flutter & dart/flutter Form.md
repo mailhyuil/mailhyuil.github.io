@@ -6,6 +6,17 @@ TextFormField
 TextField
 ```
 
+## How does this work?
+
+```
+1. globalKey를 key로 사용
+2. globalKey.currentState()를 사용하여 FormState에 접근
+3. FormState.validate()를 사용하여 validator()를 실행 (globalKey.currentState().validate())
+4. validate()가 호출되면 모든 field 내에 있는 validator()를 실행한다.
+5. 모든 validator()가 true를 반환하면 validate()는 true를 반환한다.
+6. validate()가 false를 반환하면 error를 표시하고 false를 반환한다.
+```
+
 ## Form with a GlobalKey
 
 > StateFullWidget을 사용하여 form을 생성한다.
