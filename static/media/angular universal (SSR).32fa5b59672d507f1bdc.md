@@ -6,20 +6,20 @@
 
 ## install
 
-```
+```sh
 ng add @nguniversal/express-engine
 ```
 
 ## AppModule
 
-```
-import {provideClientHydration} from '@angular/platform-browser';
+```ts
+import { provideClientHydration } from "@angular/platform-browser";
 // ...
 
 @NgModule({
   // ...
-  providers: [ provideClientHydration() ],  // add this line
-  bootstrap: [ AppComponent ]
+  providers: [provideClientHydration()], // add this line
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   // ...
@@ -28,12 +28,12 @@ export class AppModule {
 
 ## start
 
-```
+```sh
 npm run dev:ssr
 ```
 
 ## 브라우저 기능 사용
 
-```
+```ts
 constructor(@Inject(DOCUMENT) private document: Document) {}
 ```
