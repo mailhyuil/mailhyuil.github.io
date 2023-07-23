@@ -1,6 +1,6 @@
 # api oauth google
 
-```
+```ts
   async oauthSignIn() {
     const oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
