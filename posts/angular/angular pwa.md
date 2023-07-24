@@ -8,8 +8,8 @@ ng add @angular/pwa --project <project-name>
 
 ## main.ts
 
-```
-provideServiceWorker
+```ts
+provideServiceWorker;
 ```
 
 ## Service Worker
