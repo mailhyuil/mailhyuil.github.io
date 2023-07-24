@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-ng add @angular/pwa --project <project-name>
+ng add @angular/pwa
 ```
 
 ## main.ts

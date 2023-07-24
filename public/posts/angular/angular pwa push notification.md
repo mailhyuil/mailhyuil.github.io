@@ -5,9 +5,9 @@
 ## install
 
 ```sh
-ng add @angular/pwa --project <project-name>
+ng add @angular/pwa
 
-npm install --save web-push
+npm install web-push
 
 # vapid public key, vapid private key 생성
 npx web-push generate-vapid-keys
