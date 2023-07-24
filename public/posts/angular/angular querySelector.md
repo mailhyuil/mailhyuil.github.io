@@ -1,7 +1,9 @@
 # angular 내에서 querySelector
 
-> 권장되지 않음
+> 권장되지 않는다
 >
-> > angular의 라이프 사이클, 변경 감지 메커니즘을 무시하고 DOM을 직접 조작하기 때문에
+> > 하지만 zones 내에서 동작하기 때문에 성능, 매커니즘 ViewChild와 똑같다
 > >
-> > > angular는 템플릿 언어를 사용해서 뷰를 구성하고, 이를 통해 데이터 바인딩과 이벤트 처리등을 한다.
+> > > ViewChild를 쓰면 directive, component에도 접근할 수 있다
+> > >
+> > > > SPA에서는 element를 직접 조작하는 것보다는 변수의 바인딩을 통해 조작하는걸 권장한다.

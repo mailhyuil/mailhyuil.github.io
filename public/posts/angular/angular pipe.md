@@ -1,8 +1,10 @@
-# angular pipe pure
+# angular pipe
 
-> 불변성을 가진 pipe
+> template내에서 함수를 사용하면 change Detection이 발생할 때마다 함수가 동작해버림
 >
-> > input 값을 변화시키지 않고 순수한 output만 리턴
+> > 템플릿 내에서 함수를 호출할 때는 pure pipe를 사용하는게 좋다.
+
+## pipe.ts
 
 ```ts
 @Pipe({
@@ -17,10 +19,10 @@ export class ExponentialStrengthPipe implements PipeTransform {
 }
 ```
 
-## 순수 파이프 (pure:true)
+## html
 
-> 입력의 참조값이 변경되지 않으면 파이프는 실행되지 않는다.
+> {{value | pipeName : arg1 : arg2 : ...}}
 
-## 비순수 파이프 (pure:false)
-
-> 변경감지 순회 때마다 실행된다.
+```html
+<div>{{value | some}}</div>
+```

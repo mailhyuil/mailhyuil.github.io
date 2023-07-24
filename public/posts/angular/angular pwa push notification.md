@@ -7,10 +7,10 @@
 ```sh
 ng add @angular/pwa
 
-npm install web-push
+npm install -g web-push
 
 # vapid public key, vapid private key 생성
-npx web-push generate-vapid-keys
+web-push generate-vapid-keys
 ```
 
 ## 지원 확인
