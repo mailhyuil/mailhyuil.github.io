@@ -37,5 +37,10 @@ describe("SomeComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  it("onClick() should [do something]", () => {
+    component.onClick();
+    expect(component.someValue).toBeTruthy();
+  });
 });
 ```
