@@ -10,7 +10,11 @@
 > > > >
 > > > > > flex 속성을 사용하여 비율을 지정할 수 있음
 
-```
+## Expanded
+
+> 자식이 부모보다 작은경우 Flexible은 크기변화 없음 Expanded는 최대 사이즈로 확장
+
+```dart
 Expanded(
   flex: 1,
   child: Container(
@@ -19,7 +23,9 @@ Expanded(
 ),
 ```
 
-```
+## Flexible
+
+```dart
 Flexible(
   flex: 1,
   child: Container(
@@ -27,7 +33,3 @@ Flexible(
   ),
 ),
 ```
-
-## 차이점
-
-> 자식이 부모보다 작은경우 Flexible은 크기변화 없음 Expanded는 최대 사이즈로 확장

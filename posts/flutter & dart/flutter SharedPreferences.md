@@ -4,7 +4,7 @@
 
 ## install
 
-```
+```sh
 flutter pub add shared_preferences
 ```
 
@@ -14,11 +14,11 @@ flutter pub add shared_preferences
 SharedPreferences sp = await SharedPreferences.getInstance();
 
 //settter
-await sp.setString('testKey', 'setter test');
+sp.setString('key', 'value');
 
 //getter
-String testString  = sp.getString();
+sp.getString('key');
 
 //delete
-bool isDeleted = await sp.remove('testKey');
+sp.remove('key');
 ```

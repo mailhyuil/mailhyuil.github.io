@@ -10,14 +10,14 @@ flutter pub add get_it
 ## main.ts
 
 ```dart
-final getIt = GetIt.instance;
+final locator = GetIt.instance;
 
-void setupLocator() {
-  getIt.registerSingleton<HttpService>(HttpService());
+void initLocator() {
+  locator.registerSingleton<HttpService>(HttpService());
 }
 
 void main() {
-  setupLocator();
+  initLocator();
   runApp(const App());
 }
 ```
