@@ -1,7 +1,28 @@
 # switchMap
 
-> 내부 옵저버블을 구독하여 새로운 옵저버블을 반환하는 역할을 합니다.
+> ~Map으로 된 operator는 가독성을 향상시킨다.
 >
-> > 현재 내부 옵저버블이 완료되기 전에 새로운 값이 발생하면, 이전 내부 옵저버블의 구독을 취소하고 최신 값에 대한 새로운 내부 옵저버블을 구독합니다.
-> >
-> > > 이를 통해 최신 값에만 관심을 두고 이전 값들을 무시할 수 있습니다.
+> > source의 값을 다른 옵저버블에 머지시킨다.
+
+```ts
+const serviceB$ = serviceA(paramsA).pipe(
+  switchMap((serviceAResult) => {
+    return serviceB(paramsB);
+  })
+);
+
+const serviceC$ = serviceB$.pipe(
+  switchMap((serviceBResult) => {
+    return serviceC(paramsC);
+  })
+);
+
+serviceC$.subscribe(
+  (serviceCResult) => {
+    // here is my logic code.
+  },
+  (error) => {
+    // handle error
+  }
+);
+```
