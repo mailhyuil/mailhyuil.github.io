@@ -10,7 +10,7 @@
 ng add @nguniversal/express-engine
 ```
 
-## AppModule
+## import provider
 
 ```ts
 import { provideClientHydration } from "@angular/platform-browser";
@@ -26,13 +26,21 @@ export class AppModule {
 }
 ```
 
+## import provider (standalone)
+
+```ts
+providers: [provideClientHydration()];
+```
+
 ## start
 
 ```sh
 npm run dev:ssr
 ```
 
-## 브라우저 기능 사용
+## 브라우저 API 사용
+
+> window, document, location, navigator
 
 ```ts
 constructor(@Inject(DOCUMENT) private document: Document) {}
