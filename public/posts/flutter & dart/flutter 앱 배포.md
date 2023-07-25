@@ -12,17 +12,15 @@
 
 ## Signing
 
-### window
+[flutter_doc](https://docs.flutter.dev/deployment/android)
 
-```sh
-keytool -genkey -v -keystore %userprofile%\upload-keystore.jks ^
--storetype JKS -keyalg RSA -keysize 2048 -validity 10000 ^
--alias upload
+### /android/key.properties
+
+```
+storePassword=123456
+keyPassword=123456
+keyAlias=upload
+storeFile=../app/upload-keystore.jks
 ```
 
-### mac
-
-```sh
-keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA \
--keysize 2048 -validity 10000 -alias upload
-```
+### /android/app/upload-keystore.jks
