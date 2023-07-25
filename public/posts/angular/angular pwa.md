@@ -4,6 +4,10 @@
 
 ```sh
 ng add @angular/pwa
+
+npm i -g http-server
+ng build --prod
+http-server -p 8080 -c-1 dist/<project-name> -c-1 = disable caching
 ```
 
 ## main.ts
