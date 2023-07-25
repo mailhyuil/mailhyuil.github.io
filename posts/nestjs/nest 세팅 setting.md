@@ -35,19 +35,21 @@ import morgan from "morgan";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  /** Global Prefix */
-  app.setGlobalPrefix("api/v1");
   app.use(cookieParser());
   app.use(compression());
   app.use(helmet());
   app.use(morgan("dev"));
   app.enableCors();
 
-  /** Global Valdation Pipe */
+  /** Global Prefix */
+  app.setGlobalPrefix("api/v1");
+  /** Global Validation Pipe */
   app.useGlobalPipes(
     new ValidationPipe({
+      transformOptions: { enableImplicitConversion: true },
       transform: true,
       whitelist: true,
+      enableDebugMessages: true,
       exceptionFactory: (errors: ValidationError[]) => {
         if (errors?.length > 0) {
           const children = errors[0].children;
