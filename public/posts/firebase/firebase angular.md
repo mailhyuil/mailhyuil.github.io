@@ -32,13 +32,23 @@ firebase deploy
 })
 ```
 
+## firebase sdk 사용 (standalone)
+
+```ts
+// main.ts
+importProvidersFrom([
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => getFirestore()),
+    ]),
+```
+
 ## 사용
 
 ```ts
 import { Firestore, collectionData, collection } from "@angular/fire/firestore";
 
 export class AppComponent {
-  fireStore: FireStore = inject(FireStore);
+  fireStore: FireStore = inject(Firestore);
 
   constructor() {
     const itemCollection = collection(this.firestore, "items");
