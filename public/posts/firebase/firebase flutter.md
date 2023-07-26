@@ -16,6 +16,7 @@ flutter pub global activate flutterfire_cli
 # 5. 앱에 firebase 추가
 flutter pub add firebase_core
 # 6. firebase 플러그인 추가해서 사용
+flutter pub add cloud_firestore
 flutter pub add firebase_analytics
 flutter pub add firebase_auth
 flutter pub add firebase_database

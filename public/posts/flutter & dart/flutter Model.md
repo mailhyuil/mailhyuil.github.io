@@ -66,10 +66,10 @@ void main() {
   // UserModel 인스턴스 생성
   UserModel user = UserModel(name: 'John Doe', email: 'john@example.com', age: 30);
 
-  // UserModel을 JSON으로 변환
+  // UserModel -> JSON
   Map<String, dynamic> userJson = user.toJson();
 
-  // JSON을 사용하여 UserModel 생성
+  // JSON -> UserModel
   UserModel userFromJson = UserModel.fromJson(userJson);
 
   // 출력
