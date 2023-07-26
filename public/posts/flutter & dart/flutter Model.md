@@ -1,34 +1,39 @@
 # flutter Model
 
-## Model
+## UserModel
 
 ```dart
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserModel {
-  final String name;
-  final String email;
-  final int age;
+  String name;
+  String email;
+  int age;
+  DateTime createdAt;
+  DateTime updatedAt;
 
   UserModel({
     required this.name,
     required this.email,
     required this.age,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
-  // 팩토리 생성자를 사용하여 JSON에서 UserModel을 생성할 수 있도록 합니다.
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
-      name: json['name'],
-      email: json['email'],
-      age: json['age'],
-    );
-  }
+  UserModel.fromJson(Map<String, dynamic> json)
+      : name = json['name'] ?? '',
+        email = json['email'] ?? '',
+        age = json['age'] ?? 0,
+        createdAt = (json["createdAt"] as Timestamp).toDate(),
+        updatedAt = (json["createdAt"] as Timestamp).toDate();
 
-  // UserModel을 다시 JSON으로 변환합니다.
   Map<String, dynamic> toJson() {
     return {
       'name': name,
       'email': email,
       'age': age,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
     };
   }
 }
