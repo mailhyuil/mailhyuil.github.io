@@ -7,7 +7,9 @@
 ## install
 
 ```sh
-dart pub add json_serializable --dev
+flutter pub add json_serializable --dev
+flutter pub add build_runner --dev
+flutter pub add json_annotation
 ```
 
 ## 사용
