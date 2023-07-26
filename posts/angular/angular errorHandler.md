@@ -1,5 +1,9 @@
 # angular errorHandler
 
+> 전역까지 에러가 퍼지면 프로그램이 멈춘다.
+>
+> > 에러를 catch해야 프로그램이 안 멈추고 계속 실행된다.
+
 ## ErrorHandler
 
 > 전역 에러 핸들
