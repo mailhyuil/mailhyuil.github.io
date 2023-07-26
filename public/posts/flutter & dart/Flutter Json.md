@@ -1,20 +1,41 @@
 # flutter Json
 
+> fromJson, toJson 구현
+
 ```dart
-class User {
-  final String name;
-  final String email;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-  User(this.name, this.email);
+class UserModel {
+  String name;
+  String email;
+  int age;
+  DateTime createdAt;
+  DateTime updatedAt;
 
-  User.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        email = json['email'];
+  UserModel({
+    required this.name,
+    required this.email,
+    required this.age,
+    required this.createdAt,
+    required this.updatedAt,
+  });
 
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'email': email,
-      };
+  UserModel.fromJson(Map<String, dynamic> json)
+      : name = json['name'] ?? '',
+        email = json['email'] ?? '',
+        age = json['age'] ?? 0,
+        createdAt = (json["createdAt"] as Timestamp).toDate(),
+        updatedAt = (json["createdAt"] as Timestamp).toDate();
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'email': email,
+      'age': age,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
+    };
+  }
 }
 ```
 
