@@ -7,6 +7,8 @@
 > > dart pub과 동일
 
 ```sh
+flutter pub add
+flutter pub add --dev
 flutter pub get
 flutter pub upgrate
 flutter pub outdated

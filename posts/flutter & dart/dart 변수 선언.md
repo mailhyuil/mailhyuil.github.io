@@ -30,12 +30,12 @@ var totalAmount = 15 + 30;
 
 ## dynamic
 
-```dart
-dynamic name = "홍길동";
+> 변수의 타입이 바뀌어도 할당이 가능
 
-if(name is String){
-    print("name is String");
-}
+```dart
+dynamic name = "hyuil";
+
+name = 0; // okay
 ```
 
 ## null safety
