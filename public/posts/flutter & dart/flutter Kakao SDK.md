@@ -11,3 +11,10 @@ kakao_flutter_sdk_share # 카카오톡 공유
 kakao_flutter_sdk_navi # 카카오내비
 kakao_flutter_sdk_friend # 카카오톡 소셜(피커: 친구 선택하기)
 ```
+
+## 순서
+
+1. key 해시 등록 Signed key의 keyPassword StorePassword 넣어서 확인하기 (keytool로 생성한 Signed key를 말함)
+2. manifest에 meta-data 추가
+3. UserApi.instance.loginWithKakaoAccount() 호출
+4. token 반환
