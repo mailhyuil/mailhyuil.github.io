@@ -1,8 +1,12 @@
 # flutter JsonSerialiable
 
-> @JsonSerializable 어노테이션을 사용하여 json을 dart 클래스로 변환
+> 중대형 프로젝트에서 사용
 >
-> > fromJson, toJson 메서드를 자동으로 생성해줌
+> > @JsonSerializable 어노테이션을 사용하여 json을 dart 클래스로 변환
+> >
+> > > part '\*.g.dart'; 추가
+> > >
+> > > > fromJson, toJson 메서드를 자동으로 생성해줌
 
 ## install
 
