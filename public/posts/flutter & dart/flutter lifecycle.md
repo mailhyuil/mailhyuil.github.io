@@ -12,7 +12,7 @@
 @override
 void initState() {
   super.initState();
-  print('initState()');
+  _controller = TextEditingController();
 }
 ```
 
@@ -25,8 +25,8 @@ void initState() {
 ```dart
 @override
 void dispose() {
+  _controller.dispose();
   super.dispose();
-  print('dispose()');
 }
 ```
 
