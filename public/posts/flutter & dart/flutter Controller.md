@@ -2,7 +2,11 @@
 
 > 데이터와 UI 간의 상호작용을 제어하는 역할을 하는 클래스들
 >
-> > 주로 사용자 입력 및 비즈니스 로직과 관련된 동작을 처리하며, UI 상태의 변경 및 업데이트를 조정
+> > UI 위젯(TextField, Animation)이 있고 그 값, 상태를 가져오고나 변경할 때!!!
+> >
+> > > UI 위젯에 등록하는 과정이 있음 ex) TextField(controller: \_controller), Tween(begin: 0, end: 1).animate(\_controller)
+> > >
+> > > > 무언가를 동적으로 제어하고 싶다면 controller가 있는지 확인해보자
 
 ## 종류
 
@@ -12,11 +16,7 @@ AnimationController
 ScrollController
 PageController
 TabController
-
-StatefulWidget
-StatelessWidget
-ValueNotifier
-Animation
+StreamController
 ```
 
 ## 사용법
