@@ -16,7 +16,9 @@
 
 ### /android/key.properties
 
-```
+> 이 키는 기억해뒀다가 나중에 쓰인다.
+
+```sh
 storePassword=123456
 keyPassword=123456
 keyAlias=upload

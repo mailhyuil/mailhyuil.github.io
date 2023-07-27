@@ -1,5 +1,9 @@
 # flutter Timer
 
+> Timer(Duration())
+>
+> > Timer.periodic(Duration(), (timer) => {})
+
 ## Timer
 
 ```dart
