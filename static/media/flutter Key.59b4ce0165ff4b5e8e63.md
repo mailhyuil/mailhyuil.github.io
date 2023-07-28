@@ -15,8 +15,8 @@
 > > 이는 위젯 트리에서의 위치나 키의 유지를 위해 부모 클래스의 키를 재사용하고자 할 때 유용합니다.
 
 ```dart
-MyCustomWidget({Key? key}) : super(key: key);
-MyCustomWidget({super.key});
+MyCustomWidget({Key? key}) : super(key: key); // 해당 위젯이 받은 key를 super에게 바로 전송
+MyCustomWidget({super.key}); // super의 key를 그대로 사용
 ```
 
 ## GlobalKey

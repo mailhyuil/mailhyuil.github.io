@@ -43,4 +43,45 @@ class _AnimatedContainerPageStateState
         ],
       ),
     );
+  }
+}
+```
+
+```dart
+body: CustomScrollView(
+  slivers: <Widget>[
+    const SliverAppBar(
+      pinned: true,
+      snap: true,
+      floating: true,
+      expandedHeight: 160.0,
+      flexibleSpace: FlexibleSpaceBar(
+        title: Text('SliverAppBar'),
+        background: FlutterLogo(),
+      ),
+    ),
+    const SliverToBoxAdapter(
+      child: SizedBox(
+        height: 20,
+        child: Center(
+          child: Text('Scroll to see the SliverAppBar in effect.'),
+        ),
+      ),
+    ),
+    SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return Container(
+            color: index.isOdd ? Colors.white : Colors.black12,
+            height: 100.0,
+            child: Center(
+              child: Text('$index', textScaleFactor: 5),
+            ),
+          );
+        },
+        childCount: 20,
+      ),
+    ),
+  ],
+),
 ```
