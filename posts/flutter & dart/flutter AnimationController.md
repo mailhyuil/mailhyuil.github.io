@@ -1,5 +1,7 @@
 # flutter AnimationController
 
+> requestAnimationFrame과 같은 개념
+
 ```dart
 import 'package:flutter/material.dart';
 
