@@ -1,5 +1,9 @@
 # flutter Notification
 
+> Controller에 listener를 등록하는 방법 : 해당 이벤트가 발생했을 때 콜백 수행하기 위해 사용
+>
+> > NotificationListener 에 notification을 등록하는 방법 : info(Metrics)를 얻기 위해 사용
+
 ```dart
 import 'package:flutter/material.dart';
 
