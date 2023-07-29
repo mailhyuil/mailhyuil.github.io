@@ -1,12 +1,11 @@
 # flutter key
 
-> 위젯 트리에서 위젯이 움직일 때마다 현 상태를 보존하는 역할
->
-> > Stateless하면 필요없지만 Stateful하면 필요하다.
-> >
-> > > UniqueKey() : 위젯이 생성될 때마다 새로운 키를 생성한다.
-> > >
-> > > > GlobalKey는 위젯의 상태를 유지하고 업데이트하는 데 사용되는 반면, UniqueKey는 위젯을 고유하게 식별하는 데 사용됩니다.
+> Widget Tree는 Type을 비교한 후 다르면 위젯 트리를 갱신한다. (참조값을 업데이트)
+>> Element Tree는 Key를 비교해 다르면 갱신한다. (Key를 넣지 않으면 항상 null이기 때문에 다르다고 판단하지 않는다.)
+>>> Element Tree가 달라져야 RenderObject Tree가 달라진다. (즉 key가 같다면 RenderObject Tree는 달라지지 않는다.)
+>>>> 그렇기 때문에 위젯에 고유의 key를 넣어두면 플러터가 key를 비교할 수 있게 해준다.
+>>>>> Stateless는 변화가 없기 때문에 필요 없음
+>>>>>> 같은 종류의 위젯을 컬렉션에 더하거나, 제거하거나, 정렬할 때 키가 필요! 
 
 ## super.key
 
@@ -19,22 +18,36 @@ MyCustomWidget({Key? key}) : super(key: key); // 해당 위젯이 받은 key를 
 MyCustomWidget({super.key}); // super의 key를 그대로 사용
 ```
 
-## GlobalKey
 
-> GlobalKey<T extends State<StatefulWidget>> 클래스를 상속받는다.
->
-> > 전체 앱을 통틀어 유일한 키
-> >
-> > > BuildContext, Element, State 인스턴스를 찾을 때 사용
-
-## UniqueKey()
-
-> 마땅히 키로 사용할 값이 없지만 확실하게 위젯을 구별할 때 사용하는 키
->
-> > Unique key는 주로 리스트나 컬렉션의 아이템들을 구별하는 데 사용되는 것이며, 위젯 트리의 각 노드를 고유하게 식별하는 데에는 필요하지 않을 수 있습니다.
 
 ## ValueKey
-
+> 내가 직접 key를 넣을 수 있음
+```dart
+ValueKey(todo.id)
+```
 ## ObjectKey
+> 복합키를 key로 사용
+```dart
+ObjectKey({
+    name: user.name,
+    age: user.age,
+})
+```
+## UniqueKey()
+
+> 랜덤 키를 생성
+```dart
+UniqueKey()
+```
 
 ## PageStorageKey
+> 스크롤 위치를 키로 사용
+```dart
+PageStorageKey()
+```
+
+## GlobalKey
+> 전체 앱을 통틀어 유일한 키
+>> 위젯이 상태를 잃지 않으면서 부모를 바꿀 수 있도록 해줍니다. 
+> > > 특정 위젯의 정보를 완전히 다른 위젯트리에서 접근가능하게 해줄 수 있습니다. 
+>>>>서로 다른 2개의 화면에서 동일한 위젯을 동일한 상태를 유지하면서 보여주어야 할 때
