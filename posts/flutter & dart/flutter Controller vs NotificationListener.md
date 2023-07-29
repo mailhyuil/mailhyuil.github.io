@@ -1,6 +1,16 @@
-# flutter Notification
+# flutter Controller vs NotificationListener
 
-> Controller에 listener를 등록하는 방법 : 해당 이벤트가 발생했을 때 콜백 수행하기 위해 사용
+## Controller
+
+> Stateful 위젯내에서 사용
+>
+> > ChangeNotifier또는 ValueNotifier를 상속 함 // ValueNotifier는 하나의 값을 가지고 있는 ChangeNotifier
+> >
+> > > Controller에 listener를 등록하는 방법 : 해당 이벤트가 발생했을 때 콜백 수행하기 위해 사용
+
+## NotificationListener
+
+> 위젯 클래스를 상속한다. (즉 위젯이다.)
 >
 > > NotificationListener 에 notification을 등록하는 방법 : info(Metrics)를 얻기 위해 사용
 
