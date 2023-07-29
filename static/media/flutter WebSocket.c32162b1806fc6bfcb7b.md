@@ -6,13 +6,10 @@
 dart pub add web_socket_channel
 ```
 
-## 웹소켓 채널 생성
+## 웹소켓 채널 생성 및 접속
 
 ```dart
-// 웹소켓 채널을 생성
-final WebSocketChannel channel =
-// 웹 서버에 접속 시도
-IOWebSocketChannel.connect('ws://echo.websocket.org');
+final WebSocketChannel channel = IOWebSocketChannel.connect('ws://localhost:3000');
 ```
 
 ## 메시지 전송
