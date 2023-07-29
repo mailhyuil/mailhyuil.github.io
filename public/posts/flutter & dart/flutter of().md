@@ -8,4 +8,6 @@
 
 ```dart
 color: Theme.of(context).textTheme.titleLarge.color,
+Scaffold.of(context),
+Text.of(context),
 ```
