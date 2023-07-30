@@ -7,9 +7,11 @@ npm i @nestjs/websockets @nestjs/platform-socket.io
 ```
 
 ## 사용
-
+> websocket 서버를 열 url 지정 
+>> namespace = @Controller('my_events') 와 같은 역할
+>>> websocket cors는 따로 지정해줘야함
 ```ts
-@WebSocketGateway(80, { namespace: "my_events", transports: ["websocket"] })
+@WebSocketGateway(3001, { namespace: "my_events", cors: true })
 export class EventsGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer() server: Server;
 
@@ -41,7 +43,7 @@ export class EventsModule {}
 ## Subscribe 메소드
 
 ```ts
-@SubscribeMessage('my_events')
+@SubscribeMessage('handleEvent')
 handleEvent(
   @MessageBody() data: string,
   @ConnectedSocket() client: Socket,
@@ -51,7 +53,7 @@ handleEvent(
 ```
 
 ## Client App에서는
-
+> config에 서버의 url을 지정해주기
 ```ts
 socket.emit("events", { name: "Nest" });
 socket.emit("events", { name: "Nest" }, (data) => console.log(data));

@@ -9,7 +9,10 @@ dart pub add web_socket_channel
 ## 웹소켓 채널 생성 및 접속
 
 ```dart
-final WebSocketChannel channel = IOWebSocketChannel.connect('ws://localhost:3000');
+// _channel = IOWebSocketChannel.connect('$serverUrl/$socketPath');
+final channel = WebSocketChannel.connect(
+    Uri.parse('wss://127.0.0.1:3001/my_events'),
+  );
 ```
 
 ## 메시지 전송
