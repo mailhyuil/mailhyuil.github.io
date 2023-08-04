@@ -13,6 +13,7 @@ final String name = "홍길동";
 
 // late 선언
 // 나중에 초기화
+// this를 사용한다면 late로 선언해야한다.
 // API에서 데이터를 받아서 채워넣을 때 사용
 // js에서 const를 사용하면 선언시 값을 넣어줘야 하지만 dart에서는 late를 사용해 나중에 값을 넣어줘도 된다
 late final String name = "홍길동";
