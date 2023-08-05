@@ -1,6 +1,8 @@
-# flutter KeyHash
+# flutter keytool
 
-> keytool 명령어로 사용
+> jdk 설치 (mac은 기본으로 설치되어있음)
+>
+> > jdk/bin 폴더 환경변수 Path에 등록
 
 ```sh
 keytool -genkey -v -keystore <path>.jks -storetype <type> -keyalg <alg> -keysize <size> -validity <validity> -alias <alias>
