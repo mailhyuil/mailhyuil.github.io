@@ -8,5 +8,5 @@ flutter build windows
 flutter build linux
 flutter build macos
 flutter build aot
-flutter build bundle
+flutter build appbundle
 ```
