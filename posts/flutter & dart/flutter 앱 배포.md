@@ -10,7 +10,7 @@
 
 > 개인정보 포털에서 생성 가능
 
-## Signing
+## Signed Key 생성
 
 [flutter_doc](https://docs.flutter.dev/deployment/android)
 
@@ -26,3 +26,11 @@ storeFile=../app/upload-keystore.jks
 ```
 
 ### /android/app/upload-keystore.jks
+
+## build appbundle
+
+> signed key를 추가한 후 빌드
+
+```sh
+flutter build appbundle
+```
