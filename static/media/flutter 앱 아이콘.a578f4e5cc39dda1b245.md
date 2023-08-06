@@ -3,9 +3,11 @@
 ## install
 
 ```sh
-flutter pub run flutter_launcher_icons:main
+flutter pub add flutter_launcher_icons --dev
+
+# flutter_launcher_icons.yaml 생성 및 설정
+
 flutter pub run flutter_launcher_icons -f <your config file name here>
-flutter pub run flutter_launcher_icons
 ```
 
 ## flutter_launcher_icons.yaml
@@ -13,9 +15,6 @@ flutter pub run flutter_launcher_icons
 > 아이콘 설정
 
 ```yaml
-dev_dependencies:
-  flutter_launcher_icons: "^0.13.1"
-
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

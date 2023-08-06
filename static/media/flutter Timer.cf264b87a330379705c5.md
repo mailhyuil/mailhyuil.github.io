@@ -1,8 +1,8 @@
 # flutter Timer
 
-> Timer(Duration())
+> Timer(Duration()) // setTimeout
 >
-> > Timer.periodic(Duration(), (timer) => {})
+> > Timer.periodic(Duration(), (timer) => {}) // setInterval
 
 ## Timer
 
