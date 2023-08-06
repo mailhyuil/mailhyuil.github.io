@@ -65,19 +65,19 @@ class CountProvider extends StateNotifier<int> {
 
 ```dart
 class HomeScreen extends ConsumerWidget {
-  final countProvider = StateNotifierProvider((ref) => CountProvider());
+  final countProvider = StateNotifierProvider((ref) => CountProvider()); // Provider 불러오기
   HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final count = ref.watch(countProvider);
+    final count = ref.watch(countProvider); // Provider watch
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('$count'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => ref.read(countProvider.notifier).increment(),
+        onPressed: () => ref.read(countProvider.notifier).increment(), // Provider read
         child: const Icon(Icons.add),
       ),
       body: Center(
