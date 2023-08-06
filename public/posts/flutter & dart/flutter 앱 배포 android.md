@@ -1,10 +1,6 @@
-# flutter appStore & playStore 등록
+# flutter 앱배포 android
 
-## 개발자 계정 생성
-
-> apple 등록비 : 99달러
->
-> > google 등록비 : 25달러
+> google play store에 배포하기 위한 과정
 
 ## 개인 정보 처리 방침 생성
 
@@ -26,6 +22,8 @@ storeFile=../app/upload-keystore.jks
 ```
 
 ### /android/app/upload-keystore.jks
+
+> keytool로 생성한 파일을 위치시킨다.
 
 ## build appbundle
 
