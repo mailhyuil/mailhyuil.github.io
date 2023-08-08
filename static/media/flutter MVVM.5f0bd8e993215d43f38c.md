@@ -5,6 +5,8 @@
 > User라는 MODEL을 정의
 >
 > > MODEL에는 Service도 포함될 수 있음
+> >
+> > > angular의 DTO
 
 ```dart
 class User {
@@ -28,6 +30,10 @@ class UserService {
 > MODEL과 Service를 사용하여 VIEW에 보여질 데이터
 >
 > > MODEL과 VIEW의 중간다리 역할
+> >
+> > > angular의 TS파일
+> > >
+> > > > Notifier
 
 ```dart
 import 'package:flutter/foundation.dart';
@@ -47,7 +53,9 @@ class UserViewModel extends ChangeNotifier {
 
 ## VIEW
 
+> angular의 template.html
 >
+> > ConsumerWidget
 
 ```dart
 import 'package:flutter/material.dart';
