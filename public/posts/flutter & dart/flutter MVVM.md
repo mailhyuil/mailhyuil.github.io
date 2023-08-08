@@ -9,19 +9,23 @@
 > > > angular의 DTO
 
 ```dart
-class User {
-  final String name;
-  final int age;
+class MemoModel {
+  String content;
+  DateTime createdAt;
 
-  User({required this.name, required this.age});
-}
+  MemoModel({
+    required this.content,
+    required this.createdAt,
+  });
 
-class UserService {
-  Future<User> getUser() async {
-    // 네트워크 요청 등을 통해 실제 데이터를 가져오는 로직
-    await Future.delayed(Duration(seconds: 1));
-    return User(name: "John Doe", age: 30);
-  }
+  MemoModel.fromJson(Map<String, dynamic> json)
+      : content = json['content'],
+        createdAt = DateTime.parse(json['createdAt']);
+
+  Map<String, dynamic> toJson() => {
+        'content': content,
+        'createdAt': createdAt.toIso8601String(),
+      };
 }
 ```
 
@@ -36,19 +40,49 @@ class UserService {
 > > > > Notifier
 
 ```dart
-import 'package:flutter/foundation.dart';
+import 'dart:async';
+import 'dart:convert';
 
-class UserViewModel extends ChangeNotifier {
-  final UserService _userService = UserService();
-  User? _user;
+import 'package:flutter_my_test/features/memo/models/memo_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-  User? get user => _user;
+class MemoViewModel extends AsyncNotifier<List<MemoModel>> {
+  late SharedPreferences sp;
+  @override
+  FutureOr<List<MemoModel>> build() async {
+    sp = await SharedPreferences.getInstance();
+    return await getMemos();
+  }
 
-  Future<void> fetchUser() async {
-    _user = await _userService.getUser();
-    notifyListeners();
+  Future<List<MemoModel>> getMemos() async {
+    List<String> memoStrings = sp.getStringList('memos') ?? [];
+    if (memoStrings.isNotEmpty) {
+      final List<Map<String, dynamic>> decodedJsonList = memoStrings
+          .map((e) => jsonDecode(e) as Map<String, dynamic>)
+          .toList();
+      final List<MemoModel> memos =
+          decodedJsonList.map((e) => MemoModel.fromJson(e)).toList();
+      print(memos);
+      return memos;
+    } else {
+      return [];
+    }
+  }
+
+  Future<void> createMemo(MemoModel memo) async {
+    List<String> memoStrings = sp.getStringList('memos') ?? [];
+    memoStrings.add(json.encode(memo));
+    sp.setStringList('memos', memoStrings);
+
+    state = AsyncValue.data(await getMemos());
   }
 }
+
+final memoViewModelProvider =
+    AsyncNotifierProvider<MemoViewModel, List<MemoModel>>(
+  () => MemoViewModel(),
+);
 ```
 
 ## VIEW
@@ -59,40 +93,113 @@ class UserViewModel extends ChangeNotifier {
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_my_test/features/memo/models/memo_model.dart';
+import 'package:flutter_my_test/features/memo/view_models/memo_view_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class UserView extends StatelessWidget {
+class MemoScreen extends ConsumerStatefulWidget {
+  const MemoScreen({Key? key}) : super(key: key);
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _MemoScreenState();
+}
+
+class _MemoScreenState extends ConsumerState<MemoScreen> {
+  final TextEditingController _memoController = TextEditingController();
+  void _openUpdateMemo(BuildContext context, WidgetRef ref) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Update Memo'),
+          content: Form(
+            child: TextFormField(
+              controller: _memoController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Memo',
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () async {
+                print(_memoController.text);
+                final memo = MemoModel(
+                  content: _memoController.text,
+                  createdAt: DateTime.now(),
+                );
+                await ref.read(memoViewModelProvider.notifier).createMemo(memo);
+                setState(() {});
+                Navigator.pop(context);
+              },
+              child: const Text('Update'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('User Information'),
-      ),
-      body: Center(
-        child: Consumer<UserViewModel>( // Consumer를 사용하여 VIEW MODEL을 사용합니다.
-          builder: (context, userViewModel, child) {
-            if (userViewModel.user == null) {
-              return CircularProgressIndicator();
-            } else {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Name: ${userViewModel.user!.name}'),
-                  Text('Age: ${userViewModel.user!.age.toString()}'),
-                ],
-              );
-            }
+    return ref.watch(memoViewModelProvider).when(
+          error: (error, stackTrace) => Center(
+            child: Text(error.toString()),
+          ),
+          loading: () {
+            print('loading!!');
+            return const Center(
+              child: CircularProgressIndicator.adaptive(),
+            );
           },
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // 사용자 정보를 새로고침합니다.
-          Provider.of<UserViewModel>(context, listen: false).fetchUser();
-        },
-        child: Icon(Icons.refresh),
-      ),
-    );
+          data: (data) {
+            print(data);
+            print('data!!');
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text('Memo'),
+              ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {
+                  _openUpdateMemo(context, ref);
+                },
+                child: const Icon(Icons.add),
+              ),
+              body: Center(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      height: 1,
+                      color: Colors.black,
+                    );
+                  },
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    print("build!!");
+                    return SizedBox(
+                      height: 50,
+                      child: Center(
+                        child: Text(
+                          data[index].content,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+          },
+        );
   }
 }
 ```
