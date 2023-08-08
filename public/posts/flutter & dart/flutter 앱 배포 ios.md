@@ -13,3 +13,15 @@
 > Bundle ID : com.tistory.app
 >
 > > SKU (재고관리코드) : 내가 식별하기 위한 임의의 코드 ex) MY_APP_2021_02
+
+## Certificates, Identifiers & Profiles
+
+> ['link']('https://developer.apple.com/account/resources/certificates/list')
+>
+> > 전부 등록 필요! 몇개는 xcode에서 자동으로 등록해줌
+> >
+> > > 기기등록 : 내 iphone의 UDID 등록 (UDID는 itunes에서 확인 가능)
+
+## Xcode Archive
+
+> Apple Connect에 build한 앱을 업로드
