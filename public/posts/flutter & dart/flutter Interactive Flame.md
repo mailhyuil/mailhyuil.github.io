@@ -7,7 +7,7 @@ flutter pub add flame
 flutter pub add flame_forge2d
 ```
 
-## main.dart
+## GameScreen
 
 ```dart
 import 'dart:async';
@@ -16,10 +16,23 @@ import 'package:flame/game.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(GameWidget(game: MyGame()));
+class GameScreen extends StatelessWidget {
+  const GameScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My First Game!'),
+      ),
+      body: GameWidget(
+        game: MyGame(),
+      ),
+    );
+  }
 }
 
+// GameWidget(game: MyGame())으로 감싸서 사용
 class MyGame extends Forge2DGame {
   MyGame() : super(gravity: Vector2.zero(), zoom: 20);
 
@@ -113,5 +126,4 @@ class Boundary extends BodyComponent<MyGame> {
     return boundaryBody;
   }
 }
-
 ```

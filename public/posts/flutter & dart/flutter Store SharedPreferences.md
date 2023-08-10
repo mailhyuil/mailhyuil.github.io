@@ -20,6 +20,7 @@ sp.setString('key', 'value');
 
 //getter
 sp.getString('key');
+sp.getStringList('key');
 
 //delete
 sp.remove('key');
