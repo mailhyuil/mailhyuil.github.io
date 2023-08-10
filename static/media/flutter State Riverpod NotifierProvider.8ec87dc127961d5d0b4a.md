@@ -1,23 +1,3 @@
-# flutter Riverpod
-
-## install
-
-```sh
-flutter pub add flutter_riverpod
-```
-
-## main.dart
-
-```dart
-void main() {
-  runApp(
-     ProviderScope(
-      child: MyApp(),
-      ),
-  );
-}
-```
-
 ## NotifierProvider
 
 > build 메소드에서 초기화
