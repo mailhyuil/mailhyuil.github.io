@@ -42,3 +42,15 @@ onPressed:(){
     Navigator.pop();
 }
 ```
+
+# pushAndRemoveUntil
+
+> 특정 화면으로 이동하고 이전 화면들을 모두 제거
+
+```dart
+Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (context) => HomeScreen()),
+    (route) => false,
+);
+```

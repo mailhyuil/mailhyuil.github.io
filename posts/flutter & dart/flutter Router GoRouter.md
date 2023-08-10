@@ -39,8 +39,9 @@ final _router = GoRouter(
 ## 사용법
 
 ```dart
-context.go('/test'),
-context.go('/test/1'),
-context.push('/test'),
-context.pop(),
+context.go('/test');
+context.go('/test/1');
+context.goNamed();
+context.push('/test');
+context.pop();
 ```
