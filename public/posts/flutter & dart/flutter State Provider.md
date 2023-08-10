@@ -1,17 +1,35 @@
 # flutter Provider
 
+> InheritedWidget와 ChangeNotifier를 결합하여 사용하기 쉽게 만든 패키지
+
 ## install
 
 ```sh
 flutter pub add provider
 ```
 
-## provider 생성
+## Provider로 감싸기
+
+> Notifier의 종류에 따라서 ChangeNotifierProvider, ListenableProvider, ValueListenableProvider, StreamProvider, FutureProvider, Provider이 있다.
+
+```dart
+MultiProvider(
+      providers: [
+        ChangeNotifierProvider<SomeNotifier>(
+          create: (context) => SomeNotifier(),
+        ),
+      ],
+      child: MaterialApp(
+      ),
+    );
+```
+
+## Notifier 생성
 
 ```dart
 import 'package:flutter/material.dart';
 
-class SomeProvider extends ChangeNotifier {
+class SomeNotifier extends ChangeNotifier {
   int _count = 0;
 
   int get count => _count;
@@ -28,37 +46,14 @@ class SomeProvider extends ChangeNotifier {
 }
 ```
 
-## Provider로 감싸기
+## 사용
+
+> 값이 계속 바뀐다면 watch
+>
+> > 값이 바뀌지 않는다면 read ex) 메소드
 
 ```dart
-MultiProvider(
-      providers: [
-        ChangeNotifierProvider<SomeProvider>(
-          create: (context) => SomeProvider(),
-        ),
-      ],
-      child: MaterialApp(
-      ),
-    );
-```
-
-## consumer
-
-> provider를 사용하는 위젯
-
-```dart
-Consumer<SomeProvider>(
-              builder: (context, someProvider, child) => Text(
-                someProvider.count.toString(),
-                style: const TextStyle(fontSize: 40),
-              ),
-            ),
-```
-
-## Provider.of<SomeProvider>()
-
-> provider를 사용하는 위젯
-
-```dart
-Provider.of<CounterProvider>(context, listen: false).increment();
+context.watch<SomeNotifier>().count
+context.read<SomeNotifier>().increase()
+context.read<SomeNotifier>().decrease()
 ```

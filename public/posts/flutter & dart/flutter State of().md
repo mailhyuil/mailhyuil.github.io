@@ -1,15 +1,21 @@
 # flutter of()
 
-> of() 에 대한 해석
+> Inherited Widget으로 구현된 메소드
 >
-> > "현재 주어진 context에서 위로 올라가면서 가장 가까운 Widget를 찾아서 반환하라"
-> >
-> > > closest() 와 비슷한 개념
-> > >
-> > > > Inherited Widget으로 구현된 위젯들은 of() 메소드를 가지고 있다.
+> > 특정 Inherited Widget이 가진 데이터를 가져올 수 있다.
+
+## 구현
 
 ```dart
-color: Theme.of(context).textTheme.titleLarge.color,
+static ParentWidget of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<ParentWidget>()!;
+}
+```
+
+## 사용
+
+```dart
+Theme.of(context).textTheme.titleLarge.color,
 Scaffold.of(context),
-Text.of(context),
+MediaQuery.of(context),
 ```
