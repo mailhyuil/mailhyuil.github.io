@@ -2,8 +2,9 @@
 
 ```
 Form
-TextFormField
-TextField
+TextFormField // input 값이 많을 때 사용
+
+TextField // input 값이 적을 때 사용
 ```
 
 ## How does this work?
