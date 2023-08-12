@@ -3,14 +3,18 @@
 ## install
 
 ```sh
+# router
+go_router
+
+# state management
+flutter_riverpod
+
 # http
 dio
-# DI
-get_it
-# state management
-provider
+
 # json
 json_annotation
+
 # local storage
 shared_preferences
 
