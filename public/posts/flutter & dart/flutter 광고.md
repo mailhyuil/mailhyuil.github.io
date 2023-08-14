@@ -1,5 +1,9 @@
 # flutter 광고
 
+1. adMob 앱 생성
+2. 광고 단위 생성
+3. test 기기 추가
+
 ## install
 
 ```sh
