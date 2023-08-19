@@ -15,6 +15,7 @@ async submit(){
 
 ## css
 
-```
-ion-modal.custom-action-sheet
+```css
+ion-modal.custom-action-sheet {
+}
 ```
