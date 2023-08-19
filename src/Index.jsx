@@ -1,21 +1,18 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import About from "../components/About";
-import Blog from "../components/Blog";
-import Donot from "../components/Donot";
-import Home from "../components/Home";
-import Movie from "../components/Movie";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Donot from "./pages/Donot";
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
 
 const Main = () => {
   const [blog, setBlog] = useState("");
   const [foundBlog, setFoundBlog] = useState([]);
   const [query, setQuery] = useState("");
-
-  const categories = new Set();
-  const getAllMDFile = () => {
-    return require.context("/public/posts", true, /\.md$/).keys();
-  };
-
+  const [navIndex, setNavIndex] = useState("home");
+  const blog_category = useRef([]);
+  const nav_ul = useRef();
   useEffect(() => {
     const res = getAllMDFile().filter((md) => {
       const regex = new RegExp(query, "gi");
@@ -29,8 +26,10 @@ const Main = () => {
     }
   }, [query]);
 
-  const onChange = (e) => {
-    setQuery(e.target.value);
+  const categories = new Set();
+
+  const getAllMDFile = () => {
+    return require.context("/public/posts", true, /\.md$/).keys();
   };
 
   const getMDFilesByCategory = (cat) => {
@@ -47,7 +46,9 @@ const Main = () => {
     .map((text) => text.split("/")[1])
     .map((e) => categories.add(e));
 
-  const [navIndex, setNavIndex] = useState("home");
+  const onChange = (e) => {
+    setQuery(e.target.value);
+  };
 
   const menuList = {
     home: <Home />,
@@ -57,8 +58,6 @@ const Main = () => {
     donot: <Donot />,
   };
 
-  const blog_category = useRef([]);
-  const nav_ul = useRef();
   const onClickBlog = (event) => {
     if (event.target.classList.contains("blog")) blog_category.current.map((e) => e.classList.toggle("hidden"));
   };
@@ -75,7 +74,7 @@ const Main = () => {
       <div className="flex flex-col flex-1 h-full bg-white lg:flex-row">
         <nav className="overflow-y-auto lg:h-full scrollbar-hide font-primary">
           <div className="flex justify-center p-3">
-            <img className="mt-5 w-[11rem] hidden lg:block" src="/img/myblog_logo.png" alt="logo" />
+            <img className="mt-5 w-32 hidden lg:block" src="/img/myblog_logo.png" alt="logo" />
             <img className="w-24 lg:hidden" src="/img/myblog_logo2.png" alt="logo" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +89,7 @@ const Main = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </div>
-          <ul className="flex-col items-center hidden px-4 cursor-pointer nav-ul lg:flex" ref={nav_ul}>
+          <ul className="flex-col items-start ml-5 hidden px-4 cursor-pointer nav-ul lg:flex" ref={nav_ul}>
             <motion.li
               initial={{ x: -400 }}
               animate={{ x: 0 }}
@@ -163,11 +162,11 @@ const Main = () => {
             </motion.li>
           </ul>
         </nav>
-        <motion.main className="flex-1 overflow-scroll scrollbar-hide">
+        <motion.main className="flex-1 flex flex-col overflow-y-auto scrollbar-hide">
           <div className="p-2">
             <input autoFocus className="border-2 rounded-md py-1 px-2 font-bold w-full " value={query} onChange={onChange} />
           </div>
-          <div>
+          <div className="flex-1">
             <ul>
               {foundBlog.map((blog, index) => {
                 return (
@@ -185,8 +184,8 @@ const Main = () => {
                 );
               })}
             </ul>
+            {menuList[navIndex]}
           </div>
-          {menuList[navIndex]}
         </motion.main>
       </div>
     </div>
