@@ -4,6 +4,23 @@
 >
 > > map내에서 async를 사용하면 Promise배열을 리턴 Promise.all()으로 한번에 실행해줘야함
 
+## tx 사용 안함
+
+```ts
+const manyLogics = [
+  this.prismaService.post.create(...),
+  this.prismaService.image.create(...),
+  this.prismaService.image.delete(...),
+  ...
+]
+
+await this.prismaService.$transaction(updateMany);
+```
+
+## tx 사용
+
+> 재사용 불가?
+
 ```ts
   async create(userId: string, data: CreateWebComplexAndWebComplexViewsDTO) {
     const { complex, views } = data;
