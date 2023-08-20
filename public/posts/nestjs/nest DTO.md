@@ -8,8 +8,21 @@
 
 > Exclude Expose 설정 (transform)
 
-## Create Update DTO
+## Create / Update DTO
 
-> swagger 설정
->
-> > validation 설정
+```ts
+import { ApiProperty, PartialType } from "@nestjs/swagger";
+
+export class CreateCatDTO {
+  @ApiProperty()
+  name: string;
+
+  @ApiProperty()
+  age: number;
+
+  @ApiProperty()
+  breed: string;
+}
+
+export class UpdateCatDTO extends PartialType(CreateCatDTO) {}
+```
