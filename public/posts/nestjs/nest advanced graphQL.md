@@ -3,7 +3,14 @@
 ## install
 
 ```sh
-npm i @nestjs/graphql @nestjs/apollo @apollo/server graphql
+npm i @nestjs/graphql
+npm i @nestjs/apollo
+npm i @apollo/server
+# npm i apollo-server-express
+
+npm i graphql
+npm i graphql-tools
+npm i graphql-subscriptions
 ```
 
 ## resolver
