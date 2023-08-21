@@ -1,6 +1,8 @@
 # flutter VisibilityDetector
 
 > 위젯이 화면에 보이는지 감지
+>
+> > IntersectionObserver와 비슷한 기능
 
 ## install
 
