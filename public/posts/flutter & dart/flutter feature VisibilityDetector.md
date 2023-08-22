@@ -9,3 +9,20 @@
 ```sh
 flutter pub add visibility_detector
 ```
+
+## 사용
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return VisibilityDetector(
+    key: Key('my-widget-key'),
+    onVisibilityChanged: (visibilityInfo) {
+      var visiblePercentage = visibilityInfo.visibleFraction * 100;
+      debugPrint(
+          'Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');
+    },
+    child: someOtherWidget,
+  );
+}
+```
