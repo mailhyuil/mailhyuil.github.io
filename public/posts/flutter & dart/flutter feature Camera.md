@@ -6,9 +6,7 @@
 flutter pub add camera
 ```
 
-## android 설정
-
-> android/app/build.gradle
+## android/app/build.gradle
 
 ```
 defaultConfig {
@@ -16,19 +14,13 @@ defaultConfig {
 }
 ```
 
-## ios 설정
+## ios/Runner/Info.plist
 
-> ios/Runner/Info.plist
-
-```
-<plist>
-<dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera permission is required.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone permission is required.</string>
-</dict>
-</plist>
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Camera permission is required.</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>Microphone permission is required.</string>
 ```
 
 ## 사용법
