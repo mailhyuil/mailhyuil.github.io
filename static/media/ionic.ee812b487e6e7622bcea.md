@@ -2,13 +2,13 @@
 
 ## install
 
-```
+```sh
 npm install -g @ionic/cli
 ```
 
 ## create project
 
-```
+```sh
 ionic start
 ```
 
@@ -18,18 +18,12 @@ ionic start
 >
 > > ion-\* 으로 되어있는 태그 사용
 
-## CSS utils
+```html
+<ion-router-outlet></ion-router-outlet>
 
-### flex
+<ion-header></ion-header>
 
-> ion-grid 사용
+<ion-content></ion-content>
 
-```
-<ion-grid>
-  <ion-row>
-    <ion-col class="ion-text-center">
-      <ion-button>hi</ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-footer></ion-footer>
 ```

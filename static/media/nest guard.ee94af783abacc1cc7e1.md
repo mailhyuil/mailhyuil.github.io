@@ -21,6 +21,12 @@
 export class AuthGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest();
+    const headers = request.headers;
+
+    // client에서 headers를 심어서 보내면 전부 소문자로 받을 수 있다.
+    // const authorization = headers.authorization; // Authorization
+    // const apptype = headers.apptype; // AppType
+
     return validateRequest(request);
   }
 }
