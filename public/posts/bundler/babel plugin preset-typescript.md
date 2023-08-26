@@ -3,6 +3,10 @@
 > tsc 대신 babel을 사용할 수 있게 해주는 플러그인
 >
 > > 내부에 @babel/plugin-transform-typescript가 포함되어 있다.
+> >
+> > > babel은 컴파일시 타입검사를 할 수 없고 index.d.ts를 생성할 수 없다.
+> > >
+> > > > 때문에 typescript 패키지를 함께 사용해서 typescript로 타입검사를 하고 index.d.ts를 생성 컴파일만 babel로
 
 ## install
 
