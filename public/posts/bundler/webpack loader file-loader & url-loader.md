@@ -1,6 +1,8 @@
 # webpack url-loader & file-loader
 
 > image, font 등을 번들링할 때 사용한다.
+>
+> > js나 css-loader로 로드된 파일이 image, font등을 참조하고 있다면 dist 폴더에 파일을 생성한다.
 
 ## file-loader
 
@@ -21,11 +23,10 @@ module: {
       test: /\.(png|jpg|gif|svg)$/,
       use: [
         {
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: 8192, // 크기 임계값 (8KB)
             name: '[name].[ext]',
-            outputPath: 'images/', // 이미지 파일이 저장될 경로
+            publicPath: '/dist/images/', // 이미지 파일이 저장될 경로
           },
         },
       ],
@@ -38,7 +39,7 @@ module: {
           options: {
             limit: 8192, // 크기 임계값 (8KB)
             name: '[name].[ext]',
-            outputPath: 'fonts/', // 폰트 파일이 저장될 경로
+            publicPath: '/dist/fonts/', // 폰트 파일이 저장될 경로
           },
         },
       ],

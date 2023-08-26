@@ -1,6 +1,6 @@
 # webpack style-loader
 
-> style-loader는 js 파일에 import된 css 파일을 <style> 태그에 주입한다.
+> css-loader로 번들링된 js를 해당 css파일을 참조하고 있는 html에 style태그로 삽입해준다.
 
 ## install
 
