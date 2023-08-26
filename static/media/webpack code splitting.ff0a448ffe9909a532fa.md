@@ -10,6 +10,8 @@
 > > >
 > > > > optimization.splitChunks 설정 옵션을 적용하면 index.bundle.js와 another.bundle.js에서 중복 의존성이 제거된 것을 확인 할 수 있습니다. 플러그인은 lodash가 별도의 청크로 분리되었고 메인 번들에서도 제거된 것을 알 수 있습니다.
 
+## 사용
+
 ```js
 const path = require("path");
 module.exports = {
@@ -31,7 +33,13 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all", // async, initial, all // 'all'인 경우 entry의 각 모듈들이 중복으로 동적 혹은 정적으로 import한 모듈은 모두 chunk 파일로 만들어 버리는 기능
+        },
+      },
     },
   },
 };
@@ -43,6 +51,12 @@ module.exports = {
 >
 > > commonjs라면 require.ensure()를 사용
 
-```js
+## install
 
+> 바벨 사용 시 import문을 사용하기 위해
+>
+> > es6 이하 문법을 es6 이상으로 변환해주는 바벨 플러그인이 필요합니다.
+
+```sh
+npm i -D @babel/plugin-syntax-dynamic-import
 ```

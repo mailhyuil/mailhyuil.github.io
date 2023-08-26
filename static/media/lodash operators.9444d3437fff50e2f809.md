@@ -1,4 +1,4 @@
-# lodash-operators
+# lodash operators
 
 ## chaining (seq)
 
