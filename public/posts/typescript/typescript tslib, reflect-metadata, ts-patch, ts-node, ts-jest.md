@@ -1,9 +1,5 @@
 # typescript tslib, reflect-metadata, ts-patch, ts-node, ts-jest
 
-## ts-loader
-
-> 웹팩의 loader
-
 ## tslib
 
 > TypeScript 컴파일러가 생성하는 JavaScript 코드에서 공통적인 유틸리티 함수를 제공하는 라이브러리

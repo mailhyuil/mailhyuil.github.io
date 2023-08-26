@@ -2,10 +2,18 @@
 
 > ts -트랜스파일링-> js -번들링-> main.js -> deploy
 
-1. npm i -D typescript
+## install
 
-2. tsconfig.json
-   > tsc --optionName 대신 tsconfig.json의 설정을 읽어서 실행시킬 수 있다.
+```sh
+npm i -D typescript
+
+## 사용
+npx tsc
+```
+
+## tsconfig.json
+
+> tsc --optionName 대신 tsconfig.json의 설정을 읽어서 실행시킬 수 있다.
 
 ```json
 {

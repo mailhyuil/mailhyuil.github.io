@@ -5,6 +5,7 @@
 ## install
 
 ```sh
+npm i -D @babel/preset-env
 npm i -D @babel/preset-react
 ```
 
@@ -12,7 +13,7 @@ npm i -D @babel/preset-react
 
 ```json
 {
-  "presets": ["@babel/preset-react"]
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
 ```
 

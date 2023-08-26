@@ -2,6 +2,12 @@
 
 > 웹팩 번들링 과정 중에 index.html 파일을 생성하고 번들된 자원을 자동으로 삽입해준다.
 
+## install
+
+```sh
+npm i -D html-webpack-plugin
+```
+
 ## 사용
 
 ```js

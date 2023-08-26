@@ -7,6 +7,12 @@
 ```sh
 npm i -D @babel/core
 npm i -D @babel/cli
+npm i -D @babel/preset-env # 최신의 Javascript를 당신의 타겟 환경을 자동으로 적용해준다. 거의 필수
+
+# 사용
+babel src -d dist
+# js가 아닌 파일을 컴파일 할 때는 --extensions .ts를 붙여줘야한다.
+babel src -d dist --extensions .ts
 ```
 
 ## .babelrc vs babel.config.json

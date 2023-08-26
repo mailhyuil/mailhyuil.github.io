@@ -22,8 +22,11 @@ npx webpack
 > > > > webpack.config.js에서 설정가능
 
 ```js
+/** 이 주석을 넣으면 자동완성 기능 가능
+ * @type {import('webpack').Configuration}
+ */
 module.exports = {
-  entry: "./path/to/my/entry/file.js",
+  entry: "./src/index.js",
 };
 ```
 
