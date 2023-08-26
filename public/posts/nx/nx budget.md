@@ -4,7 +4,7 @@
 
 > targets -> configurations -> budgets -> maximumError
 
-```
+```json
 "configurations": {
         "production": {
           "budgets": [

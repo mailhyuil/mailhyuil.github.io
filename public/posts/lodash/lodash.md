@@ -1,19 +1,17 @@
 # lodash
 
-> utility belts
+## install
+
+```sh
+# npm i lodash
+# lodash는 commonjs로 작성되어 있어서 트리 쉐이킹 되지 않는다!
+# cherry picking을 사용하거나 ex) import isEmpty from 'lodash/isEmpty'
+# lodash-es를 사용하자
+npm i lodash-es
+```
 
 ## lodash와 Array 함수의 차이점
 
 > lodash는 모든 iterable에 사용가능
 >
 > > js Array 함수는 Array에만 사용 가능
-
-## install
-
-```
-npm i --save lodash
-```
-
-## lodash 지연 평가
-
-> Loadash에서는 \_.chain , \_.value 함수를 이용해 지연 평가를 지원한다.
