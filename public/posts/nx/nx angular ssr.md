@@ -2,7 +2,7 @@
 
 ## generate
 
-```
+```sh
 nx g setup-ssr ... --dry-run
 ```
 

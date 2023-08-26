@@ -1,29 +1,10 @@
 # nx env
 
-> NX\_ prefix 붙이기
-
-## 읽는 순위
-
-```
-1 apps/my-app/.env.[target-name].[configuration-name]
-2 apps/my-app/.[target-name].[configuration-name].env
-3 apps/my-app/.env.[target-name]
-4 apps/my-app/.[target-name].env
-5 apps/my-app/.env.local
-6 apps/my-app/.local.env
-7 apps/my-app/.env
-8 .env.[target-name].[configuration-name]
-9 .[target-name].[configuration-name].env
-10 .env.[target-name]
-11 .[target-name].env
-12 .local.env
-13 .env.local
-14 .env
-```
+> .env.local, .env.development, .env.production 로 나누기
 
 ## .env.local
 
-```
+```sh
 SERVER_PORT=3000
 
 # CLIENT
@@ -48,8 +29,44 @@ ADMIN_PHONE=01011111111
 ADMIN_ROLE=MASTER
 ```
 
-## 사용
+## webpack
 
-```
-private readonly API_ENDPOINT = process.env['NX_API_ENDPOINT'];
+> client에서 webpack 사용 시 NX\_ prefix 붙이기
+
+### webpack.config.js
+
+```js
+const webpack = require("webpack");
+
+function getClientEnvironment() {
+  // Grab NX_* environment variables and prepare them to be injected
+  // into the application via DefinePlugin in webpack configuration.
+  const NX_APP = /^NX_/i;
+
+  const raw = Object.keys(process.env)
+    .filter((key) => NX_APP.test(key))
+    .reduce((env, key) => {
+      env[key] = process.env[key];
+      return env;
+    }, {});
+
+  // Stringify all values so we can feed into webpack DefinePlugin
+  return {
+    "process.env": Object.keys(raw).reduce((env, key) => {
+      env[key] = JSON.stringify(raw[key]);
+      return env;
+    }, {}),
+  };
+}
+
+module.exports = (config, options, context) => {
+  // Overwrite the mode set by Angular if the NODE_ENV is set
+  config.mode = config.mode;
+  config.plugins.push(new webpack.DefinePlugin(getClientEnvironment()));
+  config.resolve.fallback = {
+    util: false,
+    stream: false,
+  };
+  return config;
+};
 ```

@@ -6,10 +6,6 @@
 npm i -D webpack
 npm i -D webpack-cli
 npm i -D webpack-dev-server
-npm i -D url-loader
-npm i -D css-loader
-npm i -D file-loader
-npm i -D style-loader
 
 # bundle
 npx webpack
@@ -25,9 +21,9 @@ npx webpack
 > > >
 > > > > webpack.config.js에서 설정가능
 
-```
+```js
 module.exports = {
-  entry: './path/to/my/entry/file.js',
+  entry: "./path/to/my/entry/file.js",
 };
 ```
 
@@ -39,52 +35,15 @@ module.exports = {
 > >
 > > > webpack.config.js에서 설정 가능
 
-```
-const path = require('path');
+```js
+const path = require("path");
 
 module.exports = {
-  entry: './path/to/my/entry/file.js',
+  entry: "./path/to/my/entry/file.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "my-first-webpack.bundle.js",
   },
-};
-```
-
-## Loaders
-
-> webpack은 기본적으로 JavaScript와 JSON 파일만 이해
->
-> > 로더를 사용하면 webpack이 다른 유형의 파일을 처리할 수 있다 ex) .css .txt
-
-```
-module.exports = {
-  output: {
-    filename: 'my-first-webpack.bundle.js',
-  },
-  module: {
-    rules: [{ test: /\.txt$/, use: 'raw-loader' }],
-  },
-};
-```
-
-## Plugins
-
-> 플러그인을 활용하여 번들을 최적화하거나, 애셋을 관리하고, 또 환경 변수 주입등과 같은 광범위한 작업을 수행
->
-> > 플러그인을 사용하려면 require ()를 통해 플러그인을 요청
-> >
-> > > plugins 배열에 추가
-
-```
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack'); // 내장 plugin에 접근하는 데 사용
-
-module.exports = {
-  module: {
-    rules: [{ test: /\.txt$/, use: 'raw-loader' }],
-  },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
 };
 ```
 
@@ -93,9 +52,9 @@ module.exports = {
 > mode 파라미터를 development, production 또는 none으로 설정하면 webpack에 내장된 환경별 최적화를 활성화
 > 기본값 production
 
-```
+```js
 module.exports = {
-  mode: 'production',
+  mode: "production",
 };
 ```
 

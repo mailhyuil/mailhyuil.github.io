@@ -2,13 +2,13 @@
 
 ## nx.json
 
-```
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "test"]
-      }
+```json
+"tasksRunnerOptions": {
+  "default": {
+    "runner": "nx/tasks-runners/default",
+    "options": {
+      "cacheableOperations": ["build", "test"]
     }
-  },
+  }
+},
 ```

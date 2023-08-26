@@ -1,36 +1,26 @@
 # gulp
 
-## add gulp
+> 웹 개발 작업을 자동화하기 위한 툴킷
+>
+> > ex) 파일 변경을 감지하고 그에 따른 작업을 수행
 
-```
-npm i gulp-cli -g
-```
+## install
 
-```
+```sh
 npm i gulp
-```
+npm i -g gulp-cli
 
 ## to use babel
-
-```
 npm i @babel/core
-```
-
-```
 npm i @babel/preset-env
-```
-
-```
 npm i @babel/register
 ```
 
 ## .babelrc
 
-```
+```json
 {
-    "presets": [
-        "@babel/preset-env"
-    ]
+  "presets": ["@babel/preset-env"]
 }
 ```
 
@@ -72,15 +62,13 @@ const routes = {
     dest: "build/js",
   },
 };
-const pug = () =>
-  gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pug.dest));
+const pug = () => gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pug.dest));
 
 const clean = () => del(["build/", ".publish"]);
 
 const webserver = () => gulp.src("build").pipe(ws({ livereload: true }));
 
-const img = () =>
-  gulp.src(routes.img.src).pipe(image()).pipe(gulp.dest(routes.img.dest));
+const img = () => gulp.src(routes.img.src).pipe(image()).pipe(gulp.dest(routes.img.dest));
 const styles = () =>
   gulp
     .src(routes.scss.src)
@@ -97,10 +85,7 @@ const js = () =>
     .src(routes.js.src)
     .pipe(
       bro({
-        transform: [
-          babelify.configure({ presets: ["@babel/preset-env"] }),
-          ["uglifyify", { global: true }],
-        ],
+        transform: [babelify.configure({ presets: ["@babel/preset-env"] }), ["uglifyify", { global: true }]],
       })
     )
     .pipe(gulp.dest(routes.js.dest));
