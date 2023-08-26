@@ -10,6 +10,9 @@ npm i -D url-loader
 npm i -D css-loader
 npm i -D file-loader
 npm i -D style-loader
+
+# bundle
+npx webpack
 ```
 
 ## Entry
