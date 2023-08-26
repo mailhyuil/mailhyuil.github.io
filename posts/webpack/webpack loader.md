@@ -27,3 +27,18 @@ module.exports = {
   },
 };
 ```
+
+## use 배열
+
+> 뒤에서부터 순차적으로 loader가 사용됨
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: ["style-loader", "css-loader"],
+    },
+  ];
+}
+```

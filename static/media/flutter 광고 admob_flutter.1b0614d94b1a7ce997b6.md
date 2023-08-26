@@ -1,5 +1,9 @@
 # flutter 광고
 
+> CPM : Cost Per Mille // 1000번 노출당 수익
+>
+> > CPC : Cost Per Click // 1번 클릭당 수익
+
 1. adMob 앱 생성
 2. 광고 단위 생성
 3. test 기기 추가
