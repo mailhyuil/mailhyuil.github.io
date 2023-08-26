@@ -15,8 +15,9 @@
     "moduleResolution": "node",
     // Process & infer types from .js files.
     "allowJs": true,
-    // Don't emit; allow Babel to transform files.
+    // 타입 체킹만 할 경우
     // "noEmit": true,
+    // 타입 체킹을 하고 index.d.ts 생성만 할 경우
     "emitDeclarationOnly": true,
     // Enable strictest settings like strictNullChecks & noImplicitAny.
     "strict": true,
