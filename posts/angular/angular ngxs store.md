@@ -15,7 +15,7 @@ npm i @ngxs/store
 ## main.ts
 
 ```ts
-importProvidersFrom(NgxsModule.forRoot([AdminStore])),
+importProvidersFrom(NgxsModule.forRoot([AdminState])),
 ```
 
 ## State
