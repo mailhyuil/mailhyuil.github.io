@@ -1,6 +1,10 @@
 # webpack tree shaking
 
-## package.json
+> esModule은 production 빌드시 자동으로 적용됨
+>
+> > commonjs는 sideEffects:false 같은 설정이 필요함
+
+## sideEffects
 
 > sideEffects: false는 사용하지 않는 모듈은 제거해도 괜찮다는 의미이다.
 >
@@ -13,7 +17,9 @@
 }
 ```
 
-## webpack.config.js
+## usedExports
+
+> sideEffects보다 성능은 안좋음
 
 ```js
 module.exports = {

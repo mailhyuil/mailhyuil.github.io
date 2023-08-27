@@ -4,34 +4,52 @@
 >
 > > 때문에 typescript 패키지를 함께 사용해서 typescript로 타입검사를 하고 index.d.ts를 생성 컴파일만 babel로
 
+## install
+
+```sh
+npm i -D @babel/core
+npm i -D @babel/cli
+npm i -D @babel/preset-env
+npm i -D @babel/preset-typescript
+npm i -D @babel/plugin-proposal-decorators
+npm i -D babel-plugin-transform-typescript-metadata
+```
+
+## babel.config.js
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.(?:ts|js)$/,
+      include: path.resolve(__dirname, 'src'),
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['@babel/preset-env', { loose: true }],
+            '@babel/preset-typescript',
+          ],
+          plugins: [
+            'babel-plugin-transform-typescript-metadata',
+            ['@babel/plugin-proposal-decorators', { legacy: true }],
+          ],
+        },
+      },
+    },
+  ],
+},
+```
+
 ## tsconfig.json
 
 ```json
 {
   "compilerOptions": {
-    // Target latest version of ECMAScript.
-    "target": "esnext",
-    // Search under node_modules for non-relative imports.
-    "moduleResolution": "node",
-    // Process & infer types from .js files.
-    "allowJs": true,
-    // 타입 체킹만 할 경우
-    // "noEmit": true,
-    // 타입 체킹을 하고 index.d.ts 생성만 할 경우
-    "emitDeclarationOnly": true,
-    // Enable strictest settings like strictNullChecks & noImplicitAny.
-    "strict": true,
-    // Import non-ES modules as default imports.
-    "esModuleInterop": true,
-    // Ensure that .d.ts files are created by tsc, but not .js files
-    "declaration": true,
-    // Ensure that Babel can safely transpile files in the TypeScript project
-    "isolatedModules": true,
-    "outDir": "dist"
-  },
-  "include": [
-    "src" // <-- change this to where your source files are
-  ]
+    "noEmit": true,
+    "isolatedModules": true
+  }
 }
 ```
 
@@ -39,10 +57,8 @@
 
 ```json
 "scripts": {
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch",
-    "build:types": "tsc --emitDeclarationOnly", // tsc로 타입 체크
-    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline", // babel로 build
-    "build": "npm run build:types && npm run build:js"
+    "type": "tsc --noEmit",
+    "build": "webpack --config webpack.config.js --watch",
+    "start:babel": "npm run type --watch && npm run build",
 }
 ```

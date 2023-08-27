@@ -5,7 +5,7 @@ import "some-module";
 require("some-module");
 ```
 
-> 위 처럼 선언된 import 문은 sideEffects가 있다고 볼 수 있다.
+> 위 처럼 선언된 import 문은 sideEffects가 있다고 볼 수 있다. (스코프 전체에 영향을 주는 import 문)
 >
 > > Tree Shaking을 수행하면 사용하지 않는 코드가 탈락된다.
 > >
