@@ -1,4 +1,4 @@
-# build란 무엇인가
+# build pipeline
 
 > 전처리(preprocessing) -> 컴파일(Compile) -> 패키징(packaging) -> 테스팅(testing) -> 배포(distribution)
 >

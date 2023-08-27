@@ -10,7 +10,9 @@ npm i @ngxs/storage-plugin
 
 > 동적 임포트 사용
 >
-> > 그냥 사용해도 프로덕션 빌드중에 트리 쉐이킹 될지도..?
+> > 동적 임포트를 사용하면 코드 스플리팅이 된다, 즉 프로덕션 환경에서는 사용되지 않는다
+> >
+> > > 그러나 번들은 일어남 청크 파일로 존재
 
 ```ts
 import { importProvidersFrom } from "@angular/core";
