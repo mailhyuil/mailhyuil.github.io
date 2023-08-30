@@ -24,20 +24,15 @@ npm i -D @types/sharp
 ## pipe
 
 ```ts
-import { BadRequestException, Injectable, PipeTransform } from "@nestjs/common";
-import * as path from "path";
-import * as sharp from "sharp";
+import { Injectable, PipeTransform } from "@nestjs/common";
+import sharp from "sharp";
 
 @Injectable()
-export class SharpPipe implements PipeTransform<Express.Multer.File, Promise<string>> {
-  async transform(image: Express.Multer.File): Promise<string> {
-    const originalName = path.parse(image.originalname).name;
-    const filename = Date.now() + "-" + originalName + ".webp";
-
+export class SharpPipe implements PipeTransform<Express.Multer.File, Promise<{ large: Buffer; medium: Buffer; small: Buffer }>> {
+  async transform(image: Express.Multer.File): Promise<{ large: Buffer; medium: Buffer; small: Buffer }> {
     const large = await sharp(image.buffer).resize(1200).webp({ effort: 3 }).toBuffer();
     const medium = await sharp(image.buffer).resize(800).webp({ effort: 3 }).toBuffer();
     const small = await sharp(image.buffer).resize(400).webp({ effort: 3 }).toBuffer();
-    //.toFile(path.join("uploads", filename));
 
     return { large, medium, small };
   }
