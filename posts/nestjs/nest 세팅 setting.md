@@ -18,11 +18,13 @@ npm i @nestjs/jwt
 npm i @nestjs/event-emitter
 npm i @nestjs/swagger
 npm i dayjs
+npm i sharp
 
+npm i -D @types/bcryptjs
 npm i -D @types/cookie-parser
 npm i -D @types/multer
+npm i -D @types/sharp
 npm i -D prisma
-npm i -D @types/bcryptjs
 ```
 
 ## main.ts
