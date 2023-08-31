@@ -2,6 +2,6 @@
 
 ## install
 
-```
+```sh
 npm i -D postcss-loader
 ```
