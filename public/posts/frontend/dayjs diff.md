@@ -1,5 +1,5 @@
 # dayjs diff
 
-```
-dayjs(endDate).diff(dayjs(startDate), "day")
+```js
+dayjs(endDate).diff(dayjs(startDate), "day");
 ```

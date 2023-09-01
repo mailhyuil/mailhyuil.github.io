@@ -51,7 +51,7 @@ module.exports = {
 >
 > > commonjs라면 require.ensure()를 사용
 
-## install
+## babel import() 사용
 
 > 바벨 사용 시 import문을 사용하기 위해
 >

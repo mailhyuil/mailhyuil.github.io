@@ -1,12 +1,22 @@
-# typescript !. ?.
+# typescript ! ?.
 
 ## ?.
 
 > if not null or undefined
 
-## !.
+```js
+arr?.[0];
+obj?.();
+```
+
+## !
 
 > null이나 undefined가 절대 아니다
+
+```js
+arr![0]
+obj!()
+```
 
 ## ??
 
