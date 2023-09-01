@@ -7,3 +7,20 @@
 ```sh
 npm i -D webpack-dev-server
 ```
+
+## 사용
+
+```js
+module.exports = {
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "./dist"), // 번들링 대상 파일 경로
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true,
+  },
+};
+```
