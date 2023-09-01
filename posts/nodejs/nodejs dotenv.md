@@ -8,39 +8,42 @@
 
 ## install
 
-```
-yarn add dotenv
-yarn add dotenv-cli
+```sh
+npm i -D dotenv
+npm i -D dotenv-cli
 ```
 
 ## .env
 
-```
+```sh
 # Server Port
 PORT=9000
+
 # Connect DataBase
 MYSQL_USERNAME=test
 MYSQL_PASSWORD=test
 MYSQL_DATABASE=slack
 MYSQL_HOST=127.0.0.1
 MYSQL_DIALECT=mysql
+
 # Mail User Account
 MAIL_USER=test@gmail.com
 MAIL_PASSWORD=test
+
 # Session Cookie Sign code
 SECRET=mycode
 ```
 
 ## dotenv-cli
 
-```
+```sh
 dotenv -e .env.development -- nest start --watch
 ```
 
 ## 사용법
 
-```
-import dotenv from 'dotenv'
+```js
+import dotenv from "dotenv";
 
 dotenv.config(); // .env 파일을 읽어온다.
 ```
