@@ -7,12 +7,16 @@
 ## file-loader
 
 > 파일을 copy하여 build 폴더에 추가시킨다.
+>
+> > type: 'asset/resource' 로 대신할 수 있다.
 
 ## url-loader
 
 > 파일을 base64로 인코딩하여 인라인으로 추가시킨다.
 >
 > > 파일이 limit 옵션을 넘으면 file-loader로 작동한다.
+> >
+> > > type: 'asset/inline', type: 'asset' 로 대신할 수 있다.
 
 ## 사용
 

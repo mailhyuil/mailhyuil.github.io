@@ -6,19 +6,26 @@
 npm i -D image-minimizer-webpack-plugin
 
 # 사용하고 싶은 압축 도구 설치
-## lossless
+
+## imagemin lossless
 npm i -D imagemin-gifsicle
 npm i -D imagemin-jpegtran
 npm i -D imagemin-optipng
 npm i -D imagemin-svgo
-## lossy
+
+## imagemin lossy
 npm i -D imagemin-gifsicle
 npm i -D imagemin-mozjpeg
 npm i -D imagemin-pngquant
 npm i -D imagemin-svgo
 
+## squoosh
 npm i -D @squoosh/lib
+
+## sharp
 npm i -D sharp
+
+## svgo
 npm i -D svgo
 ```
 

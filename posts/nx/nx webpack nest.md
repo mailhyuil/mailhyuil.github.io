@@ -6,7 +6,7 @@
 "build": {
       "executor": "@nx/webpack:webpack",
       "options": {
-        "webpackConfig": "packages/server/webpack.config.js",
+        "webpackConfig": "apps/server/webpack.config.js",
       },
 }
 ```
