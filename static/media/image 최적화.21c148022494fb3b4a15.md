@@ -14,23 +14,21 @@
 
 ## 여러 버전의 이미지를 제공하라.
 
-```
+```html
 # Before
 <img src="flower-large.jpg" />
 
 # After
-<img
-  src="flower-large.jpg"
-  srcset="flower-small.jpg 480w, flower-large.jpg 1080w"
-  sizes="50vw"
-/>
+<img src="flower-large.jpg" srcset="flower-small.jpg 480w, flower-large.jpg 1080w" sizes="50vw" />
 ```
 
 ## 이미지 크기 조절 툴을 사용하라.
 
-> sharp
+> sharp, squoosh, imagemin, svgo 등
 
 ## Image CDNs을 사용하라
+
+> 가까운 CDN 서버에서 이미지를 불러오기 때문에 빠르게 이미지를 불러올 수 있다.
 
 ## CSS Sprite 기법을 사용하라.
 
@@ -38,7 +36,7 @@
 >
 > > 서버에 요청을 한번만
 
-```
+```css
 div#sprite {
   background: url(/images/sprite.png) no-repeat;
 } //한 이미지를 불러옴
@@ -57,8 +55,8 @@ div#sprite > .third {
 
 ## lazy loading을 활용하라.
 
-```
-<img loading="lazy">
+```html
+<img loading="lazy" />
 ```
 
 ## 적절한 이미지 해상도

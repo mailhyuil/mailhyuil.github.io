@@ -1,6 +1,8 @@
 # webpack code splitting
 
-## webpack.config.js
+> entry-point를 나누는 방법과, dynamic import를 사용하는 방법이 있습니다.
+
+## entry-point를 나누는 방법
 
 > Entry point를 여러개로 나누어서 번들링한다.
 >
@@ -45,11 +47,13 @@ module.exports = {
 };
 ```
 
-## Dynamic Imports
+## Dynamic Imports 사용하는 방법
 
 > esModule의 import()를 사용 (권장)
 >
 > > commonjs라면 require.ensure()를 사용
+> >
+> > > /_ webpackPreload: true _/, /_ webpackPrefetch: true _/ 주석을 사용해 preload, prefetch를 구현 가능
 
 ## babel import() 사용
 

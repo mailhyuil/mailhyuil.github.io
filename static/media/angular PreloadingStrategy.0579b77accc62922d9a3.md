@@ -5,6 +5,8 @@
 > > you can download and cache JavaScript associated with routes
 > >
 > > > 라우트에 연결된 자바스크립트를 다운로드하고 캐시할 수 있다.
+> > >
+> > > > standalone : withPreloading() method
 
 ## PreloadAllModules Strategy
 
