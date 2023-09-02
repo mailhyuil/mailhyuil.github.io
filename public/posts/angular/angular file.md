@@ -1,19 +1,9 @@
 # angular file
 
+> ngModel 대신 change 이벤트를 사용해야한다..!
+
 ## html
 
 ```html
 <input type="file" (change)="onChange($event.target.files)" />
-```
-
-## ts
-
-```
-onChnage(){
-    // 업데이트
-}
-
-remove(){
-    // 업데이트 시 삭제
-}
 ```
