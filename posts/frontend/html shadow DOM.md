@@ -1,12 +1,15 @@
-# shadow dom
+# html shadow DOM
 
 > dom을 캡슐화
 >
 > > slot과 같은 기능이 포함
+> >
+> > > style 태그를 template 내에 넣어서 css를 캡슐화 할 수 있다.
 
 ```js
-HTMLElement.attachShadow({ mode: "open" });
+ele.attachShadow({ mode: "open" }); // open 상태면 shadowRoot로 접근 가능
 customElements.define("custom-button", CustomButton);
+ele.shadowRoot; // shadow DOM에 접근
 ```
 
 ## template / slot
@@ -64,3 +67,7 @@ customElements.define("custom-button", CustomButton);
   </body>
 </html>
 ```
+
+## style
+
+> part attribute를 html 요소에 추가하면 ::part()로 접근 가능

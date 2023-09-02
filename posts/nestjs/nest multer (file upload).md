@@ -8,13 +8,13 @@
 
 ## install
 
-```
-yarn add @types/multer
+```sh
+npm i -D @types/multer
 ```
 
-## 사용
+## client
 
-1. client에서 FormData(multipart/form-data) 객체에 file을 넣고 body에 담아 POST
+> client에서 FormData(multipart/form-data) 객체에 file을 넣고 body에 담아 POST
 
 ```js
 import { useFileDialog } from "@vueuse/core";
@@ -35,30 +35,23 @@ const submit = async () => {
 };
 ```
 
-2. server(nest)에서 FileInterceptor를 사용해 file 받기
+## server
+
+> server(nest)에서 FileInterceptor를 사용해 file 받기
+>
+> > multerOptions를 사용해 file을 어떻게 처리할 지 지정 ex) disk에 저장, s3에 저장 ... filtering
 
 ```ts
-@Post('upload')
-@UseInterceptors(FileInterceptor('file', multerOptions)) // multerOptions에 storage를 지정하면 자동으로 업로드
-upload(@UploadedFile() file: Express.Multer.File) {}
-```
-
-3. multerOption에 storage를 지정하면 자동으로 업로드
-
-```ts
-const multerOptions = {
-  fileFilter: (request, file, callback) => {
-    if (file.mimetype.match(/\/(jpg|jpeg|png)$/)) {
-      // 정규식을 사용하여 이미지 형식 jpg, jpeg, png만 허용합니다.
-      callback(null, true);
-    } else {
-      callback(new HttpError(400, "지원하지 않는 이미지 형식입니다."), false);
-    }
-  },
+import { Controller, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { FileInterceptor } from "@nestjs/platform-express";
+import { MulterOptions } from "@nestjs/platform-express/multer/interfaces/multer-options.interface";
+import { existsSync, mkdirSync } from "fs";
+import { diskStorage } from "multer";
+import { UploadService } from "./upload.service";
+const options: MulterOptions = {
   storage: diskStorage({
     destination: (request, file, callback) => {
       const uploadPath: string = "public";
-
       if (!existsSync(uploadPath)) {
         // public 폴더가 존재하지 않을시, 생성
         mkdirSync(uploadPath);
@@ -72,4 +65,14 @@ const multerOptions = {
     },
   }),
 };
+
+@Controller("upload")
+export class UploadController {
+  constructor(private readonly uploadService: UploadService) {}
+  @Post()
+  @UseInterceptors(FileInterceptor("file", options))
+  async upload(@UploadedFile() file: Express.Multer.File) {
+    console.log(file);
+  }
+}
 ```
