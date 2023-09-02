@@ -10,7 +10,7 @@
     "options": {
         "buildLibsFromSource": false,
         "customWebpackConfig": {
-          "path": "packages/client/webpack.config.js"
+          "path": "apps/client/webpack.config.js"
         }
     }
 },
