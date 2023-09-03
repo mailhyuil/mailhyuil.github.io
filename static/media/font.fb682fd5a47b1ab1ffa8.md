@@ -1,14 +1,14 @@
 # font
 
-## TTF (true type font)
+## TTF (True Type Font)
 
 > 일반 문서작업에서 사용
 
-## OTF (open type font)
+## OTF (Open Type Font)
 
 > 고상도 출력 작업에서 사용
 
-## woff (web open font format)
+## woff (Web Open Font Format)
 
 > 대부분 모던 브라우저에서 지원
 >
