@@ -11,6 +11,7 @@ npm i -D imagemin-gifsicle
 npm i -D imagemin-jpegtran
 npm i -D imagemin-optipng
 npm i -D imagemin-svgo
+
 ## lossy
 npm i -D imagemin-gifsicle
 npm i -D imagemin-mozjpeg
@@ -33,55 +34,22 @@ npm i -D svgo
 ```js
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        type: "asset",
-      },
-    ],
-  },
-  optimization: {
-    minimizer: [
-      "...",
-      new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.imageminMinify,
-          options: {
-            // Lossless optimization with custom option
-            // Feel free to experiment with options for better result for you
-            plugins: [
-              ["gifsicle", { interlaced: true }],
-              ["jpegtran", { progressive: true }],
-              ["optipng", { optimizationLevel: 5 }],
-              // Svgo configuration here https://github.com/svg/svgo#configuration
-              [
-                "svgo",
-                {
-                  plugins: [
-                    {
-                      name: "preset-default",
-                      params: {
-                        overrides: {
-                          removeViewBox: false,
-                          addAttributesToSVGElement: {
-                            params: {
-                              attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-                            },
-                          },
-                        },
-                      },
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
+module.exports = (config, options, context) => {
+  // Overwrite the mode set by Angular if the NODE_ENV is set
+  config.optimization.minimize = true;
+  config.optimization.minimizer.push(
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.imageminMinify,
+        options: {
+          plugins: [["mozjpeg", { quality: 85 }]],
         },
-      }),
-    ],
-  },
+      },
+    })
+  );
+  config.mode = config.mode;
+  config.plugins.push(new webpack.DefinePlugin(getClientEnvironment()));
+  return config;
 };
 ```
 
