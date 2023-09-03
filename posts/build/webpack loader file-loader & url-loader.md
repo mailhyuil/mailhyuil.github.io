@@ -3,6 +3,8 @@
 > image, font 등을 번들링할 때 사용한다.
 >
 > > js나 css-loader로 로드된 파일이 image, font등을 참조하고 있다면 dist 폴더에 파일을 생성한다.
+> >
+> > > webpack5 이후로는 asset module 사용을 권장한다.
 
 ## file-loader
 
@@ -16,7 +18,7 @@
 >
 > > 파일이 limit 옵션을 넘으면 file-loader로 작동한다.
 > >
-> > > type: 'asset/inline', type: 'asset' 로 대신할 수 있다.
+> > > type: 'asset/inline'
 
 ## 사용
 
