@@ -1,6 +1,6 @@
 # webpack filename
 
-```
+```sh
 [absolute-resource-path] # The absolute filename
 [all-loaders] # Automatic and explicit loaders and params up to the name of the first loader
 [loaders] # Explicit loaders and params up to the name of the first loader
