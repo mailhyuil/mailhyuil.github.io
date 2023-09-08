@@ -1,8 +1,8 @@
 # kubectl
 
-> kubernetes cli
+> kubectl은 ~/.kube/config를 읽어서 api server로 요청한다.
 >
-> > [cheetsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+> > ~/.kube/config 로 yaml 파일을 설정
 
 ## 명령어
 
