@@ -1,5 +1,9 @@
 # file 업로드 미리보기
 
+> URL.createObjectURL(file)로 브라우저 메모리에 url 생성
+>
+> > URL.revokeObjectURL(objectUrl)로 폐기
+
 ```js
 selected!: File | FileList;
 uploadingImageUrl?: string;
