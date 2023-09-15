@@ -32,7 +32,7 @@ ConfigModule.forRoot({
 }),
 ```
 
-## 동적 모듈
+## 동적 모듈 (Dynamic Module)
 
 > 런타임 시 동적으로 값을 설정하는 모듈 ex) config
 >
@@ -45,6 +45,21 @@ ConfigModule.forRoot({
 export class SomeModule {}
 ```
 
-## authmodule
+## Custom Dynamic Module
 
-> authmodule을 사용하려면(ex GetUser 데코레이터) authmodule을 import해라
+```ts
+@Module({})
+export class SomeModule {
+  static register(options: SomeOptions): DynamicModule {
+    return {
+      module: SomeModule,
+      providers: [
+        {
+          provide: SOME_OPTIONS,
+          useValue: options,
+        },
+      ],
+    };
+  }
+}
+```
