@@ -2,6 +2,6 @@
 
 ## install
 
-```
+```sh
 npm i @nest/schedule
 ```

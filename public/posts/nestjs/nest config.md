@@ -6,7 +6,7 @@
 
 ## install
 
-```
+```sh
 npm i @nestjs/config
 npm i dotenv
 npm i dotenv-cli
