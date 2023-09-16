@@ -2,20 +2,20 @@
 
 ## install
 
-```
+```sh
 npm install class-validator --save
 ```
 
 ## method
 
-```
-validate()
-validateOrReject()
+```js
+validate();
+validateOrReject();
 ```
 
 ## decorator
 
-```
+```js
 @Length(10, 20)
 @Contains('hello')
 @IsInt()
@@ -31,7 +31,7 @@ validateOrReject()
 
 > dto를 묶은 dto를 생성해서 type 명시
 
-```
+```js
 export class CreateWebComplexAndWebComplexViewsDTO {
   @ApiProperty()
   @IsNotEmpty()

@@ -4,16 +4,16 @@
 
 ## install
 
-```
-yarn add dotenv
-yarn add dotenv-cli
+```sh
+npm i dotenv
+npm i dotenv-cli
 ```
 
 ## 파일 생성
 
 > .env.development / .env.stage / .env.production
 
-```
+```sh
 NODE_ENV=development
 
 SERVER_PORT=4200
@@ -54,12 +54,12 @@ export class EnvironmentModule implements OnModuleInit {
 
 ## 환경변수 가져오기
 
-```
-this.configService.get<string>('JWT_SECRET_KEY'),
+```sh
+process.env.NODE_ENV
 ```
 
 ## dotenv-cli
 
-```
+```sh
 dotenv -e .env.development -- nest start --watch
 ```

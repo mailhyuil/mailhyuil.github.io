@@ -1,9 +1,5 @@
 # nest custom decorator
 
-## 일반 데코레이터
-
-> Decorator를 리턴하기만 하면 됨
-
 ## 매개변수 데코레이터 생성
 
 > createParamDecorator() 사용
@@ -30,3 +26,7 @@ export const User = createParamDecorator((data: unknown, ctx: ExecutionContext) 
 ### UseGuard()
 
 > Guard를 사용할 수 있는 데코레이터
+
+## 데코레이터 체이닝
+
+> Decorator를 리턴하기만 하면 됨

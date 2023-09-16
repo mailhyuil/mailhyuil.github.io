@@ -1,6 +1,6 @@
 # nest SMS
 
-```
+```js
 import { HttpService } from '@nestjs/axios';
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -11,14 +11,6 @@ export class SmsService {
 
   constructor(private readonly httpService: HttpService, private readonly configService: ConfigService) {}
 
-  /**
-   * 입력한 전화번호들을 대상으로 SMS 전송합니다.
-   * @param {string[]} tel
-   * @param {string} message
-   * @returns {Promise<void>}
-   * @author 최강훈 <ganghun@lepisode.team>
-   * @since 1.0.0
-   */
   async send(tel: string[], message: string): Promise<void> {
     const apiEndpoint = this.configService.get<string>('NHN_SMS_API_URL');
     const apiKey = this.configService.get<string>('NHN_SMS_API_KEY');

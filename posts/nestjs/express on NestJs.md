@@ -9,6 +9,6 @@
 ```ts
 @Get()
 getAll(@Req() req, @Res() res):Movie[]{
-    // logic
+  // logic
 }
 ```

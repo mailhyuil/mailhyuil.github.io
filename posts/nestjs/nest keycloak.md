@@ -4,6 +4,6 @@
 
 ## install
 
-```
+```sh
 npm i nest-keycloak-connect
 ```
