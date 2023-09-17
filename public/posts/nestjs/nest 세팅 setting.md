@@ -13,12 +13,13 @@ npm i dotenv-cli
 npm i class-validator
 npm i class-transformer
 npm i @prisma/client
-npm i @nestjs/config
 npm i @nestjs/jwt
 npm i @nestjs/event-emitter
 npm i @nestjs/swagger
 npm i dayjs
 npm i sharp
+
+# npm i @nestjs/config
 
 npm i -D @types/bcryptjs
 npm i -D @types/cookie-parser
