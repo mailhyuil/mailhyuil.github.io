@@ -5,6 +5,8 @@
 > > 클라이언트가 상태 클래스를 직접 넣어서 상태를 변경
 > >
 > > > 모든 전략(상태)에 대한 인터페이스를 정의해라
+> > >
+> > > > Strategy === Service
 
 ```ts
 class Context {
@@ -20,8 +22,8 @@ class Context {
 
   public doSomeBusinessLogic(): void {
     console.log("Context: Sorting data using the strategy (not sure how it'll do it)");
-    const result = this.strategy.doAlgorithm(['a', 'b', 'c', 'd', 'e']);
-    console.log(result.join(','));
+    const result = this.strategy.doAlgorithm(["a", "b", "c", "d", "e"]);
+    console.log(result.join(","));
   }
 }
 
@@ -42,12 +44,12 @@ class ConcreteStrategyB implements Strategy {
 }
 
 const context = new Context(new ConcreteStrategyA());
-console.log('Client: Strategy is set to normal sorting.');
+console.log("Client: Strategy is set to normal sorting.");
 context.doSomeBusinessLogic();
 
-console.log('');
+console.log("");
 
-console.log('Client: Strategy is set to reverse sorting.');
+console.log("Client: Strategy is set to reverse sorting.");
 context.setStrategy(new ConcreteStrategyB());
 context.doSomeBusinessLogic();
 ```

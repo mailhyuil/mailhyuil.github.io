@@ -7,55 +7,53 @@
 > > > command.execute(), invoker.executeCommand(command)
 > > >
 > > > > or invoker.setCommand(command) -> invoker.executeCommand()
+> > > >
+> > > > > command = DTO, receiver = usecase = service, invoker = controller
+
+## mvc, usecase로 비유
+
+```js
+// Controller (Invoker)
+const controller = {
+  // add handler
+  add: (a, b) => {
+    return service.execute(dto.create("add", [a, b]));
+  },
+  // subtract handler
+  subtract: (a, b) => {
+    return service.execute(dto.create("subtract", [a, b]));
+  },
+};
+
+// Service / Usecase  (Receiver)
+const service = {
+  execute: function (command) {
+    const { name, args } = command;
+    if (!(name in this)) return "존재하지 않는 메서드입니다.";
+    const [x, y] = args;
+    return this[name](x, y);
+  },
+  // 비즈니스 로직을 구현하는 메서드들
+  add: function (x, y) {
+    return x + y;
+  },
+  subtract: function (x, y) {
+    return x - y;
+  },
+};
+
+// DTO (Command)
+const dto = {
+  create: (name, args) => {
+    return { name, args };
+  },
+};
+
+const result = controller.subtract(3, 1);
+console.log(result);
+```
 
 ## 구조
-
-```ts
-// receiver가 할 수 있는 여러가지 명령(command)를 각각의 클래스로 구현 commandA, commandB....
-const commandA = {
-  receiver: null,
-  setReceiver: (receiver) => {
-    commandA.receiver = receiver;
-  },
-  execute: () => {
-    commandA.receiver.doAction();
-  },
-  //   undo: () => { 이런게 될지도..
-  //     commandA.receiver.undoAction();
-  //   },
-};
-
-// command를 실행시키는 invoker 클래스
-const invoker = {
-  commands: [],
-  setCommand: (command) => {
-    invoker.commands.push(command);
-  },
-  invoker_did_something: () => {
-    // 명령들을 가지고 메소드를 구현
-    invoker.commands.pop();
-  },
-  invoker_did_something_else: () => {
-    invoker.commands.forEach((c) => {
-      c.execute();
-    });
-  },
-};
-
-// 명령을 받게될 리시버
-const receiver = {
-  value: null,
-  doAction: () => {
-    console.log('do Action');
-  },
-};
-
-commandA.setReceiver(receiver);
-invoker.setCommand(commandA);
-invoker.setCommand(commandA);
-invoker.invoker_did_something();
-invoker.invoker_did_something_else();
-```
 
 ```ts
 // invoker & receiver
@@ -97,9 +95,9 @@ function TrackOrderCommand(id) {
 
 const manager = new OrderManager();
 
-manager.execute(new PlaceOrderCommand('Pad Thai', '1234'));
-manager.execute(new TrackOrderCommand('1234'));
-manager.execute(new CancelOrderCommand('1234'));
+manager.execute(new PlaceOrderCommand("Pad Thai", "1234"));
+manager.execute(new TrackOrderCommand("1234"));
+manager.execute(new CancelOrderCommand("1234"));
 ```
 
 ## 간단한 구현 1
@@ -128,39 +126,9 @@ const calculator = {
   },
 };
 
-console.log(calculator.execute('add', 1, 2));
-console.log(calculator.execute('subtract', 5, 2));
-console.log(calculator.execute('multiply', 11, 2));
-console.log(calculator.execute('divide', 10, 2));
-console.log(calculator.execute('square root', 20));
-```
-
-## 간단한 구현 2
-
-```ts
-// The object that knows how to execute the command
-const invoker = {
-  add: (x, y) => {
-    return x + y;
-  },
-  subtract: (x, y) => {
-    return x - y;
-  },
-};
-
-// the object to be used as abstraction layer when
-// we execute commands; it represents a interface
-// to the caller object
-let manager = {
-  execute: (name, args) => {
-    if (name in invoker) {
-      return invoker[name].apply(invoker, [].slice.call(arguments, 1));
-    }
-    return false;
-  },
-};
-// prints 8
-console.log(manager.execute('add', 3, 5));
-// prints 2
-console.log(manager.execute('subtract', 5, 3));
+console.log(calculator.execute("add", 1, 2));
+console.log(calculator.execute("subtract", 5, 2));
+console.log(calculator.execute("multiply", 11, 2));
+console.log(calculator.execute("divide", 10, 2));
+console.log(calculator.execute("square root", 20));
 ```
