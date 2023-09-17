@@ -5,8 +5,23 @@
 > > 클라이언트가 상태 클래스를 직접 넣어서 상태를 변경
 > >
 > > > 모든 전략(상태)에 대한 인터페이스를 정의해라
-> > >
-> > > > Strategy === Service
+
+## 구현1
+
+```ts
+export class AppComponent implements OnInit {
+  private state = "a";
+  private service?: AppService;
+  constructor() {}
+  ngOnInit(): void {
+    this.service = new AppService(this.state === "a" ? new StrategyA() : new StrategyB());
+    this.service.init();
+    this.service.doSomething();
+  }
+}
+```
+
+## 구현2
 
 ```ts
 class Context {
