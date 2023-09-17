@@ -4,7 +4,7 @@
 
 ## install
 
-```
+```sh
 npm i @nestjs-modules/mailer
 ```
 

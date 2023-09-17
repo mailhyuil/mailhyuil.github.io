@@ -38,7 +38,7 @@ interface Element {
 class ConcreteElement1 implements Element {
   souvenir: string;
   constructor() {
-    this.souvenir = 'cheap souvenir';
+    this.souvenir = "cheap souvenir";
   }
   accept(visitor: Visitor) {
     visitor.visit(this);
@@ -47,7 +47,7 @@ class ConcreteElement1 implements Element {
 class ConcreteElement2 implements Element {
   souvenir: string;
   constructor() {
-    this.souvenir = 'expensive souvenir';
+    this.souvenir = "expensive souvenir";
   }
   accept(visitor: Visitor) {
     visitor.visit(this);
@@ -67,15 +67,15 @@ for (let element of elements) {
 
 ```ts
 const destinationA = {
-  name: 'destinationA',
-  souvenir: 'souvenirA',
+  name: "destinationA",
+  souvenir: "souvenirA",
   accept: function (visitor: any) {
     visitor.visit(this);
   },
 };
 const destinationB = {
-  name: 'destinationB',
-  souvenir: 'souvenirB',
+  name: "destinationB",
+  souvenir: "souvenirB",
   accept: function (visitor: any) {
     visitor.visit(this);
   },
@@ -146,7 +146,7 @@ class ExtraVacationVisitor {
   }
 }
 
-const employees = [new Employee('John', 10000, 10), new Employee('Mary', 20000, 21), new Employee('Boss', 250000, 51)];
+const employees = [new Employee("John", 10000, 10), new Employee("Mary", 20000, 21), new Employee("Boss", 250000, 51)];
 
 const salaryVisitor = new ExtraSalaryVisitor();
 const vacationVisitor = new ExtraVacationVisitor();
@@ -157,6 +157,6 @@ for (let i = 0; i < len; i++) {
 
   employee.accept(salaryVisitor);
   employee.accept(vacationVisitor);
-  console.log(employee.getName() + ': $' + employee.getSalary() + ' and ' + employee.getVacation() + ' vacation days');
+  console.log(employee.getName() + ": $" + employee.getSalary() + " and " + employee.getVacation() + " vacation days");
 }
 ```

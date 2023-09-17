@@ -2,8 +2,8 @@
 
 ## install
 
-```
-npm i prisma --save-dev
+```sh
+npm i -D prisma
 npm i @prisma/client
 ```
 
@@ -48,7 +48,7 @@ model Post {
 
 > 테이블 생성 및 업데이트
 
-```
+```sh
 npx prisma migrate dev --name init
 ```
 
@@ -59,19 +59,13 @@ npx prisma migrate dev --name init
 > > prisma.service.ts
 
 ```ts
-import { INestApplication, Injectable, OnModuleInit } from "@nestjs/common";
+import { Injectable, OnModuleInit } from "@nestjs/common";
 import { PrismaClient } from "@prisma/client";
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
   async onModuleInit() {
     await this.$connect();
-  }
-
-  async enableShutdownHooks(app: INestApplication) {
-    this.$on("beforeExit", async () => {
-      await app.close();
-    });
   }
 }
 ```
@@ -102,6 +96,6 @@ imports: [
 
 ## prisma 환경변수 읽기
 
-```
+```sh
 "migrate:dev": "dotenv -e ../.env.development -- npx prisma migrate dev",
 ```
