@@ -1,6 +1,8 @@
 # nest Exception filters
 
-> 대부분의 에러 처리는 nest에서 기본으로 전역 예외 필터를 제공
+> nestjs의 에러 스키마는 기본으로 {statusCode, message, error}로 구성되어있다.
+>
+> > 만약 스키마를 변경하고 싶거나 (timestamp..), 로깅같은 작업을 추가하고 싶다면 Exception filters를 사용하면 된다.
 
 ## 커스텀 예외 필터
 
