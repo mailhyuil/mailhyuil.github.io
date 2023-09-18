@@ -60,7 +60,7 @@ providers: [SomeService];
 
 ### useFactory
 
-> provider를 생성하여 등록할 때 사용
+> provider를 "동적으로" 생성하여 등록할 때 사용
 
 ### useExisting
 
