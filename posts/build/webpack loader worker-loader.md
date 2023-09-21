@@ -50,3 +50,9 @@ worker.onmessage = (event) => {
   console.log(event.data);
 };
 ```
+
+## 워커 종료하기
+
+```js
+worker.terminate();
+```
