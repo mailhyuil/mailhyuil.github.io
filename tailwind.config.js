@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        hyuil: "url('/public/img/hyuil.jpg')",
+        hyuil: "url('/public/img/hyuil.webp')",
       },
       fontFamily: {
         primary: ["Nunito", "Noto Sans KR"],

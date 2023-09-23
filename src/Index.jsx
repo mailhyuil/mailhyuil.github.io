@@ -74,8 +74,8 @@ const Main = () => {
       <div className="flex flex-col flex-1 h-full bg-white lg:flex-row">
         <nav className="overflow-y-auto lg:h-full scrollbar-hide font-primary">
           <div className="flex justify-center p-3">
-            <img className="mt-5 w-32 hidden lg:block" src="/img/myblog_logo.png" alt="logo" />
-            <img className="w-24 lg:hidden" src="/img/myblog_logo2.png" alt="logo" />
+            <img height="100%" width="128px" className="mt-5 hidden lg:block" src="/img/myblog_logo.webp" alt="logo" />
+            <img height="100%" width="96px" className="lg:hidden" src="/img/myblog_logo2.webp" alt="logo" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
