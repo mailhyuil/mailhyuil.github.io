@@ -1,4 +1,4 @@
-# jwt cookie & localStorage
+# cookie & localStorage
 
 ## cookie
 

@@ -32,20 +32,23 @@ console.log(d.getSome());
 
 ## 함수형에서는 pipe로 구현
 
-```
-const pipe = (...fns) => (x) => fns.reduce((y, f) => f(y), x)
+```js
+const pipe =
+  (...fns) =>
+  (x) =>
+    fns.reduce((y, f) => f(y), x);
 
-const obj = ()=>{
-  const units = ['a']
-  return units
-}
+const obj = () => {
+  const units = ["a"];
+  return units;
+};
 
-const decorator = (baseObj) =>{
-  const units = ['b']
-  return [...baseObj, ...units]
-}
+const decorator = (baseObj) => {
+  const units = ["b"];
+  return [...baseObj, ...units];
+};
 
-const objWithDecorator = pipe(obj, decorator)()
+const objWithDecorator = pipe(obj, decorator)();
 
-console.log(objWithDecorator)
+console.log(objWithDecorator);
 ```
