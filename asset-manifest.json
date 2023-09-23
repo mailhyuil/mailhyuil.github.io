@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4726d007.css",
-    "main.js": "/static/js/main.1ce3efb8.js",
+    "main.js": "/static/js/main.4642cd71.js",
     "static/media/hyuil.jpg": "/static/media/hyuil.7f0173b0be3151655e0c.jpg",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.1b0614d94b1a7ce997b6.md",
     "static/media/spring Pagination (페이징 처리).md": "/static/media/spring Pagination (페이징 처리).9bc1fade6b9872ecaa05.md",
@@ -89,7 +89,6 @@
     "static/media/flutter Interactive Flame.md": "/static/media/flutter Interactive Flame.7ba9b20ea850e17d3966.md",
     "static/media/nodejs logger.md": "/static/media/nodejs logger.7c87298ee64b5980967a.md",
     "static/media/Behavioral memento.md": "/static/media/Behavioral memento.9cc9a4de0f9eb78d97d8.md",
-    "static/media/nginx.md": "/static/media/nginx.ac71f22c94e548691509.md",
     "static/media/nuxt built-in composables.md": "/static/media/nuxt built-in composables.8ceefacd25b5ad5d68cc.md",
     "static/media/prisma client api where.md": "/static/media/prisma client api where.616ba469daa815f3e830.md",
     "static/media/data Heap Binary Tree.md": "/static/media/data Heap Binary Tree.8913161b2faa74dced4c.md",
@@ -104,6 +103,7 @@
     "static/media/flutter login screen.md": "/static/media/flutter login screen.d1e81d23d27df1f00ed5.md",
     "static/media/x algorithm technique.md": "/static/media/x algorithm technique.2fa170cc41202a12c98b.md",
     "static/media/flutter Animation Explicit Animation.md": "/static/media/flutter Animation Explicit Animation.a3a12d9288ba481d992f.md",
+    "static/media/nginx.md": "/static/media/nginx.5d6ee7954652428b37c4.md",
     "static/media/data Tree Trie.md": "/static/media/data Tree Trie.5fe6c07f21f4eef3ffae.md",
     "static/media/react redux.md": "/static/media/react redux.0f63482984b201ba259a.md",
     "static/media/spring Servlet (서블릿).md": "/static/media/spring Servlet (서블릿).bb652ea88d9aebd81fb5.md",
@@ -434,6 +434,7 @@
     "static/media/flutter feature Webview Platform-Specific Features.md": "/static/media/flutter feature Webview Platform-Specific Features.0f23fa505aed0e17c1f6.md",
     "static/media/nest DI.md": "/static/media/nest DI.7aa91edf20f210afe1bf.md",
     "static/media/angular google map.md": "/static/media/angular google map.808d7e3c426196eac5f8.md",
+    "static/media/nginx default.conf.md": "/static/media/nginx default.conf.95531594aba29b78d854.md",
     "static/media/nuxt lifecycle hooks.md": "/static/media/nuxt lifecycle hooks.bbd86e7c5201299567a6.md",
     "static/media/algorithm 그래프순회 DFS (Depth First Search).md": "/static/media/algorithm 그래프순회 DFS (Depth First Search).b5f884d4a803df3ad8be.md",
     "static/media/react framer-motion.md": "/static/media/react framer-motion.511c6c26b55857af69d4.md",
@@ -1405,6 +1406,7 @@
     "static/media/Unary function.md": "/static/media/Unary function.f16116b767ea76dc09c2.md",
     "static/media/angular gsap.md": "/static/media/angular gsap.49810e5072bf255c03b4.md",
     "static/media/js 옵셔널 체이닝.md": "/static/media/js 옵셔널 체이닝.d8ae6a98249466c82bec.md",
+    "static/media/nginx 파일 크기 제한.md": "/static/media/nginx 파일 크기 제한.1956c4d413ecd420a557.md",
     "static/media/chartjs.md": "/static/media/chartjs.8c3057870d90b4850cd0.md",
     "static/media/db 종속이란.md": "/static/media/db 종속이란.c7d12f9f67dacf54dc0a.md",
     "static/media/flutter payment.md": "/static/media/flutter payment.6e59b32a9d3b10c65e54.md",
@@ -1727,10 +1729,10 @@
     "static/media/webpack plugin css-minimizer-webpack-plugin.md": "/static/media/webpack plugin css-minimizer-webpack-plugin.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.4726d007.css.map": "/static/css/main.4726d007.css.map",
-    "main.1ce3efb8.js.map": "/static/js/main.1ce3efb8.js.map"
+    "main.4642cd71.js.map": "/static/js/main.4642cd71.js.map"
   },
   "entrypoints": [
     "static/css/main.4726d007.css",
-    "static/js/main.1ce3efb8.js"
+    "static/js/main.4642cd71.js"
   ]
 }
