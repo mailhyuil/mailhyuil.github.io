@@ -6,4 +6,8 @@
 if ("scheduling" in navigator) {
   (navigator.scheduling as any)!.isInputPending();
 }
+// or
+if (navigator["scheduling"]) {
+  (navigator.scheduling as any)!.isInputPending();
+}
 ```

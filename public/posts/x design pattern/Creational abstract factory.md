@@ -1,5 +1,7 @@
 # abstract factory
 
+> 인스턴스를 생성 하되 매개변수의 값에 따라 다른 타입의 인스턴스를 생성하는 패턴
+
 ```ts
 interface GUIFactory {
   createButton(): Button;
@@ -70,16 +72,16 @@ class Application {
 
 /* main */
 
-const config = { OS: 'Mac' };
+const config = { OS: "Mac" };
 
 let factory;
 
-if (config.OS == 'Windows') {
+if (config.OS == "Windows") {
   factory = new WinFactory();
-} else if (config.OS == 'Mac') {
+} else if (config.OS == "Mac") {
   factory = new MacFactory();
 } else {
-  console.error('Error! Unknown operating system.');
+  console.error("Error! Unknown operating system.");
 }
 
 const app: Application = new Application(factory);
@@ -91,12 +93,12 @@ class IOSButton {}
 class AndroidButton {}
 
 // Without Factory
-const button1 = os === 'ios' ? new IOSButton() : new AndroidButton();
-const button2 = os === 'ios' ? new IOSButton() : new AndroidButton();
+const button1 = os === "ios" ? new IOSButton() : new AndroidButton();
+const button2 = os === "ios" ? new IOSButton() : new AndroidButton();
 
 class ButtonFactory {
   createButton(os: string): IOSButton | AndroidButton {
-    if (os === 'ios') {
+    if (os === "ios") {
       return new IOSButton();
     } else {
       return new AndroidButton();

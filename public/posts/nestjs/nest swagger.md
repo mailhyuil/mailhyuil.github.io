@@ -68,8 +68,19 @@ new DocumentBuilder().addBearerAuth();
 
 > 설정후 localhost/swagger.json으로 이동
 
+```js
+SwaggerModule.setup("document", app, document, {
+  jsonDocumentUrl: "swagger.json",
+}); // api path로
 ```
-  SwaggerModule.setup('document', app, document, {
-    jsonDocumentUrl: 'swagger.json',
-  }); // api path로
+
+## swagger-spec.json 생성
+
+```js
+/** Swagger */
+const document = SwaggerModule.createDocument(app, new DocumentBuilder().addBearerAuth().build());
+SwaggerModule.setup("document", app, document, {
+  swaggerOptions: { persistAuthorization: true },
+});
+fs.writeFileSync("./swagger-spec.json", JSON.stringify(document));
 ```
