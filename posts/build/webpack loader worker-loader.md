@@ -49,10 +49,7 @@ worker.postMessage({ type: "doHeavyJob" });
 worker.onmessage = (event) => {
   console.log(event.data);
 };
-```
 
-## 워커 종료하기
-
-```js
+// 워커 종료하기
 worker.terminate();
 ```
