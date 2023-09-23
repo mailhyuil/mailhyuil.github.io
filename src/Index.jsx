@@ -74,8 +74,8 @@ const Main = () => {
       <div className="flex flex-col flex-1 h-full bg-white lg:flex-row">
         <nav className="overflow-y-auto lg:h-full scrollbar-hide font-primary">
           <div className="flex justify-center p-3">
-            <img height="100%" width="128px" className="mt-5 hidden lg:block" src="/img/myblog_logo.webp" alt="logo" />
-            <img height="100%" width="96px" className="lg:hidden" src="/img/myblog_logo2.webp" alt="logo" />
+            <img width="128" height="108" className="mt-5 hidden lg:block" src="/img/myblog_logo.webp" alt="logo" />
+            <img width="96" height="41" className="lg:hidden" src="/img/myblog_logo2.webp" alt="logo" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -101,7 +101,7 @@ const Main = () => {
               Home
             </motion.li>
 
-            <motion.ul
+            <motion.li
               className="mb-4 text-2xl font-black text-gray-800 blog"
               initial={{ x: -400 }}
               animate={{ x: 0 }}
@@ -138,7 +138,7 @@ const Main = () => {
                   </ul>
                 );
               })}
-            </motion.ul>
+            </motion.li>
 
             <motion.li
               initial={{ x: -400 }}
@@ -164,7 +164,13 @@ const Main = () => {
         </nav>
         <motion.main className="flex-1 flex flex-col overflow-y-auto scrollbar-hide">
           <div className="p-2">
-            <input autoFocus className="border-2 rounded-md py-1 px-2 font-bold w-full " value={query} onChange={onChange} />
+            <input
+              autoFocus
+              placeholder="Search Whatever~"
+              className="border-2 rounded-md py-1 px-2 font-bold w-full "
+              value={query}
+              onChange={onChange}
+            />
           </div>
           <div className="flex-1">
             <ul>
