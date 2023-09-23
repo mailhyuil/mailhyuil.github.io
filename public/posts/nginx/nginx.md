@@ -12,16 +12,6 @@
 
 ![](img/apache&nginx.png)
 
-## 파일 크기 제한
-
-> nginx.conf
-
-```conf
-http {
-    client_max_body_size 5M; // 기본값 1m 제한없음 0
-}
-```
-
 ## 회사 방법
 
 ```conf
@@ -36,13 +26,13 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
     server_name my_server_name;
-    ssl_certificate /etc/nginx/ssl/unified.star.lepisode.team.pem; # key 파일
-    ssl_certificate_key /etc/nginx/ssl/star.lepisode.team.pem; # key 파일
-    ssl_password_file /etc/nginx/ssl/password.pass; # password 파일
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # 프로토콜 지정
+    ssl_certificate /etc/nginx/ssl/ssl_certificate.pem;
+    ssl_certificate_key /etc/nginx/ssl/ssl_certificate_key.pem;
+    ssl_password_file /etc/nginx/ssl/ssl_password_file.pass;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
     location / {
-        root /home/lepisode/actions-runner/_work/wings/wings/dist/packages/client;
+        root /usr/share/nginx/html;
         index index.html;
         try_files $uri $uri/ /index.html =404;
     }
