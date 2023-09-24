@@ -26,6 +26,8 @@ Set-Cookie: max-age=3600; domain=example.com; Path=/; Secure; HttpOnly
 > 브라우저에서 쿠키의 값을 읽을 수 없도록 하는 옵션
 >
 > > 브라우저에 저장되지 않는다
+> >
+> > > javascript로 쿠키에 접근할 수 없다.
 
 ## secure
 
