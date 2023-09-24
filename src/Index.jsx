@@ -166,7 +166,7 @@ const Main = () => {
           <div className="p-2">
             <input
               autoFocus
-              placeholder="Search Whatever~"
+              placeholder="Search whatever you want to search!"
               className="border-2 rounded-md py-1 px-2 font-bold w-full "
               value={query}
               onChange={onChange}
