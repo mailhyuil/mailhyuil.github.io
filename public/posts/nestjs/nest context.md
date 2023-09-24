@@ -5,9 +5,9 @@
 >
 > > guard, filter, interceptor, @Req로 접근 가능
 > >
-> > > ExcutionContext, ArgumentsHost
+> > > ExecutionContext extends ArgumentsHost
 > > >
-> > > > ArgumentsHost의 switchToHttp()로 ExcutionContext 인스턴스를 가져올 수 있다.
+> > > > ArgumentsHost의 switchToHttp()로 HTTP arguments를 얻을 수 있는 ExecutionContextHost를 얻을 수 있다. (helper call)
 
 ## context에 접근하기
 

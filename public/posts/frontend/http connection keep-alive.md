@@ -6,5 +6,5 @@
 
 ```
 Connection: keep-alive
-Connection: close
+Keep-Alive: timeout=5
 ```
