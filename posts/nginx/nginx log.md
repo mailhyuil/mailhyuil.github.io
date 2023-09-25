@@ -13,7 +13,7 @@ error_log /var/log/nginx/error.log;
 >
 > > server블록 안에 다음을 추가
 
-```
+```conf
 server {
     server_name vompressor.com www.vompressor.com;
 
