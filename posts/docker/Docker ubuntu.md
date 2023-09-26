@@ -16,9 +16,8 @@ docker attach ubuntu
 
 ### ubuntu
 
-```
+```sh
 apt install openssh-server
-
 sudo /etc/init.d/ssh start
 ```
 

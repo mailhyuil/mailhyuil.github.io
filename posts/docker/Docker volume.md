@@ -21,7 +21,7 @@ docker run -d -v $(pwd):/var/lib/mysql -p 80:80 nginx
 
 > --volumes-from data_only_container
 
-```
+```sh
 docker run -d --name my-conainer --volumes-from web-volume -p 8080:80 nginx
 ```
 
@@ -45,7 +45,7 @@ docker run -d --name my-sql -v my-volume:/var/lib/mysql -p 3306:3306 mysql
 >
 > > :ro 옵션
 
-```
+```sh
 docker run -d --name nginx -v web-volume:/usr/share/nginx/html:ro nginx
 ```
 
