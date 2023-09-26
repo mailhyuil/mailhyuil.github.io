@@ -22,6 +22,6 @@ location /api/v1 {
 
 > --add-host=host.docker.internal:host-gateway 로 바인딩
 
-```
-docker run --name wings-nginx --add-host=host.docker.internal:host-gateway -d -p 80:80 nginx
+```sh
+docker run --name my-nginx --add-host=host.docker.internal:host-gateway -d -p 80:80 nginx
 ```

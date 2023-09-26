@@ -6,7 +6,6 @@
 
 ```sh
 mkdir /root/ssl/ && cd /root/ssl
-
 openssl req -x509 -days 365 -nodes -newkey rsa:2048 -keyout ssl.key -out ssl.crt
 ```
 
@@ -15,13 +14,14 @@ openssl req -x509 -days 365 -nodes -newkey rsa:2048 -keyout ssl.key -out ssl.crt
 ```conf
 server {
     listen       80;
-    server_name  ssl-test.com;
+    server_name  domain.com;
+    # client에게 https://$host$request_uri로 리다이렉트 하라는 301 응답을 보냄
     return 301 https://$host$request_uri;
 }
 
 server {
     listen       443 ssl;
-    server_name  ssl-test.com;
+    server_name  domain.com;
 
     location / {
         proxy_pass http://my-tomcat:8080;
@@ -29,7 +29,5 @@ server {
 
     ssl_certificate /root/ssl/ssl.crt;
     ssl_certificate_key /root/ssl/ssl.key;
-
-    ### 이하 생략 ###
 }
 ```

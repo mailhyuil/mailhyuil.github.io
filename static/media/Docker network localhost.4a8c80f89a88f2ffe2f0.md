@@ -1,4 +1,6 @@
-# nginx proxy_pass docker container
+# Docker network localhost
+
+> host.docker.internal로 호스트 컴퓨터의 localhost에 접근하기
 
 ## nginx.conf
 
@@ -18,7 +20,7 @@ location /api/v1 {
 }
 ```
 
-## docker run
+## docker run --add-host=host.docker.internal:host-gateway
 
 > --add-host=host.docker.internal:host-gateway 로 바인딩
 
