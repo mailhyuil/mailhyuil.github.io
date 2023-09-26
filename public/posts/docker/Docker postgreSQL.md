@@ -18,4 +18,7 @@ docker exec -it my-post bash
 
 ```sh
 psql --username postgres --dbname mydb
+
+\c mydb # db 연결
+\dt # table 목록
 ```
