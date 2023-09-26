@@ -4,15 +4,14 @@
 >
 > > Dockerfile -> (build) -> docker_image -> (run) -> docker_container
 
-- 특징
-  - 운영체제 수준의 가상화
-  - 빠른 속도와 효율성
-  - 높은 이식성(=확장성)
-  - 롤백
+## 특징
+
+> 운영체제 수준의 가상화
+> 빠른 속도와 효율성
+> 높은 이식성(=확장성)
+> 롤백
 
 ![](/img/hypervisor&container.png)
-
----
 
 ## 명령어
 
@@ -52,12 +51,4 @@ docker cp 컨테이너_패스 로컬_호스트_패스
 
 # container log 보기
 docker logs 컨테이너_이름
-```
-
-## 멈춰있는 도커 bash 열기
-
-```bash
-docker commit CONTAINER_ID 새로운이미지이름
-
-docker run -it --entrypoint=sh 이미지이름
 ```
