@@ -1,9 +1,10 @@
 # container 배포 과정
 
-1. build
-2. registry에 push
-3. registry에서 pull
-4. run
+1. build or commit
+2. tag
+3. registry에 push
+4. registry에서 pull
+5. run
 
 ## 문제점
 

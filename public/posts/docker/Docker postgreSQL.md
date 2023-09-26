@@ -2,20 +2,20 @@
 
 ## run
 
-```
-docker run --name mypost -d -e POSTGRES_PASSWORD=1234 -p 5432:5432 postgres:14
+```sh
+docker run --name my-post -d -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=mydb -p 5432:5432 postgres:14
 ```
 
 ## 접속
 
-```
-docker exec -it mypost bash
+```sh
+docker exec -it my-post bash
 ```
 
 ## 실행
 
 > psql을 실행
 
-```
-psql -U postgres
+```sh
+psql --username postgres --dbname mydb
 ```
