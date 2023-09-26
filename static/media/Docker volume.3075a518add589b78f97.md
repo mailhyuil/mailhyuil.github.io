@@ -6,6 +6,10 @@
 > >
 > > > 그렇기 때문에 데이터는 볼륨에 저장해야한다.
 
+```sh
+docker volume ls
+```
+
 ## 3가지 방법
 
 ### host경로를 container에 마운트
