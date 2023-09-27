@@ -1,7 +1,12 @@
 # URLSearchParams
 
-## 쿼리스트링값 가져오기
-
 ```js
-new URLSearchParams(location.search).get("bbs_page");
+const paramsString = "pageNo=1&orderBy=createdAt";
+const searchParams = new URLSearchParams(paramsString);
+searchParams.has();
+searchParams.set();
+searchParams.get();
+searchParams.getAll();
+searchParams.append();
+searchParams.delete();
 ```
