@@ -8,11 +8,11 @@
 
 > 컨테이너들은 172.17.0.x ip를 순서대로 받는다
 >
-> 컨테이너의 이름은 ip를 참조한다!!
+> 사용자 생성 bridge network는 컨테이너 이름으로 ip를 참조할 수 있다
 
 ```bash
-docker network create my-network
 docker network ls
+docker network create my-network --driver bridge
 docker network rm my-network
 docker network inspect my-network
 docker network connect my-network 컨테이너
