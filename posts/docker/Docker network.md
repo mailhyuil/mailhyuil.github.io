@@ -1,8 +1,8 @@
 # Docker network
 
-> default는 bridge 네트워크
+> default는 bridge 네트워크 (컨테이너 이름으로 참조는 안됨)
 > 컨테이너들은 172.17.0.x ip를 순서대로 받는다
-> bridge 네트워크 컨테이너의 이름은 ip를 참조한다!!
+> "사용자 생성 bridge 네트워크" 컨테이너 이름으로 ip를 참조할 수 있다
 
 ## network type
 
@@ -13,8 +13,8 @@ overlay : 여러 호스트에 분산된 컨테이너들이 서로 소통할 수 
 ```
 
 ```bash
-docker network create my-network
 docker network ls
+docker network create my-network --driver bridge
 docker network rm my-network
 docker network inspect my-network
 docker network connect my-network 컨테이너
