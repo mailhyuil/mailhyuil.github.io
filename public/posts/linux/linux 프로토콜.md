@@ -2,7 +2,7 @@
 
 > 22 port
 
-```
+```sh
 sudo apt-get install openssh-server //설치
 sudo /etc/init.d/ssh restart //재시작
 sudo apt-get remove openssh-server //제거
