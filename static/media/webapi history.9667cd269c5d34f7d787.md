@@ -10,13 +10,23 @@
 >
 > > 뒤로가기를 할 때 다시 페이지가 나오는 것을 방지
 
-## pushState & popstate
+## pushState & replaceState
 
 > 상태를 history에 저장
+>
+> > history.pushState(stateObj, unused, url)
+> >
+> > > unused: 브라우저가 무시하는 값 // ""을 넣어주는게 일반적이다.
 
 ```js
-history.pushState(null, "", `?page=${page}`);
+const stateObj = { pageNo: 1 };
+history.pushState(stateObj, "", `url`);
+history.replaceState(stateObj, "", `url`);
+```
 
+## popstate
+
+```js
 window.addEventListener("popstate", function (event) {
   const page = route.params.page;
   if (!page) {
