@@ -14,9 +14,10 @@
 
 > 상태를 history에 저장
 >
-> > history.pushState(stateObj, unused, url)
+> > history.pushState(stateObj, unused, url?)
 > >
-> > > unused: 브라우저가 무시하는 값 // ""을 넣어주는게 일반적이다.
+> > > unused: 브라우저가 무시하는 값
+> > > unused는 생략이 안된다 그냥 빈 스트링 ""을 넣어주는게 일반적이다.
 
 ```js
 const stateObj = { pageNo: 1 };

@@ -1,4 +1,4 @@
-# removeHtmlTag regex
+# regex html 태그 제거
 
 ```ts
 const removeImgTag = (content) => {
