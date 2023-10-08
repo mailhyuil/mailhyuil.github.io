@@ -1,4 +1,4 @@
-# kubernetes Upgrade
+# kubernetes upgrade
 
 > kubernetes 패키지 업그레이드
 >
