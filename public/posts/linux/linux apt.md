@@ -12,4 +12,9 @@ apt search <package>
 apt-get install <package>
 apt-get remove <package>
 apt-get search <package>
+apt-get update
+apt-get upgrade
+
+apt-mark hold <package> # 패키지 업그레이드 방지
+apt-mark unhold <package> # 패키지 업그레이드 허용
 ```
