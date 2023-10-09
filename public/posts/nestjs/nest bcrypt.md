@@ -11,3 +11,12 @@ npm i -D @types/bcrypt
 npm i bcryptjs
 npm i -D @types/bcryptjs
 ```
+
+## 사용법
+
+```js
+import * as bcrypt from "bcrypt";
+
+const hash = await bcrypt.hash("password", 10); // 10 = salt round // salt를 자동으로 생성한다.
+await bcrypt.compare("password", hash);
+```
