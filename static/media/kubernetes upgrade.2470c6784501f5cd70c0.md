@@ -11,7 +11,7 @@
 ## 순서
 
 1. Control Plane에 ssh 접속
-2. kubeadm 업그레이드
+2. kubeadm 업그레이드 (apt)
 3. 노드 드레인
    > console이나 master에서 실행
 4. kubelet과 kubectl 업그레이드

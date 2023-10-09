@@ -11,7 +11,7 @@ kubectl config use-context minikube
 kubectl config current-context
 kubectl config get-contexts
 
-kubectl run nginx --image=nginx # 명령형으로 그냥 실행
+kubectl run <pod_name> --image=nginx --port=80 # 명령형으로 그냥 실행
 
 kubectl apply -f <file_path> # yaml 파일을 읽어서 선언형으로 실행
 
