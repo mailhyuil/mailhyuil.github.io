@@ -30,6 +30,7 @@ y$ — 문장 끝까지 복사 (yank to end of line)
 yG — 현재 커서부터 문서 끝까지 복사 (yank to end of file)
 
 wc — 단어 세기 (word count)
+wc -l — 줄 세기 (line count)
 
 p — 붙여넣기 (paste)
 

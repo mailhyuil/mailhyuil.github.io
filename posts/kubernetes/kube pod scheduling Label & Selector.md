@@ -18,18 +18,26 @@ template:
       env: prod
 ```
 
-## selector query
+## set label
 
 ```sh
-kubectl get <object type> --selector <label_query_1, label_query_2>
-
-# "label query" => key=value, key!=value, key in, key notin, key, !key
-# key in 'env in (dev, stage, prod)'
-
-kubectl get pod my-pod --show-labels
-kubectl get pod/my-pod --label-columns app.env
-
 kubectl label pod my-pod app=backend
 kubectl label pod my-pod version=v1
 kubectl label pod my-pod version=v2 --overwrite
+kubectl get pod -L version
+kubectl get pod my-pod --show-labels
+kubectl get pod my-pod --label-columns app.env
+
+kubectl label node my-node gpu=true
+kubectl get nodes -L gpu
+# label 삭제
+kubectl label node my-node gpu-
+```
+
+## selector query
+
+```sh
+# "label query" => key=value, key!=value, key in, key notin, key, !key
+# key in 'env in (dev, stage, prod)'
+kubectl get <object type> --selector <label_query_1, label_query_2>
 ```
