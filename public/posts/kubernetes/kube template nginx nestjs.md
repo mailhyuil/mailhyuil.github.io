@@ -52,6 +52,7 @@ spec:
     - port: 4200
       targetPort: 3000
   clusterIP: 10.96.1.10
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -77,5 +78,6 @@ spec:
               cpu: "500m"
           ports:
             - containerPort: 3000
+
 ---
 ```
