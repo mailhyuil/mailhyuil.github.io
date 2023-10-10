@@ -6,30 +6,7 @@
 > >
 > > > 그렇기 때문에 데이터는 볼륨에 저장해야한다.
 
-```sh
-docker volume ls
-```
-
-## 3가지 방법
-
-### host경로를 container에 마운트
-
-```bash
-# -v [볼륨 이름 or 로컬 경로]:[컨테이너 안 경로]
-docker run -d -v mysql-volume:/var/lib/mysql -p 80:80 nginx
-
-docker run -d -v $(pwd):/var/lib/mysql -p 80:80 nginx
-```
-
-### data-only container (volume container) 생성하여 마운트
-
-> --volumes-from data_only_container
-
-```sh
-docker run -d --name my-conainer --volumes-from web-volume -p 8080:80 nginx
-```
-
-### docker volume 사용
+## docker volume 사용
 
 > 도커의 볼륨 관리 기능을 사용
 >
@@ -41,6 +18,29 @@ docker volume create --name my-volume
 docker run -d --name my-sql -v my-volume:/var/lib/mysql -p 3306:3306 mysql
 # /var/lib/mysql은 mysql이 데이터를 쌓는 경로이다
 # /var/lib/postgresql/<version>/main postgresql
+
+# volume 리스트 출력
+docker volume ls
+
+# 연결되지 않은 볼륨 전부 삭제
+docker volume prune
+```
+
+## host경로를 container에 마운트
+
+```bash
+# -v [볼륨 이름 or 로컬 경로]:[컨테이너 안 경로]
+docker run -d -v mysql-volume:/var/lib/mysql -p 80:80 nginx
+
+docker run -d -v $(pwd):/var/lib/mysql -p 80:80 nginx
+```
+
+## data-only container (volume container) 생성하여 마운트
+
+> --volumes-from data_only_container
+
+```sh
+docker run -d --name my-conainer --volumes-from web-volume -p 8080:80 nginx
 ```
 
 ## 볼륨을 읽기 전용으로 마운트
@@ -51,10 +51,4 @@ docker run -d --name my-sql -v my-volume:/var/lib/mysql -p 3306:3306 mysql
 
 ```sh
 docker run -d --name nginx -v web-volume:/usr/share/nginx/html:ro nginx
-```
-
-## 연결되지 않은 볼륨 전부 삭제
-
-```bash
-docker volume prune
 ```
