@@ -1,14 +1,12 @@
-# NodePort
+# ClusterIP
 
-> 외부 PORT를 할당
+> 여러 파드를 묶어서 로드밸런싱할 수 있는 ClusterIP만 할당
 >
-> > 트래픽만 받기 위한 용도
+> > 외부에서는 접근할 수 없다. / 같은 클러스터 내부에서만 접근 가능
 > >
-> > > 포트만 여는 것과 같다
+> > > private 서비스들에 이용
 > > >
-> > > > nodeIp:nodePort로 접근
-> > > >
-> > > > > 개발 및 테스트 환경에서 사용
+> > > > Service Default 타입
 
 ```yaml
 ---
@@ -21,7 +19,7 @@ metadata:
     service: order
     project: snackbar
 spec:
-  type: NodePort # type
+  type: ClusterIP # type
   selector:
     service: order
     project: snackbar

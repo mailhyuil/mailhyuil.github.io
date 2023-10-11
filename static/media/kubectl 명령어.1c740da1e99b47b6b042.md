@@ -14,5 +14,5 @@ kubectl edit
 # kubectl expose <object> <object_name> --type=<type>
 kubectl expose deployment my-deployment --name=my-loadBalancer --type=LoadBalancer
 
-kubectl top
+kubectl top # metrics-server 필요
 ```

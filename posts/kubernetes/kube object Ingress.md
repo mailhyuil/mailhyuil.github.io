@@ -1,8 +1,20 @@
 # kubernetes Ingress
 
-> 노출 된 여러개의 Service들을 하나의 엔드포인트로 외부에 노출
+> L7 스위치 역할을 논리적으로 수행
 >
-> > rules에 정의된 host로 접근하면 해당 service로 라우팅
+> > 클러스터로 접근하는 URL 별로 다른 서비스에 트래픽 분산
+> > 노출 된 여러개의 Service들을 하나의 엔드포인트로 외부에 노출
+> > ex) https://myapp.com/order, https://myapp.com/payment, https://order.myapp.com, https://payment.myapp.com
+> >
+> > > rules에 정의된 host로 접근하면 해당 service로 라우팅
+> > >
+> > > > 지원하는 기능
+> > > > Service에 외부 URL을 제공
+> > > > 트래픽을 로드밸런싱
+> > > > SSL 인증서 처리
+> > > > Virtual hosting 지정
+
+##
 
 ## manifest.yml
 

@@ -1,12 +1,19 @@
-# ClusterIP
+# NodePort
 
-> 내부 IP만 할당
+> ClusterIp 생성 + 외부에서 노드에 접속할 수 있도록 노드 IP의 PORT를 할당
+> ex)
+> ClusterIp : 10.x.x.x
+> NodeIp:port : 10.0.2.11:30000, 10.0.2.12:30000
+> 10.0.2.12:30000(k8s-worker1:30000)으로 접속 가능
 >
-> > 기본 Service 타입
+> > 30000 ~ 32767 사이의 포트를 할당
+> > 트래픽만 받기 위한 용도
 > >
-> > > 외부에서는 접근할 수 없는 내부 ip를 할당받는다
+> > > 포트만 여는 것과 같다
 > > >
-> > > > private 서비스들에 이용
+> > > > nodeIp:nodePort로 접근
+> > > >
+> > > > > 개발 및 테스트 환경에서 사용
 
 ```yaml
 ---
@@ -19,7 +26,7 @@ metadata:
     service: order
     project: snackbar
 spec:
-  type: ClusterIP # type
+  type: NodePort # type
   selector:
     service: order
     project: snackbar
