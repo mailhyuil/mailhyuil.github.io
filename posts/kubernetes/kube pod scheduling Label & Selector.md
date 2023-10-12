@@ -32,6 +32,9 @@ kubectl label node my-node gpu=true
 kubectl get nodes -L gpu
 # label 삭제
 kubectl label node my-node gpu-
+
+# --labels === -l
+# --label-columns === -L
 ```
 
 ## selector query
