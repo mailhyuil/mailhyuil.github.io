@@ -5,6 +5,8 @@
 > pod들을 구분짓기 위한 논리적인 이름
 >
 > > selector와 label을 이용해서 특정 pod들을 선택
+> >
+> > > key, value, operator로 구성
 
 ```yml
 selector:
@@ -43,4 +45,12 @@ kubectl label node my-node gpu-
 # "label query" => key=value, key!=value, key in, key notin, key, !key
 # key in 'env in (dev, stage, prod)'
 kubectl get <object type> --selector <label_query_1, label_query_2>
+```
+
+```yaml
+selector:
+  matchLabels:
+    release: "stable"
+  matchExpressions:
+    - { key: environment, operator: In, values: [dev] }
 ```
