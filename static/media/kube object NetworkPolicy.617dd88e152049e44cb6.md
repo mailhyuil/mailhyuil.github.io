@@ -5,6 +5,7 @@
 > > ingress=inbound / egress=outbound
 > >
 > > > ipBlock / namespaceSelector / podSelector / protocol / port
+> > > ip, namespace, pod, port, protocol 단위로 트래픽 허용할 수 있다
 
 ## yaml
 
@@ -24,7 +25,7 @@ spec:
         project: snackbar
     policyTypes:
         - Ingress
-        - Egress
+        # - Egress
     ingress:
         - from:
             - ipBlock:
