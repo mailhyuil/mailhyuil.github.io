@@ -14,7 +14,13 @@
 > > > > SSL 인증서 처리
 > > > > Virtual hosting 지정
 
-##
+## 명령
+
+```sh
+kubectl run nginx --image=nginx --port=80 --labels=app=nginx -n ingress-nginx --dry-run=client -o yaml > nginx.yaml
+
+
+```
 
 ## manifest.yml
 
@@ -22,47 +28,28 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: snackbar
-  namespace: snackbar
-  labels:
-    project: snackbar
+  namespace: ingress-nginx
+  name: app-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  defaultBackend:
-    service:
-      name: home
-      port:
-        number: 80
   rules:
-    - host: order.fast-snackbar.com # 이 주소로 요청 하면
-      http:
+    - http:
         paths:
-          - pathType: Prefix
-            path: /
+          - path: /<path_1>
+            pathType: Prefix
             backend:
               service:
-                name: order # order Service로 라우팅
+                name: <service-name>
                 port:
                   number: 80
-    - host: payment.fast-snackbar.com # 이 주소로 요청 하면
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
+          - path: /<path_2>
+            pathType: Prefix
             backend:
               service:
-                name: payment # payment Service로 라우팅
+                name: <service-name>
                 port:
-                  number: 80
-    - host: delivery.fast-snackbar.com # 이 주소로 요청 하면
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: delivery # delivery Service로 라우팅
-                port:
-                  number: 80
+                  number: 3000
 ```
 
 ## IngressController
