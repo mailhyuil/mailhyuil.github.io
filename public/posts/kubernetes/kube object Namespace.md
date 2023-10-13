@@ -20,4 +20,7 @@ kubectl config set-context --current --namespace=NAMESPACE
 
 # 네임스페이스의 모든 리소스 조회
 kubectl get all -n <namespace>
+
+ # 모든 네임스페이스의 pod 조회
+kubectl get pods -A
 ```
