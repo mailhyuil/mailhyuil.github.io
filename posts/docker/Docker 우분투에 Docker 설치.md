@@ -17,6 +17,6 @@ echo \
 apt-get update -y
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
-systemctl start docker
+systemctl enable --now docker
 docker version
 ```

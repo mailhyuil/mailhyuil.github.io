@@ -5,3 +5,4 @@
 > > .kube/config 파일에 사용자 정보가 저장되어 있음
 > >
 > > > Role, RoleBinding, ServiceAccount, ClusterRole, ClusterRoleBinding
+> > > Authentication -> Authorization -> Admission Control
