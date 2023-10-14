@@ -1,4 +1,4 @@
-## ClusterRole
+## ClusterRole (Authorization)
 
 > 어떤 API를 사용할 수 있는지 정의
 > 쿠버네티스 리소스에 대한 접근 권한을 정의
