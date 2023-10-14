@@ -17,6 +17,7 @@ kubectl top nodes my-node
 > 특정 컬럼으로 정렬
 
 ```sh
+kubectl get pods --sort-by=.metadata.name
 --sort-by=.metadata.name
 --sort-by=.metadata.namespace
 --sort-by=.spec.capacity.storage
