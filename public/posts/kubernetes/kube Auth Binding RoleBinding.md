@@ -1,6 +1,6 @@
-## ClusterRoleBinding
+# RoleBinding
 
-> 사용자 또는 서비스 어카운트와 Role을 연결
+> 유저/그룹 또는 서비스 어카운트와 Role을 연결하는 것
 >
 > > namespace에 속한 Role을 연결
 > >
@@ -8,7 +8,7 @@
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: RoleBinding
 metadata:
   name: read-pods
   namespace: default
