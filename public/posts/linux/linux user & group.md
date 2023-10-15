@@ -1,0 +1,28 @@
+# 유저관리
+
+> 리눅스 사용자 계정 정보는 "/etc/passwd" 파일에 기록된다
+>
+> > root, bin, daemon, adm 등의 자동 생성 계정을 시스템 계정이라 부른다.
+> >
+> > > su명령으로 계정을 바꿀 수 있다.
+> > > PAM(Pluggable Authentication Modules)을 이용해 root계정으로 직접 로그인 하는 경우를 막을 수 있다.
+> > > 환경 변수 TMOUT을 설정해 장시간 로그인을 막을 수 있다.
+
+## user command
+
+```sh
+useradd # useradd <username> -d /home/<username> : 홈 디렉토리도 같이 생성
+passwd # passwd <username> : 암호 설정
+usermod # usermod -u 1001 name : uid를 1001로 변경
+userdel # userdel <username> : 사용자 삭제
+users # users : 현재 로그인한 사용자 출력
+```
+
+## group command
+
+```sh
+groupadd # groupadd <groupname>
+groupmod # groupmod -g 1001 name : gid를 1001로 변경
+groupdel # groupdel <groupname>
+groups # groups <username> : 사용자가 속한 모든 그룹을 출력
+```
