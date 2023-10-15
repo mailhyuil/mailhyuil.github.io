@@ -15,3 +15,9 @@
 > service를 생성하면 pod의 IP를 묶은 하나의 ClusterIp(Virtual IP)를 생성한다.
 > 각 노드에 있는 리눅스의 iptables를 이용하여 ClusterIp(Virtual IP)를 pod의 IP로 포워딩한다. (iptables는 로드밸런서 기능을 가지고 있다.)
 > kubelet아 ClusterIP가 10.96.100.100 이면 여기여기 ip로 포워딩해줘
+
+## 정리
+
+> clusterIp : "같은 클러스터" 내부에서만 접근 가능한 IP
+> nodePort : "같은 VPC" 내부에서만 접근 가능한 IP
+> loadBalancer : "외부"에서 접근 가능한 IP
