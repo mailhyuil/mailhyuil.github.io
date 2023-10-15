@@ -10,6 +10,6 @@
 >
 > > network 데몬을 재시작합니다.
 
-```
+```sh
 sudo /etc/init.d/networking restart
 ```
