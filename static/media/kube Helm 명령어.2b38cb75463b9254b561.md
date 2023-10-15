@@ -26,13 +26,21 @@ helm delete bitnami/nginx
 # chart 생성
 helm create my-chart
 
-helm get values
+# chart 정보 확인
+helm get values # helm get values <release name> --revision <revision number>
 helm get hooks
 helm get manifest
 helm get notes
 helm get history
 
-helm upgrade
+# chart 상태 확인
+helm status [release name]
+
+# chart 패키지 생성
+helm package [chart name]
+
+# helm plugin 설치
+helm plugin
 ```
 
 ## helm install
