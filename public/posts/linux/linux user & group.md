@@ -9,12 +9,13 @@
 ## user command
 
 > /etc/passwd 파일에 기록된다.
+> 사용자이름:암호:사용자ID:그룹ID:추가정보:홈디렉토리:쉘
 
 ```sh
 useradd # useradd <username> -d /home/<username> : 홈 디렉토리도 같이 생성
 passwd # passwd <username> : 암호 설정
 usermod # usermod -u 1001 name : uid를 1001로 변경
-userdel # userdel <username> : 사용자 삭제
+userdel # userdel -r <username> : 사용자 삭제 // -r 관련 모든 파일 삭제
 users # users : 현재 로그인한 사용자 출력
 ```
 
@@ -31,4 +32,14 @@ groupadd # groupadd <groupname>
 groupmod # groupmod -g 1001 name : gid를 1001로 변경
 groupdel # groupdel <groupname>
 groups # groups <username> : 사용자가 속한 모든 그룹을 출력
+
+newgrp # newgrp <groupname> : 현재 사용자의 그룹을 변경
+```
+
+## 권한
+
+```sh
+chmod # chmod <mode> <filename>
+chown # chown <user> <filename> / chown <user>:<group> <filename>
+chgrp # chgrp <group> <filename>
 ```
