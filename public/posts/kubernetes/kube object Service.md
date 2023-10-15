@@ -18,6 +18,6 @@
 
 ## 정리
 
-> clusterIp : "같은 클러스터" 내부에서만 접근 가능한 IP
-> nodePort : "같은 VPC" 내부에서만 접근 가능한 IP
-> loadBalancer : "외부"에서 접근 가능한 IP
+> ClusterIp : "같은 클러스터" 내부에서만 접근 가능한 IP
+> NodePort : "같은 VPC" 내부에서만 접근 가능한 IP
+> LoadBalancer : "외부"에서 접근 가능한 IP
