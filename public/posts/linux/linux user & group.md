@@ -1,7 +1,5 @@
 # 유저관리
 
-> 리눅스 사용자 계정 정보는 "/etc/passwd" 파일에 기록된다
->
 > > root, bin, daemon, adm 등의 자동 생성 계정을 시스템 계정이라 부른다.
 > >
 > > > su명령으로 계정을 바꿀 수 있다.
@@ -9,6 +7,8 @@
 > > > 환경 변수 TMOUT을 설정해 장시간 로그인을 막을 수 있다.
 
 ## user command
+
+> /etc/passwd 파일에 기록된다.
 
 ```sh
 useradd # useradd <username> -d /home/<username> : 홈 디렉토리도 같이 생성
@@ -19,6 +19,12 @@ users # users : 현재 로그인한 사용자 출력
 ```
 
 ## group command
+
+> /etc/group 파일에 기록된다.
+>
+> > 사용자 권한 관리를 위해 그룹을 사용한다.
+> >
+> > > /etc/group 파일 뒤에 :사용자1,사용자2,사용자3... 형식으로 사용자에게 권한을 추가할 수 있다.
 
 ```sh
 groupadd # groupadd <groupname>
