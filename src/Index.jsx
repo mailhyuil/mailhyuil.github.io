@@ -15,9 +15,13 @@ const Main = () => {
   const nav_ul = useRef();
   useEffect(() => {
     const res = getAllMDFile().filter((md) => {
-      const regex = new RegExp(query, "gi");
-      const comparison = regex.test(md);
-      return comparison;
+      const splitQuery = query.split(" ");
+      const regexArray = splitQuery.map((e) => {
+        const regex = new RegExp(e, "gi");
+        const comparison = regex.test(md);
+        return comparison;
+      });
+      return regexArray.every((e) => e === true);
     });
     if (query !== "") {
       setFoundBlog([...res]);
@@ -164,13 +168,7 @@ const Main = () => {
         </nav>
         <motion.main className="flex-1 flex flex-col overflow-y-auto scrollbar-hide">
           <div className="p-2">
-            <input
-              autoFocus
-              placeholder="Search whatever you want to search!"
-              className="border-2 rounded-md py-1 px-2 font-bold w-full "
-              value={query}
-              onChange={onChange}
-            />
+            <input autoFocus placeholder="Search whatever you want to search!" className="border-2 rounded-md py-1 px-2 font-bold w-full " value={query} onChange={onChange} />
           </div>
           <div className="flex-1">
             <ul>
