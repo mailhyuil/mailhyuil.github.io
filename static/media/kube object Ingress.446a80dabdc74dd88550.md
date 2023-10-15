@@ -14,15 +14,37 @@
 > > > > SSL 인증서 처리
 > > > > Virtual hosting 지정
 
-## 명령
+## IngressController 설치
+
+> Ingress Controller를 deploy하기 위한 manifest 파일을 다운로드 및 적용
+>
+> > CloudProvider을 사용할 시 LoadBalancer를 IngressController로 사용할 수 있다.
+> >
+> > > IngressController는 HOST headers의 정보를 읽고 어떤 Service로 라우팅 할지 결정한다
+> > >
+> > > > 라우팅 규칙은 내가 생성한 Ingress를 참조한다.
 
 ```sh
-kubectl run nginx --image=nginx --port=80 --labels=app=nginx -n ingress-nginx --dry-run=client -o yaml > nginx.yaml
-
-
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/cloud/deploy.yaml
 ```
 
-## manifest.yml
+## pod 또는 deployment 생성
+
+> ingress controller의 namespace에
+
+```sh
+kubectl run nginx --image=nginx --port=80 --dry-run=client -o yaml > nginx.yaml
+```
+
+## service 생성
+
+```sh
+kubectl expose deployment nginx --port=80 --type=NodePort --dry-run=client -o yaml > nginx-svc.yaml
+```
+
+## ingress 생성
+
+> tls를 적용하려면 Secret을 생성하고 Ingress에 tls를 적용해야 한다.
 
 ```yml
 apiVersion: networking.k8s.io/v1
@@ -33,7 +55,12 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+    - hosts:
+        - example.com
+      secretName: testsecret-tls
   rules:
+    - host: example.com
     - http:
         paths:
           - path: /<path_1>
@@ -51,13 +78,3 @@ spec:
                 port:
                   number: 3000
 ```
-
-## IngressController
-
-> Ingress를 만든 후
->
-> > Cloud Provider가 Load Balancer를 Ingress Controller로 만들어준다
-> >
-> > > Ingress Controller는 HOST headers의 정보를 읽고 어떤 Service로 라우팅 할지 결정한다
-> > >
-> > > > 라우팅 규칙은 내가 생성한 Ingress를 참조한다.
