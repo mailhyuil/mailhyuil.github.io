@@ -29,3 +29,5 @@ tar xzf ./actions-runner-osx-x64-2.295.0.tar.gz
 5. 정상적으로 github에 등록이 되면 github의 Runners에서도 목록을 확인할 수 있습니다.
 
 6. 등록한 Self-hosted Runner를 활성화시키기 위해서는 해당 로컬 기기의 actions-runner 폴더에서 run.sh 프로그램을 실행시킵니다.
+
+7. deploy.yaml 파일에서 원하는 dir(actions-runner 호스트가 배포 서버일 경우) 또는 node(배포 서버가 다른 호스트인 경우 scp & ssh 접속)에 빌드 파일을 위치시키고 실행
