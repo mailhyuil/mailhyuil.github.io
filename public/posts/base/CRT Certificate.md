@@ -11,3 +11,13 @@
 > IE, FireFox, Chrome 등의 Web Browser 제작사는 VeriSign 이나 comodo 같은 유명 ROOT CA 들의 인증서를 신뢰하는 CA로 브라우저에 미리 탑재해 놓는다.
 >
 > > Self-Signed Certificate는 브라우저에 등록된 CA가 아니기 때문에 브라우저에서 경고창이 뜬다. (테스트 용으로 사용)
+
+## 키 생성
+
+```sh
+# 개인키 생성
+openssl genrsa -out private.key 2048
+
+# 공개키 생성
+openssl rsa -in private.key -pubout -out public.key
+```
