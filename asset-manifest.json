@@ -1,11 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.88c4f192.js",
+    "main.js": "/static/js/main.93636cbf.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/spring Pagination (페이징 처리).md": "/static/media/spring Pagination (페이징 처리).9a3fe84dd2d6d4f61e07.md",
     "static/media/spring File upload (서버에 파일 업로드).md": "/static/media/spring File upload (서버에 파일 업로드).71f4f06e6369c5e44615.md",
+    "static/media/kube api-resource.md": "/static/media/kube api-resource.335def2620bdbf8b83de.md",
     "static/media/nest jwt.md": "/static/media/nest jwt.9b2644337f1aa54d8337.md",
     "static/media/spring MVC + JPA.md": "/static/media/spring MVC + JPA.5ba78b220a04caf9e1e5.md",
     "static/media/spring Mybatis.md": "/static/media/spring Mybatis.efdf3c84e00b53be86fe.md",
@@ -854,7 +855,6 @@
     "static/media/flutter StreamBuilder.md": "/static/media/flutter StreamBuilder.d17bc739cfb1f19b61e1.md",
     "static/media/spring UTF-8_filter.md": "/static/media/spring UTF-8_filter.2d86a0146270738af4f7.md",
     "static/media/몽키패치 (monkey patch).md": "/static/media/몽키패치 (monkey patch).18c40df31d4dfbe0a08f.md",
-    "static/media/kube shorthand.md": "/static/media/kube shorthand.be28e3721f6d8f3e2487.md",
     "static/media/nest advanced lazyModule.md": "/static/media/nest advanced lazyModule.983f3a0a0719ed331358.md",
     "static/media/firebase hosting.md": "/static/media/firebase hosting.602b09a12fbd619090e8.md",
     "static/media/nuxt utils.md": "/static/media/nuxt utils.0917eb46c4a7820da941.md",
@@ -1870,10 +1870,10 @@
     "static/media/webpack plugin css-minimizer-webpack-plugin.md": "/static/media/webpack plugin css-minimizer-webpack-plugin.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.88c4f192.js.map": "/static/js/main.88c4f192.js.map"
+    "main.93636cbf.js.map": "/static/js/main.93636cbf.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.88c4f192.js"
+    "static/js/main.93636cbf.js"
   ]
 }
