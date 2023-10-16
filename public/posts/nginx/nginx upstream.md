@@ -8,7 +8,7 @@
 
 ```conf
 upstream my_server {
-    server ip_address:4200;
+    server ip_address:4200 weight=1; # 파라미터를 줄 수 있다.
     server ip_address:4201;
 }
 server {
