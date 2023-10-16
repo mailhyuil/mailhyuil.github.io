@@ -5,11 +5,11 @@
 >
 > > etcd가 다운되면 모든 컴포넌트가 고아상태가 되기 때문에 가용성이 중요
 > >
-> > > 클러스터링하여 분산 실행하는 RSM(Replicated State Machine) 구조
+> > > master node의 /etc/kubernetes/manifests 디렉토리에 etcd.yaml을 읽어서 static pod로 실행됨
 > > >
 > > > > /var/lib/etcd/ 디렉토리에 데이터 저장
 
-## Backup
+## Backup (snapshot save)
 
 > trusted-ca-file, cert-file, key-file 인증서가 필요
 >
@@ -26,7 +26,7 @@ ETCDCTL_API=3 etcdctl \
 snapshot save <backup-file-location>
 ```
 
-## Restore
+## Restore (snapshot restore)
 
 ```sh
 # snapshotdb = snapshot save 명령어로 백업된 파일
