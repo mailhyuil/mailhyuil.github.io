@@ -1,7 +1,6 @@
-# kubernetes endpoints
+# kube object Endpoints
 
 > service registry 역할
+> service가 생성될 때 Endpoint가 하나 생성되고 pod의 ip와 port가 저장된다.
 >
-> > ip 목록을 저장
-> >
-> > > Pod의 Ip와 Port를 가리키고 있다.
+> > Endpoint는 ip가 아니라 pods의 ip와 port를 가지고 있는 목록이다
