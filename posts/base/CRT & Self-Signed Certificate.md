@@ -18,7 +18,7 @@
 ## command
 
 ```sh
-# key 파일 생성
+# key 파일 생성 (개인키)
 openssl genrsa -out test.key 2048
 
 # csr 파일 생성
