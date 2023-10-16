@@ -19,6 +19,8 @@ dw — 단어 끝까지 삭제 (delete word)
 d$ — 문장 끝까지 삭제 (delete to end of line)
 dG — 현재 커서부터 문서 끝까지 삭제 (delete to end of file)
 
+D - 문장 끝까지 삭제 (delete to end of line)
+
 gg — 문서의 맨 처음으로 이동 (go to top of file)
 G — 문서의 맨 끝으로 이동 (go to bottom of file)
 5G — 5번째 줄로 이동 (go to line)

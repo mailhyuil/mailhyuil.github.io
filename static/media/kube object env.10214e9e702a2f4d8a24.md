@@ -10,7 +10,7 @@ env:
     value: ENV_VALUE
 ```
 
-## env.valueFrom
+## env.valueFrom : configMap, secret
 
 > configMap, secret의 일부 값을 가져오기
 
@@ -29,13 +29,18 @@ env:
       secretKeyRef:
         name: SECRET_NAME
         key: SECRET_KEY
-# fieldRef
+```
+
+## valueFrom : Resource 정보 가져오기
+
+```yaml
+# fieldRef : metadata같은 리소스 정보를 가져오기
 env:
   - name: ENV_NAME
     valueFrom:
       fieldRef:
         fieldPath: metadata.namespace
-# resourceFieldRef
+# resourceFieldRef : 리소스의 정보를 가져오기
 env:
   - name: ENV_NAME
     valueFrom:

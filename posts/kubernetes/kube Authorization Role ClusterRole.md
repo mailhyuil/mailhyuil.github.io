@@ -4,7 +4,16 @@
 > 쿠버네티스 리소스에 대한 접근 권한을 정의
 > 네임스페이스에 상관없이 전체 클러스터에서 유효
 >
-> > verbs: create, get, update, delete, patch, watch, list, deletecollection
+> > 순서 : user or serviceaccount -> role -> rolebinding
+> >
+> > > resource: pod, service, deployment, ingress, configmap, secret, pvc, pv, node, namespace, role, rolebinding, clusterrole, clusterrolebinding, serviceaccount
+> > > verbs:create, get, update, delete, patch, watch, list, deletecollection
+
+## 생성
+
+```sh
+kubectl create clusterrole <clusterrole-name> --verb=<verb> --resource=<resource>
+```
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
