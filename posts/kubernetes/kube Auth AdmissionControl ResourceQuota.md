@@ -1,6 +1,6 @@
 # ResourceQuota
 
-> Admission Control Plugin
+> 네임스페이스별 총 리소스 사용을 제한하는 제약 조건
 >
 > > namespace 단위로 설정
 > >
