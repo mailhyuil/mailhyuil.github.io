@@ -12,3 +12,11 @@ echo hello > hello.txt
 cat > hello.txt
 hello~ # (입력 후 ctrl + d)
 ```
+
+## cat<<EOF 사용
+
+```sh
+cat <<EOF>filename.text
+# 내용
+EOF
+```
