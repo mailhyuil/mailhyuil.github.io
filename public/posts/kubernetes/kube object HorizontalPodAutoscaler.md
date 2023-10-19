@@ -1,5 +1,9 @@
 # kube object HorizontalPodAutoscaler
 
+> hpa
+>
+> > autoscaling 해주는 오브젝트
+
 ```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
