@@ -9,6 +9,7 @@
 > > 이 파일 내에는 nameserver가 kube-dns로 설정되어있다.
 > >
 > > > ip 대신 name을 사용하면 CoreDNS로 요청이 들어가고 해당하는 pod로 라우팅 된다.
+> > > pod는 pod-ip, service는 service-name으로 생성
 
 ## pod
 
@@ -17,6 +18,9 @@
 > > 10.0.0.0
 > > A 레코드 : 10-0-0-0.namespace.pod.cluster.local
 > > ex) 10-0-0-0.default.pod.cluster.local
+> > 서비스 생성시
+> > ex) pod-ip-address.service-name.namespace.svc.cluster.local
+> > hostname 지정 시 pod-ip-address 대신 hostname을 사용할 수 있다.
 
 ## service
 
