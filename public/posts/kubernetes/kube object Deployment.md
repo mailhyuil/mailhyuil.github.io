@@ -67,7 +67,7 @@ kubectl rollout undo deployment my-app --to-revision=1
 
 > revisionHistoryLimit을 올려주기
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -83,7 +83,7 @@ spec:
         app: my-app
     spec:
       containers:
-      - name: my-container
-        image: my-image:latest
+        - name: my-container
+          image: my-image:latest
   revisionHistoryLimit: 3
 ```

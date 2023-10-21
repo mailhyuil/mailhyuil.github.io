@@ -8,14 +8,11 @@ kind: Pod
 metadata:
   name: nginx
 spec:
-  # affinity
   affinity:
-    nodeAffinity:
-      # required
+    nodeAffinity: # 노드에 대한 조건을 지정
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
-          # disktype이 ssd인 node에 파드 생성
-          - matchExpressions:
+          - matchExpressions: # disktype이 ssd인 node에 파드 생성
               - key: disktype
                 operator: In
                 values:

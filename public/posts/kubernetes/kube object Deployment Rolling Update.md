@@ -1,18 +1,39 @@
 # kube object Deployment Rolling Update
 
-> Rolling update는 기본으로 지원된다
->
-> > maxSurge가 높을 수록 빠르게 업데이트 된다.
-> > maxUnavailable이 높을 수록 빠르게 업데이트 된다.
+## rolling update / rollback
+
+```bash
+kubectl set image deployment my-app my-app=hyuil/my-app:2.0 --record
+# kubectl set image 여러개
+kubectl set image deployment my-deployment web-container=new-image-for-web,db-container=new-image-for-db
+
+kubectl rollout status deployment my-app
+kubectl rollout history deployment my-app
+kubectl rollout undo deployment my-app
+kubectl rollout undo deployment my-app --to-revision=1
+```
+
+## revision 갯수 늘리기
+
+> revisionHistoryLimit을 올려주기
 
 ```yaml
-replicas: 3
-progressDeadlineSeconds: 600 # 롤링 업데이트가 10분 안에 끝나지 않으면 롤백한다.
-revisionHistoryLimit: 10 # 몇개의 revision까지 기록할 것인지
-minReadySeconds: 10 # pod가 준비된 후에 몇초 뒤에 Running 상태로 바뀔지
-strategy:
-  type: RollingUpdate
-  rollingUpdate:
-    maxSurge: 50% # 롤링 업데이트 시 새로 띄울 수 있는 최대 신버전 pod 수 (3의 50% = 1.5 -> 올림 -> 2 -> 3+2=5)
-    maxUnavailable: 50% # 롤링 업데이트 시 삭제할 최대 구버전 pod 수 (3의 50% = 1.5 -> 내림 -> 1 -> 3+1=4)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-container
+          image: my-image:latest
+  revisionHistoryLimit: 3
 ```
