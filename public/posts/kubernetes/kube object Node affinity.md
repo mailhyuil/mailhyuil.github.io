@@ -1,4 +1,4 @@
-# Node Affinity
+# kube object Node Affinity
 
 > 특정한 노드를 선택해서 pod를 배치하는 방법
 
