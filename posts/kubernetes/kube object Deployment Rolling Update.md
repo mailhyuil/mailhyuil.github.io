@@ -8,7 +8,10 @@ kubectl set image deployment my-app my-app=hyuil/my-app:2.0 --record
 kubectl set image deployment my-deployment web-container=new-image-for-web,db-container=new-image-for-db
 
 kubectl rollout status deployment my-app
+
 kubectl rollout history deployment my-app
+kubectl rollout history deployment my-app --revision=1 # 특정 revision 조회
+
 kubectl rollout undo deployment my-app
 kubectl rollout undo deployment my-app --to-revision=1
 ```

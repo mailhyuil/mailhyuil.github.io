@@ -1,6 +1,6 @@
 # kube object HorizontalPodAutoscaler
 
-> hpa
+> HPA
 >
 > > autoscaling 해주는 오브젝트
 
