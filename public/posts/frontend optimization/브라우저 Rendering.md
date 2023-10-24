@@ -6,6 +6,9 @@
 > > Layout : 레이아웃을 계산하는 것
 > >
 > > > Paint : 레이아웃을 그리는 것
+> > >
+> > > > Reflow → Repaint → Composite순으로 렌더링에 대한 비용이 낮다.
+> > > > Reflow가 일어나면 다음 단계인 Repaint도 같이 발생한다.
 
 ## Reflow
 
