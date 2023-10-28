@@ -11,12 +11,15 @@
 
 ```
 3D 변형: translate3d, translateZ 등등
-<video>, <canvas>, <iframe> 요소
+will-change;
+
 Element.animate();를 사용해 구현한 transform과 opacity 애니메이션
 CSS 트랜지션과 애니메이션을 사용해 구현한 transform과 opacity 애니메이션
+
 position: fixed;
-will-change;
+
 filter;
+<video>, <canvas>, <iframe> 요소
 ...
 ```
 

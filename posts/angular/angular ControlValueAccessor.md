@@ -31,6 +31,10 @@ SelectMultipleControlValueAccessor;
 
 ## Custom
 
+> value === ngModel
+>
+> > onChange(value) === ngModelChange
+
 ```ts
 import { forwardRef, Type } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
