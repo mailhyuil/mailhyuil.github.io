@@ -13,5 +13,6 @@ apt install systemd
 ## 사용
 
 ```sh
-systemctl enable cron.service
+systemctl enable --now cron.service
+systemctl enable --now kubelet
 ```
