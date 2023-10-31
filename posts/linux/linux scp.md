@@ -1,8 +1,6 @@
-# scp vs sftp
-
-![](/img/scpsftp.png)
-
 ## scp
+
+> directory를 바로 옮김 폴더 생성 안해도 됨
 
 ```sh
 scp [옵션] [파일명] [remote_user]@[remote_ip]:[저장할 위치]
@@ -10,15 +8,4 @@ scp [옵션] [파일명] [remote_user]@[remote_ip]:[저장할 위치]
 # scp -i ./scripts/test.pem -r .output ${{ env.SSH_USER }}@${{ env.SSH_HOST }}:${{ env.DEPLOY_PATH }}
 
 # 여러 파일을 포함하고 있는 "디렉터리"를 원격지로 보낼 때 -r (recursive) 옵션
-
-
-```
-
-## sftp
-
-```
-sftp remote_username@server_ip_or_hostname
-
-get filename.zip [다른이름.zip]
-put filename.zip
 ```
