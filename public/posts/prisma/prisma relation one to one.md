@@ -1,4 +1,4 @@
-# prisma one to one relation
+# prisma relation one to one
 
 > 참조 id에 @unique
 

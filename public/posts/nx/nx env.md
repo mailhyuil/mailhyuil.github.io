@@ -2,6 +2,60 @@
 
 > .env.local, .env.development, .env.production 로 나누기
 
+## project.json
+
+```json
+# build
+# local 추가
+"configurations": {
+  "production": {
+    "budgets": [
+      {
+        "type": "initial",
+        "maximumWarning": "500kb",
+        "maximumError": "3mb"
+      },
+      {
+        "type": "anyComponentStyle",
+        "maximumWarning": "2kb",
+        "maximumError": "4kb"
+      }
+    ],
+    "outputHashing": "all"
+  },
+  "development": {
+    "buildOptimizer": false,
+    "optimization": false,
+    "vendorChunk": true,
+    "extractLicenses": false,
+    "sourceMap": true,
+    "namedChunks": true
+  },
+  "local": {
+    "buildOptimizer": false,
+    "optimization": false,
+    "vendorChunk": true,
+    "extractLicenses": false,
+    "sourceMap": true,
+    "namedChunks": true
+  }
+},
+
+# serve
+# local 추가
+"configurations": {
+  "production": {
+    "browserTarget": "donghang-client:build:production"
+  },
+  "development": {
+    "browserTarget": "donghang-client:build:development"
+  },
+  "local": {
+    "browserTarget": "donghang-client:build:local"
+  }
+},
+```
+
 ## .env.local
 
 ```sh
