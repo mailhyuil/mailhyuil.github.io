@@ -2,7 +2,7 @@
 
 ## explicit
 
-```
+```prisma
 model ReservedSeat {
     seat Seat @relation(fields: [seatId], references: [id])
     seatId String
@@ -18,7 +18,7 @@ model ReservedSeat {
 
 ## implicit
 
-```
+```prisma
 model Post {
   id         Int        @id @default(autoincrement())
   title      String
