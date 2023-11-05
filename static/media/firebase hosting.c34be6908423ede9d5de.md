@@ -1,5 +1,9 @@
 # firebase hosting
 
+> public directory로 설정된 폴더를 호스팅한다.
+>
+> > 빌드된 폴더(index.html을 가지고 있는)를 public directory로 지정
+
 ## install
 
 ```sh

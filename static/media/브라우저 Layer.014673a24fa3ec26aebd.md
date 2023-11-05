@@ -1,6 +1,6 @@
 # layer의 종류
 
-> paint lyaer(render layer), graphics layer
+> paint layer(render layer), graphics layer
 
 ## gpu 가속을 사용하려면 graphics layer 위에 생성되야함
 
