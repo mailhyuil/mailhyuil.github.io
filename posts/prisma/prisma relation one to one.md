@@ -2,7 +2,7 @@
 
 > 참조 id에 @unique
 
-```
+```prisma
 model User {
   id       Int      @id @default(autoincrement())
   name     String
