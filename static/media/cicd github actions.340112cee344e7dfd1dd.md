@@ -21,20 +21,16 @@ repository -> settings -> secrets and variables -> Actions
 
 ```yaml
 name: Deploy Client
-
 on:
   push:
     branches:
       - main
-
 permissions:
   contents: read
-
 env:
   SSH_USER: ubuntu
   SSH_HOST: 103.218.158.175
   DEPLOY_PATH: /home/ubuntu/samil-client
-
 jobs:
   deploy:
     name: Deploy Client
@@ -83,13 +79,12 @@ jobs:
 > appleboy/ssh-action 사용
 
 ```yaml
-name:deploy
+name: deploy
   on:
     workflow_run:
       workflow: ["test_workflow", "lint_workflow"]
       types:
         - completed
-
   jobs:
     deploy:
       runs-on: ubuntu-latest

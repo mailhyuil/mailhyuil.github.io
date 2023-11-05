@@ -12,6 +12,8 @@ ${{ secrets.HOST }}
 
 > env에서 NAME:KEY 로 추가하면
 > run에서 $NAME 로 읽을 수 있음
+>
+> > echo "NAME=$NAME" >> .env
 
 ```yaml
 steps:
