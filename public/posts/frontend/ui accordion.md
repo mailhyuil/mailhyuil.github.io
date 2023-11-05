@@ -21,7 +21,11 @@ const container = ref();
           <slot />
         </div>
       </button>
-      <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" ref="container" :style="isOpen ? 'max-height: ' + container?.scrollHeight + 'px' : ''">
+      <div
+        class="relative overflow-hidden transition-all max-h-0 duration-700"
+        style=""
+        ref="container"
+        :style="isOpen ? 'max-height: ' + container?.scrollHeight + 'px' : ''">
         <template v-for="i of items">
           <NuxtLink :to="i.path">
             <div class="p-6">
