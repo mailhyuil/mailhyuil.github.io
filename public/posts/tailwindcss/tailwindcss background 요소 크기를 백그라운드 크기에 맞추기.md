@@ -22,7 +22,7 @@ div {
 
 ```
 <div
-    class="bg-cover bg-no-repeat w-full h-0"
+    class="w-full h-0 bg-no-repeat bg-cover"
     style="background-image: url('assets/images/background.webp');
     padding-top: calc(853 / 1280 * 100%);"
 >
