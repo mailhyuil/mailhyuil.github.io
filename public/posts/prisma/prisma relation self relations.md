@@ -2,7 +2,7 @@
 
 > 두개의 relation 필요
 
-```
+```prisma
 model User {
   id          Int     @id @default(autoincrement())
   name        String?

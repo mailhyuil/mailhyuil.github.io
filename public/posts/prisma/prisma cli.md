@@ -1,22 +1,23 @@
 # prisma cli
 
-## migrate
+## generate
 
-> DB에 반영
+> prisma.schema 파일을 베이스로 prisma client에 반영
+
+## db push & pull
+
+> 개발용
+>
+> > push => schema를 db에 바로 적용
+> > pull => db를 schema에 적용
+
+## migrate dev & deploy
+
+> prisma.schema 파일을 베이스로 DB에 반영
 >
 > > \_prisma_migrations 테이블에 기록이 쌓인다
 > >
 > > > 기록이 안맞으면 전체 데이터를 삭제해버린다
-
-## generate
-
-> prisma client에 반영
-
-## db push & pull
-
-> push => schema를 db에 바로 적용
->
-> > pull => db를 schema에 적용
 
 ## studio
 

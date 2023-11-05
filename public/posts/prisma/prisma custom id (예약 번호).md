@@ -4,7 +4,7 @@
 
 ## generate_reservation_number()
 
-```
+```sql
 CREATE OR REPLACE FUNCTION generate_reservation_number() RETURNS TEXT AS $$
 DECLARE
   reservation_number TEXT;
@@ -15,11 +15,10 @@ BEGIN
   RETURN reservation_number;
 END;
 $$ LANGUAGE plpgsql;
-
 ```
 
 ## prisma schema에 적용
 
-```
+```prisma
 reservationNumber  String  @default(dbgenerated("generate_reservation_number()")) @unique
 ```
