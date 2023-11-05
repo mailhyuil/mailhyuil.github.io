@@ -4,6 +4,7 @@
 
 ```sh
 npm i @formkit/auto-animate
+npm i ng-auto-animate
 ```
 
 ## import
