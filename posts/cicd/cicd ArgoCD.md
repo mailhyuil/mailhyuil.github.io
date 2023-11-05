@@ -8,3 +8,12 @@
 > Github에 Helm차트 Push
 > ArgoCD Git 저장소 등록
 > ArgoCD 배포
+
+## github repository 생성
+
+> gitops (argocd)
+> service (nestjs & angular)
+> platform (terraform)
+> management (argocd)
+>
+> > 네개의 repository를 생성한다.
