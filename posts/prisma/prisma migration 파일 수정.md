@@ -3,13 +3,12 @@
 ## 생성
 
 ```sh
-npx prisma migrate dev --name 파일이름 --create-only
+npx prisma migrate dev --name 파일이름 --create-only # 적용하지 않고 파일만 생성
 ```
 
 ## 파일 수정
 
 ```sql
-# example
 ALTER TABLE "Profile"
 RENAME COLUMN "biograpy" TO "biography"
 ```

@@ -1,5 +1,0 @@
-# prisma migrate
-
-## dev
-
-## deploy

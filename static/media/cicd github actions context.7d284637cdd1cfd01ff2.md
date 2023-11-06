@@ -1,5 +1,7 @@
 # github actions 기본 변수
 
+[github-actions-context-document](https://docs.github.com/ko/actions/learn-github-actions/contexts)
+
 ## 기본 제공 변수
 
 ```
