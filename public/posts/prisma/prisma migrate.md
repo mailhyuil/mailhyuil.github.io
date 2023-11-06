@@ -1,5 +1,45 @@
 # prisma migrate
 
-## dev
+## dev / deploy
 
-## deploy
+> dev는 스키마 변경을 감지해 마이그레이션 파일을 생성하고 데이터베이스에 적용한다.
+> dev는 shadow database를 사용한다.
+>
+> > deploy는 마이그레이션 파일을 읽어서 데이터베이스에 적용한다.
+> > deploy는 로컬에서 실행하는게 아니라 ci/cd 파이프라인에서 실행되어야한다.
+> > deploy는 dev 데이터베이스를 prod 데이터베이스에 sync 하는 것
+> >
+> > > local에서 dev를 사용하고, ci/cd에서 deploy를 사용해 마이그레이션 파일을 적용하자
+
+```sh
+prisma migrate dev
+prisma migrate deploy
+```
+
+## reset
+
+>
+
+## diff
+
+> 변경
+
+```sh
+npx dotenv -e apps/server/.env.production -- \
+npx prisma migrate diff \
+--from-migrations prisma/migrations \
+--to-schema-datasource prisma/schema.prisma \
+--shadow-database-url postgres://lepisode:88782314p*@59.3.87.92:5432/my-shadow-db?schema=public \
+--script prisma/migrations/init/migration.sql
+```
+
+## resolve
+
+> 실패한 마이그레이션 파일을 marking 하는 기능
+>
+> > 이전 migration으로 rollback 하는 기능
+
+```sh
+dotenv -e apps/server/.env.production -- \
+npx prisma migrate resolve --applied init_migration
+```

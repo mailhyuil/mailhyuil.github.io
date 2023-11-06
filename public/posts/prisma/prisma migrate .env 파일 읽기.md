@@ -4,6 +4,6 @@
 
 ## 다른 .env파일 읽게하기
 
-```
+```sh
 npx dotenv -e .env.development -- npx prisma migrate dev
 ```

@@ -6,30 +6,50 @@
 > > SSH_HOST, SSH_USERNAME, SSH_KEY, SSH_PORT
 
 ```yaml
-name: deploy
-  on: push
-  jobs:
-    deploy:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Build App
-        run: |
-          nx build my_app
+name: Deploy Server Production
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - "apps/server/**"
+      - "libs/**"
+  workflow_dispatch:
+jobs:
+  deploy_prod:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - name: Install @nx/nx-linux-x64-gnu
+        run: npm install --save-dev @nx/nx-linux-x64-gnu
+      - name: Install Dependencies
+        run: npm install --force
+      - name: Build Project
+        run: npx nx build server
       - name: Build & Push Docker Image
         run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} ${{ secrets.DOCKER_REGISTRY }}
-          docker build -f ${{ secrets.DOCKER_FILE }} -t ${{ secrets.DOCKER_REGISTRY }}:${{ github.sha }} .
-          docker push ${{ secrets.DOCKER_REGISTRY }}:${{ github.sha }}
+          docker build -f apps/Dockerfile.server -t ${{ secrets.DOCKER_REGISTRY }}/server:${{ github.sha }} .
+          docker push ${{ secrets.DOCKER_REGISTRY }}/server:${{ github.sha }}
       - name: Access to Remote Server & Run Docker Container
         uses: appleboy/ssh-action@v0.1.8
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT }}
+          port: 22
           script: |
-            cd my_app
-            docker stop my_app
-            docker rm my_app
-            docker run -d --name my_app -p 80:80 ${{ secrets.DOCKER_REGISTRY }}:${{ github.sha }}
+            sudo whoami
+            sudo docker stop server
+            sudo docker rm server
+            sudo docker run --name server -p 3000:3000 -d ${{ secrets.DOCKER_REGISTRY }}/server:${{ github.sha }}
+            sudo docker image prune -af
 ```
