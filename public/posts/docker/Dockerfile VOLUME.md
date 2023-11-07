@@ -1,7 +1,9 @@
 # Dockerfile volume
 
+> run 할 때 반드시 -v 옵션으로 명시해야 함
+
 ```Dockerfile
-# container의 디렉토리를 명시
-# host의 /var/lib/docker/volumes에 자동으로 볼륨이 생성됨
 VOLUME ["/path/to/volume"]
+
+# docker run -d -v /경로/호스트/시스템/디렉토리:/경로/컨테이너/디렉토리 이미지명
 ```

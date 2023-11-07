@@ -24,45 +24,40 @@ docker-compose start
 ## docker-compose.yml
 
 ```yaml
-version: '3.7'
-
+version: "3.8"
 services:
-	db:
-		image: 이미지1
-		restart: unless-stopped # default 값은 always, unless-stopped를 사용 시 서버가 켜지면 컨테이너도 재시작 된다.
-	  # command:
-	    volumes:
-		- postgres-data:/var/lib/postgresql/<version>/main
-		environment:
-			POSTGRES_DB: mydb
-			POSTGRES_USER: postgres
-			POSTGRES_PASSWORD: 1234
-	  # working_dir:
-		ports:
-			- "8080:80"
-		networks:
-			- 네트워크1
-		logging:
-			driver: "json-file"
-			options:
-				max-size: "8m"
-				max-file: "10"
-	grafana:
-		depends_on: # db가 먼저 생성되도록
-		- my-db
-		image: 이미지2
-		restart: unless-stopped # default 값은 always, unless-stopped를 사용 시 서버가 켜지면 컨테이너도 재시작 된다.
-
-
-networks:
-	네트워크1:
-		external:
-			name: nat
-
+  db:
+    container_name: postgres
+    image: "hyuil/postgres:0.0.1"
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: mydb
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "8m"
+        max-file: "10"
+  server:
+    container_name: server
+    image: hyuil/server:0.0.1
+    ports:
+      - "3000:3000"
+    restart: always
+  nginx:
+    container_name: nginx
+    image: hyuil/nginx:0.0.1
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    add-host:
+      - "host.docker.internal:host-gateway"
 volumes:
-	볼륨1:
-
-secrets:
-	postgres-connection:
-		file: ./config/secrets.json
+  postgres-data: "/data"
 ```
