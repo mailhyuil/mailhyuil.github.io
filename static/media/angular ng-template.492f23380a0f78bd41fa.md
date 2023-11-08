@@ -1,6 +1,10 @@
 # ng-container && ng-template
 
-> ng-container는 그냥 분리용
+> template
+>
+> > 기본으로 hidden 상태이다.
+> >
+> > > *ngIf, *ngFor은 template의 shortcut이다.
 
 ## ng-template
 
