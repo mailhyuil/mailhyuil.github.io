@@ -21,34 +21,14 @@ users/search
 
 > relation은 중첩구조로 표현해야한다. DTO단에서 Transform하지 말아라
 >
-> > relation은 id만 받아라 (shallow entity)
-> > relation의 데이터가 필요한 상황에서 다시 요청을 보내라
+> > 메타데이터는 headers에 담아라 (request에 include=metadata를 추가해라)
+> > pagination header, link header
 
-```json
-// Including the Related Entities Directly
-{
-  "id": 1,
-  "name": "Main Entity",
-  "related_entities": [
-    { "id": 1, "name": "A", "attribute": "a" },
-    { "id": 2, "name": "B", "attribute": "b" },
-    { "id": 3, "name": "C", "attribute": "c" }
-  ]
-}
-// Including Partial Information of the Related Entities
-{
-  "id": 1,
-  "name": "Main Entity",
-  "related_entities": [
-    { "id": 1, "name": "A"},
-    { "id": 2, "name": "B"},
-    { "id": 3, "name": "C"}
-  ]
-}
-// *Use shallow entities
-{
-  "id": 1,
-  "name": "Main Entity",
-  "related_entities": [1, 2, 3]
-}
+```
+Link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="prev",
+<https://api.github.com/repositories/1300192/issues?page=4>; rel="next",
+<https://api.github.com/repositories/1300192/issues?page=515>; rel="last",
+<https://api.github.com/repositories/1300192/issues?page=1>; rel="first"
+
+X-Pagination: { "total": 1030, "limit": 20, "offset": 0 }
 ```

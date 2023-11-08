@@ -1,15 +1,37 @@
 # react hooks
 
-## useState
+> angular의 directive와 비슷한 역할을 한다
 
-## useEffect
+## custom hook 구현
 
-## useRef
+```js
+// This is hook
+function useCustomHook(ref) {
+  // do something
+  return ref;
+}
 
-## useMemo
+function ComponentOne() {
+  const ref = useRef(null);
+  useCustomHook(ref);
+  return <div ref={ref}> ComponentOne </div>;
+}
 
-## useCallback
+function ComponentTwo() {
+  const ref = useRef(null);
+  useCustomHook(ref);
+  return <div ref={ref}> ComponentTwo </div>;
+}
+```
 
-## useReducer
+## built-in hooks
 
-## useContext
+```
+useState
+useEffect
+useRef
+useMemo
+useCallback
+useReducer
+useContext
+```
