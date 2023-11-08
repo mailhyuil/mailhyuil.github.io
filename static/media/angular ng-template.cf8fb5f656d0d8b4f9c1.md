@@ -1,6 +1,6 @@
 # ng-container && ng-template
 
-> template
+> view를 재사용하거나 참조하기 위해 사용한다.
 >
 > > 기본으로 hidden 상태이다.
 > >
