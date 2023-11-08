@@ -1,4 +1,4 @@
-# angular if
+# angular ngIf
 
 ## if
 
