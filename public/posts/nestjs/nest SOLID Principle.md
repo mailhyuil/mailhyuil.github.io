@@ -13,6 +13,8 @@
 > > 만약 shopping-mall이라는 고수준의 서비스가 있다면 이 서비스 내에서는 order, email 서비스를 주입할 수 있다.
 > >
 > > > 어떤 클래스를 변경해야 하는 이유는 오직 하나뿐 이어야 한다. 같은 이유로 변화하는 것끼리 묶고, 다른 이유로 변화하는 것끼리는 분리하라.
+> > >
+> > > > Service를 나누고 이벤트로 소통해라
 
 ## OCP - Open Closed Principle
 
@@ -21,6 +23,7 @@
 > > 새로운 기능이 추가되면, 기존의 코드를 변경하지 않고 확장할 수 있어야 한다.
 
 ### bad
+
 ```ts
 @Injectable()
 export class PaymentService {
@@ -41,6 +44,7 @@ export class PaymentService {
 ```
 
 ### good
+
 ```ts
 @Injectable()
 export class PaymentService {
@@ -64,8 +68,8 @@ export class PaymentService {
 
 // ✅ Good
 //Extending the payment service without modifying existing code (Open-Closed Principle)
-export abstract class PaymentGateway {
-  abstract processPayment(order: Order): void;
+export interface PaymentGateway {
+  processPayment(order: Order): void;
 }
 
 export class CreditCardGateway implements PaymentGateway {
@@ -96,7 +100,7 @@ export class ApplePayGateway implements PaymentGateway {
 export enum PAYMENT_METHOD {
   CREDIT_CARD = "credit-card",
   PAYPAL = "paypal",
-  Bitcoin = "bitcoin",
+  BITCOIN = "bitcoin",
 }
 ```
 
@@ -105,88 +109,17 @@ export enum PAYMENT_METHOD {
 > 부모 객체와 이를 상속한 자식 객체가 있을 때,
 > 부모의 메소드는 자식 객체가 완전히 대체할 수 있다는 원칙
 >
-> > abstract class를 extends하지말고 implements하라
+> > 자식클래스가 부모클래스를 오버라이딩하거나 추가적인 기능을 더해 "부모의 상태를 변경"시키는 것은 LSP원칙을 위반하는 것
+> > 정리하면 LSP는 서브 클래스가 슈퍼 클래스의 책임을 무시하거나 재정의하지 않고 확장만 수행한다는 것을 의미합니다. 부모가 수행하고 있는 책임을 그대로 수행하면서 추가적인 필드나 기능을 제공하려는 경우에만 상속을 하는 것이 바람직하며 부모 클래스의 책임을 변화시키는 기능은 LSP법칙에 위배 된다고 볼 수 있습니다.
 
-### bad
-
-```ts
-/* Regular Pricing */
-@Injectable()
-//Bad ❌
-//extends
-export class BadRegularPricingStrategy extends PricingService {
-  //You can just rely on the base implementation from PricingService
-  //Without being forced to have a specific implementation for RegularPricing
-}
-
-/* Sale Pricing */
-@Injectable()
-//Bad ❌
-//extends
-export class BadSalePricingStrategy extends PricingService {
-  //You can just rely on the base implementation from PricingService
-  //Without being forced to have a specific implementation for SalePricing
-}
-```
-
-### good
-```ts
-//✅ Good
-//Either class or an interface
-//Class is better since it's a javascript object
-export abstract class PricingService {
-  //This allows us to have different implementations
-  //Thus substitute implementations very easily
-  public calculatePrice(basePrice: number) {
-    return basePrice;
-  }
-}
-
-@Injectable()
-//Good ✅
-//implements
-export class RegularPricingStrategy implements PricingService {
-  calculatePrice(basePrice: number): number {
-    // Logic to calculate the regular price
-    return basePrice;
-  }
-
-  public fetchInternalPricing(): void {}
-}
-
-@Injectable()
-//Good ✅
-//implements
-export class SalePricingStrategy implements PricingService {
-  calculatePrice(basePrice: number): number {
-    // Logic to calculate the sale price
-    return basePrice * 0.8; // 20% discount
-  }
-}
-
-/* Orders Controller */
-/* Dependency Injection */
-@Controller("orders")
-export class OrdersController {
-  constructor(
-    @Inject(SalePricingStrategy)
-    private pricingService: PricingService,
-    private ordersService: OrdersService
-  ) {}
-
-  @Get("/pricing/:id")
-  public async calculateOrderPrice(@Param("id") id: string): Promise<{ price: number }> {
-    const order = await this.ordersService.findOne(parseInt(id));
-    return { price: this.pricingService.calculatePrice(order.totalPrice) };
-  }
-}
-```
 ## ISP - Interface Segregation Principle
 
 > 클라이언트는 자신이 사용하지 않는 메소드에 의존하지 않아야 한다.
 >
 > > interface를 용도에 맞게 나눠라
+
 ### bad
+
 ```ts
 //Bad ❌
 //Not seperating the concerns
@@ -227,7 +160,6 @@ export class NotificationService {
         },
       },
     };
-
     await ses.sendEmail(params);
   }
   //Bad ❌
@@ -240,7 +172,9 @@ export class NotificationService {
   }
 }
 ```
+
 ### good
+
 ```ts
 //Good ✅
 export interface EmailNotification {
@@ -312,6 +246,7 @@ export class SMSController {
   }
 }
 ```
+
 ## DIP - Dependency Inversion Principle
 
 > 의존성 역전 원칙
@@ -320,7 +255,9 @@ export class SMSController {
 > > "저수준 모듈"이 "고수준 모듈"에서 정의한 추상 타입에 의존해야 한다.
 > >
 > > > 저수준 모듈을 위한 메소드를 따로 만들지 말아라!
+
 ### bad
+
 ```ts
 //Bad ❌
 const s3: any = {};
@@ -380,12 +317,13 @@ export class StorageController {
 ```
 
 ### good
+
 ```ts
 //Good ✅
 //Use an abstract class to provide a common structure for different implementations
 //You have to implement each Storage Service using this
-export abstract class StorageFetcher {
-  abstract findFile(filename: string): any;
+export interface StorageFetcher {
+  findFile(filename: string): any;
 }
 
 //Your Google Cloud Storage instance
@@ -435,7 +373,6 @@ export class StorageS3FetcherService implements StorageFetcher {
 }
 
 /* Controllers */
-
 import { Controller, Get, Param } from "@nestjs/common";
 import { StorageFetcher, StorageService } from "./storage.service";
 import { StorageS3FetcherService } from "./storage-s3-fetcher.service";
@@ -455,8 +392,8 @@ export class StorageController {
 @Module({
   controllers: [StorageController],
   providers: [
-    { provide: StorageFetcher, useClass: StorageCSFetcherService },
     // StorageS3FetcherService,
+    { provide: StorageFetcher, useClass: StorageCSFetcherService },
   ],
 })
 export class StorageModule {}
