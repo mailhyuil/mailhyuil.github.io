@@ -8,7 +8,9 @@ npm i ng-openapi-gen
 ng-openapi-gen --input my-api.yaml --output my-app/src/app/api
 ```
 
-## code로 생성
+## nestjs main.ts
+
+> swagger 문서를 code로 생성
 
 ```ts
 import $RefParser from "json-schema-ref-parser";
@@ -38,4 +40,37 @@ const openApi = await RefParser.bundle(options.input, {
 
 const ngOpenGen = new NgOpenApiGen(openApi, options);
 ngOpenGen.generate();
+```
+
+## tsconfig.json
+
+```
+"paths": {
+  "@<project-name>/api": ["api/src/index.ts"],
+}
+```
+
+## api/src/lib/api-configuration.ts
+
+```ts
+/* tslint:disable */
+/* eslint-disable */
+import { Injectable } from "@angular/core";
+
+/**
+ * Global configuration
+ */
+@Injectable({
+  providedIn: "root",
+})
+export class ApiConfiguration {
+  rootUrl: string = "http://localhost:3000";
+}
+
+/**
+ * Parameters for `ApiModule.forRoot()`
+ */
+export interface ApiConfigurationParams {
+  rootUrl?: string;
+}
 ```
