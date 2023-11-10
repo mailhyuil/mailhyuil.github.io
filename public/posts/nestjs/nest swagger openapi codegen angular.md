@@ -1,6 +1,8 @@
 # Swagger Codegen angular
 
 > document.yaml or document.json을 읽고 코드로 생성해준다.
+>
+> > @ApiProperty, @ApiTags, @ApiBody
 
 ```sh
 npm i ng-openapi-gen

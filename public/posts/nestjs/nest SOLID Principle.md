@@ -41,6 +41,7 @@ export class PaymentService {
       // Handle other payment methods
     }
   }
+}
 ```
 
 ### good
@@ -323,12 +324,12 @@ import { StorageFetcher, StorageService } from "./storage.service";
 import { StorageS3FetcherService } from "./storage-s3-fetcher.service";
 import { StorageCSFetcherService } from "./storage-cs-fetcher.service";
 
-@Controller("/storage")
+@Controller("storage")
 export class StorageController {
   constructor(private storageService: StorageFetcher) {}
 
   //Bad ❌
-  @Get("/file/:filename")
+  @Get("file/:filename")
   public badGetFile(@Param("filename") filename: string) {
     return this.storageService.findAmazonS3File(filename);
   }
@@ -397,11 +398,11 @@ import { StorageFetcher, StorageService } from "./storage.service";
 import { StorageS3FetcherService } from "./storage-s3-fetcher.service";
 import { StorageCSFetcherService } from "./storage-cs-fetcher.service";
 
-@Controller("/storage")
+@Controller("storage")
 export class StorageController {
   constructor(private storageService: StorageFetcher) {}
   //Good ✅
-  @Get("/file/:filename")
+  @Get("file/:filename")
   public getFile(@Param("filename") filename: string) {
     return this.storageService.findFile(filename);
   }
