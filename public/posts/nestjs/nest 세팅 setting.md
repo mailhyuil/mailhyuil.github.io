@@ -110,6 +110,7 @@ async function bootstrap() {
   /** OpenAPI */
   const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup("api/v1/document", app, document);
 
   const openApiPath = join(__dirname, "./assets/openapi.json");
   writeFile(openApiPath, JSON.stringify(document), () => {
@@ -119,7 +120,7 @@ async function bootstrap() {
   const openApiOptions = {
     input: openApiPath,
     output: "api/src/lib",
-    fileIndex: true,
+    indexFile: true,
   };
 
   const RefParser = new $RefParser.default();
