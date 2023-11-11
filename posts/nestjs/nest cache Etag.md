@@ -1,5 +1,7 @@
 # nestjs Etag
 
+## Interceptor 구현
+
 ```ts
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from "@nestjs/common";
 import { Observable, tap } from "rxjs";
@@ -20,4 +22,10 @@ export class EtagInterceptor implements NestInterceptor {
     );
   }
 }
+```
+
+## main.ts
+
+```ts
+app.useGlobalInterceptors(new EtagInterceptor());
 ```

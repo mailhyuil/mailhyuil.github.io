@@ -68,3 +68,72 @@ console.log("Client: Strategy is set to reverse sorting.");
 context.setStrategy(new ConcreteStrategyB());
 context.doSomeBusinessLogic();
 ```
+
+## Duck
+
+```ts
+interface FlyBehavior {
+  fly(): void;
+}
+class FlyWithWings implements FlyBehavior {
+  fly(): void {
+    console.log("I am flying");
+  }
+}
+class FlyNoWay implements FlyBehavior {
+  fly(): void {
+    console.log("I can not fly");
+  }
+}
+interface QuackBehavior {
+  quack(): void;
+}
+class Quack implements QuackBehavior {
+  quack(): void {
+    console.log("Quack");
+  }
+}
+class MuteQuack implements QuackBehavior {
+  quack(): void {
+    console.log("<< Silence >>");
+  }
+}
+abstract class Duck {
+  flyBehavior: FlyBehavior;
+  quackBehavior: QuackBehavior;
+  abstract display(): void;
+  performFly(): void {
+    this.flyBehavior.fly();
+  }
+  performQuack(): void {
+    this.quackBehavior.quack();
+  }
+}
+class MallardDuck extends Duck {
+  constructor() {
+    super();
+    this.flyBehavior = new FlyWithWings();
+    this.quackBehavior = new Quack();
+  }
+  display(): void {
+    console.log("I am a real Mallard duck");
+  }
+}
+class ModelDuck extends Duck {
+  constructor() {
+    super();
+    this.flyBehavior = new FlyNoWay();
+    this.quackBehavior = new MuteQuack();
+  }
+  display(): void {
+    console.log("I am a model duck");
+  }
+}
+const mallard = new MallardDuck();
+mallard.performFly();
+mallard.performQuack();
+
+const model = new ModelDuck();
+model.performFly();
+model.performQuack();
+```
