@@ -19,10 +19,7 @@ import $RefParser from "json-schema-ref-parser";
 import { NgOpenApiGen } from "ng-openapi-gen";
 
 /** Swagger */
-const document = SwaggerModule.createDocument(
-  app,
-  new DocumentBuilder().setTitle("Core API").addServer("http://localhost:3000").addCookieAuth().build()
-);
+const document = SwaggerModule.createDocument(app, new DocumentBuilder().setTitle("Core API").addServer("http://localhost:3000").addCookieAuth().build());
 
 // document는 json 파일이다
 writeFile(join(__dirname, "./assets/openapi.json"), JSON.stringify(document), () => {
