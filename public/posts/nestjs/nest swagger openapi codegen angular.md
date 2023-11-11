@@ -21,34 +21,36 @@ ng-openapi-gen --input my-api.yaml --output my-app/src/app/api
 import $RefParser from "json-schema-ref-parser";
 import { NgOpenApiGen } from "ng-openapi-gen";
 
-/** Swagger */
-const document = SwaggerModule.createDocument(app, new DocumentBuilder().setTitle("Core API").addServer("http://localhost:3000").addCookieAuth().build());
+/** OpenAPI */
+const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
+const document = SwaggerModule.createDocument(app, swaggerConfig);
+SwaggerModule.setup("api/v1/document", app, document);
 
-// document는 json 파일이다
-writeFile(join(__dirname, "./assets/openapi.json"), JSON.stringify(document), () => {
-  logger.log(`✅ openapi.json 파일을 생성했습니다.`);
+const openApiPath = join(__dirname, "./assets/openapi.json");
+writeFile(openApiPath, JSON.stringify(document), () => {
+  Logger.log(`✅ openapi.json 파일을 생성했습니다.`);
 });
 
-const options = {
-  input: "my-api.json",
-  output: "my-app/src/app/api",
+const openApiOptions = {
+  input: openApiPath,
+  output: "api/src/lib",
+  indexFile: true,
 };
 
-// load the openapi-spec and resolve all $refs
-const RefParser = new $RefParser();
-const openApi = await RefParser.bundle(options.input, {
+const RefParser = new $RefParser.default();
+const openApi = await RefParser.bundle(openApiOptions.input, {
   dereference: { circular: false },
 });
 
-const ngOpenGen = new NgOpenApiGen(openApi, options);
+const ngOpenGen = new NgOpenApiGen(openApi, openApiOptions);
 ngOpenGen.generate();
 ```
 
 ## tsconfig.json
 
-```
+```json
 "paths": {
-  "@<project-name>/api": ["api/src/index.ts"],
+  "@app/api": ["api/src/index.ts"],
 }
 ```
 
