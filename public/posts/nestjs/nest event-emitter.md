@@ -1,5 +1,7 @@
 # nest eventEmitter
 
+> 책임을 분리하기 위해 사용
+
 ## install
 
 ```sh
