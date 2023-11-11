@@ -11,7 +11,7 @@ npm i @prisma/client
 
 > schema.prisma 파일 생성
 
-```
+```sh
 npx prisma init
 ```
 
@@ -44,12 +44,20 @@ model Post {
 }
 ```
 
-## migration
+## push
 
-> 테이블 생성 및 업데이트
+> 프로토타이핑 시 사용
 
 ```sh
-npx prisma migrate dev --name init
+prisma db push
+```
+
+## migration
+
+> 최종적으로 마이그레이션 파일을 생성하여 사용
+
+```sh
+prisma migrate dev
 ```
 
 ## PrismaClient 를 service로 주입하기
