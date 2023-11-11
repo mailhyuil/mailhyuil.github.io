@@ -1,5 +1,11 @@
 # nest schedule
 
+## install
+
+```sh
+npm i @nestjs/schedule
+```
+
 ## module
 
 ```ts

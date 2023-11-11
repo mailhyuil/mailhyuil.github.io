@@ -6,8 +6,8 @@
 >
 > > 디버깅에 용의
 
-```sh
-export const MY_TOKEN = InjectionToken("MY_TOKEN")
+```ts
+export const MY_TOKEN = InjectionToken("MY_TOKEN");
 ```
 
 ## StringToken

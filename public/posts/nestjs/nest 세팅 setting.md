@@ -9,33 +9,37 @@ npm i bcryptjs
 npm i compression
 npm i helmet
 npm i morgan
+npm i csurf
 npm i dotenv
 npm i class-validator
 npm i class-transformer
 npm i @prisma/client
-npm i @nestjs/jwt
 # openapi
 npm i @nestjs/swagger
 npm i ng-openapi-gen
 npm i json-schema-ref-parser
-# cookie
-npm i cookie-parser
-# date
-npm i dayjs
-# image optimize
-npm i sharp
 # event
 npm i @nestjs/event-emitter
 # rate limit
 npm i @nestjs/throttler
+# schedule
+npm i @nestjs/schedule
 # in-memory cache
 npm i @nestjs/cache-manager
 npm i cache-manager
 # http
 npm i axios
 npm i @nestjs/axios
+# jwt
+npm i @nestjs/jwt
+# cookie
+npm i cookie-parser
 # session
 npm i express-session
+# date
+npm i dayjs
+# image optimize
+npm i sharp
 # config
 # npm i @nestjs/config
 
@@ -62,6 +66,7 @@ import { writeFile } from "fs";
 import helmet from "helmet";
 import $RefParser from "json-schema-ref-parser";
 import morgan from "morgan";
+import * as csurf from "csurf";
 import { NgOpenApiGen } from "ng-openapi-gen";
 import { join } from "path";
 import { AppModule } from "./app/app.module";
@@ -71,6 +76,7 @@ async function bootstrap() {
   app.use(cookieParser());
   app.use(compression());
   app.use(helmet());
+  app.use(csurf());
   app.use(morgan("dev"));
   app.enableCors();
 
