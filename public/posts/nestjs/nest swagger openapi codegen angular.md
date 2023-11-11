@@ -52,27 +52,17 @@ ngOpenGen.generate();
 }
 ```
 
-## api/src/lib/api-configuration.ts
+## angular appConfig.ts
 
 ```ts
-/* tslint:disable */
-/* eslint-disable */
-import { Injectable } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { ApplicationConfig, importProvidersFrom } from "@angular/core";
+import { provideRouter } from "@angular/router";
+import { ApiConfiguration } from "api/src/lib/api-configuration";
+import { ApiModule } from "./../../../../api/src/lib/api.module";
+import { appRoutes } from "./app.routes";
 
-/**
- * Global configuration
- */
-@Injectable({
-  providedIn: "root",
-})
-export class ApiConfiguration {
-  rootUrl: string = "http://localhost:3000";
-}
-
-/**
- * Parameters for `ApiModule.forRoot()`
- */
-export interface ApiConfigurationParams {
-  rootUrl?: string;
-}
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(appRoutes), importProvidersFrom([ApiModule, ApiConfiguration, HttpClientModule])],
+};
 ```
