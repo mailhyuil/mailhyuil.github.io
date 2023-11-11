@@ -14,8 +14,10 @@ npm i class-validator
 npm i class-transformer
 npm i @prisma/client
 npm i @nestjs/jwt
+# openapi
 npm i @nestjs/swagger
 npm i ng-openapi-gen
+npm i json-schema-ref-parser
 # cookie
 npm i cookie-parser
 # date
@@ -51,13 +53,18 @@ npm i -D prisma
 ## main.ts
 
 ```ts
-import cookieParser from "cookie-parser";
+import { BadRequestException, Logger, ValidationError, ValidationPipe } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import compression from "compression";
+import cookieParser from "cookie-parser";
+import { writeFile } from "fs";
 import helmet from "helmet";
-import morgan from "morgan";
-import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import $RefParser from "json-schema-ref-parser";
+import morgan from "morgan";
 import { NgOpenApiGen } from "ng-openapi-gen";
+import { join } from "path";
+import { AppModule } from "./app/app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -98,31 +105,34 @@ async function bootstrap() {
     })
   );
   /** Port */
-  const port = process.env.SERVER_PORT | 3000;
+  const port = process.env.SERVER_PORT || 3000;
 
   /** OpenAPI */
-  const swaggerConfig = new DocumentBuilder().setTitle("Core API").addServer(`http://localhost:${port}`).addCookieAuth().build();
+  const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
 
-  writeFile(join(__dirname, "./assets/openapi.json"), JSON.stringify(document), () => {
-    logger.log(`✅ openapi.json 파일을 생성했습니다.`);
+  const openApiPath = join(__dirname, "./assets/openapi.json");
+  writeFile(openApiPath, JSON.stringify(document), () => {
+    Logger.log(`✅ openapi.json 파일을 생성했습니다.`);
   });
 
-  const options = {
-    input: "my-api.json",
-    output: "my-app/src/app/api",
+  const openApiOptions = {
+    input: openApiPath,
+    output: "api/src/lib",
+    fileIndex: true,
   };
 
-  // load the openapi-spec and resolve all $refs
-  const RefParser = new $RefParser();
-  const openApi = await RefParser.bundle(options.input, {
+  const RefParser = new $RefParser.default();
+  const openApi = await RefParser.bundle(openApiOptions.input, {
     dereference: { circular: false },
   });
 
-  const ngOpenGen = new NgOpenApiGen(openApi, options);
+  const ngOpenGen = new NgOpenApiGen(openApi, openApiOptions);
   ngOpenGen.generate();
 
-  await app.listen(port || 3000);
+  await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
+
+bootstrap();
 ```

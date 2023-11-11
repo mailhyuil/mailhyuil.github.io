@@ -2,10 +2,13 @@
 
 > document.yaml or document.json을 읽고 코드로 생성해준다.
 >
-> > @ApiProperty, @ApiTags, @ApiBody
+> > @ApiTags, @ApiBody, @ApiResponse 필요
+> >
+> > > controller를 읽음
 
 ```sh
 npm i ng-openapi-gen
+npm i json-schema-ref-parser
 
 ng-openapi-gen --input my-api.yaml --output my-app/src/app/api
 ```
