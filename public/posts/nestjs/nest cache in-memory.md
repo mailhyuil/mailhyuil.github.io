@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-npm i cache-manager
+npm i @nestjs/cache-manager cache-manager
 ```
 
 ## 사용
@@ -26,12 +26,12 @@ export class AppModule {}
 ```ts
 @Controller()
 export class AppController {
-  constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
+  constructor(@Inject(CACHE_MANAGER) private cache: Cache) {}
   async findAll(): string {
-    await this.cacheManager.set("key", "value");
-    const value = await this.cacheManager.get("key");
-    await this.cacheManager.del("key");
-    await this.cacheManager.reset();
+    await this.cache.set("key", "value");
+    const value = await this.cache.get("key");
+    await this.cache.del("key");
+    await this.cache.reset();
   }
 }
 ```
