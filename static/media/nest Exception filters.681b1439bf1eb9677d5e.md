@@ -32,6 +32,22 @@ export class HttpExceptionFilter implements ExceptionFilter {
 }
 ```
 
+## 전역 사용
+
+> main.ts 또는 app.module.ts에 등록
+
+```ts
+// main.ts
+app.useGlobalFilters(new HttpExceptionFilter());
+// or app.module.ts
+providers: [
+  {
+    provide: APP_FILTER,
+    useClass: HttpExceptionFilter,
+  },
+];
+```
+
 ## 필터 사용
 
 > UseFilters() 데코레이터 사용
@@ -42,13 +58,4 @@ export class HttpExceptionFilter implements ExceptionFilter {
 async create(@Body() createCatDto: CreateCatDto) {
   throw new ForbiddenException();
 }
-```
-
-## 전역 사용
-
-> main.ts 부트스트랩 메소드에 등록
-
-```ts
-const app = await NestFactory.create(AppModule);
-app.useGlobalFilters(new HttpExceptionFilter());
 ```

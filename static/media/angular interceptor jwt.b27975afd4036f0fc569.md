@@ -33,6 +33,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         ? {
             setHeaders: {
               Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              "X-CSRF-Token": this.cookieService.get(key);
             },
           }
         : {}

@@ -26,7 +26,7 @@ export class AppModule {}
 ```ts
 @Controller()
 export class AppController {
-  constructor(@Inject(CACHE_MANAGER) private cache: Cache) {}
+  constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}
   async findAll(): string {
     await this.cache.set("key", "value");
     const value = await this.cache.get("key");
