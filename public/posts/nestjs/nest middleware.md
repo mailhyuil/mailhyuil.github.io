@@ -18,7 +18,7 @@
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
-    console.log('Request...');
+    console.log("Request...");
     next();
   }
 }
@@ -35,7 +35,7 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(LoggerMiddleware) // 미들웨어 등록
-      .forRoutes('cats'); // 미들웨어가 작업을 수행할 라우팅 경로
+      .forRoutes("cats"); // 미들웨어가 작업을 수행할 라우팅 경로
   }
 }
 ```
