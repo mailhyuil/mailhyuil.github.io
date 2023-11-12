@@ -2,12 +2,12 @@
 
 ## install
 
-```
+```sh
 npm i morgan
 ```
 
 ## main.ts
 
-```
-app.use(morgan('dev'));
+```ts
+app.use(morgan("dev"));
 ```
