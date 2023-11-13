@@ -18,7 +18,12 @@ class TargetClass {
 ```ts
 @Injectable()
 export class CacheDecoratorRegister implements OnModuleInit {
-  constructor(private readonly discoveryService: DiscoveryService, private readonly metadataScanner: MetadataScanner, private readonly reflector: Reflector, private readonly cache: Cache) {}
+  constructor(
+    private readonly discoveryService: DiscoveryService,
+    private readonly metadataScanner: MetadataScanner,
+    private readonly reflector: Reflector,
+    private readonly cache: Cache
+  ) {}
 
   onModuleInit() {
     return this.discoveryService

@@ -32,7 +32,10 @@ import { DiscoveryService, MetadataScanner } from "@nestjs/core";
 
 @Injectable()
 export class AppService {
-  constructor(private readonly metadataScanner: MetadataScanner, private readonly discoveryService: DiscoveryService) {}
+  constructor(
+    private readonly discoveryService: DiscoveryService, //
+    private readonly metadataScanner: MetadataScanner
+  ) {}
   getData(): { message: string } {
     return { message: "Hello API" };
   }

@@ -13,8 +13,13 @@
 > > > catch 메소드에 예외 처리 로직 작성
 > > >
 > > > > InternalServerErrorException으로 처리
+> > > >
+> > > > > 개발환경에서만 stack이 보이도록
 
 ```ts
+import { Catch, HttpException, ArgumentsHost, ExceptionFilter } from "@nestjs/common";
+import { Response, Request } from "express";
+
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
   catch(exception: HttpException, host: ArgumentsHost) {
@@ -22,12 +27,27 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
     const status = exception.getStatus();
+    const exceptionResponse = exception.getResponse();
 
-    response.status(status).json({
+    let errorMessage: string | object = exceptionResponse;
+
+    if (typeof exceptionResponse === "object" && exceptionResponse.hasOwnProperty("message")) {
+      errorMessage = (exceptionResponse as { message: string }).message;
+    }
+
+    const errorResponse = {
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
-    });
+      message: errorMessage, // Include the error message
+    };
+
+    // Include the stack trace in the response (only in development environment)
+    if (process.env.NODE_ENV === "development") {
+      errorResponse["stack"] = exception.stack;
+    }
+
+    response.status(status).json(errorResponse);
   }
 }
 ```
@@ -37,18 +57,18 @@ export class HttpExceptionFilter implements ExceptionFilter {
 > main.ts 또는 app.module.ts에 등록
 
 ```ts
-// main.ts
-app.useGlobalFilters(new HttpExceptionFilter());
-// or app.module.ts
+// app.module.ts
 providers: [
   {
     provide: APP_FILTER,
     useClass: HttpExceptionFilter,
   },
 ];
+// main.ts
+// app.useGlobalFilters(new HttpExceptionFilter());
 ```
 
-## 필터 사용
+## 메소드에 필터 사용
 
 > UseFilters() 데코레이터 사용
 

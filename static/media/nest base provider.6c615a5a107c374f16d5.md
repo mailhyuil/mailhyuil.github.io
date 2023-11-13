@@ -53,6 +53,10 @@ providers: [SomeService];
 ### useValue
 
 > library같은 constant value를 제공할 때 사용
+>
+> > 인스턴스도 값이다.
+> >
+> > > new로 생성하면 useValue를 사용해야한다.
 
 ### useClass
 
