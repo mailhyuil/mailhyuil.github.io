@@ -1,4 +1,4 @@
-# nest SOLID Principle
+# SOLID Principle
 
 > 항상 '변화'를 염두에 두고 코드를 작성하라
 >
