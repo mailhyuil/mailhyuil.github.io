@@ -4,50 +4,43 @@
 >
 > > 만약 스키마를 변경하고 싶거나 (timestamp..), 로깅같은 작업을 추가하고 싶다면 Exception filters를 사용하면 된다.
 
+## 로직의 실패 vs 로직외의 실패 (시스템 실패 : api서버 연결 실패 ..데이터베이스연결 실패...)
+
+> 로직의 실패는 result 객체 또는 customException 로 처리
+>
+> > 시스템적인 실패는 exceptionFilter를 통해서 로깅
+
 ## 커스텀 예외 필터
 
-> Catch() 데코레이터로 처리되지 않은 모든 예외를 잡기
->
-> > ExceptionFilter 인터페이스 구현
-> >
-> > > catch 메소드에 예외 처리 로직 작성
-> > >
-> > > > InternalServerErrorException으로 처리
-> > > >
-> > > > > 개발환경에서만 stack이 보이도록
+> stacktrace는 로그로 남기고 유저에게는 에러메세지만 보내야한다.
 
 ```ts
-import { Catch, HttpException, ArgumentsHost, ExceptionFilter } from "@nestjs/common";
-import { Response, Request } from "express";
+// HttpExceptionFilter.ts
+
+import { ExceptionFilter, Catch, ArgumentsHost, HttpException } from "@nestjs/common";
+import { Request, Response } from "express";
+import { MyLogger } from "../MyLogger";
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
+  constructor(private readonly logger: MyLogger) {}
+
   catch(exception: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
     const status = exception.getStatus();
-    const exceptionResponse = exception.getResponse();
 
-    let errorMessage: string | object = exceptionResponse;
-
-    if (typeof exceptionResponse === "object" && exceptionResponse.hasOwnProperty("message")) {
-      errorMessage = (exceptionResponse as { message: string }).message;
+    if (status >= 500) {
+      // 시스템 실패를 로깅
+      this.logger.error({ request, response });
     }
 
-    const errorResponse = {
+    response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
-      message: errorMessage, // Include the error message
-    };
-
-    // Include the stack trace in the response (only in development environment)
-    if (process.env.NODE_ENV === "development") {
-      errorResponse["stack"] = exception.stack;
-    }
-
-    response.status(status).json(errorResponse);
+    });
   }
 }
 ```
