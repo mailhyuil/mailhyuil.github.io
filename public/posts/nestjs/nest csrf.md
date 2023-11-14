@@ -12,9 +12,10 @@
 
 > Important: Request must be sent with withCredentials set to true to allow cookies to be sent from the frontend or credentials set to include in fetch API.
 >
-> > 서버와 클라이언트 둘다 credential을 true로 허용해줘야 프론트 엔드에서 쿠키에 인증 토큰을 담아 보낼 수 있습니다.
+> > "서버"와 "클라이언트" 둘다 credential을 true로 허용해줘야 프론트 엔드에서 쿠키에 인증 토큰을 담아 보낼 수 있다.
+> > CORS origin을 정확히 설정해주어야 한다.
 
-```
+```sh
 # headers
 csrf-token
 xsrf-token
@@ -30,46 +31,66 @@ x-xsrf-token
 }
 ```
 
+## csurf library
+
+> 쿠키에 \_csrf 시크릿을 담아서 클라이언트로 보냄
+>
+> > req.csrfToken()로 그 시크릿에 대한 토큰을 생성할 수 있게 해줌
+> >
+> > > 토큰을 클라이언트에 보내고 POST 요청할 시 다시 X-XSRF-TOKEN 헤더에 담아서 보내기
+
 ## install
 
 ```sh
+# server
 npm i cookie-parser
-npm i -D @types/cookie-parser
 npm i csurf
+
+# client
+npm i ngx-cookie
 ```
 
-## main.ts
+## app.module.ts
 
 ```ts
-app.use(cookieParser());
-// cookieParser 밑에 있어야 합니다.
-app.use(csurf({ cookie: true }));
-```
-
-## controller
-
-```ts
-class UserController {
-  @Get()
-  async findAll(@Req() req: any) {
-    // req.csrfToken()으로 토큰을 가져와 클라이언트에게 보내기
-    return await this.userService.findAll();
-  }
-  @Post()
-  async create(@Req() req: any, @Headers("XSRF-TOKEN") csrfToken: string) {
-    // 클라이언트가 토큰을 다시 보내면 검증을 하고 토큰이 일치하면 요청을 처리
-    if (req.csrfToken() !== csrfToken) {
-      throw new BadRequestException("Invalid CSRF Token");
-    }
-    return await this.userService.findAll();
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(csurf({ cookie: true }), CsrfMiddleware).forRoutes("*");
   }
 }
 ```
 
-## client
-
-> cookie에서 \_csrf 토큰을 가져와서 post 요청시 Headers나 Body에 담아 보냅니다.
+## CsrfMiddleware
 
 ```ts
-this.httpClient.post(url, { _csrf: this.cookieService.get("_csrf") });
+import { Injectable, NestMiddleware } from "@nestjs/common";
+import { Request, Response } from "express";
+
+@Injectable()
+export class CsrfMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: Function) {
+    res.cookie("XSRF-TOKEN", req["csrfToken"]());
+    next();
+  }
+}
+```
+
+## angular interceptor
+
+```ts
+import { HttpHandlerFn, HttpRequest } from "@angular/common/http";
+import { inject } from "@angular/core";
+import { CookieService } from "ngx-cookie";
+
+export function CsrfInterceptorFn(req: HttpRequest<unknown>, next: HttpHandlerFn) {
+  const cookieService = inject(CookieService);
+  const csrfToken = cookieService.get("XSRF-TOKEN");
+  const clonedRequest = req.clone({
+    setHeaders: {
+      "X-XSRF-TOKEN": csrfToken!,
+    },
+    withCredentials: true,
+  });
+  return next(clonedRequest).pipe();
+}
 ```
