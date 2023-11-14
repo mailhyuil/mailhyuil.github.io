@@ -5,7 +5,7 @@
 ## install
 
 ```sh
-npm i --save @nestjs/event-emitter
+npm i @nestjs/event-emitter
 ```
 
 ## app module
@@ -15,18 +15,35 @@ import { Module } from "@nestjs/common";
 import { EventEmitterModule } from "@nestjs/event-emitter";
 
 @Module({
-  imports: [EventEmitterModule.forRoot(), EventModule],
+  imports: [EventEmitterModule.forRoot()],
 })
 export class AppModule {}
 ```
 
-## eventType
+## service
 
 ```ts
-export const Events = {
-  AUTH_LOG: "AUTH LOG",
-  SOME_LOG: "SOME LOG",
-};
+import { Injectable } from "@nestjs/common";
+import { EventEmitter2 } from "@nestjs/event-emitter";
+@Injectable()
+export class OrderService {
+  constructor(private readonly prisma: PrismaService, private readonly eventEmitter: EventEmitter2) {}
+
+  async create(data: Prisma.OrderCreateInput) {
+    const created = await this.prisma.order.create({
+      data: {
+        // ...
+      },
+    });
+
+    // 서비스 간 책임 분리
+    this.eventEmitter.emit("order.created", {
+      // ...
+    });
+
+    return created;
+  }
+}
 ```
 
 ## event-listener.service.ts
@@ -36,57 +53,11 @@ import { Injectable, Logger } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
-export class EventListenerService {
-  private logger = new Logger(EventListenerService.name);
-  constructor(private readonly prismaService: PrismaService) {}
-
-  async createLog(eventType: string, content: string, entityId: string, authId?: string) {
-    switch (eventType) {
-      case "some": {
-        await this.prismaService.someLog.create({
-          data: {
-            content,
-            some: {
-              connect: { id: entityId },
-            },
-          },
-        });
-        break;
-      }
-      case "auth": {
-        await this.prismaService.authLog.create({
-          data: {
-            content,
-            auth: {
-              connect: { id: entityId },
-            },
-          },
-        });
-        break;
-      }
-    }
+export class EventService {
+  constructor(private readonly paymentService: PaymentService) {}
+  @OnEvent("order.created", { async: true })
+  handleOrderCreatedEvent(payload: OrderCreatedEvent) {
+    this.paymentService.create(payload);
   }
 }
-```
-
-## event-listener/some-log/some-log.listener.ts
-
-```ts
-@Injectable()
-export class LogService {
-  constructor(private readonly eventListenerService: EventListenerService) {}
-
-  @OnEvent(Events.SOME_LOG)
-  async handleCreateLog(content: string, entityId: string, authId: string) {
-    await this.eventListenerService.createLog("some", content, entityId, authId);
-  }
-}
-```
-
-## controller or service
-
-```ts
-constructor(private readonly eventEmitter: EventEmitter2) {}
-
-this.eventEmitter.emit(Events.SOME_LOG, '로그를 남깁니다.', createdId, authId);
 ```

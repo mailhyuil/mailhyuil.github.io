@@ -30,7 +30,7 @@
 
 ```ts
 @Injectable()
-export class LoggingInterceptor implements NestInterceptor {
+export class LogInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     console.log("Before...");
 
@@ -40,20 +40,27 @@ export class LoggingInterceptor implements NestInterceptor {
 }
 ```
 
-## 인터셉터 사용
-
-> UseInterceptors() 데코레이터 사용
-
-```ts
-@UseInterceptors(new LoggingInterceptor())
-export class CatsController {}
-```
-
 ## 전역 사용
 
 > main.ts 부트스트랩 메소드에서 등록
 
 ```ts
-const app = await NestFactory.create(AppModule);
-app.useGlobalInterceptors(new LoggingInterceptor());
+// app.module.ts
+providers: [
+  {
+    provide: APP_INTERCEPTOR,
+    useClass: LogInterceptor,
+  },
+];
+// main.ts
+// app.useGlobalInterceptors(new LogInterceptor());
+```
+
+## 인터셉터 사용
+
+> UseInterceptors() 데코레이터 사용
+
+```ts
+@UseInterceptors(new LogInterceptor())
+export class CatsController {}
 ```

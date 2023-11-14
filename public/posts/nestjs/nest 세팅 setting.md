@@ -129,7 +129,7 @@ async function initOpenAPI(app: INestApplication<any>, port: any) {
 ## app.module.ts
 
 ```ts
-import { BadRequestException, Module, ValidationPipe } from "@nestjs/common";
+import { BadRequestException, Module, ValidationPipe, NestModule } from "@nestjs/common";
 import { APP_FILTER, APP_PIPE } from "@nestjs/core";
 import { AllExceptionsFilter } from "./filters/exception.filter";
 
@@ -219,5 +219,9 @@ import { UsersModule } from "./users/users.module";
     },
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(csurf({ cookie: true }), CsrfMiddleware).forRoutes("*");
+  }
+}
 ```
