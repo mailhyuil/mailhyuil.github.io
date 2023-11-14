@@ -16,13 +16,13 @@
 
 > 권장하지 않는 방법
 
-```
+```ts
 const [req, res, next] = host.getArgs();
 ```
 
 ### 컨텍스트 전환 메소드
 
-```
+```ts
 /**
  * Switch context to RPC.
  */

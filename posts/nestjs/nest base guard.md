@@ -32,6 +32,22 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
+## 전역 사용
+
+> main.ts 부트스트랩 메소드에 설정
+
+```ts
+// app.module.ts
+providers: [
+  {
+    provide: APP_GUARD,
+    useClass: RolesGuard,
+  },
+];
+// main.ts
+// app.useGlobalGuards(new RolesGuard());
+```
+
 ## 사용
 
 > @UseGuards() 데코레이터 사용
@@ -40,13 +56,4 @@ export class AuthGuard implements CanActivate {
 @Controller("some")
 @UseGuards(AuthGuard)
 export class SomeController {}
-```
-
-## 전역 사용
-
-> main.ts 부트스트랩 메소드에 설정
-
-```ts
-const app = await NestFactory.create(AppModule);
-app.useGlobalGuards(new RolesGuard());
 ```

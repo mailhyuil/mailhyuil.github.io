@@ -3,8 +3,7 @@
 ## install
 
 ```sh
-npm i --save class-transformer
-
+npm i class-transformer
 npm i reflect-metadata
 ```
 
