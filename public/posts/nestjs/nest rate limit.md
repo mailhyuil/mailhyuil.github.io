@@ -10,6 +10,7 @@ npm i @nestjs/throttler
 
 ```ts
 import { APP_GUARD } from "@nestjs/core";
+import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 
 @Module({
   imports: [
@@ -35,6 +36,8 @@ import { APP_GUARD } from "@nestjs/core";
         limit: 100,
       },
     ]),
+  ],
+  providers: [
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
