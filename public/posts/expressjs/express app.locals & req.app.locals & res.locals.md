@@ -19,4 +19,4 @@ import {Request, Response} from 'express';
 
 ## req.app.locals
 
-> 현재 요청
+> app.의 지역변수를 사용할 수 있게 해준다.
