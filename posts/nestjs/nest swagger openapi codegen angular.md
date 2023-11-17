@@ -2,7 +2,7 @@
 
 > document.yaml or document.json을 읽고 코드로 생성해준다.
 >
-> > @ApiTags, @ApiBody, @ApiResponse 필요
+> > @ApiTags, @ApiBody, @ApiResponse, @ApiProperty 필요
 > >
 > > > controller를 읽음
 
