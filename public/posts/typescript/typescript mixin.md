@@ -1,32 +1,41 @@
 # typescript mixin
 
+> mixin은 다중 상속을 구현한다.
+>
+> > mixin은 included, 상속은 inherit이라고 표현한다.
+
+```ts
+const MixedClass = Mixin1(Mixin2(Mixin3()));
+class Base extends MixedClass {}
+```
+
 ## 구현1
 
 ```js
-type Constructor<Type = {}> = new (...args: any[]) => Type;
+// Now we use a generic version which can apply a constraint on
+// the class which this mixin is applied to
+type Constructor<T> = new (...args: any[]) => T;
+type Loggable = Constructor<{
+  log: (message: string) => void;
+}>;
 
-type HasTheSubject = Constructor<{ subject: string }>;
-
-function CanDoSomething<BaseType extends HasTheSubject>(Base: BaseType) {
+export function LogMixin<T extends Loggable>(Base: T) {
   return class extends Base {
-    doSomething() {
-      console.log(`I can do ${this.subject}`);
+    constructor(...args: any[]) {
+      super(...args);
+    }
+    log(message: string) {
+      console.log(message);
     }
   };
 }
 
-class Person {
-  subject: string;
-  constructor(subject: string) {
-    this.subject = subject;
+export class Some extends LogMixin() {
+  constructor() {
+    super();
+    this.log("hello");
   }
 }
-
-const PersonWithCanDoSomething = CanDoSomething(Person);
-
-const person = new PersonWithCanDoSomething("math");
-
-person.doSomething(); // I can do math
 ```
 
 ## 구현2
