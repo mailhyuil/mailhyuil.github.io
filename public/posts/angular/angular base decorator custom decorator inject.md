@@ -1,6 +1,6 @@
 # angular base decorator custom decorator inject
 
-> 데코레이터 내에서 주입된 서비스 사용하기
+> 데코레이터 내에서 서비스를 주입하기
 
 # 방법 1
 
