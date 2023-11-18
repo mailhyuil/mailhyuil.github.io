@@ -9,16 +9,16 @@
 
 ## directives/click-outside.directive.ts
 
-```
+> @Input에 selector를 넣어주면 해당 selector를 가진 element를 찾아서 넣어준다.
+
+```ts
 import { Directive, ElementRef, TemplateRef, ViewContainerRef } from "@angular/core";
 
 @Directive({ selector: "[example]" })
 export class ExampleDirective {
+  @Input() example: string;
   constructor(
-    private readonly elementRef: ElementRef,
-    // private readonly templateRef: TemplateRef<any>,
-    // private readonly viewContainer: ViewContainerRef
+    private readonly elementRef: ElementRef // private readonly templateRef: TemplateRef<any>, // private readonly viewContainer: ViewContainerRef
   ) {}
-
 }
 ```
