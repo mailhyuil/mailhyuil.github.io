@@ -11,26 +11,19 @@
 > > Object.defineProperty를 통해 prototype에 property 추가
 
 ```ts
-export function ClassDecorator(arg?: any) {
+export function custom() {
   return function (target: any) {
-    console.log("Hello from Decorator");
-
+    // field 변수 수정
     Object.defineProperty(target.prototype, "property1", {
       value: 100,
       writable: false,
     });
-
     Object.defineProperty(target.prototype, "property2", {
       value: 200,
       writable: false,
     });
-  };
-}
-```
 
-```ts
-export function custom() {
-  return function (target: any) {
+    // 메소드 수정
     // getUsers 함수의 descriptor를 가져온다.
     const descriptor = Object.getOwnPropertyDescriptor(target.prototype, "getUsers");
     if (!descriptor) throw new Error("메소드가 없습니다.");
@@ -40,6 +33,8 @@ export function custom() {
 
     // 원래 함수를 감싸서 새로운 value로 넣기
     descriptor.value = async function (...args: any[]) {
+      // 여기서 this는 클래스의 인스턴스를 가리킨다. ex) 사용 예 this.httpService
+
       // before logic...
       const result = await originalMethod.apply(this, args);
       // after logic...
