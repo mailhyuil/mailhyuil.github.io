@@ -85,6 +85,8 @@ import { CookieService } from "ngx-cookie";
 export function CsrfInterceptorFn(req: HttpRequest<unknown>, next: HttpHandlerFn) {
   const cookieService = inject(CookieService);
   const csrfToken = cookieService.get("XSRF-TOKEN");
+  if (!csrfToken) return next(req).pipe();
+
   const clonedRequest = req.clone({
     setHeaders: {
       "X-XSRF-TOKEN": csrfToken!,

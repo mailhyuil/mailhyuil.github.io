@@ -1,11 +1,12 @@
 # nest decorator custom method
 
-> function의 리턴값을 가공하기위해서는 추가적인 작업이 필요
-> 마킹 -> 조회 -> 등록
+> 데코레이터에서 Provider를 사용할 경우 Provider를 무조건 주입하고 있어야한다.
 >
-> > discoveryService로 모든 provider 조회
+> > 메타데이터를 스캐닝 하는 방법으로 Provider를 주입하지 않고 Discover하여 사용할 수 있다.
 > >
-> > > metadataScanner로 메소드에 접근
+> > > discoveryService로 모든 provider 조회
+> > >
+> > > > metadataScanner로 메소드에 접근
 
 ## decorator 생성
 
@@ -29,7 +30,12 @@ class TargetClass {
 ```ts
 @Injectable()
 export class CacheDecoratorRegister implements OnModuleInit {
-  constructor(private readonly discoveryService: DiscoveryService, private readonly metadataScanner: MetadataScanner, private readonly reflector: Reflector, private readonly cache: Cache) {}
+  constructor(
+    private readonly discoveryService: DiscoveryService,
+    private readonly metadataScanner: MetadataScanner,
+    private readonly reflector: Reflector,
+    private readonly cache: Cache
+  ) {}
 
   onModuleInit() {
     return this.discoveryService
