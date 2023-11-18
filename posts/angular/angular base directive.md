@@ -17,8 +17,7 @@ import { Directive, ElementRef, TemplateRef, ViewContainerRef } from "@angular/c
 @Directive({ selector: "[example]" })
 export class ExampleDirective {
   @Input() example: string;
-  constructor(
-    private readonly elementRef: ElementRef // private readonly templateRef: TemplateRef<any>, // private readonly viewContainer: ViewContainerRef
-  ) {}
+  constructor(private readonly elementRef: ElementRef) // private readonly templateRef: TemplateRef<any>, // private readonly viewContainer: ViewContainerRef
+  {}
 }
 ```

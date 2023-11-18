@@ -29,12 +29,7 @@ class TargetClass {
 ```ts
 @Injectable()
 export class CacheDecoratorRegister implements OnModuleInit {
-  constructor(
-    private readonly discoveryService: DiscoveryService,
-    private readonly metadataScanner: MetadataScanner,
-    private readonly reflector: Reflector,
-    private readonly cache: Cache
-  ) {}
+  constructor(private readonly discoveryService: DiscoveryService, private readonly metadataScanner: MetadataScanner, private readonly reflector: Reflector, private readonly cache: Cache) {}
 
   onModuleInit() {
     return this.discoveryService
@@ -49,16 +44,22 @@ export class CacheDecoratorRegister implements OnModuleInit {
             return;
           }
 
+          // 기존 함수를 저장해두고
           const methodRef = instance[methodName];
 
           instance[methodName] = async function (...args: any[]) {
             // #3. 기존 함수 데코레이팅
+            // before..
             const name = `${instance.constructor.name}.${methodName}`;
             const value = await this.cache.get(name, args);
             if (value) {
               return value;
             }
+
+            // 기존 함수 호출
             const result = await methodRef.call(instance, ...args);
+
+            // after..
             await this.cache.set(name, args, result, ttl);
             return result;
           };

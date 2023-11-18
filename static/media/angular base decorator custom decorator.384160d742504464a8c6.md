@@ -15,12 +15,12 @@ export function ClassDecorator(arg?: any) {
   return function (target: any) {
     console.log("Hello from Decorator");
 
-    Object.defineProperty(target.prototype, "value1", {
+    Object.defineProperty(target.prototype, "property1", {
       value: 100,
       writable: false,
     });
 
-    Object.defineProperty(target.prototype, "value2", {
+    Object.defineProperty(target.prototype, "property2", {
       value: 200,
       writable: false,
     });
