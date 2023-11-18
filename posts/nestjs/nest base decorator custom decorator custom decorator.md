@@ -65,3 +65,24 @@ export function custom() {
   };
 }
 ```
+
+## field decorator
+
+> field 값은 런타임에 정해지기 때문에 getter 나 setter가 호출되는 시점에 값에 접근할 수 있다.
+
+```ts
+export function CustomFieldDecorator() {
+  return function (target: any, propertyKey: string) {
+    let currentValue = target[propertyKey];
+    Object.defineProperty(target, propertyKey, {
+      get: () => currentValue,
+      set: (newValue: string) => {
+        if (!newValue) {
+          throw new Error(`${propertyKey} is required.`);
+        }
+        currentValue = newValue;
+      },
+    });
+  };
+}
+```

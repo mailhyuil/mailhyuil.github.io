@@ -2,51 +2,65 @@
 
 > descriptor를 인자로 받는 function
 
-## 메소드 데코레이터
-
-```ts
-function MethodDecorator(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-  const originalMethod = descriptor.value;
-  descriptor.value = function (...args: any[]) {
-    // before logic...
-    const result = originalMethod.apply(this, args);
-    // after logic...
-    return result;
-  };
-  return descriptor;
-}
-```
-
-## 클래스 데코레이터
+## class decorator
 
 > target만 받기
 >
 > > Object.defineProperty를 통해 prototype에 property 추가
 
 ```ts
-function ClassDecorator(target: any) {
-  console.log("Hello from Decorator");
+export function custom() {
+  return function (target: any) {
+    // field 변수 수정
+    Object.defineProperty(target.prototype, "property1", {
+      value: 100,
+      writable: false,
+    });
+    Object.defineProperty(target.prototype, "property2", {
+      value: 200,
+      writable: false,
+    });
 
-  Object.defineProperty(target.prototype, "property1", {
-    value: 100,
-    writable: false,
-  });
+    // 메소드 수정
+    // getUsers 함수의 descriptor를 가져온다.
+    const descriptor = Object.getOwnPropertyDescriptor(target.prototype, "getUsers");
+    if (!descriptor) throw new Error("메소드가 없습니다.");
 
-  Object.defineProperty(target.prototype, "property2", {
-    value: 200,
-    writable: false,
-  });
+    // 원래 함수를 저장해두고
+    const originalMethod = descriptor.value;
+
+    // 원래 함수를 감싸서 새로운 value로 넣기
+    descriptor.value = async function (...args: any[]) {
+      // 여기서 this는 클래스의 인스턴스를 가리킨다. ex) 사용 예 this.httpService
+
+      // before logic...
+      const result = await originalMethod.apply(this, args);
+      // after logic...
+      result.push({
+        id: "id",
+        username: "username",
+        password: "password",
+      });
+      return result;
+    };
+
+    // 새로운 descriptor로 덮어쓰기
+    Object.defineProperty(target.prototype, "getUsers", descriptor);
+  };
 }
 ```
 
-## 매개변수를 받는 데코레이터
+## method decorator
 
-> 함수를 한번 감싸기
+> target, propertyKey, descriptor를 받는다.
 
 ```ts
-export function CustomDecorator(arg?: any) {
+export function MethodDecorator(arg?: any) {
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    // 원래 함수를 저장해두고
     const originalMethod = descriptor.value;
+
+    // 원래 함수를 감싸서 새로운 value로 넣기
     descriptor.value = function (...args: any[]) {
       // before logic...
       const result = originalMethod.apply(this, args);
@@ -56,28 +70,47 @@ export function CustomDecorator(arg?: any) {
     return descriptor;
   };
 }
+
+// async
+export function custom() {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    // 원래 함수를 저장해두고
+    const originalMethod = descriptor.value;
+
+    // 원래 함수를 감싸서 새로운 value로 넣기
+    descriptor.value = async function (...args: any[]) {
+      // before logic...
+      const result = await originalMethod.apply(this, args); // Promise<User>[]
+      // after logic...
+      result.push({
+        id: "id",
+        username: "username",
+        password: "password",
+      });
+      return result;
+    };
+    return descriptor;
+  };
+}
 ```
 
-## 여러 데코레이터를 한번에 적용하기
+## field decorator
+
+> field 값은 런타임에 정해지기 때문에 getter 나 setter가 호출되는 시점에 값에 접근할 수 있다.
 
 ```ts
-function first() {
-  console.log("first(): factory evaluated");
-  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    console.log("first(): called");
+export function CustomFieldDecorator() {
+  return function (target: any, propertyKey: string) {
+    let currentValue = target[propertyKey];
+    Object.defineProperty(target, propertyKey, {
+      get: () => currentValue,
+      set: (newValue: string) => {
+        if (!newValue) {
+          throw new Error(`${propertyKey} is required.`);
+        }
+        currentValue = newValue;
+      },
+    });
   };
-}
-
-function second() {
-  console.log("second(): factory evaluated");
-  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    console.log("second(): called");
-  };
-}
-
-class ExampleClass {
-  @first()
-  @second()
-  method() {}
 }
 ```
