@@ -1,10 +1,13 @@
-# decorator
+# decorator stage 2
 
 > Decorator 패턴 처럼 메소드를 감싼다.
 >
 > > 데코레이터가 여러개 있을 때 밑에서부터 실행된다
 > > 데코레이터는 감싸는 거기때문에 가장 위에 있는게 가장 밖을 감싸고 있다
 > > 따라서 가장 나중에 실행됨
+> >
+> > > typescript는 experimentalDecorators 옵션을 true로 하면 stage 2 명세를 사용하고
+> > > false로 하면 기본으로 stage 3 명세를 사용한다.
 
 ## tsconfig.json
 

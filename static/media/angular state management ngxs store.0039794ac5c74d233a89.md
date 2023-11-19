@@ -1,6 +1,6 @@
 # angular @ngxs/store
 
-> action, selector, state
+> Action, Selector, State
 >
 > > Selector = get
 > >
