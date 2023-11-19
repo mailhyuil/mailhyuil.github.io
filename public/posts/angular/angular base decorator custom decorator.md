@@ -9,6 +9,8 @@
 > target만 받기
 >
 > > Object.defineProperty를 통해 prototype에 property 추가
+> >
+> > > prototype에 defineProperty를 해야 이 클래스로 생성된 모든 인스턴스에 적용된다.
 
 ```ts
 export function custom() {
