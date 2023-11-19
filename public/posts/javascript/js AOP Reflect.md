@@ -13,6 +13,46 @@ const target = { a: 1, b: 2 };
 Reflect.deleteProperty(target, "a");
 ```
 
+## 프록시 내에서 사용
+
+```js
+function reactive(target) {
+  const proxy = new Proxy(target, {
+    get(target, key, receiver) {
+      const res = Reflect.get(target, key, receiver);
+      // track(target, key);
+
+      return res;
+    },
+    set(target, key, value, receiver) {
+      const oldValue = target[key];
+      const res = Reflect.set(target, key, value, receiver);
+
+      if (oldValue !== res) {
+        // trigger(target, key, value, oldValue);
+      }
+      return res;
+    },
+  });
+
+  return proxy;
+}
+
+const child = {
+  birthYear: 2019,
+};
+
+const parent = {
+  birthYear: 1981,
+  get age() {
+    return new Date().getFullYear() - this.birthYear;
+  },
+};
+
+const reactivityParent = reactive(parent);
+child.__proto__ = reactivityParent;
+```
+
 ## Object 대신 사용
 
 ```js
