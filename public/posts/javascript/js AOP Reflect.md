@@ -1,6 +1,7 @@
 # js AOP Reflect
 
-> Proxy를 단순화한 API
+> Object 내장 메소드를 대체하고 Proxy를 보조하기 위한 API
+> "target의 property를 대신 호출한다."
 >
 > > reflect-metadata 라이브러리를 사용하면 Reflect API를 수정하여 메타 데이터를 저장할 수 있다.
 > > Metadata Proposal - ECMAScript를 반영한 것
