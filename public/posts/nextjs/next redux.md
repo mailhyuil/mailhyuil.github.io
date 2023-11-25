@@ -27,6 +27,10 @@ const pageSize = 10;
 
 ## Redux의 세가지 원칙
 
+> to make state mutations predictable
+>
+> > 예측 가능한 상태 변화를 만들기 위해
+
 1. Single source of truth
 2. State is read-only
 3. Changes are made with pure functions
