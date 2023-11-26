@@ -22,6 +22,8 @@ const pageSize = 10;
 ## 상태관리가 어려운 이유
 
 > 변화(mutation)와 비동기성(asynchronocity)을 함께 다룰 때 복잡성은 폭발한다.
+> count state가 있고 increment, decrement 버튼이 있을 때 inc, inc, dec 버튼을 눌러서 1이 되었다
+> 하지만 이 1이라는 값은 inc, inc, dec,가 전부 resolved 된 것인지, inc가 resolved 되고 inc, dec는 pending 상태인건지 알 수 없다.
 >
 > > If a model can update another model, then a view can update a model, which updates another model...
 
