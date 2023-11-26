@@ -5,6 +5,8 @@
 > > 이벤트 버스는 메세지 브로커의 일종이다
 > >
 > > > 콜백 배열을 사용, 하나의 이벤트네임에 여러개의 콜백이 있을 수 있다.
+> > >
+> > > > eventEmitter는 옵저버 패턴, eventBus는 pub/sub 패턴이다.
 
 ```ts
 class EventBus {
@@ -35,7 +37,7 @@ class EventBus {
 ```
 
 ```ts
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
 
 type EventHandler = (args?: any) => void;
 
@@ -91,7 +93,7 @@ class EventBus {
 
 const eventBus = new EventBus();
 
-eventBus.postStickyEvent('eventName', 'some data');
+eventBus.postStickyEvent("eventName", "some data");
 ```
 
 ## sticky event
