@@ -1,12 +1,11 @@
 # event bus (Event Channel)
 
-> broker or message broker or event bus or event channel,
+> broker, message broker, event bus, event channel 등 다양한 이름으로 불린다.
 >
 > > 이벤트 버스는 메세지 브로커의 일종이다
 > >
-> > > 콜백 배열을 사용, 하나의 이벤트네임에 여러개의 콜백이 있을 수 있다.
-> > >
-> > > > eventEmitter는 옵저버 패턴, eventBus는 pub/sub 패턴이다.
+> > > eventEmitter는 옵저버 패턴
+> > > eventBus는 pub/sub 패턴이다.
 
 ```ts
 class EventBus {
