@@ -3,12 +3,56 @@
 > 데이터를 id를 기준으로 정규화 시켜주는 라이브러리
 >
 > > 받아온 데이터를 filter를 통해 찾아야 한다면, 정규화를 고려해라
-> > 정규화를 하면, data[id] 로 접근이 가능하다.
+> >
+> > > 데이터의 중복 제거한다.
+> > > computational cost없이 데이터를 찾을 수 있다.
+> > > 원하는 데이터에 쉽게 접근이 가능하다. data[id] 로 접근이 가능하다.
+> > > store's tree의 작은 부분만 업데이트 가능하다.
 
 ## install
 
 ```sh
 npm i normalizr
+```
+
+## 구조
+
+> entityKey = "users" or "articles" or "comments"
+
+```js
+{
+  entities :{
+    [entityKey]: {
+      [id]: {
+        // entity data
+      }
+    }
+  },
+  result: [...ids]
+}
+// example
+{
+  entities:{
+    users:{
+      'a': {
+        id: 'a',
+        name: "Paul"
+      },
+      'b': {
+        id: 'b',
+        name: "Paul"
+      },
+    },
+    posts:{
+      1: {
+        id: 1,
+        title: "My awesome blog post",
+        postedBy: 'a'
+      }
+    }
+  },
+  result: [1]
+}
 ```
 
 ## 정규화 전 vs 정규화 후
@@ -54,7 +98,6 @@ const article = new schema.Entity("articles", {
 // user[1] 로 접근 가능
 const normalizedData = normalize(originalData, article);
 {
-  result: "123",
   entities: {
     "articles": {
       "123": {
@@ -71,6 +114,7 @@ const normalizedData = normalize(originalData, article);
     "comments": {
       "324": { id: "324", "commenter": "2" }
     }
-  }
+  },
+  result: ["123"],
 }
 ```
