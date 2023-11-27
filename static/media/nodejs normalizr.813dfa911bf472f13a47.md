@@ -30,29 +30,6 @@ npm i normalizr
   },
   result: [...ids]
 }
-// example
-{
-  entities:{
-    users:{
-      'a': {
-        id: 'a',
-        name: "Paul"
-      },
-      'b': {
-        id: 'b',
-        name: "Paul"
-      },
-    },
-    posts:{
-      1: {
-        id: 1,
-        title: "My awesome blog post",
-        postedBy: 'a'
-      }
-    }
-  },
-  result: [1]
-}
 ```
 
 ## 정규화 전 vs 정규화 후
