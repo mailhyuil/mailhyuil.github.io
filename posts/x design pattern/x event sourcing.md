@@ -7,6 +7,8 @@
 > > 쓰기의 성능이 빨리질 수 있지만, 읽기의 성능은 느려진다.
 > >
 > > > update, delete가 없다. 모든 데이터는 append only이다.
+> > >
+> > > > event store와 snapshot store를 필요로한다.
 
 ```ts
 // 이벤트 소싱을 위한 클래스
