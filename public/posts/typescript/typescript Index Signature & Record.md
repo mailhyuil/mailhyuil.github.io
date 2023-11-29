@@ -6,10 +6,10 @@
 >
 > > 문자열 리터럴을 Key로 사용하는 경우 오류가 발생합니다. 이런 경우 Record를 사용
 
-```
+```ts
 let foo: any = {};
-foo['Hello'] = 'World';
-console.log(foo['Hello']); // World
+foo["Hello"] = "World";
+console.log(foo["Hello"]); // World
 ```
 
 ## Index Signature Typing
