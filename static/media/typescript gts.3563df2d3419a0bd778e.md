@@ -4,7 +4,7 @@
 >
 > > 기본 세팅을 해준다
 
-```
-yarn add -D gts
+```sh
+npm i -D gts
 npx gts init
 ```
