@@ -1,5 +1,7 @@
 # ngrx
 
+> State, Action, Reducer, Selector
+
 ## install
 
 ```sh

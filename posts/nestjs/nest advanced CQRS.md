@@ -15,9 +15,7 @@ business logic => aggregateRoot           - [domain]
 database logic => repository              - [infra]
 ```
 
-## Query
-
-## Command
+## Command / Query
 
 ## Event
 
