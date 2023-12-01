@@ -45,3 +45,20 @@ export const appConfig: ApplicationConfig = {
   providers: [provideRouter(appRoutes), importProvidersFrom([StoreModule.forRoot({ count: countReducer })])],
 };
 ```
+
+## 사용
+
+```ts
+export class AppComponent implements OnInit {
+  count$ = this.store.select(selectFeatureCount);
+  count = toSignal(this.count$);
+  constructor(private readonly store: Store<AppState>) {}
+  async ngOnInit() {}
+  increment() {
+    this.store.dispatch(incrementAction());
+  }
+  decrement() {
+    this.store.dispatch(decrementAction());
+  }
+}
+```
