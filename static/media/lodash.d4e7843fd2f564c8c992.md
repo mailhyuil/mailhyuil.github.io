@@ -8,6 +8,7 @@
 # cherry picking을 사용하거나 ex) import isEmpty from 'lodash/isEmpty'
 # lodash-es를 사용하자
 npm i lodash-es
+npm i -D @types/lodash-es
 ```
 
 ## lodash와 Array 함수의 차이점
