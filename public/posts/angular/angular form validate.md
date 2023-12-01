@@ -52,15 +52,16 @@ this.formGroup.valueChanges.subscribe(observer => {
 
 ## setValue
 
-```
-this.formGroup.setValue() // 전부 set
-this.formGroup.patchValue({ // 일부 set
-      username,
-      realname,
-      status,
-      phone,
-      role: roles[0],
-    });
+```ts
+this.formGroup.setValue(); // 전부 set
+this.formGroup.patchValue({
+  // 일부 set
+  username,
+  realname,
+  status,
+  phone,
+  role: roles[0],
+});
 ```
 
 ## error message

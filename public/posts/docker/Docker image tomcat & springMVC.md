@@ -1,6 +1,11 @@
 # docker tomcat & springMVC
 
+## run
+
 ```bash
-docker run --name my-tomcat --network my-network -e db_password=password -d hyuil/my-tomcat9:v1
-docker cp ./ROOT.war my-tomcat:/usr/local/tomcat/webapps/
+# run tomcat
+docker run --name tomcat -d tomcat:8.5.38-jre8-alpine
+
+# springMVC build war file
+docker cp ./ROOT.war tomcat:/usr/local/tomcat/webapps/
 ```

@@ -2,7 +2,7 @@
 
 ## install
 
-```
+```sh
 npm i @angular/google-maps
 ```
 
