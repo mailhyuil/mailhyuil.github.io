@@ -1,6 +1,6 @@
 # docker ubuntu
 
-## command
+## run
 
 ```bash
 docker run -d --name ubuntu -p 22:22 -it --privileged ubuntu:20.04

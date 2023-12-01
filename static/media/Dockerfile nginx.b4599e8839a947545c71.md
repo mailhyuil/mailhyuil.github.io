@@ -15,5 +15,5 @@ EXPOSE 443
 ## run
 
 ```sh
-docker run --name my-nginx --add-host=host.docker.internal:host-gateway -p 80:80 -p 443:443 -d my-nginx
+docker run --name nginx --add-host=host.docker.internal:host-gateway -p 80:80 -p 443:443 -d nginx
 ```
