@@ -50,7 +50,9 @@ npm i sharp
 npm i -D @types/sharp
 # file upload
 npm i -D @types/multer
-
+# lodash
+npm i lodash-es
+npm i -D @types/lodash-es
 # config
 # npm i @nestjs/config
 
