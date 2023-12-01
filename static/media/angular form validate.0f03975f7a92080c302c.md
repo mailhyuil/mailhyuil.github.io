@@ -1,11 +1,5 @@
 # angular form validate
 
-> 필요 modules = FormsModule, ReactiveFormsModule
->
-> > 필요 class = FormGroup, Validators
-> >
-> > > 필요 directives = formGroup, formControlName
-
 ## import
 
 ```ts

@@ -59,13 +59,13 @@ isDisabled = false;
 isLoading = false;
 isActive = false;
 
-onChange = (value: Type[]) => {
+onChange (value: Type[]) {
   this.value = value;
 };
 writeValue(obj: any): void {
   this.value = obj;
 }
-onTouched = () => {};
+onTouched () {};
 registerOnChange(fn: any): void {
   this.onChange = fn;
 }
@@ -80,6 +80,5 @@ customChangeValueEvent(){
   // ..logic
     this.writeValue(newValue);
     this.onChange(this.value);
-  }
 }
 ```
