@@ -14,32 +14,45 @@ npm i @ngrx/router-store
 ## store/count.feature.ts
 
 ```ts
-import { createFeature, createAction, createReducer, createSelector, on, props } from "@ngrx/store";
+import { createAction, createFeature, createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 
 export type CountState = {
   count: number;
 };
 
+export const countFeatureKey = "count";
+
 const initialState: CountState = {
   count: 0,
 };
 
-export const incrementAction = createAction("[Count] Increment", props<CountState>());
+export const incrementAction = createAction("[Count] Increment");
+export const decrementAction = createAction("[Count] Decrement");
+// effects
+export const loadCountAction = createAction("[Count] Load Count");
+export const countLoadedSuccessAction = createAction(
+  "[Count] Count Loaded Success",
+  // ajax response
+  (count: number) => ({ payload: count })
+);
+export const countLoadedFailureAction = createAction("[Count] Count Loaded Failure");
 
-export const decrementAction = createAction("[Count] Decrement", props<CountState>());
-export interface AppState {
-  count: CountState;
-}
 export const countReducer = createReducer(
   initialState,
   on(incrementAction, (state) => ({ count: state.count + 1 })),
-  on(decrementAction, (state) => ({ count: state.count - 1 }))
+  on(decrementAction, (state) => ({ count: state.count - 1 })),
+  // effects
+  on(loadCountAction, (state) => ({ count: state.count })),
+  on(countLoadedSuccessAction, (state, { payload }) => ({
+    count: state.count + payload,
+  })),
+  on(countLoadedFailureAction, (_) => ({ count: 0 }))
 );
 
-export const selectCount = (state: AppState) => state.count;
+export const selectCount = createFeatureSelector<CountState>(countFeatureKey);
+
 export const countSelector = createSelector(selectCount, (selectedCount: CountState) => selectedCount.count);
 
-export const countFeatureKey = "count";
 export const countFeature = createFeature({
   name: countFeatureKey,
   reducer: countReducer,
@@ -60,7 +73,7 @@ export const appConfig: ApplicationConfig = {
 export class AppComponent implements OnInit {
   count$ = this.store.select(countSelector);
   count = toSignal(this.count$);
-  constructor(private readonly store: Store<AppState>) {}
+  constructor(private readonly store: Store) {}
   async ngOnInit() {}
   increment() {
     this.store.dispatch(incrementAction());
