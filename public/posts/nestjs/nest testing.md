@@ -11,8 +11,11 @@ import { SubscriptionModule } from "../subscription/subscription.module";
 import { ProfileModule } from "../profile/profile.module";
 import { PrismaModule } from "../../prisma/prisma.module";
 describe("UserController", () => {
+  // controller
   let userController: UserController;
+  // service
   let userService: UserService;
+  // module
   let authModule: AuthModule;
   let subscriptionModule: SubscriptionModule;
   let profileModule: ProfileModule;
