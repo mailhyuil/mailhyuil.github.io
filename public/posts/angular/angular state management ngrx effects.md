@@ -72,8 +72,15 @@ export class CountEffects {
       ofType("[Count] Load Count"),
       exhaustMap(() =>
         this.countService.get().pipe(
+          // success Action
           map((count) => ({ type: "[Count] Count Loaded Success", payload: count })),
-          catchError(() => EMPTY)
+          // failure Action
+          catchError((err) => {
+            console.error(err);
+            return of({
+              type: "[Count] Count Loaded Failure",
+            });
+          })
         )
       )
     )
