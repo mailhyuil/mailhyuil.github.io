@@ -2,7 +2,9 @@
 
 > forms API와 native element를 연결하는 브릿지 역할을 하는 인터페이스
 >
-> > https://angular.io/api/forms/ControlValueAccessor
+> > 단순히 원시값을 받아서 사용한다면 필요없다.
+> >
+> > > 유효성 검사기를 사용하거나 커스텀 컨트롤을 만들때 사용한다.
 
 ## interface ControlValueAccessor
 

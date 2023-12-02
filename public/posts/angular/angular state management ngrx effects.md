@@ -7,7 +7,48 @@
 ## install
 
 ```sh
+npm i @ngrx/store
 npm i @ngrx/effects
+```
+
+## store/count.store.ts
+
+```ts
+import { createAction, createReducer, createSelector, on } from "@ngrx/store";
+
+export type CountState = {
+  count: number;
+};
+
+const initialState: CountState = {
+  count: 0,
+};
+
+export const incrementAction = createAction("[Count] Increment");
+export const decrementAction = createAction("[Count] Decrement");
+// effects
+export const loadCountAction = createAction("[Count] Load Count");
+export const countLoadedSuccessAction = createAction("[Count] Count Loaded Success", (count: number) => ({ payload: count }));
+export const countLoadedFailureAction = createAction("[Count] Count Loaded Failure");
+
+export interface AppState {
+  count: CountState;
+}
+export const countReducer = createReducer(
+  initialState,
+  on(incrementAction, (state) => ({ count: state.count + 1 })),
+  on(decrementAction, (state) => ({ count: state.count - 1 })),
+  // effects
+  on(loadCountAction, (state) => ({ ...state })),
+  on(countLoadedSuccessAction, (state, { payload }) => ({
+    ...state,
+    count: payload,
+  })),
+  on(countLoadedFailureAction, (_) => ({ count: 0 }))
+);
+
+export const selectFeature = (state: AppState) => state.count;
+export const selectFeatureCount = createSelector(selectFeature, (state: CountState) => state.count);
 ```
 
 ## store/count.effects.ts
@@ -35,4 +76,12 @@ export class CountEffects {
     )
   );
 }
+```
+
+## app.config.ts
+
+```ts
+export const appConfig: ApplicationConfig = {
+  providers: [importProvidersFrom([StoreModule.forRoot({ count: countReducer }), EffectsModule.forRoot(CountEffects)])],
+};
 ```
