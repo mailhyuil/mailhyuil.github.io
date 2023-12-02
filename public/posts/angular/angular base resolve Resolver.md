@@ -1,8 +1,8 @@
 # angular Resolver
 
-> resolver 사용 안할 시 : 유저 link 클릭 -> 바로 라우팅
+> Resolver는 라우팅이 완료 되기 전에 원하는 값을 가져와 준다.
 >
-> > resolver 사용 시 : 유저 link 클릭 -> resolver -> 라우팅
+> > 컴포넌트 OnInit이 되기 전에 값을 가져온다.
 
 ## resolver 구현
 

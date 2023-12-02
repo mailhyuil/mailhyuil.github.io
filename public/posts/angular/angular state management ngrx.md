@@ -70,11 +70,10 @@ export const appConfig: ApplicationConfig = {
 ## 사용
 
 ```ts
-export class AppComponent implements OnInit {
+export class AppComponent {
+  store = inject(Store);
   count$ = this.store.select(countSelector);
   count = toSignal(this.count$);
-  constructor(private readonly store: Store) {}
-  async ngOnInit() {}
   increment() {
     this.store.dispatch(incrementAction());
   }
