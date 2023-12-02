@@ -1,12 +1,12 @@
 # nest redis
 
-## install for Redis-based microservices
+## install
 
 ```sh
 npm i ioredis
 ```
 
-## main.ts for Redis-based microservices
+## main.ts
 
 ```ts
 const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
