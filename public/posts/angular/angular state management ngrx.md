@@ -11,7 +11,7 @@ npm i @ngrx/store-devtools
 npm i @ngrx/router-store
 ```
 
-## store/count.store.ts
+## store/count.feature.ts
 
 ```ts
 import { createAction, createFeature, createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
@@ -63,7 +63,7 @@ export const countFeature = createFeature({
 
 ```ts
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(appRoutes), importProvidersFrom([StoreModule.forRoot({ count: countReducer })])],
+  providers: [provideStore(), provideState(countFeature), provideEffects(CountEffects)],
 };
 ```
 
@@ -71,7 +71,7 @@ export const appConfig: ApplicationConfig = {
 
 ```ts
 export class AppComponent implements OnInit {
-  count$ = this.store.select(selectFeatureCount);
+  count$ = this.store.select(countSelector);
   count = toSignal(this.count$);
   constructor(private readonly store: Store) {}
   async ngOnInit() {}

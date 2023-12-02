@@ -13,12 +13,14 @@ apt install docker-compose-plugin -y
 ## 명령어
 
 ```bash
-docker-compose up # 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾는다
-docker-compose down # 모든 컨테이너와 네트워크를 중단 삭제
+# docker compose or docker-compose로 사용 가능
 
-docker-compose logs
-docker-compose stop
-docker-compose start
+docker compose up # 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾는다
+docker compose down # 모든 컨테이너와 네트워크를 중단 삭제
+
+docker compose logs
+docker compose stop
+docker compose start
 ```
 
 ## docker-compose.yml
