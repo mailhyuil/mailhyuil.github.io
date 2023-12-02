@@ -28,7 +28,11 @@ export const incrementAction = createAction("[Count] Increment");
 export const decrementAction = createAction("[Count] Decrement");
 // effects
 export const loadCountAction = createAction("[Count] Load Count");
-export const countLoadedSuccessAction = createAction("[Count] Count Loaded Success", (count: number) => ({ payload: count }));
+export const countLoadedSuccessAction = createAction(
+  "[Count] Count Loaded Success",
+  // ajax response
+  (count: number) => ({ payload: count })
+);
 export const countLoadedFailureAction = createAction("[Count] Count Loaded Failure");
 
 export interface AppState {
@@ -39,10 +43,9 @@ export const countReducer = createReducer(
   on(incrementAction, (state) => ({ count: state.count + 1 })),
   on(decrementAction, (state) => ({ count: state.count - 1 })),
   // effects
-  on(loadCountAction, (state) => ({ ...state })),
+  on(loadCountAction, (state) => ({ count: state.count })),
   on(countLoadedSuccessAction, (state, { payload }) => ({
-    ...state,
-    count: payload,
+    count: state.count + payload,
   })),
   on(countLoadedFailureAction, (_) => ({ count: 0 }))
 );
