@@ -11,10 +11,10 @@ npm i @ngrx/store-devtools
 npm i @ngrx/router-store
 ```
 
-## store/count.store.ts
+## store/count.feature.ts
 
 ```ts
-import { createAction, createReducer, createSelector, on, props } from "@ngrx/store";
+import { createFeature, createAction, createReducer, createSelector, on, props } from "@ngrx/store";
 
 export type CountState = {
   count: number;
@@ -36,15 +36,21 @@ export const countReducer = createReducer(
   on(decrementAction, (state) => ({ count: state.count - 1 }))
 );
 
-export const selectFeature = (state: AppState) => state.count;
-export const selectFeatureCount = createSelector(selectFeature, (state: CountState) => state.count);
+export const selectCount = (state: AppState) => state.count;
+export const countSelector = createSelector(selectCount, (selectedCount: CountState) => selectedCount.count);
+
+export const countFeatureKey = "count";
+export const countFeature = createFeature({
+  name: countFeatureKey,
+  reducer: countReducer,
+});
 ```
 
 ## app.config.ts
 
 ```ts
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(appRoutes), importProvidersFrom([StoreModule.forRoot({ count: countReducer })])],
+  providers: [provideStore(), provideState(countFeature), provideEffects(CountEffects)],
 };
 ```
 
@@ -52,7 +58,7 @@ export const appConfig: ApplicationConfig = {
 
 ```ts
 export class AppComponent implements OnInit {
-  count$ = this.store.select(selectFeatureCount);
+  count$ = this.store.select(countSelector);
   count = toSignal(this.count$);
   constructor(private readonly store: Store<AppState>) {}
   async ngOnInit() {}
