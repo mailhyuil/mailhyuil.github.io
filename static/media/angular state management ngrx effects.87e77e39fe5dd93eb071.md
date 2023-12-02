@@ -92,6 +92,6 @@ export class CountEffects {
 
 ```ts
 export const appConfig: ApplicationConfig = {
-  providers: [importProvidersFrom([StoreModule.forRoot({ count: countReducer }), EffectsModule.forRoot(CountEffects)])],
+  providers: [provideStore(), provideState(countFeature), provideEffects(CountEffects)],
 };
 ```
