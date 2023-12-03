@@ -41,21 +41,14 @@ formElement.onsubmit = async (e) => {
 > >
 > > > 서버에서 parse
 
-```
+```ts
 const submit = handleSubmit(async (body) => {
-    formData.append('title', body.title);
-    formData.append('content', body.content);
-    formData.append('category', body.category);
-    await useApi<ICreateWebPostDTO>('/web-post', {
-        method: 'POST',
-        body: formData,
-    });
-    navigateTo('/home-page/post');
+  formData.append("title", body.title);
+  formData.append("content", body.content);
+  formData.append("category", body.category);
+  await fetch<ICreateWebPostDTO>("/web-post", {
+    method: "POST",
+    body: formData,
+  });
 });
-```
-
-```vue
-<InputFileUploader
-  @update:model-value="formData.append('file', $event)"
-  name="file">참고 문서</InputFileUploader>
 ```
