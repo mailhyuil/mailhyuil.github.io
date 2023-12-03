@@ -27,7 +27,10 @@ export default class FileUploadComponent {
   onChange(event: any) {
     if (!event.target) return;
     const file = event.target.files[0];
-    if (!file) return;
+    if (!file) {
+      this.uploadingImageUrl = undefined;
+      return;
+    }
     this.uploadingImageUrl = URL.createObjectURL(file);
     this.formData.set("file", file);
   }
