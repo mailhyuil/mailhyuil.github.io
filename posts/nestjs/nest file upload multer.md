@@ -35,20 +35,16 @@ const submit = async () => {
 };
 ```
 
-## server
+## server UseInterceptors
 
 > server(nest)에서 FileInterceptor를 사용해 file 받기
 >
 > > multerOptions를 사용해 file을 어떻게 처리할 지 지정 ex) disk에 저장, s3에 저장 ... filtering
 
+### options
+
 ```ts
-import { Controller, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
-import { FileInterceptor } from "@nestjs/platform-express";
-import { MulterOptions } from "@nestjs/platform-express/multer/interfaces/multer-options.interface";
-import { existsSync, mkdirSync } from "fs";
-import { diskStorage } from "multer";
-import { UploadService } from "./upload.service";
-const options: MulterOptions = {
+export const diskStorageOptions: MulterOptions = {
   storage: diskStorage({
     destination: (request, file, callback) => {
       const uploadPath: string = "public";
@@ -65,14 +61,50 @@ const options: MulterOptions = {
     },
   }),
 };
+export const memoryStorageOptions: MulterOption = {
+  storage: memoryStorage(),
+};
+```
 
-@Controller("upload")
-export class UploadController {
-  constructor(private readonly uploadService: UploadService) {}
+### controller
+
+```ts
+import { Controller, Post, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common";
+import { FileFieldsInterceptor, FileInterceptor } from "@nestjs/platform-express";
+import { options } from "./multer-option";
+
+@Controller("file")
+export class FileController {
   @Post()
   @UseInterceptors(FileInterceptor("file", options))
-  async upload(@UploadedFile() file: Express.Multer.File) {
+  async uploadFile(@UploadedFile() file: Express.Multer.File) {
     console.log(file);
+  }
+
+  @Post("multiple")
+  @UseInterceptors(FileInterceptor("files", options))
+  async uploadFiles(@UploadedFiles() files: Express.Multer.File[]) {
+    console.log(files);
+  }
+
+  @Post("multiple-fields")
+  @UseInterceptors(
+    FileFieldsInterceptor(
+      [
+        { name: "file1", maxCount: 1 },
+        { name: "file2", maxCount: 1 },
+      ],
+      options
+    )
+  )
+  async uploadMultiFieldFiles(
+    @UploadedFiles()
+    files: {
+      file1: Express.Multer.File[];
+      file2: Express.Multer.File[];
+    }
+  ) {
+    console.log(files);
   }
 }
 ```
