@@ -6,20 +6,46 @@
 
 ```prisma
 model User {
-  id        Int      @id @default(uuid())
+  id        String      @id @default(uuid())
   name      String
   email     String
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  posts     Post[]
 }
 
 model UserEvent {
-  id        Int      @id @default(uuid())
+  id        String      @id @default(uuid())
   userId    Int
   type String
   data Json
   createdAt DateTime @default(now())
+
+  postEvents PostEvent[]
+}
+
+model Post {
+  id        Int      @id @default(uuid())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId    String
+}
+
+model PostEvent {
+  id        Int      @id @default(uuid())
+  postId    Int
+  type String
+  data Json
+  createdAt DateTime @default(now())
+
+  userEvent UserEvent @relation(fields: [userEventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userEventId String
 }
 ```
 
