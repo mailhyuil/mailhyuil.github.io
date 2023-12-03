@@ -4,7 +4,6 @@
 
 ```sh
 npm i class-transformer
-npm i reflect-metadata
 ```
 
 ## class-transformer
