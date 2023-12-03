@@ -15,11 +15,22 @@ npm i @nestjs/cache-manager cache-manager
 ### app.module.ts
 
 ```ts
-import { CacheModule, Module } from "@nestjs/common";
+import type { RedisClientOptions } from "redis";
+import * as redisStore from "cache-manager-redis-store";
+import { Module } from "@nestjs/common";
+import { CacheModule } from "@nestjs/cache-manager";
 import { AppController } from "./app.controller";
 
 @Module({
-  imports: [CacheModule.register()],
+  imports: [
+    CacheModule.register<RedisClientOptions>({
+      store: redisStore,
+
+      // Store-specific configuration:
+      host: "localhost",
+      port: 6379,
+    }),
+  ],
   controllers: [AppController],
 })
 export class AppModule {}
