@@ -2,6 +2,6 @@
 
 > curl, nslookup 사용 가능
 
-```
-praqma/network-multitool
+```sh
+k run net --image praqma/network-multitool
 ```
