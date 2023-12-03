@@ -58,8 +58,8 @@ services:
       - "80:80"
       - "443:443"
     restart: always
-    add-host:
+    extra_hosts:
       - "host.docker.internal:host-gateway"
 volumes:
-  postgres-data: "/data"
+  postgres-data: {}
 ```
