@@ -1,40 +1,58 @@
 # angular dynamic component
 
 > ng-template 의 위치에 viewContainerRef로 넣는 방법
-> ng-template 없이 그냥 생성하면 맨 뒤에 추가됨
+>
+> > ng-template 없이 그냥 생성하면 맨 뒤에 추가됨
 
-## html
+## component class로 참조
+
+```ts
+export class SomeComponent {
+  @ViewChild(FileUploadComponent) fileUploadComponent!: FileUploadComponent;
+  submit() {
+    this.fileUploadComponent.upload();
+  }
+}
+```
+
+## ViewContainerRef 사용
+
+```ts
+import { ViewContainerRef } from "@angular/core";
+export class SomeComponent {
+  constructor(private viewContainerRef: ViewContainerRef);
+
+  public addTable(): void {
+    const component = this.viewContainerRef.createComponent(MyComponent);
+    component.instance.title = "test";
+    component.setInput("value", "test");
+  }
+}
+```
+
+## ng-template 사용
+
+### html
 
 ```html
-<ng-template #viewContainerRef></ng-template>
+<ng-template #ele></ng-template>
 ```
 
-## ts
+### ts
 
 ```ts
-@ViewChild("viewContainerRef", { read: ViewContainerRef }) vcr!: ViewContainerRef;
-ref!: ComponentRef<YourChildComponent>
+export class SomeComponent {
+  @ViewChild("ele", { read: ViewContainerRef }) viewContainerRef!: ViewContainerRef;
 
-addChild() {
-  this.ref = this.vcr.createComponent(YourChildComponent)
-}
+  ref!: ComponentRef<YourChildComponent>;
 
-removeChild() {
-  const index = this.vcr.indexOf(this.ref.hostView)
-  if (index != -1) this.vcr.remove(index)
-}
-```
+  addChild() {
+    this.ref = this.viewContainerRef.createComponent(YourChildComponent);
+  }
 
-## ng-template 없이
-
-```ts
-import {ViewContainerRef} from '@angular/core';
-
-constructor(private viewContainerRef: ViewContainerRef)
-
-public addTable(): void {
-   const component = this.viewContainerRef.createComponent(MyComponent);
-   component.instance.title = 'test';
-   component.setInput('value', 'test');
+  removeChild() {
+    const index = this.viewContainerRef.indexOf(this.ref.hostView);
+    if (index != -1) this.viewContainerRef.remove(index);
+  }
 }
 ```
