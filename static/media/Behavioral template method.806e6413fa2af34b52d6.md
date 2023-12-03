@@ -32,11 +32,11 @@ abstract class AbstractClass {
 class ConcreteClass extends AbstractClass {
   // 추상 메소드 구현
   doOperation1() {
-    console.log('ConcreteClass is doing operation 1.');
+    console.log("ConcreteClass is doing operation 1.");
   }
 
   doOperation2() {
-    console.log('ConcreteClass is doing operation 2.');
+    console.log("ConcreteClass is doing operation 2.");
   }
 }
 
