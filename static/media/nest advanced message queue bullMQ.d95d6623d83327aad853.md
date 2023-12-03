@@ -7,5 +7,13 @@
 ## install
 
 ```sh
-npm i @nestjs/bull bull
+npm i bull
+npm i @nestjs/bull
+
+# redis 설치
+docker run --name redis -d -p 6379:6379 redis:latest
+
+# redis-cli
+npm i -g redis-cli
+rdcli -h localhost -p 6379
 ```

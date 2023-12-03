@@ -2,7 +2,7 @@
 
 ## types
 
-```
+```sh
 string
 # ordered
 list
@@ -18,7 +18,7 @@ json
 
 ## functions
 
-```
+```sh
 get()
 set()
 

@@ -16,4 +16,8 @@
 
 ## multipart/form-data (multer)
 
-> 여러 정보를 담을 수 있다. ex) 파일이름, 파일크기, 파일타입, 파일내용 등
+> multipart 타입은 application/x-www-form-urlencoded를 포함한 여러 타입을 한번에 보낼 수 있다.
+>
+> > new FormData()를 사용하면 자동으로 Content-Type: multipart/form-data로 전송할 수 있다.
+> >
+> > > File 객체를 FormData에 append하면 파일의 이름, 크기, 타입, 내용의 json이 생성된다.
