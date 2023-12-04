@@ -85,6 +85,7 @@ export default class SomeComponent {
   }
   doSomething(event: any) {
     const newValue = event.target.value;
+    this.valueAccessor.writeValue(newValue);
     this.valueAccessor.valueChange(newValue);
     this.valueAccessor.touchedChange(true);
   }
