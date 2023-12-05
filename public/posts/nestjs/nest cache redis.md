@@ -3,6 +3,8 @@
 > cache-manager는 기본으로 in-memory 캐시를 사용한다.
 >
 > > 높은 캐시 성능 및 확장성이 필요해질 때, redis, memcached 등의 외부 캐시 서버를 사용할 수 있다.
+> >
+> > > 만약 nestjs 서버를 여러개 운영한다면 redis를 사용해서 캐시를 공유해야 한다.
 
 ## install
 
