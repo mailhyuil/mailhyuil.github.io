@@ -1,4 +1,6 @@
-# redis cluster
+# redis redis.conf
+
+> /etc/redis/redis.conf 에 위치
 
 ## redis.conf
 
