@@ -19,6 +19,28 @@
   });
 ```
 
+## addFormGroup
+
+```ts
+addFormGroup() {
+  const formArray = this.formGroup.get('arr1') as FormArray;
+  formArray.push(
+    new FormGroup({
+      field1: new FormControl(),
+    }),
+  );
+}
+```
+
+## removeFormGroup
+
+```ts
+removeFormGroup(index: number) {
+  const formArray = this.formGroup.get('arr1') as FormArray;
+  formArray.removeAt(index);
+}
+```
+
 ## 마지막이 value가 아닌 controls!!
 
 ```html
