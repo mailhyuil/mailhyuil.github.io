@@ -1,12 +1,20 @@
 # Promise.all()
 
-> 병렬로 비동기 요청 보내기 (멀티 스레딩이 아님)
+> Promise.all은 병렬처리 시켜주는 기능이 아니다
 >
-> > 여러개의 await를 병렬로 처리할 수 있음
+> > 자바스크립트에서 비동기 함수는 async & await (또는 promise chaining)을 사용하지 않는 한 원래 병렬 처리된다
+> >
+> > > 즉 Promise.all은 여러개의 비동기 메소드를 await (blocking) 없이 처리해주는 기능 (결국 병렬 처리된다)
+> > >
+> > > > Promise.all은 하나의 비동기 메소드라도 실패하면 전부 다 실패 함
+> > > >
+> > > > > Promise.all로 트랜잭션을 구현하면 안된다 이유는 밑
+> > > > >
+> > > > > > 트랜잭션 구현 시 Promise.allSettled를 사용
 
-## 직렬
+## 직렬 (블로킹)
 
-> 느림
+> 앞의 작업이 끝나야 뒤의 작업이 실행됨
 >
 > > await를 순차적으로 나열하거나 for of 문을 사용하면 직렬
 
@@ -20,38 +28,19 @@ const data2 = await res2.json();
 
 ## 병렬
 
-> 빠름
+> Promise.all 또는 map 내에서 비동기 사용
 >
-> > forEach, map 내에서 await를 사용 혹은 Promise.all 하면 병렬로 처리
+> > forEach()는 동기적으로 동작하기 때문에, promise를 기다려주지 않는다
 
 ```ts
-const requests = urls.map((url) => fetch(url)); // return pending array
+const resArray = urls.map((url) => fetch(url));
 
-const [res1, res2] = await Promise.all(requests);
-const [data1, data2] = await Promise.all([res1.json(), res2.json()]);
-```
-
-# Promise.all()
-
-```ts
-const promises = views?.map((view) => {
-  return tx.webComplexView.create({ data: { ...view, webComplexId: updated.id } });
-});
-
-await Promise.all(promises);
-```
-
-or
-
-```ts
-await Promise.all(
-  views?.map((view) => {
-    return tx.webComplexView.create({ data: { ...view, webComplexId: updated.id } });
-  })
-);
+const resArray = await Promise.all([fetch(urls[0]), fetch(urls[1])]);
 ```
 
 ## 병렬 순차 처리
+
+> then을 사용해서 처리된 값을 순차 처리
 
 ```ts
 const requestList = [request("A"), request("B"), request("C")];
@@ -69,35 +58,5 @@ const arrFunc = arr.map((type) => request(type));
 
 for (const func of arrFunc) {
   console.log(await func);
-}
-```
-
-## wrong
-
-> ?. 사용
-
-```ts
-const promises = datas?.map((i) => {
-  return useApi(`web-name-change-application/${i.id}/hide`, {
-    method: "PATCH",
-  });
-});
-
-await Promise.all([promises]);
-```
-
-## correct
-
-> if로 null 체크
-
-```ts
-if (datas) {
-  const promises = datas.map((i) => {
-    return useApi(`web-name-change-application/${i.id}/hide`, {
-      method: "PATCH",
-    });
-  });
-
-  await Promise.all(promises);
 }
 ```
