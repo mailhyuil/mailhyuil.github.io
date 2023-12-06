@@ -19,7 +19,7 @@
   });
 ```
 
-# 마지막이 value가 아닌 controls!!
+## 마지막이 value가 아닌 controls!!
 
 ```html
 <div [formGroup]="formGroup">
