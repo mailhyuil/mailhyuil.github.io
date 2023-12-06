@@ -6,19 +6,7 @@
 ng add @angular/localize
 ```
 
-## 사용
-
-> i18n Attribute에
-
-```
-// in template
-<element i18n="{i18n_metadata}">{string_to_translate}</element>
-
-// in code
-$localize `string_to_translate`;
-```
-
-## 번역 파일
+## 번역 파일 생성
 
 > src/locale 디렉토리
 >
@@ -26,9 +14,13 @@ $localize `string_to_translate`;
 > >
 > > > messages.{locale}.xlf
 
+```sh
+ng extract-i18n [project-name]
+```
+
 ## 앱에 적용
 
-```
+```json
 "projects": {
     "angular.io-example": {
       // ...
@@ -38,6 +30,14 @@ $localize `string_to_translate`;
           "fr": {
             "translation": "src/locale/messages.fr.xlf",
             // ...
+          },
+          "ko": {
+            "translation": "src/locale/messages.ko.xlf",
+            // ...
+          },
+          "en": {
+            "translation": "src/locale/messages.en.xlf",
+            // ...
           }
         }
       },
@@ -46,5 +46,19 @@ $localize `string_to_translate`;
       }
     }
   }
-}
+```
+
+## 사용
+
+### html
+
+```
+<p i18n="{i18n_metadata}"> {string_to_translate} </p>
+<p i18n> Hello, World! </p>
+```
+
+### ts
+
+```ts
+const message = $localize`string_to_translate`;
 ```
