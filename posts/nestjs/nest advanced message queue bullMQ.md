@@ -7,6 +7,10 @@
 > > > 서버 부하가 많은 작업의 경우 MQ에 저장해두고 한번에 처리할 수 있는 양만큼만 가져와서 처리한다.
 > > >
 > > > > @Process는 별도의 worker로 실행된다.
+> > > >
+> > > > > redis서버가 다운된 상태에서는 메세지가 in-memory에 저장된다. (메세지를 processor가 처리하지 않는다)
+> > > > >
+> > > > > > redis서버가 다시 가동되면 in-memory에 저장된 메세지를 처리한다.
 
 ## install
 
@@ -43,6 +47,8 @@ export class AppModule {}
 
 ## audio.module.ts
 
+> registerQueue가 된 모듈에서만 @InjectQueue를 사용할 수 있다.
+
 ```ts
 import { BullModule } from "@nestjs/bull";
 import { Module } from "@nestjs/common";
@@ -63,6 +69,8 @@ export class AudioModule {}
 
 ## audio.processor.ts
 
+> @Process에 반드시 name을 지정해야한다.
+
 ```ts
 import { Process, Processor } from "@nestjs/bull";
 import { Logger } from "@nestjs/common";
@@ -72,7 +80,10 @@ import { Job } from "bull";
 export class AudioProcessor {
   private readonly logger = new Logger(AudioProcessor.name);
 
-  @Process("transcode")
+  @Process({
+    name: "transcode",
+    concurrency: 5,
+  })
   transcode(job: Job) {
     this.logger.debug("Start transcoding...");
     this.logger.debug(job.data);
