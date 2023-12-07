@@ -3,6 +3,7 @@
 ## install
 
 ```bash
+################ 필수 패키지 #####################
 npm i dotenv
 npm i class-validator
 npm i class-transformer
@@ -14,45 +15,56 @@ npm i morgan
 # prisma
 npm i @prisma/client
 npm i -D prisma
+# jwt
+npm i @nestjs/jwt
+# cookie
+npm i cookie-parser
+npm i -D @types/cookie-parser
 # openapi
 npm i @nestjs/swagger
 npm i ng-openapi-gen
 npm i json-schema-ref-parser
-# event
-npm i @nestjs/event-emitter
+# date
+npm i dayjs
+# http
+npm i axios
+npm i @nestjs/axios
+# lodash
+npm i lodash-es
+npm i -D @types/lodash-es
 # rate limit
 npm i @nestjs/throttler
-# schedule
-npm i @nestjs/schedule
 # in-memory cache
 npm i @nestjs/cache-manager
 npm i cache-manager
 # web cache
 npm i etag
 npm i -D @types/etag
-# http
-npm i axios
-npm i @nestjs/axios
-# jwt
-npm i @nestjs/jwt
-# cookie
-npm i cookie-parser
-npm i -D @types/cookie-parser
-# session
-npm i express-session
-npm i -D @types/express-session
-# CSRF
-npm i csurf
-# date
-npm i dayjs
+
+################ 선택적 패키지 #####################
+
+# message queue
+npm i bull
+npm i @nestjs/bull
+# event
+npm i @nestjs/event-emitter
+# schedule
+npm i @nestjs/schedule
+# file upload
+npm i -D @types/multer
 # image optimize
 npm i sharp
 npm i -D @types/sharp
-# file upload
-npm i -D @types/multer
-# lodash
-npm i lodash-es
-npm i -D @types/lodash-es
+# session
+npm i express-session
+npm i -D @types/express-session
+# aws-sdk
+npm i aws-sdk
+npm i @aws-sdk/client-s3
+npm i multer-s3
+
+# CSRF
+# npm i csurf
 
 # config
 # npm i @nestjs/config
