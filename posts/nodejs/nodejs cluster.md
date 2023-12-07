@@ -1,6 +1,8 @@
 # nodejs cluster
 
-> 클러스터는 Node에서 제공되는 코어 모듈의 일부로, CPU의 코어 수보다 한 개 적은 수 -하나는 마스터 프로세스가 되어야 하기 때문- 의 워커 프로세스를 생성하여, 각기 다른 프로세스에서 코드가 실행되도록 도와줍니다.
+> 멀티 프로세싱을 구현하기 위한 모듈
+>
+> > 마스터 프로세스 CORE를 제외한 나머지 CORE 만큼의 워커 프로세스를 생성하여, 각기 다른 프로세스에서 코드가 실행되도록 도와줍니다.
 
 ## 사용
 
@@ -15,18 +17,22 @@ const cluster = require("cluster");
 const process = require("process");
 
 if (cluster.isPrimary) {
+  // 마스터 프로세스
   console.log(`Main ${process.pid} is running`);
   cluster.fork(); // worker 생성
   for (let i = 0; i < 1000000; i++) {
     console.log("i'm a main! nice to meet you!");
   }
 } else {
+  // 워커 프로세스
   console.log(`Worker ${process.pid} started`);
   for (let i = 0; i < 1000000; i++) {
     console.log("i'm a worker! nice to meet you!");
   }
 }
 ```
+
+## 스케줄링 정책
 
 ```js
 const cluster = require("cluster");

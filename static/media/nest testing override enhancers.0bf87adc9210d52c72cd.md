@@ -15,9 +15,12 @@ describe("CatsController", () => {
 
   beforeEach(async () => {
     const moduleRef = await Test.createTestingModule({
-      controllers: [CatsController],
-      providers: [CatsService],
-    }).compile();
+      imports: [AppModule],
+    })
+      // JwtAuthGuard를 MockAuthGuard로 대체
+      .overrideProvider(JwtAuthGuard)
+      .useClass(MockAuthGuard)
+      .compile();
 
     catsService = moduleRef.get<CatsService>(CatsService);
     catsController = moduleRef.get<CatsController>(CatsController);
