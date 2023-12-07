@@ -40,7 +40,7 @@ docker exec 컨테이너_이름
 # ex) docker exec -it mysql mysql -uroot
 # -it 옵션은 터미널과 컨테이너가 지속적으로 연결되도록 하는 옵션
 
-# bash로 접속하기
+# 컨테이너 명령어 실행
 docker exec 컨테이너_이름 /bin/bash
 
 # 접속
