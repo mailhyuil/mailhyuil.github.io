@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.e3d3c4f5.js",
+    "main.js": "/static/js/main.057de5a1.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.0931ebc63afc6acc09b2.md",
@@ -2190,6 +2190,7 @@
     "static/media/번역.md": "/static/media/번역.31d6cfe0d16ae931b73c.md",
     "static/media/비밀번호 찾기.md": "/static/media/비밀번호 찾기.31d6cfe0d16ae931b73c.md",
     "static/media/사용자 대기열.md": "/static/media/사용자 대기열.31d6cfe0d16ae931b73c.md",
+    "static/media/사용자 데이터 수집.md": "/static/media/사용자 데이터 수집.31d6cfe0d16ae931b73c.md",
     "static/media/사용자 설정.md": "/static/media/사용자 설정.31d6cfe0d16ae931b73c.md",
     "static/media/사용자 피드백.md": "/static/media/사용자 피드백.31d6cfe0d16ae931b73c.md",
     "static/media/상단고정.md": "/static/media/상단고정.31d6cfe0d16ae931b73c.md",
@@ -2203,6 +2204,7 @@
     "static/media/실시간 업데이트.md": "/static/media/실시간 업데이트.31d6cfe0d16ae931b73c.md",
     "static/media/알림.md": "/static/media/알림.31d6cfe0d16ae931b73c.md",
     "static/media/업적.md": "/static/media/업적.31d6cfe0d16ae931b73c.md",
+    "static/media/연동.md": "/static/media/연동.31d6cfe0d16ae931b73c.md",
     "static/media/예약.md": "/static/media/예약.31d6cfe0d16ae931b73c.md",
     "static/media/온라인 상태 표시.md": "/static/media/온라인 상태 표시.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
@@ -2248,10 +2250,10 @@
     "static/media/해시태그.md": "/static/media/해시태그.31d6cfe0d16ae931b73c.md",
     "static/media/활동 로그.md": "/static/media/활동 로그.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.e3d3c4f5.js.map": "/static/js/main.e3d3c4f5.js.map"
+    "main.057de5a1.js.map": "/static/js/main.057de5a1.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.e3d3c4f5.js"
+    "static/js/main.057de5a1.js"
   ]
 }
