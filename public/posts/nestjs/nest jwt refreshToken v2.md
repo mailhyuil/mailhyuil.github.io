@@ -7,10 +7,10 @@
 ## env
 
 ```sh
-JWT_ACCESS_TOKEN_SECRET=asdfasdf
-JWT_ACCESS_TOKEN_EXPIRATION_TIME=30
-JWT_REFRESH_TOKEN_SECRET=fdafdsasdf
-JWT_REFRESH_TOKEN_EXPIRATION_TIME=30
+JWT_ACCESS_TOKEN_SECRET=VERY_SECRET_ACCESS_TOKEN
+JWT_ACCESS_TOKEN_EXPIRATION_TIME=3600 # 1시간
+JWT_REFRESH_TOKEN_SECRET=VERY_SECRET_REFRESH_TOKEN
+JWT_REFRESH_TOKEN_EXPIRATION_TIME=2592000 # 30일
 ```
 
 ## UserService
@@ -22,15 +22,45 @@ import * as bcrypt from 'bcrypt';
 @Injectable()
 export class UserService {
   constructor(private readonly prisma:PrismaService){}
-  async setCurrentRefreshToken(refreshToken: string, userId: number) {
+  async setCurrentRefreshToken(refreshToken: string, userId: string) {
+
     const currentHashedRefreshToken = await bcrypt.hash(refreshToken, 10);
-    await this.usersRepository.update(userId, {
-      currentHashedRefreshToken
-    });
+
     this.prisma.user.update({
       where: { id: userId },
       data: { refreshToken: currentHashedRefreshToken }
     })
+  }
+}
+```
+
+## AuthController
+
+```js
+import {
+  Req,
+  Controller,
+  HttpCode,
+  Post,
+  UseGuards,
+  ClassSerializerInterceptor, UseInterceptors,
+} from '@nestjs/common';
+import { AuthService } from './auth.service';
+
+@Controller('auth')
+export class AuthController {
+  constructor(
+    private readonly authService: AuthService
+  ) {}
+
+  @Auth()
+  @Post('login')
+  async login(@Body() body: LoginDto, @GetUser() user: User, @Res() res: Response) {
+    const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.id);
+    const refreshTokenCookie = this.authService.getCookieWithJwtRefreshToken(user.id);
+    await this.usersService.setCurrentRefreshToken(refreshToken, user.id);
+    res.setHeader('Set-Cookie', [accessTokenCookie, refreshTokenCookie]);
+    return user;
   }
 }
 ```
@@ -49,7 +79,6 @@ export class AuthService {
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
   ) {}
-
   public getCookieWithJwtAccessToken(userId: number) {
     const payload: TokenPayload = { userId };
     const token = this.jwtService.sign(payload, {
@@ -74,34 +103,62 @@ export class AuthService {
 }
 ```
 
-## AuthController
+## guard
 
-```js
-import {
-  Req,
-  Controller,
-  HttpCode,
-  Post,
-  UseGuards,
-  ClassSerializerInterceptor, UseInterceptors,
-} from '@nestjs/common';
-import { AuthService } from './authentication.service';
-import RequestWithUser from './requestWithUser.interface';
+```ts
+import { Injectable, ExecutionContext } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
 
-@Controller('authentication')
-export class AuthController {
-  constructor(
-    private readonly authService: AuthService
-  ) {}
-  @UseGuards(AuthGuard)
-  @Post('log-in')
-  async logIn(@Req() request: RequestWithUser) {
-    const {user} = request;
-    const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.id);
-    const refreshTokenCookie = this.authService.getCookieWithJwtRefreshToken(user.id);
-    await this.usersService.setCurrentRefreshToken(refreshToken, user.id);
-    request.res.setHeader('Set-Cookie', [accessTokenCookie, refreshTokenCookie]);
+@Injectable()
+export class JwtAuthGuard extends AuthGuard("jwt") {
+  canActivate(context: ExecutionContext) {
+    // 추가적인 인증 로직을 적용할 수 있습니다.
+    return super.canActivate(context);
+  }
+
+  handleRequest(err: any, user: any, info: any) {
+    // 에러 처리를 위한 로직을 추가할 수 있습니다.
+    if (err || !user) {
+      throw err || new UnauthorizedException();
+    }
     return user;
+  }
+
+  getRequest(context: ExecutionContext) {
+    const ctx = context.switchToHttp();
+    const request = ctx.getRequest();
+    return request;
+  }
+
+  getTokenFromCookie(request: any): string | null {
+    if (request && request.cookies) {
+      return request.cookies["Authentication"];
+    }
+    if
+    return null;
+  }
+
+  getRefreshTokenFromCookie(request: any): string | null {
+    if (request && request.cookies) {
+      return request.cookies["Refresh"];
+    }
+    return null;
+  }
+
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const request = this.getRequest(context);
+    const token = this.getTokenFromCookie(request);
+    if (!token) {
+      const refreshToken = this.getRefreshTokenFromCookie(request);
+      if (!refreshToken) {
+        return false;
+      }
+    }
+
+    // JWT 검증을 수행하고 유효한지 확인하는 로직
+    request.jwtToken = token; // 옵션: 요청에 토큰을 저장할 수 있습니다.
+
+    return true;
   }
 }
 ```

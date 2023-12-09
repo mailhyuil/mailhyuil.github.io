@@ -18,7 +18,7 @@ const routes: Routes = [
 ];
 
 @Module({
-  imports: [RouterModule.register(routes), PostModule], // Module 추가
+  imports: [RouterModule.register(routes)], // Module 추가
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
@@ -30,6 +30,7 @@ export class AppRoutingModule {}
 @Module({
   imports: [
     AppRoutingModule,
+    PostModule
   ],
 })
 ```

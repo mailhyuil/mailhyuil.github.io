@@ -2,39 +2,43 @@
 
 ## tailwind.config.js
 
-```
+```js
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
 };
 ```
 
-## class
+## html
 
-```
+> dark: 사용
+
+```html
 <div class="dark:bg-gray-800 text-white"></div>
 ```
 
-## set
-
-### init
+## OnInit
 
 ```ts
-if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+if (
+  localStorage.getItem("my-app-theme") === "dark" ||
+  (!("my-app-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
   document.documentElement.classList.add("dark");
 } else {
   document.documentElement.classList.remove("dark");
 }
 ```
 
-### 버튼 logic
+## dark-mode button
 
 ```ts
-  setDarkMode() {
-    localStorage.setItem('theme', 'dark');
+  darkMode() {
+    localStorage.setItem('my-app-theme', 'dark');
     document.documentElement.classList.add('dark');
   }
-  setLightMode() {
-    localStorage.setItem('theme', 'light');
+
+  lightMode() {
+    localStorage.setItem('my-app-theme', 'light');
     document.documentElement.classList.remove('dark');
   }
 ```

@@ -27,7 +27,8 @@ import { Cron, Interval, Timeout } from "@nestjs/schedule";
 export class TasksService {
   private readonly logger = new Logger(TasksService.name);
 
-  @Cron("45 * * * * *")
+  // @Cron("45 * * * * *")
+  @Cron(CronExpression.EVERY_45_SECONDS)
   handleCron() {
     this.logger.debug("Called when the second is 45");
   }
