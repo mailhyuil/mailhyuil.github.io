@@ -1,7 +1,0 @@
-# OAuth
-
-## prisma
-
-```prisma
-
-```
