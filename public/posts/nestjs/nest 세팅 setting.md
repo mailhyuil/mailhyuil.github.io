@@ -34,7 +34,7 @@ npm i lodash-es
 npm i -D @types/lodash-es
 # rate limit
 npm i @nestjs/throttler
-# in-memory cache
+# server cache
 npm i @nestjs/cache-manager
 npm i cache-manager
 # web cache

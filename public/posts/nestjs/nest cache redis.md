@@ -9,7 +9,11 @@
 ## install
 
 ```sh
-npm i @nestjs/cache-manager cache-manager
+# 버전 호환성을 위해 각각의 버전을 설치해야 한다.
+npm i @nestjs/cache-manager
+npm i cache-manager@^4.0.0 # 4.0.0
+npm i redis@^3.0.0 # 3.0.0
+npm i cache-manager-redis-store@^2.0.0 # 2.0.0
 ```
 
 ## 사용
@@ -26,8 +30,8 @@ import { AppController } from "./app.controller";
 @Module({
   imports: [
     CacheModule.register<RedisClientOptions>({
+      isGlobal: true,
       store: redisStore,
-      // Store-specific configuration:
       host: "localhost",
       port: 6379,
     }),

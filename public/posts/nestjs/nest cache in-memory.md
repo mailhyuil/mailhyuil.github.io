@@ -21,7 +21,11 @@ import { CacheModule, Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 
 @Module({
-  imports: [CacheModule.register()],
+  imports: [
+    CacheModule.register({
+      isGlobal: true,
+    }),
+  ],
   controllers: [AppController],
 })
 export class AppModule {}
@@ -30,6 +34,9 @@ export class AppModule {}
 ### app.controller.ts
 
 ```ts
+import { CACHE_MANAGER } from "@nestjs/cache-manager";
+import { Cache } from "cache-manager";
+
 @Controller()
 export class AppController {
   constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}

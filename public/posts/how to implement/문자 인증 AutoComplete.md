@@ -1,4 +1,4 @@
-# html autocomplete
+# 문자 인증 AutoComplete
 
 ## one-time-code
 
@@ -8,7 +8,7 @@
 
 ## navigator.credentials.get
 
-```js
+```ts
 if ("OTPCredential" in window) {
   const input = document.getElementById("code");
   if (!input) return;
