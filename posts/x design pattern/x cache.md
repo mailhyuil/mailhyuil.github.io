@@ -6,7 +6,7 @@
 
 ## cache-through
 
-```
+```ts
 class Cache {
   constructor() {
     this.cache = {};
@@ -27,8 +27,8 @@ class Cache {
 
 // Example usage
 const cache = new Cache();
-cache.set('foo', 'bar');
-console.log(cache.get('foo')); // Output: 'bar'
-cache.remove('foo');
-console.log(cache.get('foo')); // Output: undefined
+cache.set("foo", "bar");
+console.log(cache.get("foo")); // Output: 'bar'
+cache.remove("foo");
+console.log(cache.get("foo")); // Output: undefined
 ```
