@@ -46,18 +46,33 @@ npm i -D @types/etag
 # message queue
 npm i bull
 npm i @nestjs/bull
+
 # event
 npm i @nestjs/event-emitter
+
+# websocket-server
+npm i @nestjs/websockets
+npm i @nestjs/platform-socket.io
+# websocket-client
+npm i ngx-socket-io
+# npm i socket.io
+# npm i socket.io-client
+# npm i @types/socket.io
+
 # schedule
 npm i @nestjs/schedule
+
 # file upload
 npm i -D @types/multer
+
 # image optimize
 npm i sharp
 npm i -D @types/sharp
+
 # session
 npm i express-session
 npm i -D @types/express-session
+
 # aws-sdk
 npm i aws-sdk
 npm i @aws-sdk/client-s3

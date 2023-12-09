@@ -3,7 +3,8 @@
 ## install
 
 ```sh
-npm i @nestjs/websockets @nestjs/platform-socket.io
+npm i @nestjs/websockets
+npm i @nestjs/platform-socket.io
 ```
 
 ## 사용
