@@ -41,28 +41,40 @@ import { redisProvider } from "./redis.provider";
   providers: [...redisProvider],
   exports: [...redisProvider],
 })
-export class RedisModule {}
+export class RedisModule implements OnModuleDestroy {
+  constructor(@Inject(REDIS_CLIENT) private readonly redis: RedisClientType) {}
+
+  onModuleDestroy() {
+    this.redis.quit();
+  }
+}
 ```
 
-## controller
+## redis.service.ts
 
 ```ts
 import { Inject } from "@nestjs/common";
 import { RedisClientType } from "redis";
 import REDIS_CLIENT from "./redis.provider";
 
-export class SomeController {
+@Injectable()
+export class RedisService {
   constructor(
     @Inject(REDIS_CLIENT)
     private readonly redis: RedisClientType
   ) {}
 
-  @Get()
-  async findAll(): Promise<string> {
-    await this.redis.set("key", "value");
-    const value = await this.redis.get("key");
-    await this.redis.del("key");
-    return value;
+  get(key: string) {
+    return this.redis.get(key);
+  }
+  set(key: string, value: any) {
+    return this.redis.set(key, value);
+  }
+  del(key: string) {
+    return this.redis.del(key);
+  }
+  ping() {
+    return this.redis.ping();
   }
 }
 ```
