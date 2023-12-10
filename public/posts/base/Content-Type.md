@@ -1,95 +1,58 @@
-# Content-Type & MIME
+# Content-Type
 
-## 1) Multipart Related MIME 타입
+## application
 
-- Content-Type: Multipart/related <-- 기본형태
+```sh
+Content-Type: application/json # json
+Content-Type: application/javascript # javascript IE8 이하는 지원하지 않음
+Content-Type: application/octet-stream : # stream 형태
+Content-Type: application/x-www-form-urlencode # HTML Form 형태
+Content-Type: application/xml # xml
+# x-www-form-urlencode와 multipart/form-data은 둘다 폼 형태이지만
+# x-www-form-urlencode은 대용량 바이너리 테이터를 전송하기에 비능률적이기 때문에
+# 대부분 첨부파일은 multipart/form-data를 사용하게 된다.
+```
 
-- Content-Type: Application/X-FixedRecord
+## text
 
-## 2) XML Media의 타입
+```sh
+Content-Type: text/css
+Content-Type: text/html
+Content-Type: text/javascript
+Content-Type: text/plain
+Content-Type: text/xml
+```
 
-- Content-Type: text/xml
+## multipart
 
-- Content-Type: Application/xml
+```sh
+Content-Type: multipart/formed-data # 파일 첨부
+Content-Type: multipart/mixed # email
+Content-Type: multipart/related # email
+```
 
-- Content-Type: Application/xml-external-parsed-entity
+## file
 
-- Content-Type: Application/xml-dtd
+```sh
+Content-Type: application/pdf # pdf
+Content-Type: application/zip # zip
+Content-Type: application/msword # doc
+Content-Type: application/vnd.ms-excel # xls
+```
 
-- Content-Type: Application/mathtml+xml
+## image
 
-- Content-Type: Application/xslt+xml
+```sh
+Content-Type: image/gif # gif
+Content-Type: image/jpeg # jpeg, jpg, jpe
+Content-Type: image/png # png
+Content-Type: image/tiff # tiff, tif
+Content-Type: image/x-icon # ico
+Content-Type: image/svg+xml # svg
+```
 
-## 3) Application의 타입
+## audio
 
-- Content-Type: Application/EDI-X12 <-- Defined in RFC 1767
-
-- Content-Type: Application/EDIFACT <-- Defined in RFC 1767
-
-- Content-Type: Application/javascript <-- Defined in RFC 4329
-
-- Content-Type: Application/octet-stream : <-- 디폴트 미디어 타입은 운영체제 종종 실행파일, 다운로드를 의미
-
-- Content-Type: Application/ogg <-- Defined in RFC 3534
-
-- Content-Type: Application/x-shockwave-flash <-- Adobe Flash files
-
-- Content-Type: Application/json <-- JavaScript Object Notation JSON; Defined in RFC 4627
-
-- Content-Type: Application/x-www-form-urlencode <-- HTML Form 형태
-
-* x-www-form-urlencode와 multipart/form-data은 둘다 폼 형태이지만 x-www-form-urlencode은 대용량 바이너리 테이터를 전송하기에 비능률적이기 때문에 대부분 첨부파일은 multipart/form-data를 사용하게 된다.
-
-## 4) 오디오 타입
-
-- Content-Type: audio/mpeg <-- MP3 or other MPEG audio
-
-- Content-Type: audio/x-ms-wma <-- Windows Media Audio;
-
-- Content-Type: audio/vnd.rn-realaudio <-- RealAudio; 등등
-
-## 5) Multipart 타입
-
-- Content-Type: multipart/mixed: MIME E-mail;
-
-- Content-Type: multipart/alternative: MIME E-mail;
-
-- Content-Type: multipart/related: MIME E-mail <-- Defined in RFC 2387 and used by MHTML(HTML mail)
-
-- Content-Type: multipart/formed-data <-- 파일 첨부
-
-## 6) TEXT 타입
-
-- Content-Type: text/css
-
-- Content-Type: text/html
-
-- Content-Type: text/javascript
-
-- Content-Type: text/plain
-
-- Content-Type: text/xml
-
-## 7) file 타입
-
-- Content-Type: application/msword <-- doc
-
-- Content-Type: application/pdf <-- pdf
-
-- Content-Type: application/vnd.ms-excel <-- xls
-
-- Content-Type: application/x-javascript <-- js
-
-- Content-Type: application/zip <-- zip
-
-- Content-Type: image/jpeg <-- jpeg, jpg, jpe
-
-- Content-Type: text/css <-- css
-
-- Content-Type: text/html <-- html, htm
-
-- Content-Type: text/plain <-- txt
-
-- Content-Type: text/xml <-- xml
-
-- Content-Type: text/xsl <-- xsl
+```sh
+Content-Type: audio/mpeg # MP3 or other MPEG audio
+```
