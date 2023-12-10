@@ -2,6 +2,8 @@
 
 > 파일을 in-memory에 저장하지 않고 바로 스트림으로 읽어서 처리할거라면 busboy를 사용하는 것이 좋다.
 >
+> > 파일을 업로드하면 nestjs를 거쳐서 스토리지(S3)로 바로 전송하는 경우
+>
 > > multer도 내부적으로 busboy를 사용한다.
 
 ## install
@@ -34,6 +36,23 @@ export class FileController {
         console.log(data); // stream data
       });
     });
+  }
+}
+```
+
+## s3 upload
+
+```ts
+import { Readable } from "stream";
+export class S3Service {
+  constructor(private readonly s3: S3) {}
+  async uploadStreamToS3(stream: Readable, filename: string) {
+    const params = {
+      Bucket: "bucket-name",
+      Key: s3Key,
+      Body: stream, // stream으로 업로드
+    };
+    return this.s3.upload(params).promise();
   }
 }
 ```
