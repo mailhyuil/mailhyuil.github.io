@@ -9,5 +9,16 @@ npm install --save video.js
 ## 사용
 
 ```js
+import videojs from "video.js";
 
+const player = videojs("my-video", {
+  autoplay: true,
+  controls: true,
+  sources: [
+    {
+      src: "https://vjs.zencdn.net/v/oceans.mp4",
+      type: "video/mp4",
+    },
+  ],
+});
 ```

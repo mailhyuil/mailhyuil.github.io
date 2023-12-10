@@ -12,10 +12,6 @@ npm i -D @types/etag
 ## Interceptor 구현
 
 ```ts
-/*
-https://docs.nestjs.com/interceptors#interceptors
-*/
-
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from "@nestjs/common";
 import etag from "etag";
 import { Observable } from "rxjs";
@@ -42,7 +38,18 @@ export class EtagInterceptor implements NestInterceptor {
 }
 ```
 
-## app.module.ts
+## custom decorator로 사용
+
+```ts
+import { UseInterceptors, applyDecorators } from "@nestjs/common";
+import { EtagInterceptor } from "../interceptors/etag.interceptor";
+
+export function Etag() {
+  return applyDecorators(UseInterceptors(EtagInterceptor));
+}
+```
+
+## 전역 사용
 
 ```ts
 providers: [
