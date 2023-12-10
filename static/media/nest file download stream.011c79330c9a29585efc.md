@@ -1,6 +1,8 @@
 # nest file download stream
 
 > stream을 사용하면 파일을 in-memory에 저장하지 않고 바로 스트림으로 읽어서 처리할 수 있다.
+>
+> > Content-Type: application/octet-stream 으로 보내진다.
 
 ## stream 사용
 

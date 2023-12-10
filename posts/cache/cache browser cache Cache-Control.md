@@ -1,12 +1,10 @@
-# browser cache
+# cache browser Cache-Control
 
 > 캐시 명령을 내리는 주체는 API 서버다!
-
-## Cache-Control
-
-> 응답헤더
 >
-> > 클라이언트 - 프록시 - 서버 구조에서는 요청헤더로도 가능
+> > 응답헤더에 Cache-Control을 넣어서 캐시를 제어한다.
+> >
+> > > 클라이언트 - 프록시 - 서버 구조에서는 요청헤더로도 가능
 
 ```sh
 max-age # 받은 시간부터 유효시간 (정확한 시간을 지정하려면 Expires헤더 사용)
@@ -26,18 +24,9 @@ min-refresh
 immutable
 ```
 
-## Age
+## 사용
 
-> 캐시된 시간
-
-## Vary
-
-> 사용자에 따라 다른 응답을 보내줄 때 사용한다.
->
-> > 사용하지 않을 것을 권장한다.
-
-## Pragma
-
-> Cache-Control : no-cache 와 같은 기능을 한다
->
-> > HTTP/1.0 에서 사용
+```sh
+# 브라우저에만 10초동안 캐시하고 서버에 etag 검증을 받도록 한다.
+Cache-Control: public, max-age=10, must-revalidate
+```
