@@ -8,8 +8,5 @@
 
 ```ts
 readFile(join(__dirname, "assets", "hello.txt"), "utf8");
-
 createReadStream(join(__dirname, "assets", "hello.txt"));
-
-fetch("http://localhost:3000/footer.json");
 ```

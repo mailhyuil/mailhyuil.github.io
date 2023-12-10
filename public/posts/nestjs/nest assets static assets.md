@@ -20,7 +20,7 @@ async function bootstrap() {
 
 ## project.json
 
-> public 폴더도 dist에 포함시키기
+> public 폴더를 dist에 포함시키기
 
 ```
 "assets": ["apps/server/src/assets", "apps/server/src/public"],
