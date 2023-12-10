@@ -22,7 +22,7 @@ export const redisProvider = [
     provide: REDIS_CLIENT,
     useFactory: async () => {
       const client = createClient({
-        url: "redis://172.18.10.11:6379",
+        url: "redis://localhost:6379",
       });
       await client.connect();
       return client;
@@ -36,10 +36,17 @@ export const redisProvider = [
 ```ts
 import { Module } from "@nestjs/common";
 import { redisProvider } from "./redis.provider";
+import { RedisClientType } from "redis";
+import { OnModuleDestroy } from "@nestjs/common/interfaces";
+import { Inject } from "@nestjs/common";
+import { REDIS_CLIENT } from "./redis.provider";
+import { Global } from "@nestjs/common";
+import { RedisService } from "./redis.service";
 
+@Global()
 @Module({
-  providers: [...redisProvider],
-  exports: [...redisProvider],
+  providers: [redisProvider, RedisService],
+  exports: [RedisService],
 })
 export class RedisModule implements OnModuleDestroy {
   constructor(@Inject(REDIS_CLIENT) private readonly redis: RedisClientType) {}
@@ -53,26 +60,50 @@ export class RedisModule implements OnModuleDestroy {
 ## redis.service.ts
 
 ```ts
-import { Inject } from "@nestjs/common";
-import { RedisClientType } from "redis";
-import REDIS_CLIENT from "./redis.provider";
+import { Inject, Injectable } from "@nestjs/common";
+import { REDIS_CLIENT, RedisClient } from "./redis.provider";
 
 @Injectable()
 export class RedisService {
   constructor(
     @Inject(REDIS_CLIENT)
-    private readonly redis: RedisClientType
+    private readonly redis: RedisClient
   ) {}
 
   get(key: string) {
     return this.redis.get(key);
   }
-  set(key: string, value: any) {
-    return this.redis.set(key, value);
+
+  async set(key: string, value: any, ttl?: number) {
+    const res = await this.redis.set(key, value); /// 성공: OK, 실패: null
+    this.redis.expire(key, ttl || 10); /// default 10 seconds /// expire는 set 이후에 실행되어야 함
+    return res;
   }
+
+  mGet(keys: string[]) {
+    return this.redis.mGet(keys);
+  }
+
+  mSet(keyValues: string[]) {
+    return this.redis.mSet(keyValues);
+  }
+
+  hGet(key: string, field: string) {
+    return this.redis.hGet(key, field);
+  }
+
+  hSet(key: string, field: string, value: any) {
+    return this.redis.hSet(key, field, value);
+  }
+
+  hDel(key: string, field: string) {
+    return this.redis.hDel(key, field);
+  }
+
   del(key: string) {
     return this.redis.del(key);
   }
+
   ping() {
     return this.redis.ping();
   }
