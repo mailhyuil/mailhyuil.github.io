@@ -9,9 +9,7 @@ npm i socket.io-client // 프론트엔드 서버
 npm i socket.io // 백엔드 서버
 ```
 
-## 사용법
-
-### 백엔드
+## 백엔드
 
 ```js
 const server = app.listen(config.host.port);
@@ -32,7 +30,7 @@ wsServer.on("connection", (socket) => {
 });
 ```
 
-### socket.join()
+## socket.join()
 
 > chat room을 구현할 수 있는 기능
 
@@ -52,8 +50,7 @@ wsServer.on("connection", (socket) => {
 });
 ```
 
-````
-### 프론트엔드
+## 프론트엔드
 
 ```js
 const socket = io(SERVER_URL);
@@ -65,4 +62,4 @@ socket.emit("my-event", { payload: "value" }, (response) => {
 socket.on("my-event", (msg) => {
   console.log(msg);
 });
-````
+```

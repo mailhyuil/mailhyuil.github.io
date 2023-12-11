@@ -6,9 +6,7 @@
 npm i ws
 ```
 
-## 사용법
-
-### 백엔드
+## 백엔드
 
 ```js
 import WebSocket from "ws";
@@ -34,7 +32,7 @@ wsServer.on("connection", (socket) => {
 });
 ```
 
-### 프론트엔드
+## 프론트엔드
 
 ```js
 const socket = new WebSocket(`ws://${window.location.host}`);

@@ -6,6 +6,6 @@
 
 ## 사용법
 
-```
-const zlib = reauire('zlib')
+```js
+const zlib = reauire("zlib");
 ```
