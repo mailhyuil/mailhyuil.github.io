@@ -29,8 +29,6 @@ const data2 = await res2.json();
 ## 병렬
 
 > Promise.all 또는 map 내에서 비동기 사용
->
-> > forEach()는 동기적으로 동작하기 때문에, promise를 기다려주지 않는다
 
 ```ts
 const resArray = urls.map((url) => fetch(url));
