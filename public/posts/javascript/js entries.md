@@ -6,6 +6,14 @@
 > >
 > > > 배열로 다룰 수 있음
 
+## ts.config.json
+
+> dom.iterable 추가
+
+```
+"lib": ["dom.iterable"],
+```
+
 ```js
 const obj = {
   a: "somestring",
