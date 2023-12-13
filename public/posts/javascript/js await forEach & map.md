@@ -1,10 +1,14 @@
 # js await forEach / map
 
-> forEach와 map 내에서는 await를 블로킹하지 않는다.
+> forEach 내에서는 await를 블로킹하지 않는다.
 >
 > > 블로킹되지 않으면 순차처리를 할 수 없어서 문제.
+> >
+> > > 배열의 반복문내에서 await를 사용할 경우 for of나 map을 사용해야 한다.
 
-## 병렬
+## forEach
+
+> await를 블로킹하지 않는다.
 
 ```js
 function foo() {
@@ -18,17 +22,9 @@ function foo() {
 }
 ```
 
-## 비동기 반복 사용
+## for of / map
 
-```js
-for await (const chunk of stream) {
-  console.log(chunk);
-}
-```
-
-## 순차 처리
-
-> for of는 await를 기다려준다.
+> await를 기다려준다.
 
 ```js
 async function foo() {

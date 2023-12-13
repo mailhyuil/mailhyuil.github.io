@@ -4,6 +4,8 @@
 
 ## ReadableStream
 
+> while문이나 재귀함수를 사용하여 stream이 done이 될때까지 계속 읽기
+
 ```js
 const readableStream = new ReadableStream({
   start(controller) {
