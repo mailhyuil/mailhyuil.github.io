@@ -11,16 +11,14 @@ import { Role } from "@prisma/client";
 export class RoleGuard implements CanActivate {
   constructor(private readonly reflector: Reflector) {}
   async canActivate(context: ExecutionContext) {
-    const requiredRoles = this.reflector.getAllAndOverride<string[]>("roles", [context.getHandler(), context.getClass()]);
+    const req = context.switchToHttp().getRequest();
+    const roles = this.reflector.getAllAndOverride<string[]>("roles", [context.getHandler(), context.getClass()]);
 
-    if (requiredRoles.includes(Role.Guest)) return true;
+    const user = await req.user;
 
-    const request = context.switchToHttp().getRequest();
+    const userRoles: Role[] = user.roles;
 
-    const user = request.user;
-    const roles: Role[] = (await user)?.roles;
-
-    const intersections = roles?.filter((role) => requiredRoles.includes(role));
+    const intersections = userRoles?.filter((role) => roles.includes(role));
 
     if (!intersections || !intersections.length) {
       throw new UnauthorizedException("사용 권한이 없습니다.");
