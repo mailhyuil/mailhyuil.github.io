@@ -9,6 +9,7 @@
 ```js
 const paramsString = "pageNo=1&orderBy=createdAt&filter=MALE&filter=CHILD";
 const searchParams = new URLSearchParams(paramsString);
+const searchParams = new URLSearchParams(window.location.search);
 
 searchParams.has("pageNo");
 searchParams.set("pageNo", 2);
@@ -18,6 +19,9 @@ searchParams.append("filter", "CHILD");
 searchParams.delete("filter");
 searchParams.delete("filter", "CHILD");
 
+/*
+  setParams to URL
+*/
 history.push({
   pathname: "/",
   search: searchParams.toString(),
@@ -37,4 +41,17 @@ this.router.navigate(["/"], {
     replaceUrl: true,
   },
 });
+
+/*
+  getParams from URL
+*/
+const urlSearchParams = new URLSearchParams(window.location.search);
+let filter = {};
+for (const [key, value] of urlSearchParams) {
+  if (key in filter) {
+    filter[key].push(value);
+  } else {
+    filter[key] = [value];
+  }
+}
 ```
