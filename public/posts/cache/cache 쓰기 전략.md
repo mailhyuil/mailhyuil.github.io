@@ -8,7 +8,7 @@
 > >
 > > > cache-miss가 발생하는 경우에만 db와 캐시에 저장
 
-## write back (write behind)
+## write-back (write-behind)
 
 > 모든 데이터를 db가 아닌 캐시서버에 저장
 >

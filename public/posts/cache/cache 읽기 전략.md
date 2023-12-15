@@ -6,19 +6,6 @@
 >
 > > 반복적인 읽기가 많은 호출에 적합
 
-```js
-const cache = require("memory-cache");
-
-async function getDataFromCache(key) {
-  let data = cache.get(key);
-  if (!data) {
-    data = await fetchDataFromSource();
-    cache.put(key, data, 60000); // Cache for 60 seconds
-  }
-  return data;
-}
-```
-
 ## read-through
 
 > cache-aside와 비슷
