@@ -32,7 +32,7 @@ model User {
 > >
 > > > 복합키가 될 수 있는 필드 확인 (userId와 program)
 > > >
-> > > > program의 partial dependency === program의 price가 있으니 program 테이블로 분리한다.
+> > > > program의 partial dependency => programPrice가 있으니 program 테이블로 분리한다.
 
 ```prisma
 /// bad
