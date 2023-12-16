@@ -7,13 +7,27 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch server",
-      "request": "launch",
+      "name": "Debug Server",
       "type": "node",
+      "request": "launch",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["nx", "serve", "server"],
-      "console": "integratedTerminal",
-      "cwd": "${workspaceFolder}/apps/server"
+      "cwd": "${workspaceFolder}/apps/server",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug Client",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/src/*",
+        "/*": "*",
+        "/./~/*": "${workspaceFolder}/node_modules/*"
+      }
     }
   ]
 }
