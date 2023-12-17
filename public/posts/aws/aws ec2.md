@@ -55,4 +55,4 @@ sudo nano /etc/fstab
 
 ## ec2metadata 명령어
 
-> metadata를 출력 ex) ip
+> metadata를 출력 (e.g. ip)

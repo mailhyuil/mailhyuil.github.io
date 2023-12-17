@@ -10,7 +10,7 @@
 
 ## data
 
-> aws에서 정해놓은 데이터 ex) ami id, iam policy id
+> aws에서 정해놓은 데이터 (e.g. ami id, iam policy id)
 
 ## local-only data
 

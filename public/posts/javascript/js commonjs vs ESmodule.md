@@ -5,8 +5,8 @@
 > > 따라서 ESM에서 CJS를 import 할 수는 있지만, CJS에서 ESM을 require 할 수는 없습니다. 왜냐하면 CJS는 Top-level Await을 지원하지 않기 때문입니다.
 > >
 > > > 패키지에 따라 commonjs로 esm으로 import하는 방법이 다르다 잘 확인하자!
-> >
-> > > > ex) decamelize는 5버전에서는 commonjs로 6버전에서는 esm으로 임포트
+> > >
+> > > > (e.g. decamelize는 5버전에서는 commonjs로 6버전에서는 esm으로 임포트)
 
 ## commonjs (cjs)
 

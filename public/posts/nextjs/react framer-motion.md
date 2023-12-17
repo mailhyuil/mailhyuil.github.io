@@ -28,12 +28,10 @@ whileHover={{
 
 > Animate components when they're removed from the React tree.
 >
-> > 리액트 트리에서 사라질 때 보여주는 애니메이션 ex) 모달창 ...
+> > 리액트 트리에서 사라질 때 보여주는 애니메이션 (e.g. 모달창 ...)
 
 ```tsx
 import { motion, AnimatePresence } from "framer-motion";
 
-export const MyComponent = ({ isVisible }) => (
-  <AnimatePresence>{isVisible && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />}</AnimatePresence>
-);
+export const MyComponent = ({ isVisible }) => <AnimatePresence>{isVisible && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />}</AnimatePresence>;
 ```

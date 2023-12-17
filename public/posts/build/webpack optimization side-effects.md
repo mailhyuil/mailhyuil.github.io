@@ -13,7 +13,7 @@ require("some-module");
 > > >
 > > > > 코드를 직접 평가하고 실행해보지 않는 이상 Webpack이 사이드 이펙트 발생 여부를 알 수는 없다. 그래서 Webpack이 찾은 대안이 sideEffects다.
 > > > >
-> > > > > ex) polyfill
+> > > > > (e.g. polyfill)
 
 ## package.json에서 설정하기
 

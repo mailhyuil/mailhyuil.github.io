@@ -2,7 +2,7 @@
 
 > viewResolver는 자동으로 `templates 폴더` 안을 찾는다
 
-> resource는 `static 폴더` 안을 찾는다 ex) css/style.css
+> resource는 `static 폴더` 안을 찾는다 (e.g. css/style.css)
 
 > .properties를 `.yml`로 바꾸면 자동으로 설정이 변경된다.
 

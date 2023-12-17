@@ -4,7 +4,7 @@
 >
 > > UI 위젯(TextField, Animation)이 있고 그 값, 상태를 가져오고나 변경할 때!!!
 > >
-> > > UI 위젯에 등록하는 과정이 있음 ex) TextField(controller: \_controller), Tween(begin: 0, end: 1).animate(\_controller)
+> > > UI 위젯에 등록하는 과정이 있음 (e.g. TextField(controller: \_controller), Tween(begin: 0, end: 1).animate(\_controller))
 > > >
 > > > > 무언가를 동적으로 제어하고 싶다면 controller가 있는지 확인해보자
 

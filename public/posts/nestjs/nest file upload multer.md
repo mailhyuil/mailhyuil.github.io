@@ -39,7 +39,7 @@ const submit = async () => {
 
 > server(nest)에서 FileInterceptor를 사용해 file 받기
 >
-> > multerOptions를 사용해 file을 어떻게 처리할 지 지정 ex) disk에 저장, s3에 저장 ... filtering
+> > multerOptions를 사용해 file을 어떻게 처리할 지 지정 (e.g. disk에 저장, s3에 저장 ... filtering)
 
 ### options
 

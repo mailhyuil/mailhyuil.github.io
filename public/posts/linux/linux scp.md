@@ -2,7 +2,7 @@
 
 > directory를 바로 옮김 폴더 생성 안해도 됨
 >
-> > nginx scp 시 권한이 있는 디렉토리에 복사해라 ex) /home/ubuntu
+> > nginx scp 시 권한이 있는 디렉토리에 복사해라 (e.g. /home/ubuntu)
 
 ```sh
 scp [옵션] [파일명] [remote_user]@[remote_ip]:[저장할 위치]

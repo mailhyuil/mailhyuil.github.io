@@ -1,6 +1,6 @@
 # Service Gateway
 
-> 내부망 내에 만들어지지 않은 리소스 ex) object storage, s3
+> 내부망 내에 만들어지지 않은 리소스 (e.g. object storage, s3)
 >
 > > 보통 이런 서비스에 접근하려면 인터넷을 사용
 > >

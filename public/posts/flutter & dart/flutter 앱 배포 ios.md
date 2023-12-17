@@ -12,7 +12,7 @@
 
 > Bundle ID : com.tistory.app
 >
-> > SKU (재고관리코드) : 내가 식별하기 위한 임의의 코드 ex) MY_APP_2021_02
+> > SKU (재고관리코드) : 내가 식별하기 위한 임의의 코드 (e.g. MY_APP_2021_02)
 
 ## Certificates, Identifiers & Profiles
 

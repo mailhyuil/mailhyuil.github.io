@@ -4,8 +4,8 @@
 >
 > > 클러스터로 접근하는 URL 별로 다른 서비스에 트래픽 분산
 > > 노출 된 여러개의 Service들을 하나의 엔드포인트로 외부에 노출
-> > ex) https://myapp.com/order, https://myapp.com/payment, https://order.myapp.com, https://payment.myapp.com
-> > ex) example.com/order를 nestjs service로 라우팅 시켜놓았다면, nestjs service의 /user 핸들러 로 접근하려면 example.com/order/user로 접근하면 된다.
+> > (e.g. https://myapp.com/order, https://myapp.com/payment, https://order.myapp.com, https://payment.myapp.com)
+> > (e.g. example.com/order를 nestjs service로 라우팅 시켜놓았다면, nestjs service의 /user 핸들러 로 접근하려면 example.com/order/user로 접근하면 된다.)
 > >
 > > > rules에 정의된 host로 접근하면 해당 service로 라우팅
 > > >

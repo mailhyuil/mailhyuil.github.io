@@ -29,7 +29,7 @@ path.join("Users", "test", "test.js");
 ## 그 밖의 기능
 
 ```js
-path.sep; // 경로의 구분자 ex) window \ unix /
+path.sep; // 경로의 구분자 (e.g. window \ unix /)
 path.delimiter; // 환경변수의 구분자 ex> window ; unix :
 path.extname; // 확장자 표시
 path.basename; // 두 번째 인수로 확장자를 보내면 파일의 이름만 출력

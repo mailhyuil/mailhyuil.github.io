@@ -30,7 +30,7 @@ filter;
 > > 따라서 GPU 가속을 사용할 수 있다.
 > >
 > > > transform과 opacity를 조정해서 다른 속성을 대체하는 trick을 사용할 수 있다.
-> > > ex) width, height를 transform: scale로 대체
+> > > (e.g. width, height를 transform: scale로 대체)
 
 ### trick example
 

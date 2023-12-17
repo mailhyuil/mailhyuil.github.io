@@ -35,7 +35,7 @@ export function custom() {
 
     // 원래 함수를 감싸서 새로운 value로 넣기
     descriptor.value = async function (...args: any[]) {
-      // 여기서 this는 클래스의 인스턴스를 가리킨다. ex) 사용 예 this.httpService
+      // 여기서 this는 클래스의 인스턴스를 가리킨다. (e.g. this.httpService)
 
       // before logic...
       const result = await originalMethod.apply(this, args);

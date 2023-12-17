@@ -2,8 +2,8 @@
 
 ```js
 // Get the canvas element and its context
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
 // Get the pixel color at position (x, y)
 const imageData = ctx.getImageData(x, y, 1, 1);
@@ -20,11 +20,11 @@ const alpha = pixelColor[3];
 
 ```js
 // Get the canvas element and its context
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
 // Add a "click" event listener to the canvas
-canvas.addEventListener('click', function (event) {
+canvas.addEventListener("click", function (event) {
   // Get the position of the click relative to the canvas
   const x = event.offsetX;
   const y = event.offsetY;
@@ -39,7 +39,7 @@ canvas.addEventListener('click', function (event) {
   const blue = pixelColor[2];
   const alpha = pixelColor[3];
 
-  // Do something with the pixel color, e.g. log it to the console
+  // Do something with the pixel color, (e.g. log it to the console)
   console.log(`Clicked color: rgba(${red}, ${green}, ${blue}, ${alpha})`);
 });
 ```

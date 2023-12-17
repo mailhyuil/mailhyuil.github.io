@@ -66,9 +66,11 @@ npx tailwindcss -i ./src/style.css -o ./public/style.css --watch
 
 ## 반응형 (Responsive)
 
-- sm: md: lg: xl: 2xl:
-  > default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
-- ex) w-full // 스마트폰 xl:w-64
+> sm: md: lg: xl: 2xl:
+>
+> > default 값을 스마트폰 화면이라고 생각하고 큰스크린에 넣을 값에 태그를 붙여라!
+> >
+> > > (e.g. w-full // 스마트폰 xl:w-64)
 
 ## group
 
@@ -118,7 +120,7 @@ class="group-two-hover:block"
 ## @typography
 
 - tailwindcss는 @base 부분에서 텍스트의 스타일을 전부 초기화한다
-- 스타일을 사용하는 플러그인 ex) markdown을 사용하기 위해 text부분을 초기화 하지않도록 @typography 플러그인을 사용한다
+- 스타일을 사용하는 플러그인 (e.g. markdown을 사용하기 위해 text부분을 초기화 하지않도록 @typography 플러그인을 사용한다)
 - @typography 플러그인을 설치한 후 클래스명에 "prose"를 넣어주면 된다
 
 ---
@@ -126,7 +128,7 @@ class="group-two-hover:block"
 ## button hover effect
 
 ```html
-<li class="ring ring-transparent hover:ring-red-400 hover:scale-125 linear duration-200">
+<li class="duration-200 ring ring-transparent hover:ring-red-400 hover:scale-125 linear">
   <NuxtLink to="/about">About</NuxtLink>
 </li>
 ```

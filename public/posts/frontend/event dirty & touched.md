@@ -10,7 +10,7 @@
 
 ## Touched
 
-> The user has interacted with the form control, e.g., by clicking or focusing on it.
+> The user has interacted with the form control, (e.g., by clicking or focusing on it.)
 
 ## Untouched
 

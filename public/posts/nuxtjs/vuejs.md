@@ -32,7 +32,7 @@ npm init vue@latest
 
 ### v-bind
 
-> reactive한 변수에 사용 ex) props, ref, reactive
+> reactive한 변수에 사용 (e.g. props, ref, reactive)
 >
 > > class에 바인딩하면 동적으로 class를 이용한 style 변경 가능
 

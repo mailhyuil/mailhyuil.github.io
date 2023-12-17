@@ -29,7 +29,7 @@ server {
 ```
 round-robin(디폴트) - 그냥 돌아가면서 분배한다.
 
-hash - 해시한 값으로 분배한다 쓰려면 hash <키> 형태로 쓴다. ex)hash $remote_addr <- 이는 ip_hash와 같다.
+hash - 해시한 값으로 분배한다 쓰려면 hash <키> 형태로 쓴다. (e.g. hash $remote_addr <- 이는 ip_hash와 같다.)
 
 ip_hash - 아이피로 해싱해서 분배한다.
 

@@ -52,7 +52,7 @@ font.load().then(function () {
 
 > 서브셋 폰트란 불필요한 글자를 제거한 폰트 파일
 >
-> > ex) 곌, 곖, 꺖
+> > (e.g. 곌, 곖, 꺖)
 
 ## unicode-range 속성 사용
 

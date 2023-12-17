@@ -3,7 +3,7 @@
 ## html
 
 ```html
-<!-- canvas는 css style의 상대크기 ex) 100%로 크기를 지정하면 안된다.-->
+<!-- canvas는 css style의 상대크기 (e.g. 100%로 크기를 지정하면 안된다.)-->
 <canvas id="myCanvas"></canvas>
 ```
 

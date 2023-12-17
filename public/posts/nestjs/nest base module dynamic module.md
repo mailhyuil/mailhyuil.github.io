@@ -1,6 +1,6 @@
 ## 동적 모듈 (Dynamic Module)
 
-> 런타임 시 동적으로 값을 설정하는 모듈 ex) config
+> 런타임 시 동적으로 값을 설정하는 모듈 (e.g. config)
 >
 > > register(), forRoot(), forFeature() 메소드는 동적모듈을 반환하는 메소드
 

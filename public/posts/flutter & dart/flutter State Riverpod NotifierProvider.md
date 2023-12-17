@@ -2,7 +2,7 @@
 
 > build 메소드에서 초기화
 >
-> > state로 접근 ex) state.name
+> > state로 접근 (e.g. state.name)
 
 ```dart
 class User {

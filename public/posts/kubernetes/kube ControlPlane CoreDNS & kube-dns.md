@@ -16,7 +16,7 @@
 >
 > > 10.0.0.0
 > > A 레코드 : 10-0-0-0.namespace.pod.cluster.local
-> > ex) 10-0-0-0.default.pod.cluster.local
+> > (e.g. 10-0-0-0.default.pod.cluster.local)
 > > 서비스 생성시
 
 ### pod name으로 접근
@@ -25,7 +25,7 @@
 >
 > > 네임을 지정해서 접근하려면 spec.hostname을 지정해야함
 > > hostname 지정 시 pod-ip-address 대신 hostname을 사용할 수 있다.
-> > ex) curl pod-hostname / curl pod-hostname.service-name.namespace.svc.cluster.local
+> > (e.g. curl pod-hostname / curl pod-hostname.service-name.namespace.svc.cluster.local)
 > >
 > > > hostname 지정 파드를 생성 -> service 생성 -> curl pod-hostname
 
@@ -35,7 +35,7 @@
 >
 > > 10.0.0.0
 > > A 레코드 : 10-0-0-0.namespace.svc.cluster.local
-> > ex) 10-0-0-0.default.svc.cluster.local
+> > (e.g. 10-0-0-0.default.svc.cluster.local)
 
 ## /etc/resolv.conf
 

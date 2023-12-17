@@ -1,6 +1,6 @@
 # gzip 배포
 
-> 빌드된 각각 파일을 gzip으로 압축 ex) app.js.gz, document.js.gz
+> 빌드된 각각 파일을 gzip으로 압축 (e.g. app.js.gz, document.js.gz)
 >
 > > nginx에서 gzip on 설정
 > >

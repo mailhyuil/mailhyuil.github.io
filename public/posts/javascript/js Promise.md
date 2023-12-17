@@ -6,22 +6,22 @@
 > >
 > > > async로 감싸줘야 비동기로 처리됨
 > > >
-> > > > 즉, await는 stack에서 처리 됨
+> > > > (i.e. await는 stack에서 처리 됨)
 
 ## 콜백지옥
 
 ```js
-import fs from 'fs';
+import fs from "fs";
 
-fs.readFile('./README.md', 'utf-8', (err, data) => {
+fs.readFile("./README.md", "utf-8", (err, data) => {
   console.log(data, 1);
-  fs.readFile('./README.md', 'utf-8', (err, data) => {
+  fs.readFile("./README.md", "utf-8", (err, data) => {
     console.log(data, 2);
-    fs.readFile('./README.md', 'utf-8', (err, data) => {
+    fs.readFile("./README.md", "utf-8", (err, data) => {
       console.log(data, 3);
-      fs.readFile('./README.md', 'utf-8', (err, data) => {
+      fs.readFile("./README.md", "utf-8", (err, data) => {
         console.log(data, 4);
-        fs.readFile('./README.md', 'utf-8', (err, data) => {
+        fs.readFile("./README.md", "utf-8", (err, data) => {
           console.log(data, 5);
         });
       });
@@ -37,20 +37,20 @@ fs.readFile('./README.md', 'utf-8', (err, data) => {
 > > then의 콜백함수에서 값을 리턴하면 다음 then으로 잡아서 처리할 수 있다.
 
 ```js
-import fs from 'fs';
+import fs from "fs";
 
 const promise = () =>
   new Promise((resolve, reject) => {
-    fs.readFile('./README.md', 'utf-8', (err, data) => {
+    fs.readFile("./README.md", "utf-8", (err, data) => {
       resolve(data); // data를 .then의 콜백함수에 전달
     });
   });
 
 promise()
-  .then((data) => data + '1')
-  .then((data) => data + '2')
-  .then((data) => data + '3')
-  .then((data) => data + '4')
+  .then((data) => data + "1")
+  .then((data) => data + "2")
+  .then((data) => data + "3")
+  .then((data) => data + "4")
   .then((data) => console.log(data));
 ```
 
@@ -59,12 +59,12 @@ promise()
 > reject(error)는 error를 .catch의 콜백함수에 전달
 
 ```js
-import fs from 'fs';
+import fs from "fs";
 
 const promise = () =>
   new Promise((resolve, reject) => {
-    reject(new Error('Errrrrr')); // error를 .catch의 콜백함수에 전달
-    fs.readFile('./README.md', 'utf-8', (err, data) => {
+    reject(new Error("Errrrrr")); // error를 .catch의 콜백함수에 전달
+    fs.readFile("./README.md", "utf-8", (err, data) => {
       resolve(data);
     });
   });
@@ -77,14 +77,14 @@ promise()
 ## promise fulfilled rejected
 
 ```ts
-useApi('/asodfi').then(
+useApi("/asodfi").then(
   (res) => {
     // fulfilled callback
-    console.log('fulfilled', res);
+    console.log("fulfilled", res);
   },
   (rej) => {
     // rejected callback
-    console.log('rejected', rej);
+    console.log("rejected", rej);
   }
 );
 ```
@@ -110,7 +110,7 @@ d().then((e) => {
   console.log(e);
 });
 
-console.log('this is called first');
+console.log("this is called first");
 ```
 
 ## new Promise() vs Promsie.resolve()

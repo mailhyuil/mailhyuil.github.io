@@ -44,7 +44,7 @@ export class MathController {
 
   @MessagePattern('time.us.*')
   getDate(@Payload() data: number[], @Ctx() context: NatsContext) {
-    console.log(`Subject: ${context.getSubject()}`); // e.g. "time.us.east"
+    console.log(`Subject: ${context.getSubject()}`); // (e.g. "time.us.east")
     return new Date().toLocaleTimeString(...);
   }
 

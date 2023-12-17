@@ -22,7 +22,7 @@ public interface HandlerInterceptor {
     }
 
     default void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
-        @Nullable Exception ex) throws Exception {
+        @Nullable Exception throws Exception {
     }
 }
 ```

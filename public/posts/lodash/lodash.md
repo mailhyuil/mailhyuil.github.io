@@ -5,7 +5,7 @@
 ```sh
 # npm i lodash
 # lodash는 commonjs로 작성되어 있어서 트리 쉐이킹 되지 않는다!
-# cherry picking을 사용하거나 ex) import isEmpty from 'lodash/isEmpty'
+# cherry picking을 사용하거나 (e.g. import isEmpty from 'lodash/isEmpty')
 # lodash-es를 사용하자
 npm i lodash-es
 npm i -D @types/lodash-es

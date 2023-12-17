@@ -4,7 +4,7 @@
 >
 > > import를 반드시 사용해야한다 // require은 export 하는 모든 모듈을 가져오게 된다.
 > >
-> > > 모듈이 import되는 코드와 export 하는 코드 모두 ES Module로 작성되어 있어야만 tree shaking이 가능합니다. ex) lodash
+> > > 모듈이 import되는 코드와 export 하는 코드 모두 ES Module로 작성되어 있어야만 tree shaking이 가능합니다. (e.g. lodash)
 > > >
 > > > > babel에 의해서 CommonJS로 트랜스파일링되는 경우에도 불가능합니다.
 

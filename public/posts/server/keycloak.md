@@ -26,7 +26,7 @@ docker restart keycloak
 
 1. realm 생성
 2. clients 생성 -> Valid Redirect = 스프링부트url/\*
-3. roles -> role 생성 ex) user
+3. roles -> role 생성 (e.g. user)
 4. Manage Users -> user생성 -> Role Mappings에서 role 추가
 
 ## dependency
@@ -67,10 +67,7 @@ public class KeycloakConfig {
 ## logout
 
 ```html
-<a
-  href="http://localhost:8080/auth/realms/springboot-test/protocol/openid-connect/logout?redirect_uri=http://localhost:8081/"
-  >logout</a
->
+<a href="http://localhost:8080/auth/realms/springboot-test/protocol/openid-connect/logout?redirect_uri=http://localhost:8081/">logout</a>
 ```
 
 ## SPI (Service Provider Interface)

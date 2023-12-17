@@ -5,7 +5,7 @@
 >
 > > java.lang.reflection
 > >
-> > > ex) intelliJ의 자동완성, 스프링 어노테이션
+> > > (e.g. intelliJ의 자동완성, 스프링 어노테이션)
 
 ## 메소드를 호출하는 두가지 방식
 

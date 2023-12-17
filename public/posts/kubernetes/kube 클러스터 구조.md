@@ -12,4 +12,4 @@
 
 > kubelet, kube-proxy, Container Runtime, CNI
 >
-> > 하나의 인스턴스 ex) EC2
+> > 하나의 인스턴스 (e.g. EC2)

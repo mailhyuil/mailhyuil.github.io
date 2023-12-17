@@ -50,7 +50,7 @@ class SomeNotifier extends ChangeNotifier {
 
 > 값이 계속 바뀐다면 watch
 >
-> > 값이 바뀌지 않는다면 read ex) 메소드
+> > 값이 바뀌지 않는다면 read (e.g. 메소드)
 
 ```dart
 context.watch<SomeNotifier>().count

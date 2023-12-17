@@ -68,7 +68,7 @@ date: Moment;
 @Exclude()
 export class UserDTO implements IUserDTO {
   @Expose()
-  // obj는 현재 클래스 즉, UserDTO
+  // obj는 현재 클래스 (i.e. UserDTO)
   @Transform(({ obj }: { obj: UserDTO }) => {
     return obj.profiles.find((item) => item.isMaster);
   })

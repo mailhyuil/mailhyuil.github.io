@@ -2,7 +2,7 @@
 
 > 웹팩은 기존 번들된 파일의 이름과 현재 번들하는 아웃풋의 이름이 같다면 번들링하지 않는다. 따라서 해시값을 이용하여 파일명을 변경하면서 캐싱을 할 수 있다.
 >
-> > contenthash를 이용하여 캐싱 ex) main.[contentHash].js
+> > contenthash를 이용하여 캐싱 (e.g. main.[contentHash].js)
 > >
 > > > 파일에 변경사항이 없으면 contenthash가 같아짐
 > > >

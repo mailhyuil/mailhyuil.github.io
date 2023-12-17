@@ -5,7 +5,7 @@
 > 리소스를 논리적으로 분리하는 것
 > 프로세스별로 각각 공간을 만들어서 분리
 >
-> > namespace A에서 무엇을 하더라도 namespace B에는 영향을 주지 않는다 ex) hostname 변경
+> > namespace A에서 무엇을 하더라도 namespace B에는 영향을 주지 않는다 (e.g. hostname 변경)
 > > 즉 프로세스에 대한 환경 격리 (다만 하드웨어 자원에 대한 분리를 수행하지는 않음)
 
 ## cgroup (Control Group)

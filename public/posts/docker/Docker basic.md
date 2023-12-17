@@ -37,7 +37,7 @@ docker rmi 이미지_이름
 
 # 실행중인 컨테이너에 명령어주기
 docker exec 컨테이너_이름
-# ex) docker exec -it mysql mysql -uroot
+# (e.g. docker exec -it mysql mysql -uroot)
 # -it 옵션은 터미널과 컨테이너가 지속적으로 연결되도록 하는 옵션
 
 # 컨테이너 명령어 실행

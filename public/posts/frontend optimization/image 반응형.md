@@ -43,7 +43,7 @@
 
 > 다양한 조건을 걸 수 있음
 >
-> > ex) 스크린이 가로방향인가 세로방향인가
+> > (e.g. 스크린이 가로방향인가 세로방향인가)
 > >
 > > > orientation, min-width, prefers-color-scheme, min-resolution ...
 > > >

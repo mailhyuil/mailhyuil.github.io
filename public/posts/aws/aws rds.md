@@ -1,6 +1,6 @@
 # RDS
 
-> PaaS (Platform as a Service) 서비스 ex) RDS for Postgres
+> PaaS (Platform as a Service) 서비스 (e.g. RDS for Postgres)
 
 1. RDS에서 데이터 베이스 생성
 

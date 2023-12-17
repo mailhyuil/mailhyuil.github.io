@@ -55,19 +55,13 @@
 ## html에 추가
 
 ```html
-<html
-  lang="ko"
-  xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"></html>
 ```
 
 ## layout에 추가
 
 ```html
-<html
-  lang="ko"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layout 경로}"></html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout 경로}"></html>
 ```
 
 # layout 문법
@@ -133,9 +127,7 @@ th:block
 ## 반복 값 넣기
 
 ```html
-th:each="num : ${#numbers.sequence(from,to)}" th:each="num :
-${#numbers.sequence(from,to,step)}}" //상태변수 반복할 오브젝트 명 + Stat
-ex)numStat // ex)
+th:each="num : ${#numbers.sequence(from,to)}" th:each="num : ${#numbers.sequence(from,to,step)}}" //상태변수 반복할 오브젝트 명 + Stat ex)numStat
 <th:block th:each="num : ${#numbers.sequence(1,5)}">
   <div th:text="${num}"></div>
   <p th:text="${numStat.index}"></p>

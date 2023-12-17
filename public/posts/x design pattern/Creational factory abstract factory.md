@@ -2,7 +2,7 @@
 
 > 팩토리 클래스를 추상화 하여 같은 성격의 인스턴스들을 통일성 있게 생성하는 패턴
 >
-> > ex) Window, Mac, Linux OS 조건에 따라 같은 성격의 요소들을 생성하는 팩토리
+> > (e.g. Window, Mac, Linux OS 조건에 따라 같은 성격의 요소들을 생성하는 팩토리)
 
 ```ts
 interface GUIFactory {

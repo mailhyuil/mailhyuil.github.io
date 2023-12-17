@@ -25,7 +25,7 @@ Unsupported
 
 ## attribute
 
-> @@은 복합키 ex) @@id([a, b])
+> @@은 복합키 (e.g. @@id([a, b]))
 
 ```
 @id

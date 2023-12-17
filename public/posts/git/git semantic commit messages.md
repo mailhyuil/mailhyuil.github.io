@@ -4,9 +4,9 @@
 
 ## <type>(<scope>): <subject>
 
-> ex) feat:add some feature
+> (e.g. feat:add some feature)
 >
-> > ex) chore:update some code
+> > (e.g. chore:update some code)
 
 ## feat:
 

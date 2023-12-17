@@ -27,7 +27,7 @@ proc
 
 opt = optional
 srv = served
-var = 가변 파일 ex) log, DB
+var = 가변 파일 (e.g. log, DB)
 ```
 
 ## usr/local vs opt
