@@ -25,7 +25,7 @@ describe("NoticeService", () => {
     expect(noticeService).toBeDefined();
   });
 
-  describe("NoticeService.findAll", () => {
+  describe("findAll", () => {
     it("should return all notices", async () => {
       const result: Notice[] = [
         {
