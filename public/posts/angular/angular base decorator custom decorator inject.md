@@ -1,89 +1,49 @@
 # angular base decorator custom decorator inject
 
 > 데코레이터 내에서 서비스를 주입하기
+>
+> > this로 사용이 가능하지만 데코레이터를 사용하는 컴포넌트에서 주입을 받아야 하고 필드명도 일치해야한다는 불편함이 있다.
+>
+> > component에서 static 필드와 메소드를 사용하여 주입
 
-# 방법 1
-
-> SharedModule을 생성하여 static injector를 사용
-
-## SharedModule
+## app.component.ts
 
 ```ts
-@NgModule({
-  declarations: [],
-  imports: [],
-  providers: [SomeService],
-})
-export class SharedModule {
-  static injector: Injector;
+export default class AppComponent implements OnInit {
+  private static _httpClient?: HttpClient;
 
-  constructor(injector: Injector) {
-    SharedModule.injector = injector;
+  constructor(private readonly httpClient: HttpClient) {
+    if (this.httpClient) {
+      AppComponent._httpClient = this.httpClient;
+    }
   }
+  static getHttpClient() {
+    return AppComponent._httpClient;
+  }
+  ngOnInit(): void {}
 }
 ```
 
-## Decorator
+## decorator
 
 ```ts
-export function CustomDecorator() {
-  return (target: object, key: string | symbol, descriptor: PropertyDescriptor): PropertyDescriptor => {
+import AppComponent from "../app.component";
+
+export function MethodDecorator() {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
+    // AppComponent에서 static으로 선언한 httpClient를 사용
+    const httpClient = AppComponent.getHttpClient();
 
-    descriptor.value = function (...args: any[]): any {
-      // access the service
-      const service = SharedModule.injector.get<SomeService>(SomeService);
-      // logic..
+    descriptor.value = function (...args: any[]) {
+      if (httpClient) {
+        console.log("httpClient", httpClient);
+        httpClient.get("http://localhost:3000/api/v1").subscribe();
+      }
+      const result = originalMethod.apply(this, args);
+      return result;
     };
-
     return descriptor;
   };
-}
-```
-
-# 방법 2
-
-## DecoratorService
-
-> 주입된 서비스를 사용할 특별한 서비스를 생성
-
-```ts
-@Injectable()
-export class DecoratorService {
-  private static service: Service | undefined = undefined;
-  public constructor(service: Service) {
-    DecoratorService.service = service;
-  }
-  public static getService(): Service {
-    if (!DecoratorService.service) {
-      throw new Error("DecoratorService not initialized");
-    }
-    return DecoratorService.service;
-  }
-}
-```
-
-## Decorator
-
-```ts
-export function canEdit(editName: string) {
-  return function (constructor: any) {
-    const service = DecoratorService.getService();
-    // ^^^ access dependency here
-    console.log(constructor);
-  };
-}
-```
-
-## module
-
-```ts
-@NgModule({
-  provides: [DecoratorService],
-})
-export class MainModule {
-  public constructor(service: DecoratorService) {
-    // ^^^ forces an instance to be created
-  }
 }
 ```
