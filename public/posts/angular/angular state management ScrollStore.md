@@ -4,13 +4,31 @@
 
 ```ts
 export class ScrollStore {
-  private scrollPositionState = [0, 0];
+  private _scrollPositionState = [0, 0];
   get$ = new Subject<void>();
   set$ = new Subject<void>();
 
   setScroll(scroll: [number, number]) {
-    this.scrollPositionState = scroll;
+    this._scrollPositionState = scroll;
   }
+
+  getScroll() {
+    return this._scrollPositionState;
+  }
+}
+
+export function PreserveScrollPosition() {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    const originalMethod = descriptor.value;
+    descriptor.value = async function (...args: any[]) {
+      const scrollStore = AppComponent.getScrollStore();
+      scrollStore.set$.next();
+      const result = await originalMethod.apply(this, args);
+      scrollStore.get$.next();
+      return result;
+    };
+    return descriptor;
+  };
 }
 ```
 
@@ -22,12 +40,12 @@ export class LayoutComponent implements OnInit {
   constructor(private readonly router: Router, private readonly scrollStore: ScrollStore) {}
 
   ngOnInit(): void {
-    this.scrollStore.setScroll$.subscribe(() => {
+    this.scrollStore.set$.subscribe(() => {
       this.scrollStore.setScroll([0, this.outlet.nativeElement.scrollTop]);
     });
 
-    this.scrollStore.getScroll$.subscribe(() => {
-      this.outlet.nativeElement.scrollTop = this.scrollStore.scroll()[1];
+    this.scrollStore.get$.subscribe(() => {
+      this.outlet.nativeElement.scrollTop = this.scrollStore.getScroll()[1];
     });
   }
 }
