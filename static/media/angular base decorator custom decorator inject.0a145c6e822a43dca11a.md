@@ -43,6 +43,7 @@ export function MethodDecorator() {
       const result = originalMethod.apply(this, args);
       return result;
     };
+
     return descriptor;
   };
 }
