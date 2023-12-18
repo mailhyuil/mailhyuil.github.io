@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.c22b0210.js",
+    "main.js": "/static/js/main.51b0f720.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.0931ebc63afc6acc09b2.md",
@@ -66,6 +66,7 @@
     "static/media/algorithm 투포인터 Window.md": "/static/media/algorithm 투포인터 Window.94859fc0532527d97f11.md",
     "static/media/Behavioral command.md": "/static/media/Behavioral command.895a0eb859a67eb3c28b.md",
     "static/media/Behavioral Mediator.md": "/static/media/Behavioral Mediator.c40e7c3cbd0fc8059c8e.md",
+    "static/media/nest prisma Generic CrudService.md": "/static/media/nest prisma Generic CrudService.6ddf4adfb5a14d8ba1cb.md",
     "static/media/flutter Animation Explicit.md": "/static/media/flutter Animation Explicit.881cae41f6b87d2d71f3.md",
     "static/media/Behavioral Strategy.md": "/static/media/Behavioral Strategy.cbcac3d85ada00338cb9.md",
     "static/media/flutter Form.md": "/static/media/flutter Form.55add2c095995a43601e.md",
@@ -429,7 +430,6 @@
     "static/media/algorithm 배열 보간탐색.md": "/static/media/algorithm 배열 보간탐색.44a3257561ec7b0f9517.md",
     "static/media/flutter JsonSerializable.md": "/static/media/flutter JsonSerializable.608e5014dbeb42cd8b5a.md",
     "static/media/nest findAll(search).md": "/static/media/nest findAll(search).84cc9642afdb3face373.md",
-    "static/media/nest prisma Generic CrudService.md": "/static/media/nest prisma Generic CrudService.c7be06d2ad0c6fb533ed.md",
     "static/media/docker-compose network public & private.md": "/static/media/docker-compose network public & private.83052203fb3a2c52fb38.md",
     "static/media/typescript mixin.md": "/static/media/typescript mixin.d76efd5b974f0f48f7c5.md",
     "static/media/webpack optimization cache.md": "/static/media/webpack optimization cache.01d0dc92372389d392c6.md",
@@ -2080,7 +2080,7 @@
     "static/media/dayjs diff.md": "/static/media/dayjs diff.a991baf2096a29dd7d8c.md",
     "static/media/flutter UI toast.md": "/static/media/flutter UI toast.36c65459c6d2b9eb86e0.md",
     "static/media/svg viewBox.md": "/static/media/svg viewBox.7d95b5eeae0ee3a7b6e0.md",
-    "static/media/angular url parameter.md": "/static/media/angular url parameter.0f7f979cfce8bd3070dd.md",
+    "static/media/angular route url parameter.md": "/static/media/angular route url parameter.0f7f979cfce8bd3070dd.md",
     "static/media/cicd.md": "/static/media/cicd.c23fb9fabe08a078af00.md",
     "static/media/ionic component.md": "/static/media/ionic component.f7367cf7daf5472b3eb2.md",
     "static/media/java UUID 생성.md": "/static/media/java UUID 생성.eda7e788afb513239cf2.md",
@@ -2376,10 +2376,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.c22b0210.js.map": "/static/js/main.c22b0210.js.map"
+    "main.51b0f720.js.map": "/static/js/main.51b0f720.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.c22b0210.js"
+    "static/js/main.51b0f720.js"
   ]
 }
