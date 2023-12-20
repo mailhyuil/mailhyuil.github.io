@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.cedc55b7.js",
+    "main.js": "/static/js/main.3b505e60.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.0931ebc63afc6acc09b2.md",
@@ -1650,6 +1650,7 @@
     "static/media/nuxt computed vs watch.md": "/static/media/nuxt computed vs watch.f713719e557eb942d43b.md",
     "static/media/a11y aria-label.md": "/static/media/a11y aria-label.4620fb071475511e7396.md",
     "static/media/JIT & AOT.md": "/static/media/JIT & AOT.de8465813edcd0887c4b.md",
+    "static/media/linux IPC (Inter Process Communication).md": "/static/media/linux IPC (Inter Process Communication).7cb25616835cfa4a5226.md",
     "static/media/mongoose index.md": "/static/media/mongoose index.358f028e7d00555db1af.md",
     "static/media/nest advanced kafka.md": "/static/media/nest advanced kafka.8868ceb3d630cfc0c10b.md",
     "static/media/tailwindcss item-stretch.md": "/static/media/tailwindcss item-stretch.ca99e61d0e90dc45869f.md",
@@ -2389,10 +2390,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.cedc55b7.js.map": "/static/js/main.cedc55b7.js.map"
+    "main.3b505e60.js.map": "/static/js/main.3b505e60.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.cedc55b7.js"
+    "static/js/main.3b505e60.js"
   ]
 }
