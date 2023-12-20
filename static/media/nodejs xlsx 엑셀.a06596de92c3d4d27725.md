@@ -28,7 +28,32 @@ sheet["A1"].v = "New Value";
 XLSX.writeFile(workbook, "path/to/new/excel/file.xlsx");
 ```
 
-## backend에서 사용
+## json to xlsx
+
+```ts
+import { saveAs } from "file-saver";
+import * as XLSX from "xlsx";
+
+export const useExcel = async (data: any) => {
+  const wb: XLSX.WorkBook = XLSX.utils.book_new(); // create workbook
+
+  const sheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data); // json to sheet
+
+  XLSX.utils.book_append_sheet(wb, sheet, "sheet"); // add sheet to workbook
+
+  saveAs(new Blob([s2ab(XLSX.write(wb, { type: "binary", bookType: "xlsx" }))]), `${data.name}.xlsx`);
+};
+
+// string을 ArrayBuffer 만들어주는 함수
+function s2ab(s: any) {
+  const buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+  const view = new Uint8Array(buf); //create uint8array as viewer
+  for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff; //convert to octet
+  return buf;
+}
+```
+
+## xlsx to json
 
 ```ts
 import * as XLSX from 'xlsx';

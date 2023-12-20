@@ -6,6 +6,7 @@
 
 ```sh
 npm i file-saver
+npm i -D @types/file-saver
 ```
 
 ## 사용
