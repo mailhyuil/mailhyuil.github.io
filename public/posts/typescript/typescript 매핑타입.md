@@ -40,12 +40,24 @@ Exclude<keyof T,K>
 
 ## ConstructorParameters<T>
 
+> 생성자의 파라미터 타입을 추출
+
 ## ReturnType<T>
+
+> 함수의 반환값을 추출
 
 ## InstanceType<T>
 
+> 클래스의 인스턴스 타입을 추출
+
+## ThisType<T>
+
+> this의 타입을 지정
+
 ## ThisParameterType<T>
+
+> 함수의 this 파라미터의 타입을 추출
 
 ## OmitThisParameter<T>
 
-## ThisType<T>
+> 함수의 this 파라미터를 제거
