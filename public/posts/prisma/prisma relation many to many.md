@@ -3,20 +3,33 @@
 ## explicit
 
 ```prisma
-model ReservedSeat {
-    seat Seat @relation(fields: [seatId], references: [id])
-    seatId String
-    reservation Reservation @relation(fields: [reservationId], references: [id])
-    reservationId String
+model Post {
+  id         Int                 @id @default(autoincrement())
+  title      String
+  categories CategoriesOnPosts[]
+}
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime  @updatedAt
+model Category {
+  id    Int                 @id @default(autoincrement())
+  name  String
+  posts CategoriesOnPosts[]
+}
 
-    @@id([seatId, reservationId])
+model CategoriesOnPosts {
+  post       Post     @relation(fields: [postId], references: [id])
+  postId     Int // relation scalar field (used in the `@relation` attribute above)
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int // relation scalar field (used in the `@relation` attribute above)
+  assignedAt DateTime @default(now())
+  assignedBy String
+
+  @@id([postId, categoryId])
 }
 ```
 
 ## implicit
+
+> join 테이블은 \_PostToCategory 라는 이름으로 생성된다.
 
 ```prisma
 model Post {
