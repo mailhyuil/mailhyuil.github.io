@@ -2,4 +2,7 @@
 
 ```
 break-all
+
+text-balance
+text-pretty
 ```
