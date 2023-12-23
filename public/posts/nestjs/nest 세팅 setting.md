@@ -12,9 +12,6 @@ npm i -D @types/bcryptjs
 npm i compression
 npm i helmet
 npm i morgan
-# prisma
-npm i @prisma/client
-npm i -D prisma
 # jwt
 npm i @nestjs/jwt
 # cookie
@@ -42,6 +39,22 @@ npm i etag
 npm i -D @types/etag
 
 ################ 선택적 패키지 #####################
+
+# prisma
+npm i @prisma/client
+npm i -D prisma
+
+# mongoose
+npm i mongoose
+npm i @nestjs/mongoose
+
+# drizzle
+npm i drizzle
+
+# graphql
+npm i @nestjs/graphql
+npm i @nestjs/apollo
+npm i @apollo/server
 
 # message queue
 npm i bull
