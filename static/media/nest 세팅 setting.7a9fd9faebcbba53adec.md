@@ -31,9 +31,11 @@ npm i lodash-es
 npm i -D @types/lodash-es
 # rate limit
 npm i @nestjs/throttler
+
 # server cache
 npm i @nestjs/cache-manager
 npm i cache-manager
+
 # web cache
 npm i etag
 npm i -D @types/etag
@@ -58,6 +60,9 @@ npm i @apollo/server
 # graphql client
 npm i @apollo/client
 npm i apollo-angular
+
+# redis cache
+npm i redis
 
 # message queue
 npm i bull
@@ -111,7 +116,6 @@ import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import compression from "compression";
 import cookieParser from "cookie-parser";
-import csurf from "csurf";
 import { writeFile } from "fs";
 import helmet from "helmet";
 import $RefParser from "json-schema-ref-parser";
@@ -265,9 +269,5 @@ import { UsersModule } from "./users/users.module";
     },
   ],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(csurf({ cookie: true }), CsrfMiddleware).forRoutes("*");
-  }
-}
+export class AppModule {}
 ```
