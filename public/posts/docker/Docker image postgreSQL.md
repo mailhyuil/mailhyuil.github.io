@@ -3,13 +3,13 @@
 ## run
 
 ```sh
-docker run --name my-post -d -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=mydb -p 5432:5432 postgres:14
+docker run --name postgres --network private -d -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=mydb -p 5432:5432 postgres:14
 ```
 
 ## 접속
 
 ```sh
-docker exec -it my-post bash
+docker exec -it postgres bash
 ```
 
 ## 실행
