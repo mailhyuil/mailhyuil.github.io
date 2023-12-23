@@ -3,7 +3,7 @@
 ## run
 
 ```bash
-docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=<password> -d -p 호스트포트:3306 mysql:latest
+docker run --name mysql-container --network private -e MYSQL_ROOT_PASSWORD=<password> -d -p 호스트포트:3306 mysql:latest
 docker exec -it mysql-container mysql -u root -p
 ```
 
