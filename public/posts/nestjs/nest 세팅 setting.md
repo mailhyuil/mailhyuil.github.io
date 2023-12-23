@@ -51,10 +51,13 @@ npm i @nestjs/mongoose
 # drizzle
 npm i drizzle
 
-# graphql
+# graphql server
 npm i @nestjs/graphql
 npm i @nestjs/apollo
 npm i @apollo/server
+# graphql client
+npm i @apollo/client
+npm i apollo-angular
 
 # message queue
 npm i bull
@@ -62,6 +65,9 @@ npm i @nestjs/bull
 
 # event
 npm i @nestjs/event-emitter
+
+# schedule
+npm i @nestjs/schedule
 
 # websocket-server
 npm i @nestjs/websockets
@@ -71,9 +77,6 @@ npm i ngx-socket-io
 # npm i socket.io
 # npm i socket.io-client
 # npm i @types/socket.io
-
-# schedule
-npm i @nestjs/schedule
 
 # file upload
 npm i -D @types/multer
