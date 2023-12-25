@@ -12,13 +12,26 @@
 
 > 이메일, 데이터 전송, 데이터 저장, 인증 정보
 
-## js 코드
+## base64 인코딩
 
 ```ts
 const text = "Hello, World!";
 
 // 문자열을 Base64로 인코딩
 const encodedText = btoa(text);
+const encodedText = Buffer.from(text, "utf-8").toString("base64");
 
 console.log(encodedText); // "SGVsbG8sIFdvcmxkIQ=="
+```
+
+## base64 디코딩
+
+```ts
+const encodedText = "SGVsbG8sIFdvcmxkIQ==";
+
+// Base64를 문자열로 디코딩
+const text = atob(encodedText);
+const text = Buffer.from(encodedText, "base64").toString("utf-8");
+
+console.log(text); // "Hello, World!"
 ```

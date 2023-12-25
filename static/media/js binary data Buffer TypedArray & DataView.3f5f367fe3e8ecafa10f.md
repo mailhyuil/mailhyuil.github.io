@@ -4,16 +4,17 @@
 
 ## TypedArray
 
-> UnitArray 8 16 32 // Uint8ClampedArray (부호 없는 정수)
+> UnitArray 8 16 32 // Uint8ClampedArray (Unsigned Int)
 >
-> > IntArray 8 16 32 (부호 있는 정수)
+> > IntArray 8 16 32 (Signed Int)
 > >
-> > > FloatArray 8 16 32 (부동 소수점)
+> > > FloatArray 8 16 32 (Float)
 
 ```js
-const buf = new ArrayBuffer(4);
-const unit8 = new Uint8Array(buf);
-const unit16 = new Uint16Array(buf);
+const buf = new ArrayBuffer(4); /// 4 bytes
+
+const unit8 = new Uint8Array(buf); /// Uint === Unsigned Int (0 ~ 255)
+const unit16 = new Uint16Array(buf); /// Uint === Unsigned Int (0 ~ 65535)
 
 console.log(unit8); // Uint8Array(4) [ 0, 0, 0, 0 ]
 console.log(unit16); // Uint16Array(2) [ 0, 0 ]
