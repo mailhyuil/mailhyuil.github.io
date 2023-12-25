@@ -2,10 +2,15 @@
 
 ```js
 // string을 ArrayBuffer 만들어주는 함수
-function s2ab(s: any) {
-  const buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
-  const view = new Uint8Array(buf); //create uint8array as viewer
-  for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff; //convert to octet
+function s2ab(str: any) {
+  const buf = new ArrayBuffer(str.length); // convert string to arrayBuffer
+  const view = new Uint8Array(buf); // create uint8array as viewer
+
+  // convert to octet 0xff = 255 (16진수)
+  for (let i = 0; i < str.length; i++) {
+    view[i] = str.charCodeAt(i) & 0xff; // & 은 비트 연산 : str.charCodeAt(i)의 범위를 0 ~ 255로 제한
+  }
+
   return buf;
 }
 ```
