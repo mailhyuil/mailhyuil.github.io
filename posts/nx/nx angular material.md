@@ -4,5 +4,5 @@
 
 ```sh
 npm install @angular/material
-nx g @angular/material:ng-add --project=my-project
+# nx g @angular/material:ng-add --project=my-project
 ```

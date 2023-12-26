@@ -3,7 +3,8 @@
 ## install
 
 ```sh
-ng add @angular/material
+npm i @angular/material
+# ng add @angular/material
 ```
 
 ## tailwindcss와 함께 사용
