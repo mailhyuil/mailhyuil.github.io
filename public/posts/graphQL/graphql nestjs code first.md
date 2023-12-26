@@ -8,8 +8,6 @@
 
 ```sh
 npm i graphql
-npm i graphql-tools
-npm i graphql-subscriptions
 
 # server
 npm i @nestjs/graphql
@@ -47,38 +45,38 @@ export class AppModule {}
 ```ts
 import { Field, ID, ObjectType } from "@nestjs/graphql";
 
-@ObjectType()
 @Exclude()
+@ObjectType()
 export class User {
-  @Field(() => ID)
   @Expose()
+  @Field(() => ID)
   id: string;
 
-  @Field({ nullable: false })
   @Expose()
+  @Field({ nullable: false })
   username: string;
 
-  @Field({ nullable: false })
   @Expose()
+  @Field({ nullable: false })
   email: string;
 
-  @Field({ nullable: false })
   @Expose()
+  @Field({ nullable: false })
   password: string;
 }
 
 @InputType()
 export class CreateUserDTO {
-  @Field()
   @IsNotEmpty()
+  @Field()
   username: string;
 
-  @Field()
   @IsNotEmpty()
+  @Field()
   email: string;
 
-  @Field()
   @IsNotEmpty()
+  @Field()
   password: string;
 }
 ```
