@@ -12,7 +12,7 @@
 @Resolver() // Resolver : controller
 @Query() // Query : GET
 @Mutation() // Mutation : POST, PATCH, PUT, DELETE
-@ResolveField() // ResolveField : property
+@ResolveField() // ResolveField : 관계를 어떻게 가져올지 정의 (ex. user의 posts)
 
 @Subscription() // Subscription : websocket
 
