@@ -8,4 +8,6 @@
 
 ```sh
 npm i -g ts-node
+
+ts-node main.ts
 ```
