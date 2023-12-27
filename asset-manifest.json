@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.674eec6c.js",
+    "main.js": "/static/js/main.3adccc40.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.0931ebc63afc6acc09b2.md",
@@ -1242,7 +1242,7 @@
     "static/media/db primary key autoIncrement vs uuid .md": "/static/media/db primary key autoIncrement vs uuid .4af06cce38d5ce20e680.md",
     "static/media/aws-sdk.md": "/static/media/aws-sdk.a216bf1512d7e064a992.md",
     "static/media/nest platform.md": "/static/media/nest platform.964f871e2d75c00aa1bf.md",
-    "static/media/prisma distinct.md": "/static/media/prisma distinct.dd11be42b2a8e6471ba8.md",
+    "static/media/prisma aggregate distinct.md": "/static/media/prisma aggregate distinct.dd11be42b2a8e6471ba8.md",
     "static/media/algorithm 배열 중앙값 구하기.md": "/static/media/algorithm 배열 중앙값 구하기.16dd008db11fb0b364d8.md",
     "static/media/확률 & 통계 대표값.md": "/static/media/확률 & 통계 대표값.26d5d18f733b58060f54.md",
     "static/media/js delay.md": "/static/media/js delay.5527222d333d4c10d51c.md",
@@ -1351,6 +1351,7 @@
     "static/media/North-South & East-West Traffic.md": "/static/media/North-South & East-West Traffic.908143c6500e5b9ba6c8.md",
     "static/media/angular ChangeDetection onChanges & doCheck.md": "/static/media/angular ChangeDetection onChanges & doCheck.a653aa37a47120f20587.md",
     "static/media/yarn monorepo.md": "/static/media/yarn monorepo.52ce41ef4d0468c77200.md",
+    "static/media/prisma relation Fluent API.md": "/static/media/prisma relation Fluent API.7ec1a7d9c0fdb078aacd.md",
     "static/media/aws SAM.md": "/static/media/aws SAM.8e7fd9595baf4a4c6fe4.md",
     "static/media/linux tee.md": "/static/media/linux tee.690371ee5f6ed0a9f110.md",
     "static/media/nest advanced CQRS.md": "/static/media/nest advanced CQRS.7d3ff27dab8138d99a33.md",
@@ -1813,7 +1814,6 @@
     "static/media/postgres postgresql.conf.md": "/static/media/postgres postgresql.conf.1cfde7ab8fcea18d2b8b.md",
     "static/media/typescript callable.md": "/static/media/typescript callable.f6e8148991371230b23f.md",
     "static/media/js structuredClone (deep copy).md": "/static/media/js structuredClone (deep copy).18f9a7909c861d34ea61.md",
-    "static/media/prisma relation method.md": "/static/media/prisma relation method.6571149dcfd50b836322.md",
     "static/media/webapi navigator clipboard.md": "/static/media/webapi navigator clipboard.36aacf52954a323d4cd0.md",
     "static/media/cicd github actions skip.md": "/static/media/cicd github actions skip.a99a85d6fe82ba0421f8.md",
     "static/media/linux redirect operators.md": "/static/media/linux redirect operators.7bbe5b27ff87f096127b.md",
@@ -2430,10 +2430,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.674eec6c.js.map": "/static/js/main.674eec6c.js.map"
+    "main.3adccc40.js.map": "/static/js/main.3adccc40.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.674eec6c.js"
+    "static/js/main.3adccc40.js"
   ]
 }
