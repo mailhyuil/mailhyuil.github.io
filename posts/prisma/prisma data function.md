@@ -20,6 +20,8 @@
 
 ## now()
 
+> 현재 시간
+
 ## auto()
 
 > mongoDB의 ObjectId 생성
@@ -27,3 +29,5 @@
 > > mongoDB에서만 사용 가능
 
 ## dbgenerated()
+
+> db의 함수를 사용

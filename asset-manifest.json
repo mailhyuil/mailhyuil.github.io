@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.aa74fabe.js",
+    "main.js": "/static/js/main.b21d8097.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.0931ebc63afc6acc09b2.md",
@@ -1261,6 +1261,7 @@
     "static/media/nhn ncs.md": "/static/media/nhn ncs.8cb3338156e0c1a8689a.md",
     "static/media/dart Timer.md": "/static/media/dart Timer.9e6b6f74da7beb8237b3.md",
     "static/media/kube Troubleshooting MasterNode (ControlPlane).md": "/static/media/kube Troubleshooting MasterNode (ControlPlane).9538e53f3626c97cdc2d.md",
+    "static/media/prisma data function.md": "/static/media/prisma data function.49daafbceb9b34c72932.md",
     "static/media/spring 핸들러 예외 리졸버.md": "/static/media/spring 핸들러 예외 리졸버.d701bbc2afe58ce3fc30.md",
     "static/media/webpack plugin manifest-webpack-plugin.md": "/static/media/webpack plugin manifest-webpack-plugin.5573ec25a96c911d9b21.md",
     "static/media/js switch.md": "/static/media/js switch.518f659eb072fff1664b.md",
@@ -1362,7 +1363,6 @@
     "static/media/cicd ArgoCD.md": "/static/media/cicd ArgoCD.10e4828a72eff5a52362.md",
     "static/media/db 성능 핵심.md": "/static/media/db 성능 핵심.7d2ac6b8e740b3d642c7.md",
     "static/media/kube context.md": "/static/media/kube context.20765ef6315d2b506189.md",
-    "static/media/prisma data function.md": "/static/media/prisma data function.b1453c565a275f782397.md",
     "static/media/확률 & 통계.md": "/static/media/확률 & 통계.353bc7ee75cdac522839.md",
     "static/media/angular immutablejs.md": "/static/media/angular immutablejs.7b33723bfd4d36f94e7e.md",
     "static/media/angular route redirectTo & pathMatch.md": "/static/media/angular route redirectTo & pathMatch.49c56eaf2cca0dd87165.md",
@@ -1489,6 +1489,7 @@
     "static/media/js esModuleInterop.md": "/static/media/js esModuleInterop.3d8a20fe15a21c989f42.md",
     "static/media/pm2 cluster.md": "/static/media/pm2 cluster.acb731d2801f7a09acf0.md",
     "static/media/victor.md": "/static/media/victor.99deb550e7c9b64990c4.md",
+    "static/media/HTTP GET vs POST.md": "/static/media/HTTP GET vs POST.5dd05491a7514b35b537.md",
     "static/media/Docker image mysql.md": "/static/media/Docker image mysql.bc85fdd1e64c506600f0.md",
     "static/media/angular ContentChildren.md": "/static/media/angular ContentChildren.2938d08cf115a48abfe0.md",
     "static/media/angular watch.md": "/static/media/angular watch.3794864cbd22e980e35a.md",
@@ -2019,6 +2020,7 @@
     "static/media/Next-Gen Format.md": "/static/media/Next-Gen Format.9889deed98316c4b9477.md",
     "static/media/linux nstat.md": "/static/media/linux nstat.f4588766070e3542d8d0.md",
     "static/media/ngrok.md": "/static/media/ngrok.cdf4062baedb2315a8f2.md",
+    "static/media/profiling node.md": "/static/media/profiling node.98e57fc2dcbebb129529.md",
     "static/media/flutter feature flutter_image_compress.md": "/static/media/flutter feature flutter_image_compress.52262149931b1125ef58.md",
     "static/media/kubectl 헤더 제외하기.md": "/static/media/kubectl 헤더 제외하기.1ef8995132f25bfb1a63.md",
     "static/media/react for.md": "/static/media/react for.efe2b41b57a027a59bc3.md",
@@ -2434,10 +2436,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.aa74fabe.js.map": "/static/js/main.aa74fabe.js.map"
+    "main.b21d8097.js.map": "/static/js/main.b21d8097.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.aa74fabe.js"
+    "static/js/main.b21d8097.js"
   ]
 }
