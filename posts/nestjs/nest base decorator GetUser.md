@@ -13,22 +13,29 @@ request.user = user; // user data를 request안에 저장해두기
 ## decorator
 
 ```ts
-export const GetUser = createParamDecorator<User>((data: User, ctx: ExecutionContext) => {
+type UserRecord = keyof User;
+export const GetUser = createParamDecorator((data: UserRecord, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest();
-  return request.user;
+  return data ? request.user?.[data] : request.user;
 });
 ```
 
-## service
+## controller
 
 > getProfile 메소드
 
 ```ts
-export class UserService {
+export class UserController {
   @Get("profile")
   @Auth()
   async getProfile(@GetUser() user: User): Promise<UserDTO> {
     return plainToInstance(UserDTO, user);
+  }
+
+  @Get("email")
+  @Auth()
+  async getEmail(@GetUser("email") email: string): Promise<string> {
+    return { email };
   }
 }
 ```
