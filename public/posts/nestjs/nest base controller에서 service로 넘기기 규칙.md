@@ -25,6 +25,8 @@ export class SomeController {
 ## service
 
 > options에 여러 type을 넣어주고 싶다면 intersection(&) 을 사용하기
+>
+> > options의 값은 로직에 섞여있되 없어도 에러가 나지 않아야 한다.
 
 ```ts
 @Injectable()
