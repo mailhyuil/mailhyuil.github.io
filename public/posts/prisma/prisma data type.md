@@ -56,6 +56,8 @@ money	            @db.Money // 8바이트
 > > char는 n만큼의 고정된 길이를 갖는다.
 > >
 > > > varchar는 최대 n만큼의 가변길이를 갖는다.
+> > >
+> > > > text와 varchar는 동일하지만 text는 길이 제한이 없다.
 
 ```
 bit(x)	    @db.Bit(x)
