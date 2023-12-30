@@ -23,14 +23,12 @@ import { ToastService } from "./toast.service";
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(private readonly store: Store, private readonly httpService: HttpService, private readonly toastService: ToastService, private readonly router: Router) {}
+  constructor(private readonly store: Store, private readonly httpService: HttpService, private readonly toastService: ToastService, private readonly router: Router, private readonly logger: Logger) {}
 
   handleError(error: any) {
     if (error instanceof HttpErrorResponse) {
       const status: number = error.status;
-      if (status === 498) {
-        this.handleInvalidToken();
-      }
+      const message: string = error.error.message;
       if (status === 400) {
         this.handleBadRequest();
       }
@@ -40,23 +38,27 @@ export class GlobalErrorHandler implements ErrorHandler {
       if (status === 403) {
         this.handleForbidden();
       }
+      if (status === 498) {
+        this.handleInvalidToken();
+      }
       if (status === 500) {
         this.handleInternalServerError();
       }
-      this.toastService.show(error.error.message, "danger");
     }
-    console.error("Error from global error handler", error);
+    this.logger.log(error); // 원본 에러를 로깅..
   }
 
   private async handleInvalidToken() {
     this.store.reset(AdminState);
+
     const refreshToken = localStorage.getItem("REFRESH_TOKEN_KEY");
     // refresh token이 없으면 로그인 페이지로 이동
     if (!refreshToken) {
-      this.toastService.show("로그인을 해주세요.");
+      this.toastService.show("로그인 후 이용해주세요.");
       this.router.navigateByUrl("/login");
       return;
     }
+
     // refresh token이 있으면 refresh token으로 access token을 재발급 받는다.
     const { accessToken } = await lastValueFrom(
       this.httpService.get<{ accessToken: string }>("auth/refresh", {
@@ -65,19 +67,21 @@ export class GlobalErrorHandler implements ErrorHandler {
         },
       })
     ).catch((error) => {
-      this.toastService.show("로그인을 해주세요.");
+      this.toastService.show("로그인 후 이용해주세요.");
       this.router.navigateByUrl("/login");
       return { accessToken: null };
     });
+
     // 재발급 받은 access token이 있으면 local storage에 저장하고 admin 정보를 store에 저장한다.
     if (accessToken) {
       localStorage.setItem("ACCESS_TOKEN_KEY", accessToken);
 
       const admin = await lastValueFrom(this.httpService.get<IAdminDTO>("auth")).catch((error) => {
-        this.toastService.show("로그인을 해주세요.");
+        this.toastService.show("로그인 후 이용해주세요.");
         this.router.navigateByUrl("/login");
         return null;
       });
+
       // admin 정보가 있으면 store에 저장한다.
       if (admin) {
         this.store.dispatch(new SetAdmin(admin));
@@ -91,9 +95,15 @@ export class GlobalErrorHandler implements ErrorHandler {
     this.router.navigateByUrl("/login");
   }
 
-  private async handleForbidden(): Promise<void> {}
-  private async handleBadRequest(): Promise<void> {}
-  private async handleInternalServerError(): Promise<void> {}
+  private async handleForbidden(): Promise<void> {
+    this.toastService.show("사용 권한이 없습니다.");
+  }
+  private async handleBadRequest(): Promise<void> {
+    this.toastService.show("처리할 수 없는 요청입니다.");
+  }
+  private async handleInternalServerError(): Promise<void> {
+    this.toastService.show("서버에서 문제가 발생했습니다.");
+  }
 }
 ```
 
