@@ -7,6 +7,8 @@
 ## ErrorHandler
 
 > 전역 에러 핸들
+>
+> > HttpErrorResponse는 앵귤러에서 제공하는 커스텀 에러 객체이다.
 
 ```ts
 import { HttpErrorResponse } from "@angular/common/http";
@@ -21,12 +23,7 @@ import { ToastService } from "./toast.service";
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(
-    private readonly store: Store,
-    private readonly httpService: HttpService,
-    private readonly toastService: ToastService,
-    private readonly router: Router
-  ) {}
+  constructor(private readonly store: Store, private readonly httpService: HttpService, private readonly toastService: ToastService, private readonly router: Router) {}
 
   handleError(error: any) {
     if (error instanceof HttpErrorResponse) {

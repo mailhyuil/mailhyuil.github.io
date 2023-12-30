@@ -14,7 +14,7 @@
 복잡한 계산 또는 로직
 ```
 
-## 특정 에러 객체를 생성해라
+## Error 객체를 확장해서 커스텀 에러를 생성해라
 
 ```js
 class CustomError extends Error {
@@ -29,6 +29,35 @@ try {
 } catch (e) {
   if (e instanceof CustomError) {
     // handle custom error
+  } else {
+    // handle other errors
+  }
+}
+```
+
+## HttpError의 경우 status code로 구분해라
+
+> HttpError는 직접 구현하여 status code 등을 추가해야한다.
+>
+> > angular의 경우 HttpErrorResponse를 제공한다.
+
+```js
+async function fetch(url) {
+  const response = await fetch(url);
+  return response;
+}
+
+try {
+  await fetch("https://example.com");
+} catch (e) {
+  if (e instanceof HttpError) {
+    if (e.statusCode === 404) {
+      // handle 404 error
+    } else if (e.statusCode === 403) {
+      // handle 403 error
+    } else {
+      // handle other errors
+    }
   } else {
     // handle other errors
   }
