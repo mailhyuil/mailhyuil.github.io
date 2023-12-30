@@ -13,11 +13,10 @@ npm i apollo-angular
 ```ts
 import { APOLLO_OPTIONS, ApolloModule } from "apollo-angular";
 import { HttpLink } from "apollo-angular/http";
-import { HttpClientModule } from "@angular/common/http";
 import { InMemoryCache } from "@apollo/client/core";
 
 @NgModule({
-  imports: [BrowserModule, ApolloModule, HttpClientModule],
+  imports: [ApolloModule],
   providers: [
     {
       provide: APOLLO_OPTIONS,
@@ -25,7 +24,7 @@ import { InMemoryCache } from "@apollo/client/core";
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: "https://localhost:3000/api/v1",
+            uri: "https://localhost:3000/api/v1", // interceptor도 같이 적용됨
           }),
         };
       },
@@ -59,7 +58,7 @@ export class ExchangeRates implements OnInit {
   loading = true;
   error: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private readonly apollo: Apollo) {}
 
   ngOnInit() {
     this.apollo
