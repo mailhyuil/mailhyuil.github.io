@@ -67,3 +67,22 @@ try {
 ## async try catch
 
 > 비동기 태스크를 try catch로 감싸려면 await로 블로킹을 시켜야한다.
+>
+> > 또는 콜백함수 내부에서 try catch를 사용해야한다.
+
+```js
+try {
+  await asyncTask();
+} catch (e) {
+  // handle error
+}
+
+// or
+asyncTask((err, result) => {
+  if (err) {
+    // handle error
+  } else {
+    // handle result
+  }
+});
+```
