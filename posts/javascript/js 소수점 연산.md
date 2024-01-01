@@ -6,14 +6,14 @@
 
 ## 문제
 
-```
+```js
 const res = 0.1 + 0.2;
 console.log(res); // 0.30000000000000004
 ```
 
 ## 해결
 
-```
+```js
 const res = (0.1 + 0.2).toFixed(1);
 console.log(res); // 0.3
 
