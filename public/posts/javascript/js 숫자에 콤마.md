@@ -1,5 +1,6 @@
 # 숫자에 콤마
 
-```
-(123124123).toLocaleString();
+```js
+const res = 123124123.toLocaleString();
+console.log(res); // 123,124,123
 ```
