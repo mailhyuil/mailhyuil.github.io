@@ -35,8 +35,24 @@ export default {
 } satisfies Config;
 ```
 
-## generate
+## generate migration file
 
 ```sh
 drizzle-kit generate:pg
+```
+
+## main.ts
+
+```ts
+import { drizzle } from "drizzle-orm/postgres-js";
+import { migrate } from "drizzle-orm/postgres-js/migrator";
+import postgres from "postgres";
+
+const connectionString = "...";
+const sql = postgres(connectionString, { max: 1 });
+const db = drizzle(sql);
+
+await migrate(db, { migrationsFolder: "drizzle" });
+
+await sql.end();
 ```
