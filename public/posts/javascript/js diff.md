@@ -4,6 +4,7 @@
 
 ```sh
 npm i json-diff
+npm i deep-diff
 # or
 npm i lodash-es
 ```
