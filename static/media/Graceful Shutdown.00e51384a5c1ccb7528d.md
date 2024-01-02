@@ -5,6 +5,8 @@
 > > 작업을 정상적으로 종료시키는 것
 > >
 > > > (e.g. buffer에 나은 로그를 flush하는 작업, consumer의 경우 consume을 중단하고 남은 메시지를 처리하는 작업 등)
+> > >
+> > > > signal -> signal catching -> cleanup logic -> wait for cleanup -> exit
 
 ## Hard Shutdown
 
