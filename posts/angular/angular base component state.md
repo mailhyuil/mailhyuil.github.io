@@ -31,7 +31,7 @@ export class BaseComponent implements OnInit {
 ## base.component.html
 
 ```html
-<ng-container *ngIf="data"> {{data | json}} </ng-container>
+<ng-container *ngIf="!isLoading && !error && data"> {{data | json}} </ng-container>
 <ng-container *ngIf="loading">
   <p>로딩중...</p>
 </ng-container>
