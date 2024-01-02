@@ -1,8 +1,8 @@
-# CRT & Self-Signed Certificate
+# Self-Signed Certificate
 
 > CSR을 보내서 인증서를 받는 것이 아니라, 인증서를 직접 만드는 것
-> 개발 및 테스트 환경에서 사용
-> CA-Signed Certificate에 비해서 안전하지 않음
+> (개발 및 테스트 환경에서 사용)
+> (CA-Signed Certificate에 비해서 안전하지 않음)
 >
 > > public 암호화 방식
 

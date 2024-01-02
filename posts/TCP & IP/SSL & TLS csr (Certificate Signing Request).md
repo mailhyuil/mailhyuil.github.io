@@ -1,7 +1,7 @@
 # CRT & CSR (Certificate Signing Request)
 
 > CSR : 인증서(crt 파일)를 만들기 위한 요청서
-> CSR을 생성해서 요청을 하면 관리자가 certificate를 해서 돌려줌
+> (CSR을 생성해서 요청을 하면 관리자가 certificate를 해서 돌려줌)
 >
 > > key, csr, crt 파일 필요
 > >
