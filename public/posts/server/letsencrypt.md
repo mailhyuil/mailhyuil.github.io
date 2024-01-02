@@ -2,7 +2,7 @@
 
 ## install
 
-```
+```sh
 sudo apt-get update
 sudo apt-get install certbot
 ```
@@ -21,7 +21,7 @@ sudo certbot certonly --standalone -d <example.com> -d <www.example.com>
 
 > options-ssl-nginx.conf는 단순한 설정파일 없으면 다운로드 받아서 사용해도됨
 
-```
+```conf
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
@@ -41,7 +41,7 @@ server {
 
 ## 자동갱신
 
-```
+```sh
 # 갱신 script 생성
 cat > letsencrypt.sh
 !/bin/sh
