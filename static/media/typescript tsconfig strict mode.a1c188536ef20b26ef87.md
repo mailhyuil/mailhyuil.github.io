@@ -7,3 +7,17 @@
 > > > 실무에서는 false로 한다. 라이브러리가 작동이 안되기 때문.
 > > >
 > > > > 파일만 strict모드를 지정할 수 있는 플러그인이 있다.
+
+## strictNullChecks
+
+## noImplicitAny
+
+## strictFunctionTypes
+
+## strictBindCallApply
+
+## strictPropertyInitialization
+
+## noImplicitThis
+
+## alwaysStrict
