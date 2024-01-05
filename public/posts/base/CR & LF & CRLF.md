@@ -17,3 +17,11 @@
 > 윈도우의 기본값
 >
 > > 줄을 바꾸는 동작
+
+```
+console.log("hi\r\nhello"); /// CRLF
+console.log("---------");
+console.log("hi\nhello"); /// LF
+console.log("---------");
+console.log("hi\rhello"); ///CR
+```
