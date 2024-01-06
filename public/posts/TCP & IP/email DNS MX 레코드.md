@@ -1,1 +1,1 @@
-# email IMAP4
+# email DNS MX 레코드
