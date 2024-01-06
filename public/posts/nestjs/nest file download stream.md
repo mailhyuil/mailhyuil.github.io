@@ -4,7 +4,7 @@
 >
 > > Content-Type: application/octet-stream 으로 보내진다.
 > >
-> > > 헤더에 Transfer-Encoding: chunked가 자동으로 들어감
+> > > 헤더에 Transfer-Encoding: chunked가 자동으로 들어감 (for문이나 interval을 사용해도 chunked로 보내진다.)
 
 ## stream 사용 (express 방식)
 
