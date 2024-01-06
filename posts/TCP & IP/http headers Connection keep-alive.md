@@ -5,8 +5,13 @@
 > > 대부분의 모던 브라우저는 keep-alive가 기본적으로 활성화 되어있다.
 > >
 > > > express의 기본 timeout은 5초
+> > >
+> > > > 명시적으로 close를 보내서 연결을 바로 끊을 수 있다.
 
 ```
 Connection: keep-alive
 Keep-Alive: timeout=5
+
+# close
+Connection: close
 ```
