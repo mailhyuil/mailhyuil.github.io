@@ -27,11 +27,12 @@ Content-Type: text/xml
 
 ```sh
 Content-Type: multipart/formed-data # 파일 첨부
-Content-Type: multipart/mixed # email
-Content-Type: multipart/related # email
+Content-Type: multipart/byteranges # 파일 다운로드
 ```
 
 ## file
+
+> application 타입이 명시되어 있을 시 소프트웨어가 자동으로 파일을 연다던가의 행위를 할 수 있다.
 
 ```sh
 Content-Type: application/pdf # pdf

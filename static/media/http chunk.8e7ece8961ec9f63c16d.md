@@ -6,9 +6,13 @@
 > >
 > > > Content-Length 헤더를 사용하지 않고 본문에 chunk의 length를 포함한다.
 > > >
-> > > > 수신자는 length가 0인 chunk를 받으면 전송이 완료된 것으로 간주한다.
+> > > > Content-Length 헤더와 같이 사용할 수 없다.
 > > > >
-> > > > > chunk data와 length는 CRLF로 구분된다.
+> > > > > 데이터를 보내는 시점에 Content-Length를 알 수 없을 때 사용한다.
+> > > > >
+> > > > > > 수신자는 length가 0인 chunk를 받으면 전송이 완료된 것으로 간주한다.
+> > > > > >
+> > > > > > > chunk data와 length는 CRLF로 구분된다.
 
 ## 일반 http 응답
 
