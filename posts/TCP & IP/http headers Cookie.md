@@ -34,9 +34,11 @@ Set-Cookie: max-age=3600; domain=example.com; Path=/; Secure; HttpOnly
 
 > https 프로토콜을 사용하는 경우에만 쿠키를 전송하는 옵션
 
-## SameSite
+## sameSite
 
 > 다른 도메인으로의 요청에 쿠키를 전송 할지 말지 결정하는 옵션
+>
+> > csrf 공격 방지
 
 ```
 None : 크로스 도메인 요청에도 쿠키를 전송 / 사용하려면 반드시 해당 쿠키는 secure 쿠키여야한다.
