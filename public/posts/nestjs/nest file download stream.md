@@ -3,18 +3,20 @@
 > stream을 사용하면 파일을 in-memory에 저장하지 않고 바로 스트림으로 읽어서 처리할 수 있다.
 >
 > > Content-Type: application/octet-stream 으로 보내진다.
+> >
+> > > 헤더에 Transfer-Encoding: chunked가 자동으로 들어감
 
-## stream 사용
+## stream 사용 (express 방식)
 
 ```ts
 @Get('file')
 getFile(@Res() res: Response) {
-    const file = createReadStream(join(process.cwd(), 'hello.txt'));
-    file.pipe(res as unknown as NodeJS.WritableStream);
+    const stream = createReadStream(join(process.cwd(), 'hello.txt'));
+    stream.pipe(res as unknown as NodeJS.WritableStream);
 }
 ```
 
-## Streamable File class 사용
+## Streamable File class 사용 (nestjs 방식)
 
 ```ts
 import { Controller, Get, StreamableFile, Res } from "@nestjs/common";
