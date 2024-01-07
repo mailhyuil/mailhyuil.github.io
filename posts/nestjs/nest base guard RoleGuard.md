@@ -1,9 +1,11 @@
 # nest roleGuard
 
 > 기본으로 Member, Admin, Guest 권한을 생성해라
+>
+> > ForbiddenException을 던져라
 
 ```ts
-import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from "@nestjs/common";
+import { CanActivate, ExecutionContext, ForbiddenException, Injectable } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { Role } from "@prisma/client";
 
