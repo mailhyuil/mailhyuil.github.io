@@ -3,6 +3,8 @@
 > Refresh Header를 이용해 새 Refresh Token을 클라이언트에 전달
 >
 > > RefreshToken은 데이터베이스에 저장되어 무효화 가능
+> >
+> > > AuthService에서는 UnauthorizedException을 던져서 클라이언트에게 재로그인을 요청
 
 ## env
 
@@ -13,54 +15,47 @@ JWT_REFRESH_TOKEN_SECRET=VERY_SECRET_REFRESH_TOKEN
 JWT_REFRESH_TOKEN_EXPIRATION_TIME=2592000 # 30일
 ```
 
-## UserService
-
-```js
-import { Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
-
-@Injectable()
-export class UserService {
-  constructor(private readonly prisma:PrismaService){}
-  async setCurrentRefreshToken(refreshToken: string, userId: string) {
-
-    const currentHashedRefreshToken = await bcrypt.hash(refreshToken, 10);
-
-    this.prisma.user.update({
-      where: { id: userId },
-      data: { refreshToken: currentHashedRefreshToken }
-    })
-  }
-}
-```
-
 ## AuthController
 
 ```js
+import { Body, Controller, Get, Headers, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { Role } from '@prisma/client';
+import { plainToInstance } from 'class-transformer';
+import { AdminDTO } from '../admin/admin.dto';
 import {
-  Req,
-  Controller,
-  HttpCode,
-  Post,
-  UseGuards,
-  ClassSerializerInterceptor, UseInterceptors,
-} from '@nestjs/common';
+  LoginByEmailDTO,
+  LoginByGoogleDTO,
+  isLoginByEmailDTO,
+  isLoginByGoogleDTO,
+} from './auth.dto';
 import { AuthService } from './auth.service';
+import { Auth } from './decorators/auth.decorator';
+import { GetAdmin } from './decorators/get-admin.decorator';
 
-@Controller('auth')
+@ApiTags('인증 관리')
+@Controller({ path: 'auth', version: '1' })
 export class AuthController {
-  constructor(
-    private readonly authService: AuthService
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
-  @Auth()
+  @Get()
+  @Auth(Role.ADMIN, Role.SUPER_ADMIN)
+  async getProfile(@GetAdmin() admin: Admin) {
+    return plainToInstance(AdminDTO, admin);
+  }
+
   @Post('login')
-  async login(@Body() body: LoginDto, @GetUser() user: User, @Res() res: Response) {
-    const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.id);
-    const refreshTokenCookie = this.authService.getCookieWithJwtRefreshToken(user.id);
-    await this.usersService.setCurrentRefreshToken(refreshToken, user.id);
-    res.setHeader('Set-Cookie', [accessTokenCookie, refreshTokenCookie]);
-    return user;
+  async login(@Body() body: LoginDTO) {
+    return await this.authService.login(body);
+  }
+
+  @Get('refresh')
+  async getAccessTokenByRefreshToken(
+    @Headers('RefreshToken') refreshToken: string
+  ) {
+    return await this.authService.getAccessTokenByRefreshToken(
+      refreshToken
+    );
   }
 }
 ```
@@ -68,97 +63,107 @@ export class AuthController {
 ## AuthService
 
 ```js
-import { Injectable } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import { UserService } from '../users/users.service';
-import TokenPayload from './tokenPayload.interface';
+import { AccessTokenPayload, RefreshTokenPayload } from '@cms/common';
+import {
+  BadRequestException,
+  Injectable,
+  Logger,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { Admin } from '@prisma/client';
+import bcrypt from 'bcryptjs';
+import { OAuth2Client, TokenPayload } from 'google-auth-library';
+import { PrismaService } from '../../prisma/prisma.service';
+import { LoginByEmailDTO, LoginByGoogleDTO } from './auth.dto';
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
   constructor(
-    private readonly userService: UserService,
-    private readonly jwtService: JwtService,
+    private readonly prisma: PrismaService,
+    private readonly jwtService: JwtService
   ) {}
-  public getCookieWithJwtAccessToken(userId: number) {
-    const payload: TokenPayload = { userId };
-    const token = this.jwtService.sign(payload, {
-      secret: process.env['JWT_ACCESS_TOKEN_SECRET'],
-      expiresIn: `${process.env['JWT_ACCESS_TOKEN_EXPIRATION_TIME']}s`
+
+  async login(data: LoginDTO) {
+    const admin = await this.prisma.admin.findUnique({
+      where: {
+        email: data.email,
+      },
     });
-    return `Authentication=${token}; HttpOnly; Path=/; Max-Age=${process.env['JWT_ACCESS_TOKEN_EXPIRATION_TIME']}`;
+
+    if (!admin)
+      throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
+
+    const decryptedPassword = bcrypt.compareSync(data.password, admin.password);
+
+    if (!decryptedPassword)
+      throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
+
+    const accessToken = await this.createAccessToken(admin);
+    const refreshToken = await this.createRefreshToken(admin);
+    return { accessToken, refreshToken };
   }
 
-  public getCookieWithJwtRefreshToken(userId: number) {
-    const payload: TokenPayload = { userId };
-    const token = this.jwtService.sign(payload, {
-      secret: process.env['JWT_REFRESH_TOKEN_SECRET'],
-      expiresIn: `${process.env['JWT_REFRESH_TOKEN_EXPIRATION_TIME']}s`
-    });
-    const cookie = `Refresh=${token}; HttpOnly; Path=/; Max-Age=${process.env['JWT_REFRESH_TOKEN_EXPIRATION_TIME']}`;
-    return {
-      cookie,
-      token
-    }
-  }
-}
-```
-
-## guard
-
-```ts
-import { Injectable, ExecutionContext } from "@nestjs/common";
-import { AuthGuard } from "@nestjs/passport";
-
-@Injectable()
-export class JwtAuthGuard extends AuthGuard("jwt") {
-  canActivate(context: ExecutionContext) {
-    // 추가적인 인증 로직을 적용할 수 있습니다.
-    return super.canActivate(context);
-  }
-
-  handleRequest(err: any, user: any, info: any) {
-    // 에러 처리를 위한 로직을 추가할 수 있습니다.
-    if (err || !user) {
-      throw err || new UnauthorizedException();
-    }
-    return user;
-  }
-
-  getRequest(context: ExecutionContext) {
-    const ctx = context.switchToHttp();
-    const request = ctx.getRequest();
-    return request;
-  }
-
-  getTokenFromCookie(request: any): string | null {
-    if (request && request.cookies) {
-      return request.cookies["Authentication"];
-    }
-    if
-    return null;
-  }
-
-  getRefreshTokenFromCookie(request: any): string | null {
-    if (request && request.cookies) {
-      return request.cookies["Refresh"];
-    }
-    return null;
-  }
-
-  async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = this.getRequest(context);
-    const token = this.getTokenFromCookie(request);
-    if (!token) {
-      const refreshToken = this.getRefreshTokenFromCookie(request);
-      if (!refreshToken) {
-        return false;
+  private async createAccessToken(admin: Admin) {
+    const accessToken = this.jwtService.sign(
+      {
+        id: admin.id,
+      },
+      {
+        secret: process.env['JWT_ACCESS_TOKEN_SECRET'],
+        expiresIn: process.env['JWT_ACCESS_TOKEN_EXPIRATION_TIME'],
       }
+    );
+    return accessToken;
+  }
+
+  private async createRefreshToken(admin: Admin) {
+    if (admin.refreshToken) return admin.refreshToken;
+    const refreshToken = this.jwtService.sign(
+      {
+        id: admin.id,
+      },
+      {
+        secret: process.env['JWT_REFRESH_TOKEN_SECRET'],
+        expiresIn: process.env['JWT_REFRESH_TOKEN_EXPIRATION_TIME'],
+      }
+    );
+
+    const hashedRefreshToken = await bcrypt.hash(refreshToken);
+
+    await this.prisma.admin.update({
+      where: {
+        id: admin.id,
+      },
+      data: {
+        refreshToken : hashedRefreshToken,
+      },
+    });
+
+    return refreshToken;
+  }
+
+  async getAccessTokenByRefreshToken(token: string) {
+    const bearer = token.split(' ')[0];
+    const refreshToken = token.split(' ')[1];
+
+    if ((bearer && bearer !== 'Bearer') || !refreshToken) {
+      throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
     }
 
-    // JWT 검증을 수행하고 유효한지 확인하는 로직
-    request.jwtToken = token; // 옵션: 요청에 토큰을 저장할 수 있습니다.
+    const admin = await this.findAdminById(payload.id);
 
-    return true;
+    const isRefreshTokenValid = await bcrypt.compare(
+      refreshToken,
+      admin.refreshToken
+    );
+
+    if (!isRefreshTokenValid)
+      throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
+
+    const accessToken = await this.createAccessToken(admin);
+
+    return accessToken;
   }
 }
 ```

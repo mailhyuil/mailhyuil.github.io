@@ -3,48 +3,57 @@
 ## 구현
 
 ```ts
+import { AccessTokenPayload } from "@cms/common";
+import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from "@nestjs/common";
+import { InvalidTokenException } from "apps/server/src/lib/exceptions/invalid-token.exception";
+import { PrismaService } from "../../../prisma/prisma.service";
+
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private readonly authService: AuthService, private readonly jwtService: JwtService) {}
+  constructor(private readonly authService: AuthService, private readonly prismaService: PrismaService) {}
 
   async canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest();
-    const headers = request.headers;
+    const header = request.headers;
+    const authorization = header.authorization;
 
-    // headers에서 authorization 키를 가진 값 찾기
-    const hasAuthorization = headers.hasOwnProperty("authorization");
-
-    if (!hasAuthorization) {
-      throw new HttpException("사용자 정보를 찾을 수 없습니다.", 498);
+    if (!authorization) {
+      throw new InvalidTokenException();
     }
 
-    // authorization 값을 공백 문자로 나누기 -> 배열로 만들기
-    const authorization = headers.authorization.split(" ") as string[];
-
-    if (authorization.length < 2) {
-      throw new HttpException("사용자 정보를 찾을 수 없습니다.", 498);
+    if (!authorization.startsWith("Bearer ")) {
+      throw new InvalidTokenException();
     }
-    // 값이 bearer 토큰인지 확인
-    const hasBearer = authorization[0].toLowerCase().startsWith("bearer");
 
-    if (!hasBearer) {
-      throw new HttpException("사용자 정보를 찾을 수 없습니다.", 498);
+    const accessToken = authorization.split(" ")[1];
+    if (!accessToken) {
+      throw new InvalidTokenException();
     }
-    // 토큰 가져오기
-    const accessToken = authorization[1];
 
-    // jwtService를 사용하여 토큰 검증
-    // AuthUtils으로 대체 가능
+    let id;
     try {
-      const { id }: AccessTokenPayload = await this.jwtService.verify<AccessTokenPayload>(accessToken);
-      const user = await this.authService.findUserById(id);
-      if (!user) throw new NotFoundException("사용자를 찾을 수 없습니다.");
-
-      request.user = user;
-      return true;
+      const payload = this.authService.verifyAccessToken(accessToken);
+      if (!payload.id) {
+        throw new InvalidTokenException();
+      }
+      id = payload.id;
     } catch (e) {
-      return false;
+      throw new InvalidTokenException();
     }
+
+    const user = await this.prismaService.user.findUnique({ where: { id } });
+
+    if (!user) {
+      throw new NotFoundException("사용자를 찾을 수 없습니다.");
+    }
+
+    if (user.status !== "ACTIVE") {
+      throw new UnauthorizedException("사용할 수 없는 사용자입니다.");
+    }
+
+    request.user = user;
+
+    return true;
   }
 }
 ```
