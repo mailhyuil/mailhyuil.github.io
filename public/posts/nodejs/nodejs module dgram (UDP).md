@@ -3,6 +3,8 @@
 > UDP 소켓을 다룰 수 있는 모듈
 >
 > > dgram = 데이터그램 = UDP에서 IP로 데이터를 보내는 단위
+> >
+> > > 브라우저에서 UDP를 사용하기 위해서는 WebRTC를 사용 (WebRTC는 UDP 레이어 위에서 작동)
 
 ```js
 const dgram = require("dgram");
