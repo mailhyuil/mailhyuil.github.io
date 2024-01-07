@@ -2,20 +2,20 @@
 
 > web realtime communication
 >
-> > peer to peer 방식으로 실시간 통신을 가능하게 해주는 기술
+> > peer to peer(p2p) 방식으로 실시간 통신을 가능하게 해주는 기술 (클라이언트들 끼리 통신)
+> >
+> > > UDP를 기반으로 실시간 통신을 가능하게 해준다.
 
 ## install
 
-> socket.io로 구현
-
 ```sh
-npm i socket.io-client // 프론트엔드 서버
-npm i socket.io // 백엔드 서버
+# 프론트엔드 서버
+npm i socket.io-client
+# 백엔드 서버
+npm i socket.io
 ```
 
-## 사용법
-
-### 백엔드
+## 백엔드
 
 > Signaling Server
 >
@@ -25,7 +25,7 @@ npm i socket.io // 백엔드 서버
 
 ```
 
-### 프론트엔드
+## 프론트엔드
 
 ```js
 async function getMedia() {
