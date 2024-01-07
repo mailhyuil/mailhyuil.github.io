@@ -1,12 +1,11 @@
-# nodejs module net
+# nodejs module net (TCP)
 
 > TCP 계층의 서버와 클라이언트를 만들 수 있는 모듈
 >
 > > TCP 소켓을 다룬다.
-> >
-> > > 데이터 스트림을 사용하여 원시 바이너리 데이터를 전송
 
 ```js
+// TCP 서버
 const net = require("net");
 
 const server = net.createServer((socket) => {
