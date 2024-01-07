@@ -1,4 +1,4 @@
-# nest jwt refreshToken
+# nest jwt refreshToken cookie
 
 > jwt를 refreshToken으로 사용하는 방법과 uuid를 refreshToken으로 사용하는 방법이 존재
 >

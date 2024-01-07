@@ -1,4 +1,4 @@
-# nest jwt refreshToken
+# nest jwt refreshToken database
 
 > Refresh Header를 이용해 새 Refresh Token을 클라이언트에 전달
 >
