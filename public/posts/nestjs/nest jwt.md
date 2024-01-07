@@ -65,15 +65,15 @@ export class AuthService {
       expiresIn: process.env["JWT_ACCESS_TOKEN_EXPIRATION_TIME"],
     });
   }
+  verifyAccessToken(token: string): any {
+    return this.jwtService.verify(token, {
+      secret: process.env["JWT_ACCESS_TOKEN_SECRET"],
+    });
+  }
   createRefreshToken(payload: any): string {
     return this.jwtService.sign(payload, {
       secret: process.env["JWT_REFRESH_TOKEN_SECRET"],
       expiresIn: process.env["JWT_REFRESH_TOKEN_EXPIRATION_TIME"],
-    });
-  }
-  verifyAccessToken(token: string): any {
-    return this.jwtService.verify(token, {
-      secret: process.env["JWT_ACCESS_TOKEN_SECRET"],
     });
   }
   verifyRefreshToken(token: string): any {

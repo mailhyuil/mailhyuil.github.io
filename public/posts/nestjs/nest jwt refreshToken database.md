@@ -159,14 +159,16 @@ export class AuthService {
       throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
     }
 
-    const admin = await this.findAdminById(payload.id);
+    const admin = await this.prisma.admin.findUnique({
+      where: { id: payload.id },
+    });
 
-    const isRefreshTokenValid = await bcrypt.compare(
+    const isMatch = await bcrypt.compare(
       refreshToken,
       admin.refreshToken
     );
 
-    if (!isRefreshTokenValid)
+    if (!isMatch)
       throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
 
     const accessToken = await this.createAccessToken(admin);
