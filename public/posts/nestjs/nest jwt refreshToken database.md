@@ -10,9 +10,9 @@
 
 ```sh
 JWT_ACCESS_TOKEN_SECRET=VERY_SECRET_ACCESS_TOKEN
-JWT_ACCESS_TOKEN_EXPIRATION_TIME=3600 # 1시간
+JWT_ACCESS_TOKEN_EXPIRATION_TIME=1h
 JWT_REFRESH_TOKEN_SECRET=VERY_SECRET_REFRESH_TOKEN
-JWT_REFRESH_TOKEN_EXPIRATION_TIME=2592000 # 30일
+JWT_REFRESH_TOKEN_EXPIRATION_TIME=30d
 ```
 
 ## AuthController
@@ -118,7 +118,6 @@ export class AuthService {
   }
 
   private async createRefreshToken(admin: Admin) {
-    if (admin.refreshToken) return admin.refreshToken;
     const refreshToken = this.jwtService.sign(
       {
         id: admin.id,
@@ -148,6 +147,15 @@ export class AuthService {
     const refreshToken = token.split(' ')[1];
 
     if ((bearer && bearer !== 'Bearer') || !refreshToken) {
+      throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
+    }
+
+    let payload;
+    try {
+      payload = this.jwtService.verify(refreshToken, {
+        secret: process.env.JWT_REFRESH_TOKEN_SECRET,
+      });
+    } catch (error) {
       throw new UnauthorizedException('사용자 정보를 찾을 수 없습니다.');
     }
 
