@@ -1,6 +1,4 @@
-# angular ViewChild
-
-> @ViewChild를 이용해 DOM을 조작
+# angular Ref
 
 ## ElementRef
 
@@ -8,6 +6,8 @@
 
 ```ts
 @ViewChild('ele', {read: ElementRef}) ele: ElementRef;
+@ViewChild('ele') ele: ElementRef<HtmlDivElement>;
+@ViewChildren('ele') ele: QueryList<ElementRef<HtmlDivElement>>;
 ```
 
 ## TemplateRef
