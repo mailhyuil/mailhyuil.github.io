@@ -5,6 +5,8 @@
 > > 하나의 컴퓨터에는 여러 개의 tcp connection이 존재할 수 있음 (ip:port로 구분)
 > >
 > > > 소켓은 앱이 tcp통신을 요청할 때 생성되고, 그 소켓을 통해 tcp connection이 생성됨
+> > >
+> > > > 동시에 여러 http 요청을 보내면 브라우저는 각 요청마다 포트로 요청으로 보내고, 각각의 tcp connection이 생성됨 (chrome 브라우저의 동시 최대 요청은 6개로 제한됨)
 
 ## TCB (Transmission Control Block)
 
