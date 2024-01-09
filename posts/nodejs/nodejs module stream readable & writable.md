@@ -8,12 +8,17 @@ const fs = require("fs");
 // Readable Stream
 const rs = fs.createReadStream("file_path", { encoding: "utf8" });
 rs.on("data", () => {});
-rs.on("error", () => {});
 rs.on("end", () => {});
+rs.on("error", () => {});
 
 // Writable Stream
 const ws = fs.createWriteStream("file_path");
 ws.write("hello, world");
+ws.end(); // finish 이벤트 발생 // 쓰기가 끝났다는 것을 명시
+ws.close(); // close 이벤트 발생 // 파일을 닫는 것
+ws.on("finish", () => {});
+ws.on("close", () => {});
+ws.on("error", () => {});
 ```
 
 ## 바이너리 단위로 자르기

@@ -23,7 +23,13 @@ import { ToastService } from "./toast.service";
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(private readonly store: Store, private readonly httpService: HttpService, private readonly toastService: ToastService, private readonly router: Router, private readonly logger: Logger) {}
+  constructor(
+    private readonly store: Store,
+    private readonly httpService: HttpService,
+    private readonly toastService: ToastService,
+    private readonly router: Router,
+    private readonly logger: Logger
+  ) {}
 
   handleError(error: any) {
     if (error instanceof HttpErrorResponse) {
@@ -37,6 +43,9 @@ export class GlobalErrorHandler implements ErrorHandler {
       }
       if (status === 403) {
         this.handleForbidden();
+      }
+      if (status === 404) {
+        this.handleNotFound();
       }
       if (status === 498) {
         this.handleInvalidToken();
@@ -103,6 +112,28 @@ export class GlobalErrorHandler implements ErrorHandler {
   }
   private async handleInternalServerError(): Promise<void> {
     this.toastService.show("서버에서 문제가 발생했습니다.");
+  }
+  private async handleNotFound(): Promise<void> {
+    this.toastService.show("요청하신 리소스를 찾을 수 없습니다.");
+  }
+}
+```
+
+## HttpInterceptor
+
+```ts
+@Injectable({
+  providedIn: "root",
+})
+export class HttpInterceptorImpl implements HttpInterceptor, OnDestroy {
+  constructor(private readonly errorHandlerService: ErrorHandlerService) {}
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request).pipe(
+      catchError((e) => {
+        this.errorHandlerService.handleError(e); // 에러 핸들러에게 에러를 넘긴다.
+        return of();
+      })
+    );
   }
 }
 ```
