@@ -1,22 +1,25 @@
 # 압축
 
 > 보통 tar.gz로 압축을 많이 함
-> tar로 파일을 묶고 gzip으로 다시 압축
+>
+> > tar로 파일을 묶고(archive) gzip으로 다시 압축(zip)
 
 ## tar
 
 ```sh
-# tar로 압축
+# tar 아카이브 만들기
 tar -cvf 압축명 압축할폴더
 
-# tar 압축 풀기
+# tar 아카이브 풀기
 tar -xvf 압축파일
 
 # tar.gz로 압축
-tar -zcvf 압축명 압축할폴더
+# tar -czvf ./test.tar.gz ./image.jpg
+tar -czvf 압축명 압축할폴더
 
 # tar.gz 압축 풀기
-tar -zxvf 압축파일
+# tar -xzvf ./test.tar.gz [-C ./]
+tar -xzvf 압축파일 [-C 압축 풀 경로]
 
 -c # 파일을 tar로 묶음
 -p # 파일 권한을 저장
