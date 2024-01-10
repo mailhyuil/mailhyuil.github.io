@@ -15,11 +15,11 @@ tar -xvf 압축파일
 
 # tar.gz로 압축
 # tar -czvf ./test.tar.gz ./image.jpg
-tar -czvf 압축명 압축할폴더
+tar -czvf <압축명.tar.gz> <압축 할 파일>
 
 # tar.gz 압축 풀기
 # tar -xzvf ./test.tar.gz [-C ./]
-tar -xzvf 압축파일 [-C 압축 풀 경로]
+tar -xzvf <압축명.tar.gz> [-C 압축 풀 경로]
 
 -c # 파일을 tar로 묶음
 -p # 파일 권한을 저장
