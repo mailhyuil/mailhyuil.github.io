@@ -10,4 +10,6 @@
 npm i -g ts-node
 
 ts-node main.ts
+
+ts-node --project tsconfig.json main.ts
 ```
