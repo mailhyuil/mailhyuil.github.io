@@ -7,6 +7,7 @@
 > > > 주기적으로 app에 접속 (HTTP Request, ssh 접속, 파일 & 프로세스 유무확인 (ls, cat, ps 명령)) 해서 정상적으로 동작하고 있는지 확인하는 설정
 > > >
 > > > > httpGet, tcpSocket, exec 방식이 있음
+> > > >
 > > > > 비정상으로 판단되면 kill & restart
 
 ```yaml

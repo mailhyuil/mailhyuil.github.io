@@ -1,6 +1,7 @@
 # 유저 인증 (Authentication)
 
 > client 유저가 kubernetes API 서버에 접근할 때 인증
+>
 > CSR 인증서를 통해 인증
 >
 > > 유저네임과 인증서 생성 -> CSR(Certificate Signing Request) 인증서 생성 -> Role -> RoleBinding

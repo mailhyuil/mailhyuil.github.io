@@ -7,6 +7,7 @@
 ## StatefulSet
 
 > Stateful 방식으로 Pod을 관리
+>
 > StatefulSet은 내부적으로 ReplicaSet을 생성하지 않으며 rollback이 불가하다.
 >
 > > 고정된 ip, 순차적인 업데이트, 배포
