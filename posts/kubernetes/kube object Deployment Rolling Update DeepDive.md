@@ -3,6 +3,7 @@
 > Rolling update는 기본으로 지원된다
 >
 > > maxSurge가 높을 수록 빠르게 업데이트 된다.
+> >
 > > maxUnavailable이 높을 수록 빠르게 업데이트 된다.
 
 ```yaml

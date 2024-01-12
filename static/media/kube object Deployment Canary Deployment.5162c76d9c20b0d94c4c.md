@@ -1,6 +1,7 @@
 # kube object Deployment Canary Deployment
 
 > 점진적으로 바꾸는 방식
+>
 > 모니터링이 가능
 
 ## 방법

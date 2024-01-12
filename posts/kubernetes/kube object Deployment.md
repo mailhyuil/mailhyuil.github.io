@@ -3,7 +3,9 @@
 > 지원하는 기능
 >
 > > 배포
+> >
 > > scale out / in
+> >
 > > rolling update / rollback
 
 ## 배포
