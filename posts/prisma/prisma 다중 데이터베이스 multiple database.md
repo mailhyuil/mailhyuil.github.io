@@ -5,6 +5,7 @@
 > 두개 생성
 >
 > > prisma/<project-name-a>/prisma.schema
+> >
 > > prisma/<project-name-b>/prisma.schema
 
 ```prisma
