@@ -1,10 +1,21 @@
 # nginx log
 
+## log 보기 커맨드
+
+```sh
+tail -f /var/log/nginx/access.log
+tail -f /var/log/nginx/error.log
+```
+
 ## 전역로그
 
-```
-access_log /var/log/nginx/access.log;
-error_log /var/log/nginx/error.log;
+> http 블록 안에 다음을 추가
+
+```conf
+http {
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+}
 ```
 
 ## 개별로그
