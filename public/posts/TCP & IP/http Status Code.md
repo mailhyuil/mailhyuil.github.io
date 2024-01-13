@@ -40,7 +40,9 @@
 
 ## 204 No Content
 
-> 요청에 대해서 보내줄 수 있는 콘텐츠가 없지만, 헤더는 의미있을 수 있습니다
+> 요청에 대해서 보내줄 수 있는 콘텐츠는 없음 (HTTP Response body가 아예 존재하지 않는 경우)
+>
+> > 헤더는 의미가 있을 수 있다. (e.g. cors preflight)
 
 ## 205 Reset Content
 
