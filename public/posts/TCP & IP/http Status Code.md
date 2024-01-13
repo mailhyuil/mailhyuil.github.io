@@ -10,7 +10,7 @@
 
 > 클라이언트가 보낸 Upgrade 요청 헤더에 대한 응답에 들어가며, 서버에서 프로토콜을 변경할 것임을 알려줌
 >
-> > Websocket 프로토콜 전환 시에 사용
+> > Websocket 등의 프로토콜 전환 시에 사용
 
 ## 102 Processing(WebDAV)
 
@@ -46,6 +46,8 @@
 
 ## 206 Partial Content
 
+> 리소스 다운로드 요청에 대한 응답으로 사용되며, 응답에는 Content-Range 헤더가 포함되어야 합니다.
+
 ## 207 Multi-Status
 
 ## 208 Already Reported
@@ -55,8 +57,6 @@
 # 3XX : Redirection messages
 
 ## 300 Multiple Choice
-
-## 301 Moved Permanently
 
 ## 301 Moved Permanently
 
@@ -82,15 +82,17 @@
 
 ## 401 Unauthorized
 
-> 비인증
+> 인증되지 않은 클라이언트가 리소스에 접근하려 할 때 사용
 
 ## 402 Payment Required
 
 ## 403 Forbidden
 
-> 권한 없음
+> 권한이 없는 클라이언트가 리소스에 접근하려 할 때 사용
 
 ## 404 Not Found
+
+> 요청한 리소스를 찾을 수 없음
 
 ## 405 Method Not Allowed
 
@@ -144,9 +146,17 @@
 
 ## 500 Internal Server Error
 
+> 서버에 오류가 발생했지만 추가적인 정보를 제공하지 않음
+
 ## 501 Not Implemented
 
 ## 502 Bad Gateway
+
+> 업스트림 서버(e.g. nodejs)가 프록시 서버(e.g. nginx)의 요청에 응답하지 않을 때
+>
+> > 업스트림 서버가 죽었거나, 포트에 제대로 올라가지 않았거나 네트워크 문제가 있을 때 발생
+> >
+> > > 업스트림 서버의 로그를 먼저 확인해보고 문제가 없다면 포트가 제대로 올라가있는지 확인
 
 ## 503 Service Unavailable
 
