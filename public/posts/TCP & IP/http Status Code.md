@@ -114,6 +114,10 @@
 
 ## 413 Payload Too Large
 
+> 요청의 페이로드(body)가 서버의 제한을 넘어섰을 때 발생하는 에러
+>
+> > nginx에서 설정한 `client_max_body_size`보다 클 때 발생하는 에러
+
 ## 414 URI Too Long
 
 ## 415 Unsupported Media Type
@@ -141,6 +145,18 @@
 ## 431 Request Header Fields Too Large
 
 ## 451 Unavailable For Legal Reasons
+
+## 498 Invalid Token
+
+> 클라이언트가 유효하지 않은 토큰을 보냈을 때 발생하는 에러
+
+## 499 Client Closed Request (Nginx)
+
+> > 서버가 응답을 하기 전 클라이언트가 연결을 끊었을 때 발생하는 에러
+> >
+> > > 주로 비동기 요청, client timeout으로 인해 연결이 끊어졌을 때 발생
+> > >
+> > > > client timeout을 늘려서 해결
 
 # 5XX : Server error responses
 
