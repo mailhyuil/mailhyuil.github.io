@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.195d9ffc.css",
-    "main.js": "/static/js/main.17ca4cde.js",
+    "main.js": "/static/js/main.3e86d322.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.1b0614d94b1a7ce997b6.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.fd950d1defa153457085.md",
@@ -2391,6 +2391,7 @@
     "static/media/algorithm TOP K.md": "/static/media/algorithm TOP K.3ac718faf9aceb501651.md",
     "static/media/cache client store.md": "/static/media/cache client store.7b333281f9304f9873b5.md",
     "static/media/express keep-alive.md": "/static/media/express keep-alive.d8ef28390ad8c73c2984.md",
+    "static/media/nginx server_name.md": "/static/media/nginx server_name.7fc94df23c07ab7db495.md",
     "static/media/웹 성능 측정 도구 lighthouse.md": "/static/media/웹 성능 측정 도구 lighthouse.b077449cf92c3793fa55.md",
     "static/media/aws msk.md": "/static/media/aws msk.674a3676e75b160f7513.md",
     "static/media/cicd ArgoRollout.md": "/static/media/cicd ArgoRollout.c58679dc52594ec19f14.md",
@@ -2559,10 +2560,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.195d9ffc.css.map": "/static/css/main.195d9ffc.css.map",
-    "main.17ca4cde.js.map": "/static/js/main.17ca4cde.js.map"
+    "main.3e86d322.js.map": "/static/js/main.3e86d322.js.map"
   },
   "entrypoints": [
     "static/css/main.195d9ffc.css",
-    "static/js/main.17ca4cde.js"
+    "static/js/main.3e86d322.js"
   ]
 }
