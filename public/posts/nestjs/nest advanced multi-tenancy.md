@@ -6,15 +6,10 @@
 > >
 > > > 각 테넌트에게 다른 서비스를 제공할 수 있다.
 
-## 분리된 database (data source)와 durable provider
+## 구현
 
-> database provider의 스코프를 REQUEST로 설정하여, 각 요청마다 다른 인스턴스를 생성하도록 한다.
+> data source 나누기 : record 기반, table 기반, schema 기반, database 기반
 >
-> > customer A가 customer B의 데이터에 접근할 수 없다.
-
-```ts
-import { Injectable, Scope } from "@nestjs/common";
-
-@Injectable({ scope: Scope.REQUEST, durable: true })
-export class CatsService {}
-```
+> > client에서 request header에 "x-tenant-id"를 추가하여 테넌트 식별자를 전달한다.
+> >
+> > > 테넌트 식별자에 따라서 다른 context를 사용한다. (durable provider 사용)
