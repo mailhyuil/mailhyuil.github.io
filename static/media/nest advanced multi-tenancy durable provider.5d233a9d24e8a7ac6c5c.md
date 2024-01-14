@@ -38,10 +38,12 @@ export class AggregateByTenantContextIdStrategy implements ContextIdStrategy {
       tenants.set(tenantId, tenantSubTreeId);
     }
 
+    request.tenantId = tenantId;
+
     // If tree is not durable, return the original "contextId" object
     return (info: HostComponentInfo) => (info.isTreeDurable ? tenantSubTreeId : contextId);
 
-    // payload를 함께 전달하고 싶다면 아래와 같이 작성
+    // payload를 함께 전달하고 싶다면 아래와 같이 작성 // 그냥 request.teantId를 사용해도 된다.
     // (e.g. tenantId를 payload로 전달하여, tenantId에 따라 다른 데이터 소스를 사용할 수 있다.)
     // return {
     //   resolve: (info: HostComponentInfo) =>
