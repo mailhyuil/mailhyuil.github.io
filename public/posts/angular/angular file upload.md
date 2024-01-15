@@ -20,6 +20,7 @@ export default class FileUploadComponent {
   value?: string;
   formData = new FormData();
   uploadingImageUrl?: string;
+  @Input() accept: string[] = [];
   constructor(public valueAccessor: ValueAccessorDirective<string>, private readonly fileService: FileService) {
     valueAccessor.value.subscribe((v) => (this.value = v));
   }
@@ -46,7 +47,7 @@ export default class FileUploadComponent {
 ## html
 
 ```html
-<input type="file" (change)="onChange($event)" />
+<input type="file" [accept]="accept.join(',')" (change)="onChange($event)" />
 @if(uploadingImageUrl){
 <img width="500" height="500" [src]="uploadingImageUrl" />
 }

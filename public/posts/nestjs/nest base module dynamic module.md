@@ -30,4 +30,11 @@ export class SomeModule {
 }
 ```
 
-## ConfigurableModuleBuilder
+## some.service.ts
+
+```ts
+@Injectable()
+export class SomeService {
+  constructor(@Inject(SOME_OPTIONS) private readonly options: SomeOptions) {}
+}
+```
