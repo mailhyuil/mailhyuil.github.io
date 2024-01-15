@@ -24,13 +24,55 @@ npm install -g web-push
 web-push generate-vapid-keys
 ```
 
+## worker.js
+
+> 푸시를 받을 때 알림을 띄우는 로직 구현
+>
+> > angular.json(project.json)에서 assets에 이 파일이 추가되도록 설정
+> >
+> > > ServiceWorkerModule.register('my-worker.js'), // 수정
+
+```js
+/// 이 코드는 WorkerGlobalScope에서 동작하는 코드입니다.
+importScripts("ngsw-worker.js");
+
+self.addEventListener("push", (e) => {
+  const { title, body, ...data } = e.data.json();
+
+  if (!title || !body) {
+    return;
+  }
+
+  self.registration.showNotification(title, { body, data });
+});
+
+self.addEventListener("notificationclick", (e) => {
+  const url = e.notification?.data?.url;
+
+  if (!url) {
+    return;
+  }
+
+  self.clients.openWindow(url);
+});
+```
+
+## angular.json (project.json)
+
+```
+assets: [
+  "src/worker.js",
+  ...
+],
+```
+
 ## app.config.ts
 
-> ServiceWorkerModule.register("ngsw-worker.js") 추가
+> ServiceWorkerModule.register("worker.js") 추가
 
 ```ts
 export const appConfig: ApplicationConfig = {
-  providers: [importProvidersFrom([ServiceWorkerModule.register("ngsw-worker.js")])],
+  providers: [importProvidersFrom([ServiceWorkerModule.register("worker.js")])],
 };
 ```
 
@@ -80,38 +122,6 @@ export class NotificationComponent {
     this.httpClient.post("web-push/subscribe", pushSubscription).subscribe();
   }
 }
-```
-
-## ngsw-config.js
-
-> 푸시를 받을 때 알림을 띄우는 로직 구현
->
-> > angular.json(project.json)에서 assets에 이 파일이 추가되도록 설정
-> >
-> > > ServiceWorkerModule.register('my-worker.js'), // 수정
-
-```js
-importScripts("ngsw-worker.js");
-
-self.addEventListener("push", (e) => {
-  const { title, body, ...data } = e.data.json();
-
-  if (!title || !body) {
-    return;
-  }
-
-  self.registration.showNotification(title, { body, data });
-});
-
-self.addEventListener("notificationclick", (e) => {
-  const url = e.notification?.data?.url;
-
-  if (!url) {
-    return;
-  }
-
-  self.clients.openWindow(url);
-});
 ```
 
 ## 서버
