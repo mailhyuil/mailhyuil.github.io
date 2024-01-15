@@ -145,24 +145,31 @@ import * as webPush from "web-push";
 
 @Controller("web-push")
 export class WebPushController {
+  constructor(private readonly prisma: PrismaService) {}
   @Post("subscribe")
-  async subscribe(@Body() subscription: any) {
+  async subscribe(@Body() body: { subscription: PushSubscription }) {
     console.log("Received subscription:", subscription);
 
     // subscription을 DB에 저장
+    await this.prisma.pushSubscription.create({
+      data: {
+        subscription,
+      },
+    });
 
     return { success: true };
   }
 
-  @Post("sendNotification")
-  async sendNotification(@Body() notification: any) {
-    const payload = JSON.stringify({
-      title: notification.title,
-      body: notification.body,
-    });
+  @OnEvent("web-push.send")
+  async send(notification: { title: string; body: string }) {
+    const payload = JSON.stringify(notification);
+
+    const subscriptions = await this.prisma.pushSubscription.findMany();
 
     try {
-      await webPush.sendNotification(notification.subscription, payload);
+      for (const { subscription } of subscriptions) {
+        await webPush.sendNotification(subscription, payload);
+      }
     } catch (err) {
       console.error("Error sending notification, reason: ", err);
     }
