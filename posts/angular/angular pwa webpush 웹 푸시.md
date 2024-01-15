@@ -21,7 +21,7 @@ ng add @angular/pwa
 
 npm install -g web-push
 # vapid public key, vapid private key 생성
-web-push generate-vapid-keys
+npx web-push generate-vapid-keys
 ```
 
 ## worker.js
