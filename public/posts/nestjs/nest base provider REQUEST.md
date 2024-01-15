@@ -15,6 +15,10 @@ export class SomeService {
 
 ## sub-tree context의 REQUEST 등록
 
+> ContextIdFactory를 사용하여 sub-tree context를 생성
+>
+> > moduleRef.registerRequestByContextId를 사용하여 sub-tree context에 REQUEST 등록
+
 ```ts
 const contextId = ContextIdFactory.create();
 this.moduleRef.registerRequestByContextId(req, contextId);
