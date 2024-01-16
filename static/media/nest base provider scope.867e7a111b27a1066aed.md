@@ -22,4 +22,4 @@
 >
 > > 무조건 새로운 인스턴스 생성이 보장되어야 할 때 사용한다. ex) logger
 > >
-> > > Logger 클래스는 Transient Scope로 구현되어있다. 따라서 각 service에서 name값을 다르게 지정할 수 있다.
+> > > Logger 클래스는 Transient Scope로 구현되어있다. 따라서 각 service에서 config를 다르게 지정할 수 있다.

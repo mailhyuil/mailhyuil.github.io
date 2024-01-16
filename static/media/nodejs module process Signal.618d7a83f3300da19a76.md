@@ -1,5 +1,7 @@
 # nodejs module process Signal
 
+> Signal 이벤트가 안찍히면 터미널의 문제일 수 있다. (git bash같은 터미널에서는 안찍힘)
+
 ## Signal 종류
 
 ```sh
