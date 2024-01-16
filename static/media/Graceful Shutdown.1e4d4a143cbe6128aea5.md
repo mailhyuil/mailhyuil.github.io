@@ -30,14 +30,18 @@
 
 > SIGINT, SIGTERM 시그널을 받으면 작업을 종료시키는 코드를 작성한다.
 >
-> > Signal 이벤트가 안찍히면 터미널의 문제일 수 있다. (git bash같은 터미널에서는 안찍힘)
+> > SIGINT, SIGTERM 등은 기본으로 process exit 0 로 종료되지만, 시그널 후킹을 사용할 경우 명시적으로 종료시키는 코드를 작성해야 한다.
+> >
+> > > Signal 이벤트가 안찍히면 터미널의 문제일 수 있다. (git bash같은 터미널에서는 안찍힘)
 
 ```js
 // 시그널 후킹
 process.on("SIGINT", () => {
   //  작업 종료
+  process.exit(0);
 });
 process.on("SIGTERM", () => {
   //  작업 종료
+  process.exit(0);
 });
 ```
