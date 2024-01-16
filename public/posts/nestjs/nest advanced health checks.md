@@ -44,3 +44,9 @@ export class HealthController {
   }
 }
 ```
+
+## custom indicator
+
+```ts
+
+```
