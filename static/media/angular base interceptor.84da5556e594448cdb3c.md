@@ -26,13 +26,9 @@ export class HttpInterceptorImpl implements HttpInterceptor {
 > > 원본 요청객체에 헤더를 추가한뒤 clone을 통해 복사해야 한다.
 
 ```ts
-const request = req.clone(
-  accessToken
-    ? {
-        setHeaders: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    : {}
-);
+const request = req.clone({
+  setHeaders: {
+    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  },
+});
 ```

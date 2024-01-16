@@ -1,1 +1,0 @@
-# nginx server_name

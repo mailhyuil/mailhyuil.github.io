@@ -28,16 +28,11 @@ export class HttpInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const accessToken = localStorage.getItem("accessToken");
 
-    const request = req.clone(
-      accessToken
-        ? {
-            setHeaders: {
-              Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-              "X-CSRF-Token": this.cookieService.get(key);
-            },
-          }
-        : {}
-    );
+    const request = req.clone({
+      setHeaders: {
+        Authorization: accessToken ? `Bearer ${accessToken}` : "",
+      },
+    });
 
     return next.handle(request).pipe(
       catchError((e) => {
