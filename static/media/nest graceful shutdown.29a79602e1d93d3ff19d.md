@@ -3,6 +3,10 @@
 > log의 경우 buffer에 남은 로그가 있을 수 있으므로, log를 flush하는 작업이 필요하다.
 >
 > > consumer의 경우 consume을 중단하고 남은 메시지를 처리해야 한다.
+> >
+> > > 프로세스 종료는 SIGINT를 보낸다. (pm2 기준) (SIGTERM으로 대체할 수도 있음)
+> > >
+> > > > SIGINT를 받고 1.6s 동안 exit하지 않으면 SIGKILL을 보낸다.
 
 ## main.ts
 

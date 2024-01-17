@@ -9,6 +9,8 @@
 > > > 브라우저는 1분 이상 데이터를 받지 않은 경우 자동으로 연결을 끊는다
 > > >
 > > > interval로 데이터를 계속 보내주면 해결
+> > >
+> > > > server는 MessageEvent interface를 반환해야 한다. (data, type, lastEventId, origin, ports)
 
 ## controller
 
@@ -46,4 +48,11 @@ eventSource.onmessage = (e: MessageEvent) => {
   this.notice = data.notice;
   this.cdr.detectChanges();
 };
+eventSource.onerror = (e) => {
+  console.log(e);
+};
+
+onDestroy() {
+  eventSource.close();
+}
 ```

@@ -1,20 +1,25 @@
 # nodejs module process Signal
 
 > Signal 이벤트가 안찍히면 터미널의 문제일 수 있다. (git bash같은 터미널에서는 안찍힘)
+>
+> > 프로세스 종료는 SIGINT를 보낸다. (pm2 기준) (SIGTERM으로 대체할 수도 있음)
+> >
+> > > SIGINT를 받고 1.6s 동안 exit하지 않으면 SIGKILL을 보낸다.
 
 ## Signal 종류
 
 ```sh
-1: SIGUP # 부모 터미널이 종료된 경우
-2: SIGINT # 인터럽트가 발생한 경우 (Ctrl + C)
-3: SIGQUIT # 터미널이 끝내려는 경우 (Ctrl + D)
-9: SIGKILL # 프로세스 강제로 종료된 경우 (kill -9)
+EXIT    : exit() 함수가 호출된 경우
 
-10: SIGUSR1 # 사용자 정의 시그널 1
-10: SIGUSR1 # 정상종료
+SIGINT  : 인터럽트가 발생한 경우 (Ctrl + C) (ALT + F4)
 
-12: SIGUSR2 # 사용자 정의 시그널 2
-19: SIGUSR1 # 프로세스가 강제로 멈추는 경우
+SIGTERM : 종료를 권고하고 무사히 프로세스를 종료 (kill -15) (kill의 default 값)
+SIGKILL : 프로세스 강제 종료 (kill -9)
+
+SIGQUIT
+SIGUP
+SIGUSR1
+SIGUSR2
 ```
 
 ## Signal 후킹
