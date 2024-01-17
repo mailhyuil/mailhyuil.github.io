@@ -13,7 +13,7 @@ sudo apt-get install certbot
 >
 > > 인증서가 발급되면 /etc/letsencrypt/live 폴더가 생성되고 안에 인증서가 생성됨
 
-```
+```sh
 sudo certbot certonly --standalone -d <example.com> -d <www.example.com>
 ```
 
