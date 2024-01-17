@@ -7,7 +7,7 @@ BACKUP_DIR=/media/sdc/apps/signage/backup
 SERVER_DIR=/media/sdc/apps/signage/server
 
 rollback() {
-  echo "Rollback..."
+  echo "Rollback.."
 
   # 롤백 작업 수행
   rm -rf $SERVER_DIR
@@ -18,7 +18,7 @@ rollback() {
   exit 1
 }
 
-trap 'rollback' EXIT
+trap rollback EXIT
 
 # backup
 cp -r $SERVER_DIR/* $BACKUP_DIR
