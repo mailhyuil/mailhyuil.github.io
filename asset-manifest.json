@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.4236056c.js",
+    "main.js": "/static/js/main.708b6779.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.cf5065effe1aa5463a31.md",
@@ -585,6 +585,7 @@
     "static/media/http headers Cookie vs LocalStorage.md": "/static/media/http headers Cookie vs LocalStorage.7171fc0121d2a1a4bde5.md",
     "static/media/prisma index.md": "/static/media/prisma index.e88d69e4d7ffc51d5010.md",
     "static/media/http RestAPI.md": "/static/media/http RestAPI.8f6d3e43c8f405053521.md",
+    "static/media/nginx 환경변수.md": "/static/media/nginx 환경변수.5994a703d70691e0b737.md",
     "static/media/babel.md": "/static/media/babel.f85ad2f74e7a3fcf2310.md",
     "static/media/nest base module dynamic module register & forRoot & forFeature.md": "/static/media/nest base module dynamic module register & forRoot & forFeature.3cc4723327450008bc93.md",
     "static/media/angular websocket.md": "/static/media/angular websocket.522584f0c7b98cf83091.md",
@@ -595,7 +596,6 @@
     "static/media/flutter WidgetTree, ElementTree, RenderTree.md": "/static/media/flutter WidgetTree, ElementTree, RenderTree.950b9228e5007f558e85.md",
     "static/media/js encoding.md": "/static/media/js encoding.1eed1710aaabff4c8479.md",
     "static/media/rust 소유권.md": "/static/media/rust 소유권.446e64f2c68441ee5fbf.md",
-    "static/media/nginx 환경변수.md": "/static/media/nginx 환경변수.76e29e7c12522986770a.md",
     "static/media/nest rate limit.md": "/static/media/nest rate limit.ff72178f08dc0bdd4b46.md",
     "static/media/linux shellscript deploy with rollback.md": "/static/media/linux shellscript deploy with rollback.77cf2c5b1b056ab91af2.md",
     "static/media/ui accordion.md": "/static/media/ui accordion.110aa5e2a4953ab0a0e0.md",
@@ -942,6 +942,7 @@
     "static/media/js starvation (기아상태).md": "/static/media/js starvation (기아상태).1cbe461fa0a592b72cf1.md",
     "static/media/kube object Deployment Canary Deployment.md": "/static/media/kube object Deployment Canary Deployment.5162c76d9c20b0d94c4c.md",
     "static/media/server domain record.md": "/static/media/server domain record.404265f6c76b32238894.md",
+    "static/media/nginx 변수.md": "/static/media/nginx 변수.c2f6fe6a5f24faab2b11.md",
     "static/media/typescript tsc.md": "/static/media/typescript tsc.d9869fded70e12c0eecd.md",
     "static/media/firebase hosting.md": "/static/media/firebase hosting.bd3ecd5f01fa30a6d20d.md",
     "static/media/webpack typescript.md": "/static/media/webpack typescript.72a5d5fad128fc1903fb.md",
@@ -2048,7 +2049,7 @@
     "static/media/RPC.md": "/static/media/RPC.f5c0e49a92d7f0688611.md",
     "static/media/flutter ios version.md": "/static/media/flutter ios version.531937918ab733b84536.md",
     "static/media/kube 네트워킹 가능한 이미지.md": "/static/media/kube 네트워킹 가능한 이미지.0fda91391a367a3c4480.md",
-    "static/media/nginx $host$request_uri.md": "/static/media/nginx $host$request_uri.ffdbb26b8f88df3b2f27.md",
+    "static/media/nginx 변수 $host$request_uri.md": "/static/media/nginx 변수 $host$request_uri.ffdbb26b8f88df3b2f27.md",
     "static/media/postgres PgPool-ii.md": "/static/media/postgres PgPool-ii.e4e314fbc99e6ff6f673.md",
     "static/media/typescript auto import 안 찾아질 때.md": "/static/media/typescript auto import 안 찾아질 때.1335793dad30c1b950e2.md",
     "static/media/html video.md": "/static/media/html video.46b9f00211276c2904c6.md",
@@ -2595,10 +2596,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.4236056c.js.map": "/static/js/main.4236056c.js.map"
+    "main.708b6779.js.map": "/static/js/main.708b6779.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.4236056c.js"
+    "static/js/main.708b6779.js"
   ]
 }

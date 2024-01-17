@@ -3,8 +3,11 @@
 > nginx는 기본적으로 환경변수를 지원하지 않는다.
 >
 > > 환경변수를 사용하기 위한 방법
+> >
 > > Docker nginx image 사용
+> >
 > > ngx_http_perl_module 사용
+> >
 > > nginx 대신 openresty를 사용
 
 ## Docker
