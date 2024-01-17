@@ -6,7 +6,7 @@
 
 ```sh
 SIGUP   : 부모 터미널이 종료된 경우
-SIGINT  : 인터럽트가 발생한 경우 (Ctrl + C)
+SIGINT  : 인터럽트가 발생한 경우 (Ctrl + C) (ALT + F4)
 SIGQUIT : 터미널이 끝내려는 경우 (Ctrl + D)
 SIGKILL : 프로세스 강제로 종료된 경우 (kill -9)
 SIGUSR1	: 사용자 정의 시그널 1
