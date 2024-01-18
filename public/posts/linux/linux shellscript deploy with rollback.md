@@ -3,16 +3,15 @@
 ```sh
 #!/bin/bash
 
-BACKUP_DIR=/media/sdc/apps/signage/backup
-SERVER_DIR=/media/sdc/apps/signage/server
+BACKUP_DIR=/app/backup
+SERVER_DIR=/app/server
 
 rollback() {
-  echo "Rollback.."
+  echo "Deploy failed, Start rollback..."
 
   # 롤백 작업 수행
   rm -rf $SERVER_DIR
-  mkdir -p $SERVER_DIR
-  cp -r "$BACKUP_DIR"/* $SERVER_DIR
+  cp -r $BACKUP_DIR $SERVER_DIR
 
   echo "Rollback completed."
   exit 1
@@ -21,22 +20,25 @@ rollback() {
 trap rollback EXIT
 
 # backup
-cp -r $SERVER_DIR/* $BACKUP_DIR
+cp -r $SERVER_DIR $BACKUP_DIR
 
-# build & deploy
-nx build server --configuration production --skip-nx-cache
+# build
+nx build server
+echo "Build completed."
+
+# file copy
 rm -rf $SERVER_DIR
-mkdir -p $SERVER_DIR
-mkdir -p $SERVER_DIR/prisma
-cp -r dist/apps/server/* $SERVER_DIR
-cp -r prisma/* $SERVER_DIR/prisma
-cp ecosystem.config.js $SERVER_DIR/ecosystem.config.js
+cp -r dist/apps/server $SERVER_DIR
+cp -r prisma $SERVER_DIR/prisma
 cp apps/server/.env.production $SERVER_DIR/.env
-cd /media/sdc/apps/signage/server
-npm install --force
+cp ecosystem.config.js $SERVER_DIR/ecosystem.config.js
+cd $SERVER_DIR
+echo "File copy completed."
+
+# deploy
+npm install
 npx prisma migrate deploy
-npx prisma generate
-pm2 restart ecosystem.config.js --update-env
+pm2 reload ecosystem.config.js --update-env
 
 # 성공 시에는 롤백 함수 등록 해제
 trap - EXIT
