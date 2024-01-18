@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-apt install ufw
+apt install ufw -y
 ```
 
 ## default config

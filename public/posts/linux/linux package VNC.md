@@ -6,16 +6,16 @@
 
 ```sh
 # vncserver 설치
-apt install vnc4server
+apt install vnc4server -y
 
 # vnc 클라이언트 설치
-apt install xtightvncviewer
+apt install xtightvncviewer -y
 
 # gnome 설치
-apt install gnome-panel
-apt install gnome-settings-daemon
-apt install metacity
-apt install tightvnc
+apt install gnome-panel -y
+apt install gnome-settings-daemon -y
+apt install metacity -y
+apt install tightvnc -y
 ```
 
 ## 사용

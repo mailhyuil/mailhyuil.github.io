@@ -2,14 +2,13 @@
 
 ## install
 
-```
-apt install curl
-
+```sh
+apt install curl -y
 ```
 
 ## 사용
 
-```
+```sh
 # http request
 curl http://www.google.com
 curl https://www.google.com

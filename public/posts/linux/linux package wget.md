@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-apt install wget
+apt install wget -y
 ```
 
 ## 사용

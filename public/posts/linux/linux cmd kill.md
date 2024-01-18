@@ -1,4 +1,4 @@
-# linux kill
+# linux cmd kill
 
 ## linux
 
@@ -11,7 +11,7 @@ kill -9 [PID] # SIGKILL 강제 종료
 ## mac
 
 ```sh
-sudo lsof -i :portnumber
+lsof -i :portnumber
 kill [PID] # SIGTERM 정상 종료
 kill -9 [PID] # SIGKILL 강제 종료
 ```

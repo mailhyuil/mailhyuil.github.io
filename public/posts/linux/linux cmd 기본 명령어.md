@@ -3,35 +3,45 @@
 ```
 sudo su
 
+pwd
 cd
 ls
 ll
-whatis
 mkdir/rmdir
-pwd
-cp
-clear
-mv
-rm
 touch
+rm
+cp
+mv
+clear
 locate
-find
 file
-cat
 man
 
+cat
 head
 tail
 more
 less
+
+find
 grep
-wc
-sort
-cut
-split
-diff
 sed
 awk
 
+wc # word count
+sort
+cut
+
+tar
+gzip
+split
+
+diff
+
 echo
+
+whatis
+which
+whereis
+whoami
 ```

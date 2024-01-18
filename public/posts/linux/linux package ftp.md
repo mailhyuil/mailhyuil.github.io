@@ -5,7 +5,7 @@
 ## install
 
 ```sh
-sudo apt-get install vsftpd
+apt install vsftpd -y
 ```
 
 ## 사용

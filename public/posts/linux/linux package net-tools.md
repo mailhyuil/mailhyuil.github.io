@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-apt install net-tools
+apt install net-tools -y
 ```
 
 ## 관련 명령어

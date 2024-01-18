@@ -2,32 +2,32 @@
 
 ```sh
 apt update -y
-apt install ca-certificates # 인증서 관련 패키지
-apt install curl # url 요청
-apt install gnupg # gpg 암호화
-apt install lsb-release # 운영체제 정보
-apt install apt-transport-https # https로 패키지 다운로드
-apt install docker-ce # docker
-apt install docker-ce-cli # docker-cli
-apt install containerd.io # containerd
-apt install docker-compose-plugin # docker-compose
 
-apt install iputils-ping # ping
-apt install net-tools # ifconfig, netstat, route, arp, rarp, nameif and ipmaddr
-apt install cron # 크론잡
-apt install systemd # systemctl 서비스 관리
-apt install ufw # 방화벽
-```
+# 보안
+apt install apt-transport-https -y # apt가 https로 패키지를 다운로드
+apt install ca-certificates -y # tls 인증서가 포함되어 있어 ssl/tls 연결을 통해 다운로드
+apt install gnupg -y # gpg 암호화
+apt install fail2ban -y # 방화벽
 
-### apt
+# 네트워킹
+apt install curl -y # url 요청
+apt install traceroute -y # traceroute
+apt install dnsutils -y # dig
 
-```
-apt update
-apt upgrade
-apt install
-apt remove
-apt purge
+# 도커
+apt install docker-ce -y # docker community edition (도커 엔진, 빌드 실행을 위한 컴포넌트 제공)
+apt install docker-ce-cli -y # docker community edition cli (도커 명령어 사용)
+apt install containerd.io -y # containerd (컨테이너 런타임)
+apt install docker-compose-plugin -y # docker-compose
 
-apt-get update
-apt-cache search
+# 기타 (설치가 안되어 있으면 설치하기)
+apt install systemd -y # systemctl 서비스 관리
+apt install cron -y # 크론잡
+apt install lsb-release -y # 운영체제 정보
+apt install ufw -y # 방화벽
+apt install iputils-ping -y # ping
+apt install net-tools -y # ifconfig, netstat, route, arp, rarp, nameif and ipmaddr
+apt install vim -y # vim
+apt install git -y # git
+apt install tree -y # tree 구조로 보기
 ```

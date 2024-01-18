@@ -8,10 +8,10 @@
 
 ```sh
 # remote-server
-apt install openssh-server
+apt install openssh-server -y
 
 # client
-apt install openssh-client
+apt install openssh-client -y
 ```
 
 ## 사용

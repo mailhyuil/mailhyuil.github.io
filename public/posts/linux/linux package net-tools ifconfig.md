@@ -3,5 +3,5 @@
 ## install
 
 ```sh
-apt install net-tools
+apt install net-tools -y
 ```

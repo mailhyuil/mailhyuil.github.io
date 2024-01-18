@@ -5,7 +5,8 @@
 ## install
 
 ```bash
-apt install xinetd telnetd
+apt install xinetd  -y
+apt install telnetd -y
 ```
 
 ## config

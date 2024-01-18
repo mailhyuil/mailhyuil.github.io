@@ -1,4 +1,4 @@
-# linux mkdir
+# linux cmd mkdir
 
 ```sh
 mkdir /path/to/dir

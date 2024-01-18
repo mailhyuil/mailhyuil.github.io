@@ -1,4 +1,4 @@
-# linux grep
+# linux cmd grep
 
 ## 옵션
 

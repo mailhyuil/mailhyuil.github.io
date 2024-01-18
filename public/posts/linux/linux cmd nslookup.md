@@ -1,6 +1,6 @@
 # nslookup
 
-```
+```sh
 # 도메인의 "DNS 레코드"를 검색
 nslookup example.com
 

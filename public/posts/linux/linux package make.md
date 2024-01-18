@@ -9,5 +9,5 @@
 > > > 특히 C 및 C++ 프로그램을 컴파일하고 라이브러리를 빌드하는 데 많이 활용
 
 ```sh
-apt install make
+apt install make -y
 ```
