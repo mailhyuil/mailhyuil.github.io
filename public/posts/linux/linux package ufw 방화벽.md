@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-sudo apt-get install ufw
+apt install ufw
 ```
 
 ## default config
@@ -11,8 +11,8 @@ sudo apt-get install ufw
 > 기본 정책은 입력(들어오는 연결)을 거부하고 출력과 전달(내보내는 연결 및 전달)은 허용
 
 ```sh
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
+ufw default deny incoming
+ufw default allow outgoing
 ```
 
 ## 사용법
@@ -21,14 +21,14 @@ sudo ufw default allow outgoing
 
 ```sh
 # 서비스 이름으로 포트 허용
-sudo ufw allow ssh
+ufw allow ssh
 
 # 포트번호로 포트 허용
-sudo ufw allow 80
+ufw allow 80
 
 # 방화벽 적용
-sudo ufw enable
+ufw enable
 
 # 현재 허용 중인 포트 확인
-sudo ufw status
+ufw status
 ```

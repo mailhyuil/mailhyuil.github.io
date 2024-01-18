@@ -1,9 +1,11 @@
 # linux telnet
 
+> 23번 포트 사용
+
 ## install
 
 ```bash
-sudo apt-get install xinetd telnetd
+apt install xinetd telnetd
 ```
 
 ## config
@@ -24,8 +26,6 @@ service telnet
 ```
 
 ## 사용
-
-> port: 23
 
 ```sh
 sudo systemctl restart xinetd

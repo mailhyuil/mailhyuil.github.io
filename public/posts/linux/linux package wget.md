@@ -1,6 +1,12 @@
 # wget
 
-## 사용법
+## install
+
+```sh
+apt install wget
+```
+
+## 사용
 
 ```sh
 wget http://example.org/file.tar.gz

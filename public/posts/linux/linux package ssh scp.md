@@ -4,6 +4,18 @@
 >
 > > nginx scp 시 권한이 있는 디렉토리에 복사해라 (e.g. /home/ubuntu)
 
+## install
+
+```sh
+# remote-server
+apt install openssh-server
+
+# client
+apt install openssh-client
+```
+
+## 사용
+
 ```sh
 scp [옵션] [파일명] [remote_user]@[remote_ip]:[저장할 위치]
 # scp testfile2 root@192.168.159.129:/tmp/testclient

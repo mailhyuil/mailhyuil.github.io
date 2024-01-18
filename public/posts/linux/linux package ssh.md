@@ -2,10 +2,20 @@
 
 > 22포트 사용
 
+## install
+
+```sh
+# remote-server
+apt install openssh-server
+
+# client
+apt install openssh-client
+```
+
 ## 순서
 
 ```
-0. ssh-server, ssh-client 설치
+0. openssh-server, openssh-client 설치
 1. ssh-keygen -t rsa -m pem // local, remote 둘 다
 2. local의 key.pub (public key) 파일의 내용을 remote의 ~/.ssh/authorized_key 파일에 추가
 3. ssh -i [local의 key (private key)] [username]@[ip_address] // -i를 입력안하면 자동으로 지정된 경로에서 찾는다.

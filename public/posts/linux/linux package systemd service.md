@@ -5,7 +5,7 @@
 1. Systemd 유닛 파일 생성
 
 ```sh
-sudo nano /etc/systemd/system/my-service.service
+nano /etc/systemd/system/my-service.service
 ```
 
 2. 서비스 구성 작성
@@ -27,8 +27,8 @@ WantedBy=multi-user.target # 서비스가 활성화되어야 하는 타겟을 �
 3. 서비스 활성화
 
 ```sh
-sudo systemctl enable my-service
-sudo systemctl start my-service
+systemctl enable my-service
+systemctl start my-service
 
 service my-service start
 service my-service status
