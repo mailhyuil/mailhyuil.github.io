@@ -20,7 +20,6 @@ apt install containerd.io -y # containerd (컨테이너 런타임)
 apt install docker-compose-plugin -y # docker-compose
 
 # 기타 (설치가 안되어 있으면 설치하기)
-apt install systemd -y # systemctl 서비스 관리
 apt install cron -y # 크론잡
 apt install lsb-release -y # 운영체제 정보
 apt install ufw -y # 방화벽
