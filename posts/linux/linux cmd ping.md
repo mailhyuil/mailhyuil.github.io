@@ -5,5 +5,12 @@
 ## install
 
 ```sh
-apt install -y iputils-ping
+apt install iputils-ping -y
+```
+
+## 사용
+
+```sh
+ping <ip>
+ping <domain>
 ```
