@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.11e6fb32.js",
+    "main.js": "/static/js/main.98c9da9c.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.cf5065effe1aa5463a31.md",
@@ -2132,6 +2132,7 @@
     "static/media/kube tool k9s.md": "/static/media/kube tool k9s.82d3484d422dfe012d33.md",
     "static/media/nodejs package.json에서 sh 파일 실행.md": "/static/media/nodejs package.json에서 sh 파일 실행.f3fc9d02703c58a82350.md",
     "static/media/prisma include vs select.md": "/static/media/prisma include vs select.33250dad4803eb9cd3f8.md",
+    "static/media/linux cmd user su.md": "/static/media/linux cmd user su.e1e19ab5750524a8c3dd.md",
     "static/media/linux package apt 설치된 패키지 확인.md": "/static/media/linux package apt 설치된 패키지 확인.ce7f9f4d60b2b3d39b7b.md",
     "static/media/nuxt useCookie.md": "/static/media/nuxt useCookie.04ab45ecc7466c4107dd.md",
     "static/media/nuxt NuxtLoadingIndicator.md": "/static/media/nuxt NuxtLoadingIndicator.a1a3543c6c6ffe68c3bc.md",
@@ -2628,10 +2629,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.11e6fb32.js.map": "/static/js/main.11e6fb32.js.map"
+    "main.98c9da9c.js.map": "/static/js/main.98c9da9c.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.11e6fb32.js"
+    "static/js/main.98c9da9c.js"
   ]
 }
