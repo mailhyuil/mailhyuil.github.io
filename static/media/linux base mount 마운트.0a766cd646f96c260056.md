@@ -1,7 +1,0 @@
-# usb 마운트
-
-> /media에 마운트
-
-```
-sudo mount path /media/
-```
