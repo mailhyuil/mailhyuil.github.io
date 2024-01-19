@@ -11,7 +11,6 @@ apt install fail2ban -y # 방화벽
 
 # 네트워킹
 apt install curl -y # url 요청
-apt install traceroute -y # traceroute
 apt install dnsutils -y # dig
 
 # 도커
