@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.866491de.js",
+    "main.js": "/static/js/main.11e6fb32.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.cf5065effe1aa5463a31.md",
@@ -1989,6 +1989,7 @@
     "static/media/debugging 순서.md": "/static/media/debugging 순서.8dfd4c37a525b6c54c40.md",
     "static/media/js pagination cursor.md.md": "/static/media/js pagination cursor.md.c3c6a0195f0c8bfc8557.md",
     "static/media/linux cmd ping.md": "/static/media/linux cmd ping.ef47003df28a10d1fcb7.md",
+    "static/media/linux cmd user sudo.md": "/static/media/linux cmd user sudo.13efb1b5caf279ad01b9.md",
     "static/media/npm package 생성.md": "/static/media/npm package 생성.310ad25b6855b4f095ac.md",
     "static/media/정합성 & 무결성.md": "/static/media/정합성 & 무결성.2ae9b6fdc6bdec9f2ca4.md",
     "static/media/linux cmd dig.md": "/static/media/linux cmd dig.8435341fb4bb30374d1c.md",
@@ -1996,7 +1997,6 @@
     "static/media/renovate.md": "/static/media/renovate.c7d6316c35caf7fd0a64.md",
     "static/media/angular base component ViewChild & ViewChildren.md": "/static/media/angular base component ViewChild & ViewChildren.67c5bddd736640abc179.md",
     "static/media/cherry-picking.md": "/static/media/cherry-picking.e06d3ab3879410334e1c.md",
-    "static/media/linux cmd sudo.md": "/static/media/linux cmd sudo.5300719e9c88fc19d025.md",
     "static/media/nuxt useSlots.md": "/static/media/nuxt useSlots.d8d156426a6849b137b0.md",
     "static/media/pem.md": "/static/media/pem.b3ca4c965cf7a7eaf602.md",
     "static/media/kube ControlPlane kubelet.md": "/static/media/kube ControlPlane kubelet.a783174bfd98f6e51401.md",
@@ -2628,10 +2628,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.866491de.js.map": "/static/js/main.866491de.js.map"
+    "main.11e6fb32.js.map": "/static/js/main.11e6fb32.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.866491de.js"
+    "static/js/main.11e6fb32.js"
   ]
 }
