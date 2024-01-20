@@ -18,3 +18,22 @@ entity의 id가 주어진다면 해당 id의 entity를 삭제한다. (delete)
 
 비동기로 동작하는 로직을 테스트한다. (async)
 ```
+
+```ts
+describe("MoviesService", () => {
+  let service: MoviesService;
+
+  beforeEach(async () => {
+    const moduleRef: TestingModule = await Test.createTestingModule({
+      providers: [MoviesService],
+    }).compile();
+
+    service = moduleRef.get<MoviesService>(MoviesService);
+  });
+
+  it("should be defined", () => {
+    // individual test
+    expect(service).toBeDefined();
+  });
+});
+```
