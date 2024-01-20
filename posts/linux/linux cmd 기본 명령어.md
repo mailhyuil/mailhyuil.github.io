@@ -20,6 +20,7 @@ man
 cat
 head
 tail
+tail -f # 실시간 로그 보기
 more
 less
 
