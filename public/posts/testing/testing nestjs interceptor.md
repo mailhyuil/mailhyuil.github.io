@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-npm i @golevelup/ts-jest
+npm i -D @golevelup/ts-jest
 ```
 
 ## test

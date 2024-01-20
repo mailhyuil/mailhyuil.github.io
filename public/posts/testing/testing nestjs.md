@@ -10,6 +10,7 @@ import { AuthModule } from "../auth/auth.module";
 import { SubscriptionModule } from "../subscription/subscription.module";
 import { ProfileModule } from "../profile/profile.module";
 import { PrismaModule } from "../../prisma/prisma.module";
+
 describe("UserController", () => {
   // controller
   let userController: UserController;

@@ -1,3 +1,0 @@
-# supertest
-
-> http test
