@@ -11,11 +11,11 @@
 리액트에서는 모듈 import 시 .js, ./를 생략해도 된다. 하지만 순수 자바스크립트에서 모듈 import할 때에는 리액트처럼 하면 에러가 발생한다.
 ```
 
-## Cannot find Module dist/main
+# Cannot find Module dist/main
 
 > dist 폴더에 어디선가 없는걸 참조하고 있음
 
-## Cannot find
+# Cannot find
 
 > tsconfig.json 변경
 >
@@ -28,17 +28,17 @@
 "target": "es6",
 ```
 
-## "Validation failed (numeric string is expected)"
+# "Validation failed (numeric string is expected)"
 
 > 핸들러 메소드의 패스가 잘못됐다
 >
 > > 핸들러 Query 메소드가 맨 위에
 
-## {"statusCode":400,"message":"an unknown value was passed to the validate function","error":"Bad Request"}
+# {"statusCode":400,"message":"an unknown value was passed to the validate function","error":"Bad Request"}
 
 > dto에 class-transformer로 IsNotEmpty or IsOptional 데코레이터 선언
 
-## Cannot find module
+# Cannot find module
 
 > interface라는 이름으로 참조하니 에러
 >
@@ -51,11 +51,11 @@
 }
 ```
 
-## missing property
+# missing property
 
 > 프로퍼티가 포함이 안된 것
 
-## EPERM: operation not permitted
+# EPERM: operation not permitted
 
 > 서버를 중지하고 install
 

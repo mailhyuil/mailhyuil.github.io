@@ -1,4 +1,4 @@
-# nx debug vscode
+# debug debugger nx
 
 ## launch.json
 

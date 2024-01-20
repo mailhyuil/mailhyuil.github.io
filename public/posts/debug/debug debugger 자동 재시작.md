@@ -1,4 +1,4 @@
-# debugger 자동 재시작
+# debug debugger 자동 재시작
 
 ## launch.json
 
