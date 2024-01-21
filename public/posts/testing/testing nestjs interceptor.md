@@ -1,57 +1,51 @@
 # nest testing interceptor
 
-## install
+```ts
+import { createMock } from "@golevelup/ts-jest";
+import { ExecutionContext, ForbiddenException } from "@nestjs/common";
+import { of } from "rxjs";
+import { ExampleInterceptor } from "./forbidden-resource.interceptor";
 
-```sh
-npm i -D @golevelup/ts-jest
-```
-
-## test
-
-```js
-import { createMock } from '@golevelup/ts-jest';
-import { ExecutionContext, ForbiddenException } from '@nestjs/common';
-import { of } from 'rxjs';
-import { ForbiddenResourceInterceptor } from './forbidden-resource.interceptor';
-
-describe('ForbiddenResourceInterceptor', () => {
-  let interceptor: ForbiddenResourceInterceptor;
+describe("ExampleInterceptor", () => {
+  let interceptor: ExampleInterceptor;
   let context: ExecutionContext;
 
   beforeEach(() => {
-    interceptor = new ForbiddenResourceInterceptor();
+    interceptor = new ExampleInterceptor();
     context = createMock<ExecutionContext>();
   });
 
-  it('ForbiddenResourceInterceptor가 정의되어야 함.', () => {
+  it("ExampleInterceptor가 정의되어야 함.", () => {
     expect(interceptor).toBeDefined();
   });
 
-  describe('intercept', () => {
-    it('ForbiddenException을 던져야 함.', () => {
-      const userMock = {
-        clientId: 'test',
-        roles: ['USER'],
+  describe("intercept", () => {
+    it("ForbiddenException을 던져야 함.", () => {
+      const user = {
+        clientId: "test",
+        roles: ["USER"],
       };
-      const dataMock = {
-        clientId: 'test2',
+
+      const data = {
+        clientId: "test2",
       };
-      (
-        context.switchToHttp().getRequest as jest.Mock<any, any>
-      ).mockRejectedValueOnce({
-        user: userMock,
+
+      /// req 모킹
+      (context.switchToHttp().getRequest as jest.Mock<any, any>).mockRejectedValueOnce({
+        user: user,
       });
-      (
-        context.switchToHttp().getResponse as jest.Mock<any, any>
-      ).mockReturnValueOnce({
-        body: { dataMock },
+      /// res 모킹
+      (context.switchToHttp().getResponse as jest.Mock<any, any>).mockReturnValueOnce({
+        body: { data },
       });
-      const obs = interceptor.intercept(context, {
+
+      const intercept$ = interceptor.intercept(context, {
         handle: () => {
           return of();
         },
       });
-      obs.subscribe({
+
+      intercept$.subscribe({
         error: (error) => {
           expect(error).toBeInstanceOf(ForbiddenException);
         },
@@ -59,5 +53,4 @@ describe('ForbiddenResourceInterceptor', () => {
     });
   });
 });
-
 ```

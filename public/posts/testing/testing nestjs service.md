@@ -1,39 +1,40 @@
 # nest testing service
 
-```
-존재하는 모든 entity를 반환한다. (read)
-조건에 맞는 entity를 반환한다. (read)
-entity의 id가 주어진다면 해당 id의 entity를 반환한다. (read)
-존재하지 않는 entity의 id가 주어진다면 NotFoundException을 반환한다. (read)
-
-주어진 값으로 새로운 entity를 생성하고 생성된 entity를 반환한다. (create)
-올바르지 않은 값을 주어진다면 BadRequestException을 반환한다. (create)
-
-entity의 id가 주어진다면 해당 id의 entity를 수정하고 수정된 entity를 반환한다. (update)
-올바르지 않은 값을 주어진다면 BadRequestException을 반환한다. (update)
-존재하지 않는 entity의 id가 주어진다면 NotFoundException을 반환한다. (update)
-
-entity의 id가 주어진다면 해당 id의 entity를 삭제한다. (delete)
-존재하지 않는 entity의 id가 주어진다면 NotFoundException을 반환한다. (delete)
-
-비동기로 동작하는 로직을 테스트한다. (async)
-```
-
 ```ts
-describe("MoviesService", () => {
-  let service: MoviesService;
+import { Test, TestingModule } from "@nestjs/testing";
+import { PrismaService } from "../../prisma/prisma.service";
+import { ExampleService } from "./example.service";
 
+describe("ExampleService", () => {
+  let service: ExampleService;
+  let prisma: PrismaService;
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
-      providers: [MoviesService],
+      providers: [ExampleService, PrismaService],
     }).compile();
 
-    service = moduleRef.get<MoviesService>(MoviesService);
+    service = moduleRef.get<ExampleService>(ExampleService);
+    prisma = moduleRef.get(PrismaService);
   });
 
   it("should be defined", () => {
-    // individual test
     expect(service).toBeDefined();
+  });
+
+  it("should return all examples", async () => {
+    const mock: ExampleDTO[] = [
+      {
+        id: 1,
+      },
+      {
+        id: 2,
+      },
+    ];
+
+    prisma.example.findMany = jest.fn().mockReturnValue(mock);
+    const found = await service.findAll();
+
+    expect(found).toEqual(mock);
   });
 });
 ```
