@@ -4,10 +4,14 @@
 
 ## install
 
-```
-yarn add @faker-js/faker -D
+```sh
+npm i -D @faker-js/faker
 ```
 
-## doc
+## 사용
 
-[faker api doc](https://fakerjs.dev/api/)
+```ts
+import { fake } from "@faker-js/faker";
+
+const name = fake.name.findName();
+```
