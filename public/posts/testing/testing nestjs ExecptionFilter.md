@@ -1,17 +1,18 @@
-# testing nestjs guard
+# testing nestjs ExceptionFilter
 
 ```ts
 import { createMock } from "@golevelup/ts-jest";
 import { ExecutionContext, ForbiddenException } from "@nestjs/common";
 import { of } from "rxjs";
-import { TestGuard } from "./test.guard";
+import { TestExceptionFilter } from "./test.exception.filter";
 
-describe("TestGuard", () => {
-  let guard: TestGuard;
+describe("TestExceptionFilter", () => {
+  let exceptionFilter: AllExceptionFilter;
   let context: ExecutionContext;
+  let logger = { error: jest.fn() };
 
   beforeEach(() => {
-    guard = new TestGuard();
+    exceptionFilter = new TestExceptionFilter(logger);
     context = createMock<ExecutionContext>();
   });
 
@@ -19,16 +20,9 @@ describe("TestGuard", () => {
     expect(interceptor).toBeDefined();
   });
 
-  describe("canActivate", () => {
-    it("should return false", async () => {
-      const user = {
-        clientId: "test",
-        roles: ["USER"],
-      };
-
-      const data = {
-        clientId: "test2",
-      };
+  describe("catch", () => {
+    it("should catch and log the error", async () => {
+      const BadRequestException: BadRequestException = new BadRequestException();
 
       /// req 모킹
       (context.switchToHttp().getRequest as jest.Mock<any, any>).mockRejectedValueOnce({
@@ -39,9 +33,9 @@ describe("TestGuard", () => {
         body: { data },
       });
 
-      const res = await guard.canActivate(context);
-
-      expect(res).toBe(false);
+      exceptionFilter.catch(BadRequestException, context);
+      expect(logger.error).toBeCalled();
+      expect(context.switchToHttp().getResponse().code().send).toBeCalled();
     });
   });
 });

@@ -18,8 +18,49 @@ import { ExecutionContext } from "@nestjs/common";
 
 describe("Mocked Execution Context", () => {
   it("should have a fully mocked Execution Context", () => {
-    const mockExecutionContext = createMock<ExecutionContext>();
-    expect(mockExecutionContext.switchToHttp()).toBeDefined();
+    const context = createMock<ExecutionContext>();
+
+    /// req 모킹
+    (context.switchToHttp().getRequest as jest.Mock<any, any>).mockRejectedValueOnce({
+      user: user,
+    });
+    /// res 모킹
+    (context.switchToHttp().getResponse as jest.Mock<any, any>).mockReturnValueOnce({
+      body: { data },
+    });
+
+    expect(context.switchToHttp()).toBeDefined();
   });
 });
+```
+
+```ts
+const context = createMock<ExecutionContext>({
+  switchToHttp: () => ({
+    getRequest: () => ({
+      headers: {
+        authorization: "auth",
+      },
+    }),
+  }),
+});
+```
+
+## golveup 사용 안할 시
+
+```ts
+const context: any = {
+  switchToHttp: () => ({
+    getRequest: () => ({
+      url: "mock-url",
+    }),
+    getResponse: () => {
+      const response = {
+        code: jest.fn().mockReturnThis(),
+        send: jest.fn().mockReturnThis(),
+      };
+      return response;
+    },
+  }),
+};
 ```
