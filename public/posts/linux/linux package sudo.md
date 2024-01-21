@@ -6,6 +6,17 @@
 apt install sudo -y
 ```
 
+## 사용자 계정 추가
+
+> 사용자명은 "user"
+
+```sh
+adduser --disabled-password --gecos "" user  \
+    && echo 'user:user' | chpasswd \
+    && adduser user sudo \
+    && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+```
+
 ## /etc/sudoers
 
 > sudoers 파일은 쓰기 권한이 없는 파일이므로, visudo 명령어로 수정해야 한다.
