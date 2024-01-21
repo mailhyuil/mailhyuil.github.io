@@ -9,11 +9,11 @@ describe("ParseIntPipe", () => {
   let parseIntPipe: ParseIntPipe;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
+    const moduleRef: TestingModule = await Test.createTestingModule({
       providers: [ParseIntPipe],
     }).compile();
 
-    parseIntPipe = module.get<ParseIntPipe>(ParseIntPipe);
+    parseIntPipe = moduleRef.get<ParseIntPipe>(ParseIntPipe);
   });
 
   it("should be defined", () => {

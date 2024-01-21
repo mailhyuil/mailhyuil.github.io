@@ -13,12 +13,12 @@ describe("NoticeService", () => {
   let prisma: PrismaService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
+    const moduleRef: TestingModule = await Test.createTestingModule({
       providers: [NoticeService, PrismaService],
     }).compile();
 
-    noticeService = module.get<NoticeService>(NoticeService);
-    prisma = module.get(PrismaService);
+    noticeService = moduleRef.get<NoticeService>(NoticeService);
+    prisma = moduleRef.get(PrismaService);
   });
 
   it("should be defined", () => {
