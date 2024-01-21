@@ -4,18 +4,18 @@
 import { createMock } from "@golevelup/ts-jest";
 import { ExecutionContext, ForbiddenException } from "@nestjs/common";
 import { of } from "rxjs";
-import { ForbiddenResourceInterceptor } from "./forbidden-resource.interceptor";
+import { ExampleInterceptor } from "./forbidden-resource.interceptor";
 
-describe("ForbiddenResourceInterceptor", () => {
-  let interceptor: ForbiddenResourceInterceptor;
+describe("ExampleInterceptor", () => {
+  let interceptor: ExampleInterceptor;
   let context: ExecutionContext;
 
   beforeEach(() => {
-    interceptor = new ForbiddenResourceInterceptor();
+    interceptor = new ExampleInterceptor();
     context = createMock<ExecutionContext>();
   });
 
-  it("ForbiddenResourceInterceptor가 정의되어야 함.", () => {
+  it("ExampleInterceptor가 정의되어야 함.", () => {
     expect(interceptor).toBeDefined();
   });
 

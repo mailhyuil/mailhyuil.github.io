@@ -1,15 +1,19 @@
 # nest testing service
 
 ```ts
-describe("TestService", () => {
-  let service: TestService;
+import { Test, TestingModule } from "@nestjs/testing";
+import { PrismaService } from "../../prisma/prisma.service";
+import { ExampleService } from "./example.service";
+
+describe("ExampleService", () => {
+  let service: ExampleService;
   let prisma: PrismaService;
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
-      providers: [TestService, PrismaService],
+      providers: [ExampleService, PrismaService],
     }).compile();
 
-    service = moduleRef.get<TestService>(TestService);
+    service = moduleRef.get<ExampleService>(ExampleService);
     prisma = moduleRef.get(PrismaService);
   });
 
@@ -17,8 +21,8 @@ describe("TestService", () => {
     expect(service).toBeDefined();
   });
 
-  it("should return all tests", async () => {
-    const mock: Test[] = [
+  it("should return all examples", async () => {
+    const mock: ExampleDTO[] = [
       {
         id: 1,
       },
@@ -27,10 +31,10 @@ describe("TestService", () => {
       },
     ];
 
-    prisma.test.findMany = jest.fn().mockReturnValue(mock);
+    prisma.example.findMany = jest.fn().mockReturnValue(mock);
     const found = await service.findAll();
 
-    expect(found).toBe(mock);
+    expect(found).toEqual(mock);
   });
 });
 ```

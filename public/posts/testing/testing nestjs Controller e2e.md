@@ -1,34 +1,43 @@
 # nest testing e2e test
 
 > endpoint 단위로 테스트
+>
+> > app.getHttpServer()를 통해 http server를 가져온다.
+
+## install
+
+```sh
+npm i -D supertest
+npm i -D @types/supertest
+```
+
+# testing
 
 ```ts
-import * as request from "supertest";
+import request from "supertest";
 import { Test } from "@nestjs/testing";
-import { CatsModule } from "../../src/cats/cats.module";
-import { CatsService } from "../../src/cats/cats.service";
+import { ExampleModule } from "./example/example.module";
+import { ExampleService } from "./example/example.service";
 import { INestApplication } from "@nestjs/common";
 
-describe("Cats", () => {
+describe("Example", () => {
   let app: INestApplication;
-  let catsService = { findAll: () => ["test"] };
+  let exampleService = { findAll: (): ExampleDTO[] => [{ id: "1" }, { id: "2" }] };
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
-      imports: [CatsModule],
+      imports: [ExampleModule],
     })
-      .overrideProvider(CatsService)
-      .useValue(catsService)
+      .overrideProvider(ExampleService)
+      .useValue(exampleService)
       .compile();
 
     app = moduleRef.createNestApplication();
     await app.init();
   });
 
-  it(`/GET cats`, () => {
-    return request(app.getHttpServer()).get("/cats").expect(200).expect({
-      data: catsService.findAll(),
-    });
+  it(`/GET examples`, () => {
+    return request(app.getHttpServer()).get("/examples").expect(200).expect(exampleService.findAll());
   });
 
   afterAll(async () => {
