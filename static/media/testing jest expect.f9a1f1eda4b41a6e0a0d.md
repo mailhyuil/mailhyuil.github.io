@@ -48,4 +48,9 @@ test("async test", async () => {
   const result = await asyncFunc();
   expect(result).toBe("hello");
 }, 1000);
+
+/// 함수 실행 여부
+const mockFn = jest.fn();
+mockFn();
+expect(mockFn).toBeCalled();
 ```

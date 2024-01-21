@@ -1,14 +1,12 @@
 # nest testing interceptor
 
-## test
+```ts
+import { createMock } from "@golevelup/ts-jest";
+import { ExecutionContext, ForbiddenException } from "@nestjs/common";
+import { of } from "rxjs";
+import { ForbiddenResourceInterceptor } from "./forbidden-resource.interceptor";
 
-```js
-import { createMock } from '@golevelup/ts-jest';
-import { ExecutionContext, ForbiddenException } from '@nestjs/common';
-import { of } from 'rxjs';
-import { ForbiddenResourceInterceptor } from './forbidden-resource.interceptor';
-
-describe('ForbiddenResourceInterceptor', () => {
+describe("ForbiddenResourceInterceptor", () => {
   let interceptor: ForbiddenResourceInterceptor;
   let context: ExecutionContext;
 
@@ -17,29 +15,27 @@ describe('ForbiddenResourceInterceptor', () => {
     context = createMock<ExecutionContext>();
   });
 
-  it('ForbiddenResourceInterceptor가 정의되어야 함.', () => {
+  it("ForbiddenResourceInterceptor가 정의되어야 함.", () => {
     expect(interceptor).toBeDefined();
   });
 
-  describe('intercept', () => {
-    it('ForbiddenException을 던져야 함.', () => {
+  describe("intercept", () => {
+    it("ForbiddenException을 던져야 함.", () => {
       const user = {
-        clientId: 'test',
-        roles: ['USER'],
+        clientId: "test",
+        roles: ["USER"],
       };
 
       const data = {
-        clientId: 'test2',
+        clientId: "test2",
       };
 
       /// req 모킹
-      (context.switchToHttp().getRequest as jest.Mock<any, any>)
-      .mockRejectedValueOnce({
+      (context.switchToHttp().getRequest as jest.Mock<any, any>).mockRejectedValueOnce({
         user: user,
       });
       /// res 모킹
-      (context.switchToHttp().getResponse as jest.Mock<any, any>)
-        .mockReturnValueOnce({
+      (context.switchToHttp().getResponse as jest.Mock<any, any>).mockReturnValueOnce({
         body: { data },
       });
 
@@ -57,5 +53,4 @@ describe('ForbiddenResourceInterceptor', () => {
     });
   });
 });
-
 ```
