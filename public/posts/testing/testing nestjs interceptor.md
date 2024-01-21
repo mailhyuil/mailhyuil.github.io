@@ -1,11 +1,5 @@
 # nest testing interceptor
 
-## install
-
-```sh
-npm i -D @golevelup/ts-jest
-```
-
 ## test
 
 ```js
