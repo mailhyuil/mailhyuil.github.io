@@ -4,14 +4,14 @@
 import { createMock } from "@golevelup/ts-jest";
 import { ExecutionContext, ForbiddenException } from "@nestjs/common";
 import { of } from "rxjs";
-import { TestGuard } from "./test.guard";
+import { ExampleGuard } from "./example.guard";
 
-describe("TestGuard", () => {
-  let guard: TestGuard;
+describe("ExampleGuard", () => {
+  let guard: ExampleGuard;
   let context: ExecutionContext;
 
   beforeEach(() => {
-    guard = new TestGuard();
+    guard = new ExampleGuard();
     context = createMock<ExecutionContext>();
   });
 
@@ -22,12 +22,12 @@ describe("TestGuard", () => {
   describe("canActivate", () => {
     it("should return false", async () => {
       const user = {
-        clientId: "test",
+        clientId: "example",
         roles: ["USER"],
       };
 
       const data = {
-        clientId: "test2",
+        clientId: "example2",
       };
 
       /// req 모킹

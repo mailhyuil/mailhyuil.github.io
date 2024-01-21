@@ -4,14 +4,14 @@
 import { createMock } from "@golevelup/ts-jest";
 import { ExecutionContext, ForbiddenException } from "@nestjs/common";
 import { of } from "rxjs";
-import { TestMiddleware } from "./test.middleware";
+import { ExampleMiddleware } from "./example.middleware";
 
-describe("TestMiddleware", () => {
-  let middleware: TestMiddleware;
+describe("ExampleMiddleware", () => {
+  let middleware: ExampleMiddleware;
   let context: ExecutionContext;
 
   beforeEach(() => {
-    middleware = new TestMiddleware();
+    middleware = new ExampleMiddleware();
     context = createMock<ExecutionContext>();
   });
 

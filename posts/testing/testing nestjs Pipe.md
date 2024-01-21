@@ -3,21 +3,21 @@
 ```ts
 import { ArgumentMetadata, BadRequestException } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
-import { ParseIntPipe } from "./parse-int.pipe";
+import { ExamplePipe } from "./example.pipe";
 
-describe("ParseIntPipe", () => {
-  let parseIntPipe: ParseIntPipe;
+describe("ExamplePipe", () => {
+  let examplePipe: ExamplePipe;
 
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
-      providers: [ParseIntPipe],
+      providers: [ExamplePipe],
     }).compile();
 
-    parseIntPipe = moduleRef.get<ParseIntPipe>(ParseIntPipe);
+    examplePipe = moduleRef.get<ExamplePipe>(ExamplePipe);
   });
 
   it("should be defined", () => {
-    expect(parseIntPipe).toBeDefined();
+    expect(examplePipe).toBeDefined();
   });
 
   describe("transform", () => {
@@ -28,7 +28,7 @@ describe("ParseIntPipe", () => {
         data: "id",
       };
 
-      expect(parseIntPipe.transform("1", metadata)).toBe(1);
+      expect(examplePipe.transform("1", metadata)).toBe(1);
     });
 
     it("should throw BadRequestException", () => {
@@ -38,7 +38,7 @@ describe("ParseIntPipe", () => {
         data: "id",
       };
 
-      expect(() => parseIntPipe.transform("a", metadata)).toThrow(BadRequestException);
+      expect(() => examplePipe.transform("a", metadata)).toThrow(BadRequestException);
     });
   });
 });

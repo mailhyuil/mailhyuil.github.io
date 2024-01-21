@@ -12,6 +12,10 @@ npm i -D @types/bcryptjs
 npm i compression
 npm i helmet
 npm i morgan
+# testing
+npm i -D @nestjs/testing
+npm i -D supertest
+npm i -D @types/supertest
 # jwt
 npm i @nestjs/jwt
 # cookie

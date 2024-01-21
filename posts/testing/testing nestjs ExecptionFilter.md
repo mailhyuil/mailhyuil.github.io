@@ -4,15 +4,15 @@
 import { createMock } from "@golevelup/ts-jest";
 import { ExecutionContext, ForbiddenException } from "@nestjs/common";
 import { of } from "rxjs";
-import { TestExceptionFilter } from "./test.exception.filter";
+import { ExampleExceptionFilter } from "./example.exception.filter";
 
-describe("TestExceptionFilter", () => {
+describe("ExampleExceptionFilter", () => {
   let exceptionFilter: AllExceptionFilter;
   let context: ExecutionContext;
   let logger = { error: jest.fn() };
 
   beforeEach(() => {
-    exceptionFilter = new TestExceptionFilter(logger);
+    exceptionFilter = new ExampleExceptionFilter(logger);
     context = createMock<ExecutionContext>();
   });
 
