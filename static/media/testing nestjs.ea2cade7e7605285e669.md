@@ -24,17 +24,17 @@ describe("UserController", () => {
 
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
-      imports: [AuthModule, SubscriptionModule, ProfileModule, PrismaModule],
+      imports: [AuthModule],
       controllers: [UserController],
       providers: [UserService],
-    }).compile();
+    });
+    overrideProvider(UserService).useClass(MockUserService);
+    overrideProvider(AuthService).useClass(MockAuthService);
+    overrideGuard(AuthGuard).useClass(MockAuthGuard).compile();
 
     userController = moduleRef.get<UserController>(UserController);
     userService = moduleRef.get<UserService>(UserService);
     authModule = moduleRef.get<AuthModule>(AuthModule);
-    subscriptionModule = moduleRef.get<SubscriptionModule>(SubscriptionModule);
-    profileModule = moduleRef.get<ProfileModule>(ProfileModule);
-    prismaModule = moduleRef.get<PrismaModule>(PrismaModule);
   });
 
   it("should be defined", () => {

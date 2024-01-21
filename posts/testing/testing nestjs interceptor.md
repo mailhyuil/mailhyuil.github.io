@@ -1,11 +1,5 @@
 # nest testing interceptor
 
-## install
-
-```sh
-npm i -D @golevelup/ts-jest
-```
-
 ## test
 
 ```js
@@ -29,29 +23,33 @@ describe('ForbiddenResourceInterceptor', () => {
 
   describe('intercept', () => {
     it('ForbiddenException을 던져야 함.', () => {
-      const userMock = {
+      const user = {
         clientId: 'test',
         roles: ['USER'],
       };
-      const dataMock = {
+
+      const data = {
         clientId: 'test2',
       };
-      (
-        context.switchToHttp().getRequest as jest.Mock<any, any>
-      ).mockRejectedValueOnce({
-        user: userMock,
+
+      /// req 모킹
+      (context.switchToHttp().getRequest as jest.Mock<any, any>)
+      .mockRejectedValueOnce({
+        user: user,
       });
-      (
-        context.switchToHttp().getResponse as jest.Mock<any, any>
-      ).mockReturnValueOnce({
-        body: { dataMock },
+      /// res 모킹
+      (context.switchToHttp().getResponse as jest.Mock<any, any>)
+        .mockReturnValueOnce({
+        body: { data },
       });
-      const obs = interceptor.intercept(context, {
+
+      const intercept$ = interceptor.intercept(context, {
         handle: () => {
           return of();
         },
       });
-      obs.subscribe({
+
+      intercept$.subscribe({
         error: (error) => {
           expect(error).toBeInstanceOf(ForbiddenException);
         },
