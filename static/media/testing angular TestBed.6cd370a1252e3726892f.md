@@ -6,7 +6,7 @@
 > >
 > > > 의존성 주입을 테스트하기 위해 사용합니다.
 > > >
-> > > > nestjs에서는 Test라는 객체를 사용합니다.
+> > > > createComponent()를 사용하여 Fixture를 생성합니다.
 
 ```ts
 import { TestBed } from "@angular/core/testing";
@@ -14,15 +14,17 @@ import { TestService } from "./test.service";
 import { TestComponent } from "./test.component";
 
 describe("TestService", () => {
+  let fixture: ComponentFixture<TestComponent>;
   let service: TestService;
   let component: TestComponent;
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
+    fixture = TestBed.configureTestingModule({
       providers: [TestService],
-    }).compileComponents();
+    }).createComponent(TestComponent); /// createComponent() : Fixture를 생성
 
     service = TestBed.inject(TestService);
-    component = TestBed.createComponent(TestComponent).componentInstance;
+    component = TestBed.componentInstance;
   });
 
   it("should be created", () => {

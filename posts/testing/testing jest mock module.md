@@ -1,4 +1,4 @@
-# testing jest mock
+# testing jest mock module
 
 > object를 mocking
 

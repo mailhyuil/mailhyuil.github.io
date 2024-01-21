@@ -1,12 +1,10 @@
-# TestBed
+# TestBed createComponent vs compileComponents
 
-> The TestBed creates a dynamically-constructed Angular test module that emulates an Angular @NgModule.
+## createComponent
+
+> fixture를 생성
 >
-> > TestBed는 @NgModule을 흉내내는 동적으로 구성된 Angular 테스트 모듈을 생성합니다.
-> >
-> > > 의존성 주입을 테스트하기 위해 사용합니다.
-> > >
-> > > > createComponent()를 사용하여 Fixture를 생성합니다.
+> > 가장 마지막에 호출되어야 함 (override 이후)
 
 ```ts
 import { TestBed } from "@angular/core/testing";
@@ -32,3 +30,9 @@ describe("TestService", () => {
   });
 });
 ```
+
+## compileComponents
+
+> nx test / ng test 로 테스트 할 경우 필요없음 (cli가 자동으로 호출)
+>
+> > template, style 등을 컴파일
