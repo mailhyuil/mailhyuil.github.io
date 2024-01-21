@@ -22,5 +22,5 @@ TestBed.configureTestingModule({
   .useClass()
   .overridePipe()
   .useClass()
-  .compileComponents()();
+  .compileComponents();
 ```
