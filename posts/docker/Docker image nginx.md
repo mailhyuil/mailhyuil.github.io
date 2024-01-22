@@ -3,7 +3,7 @@
 ## run
 
 ```bash
-docker run --name nginx --network public -d -it -p 80:80 -p 443:443 nginx:alpine
+docker run --name nginx --network public --restart unless-stopped -it -d -p 80:80 -p 443:443 nginx:alpine
 ```
 
 ## network 분리

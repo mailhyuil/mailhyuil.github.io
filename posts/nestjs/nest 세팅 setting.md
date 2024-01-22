@@ -11,7 +11,11 @@ npm i bcryptjs
 npm i -D @types/bcryptjs
 npm i compression
 npm i helmet
+# logging
 npm i morgan
+npm i winston
+npm i nest-winston
+npm i winston-daily-rotate-file
 # testing
 npm i -D @nestjs/testing
 npm i -D supertest
@@ -136,7 +140,7 @@ async function bootstrap() {
   /** Security */
   app.use(helmet());
   /** Logger */
-  app.use(morgan("dev"));
+  app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
   /** CORS */
   app.enableCors();
   /** Global Prefix */

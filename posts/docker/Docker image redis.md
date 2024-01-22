@@ -3,7 +3,7 @@
 ## run
 
 ```sh
-docker run --name redis --network private -d -p 6379:6379 redis:latest
+docker run --name redis --network private -d --restart unless-stopped -p 6379:6379 redis:latest
 
 # redis-cli
 npm i -g redis-cli
