@@ -5,6 +5,8 @@
 > > restart === kill + start
 > >
 > > > reload === a 0-second-downtime reload. // 무중단 재시작
+> > >
+> > > > reload를 사용하면 새로운 프로세스를 먼저 spawn하고, 이후에 기존 프로세스를 kill한다.
 
 ## ecosystem.config.js
 

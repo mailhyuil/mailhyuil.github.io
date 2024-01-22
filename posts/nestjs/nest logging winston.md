@@ -69,7 +69,7 @@ const transports =
           level: "silly", // 모든 단계를 로그
           format: winston.format.combine(
             winston.format.timestamp(),
-            utilities.format.nestLike("Wings", {
+            utilities.format.nestLike("APP", {
               prettyPrint: true, // nest에서 제공하는 옵션. 로그 가독성을 높여줌
               colors: true, // 로그에 색깔을 넣어서 출력
             })
