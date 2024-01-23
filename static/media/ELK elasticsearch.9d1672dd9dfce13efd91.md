@@ -1,6 +1,10 @@
-# Docker image elasticsearch & kibana
+# elasticsearch
 
-## run
+> 데이터 저장소로 사용되며, 대량의 데이터를 신속하게 색인화하고 검색할 수 있음.
+>
+> > http를 통해 접근
+> > port : 9200 https 통신
+> > port : 9300 tcp 통신
 
 ```sh
 # elasticsearch 설치

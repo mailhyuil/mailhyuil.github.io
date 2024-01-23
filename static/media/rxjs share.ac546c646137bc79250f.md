@@ -1,5 +1,7 @@
 # rxjs share
 
+> 하나의 Observable을 여러 구독자에게 공유한다.
+
 ## bad
 
 ```js
@@ -14,7 +16,7 @@ getData.subscribe();
 ## good
 
 ```js
-getData = this.httpClient.get().share();
+getData = this.httpClient.get().pipe(share());
 
 // observable 시퀀스 하나를 공유한다.
 getData.subscribe();
