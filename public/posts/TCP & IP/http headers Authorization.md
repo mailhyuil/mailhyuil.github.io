@@ -4,6 +4,8 @@
 
 ## Basic
 
+> 아이디와 비밀번호로 인증할 때 사용
+>
 > > base64로 인코딩된 사용자 ID, 비밀번호 쌍을 인증 정보(credentials) 값으로 사용합니다.
 > >
 > > > 사용자 ID와 비밀번호는 위와 같이 콜론으로 구분합니다.
@@ -16,7 +18,9 @@ Authorization: Basic <BASE64_USERNAME>:<BASE64_PASSWORD>
 
 # Bearer
 
-> OAuth 2.0 프레임워크 또는 JWT에서 사용하는 토큰 인증 방식
+> jwt 같은 토큰 인증 방식에서 사용
+>
+> > OAuth 2.0 프레임워크 또는 JWT에서 사용하는 토큰 인증 방식
 
 ```
 Authorization: Bearer <credentials>
