@@ -38,4 +38,8 @@ if (process.env.NODE_ENV !== "production") {
     })
   );
 }
+
+// info라는 object가 생성되어 transform stream들을 거쳐서 transport로 전달된다.
+// info -> format -> transport
+logger.info("hello world");
 ```

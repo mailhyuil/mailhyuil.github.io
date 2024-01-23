@@ -1,4 +1,4 @@
-# elasticsearch workflow
+# ELK elasticsearch workflow
 
 ```
 indexing -> index/indices 생성 -> query -> search -> document
