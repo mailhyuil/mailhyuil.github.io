@@ -1,4 +1,4 @@
-# elasticsearch search
+# ELK elasticsearch search
 
 ## searchParams 방식
 
