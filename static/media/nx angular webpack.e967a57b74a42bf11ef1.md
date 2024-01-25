@@ -15,7 +15,7 @@
     }
 },
 "serve": {
-    "executor": "@nx/angular:webpack-dev-server",
+    "executor": "@nx/angular:dev-server",
 }
 ```
 
