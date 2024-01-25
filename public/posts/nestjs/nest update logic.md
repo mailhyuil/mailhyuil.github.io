@@ -17,10 +17,13 @@ if (status !== "SOME") throw new Error();
 ## update 순서
 
 > deleteMany
+>
 > 범위에 포함되지 않은 데이터 delete
 >
 > > updateEach
+> >
 > > delete하고 남은 entity들 업데이트
 > >
 > > > createEach(만들어둔 create메소드 재사용)
+> > >
 > > > create해야할 entity중 update된 entity 빼고 create

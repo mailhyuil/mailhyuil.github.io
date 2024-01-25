@@ -5,6 +5,8 @@
 > > process.env는 OS의 환경변수
 > >
 > > > .gitignore 에 .env 반드시 넣어주기!
+> > >
+> > > > frontend 는 빌드 시에, backend는 런타임 시에 환경변수를 읽어온다.
 
 ## install
 
@@ -17,7 +19,7 @@ npm i -D dotenv-cli
 
 ```sh
 # Server Port
-PORT=9000
+PORT=3000
 
 # Connect DataBase
 MYSQL_USERNAME=test
