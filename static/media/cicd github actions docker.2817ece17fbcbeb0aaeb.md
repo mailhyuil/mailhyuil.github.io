@@ -2,7 +2,8 @@
 
 > secrets 설정
 >
-> > DOCKER_USERNAME, DOCKER_PASSWORD, DOCKER_REGISTRY, DOCKER_FILE
+> > DOCKER_USERNAME, DOCKER_PASSWORD, DOCKER_REGISTRY
+> >
 > > SSH_HOST, SSH_USERNAME, SSH_KEY, SSH_PORT
 
 ```yaml
@@ -28,8 +29,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - name: Install @nx/nx-linux-x64-gnu
-        run: npm install --save-dev @nx/nx-linux-x64-gnu
       - name: Install Dependencies
         run: npm install --force
       - name: Build Project

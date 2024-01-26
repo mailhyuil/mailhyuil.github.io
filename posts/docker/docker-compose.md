@@ -45,12 +45,16 @@ services:
       options:
         max-size: "8m"
         max-file: "10"
+    networks:
+      - private
   server:
     container_name: server
     image: hyuil/server:0.0.1
     ports:
       - "3000:3000"
     restart: always
+    networks:
+      - private
   nginx:
     container_name: nginx
     image: hyuil/nginx:0.0.1
@@ -58,8 +62,14 @@ services:
       - "80:80"
       - "443:443"
     restart: always
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - public
+      - private
 volumes:
   postgres-data: {}
+networks:
+  public:
+    driver: bridge
+  private:
+    driver: bridge
 ```
