@@ -37,15 +37,15 @@
 >
 > > 다음 틱에서 실행됨
 
-```
-myEmitter.on('event', function(a, b) {
+```js
+myEmitter.on("event", function (a, b) {
   setImmediate(() => {
-    console.log('첫 번째 리스너:', a, b);
+    console.log("첫 번째 리스너:", a, b);
   });
 });
-myEmitter.on('event', function(a, b) {
+myEmitter.on("event", function (a, b) {
   setImmediate(() => {
-    console.log('두 번째 리스너:', a, b);
+    console.log("두 번째 리스너:", a, b);
   });
 });
 ```
