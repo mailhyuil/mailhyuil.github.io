@@ -23,8 +23,9 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Ubuntu로 checkout
+        uses: actions/checkout@v3
+      - name: Node.js ${{ matrix.node-version }}를 사용
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}

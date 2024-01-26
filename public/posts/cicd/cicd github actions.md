@@ -2,6 +2,7 @@
 
 ## 순서
 
+```sh
 1. 레포지토리 생성
 2. local ssh key 깃허브에 등록 (ssh-keygen isa_rsa.pub 파일)
 3. ec2 서버 ssh key 깃허브에 등록 (ssh-keygen isa_rsa.pub 파일)
@@ -12,6 +13,7 @@
 8. test 등등 추가
 9. repository Actions 탭에서 nodejs 추가
 10. 설정
+```
 
 ## 변수 설정
 
