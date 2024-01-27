@@ -16,7 +16,9 @@ apt install docker-compose-plugin -y
 # docker compose or docker-compose로 사용 가능
 
 docker compose up # 이 명령을 실행하면 현재 디렉토리에 있는 docker-compose.yml 파일을 찾는다
-docker compose down # 모든 컨테이너와 네트워크를 중단 삭제
+docker compose up -d # 백그라운드에서 실행
+
+docker compose down # 모든 컨테이너와 네트워크를 중단 및 삭제
 
 docker compose logs
 docker compose stop
@@ -30,7 +32,7 @@ version: "3.8"
 services:
   db:
     container_name: postgres
-    image: "hyuil/postgres:0.0.1"
+    image: postgres:14-alpine
     ports:
       - "5432:5432"
     restart: always
@@ -54,6 +56,7 @@ services:
       - "3000:3000"
     restart: always
     networks:
+      - public
       - private
   nginx:
     container_name: nginx
@@ -64,7 +67,6 @@ services:
     restart: always
     networks:
       - public
-      - private
 volumes:
   postgres-data: {}
 networks:
@@ -72,4 +74,5 @@ networks:
     driver: bridge
   private:
     driver: bridge
+    internal: true
 ```
