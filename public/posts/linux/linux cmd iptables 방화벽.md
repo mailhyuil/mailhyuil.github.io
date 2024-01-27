@@ -14,9 +14,9 @@ iptables -A INPUT -s [발신지] --sport [발신지 포트] -d [목적지] --dpo
 
 -j : 정책 # ACCEPT, DROP, REJECT, LOG, MASQUERADE, DNAT, SNAT
 
--A : 추가할 룰을 맨 아래의 줄에 추가 # INPUT, OUTPUT, FORWARD
--I : 추가할 룰을 맨 위의 줄에 추가  # INPUT, OUTPUT, FORWARD
--D : 특정 룰을 삭제              # INPUT, OUTPUT, FORWARD
+-A : iptables 룰 파일에서 추가할 룰을 맨 아래의 줄에 추가 # INPUT, OUTPUT, FORWARD
+-I : iptables 룰 파일에서 추가할 룰을 맨 위의 줄에 추가  # INPUT, OUTPUT, FORWARD
+-D : iptables 룰 파일에서 특정 룰을 삭제              # INPUT, OUTPUT, FORWARD
 
 -n : IP를 reverse DNS에 등록된 도메인으로 검색해서 보여주지 않는 옵션 (순수 IP로 보여줌)
 -N : 이미 정의된 체인 외적으로, 사용자 정의 체인을 생성
@@ -30,8 +30,20 @@ iptables -A INPUT -s [발신지] --sport [발신지 포트] -d [목적지] --dpo
 ## 예시
 
 ```sh
-# 특정 포트를 허용
-iptables -I INPUT -p tcp -s 10.0.0.0 --dport 3000 -j ACCEPT
-# 특정 포트를 차단
-iptables -I INPUT -p tcp --dport 3000 -j DROP
+# 특정 포트
+sudo iptables -A INPUT -p tcp --dport <포트번호> -j ACCEPT
+# 특정 포트 차단
+sudo iptables -A INPUT -p tcp --dport <포트번호> -j DROP
+# 특정 IP 허용
+sudo iptables -A INPUT -s <특정IP> -j ACCEPT
+# 특정 IP 차단
+sudo iptables -A INPUT -s <특정IP> -j DROP
+# 특정 IP 대역 허용
+sudo iptables -A INPUT -s <시작IP>-<끝IP> -j ACCEPT
+# 특정 IP 대역 차단
+sudo iptables -A INPUT -s <시작IP>-<끝IP> -j DROP
+
+# 저장
+sudo service iptables save
+sudo service iptables restart
 ```
