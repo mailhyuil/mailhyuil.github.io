@@ -1,7 +1,5 @@
 ## Dockerfile nx nestjs + prisma
 
-> prisma generate를 해줘야함
-
 ```dockerfile
 FROM node:lts-alpine AS builder
 
@@ -17,17 +15,17 @@ RUN npm install
 
 COPY . .
 
-RUN nx build server
+RUN npx nx build server --skip-nx-cache
 
 FROM node:lts-alpine
 
+COPY --from=builder /app/dist/apps/server ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/prisma ./prisma/
+COPY --from=builder /app/.env.production ./.env
 
 EXPOSE 3000
-# 👇 new migrate and start app script
-# ❤️ "prisma migrate deploy && node main"
-CMD [  "npm", "run", "start:migrate:prod" ]
+
+CMD ["sh", "-c", "npx prisma migrate deploy && node main.js"]
 ```

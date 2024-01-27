@@ -5,9 +5,24 @@
 ## Dockerfile
 
 ```Dockerfile
+FROM node:lts-alpine AS builder
+
+# Create app directory
+WORKDIR /app
+
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm install
+
+COPY . .
+
+RUN npx nx build client --skip-nx-cache
+
 FROM nginx:alpine
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY dist/apps/client /usr/share/nginx/html
+COPY --from=builder /app/Dockerfiles/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist/apps/client/browser /usr/share/nginx/html
 EXPOSE 80
 EXPOSE 443
 ```
