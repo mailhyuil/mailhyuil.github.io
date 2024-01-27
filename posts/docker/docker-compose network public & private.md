@@ -5,7 +5,7 @@ version: "3.8"
 services:
   db:
     container_name: postgres
-    image: <image>
+    image: postgres:14-alpine
     ports:
       - "5432:5432"
     restart: always
@@ -21,40 +21,30 @@ services:
         max-size: "8m"
         max-file: "10"
     networks:
-      - default
-      - public
-      - private # private 네트워크 연결
+      - private
   server:
     container_name: server
-    image: <image>
+    image: hyuil/server:0.0.1
     ports:
       - "3000:3000"
     restart: always
     networks:
-      - default
-      - public
-      - private # private 네트워크 연결
+      - private
   nginx:
     container_name: nginx
-    image: <image>
+    image: hyuil/nginx:0.0.1
     ports:
       - "80:80"
       - "443:443"
     restart: always
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     networks:
-      - default
       - public
-      - private # private 네트워크 연결
-
+      - private
 volumes:
-  postgres-data:
-
+  postgres-data: {}
 networks:
   public:
     driver: bridge
   private:
     driver: bridge
-    internal: true # private 네트워크 내부 통신만 가능하도록 설정
 ```

@@ -46,8 +46,8 @@ VOLUME /data
 ENTRYPOINT ["java", "-jar", "/app/*.jar"]
 
 # 컨테이너가 실행될 때 기본적으로 실행되야 하는 커맨드 지정 (사용자 파라미터 입력에 따라 변동)
-# string대신 array를 사용하는 이유: string으로 사용 시 도커가 bash를 사용해서 process를 run 이건 signals를 제대로 처리 못함
 CMD ["node", "/web-ping/app.js"]
+CMD sh -c "echo $TARGET && node /web-ping/app.js"
 ```
 
 ## Dockerfile 압축
