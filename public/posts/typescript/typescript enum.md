@@ -1,30 +1,40 @@
 # typescript enum
 
-> 사용 지양 tree-shaking 문제
+> 사용을 지양해라!
 >
-> > as const를 사용해라
+> typescript가 자체 지원하는 기능으로 js로 컴파일 시 함수로 컴파일되는 방식
+>
+> 이는 enum을 사용하지 않아도 tree-shaking이 되지 않는 문제를 유발한다.
+>
+> > const enum 방식은 tree-shaking이 되지만 babel로 트랜스파일할 수 없고, typescript의 --isolatedModules 옵션이 있을 시 무용지물
+> >
+> > > as const, union type 방식을 사용하자
 
 ## 문법
 
 ```ts
+// 사용하지 말자!
 enum Enum {
-    A = 'A'
-    B = 'B'
+    A
+    B
+}
+enum Enum {
+    A = '에이'
+    B = '비'
 }
 
+// 이것도 비추천
 const enum Enum {
     A = 'A'
     B = 'B'
 }
+```
 
+```ts
+// 추천
 const Enum = {
     A = 'A'
     B = 'B'
 } as const
-```
-
-## String 값으로 찾기
-
-```ts
-Enum["A"] === A;
+type EnumType = typeof Enum[keyof typeof Enum]; // 'A' | 'B'
 ```
