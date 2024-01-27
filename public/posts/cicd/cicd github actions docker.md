@@ -11,35 +11,44 @@ name: Deploy Server Production
 on:
   push:
     branches:
-      - develop
+      - main
     paths:
       - "apps/server/**"
-      - "libs/**"
   workflow_dispatch:
 jobs:
   deploy_prod:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
-      - name: Ubuntu로 checkout
-        uses: actions/checkout@v3
-      - name: Node.js ${{ matrix.node-version }}를 사용
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - name: Install Dependencies
-        run: npm install --force
-      - name: Build Project
-        run: npx nx build server
-      - name: Build & Push Docker Image
-        run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} ${{ secrets.DOCKER_REGISTRY }}
-          docker build -f apps/Dockerfile.server -t ${{ secrets.DOCKER_REGISTRY }}/server:${{ github.sha }} .
-          docker push ${{ secrets.DOCKER_REGISTRY }}/server:${{ github.sha }}
-      - name: Access to Remote Server & Run Docker Container
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to Image Registry
+          uses: docker/login-action@v3
+          with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+            registry: ${{ secrets.DOCKER_REGISTRY }}
+
+      - name: Set up Docker Buildx (Multi Platform Builder)
+          uses: docker/setup-buildx-action@v3
+
+      - name: Build and Test
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            target: test # target은 stage의 이름 AS [target]을 의미
+            load: true
+
+      - name: Build and Push
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            push: true
+            target: prod
+            tags: ${{ secrets.DOCKER_USERNAME }}/server:${{ github.sha }}
+            # tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
+
+      - name: Access to Remote Server & Run Container [CD]
         uses: appleboy/ssh-action@v0.1.8
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -48,8 +57,8 @@ jobs:
           port: 22
           script: |
             sudo whoami
-            sudo docker stop server
-            sudo docker rm server
-            sudo docker run --name server -p 3000:3000 -d ${{ secrets.DOCKER_REGISTRY }}/server:${{ github.sha }}
+            sudo export SERVER_VERSION=${{ github.sha }}
+            sudo cd /home/ubuntu
+            sudo docker compose up -d
             sudo docker image prune -af
 ```

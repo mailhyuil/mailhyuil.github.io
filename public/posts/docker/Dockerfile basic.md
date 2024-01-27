@@ -3,6 +3,8 @@
 > image를 생성하기 위한 스크립트파일
 >
 > > Docker는 Dockerfile에 나열된 명령문을 차례대로 수행
+> >
+> > > package-lock.json 파일도 함께 복사해야 캐시를 사용할 수 있다.
 
 ```Dockerfile
 # 베이스 이미지
@@ -50,9 +52,17 @@ CMD ["node", "/web-ping/app.js"]
 CMD sh -c "echo $TARGET && node /web-ping/app.js"
 ```
 
+## build
+
+```sh
+docker build -f <Dockerfile 경로> -t <image 이름> --target <stage target> <build context>
+# docker build -f Dockerfile.server -t hyuil/server:1.0 .
+# docker build -f Dockerfile.server -t hyuil/server:1.0 --target prod .
+```
+
 ## Dockerfile 압축
 
-```
+```sh
 # 압축하기
 docker save -o [output tar파일] [image]
 # 불러오기

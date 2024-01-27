@@ -3,12 +3,12 @@
 ## run
 
 ```sh
-docker volume create my-volume
+docker volume create postgres-data
 
 docker run --name postgres \
 --network private -d \
 --restart unless-stopped \
--v my-volume:/var/lib/postgresql/data \
+-v postgres-data:/var/lib/postgresql/data \
 -e POSTGRES_USER=postgres \
 -e POSTGRES_PASSWORD=1234 \
 -e POSTGRES_DB=mydb \
