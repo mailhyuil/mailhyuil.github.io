@@ -25,16 +25,16 @@ enum Enum {
 
 // 이것도 비추천
 const enum Enum {
-    A = 'A'
-    B = 'B'
+    A = '에이'
+    B = '비'
 }
 ```
 
 ```ts
 // 추천
 const Enum = {
-    A = 'A'
-    B = 'B'
-} as const
-type EnumType = typeof Enum[keyof typeof Enum]; // 'A' | 'B'
+  A: "에이",
+  B: "비",
+} as const;
+type EnumType = (typeof Enum)[keyof typeof Enum]; // '에이' | '비'
 ```
