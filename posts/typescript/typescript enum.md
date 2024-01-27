@@ -10,7 +10,17 @@
 > >
 > > > as const, union type 방식을 사용하자
 
-## 문법
+## enum 대신 이렇게 사용할 것
+
+```ts
+const Enum = {
+  A: "에이",
+  B: "비",
+} as const;
+type EnumType = (typeof Enum)[keyof typeof Enum]; // '에이' | '비'
+```
+
+## enum은 사용하지 말 것
 
 ```ts
 // 사용하지 말자!
@@ -28,13 +38,4 @@ const enum Enum {
     A = '에이'
     B = '비'
 }
-```
-
-```ts
-// 추천
-const Enum = {
-  A: "에이",
-  B: "비",
-} as const;
-type EnumType = (typeof Enum)[keyof typeof Enum]; // '에이' | '비'
 ```
