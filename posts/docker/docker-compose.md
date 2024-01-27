@@ -56,7 +56,6 @@ services:
       - "3000:3000"
     restart: always
     networks:
-      - public
       - private
   nginx:
     container_name: nginx
@@ -67,6 +66,7 @@ services:
     restart: always
     networks:
       - public
+      - private
 volumes:
   postgres-data: {}
 networks:
