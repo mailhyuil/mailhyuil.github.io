@@ -31,19 +31,19 @@ iptables -A INPUT -s [발신지] --sport [발신지 포트] -d [목적지] --dpo
 
 ```sh
 # 특정 포트
-sudo iptables -A INPUT -p tcp --dport <포트번호> -j ACCEPT
+iptables -A INPUT -p tcp --dport <포트번호> -j ACCEPT
 # 특정 포트 차단
-sudo iptables -A INPUT -p tcp --dport <포트번호> -j DROP
+iptables -A INPUT -p tcp --dport <포트번호> -j DROP
 # 특정 IP 허용
-sudo iptables -A INPUT -s <특정IP> -j ACCEPT
+iptables -A INPUT -s <특정IP> -j ACCEPT
 # 특정 IP 차단
-sudo iptables -A INPUT -s <특정IP> -j DROP
+iptables -A INPUT -s <특정IP> -j DROP
 # 특정 IP 대역 허용
-sudo iptables -A INPUT -s <시작IP>-<끝IP> -j ACCEPT
+iptables -A INPUT -s <시작IP>-<끝IP> -j ACCEPT
 # 특정 IP 대역 차단
-sudo iptables -A INPUT -s <시작IP>-<끝IP> -j DROP
+iptables -A INPUT -s <시작IP>-<끝IP> -j DROP
 
 # 저장
-sudo service iptables save
-sudo service iptables restart
+service iptables save
+service iptables restart
 ```
