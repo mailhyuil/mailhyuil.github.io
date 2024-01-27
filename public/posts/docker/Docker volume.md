@@ -1,10 +1,8 @@
 # Docker volume
 
-> 데이터는 쓰기 가능 레이어에 저장된다
+> 데이터는 기본적으로 쓰기 가능 레이어에 저장된다 이 레이어는 컨테이너가 삭제되면 같이 삭제됨 따라서 볼륨을 사용
 >
-> > 쓰기가능 레이어의 생명주기는 컨테이너가 생성되고 삭제될때까지
-> >
-> > > 그렇기 때문에 데이터는 볼륨에 저장해야한다.
+> > 볼륨을 생성하여 사용하는 방법과 호스트 경로를 컨테이너에 마운트하는 방법이 있다
 
 ## docker volume 사용
 
@@ -29,10 +27,11 @@ docker volume prune
 ## host경로를 container에 마운트
 
 ```bash
-# -v [볼륨 이름 or 로컬 경로]:[컨테이너 안 경로]
-docker run -d -v mysql-volume:/var/lib/mysql -p 80:80 nginx
+# 특정 경로를 마운트
+docker run -d -v ~/logs:/var/logs -p 80:80 nginx
 
-docker run -d -v $(pwd):/var/lib/mysql -p 80:80 nginx
+# 현제 디렉토리를 마운트
+docker run -d -v $(pwd):/var/logs -p 80:80 nginx
 ```
 
 ## data-only container (volume container) 생성하여 마운트
