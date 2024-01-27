@@ -1,4 +1,4 @@
-# postgres postgresql.conf
+# postgres postgresql.conf 위치
 
 ## 위치 검색
 
