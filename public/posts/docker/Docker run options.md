@@ -5,7 +5,7 @@
 -t # 터미널 사용, 쉘을 사용하기 위해서 넣어줘야함, docker attach가 가능해짐
 -d # background 모드
 -v # volume 사용
--p
+-p # port forwarding
 --rm # stop 시 삭제
---restart
+--restart # 컨테이너 재시작 정책
 ```

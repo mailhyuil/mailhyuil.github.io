@@ -6,6 +6,8 @@
 > >
 > > > docker build --target=prod으로 스테이지를 선택할 수 있다.
 
+## FROM AS
+
 ```dockerfile
 ARG NODE_VERSION=18.0.0
 
@@ -29,7 +31,7 @@ RUN nx test server
 
 ## --from
 
-> 기존에 있는 이미지를 참조해서 빌드할 수 있다.
+> 기존에 있는 이미지, 스테이지를 참조해서 빌드할 수 있다.
 
 ```dockerfile
 COPY --from=builder /app/dist/apps/server ./

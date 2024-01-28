@@ -5,15 +5,14 @@
 ## Dockerfile
 
 ```Dockerfile
-FROM node:lts-alpine AS builder
+ARG NODE_VERSION=lts
 
-# Create app directory
+FROM node:${NODE_VERSION}-alpine AS builder
+
 WORKDIR /app
 
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
-# Install app dependencies
 RUN npm install
 
 COPY . .

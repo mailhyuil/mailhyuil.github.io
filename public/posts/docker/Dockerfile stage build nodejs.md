@@ -3,7 +3,9 @@
 > 빌드 단계를 위한 스테이지를 만들어서 공통적인 빌드 단계를 수행
 
 ```dockerfile
-FROM node:lts-alpine AS builder
+ARG NODE_VERSION=lts
+
+FROM node:${NODE_VERSION}-alpine AS builder
 
 WORKDIR /app
 
