@@ -1,6 +1,6 @@
 # postgreSQL 중앙값
 
-```
+```sql
 percentile_cont(n)
 percentile_desc(n) // 이산값을 계산
 
