@@ -1,32 +1,30 @@
-# postgres constraint (제약 조건)
+# postgres CONSTRAINT (제약 조건)
 
-## 생성 시 추가
-
-### PRIMARY KEY
+## PRIMARY KEY
 
 ```sql
 CONSTRAINT constraint_name PRIMARY KEY(record);
 ```
 
-### FOREIGN KEY
+## FOREIGN KEY
 
 ```sql
 CONSTRAINT constraint_name FOREIGN KEY (record) REFERENCES table_name (record);
 ```
 
-### UNIQUE
+## UNIQUE
 
 ```sql
-CONSTRAINTS constraint_name UNIQUE (record1, record2);
+CONSTRAINT constraint_name UNIQUE (record1, record2);
 ```
 
-### NOT NULL
+## NOT NULL
 
 ```sql
 CONSTRAINT constraint_name NOT NULL
 ```
 
-### CHECK
+## CHECK
 
 > field의 값이 조건에 충족하는지 체크하기 위한 제약
 
@@ -34,7 +32,7 @@ CONSTRAINT constraint_name NOT NULL
 CONSTRAINT constraint_name CHECK (record < 10)
 ```
 
-### 나중에 추가하기
+## 나중에 추가하기
 
 ```sql
 ALTER TABLE [table_name] ADD CONSTRAINT ...
