@@ -4,4 +4,5 @@
 
 ```sh
 traceroute <Destination_Ip>
+traceroute <Destination_Domain>
 ```
