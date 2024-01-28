@@ -2,54 +2,52 @@
 
 ## 문자열
 
-```
-char(n)
-varchar(n)
-text
+```SQL
+CHAR(n)
+VARCHAR(n)
+TEXT
 ```
 
 ## 정수
 
-```
-smallint
-integer
-bigint
+```SQL
+SMALLINT
+INTEGER
+BIGINT
 ```
 
-## autoincrement 정수
+## AUTOINCREMENT 정수
 
-> GENERATE ALWAYS AS IDENTITY 사용을 지향하자
+> GENERATE ALWAYS AS IDENTITY 사용을 권장
 
-```
-smallserial
-serial
-bigserial
+```SQL
+SMALLSERIAL
+SERIAL
+BIGSERIAL
 ```
 
 ## 실수
 
-```
-numeric
-decimal
-real
-double
-precision
+```SQL
+NUMERIC
+DECIMAL
+REAL
+DOUBLE
+PRECISION
 ```
 
 ## 시간
 
-> programming에서 날짜의 기본 포멧은 YYYY-MM-DD 이다.
-
-```
-timestamp
-date
-time
-interval // 시간의 길이 타입
+```SQL
+TIMESTAMP
+DATE
+TIME
+INTERVAL -- 시간의 길이 타입
 ```
 
-## json
+## JSON
 
-```
-json
-jsonb // json type을 바이너리 데이터로 저장
+```SQL
+JSON
+JSONB -- JSON TYPE을 바이너리 데이터로 저장
 ```
