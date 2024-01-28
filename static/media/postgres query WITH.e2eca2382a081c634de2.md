@@ -16,6 +16,5 @@ WITH temp_query_result AS (
     FROM product_sales
 )
 
-SELECT *
-FROM temp_query_result;
+SELECT * FROM temp_query_result;
 ```
