@@ -1,3 +1,0 @@
-# ERD
-
-> Entity Relationship Diagram

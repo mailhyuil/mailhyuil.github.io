@@ -48,6 +48,7 @@ jobs:
             tags: ${{ secrets.DOCKER_USERNAME }}/server:${{ github.sha }}
             # tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
 
+      # self-host라면 그냥 ssh로 접속
       - name: Access to Remote Server & Run Container [CD]
         uses: appleboy/ssh-action@v0.1.8
         with:
