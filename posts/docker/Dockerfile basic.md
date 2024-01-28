@@ -7,17 +7,21 @@
 > > > package-lock.json 파일도 함께 복사해야 캐시를 사용할 수 있다.
 
 ```Dockerfile
+# 변수 선언
+ARG VERSION=lts-alpine
+
 # 베이스 이미지
-FROM diamol/node
+FROM node:${VERSION}
 
 # 이미지의 메타데이터
-LABEL description="simple container"
+LABEL description="Simple NodeJS Container"
 
 # 사용자 지정
-USER
+USER node
 
 # 명령을 실행한 다음 그 결과를 이미지 레이어에 저장하는 기능
 RUN echo 'Building...' > /build.txt
+
 # -y 옵션을 사용해 무조건 설치가 되도록
 RUN apt update && apt install -y something
 
@@ -25,9 +29,6 @@ RUN apt update && apt install -y something
 ENV TARGET="blog.sixeyed.com"
 ENV METHOD="HEAD"
 ENV INTERVAL="3000"
-
-#
-ARG SOME_ARG
 
 # 워킹 디렉토리를 지정 (cd 명령어와 동일)
 WORKDIR /app

@@ -1,4 +1,6 @@
-# postgres explain
+# postgres EXPLAIN
+
+> 쿼리의 실행 계획을 확인할 수 있다.
 
 ## 사용법
 
@@ -16,7 +18,7 @@ option 자리에 사용할 수 있는 것들:
     FORMAT { TEXT | XML | JSON | YAML }
 ```
 
-## explain analyse
+## EXPLAIN ANALYZE
 
 > 실제 해당 쿼리를 실행하고, 추청 비용과 함께 소요 비용, 소요 시간도 실제 처리된 각 계획 노드별 전체 로우 수도 보여준다.
 >
