@@ -32,6 +32,15 @@ CONSTRAINT constraint_name NOT NULL
 CONSTRAINT constraint_name CHECK (record < 10)
 ```
 
+## CASCADE
+
+```sql
+-- DELETE 시, 참조하는 모든 테이블의 레코드를 삭제
+CONSTRAINT constraint_name FOREIGN KEY (record) REFERENCES table_name (record) ON DELETE CASCADE;
+-- UPDATE 시, 참조하는 모든 테이블의 레코드를 수정
+CONSTRAINT constraint_name FOREIGN KEY (record) REFERENCES table_name (record) ON UPDATE CASCADE;
+```
+
 ## 나중에 추가하기
 
 ```sql
