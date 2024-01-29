@@ -1,5 +1,11 @@
 # vim
 
+## install
+
+```sh
+apt install vim -y
+```
+
 ## 명령어
 
 ```
