@@ -38,21 +38,3 @@ server {
     }
 }
 ```
-
-## 자동갱신
-
-```sh
-# 갱신 script 생성
-cat > letsencrypt.sh
-!/bin/sh
-/etc/init.d/nginx stop
-/usr/local/bin/certbot renew> /var/log/letsencrypt/le-renew.log
-fuser -k 80/tcp
-/etc/init.d/nginx start
-# 권한 변경
-chmod -x letsencrypt.sh
-# 크론잡
-crontab e
-
-30 4 * * 0 letsencrypt.sh
-```

@@ -1,6 +1,12 @@
 # postgres postgresql.conf 위치
 
-## 위치 검색
+## 쿼리로 확인
+
+```sql
+SHOW config_file
+```
+
+## psql로 확인
 
 ```sh
 # postgres user
