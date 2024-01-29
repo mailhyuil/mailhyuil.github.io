@@ -1,5 +1,7 @@
 # postgres postgresql.conf 위치
 
+> /var/lib/postgresql/data
+
 ## 쿼리로 확인
 
 ```sql

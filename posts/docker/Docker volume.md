@@ -13,9 +13,8 @@
 ```bash
 docker volume create --name my-volume
 
-docker run -d --name my-sql -v my-volume:/var/lib/mysql -p 3306:3306 mysql
-# /var/lib/mysql은 mysql이 데이터를 쌓는 경로이다
-# /var/lib/postgresql/<version>/main postgresql
+docker run -d --name postgres -v my-volume:/var/lib/postgresql/data -p 3306:3306 mysql
+# mysql은 /var/lib/mysql
 
 # volume 리스트 출력
 docker volume ls
