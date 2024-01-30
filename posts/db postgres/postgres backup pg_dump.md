@@ -1,8 +1,10 @@
 # postgres dump
 
 ```sh
-# -h : host
-# -U : user
+# -h : host // default : localhost
+# -p : port // default : 5432
+# -U : user // default : current linux user
+
 # -d : database
 # -t : table
 # -n : schema
