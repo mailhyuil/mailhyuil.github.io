@@ -5,6 +5,8 @@
 > > 트랜잭션의 경우 COMMIT이 발생하면 WAL에 기록된 로그를 디스크에 저장하고 ROLLBACK이 발생하면 WAL에 기록된 로그를 삭제한다.
 > >
 > > > pg_waldump로 읽을 수 있다.
+> > >
+> > > > 특별한 설정이 없다면 WAL 파일이 꽉 차면 가장 오래된 WAL 파일부터 덮어쓴다. (재사용)
 
 ## CDC (Change Data Capture)
 
