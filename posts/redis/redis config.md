@@ -1,6 +1,14 @@
 # redis redis.conf
 
-> /etc/redis/redis.conf 에 위치
+> redis.conf 파일이 없다면 기본 설정으로 실행됩니다.
+>
+> > redis.conf 파일을 생성해서 설정을 변경
+
+## 사용
+
+```sh
+redis-server /path/to/redis.conf
+```
 
 ## redis.conf
 
