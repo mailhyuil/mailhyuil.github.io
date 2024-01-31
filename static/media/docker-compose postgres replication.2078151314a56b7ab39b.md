@@ -42,6 +42,7 @@ services:
       -c max_replication_slots=10
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./data:/var/lib/postgresql/data
 
   postgres_slave:
     container_name: postgres_slave
