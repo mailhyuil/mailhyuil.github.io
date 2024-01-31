@@ -2,7 +2,11 @@
 
 > 데이터는 기본적으로 쓰기 가능 레이어에 저장된다 이 레이어는 컨테이너가 삭제되면 같이 삭제됨 따라서 볼륨을 사용
 >
-> > 볼륨을 생성하여 사용하는 방법과 호스트 경로를 컨테이너에 마운트하는 방법이 있다
+> > 볼륨을 생성하여 사용하는 방법과 호스트 경로를 컨테이너에 마운트하는 방법이 있다 (volume, bind mount)
+> >
+> > > 컨테이너에서 계속 사용할 영속적인 데이터 = 볼륨 사용 (e.g. DB data)
+> > >
+> > > 호스트에서 사용할 데이터 = 바인드 마운트 사용 (e.g. 로그 파일, 소스 코드, 설정 파일)
 
 ## docker volume 사용
 
@@ -23,7 +27,7 @@ docker volume ls
 docker volume prune
 ```
 
-## host경로를 container에 마운트
+## host경로를 container에 마운트 (bind mount)
 
 ```bash
 # 특정 경로를 마운트
@@ -31,6 +35,9 @@ docker run -d -v ~/logs:/var/logs -p 80:80 nginx
 
 # 현제 디렉토리를 마운트
 docker run -d -v $(pwd):/var/logs -p 80:80 nginx
+
+# --mount 옵션 (-v 옵션으로 bind한 것과 동일하지만 path가 없으면 에러가 난다. -v는 path가 없으면 자동으로 생성)
+docker run -d --mount type=bind,source=$(pwd),target=/var/logs -p 80:80 nginx
 ```
 
 ## data-only container (volume container) 생성하여 마운트

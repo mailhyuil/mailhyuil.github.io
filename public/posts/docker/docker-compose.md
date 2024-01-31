@@ -38,6 +38,7 @@ services:
     restart: always
     volumes:
       - postgres-data:/var/lib/postgresql/data
+      - /mnt/server/archivedir:/mnt/server/archivedir
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
@@ -49,6 +50,15 @@ services:
         max-file: "10"
     networks:
       - private
+    command: |
+      postgres 
+      -c wal_level=replica 
+      -c archive_mode=on
+      -c archive_command='test ! -f /mnt/server/archivedir/%f && cp %p /mnt/server/archivedir/%f'
+      -c archive_timeout=1
+      -c autovacuum=on
+      -c autovacuum_vacuum_scale_factor=0.1
+      -c autovacuum_analyze_scale_factor=0.3
   server:
     container_name: server
     image: hyuil/server:0.0.1
