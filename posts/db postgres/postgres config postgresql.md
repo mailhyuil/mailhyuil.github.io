@@ -17,10 +17,13 @@ synchronous_commit              = on
 full_page_writes                = on
 checkpoint_segments             = 100
 
-## PITR
-archive_mode                    = off
-archive_command                 = ''
-archive_timeout                 = 0
+## ARCHIVE BACKUP
+wal_level                       = replica
+archive_mode                    = on
+archive_command                 = 'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/server/archivedir/%f'
+archive_timeout                 = 1
+restore_command = 'cp /mnt/server/archivedir/%f %p'
+#recovery_target_time = '2024-01-31 09:07:00 UTC'
 
 ## Planner
 effective_cache_size            = 18GB
@@ -43,7 +46,7 @@ autovacuum_vacuum_scale_factor  = 0.1
 autovacuum_analyze_scale_factor = 0.3
 
 ## Bulk loading only - leave 'on' for everyday use!
-autovacuum                      = off
-fsync                           = off
-full_page_writes                = off
+#autovacuum                      = off
+#fsync                           = off
+#full_page_writes                = off
 ```
