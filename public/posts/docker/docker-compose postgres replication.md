@@ -1,6 +1,6 @@
 # docker-compose postgres replication
 
-## 00_init.sql
+## init.sql
 
 ```sql
 CREATE USER replicator WITH REPLICATION ENCRYPTED PASSWORD 'replicator_password';
@@ -37,11 +37,11 @@ services:
       postgres 
       -c wal_level=replica 
       -c hot_standby=on 
-      -c max_wal_senders=10 
-      -c max_replication_slots=10 
       -c hot_standby_feedback=on
+      -c max_wal_senders=10 
+      -c max_replication_slots=10
     volumes:
-      - ./00_init.sql:/docker-entrypoint-initdb.d/00_init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   postgres_slave:
     container_name: postgres_slave
