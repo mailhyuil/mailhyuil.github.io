@@ -16,7 +16,7 @@ cd $BACKUP_DIR
 
 #----- DUMP BACKUP_FILE -----
 echo "DB backup start time : " $(date +"%Y-%m-%d %H:%M:%S")
-PGPASSWORD=$PASSWORD pg_dump -h 10.10.10.10 -U $USERNAME $DB_NAME -Fc -v > "${BACKUP_DIR}/${DB_NAME}_${FILENAME}"
+PGPASSWORD=$PASSWORD pg_dump -U $USERNAME $DB_NAME -Fc -v > "${BACKUP_DIR}/${DB_NAME}_${FILENAME}"
 echo "Successful db backup ( ${BACKUP_DIR}/${DB_NAME}_${FILENAME} )"
 
 #----- DELETE AFTER 30 DAYS -----

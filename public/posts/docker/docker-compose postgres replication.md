@@ -16,21 +16,21 @@ x-postgres-common: &postgres-common
   user: postgres
   restart: always
   healthcheck:
-    test: "pg_isready -U user --dbname=postgres"
+    test: "pg_isready -U admin --dbname=mydb"
     interval: 10s
     timeout: 5s
     retries: 5
 
 services:
-  postgres_primary:
+  postgres_master:
+    container_name: postgres_master
     <<: *postgres-common
-    container_name: postgres_primary
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: user
-      POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: admin
+      POSTGRES_DB: mydb
+      POSTGRES_PASSWORD: 1234
       POSTGRES_HOST_AUTH_METHOD: "scram-sha-256\nhost replication all 0.0.0.0/0 md5"
       POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
     command: |
@@ -43,9 +43,9 @@ services:
     volumes:
       - ./00_init.sql:/docker-entrypoint-initdb.d/00_init.sql
 
-  postgres_replica:
+  postgres_slave:
+    container_name: postgres_slave
     <<: *postgres-common
-    container_name: postgres_replica
     ports:
       - 5433:5432
     environment:
@@ -53,9 +53,9 @@ services:
       PGPASSWORD: replicator_password
     command: |
       bash -c "
-      until pg_basebackup --pgdata=/var/lib/postgresql/data -R --slot=replication_slot --host=postgres_primary --port=5432
+      until pg_basebackup --pgdata=/var/lib/postgresql/data -R --slot=replication_slot --host=postgres_master --port=5432
       do
-      echo 'Waiting for primary to connect...'
+      echo 'Waiting for Master to connect...'
       sleep 1s
       done
       echo 'Backup done, starting replica...'
@@ -63,5 +63,5 @@ services:
       postgres
       "
     depends_on:
-      - postgres_primary
+      - postgres_master
 ```
