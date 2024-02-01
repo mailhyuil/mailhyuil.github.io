@@ -3,7 +3,13 @@
 ```sh
 apt update -y && apt upgrade -y
 apt install postgresql
-service postgresql start
 su postgres
+
+# postgresql.conf 설정
+cd /var/lib/postgresql/data
+
+# postgresql 시작
+systemctl enable postgresql --now
+
 psql
 ```
