@@ -30,6 +30,10 @@ archive_timeout = 1
 
 ## pg_basebackup
 
+> pg_basebackup을 하면 아카이브에 000000010000000000000002.00000028.backup 이렇게 마킹된 파일이 생성된다.
+>
+> > 000000010000000000000002 밑의 파일은 지워도 된다.
+
 ```sh
 pg_basebackup -D /mnt/server/backupdir -c fast -X none
 ```
