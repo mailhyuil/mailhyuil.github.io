@@ -6,7 +6,7 @@
 > >
 > > > pg_basebackup을 사용한 이후부터의 WAL 로그만 보관하면 됩니다.
 > > >
-> > > > wal_level 및 archive_command 설정
+> > > > pg_basebackup을 한번이라도 해놔야 point in recovery가 가능하다.
 
 ## archive
 
@@ -57,4 +57,13 @@ restore_command = 'cp /mnt/server/archivedir/%f %p'
 
 # 특정 시점으로 복구 시
 restore_target_time = '2021-04-05 00:21:28'
+```
+
+## 복구가 완료되었다면 복구모드를 해제해야 한다.
+
+```sql
+-- 복구모드 확인
+SELECT pg_is_in_recovery();
+-- 복구모드에서 승격
+SELECT pg_promote();
 ```

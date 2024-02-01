@@ -1,5 +1,7 @@
 # postgres 세팅
 
+> pg_basebackup 무조건 한번 해두기
+
 ## postgresql.conf
 
 > /mnt/server/archivedir 생성 (postgres 사용자 권한)
