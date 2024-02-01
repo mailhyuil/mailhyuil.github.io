@@ -4,21 +4,24 @@
 
 ## db 연결
 
-```
-psql -d dbname -U username
+```sh
+psql -U username -d dbname # e.g. psql -d mydb -U postgres
 
-ex) psql -d mydb -U postgres
-
--h hostname // 원격db에 연결
+# 원격db에 연결
+psql -U username -d dbname -h host -p port
 ```
 
 ## db 연결 변경
+
+> connect
 
 ```
 \c dbname
 ```
 
 ## table 확인
+
+> list table
 
 ```
 \dt
