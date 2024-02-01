@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.48412803.css",
-    "main.js": "/static/js/main.d657a934.js",
+    "main.js": "/static/js/main.988c9141.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.cf5065effe1aa5463a31.md",
@@ -1961,6 +1961,7 @@
     "static/media/rust Option.md": "/static/media/rust Option.21c4c9a5d9403d979e8b.md",
     "static/media/webapi Background Tasks API.md": "/static/media/webapi Background Tasks API.a742a96c6b7cc3aa5de5.md",
     "static/media/js 값이 바뀌면 업데이트.md": "/static/media/js 값이 바뀌면 업데이트.6317a174f2f606cf4299.md",
+    "static/media/postgres config replication failover.md": "/static/media/postgres config replication failover.7ebcc1805dce306bf847.md",
     "static/media/ELK logstash config logstash.md": "/static/media/ELK logstash config logstash.4037f7267d4b294febed.md",
     "static/media/Docker image MongoDB.md": "/static/media/Docker image MongoDB.0e883214e37c1c66eafd.md",
     "static/media/css select 막기.md": "/static/media/css select 막기.a0327a79ebde210c844f.md",
@@ -2693,6 +2694,11 @@
     "static/media/postgres plugin Postgres-XL.md": "/static/media/postgres plugin Postgres-XL.31d6cfe0d16ae931b73c.md",
     "static/media/postgres plugin sharding citus.md": "/static/media/postgres plugin sharding citus.31d6cfe0d16ae931b73c.md",
     "static/media/postgres plugin sharding postgres-xl.md": "/static/media/postgres plugin sharding postgres-xl.31d6cfe0d16ae931b73c.md",
+    "static/media/postgres utility pg_basebackup.md": "/static/media/postgres utility pg_basebackup.31d6cfe0d16ae931b73c.md",
+    "static/media/postgres utility pg_ctl.md": "/static/media/postgres utility pg_ctl.31d6cfe0d16ae931b73c.md",
+    "static/media/postgres utility pg_dump.md": "/static/media/postgres utility pg_dump.31d6cfe0d16ae931b73c.md",
+    "static/media/postgres utility pg_restore.md": "/static/media/postgres utility pg_restore.31d6cfe0d16ae931b73c.md",
+    "static/media/postgres utility pg_rewind.md": "/static/media/postgres utility pg_rewind.31d6cfe0d16ae931b73c.md",
     "static/media/prisma cursor.md": "/static/media/prisma cursor.31d6cfe0d16ae931b73c.md",
     "static/media/rxjs takeWhile.md": "/static/media/rxjs takeWhile.31d6cfe0d16ae931b73c.md",
     "static/media/sentry.md": "/static/media/sentry.31d6cfe0d16ae931b73c.md",
@@ -2774,10 +2780,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.48412803.css.map": "/static/css/main.48412803.css.map",
-    "main.d657a934.js.map": "/static/js/main.d657a934.js.map"
+    "main.988c9141.js.map": "/static/js/main.988c9141.js.map"
   },
   "entrypoints": [
     "static/css/main.48412803.css",
-    "static/js/main.d657a934.js"
+    "static/js/main.988c9141.js"
   ]
 }
