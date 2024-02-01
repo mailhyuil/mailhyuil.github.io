@@ -1,7 +1,0 @@
-# postgres autovaccume
-
->
-
-```conf
-
-```
