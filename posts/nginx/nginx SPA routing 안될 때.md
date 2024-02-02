@@ -1,6 +1,8 @@
 # nginx routing
 
 > url에 맞는 html 파일을 찾지 못하면 다시 index.html로 리다이렉트
+>
+> > try_files $uri $uri/ /index.html; index.html 앞에 /를 꼭 붙여야함
 
 ```conf
 location / {

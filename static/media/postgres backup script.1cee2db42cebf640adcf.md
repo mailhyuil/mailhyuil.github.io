@@ -19,6 +19,9 @@ echo "DB backup start time : " $(date +"%Y-%m-%d %H:%M:%S")
 PGPASSWORD=$PASSWORD pg_dump -U $USERNAME $DB_NAME -Fc -v > "${BACKUP_DIR}/${DB_NAME}_${FILENAME}"
 echo "Successful db backup ( ${BACKUP_DIR}/${DB_NAME}_${FILENAME} )"
 
+#----- COPY TO S3 -----
+aws s3 cp "${BACKUP_DIR}/${DB_NAME}_${FILENAME}" s3://bucket_name/db_backup/${DB_NAME}_${FILENAME}
+
 #----- DELETE AFTER 30 DAYS -----
 echo "Delete old file ${DB_NAME}_${DEL_FILE}"
 rm "${BACKUP_DIR}/${DB_NAME}_${DEL_FILE}"
