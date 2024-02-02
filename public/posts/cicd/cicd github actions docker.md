@@ -23,30 +23,30 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Login to Image Registry
-          uses: docker/login-action@v3
-          with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-            registry: ${{ secrets.DOCKER_REGISTRY }}
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ${{ secrets.DOCKER_REGISTRY }}
 
       - name: Set up Docker Buildx (Multi Platform Builder)
-          uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v3
 
       - name: Build and Test
-          uses: docker/build-push-action@v5
-          with:
-            context: .
-            target: test # target은 stage의 이름 AS [target]을 의미
-            load: true
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: test # target은 stage의 이름 AS [target]을 의미
+          load: true
 
       - name: Build and Push
-          uses: docker/build-push-action@v5
-          with:
-            context: .
-            push: true
-            target: prod
-            tags: ${{ secrets.DOCKER_USERNAME }}/server:${{ github.sha }}
-            # tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          target: prod
+          tags: ${{ secrets.DOCKER_USERNAME }}/server:${{ github.sha }}
+          # tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
 
       # self-host라면 그냥 ssh로 접속
       - name: Access to Remote Server & Run Container [CD]

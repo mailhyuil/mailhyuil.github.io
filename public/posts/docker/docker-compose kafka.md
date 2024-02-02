@@ -1,13 +1,25 @@
-# Docker image kafka
+# docker-compose kafka
 
-## run
+## docker-compose.yaml
 
-```sh
-docker network create kafka
-
-docker run --name zookeeper -p 2181:2181 -itd --net kafka wurstmeister/zookeeper:latest
-
-docker run --name kafka -e KAFKA_ADVERTISED_HOST_NAME=127.0.0.1 -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 -v /var/run/docker.sock:/var/run/docker.sock -p 9092:9092 -itd --net kafka wurstmeister/kafka:latest
+```yaml
+version: "3.8"
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka:latest
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 ```
 
 ## 테스트
