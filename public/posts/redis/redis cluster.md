@@ -2,6 +2,8 @@
 
 ## redis.conf
 
+> replication 별로 설정
+
 ```conf
 port 7000 # 포트번호
 

@@ -1,4 +1,10 @@
-# postgres dump
+# postgres pg_dump & pg_dumpall
+
+> pg_dump => pg_restore, psql로 복구
+>
+> > pg_dump -Fc => pg_restore로 복구
+> >
+> > > pg_dumpall => psql로 복구
 
 ```sh
 # -h : host // default : localhost
@@ -14,7 +20,9 @@
 # d(directory) : .sql
 
 # 특정 데이터베이스를 지정하여 백업
-pg_dump -h 10.10.10.10 -U $USERNAME -d $DB_NAME -Fc > "${BACKUP_DIR}/${DB_NAME}_${FILE_NAME}.dump"
+pg_dump -d dbname > backup.sql
+pg_dump -d dbname -Fc > "backup.dump"
+
 # 전체 데이터베이스를 백업
-pg_dumpall -U $USERNAME > postgres_all_bak.sql
+pg_dumpall > backup.sql
 ```
