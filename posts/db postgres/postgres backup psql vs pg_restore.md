@@ -1,10 +1,8 @@
-# postgres recovery
-
-> pg_dump -Fc 옵션을 사용하면 pg_restore로 복구해야한다.
+# postgres recovery psql vs pg_restore
 
 ```sh
 # sql 파일로 복원
-psql -U postgres -c dump.sql
+psql -U postgres -f dump.sql
 
 # dump 파일로 복원
 # -h : host
