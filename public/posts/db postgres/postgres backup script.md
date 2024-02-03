@@ -8,8 +8,8 @@
 DEL_FILE=$(date -d '30 day ago' +'%Y-%m-%d_')"*.dump"
 FILENAME=$(date +"%Y-%m-%d_%H%M").dump
 BACKUP_DIR=/var/db_backup
-USERNAME=user_name
-DB_NAME=DB_name
+USERNAME=username
+DB_NAME=dbname
 PASSWORD=password
 
 cd $BACKUP_DIR
