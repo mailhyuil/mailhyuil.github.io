@@ -3,7 +3,7 @@
 ## run
 
 ```bash
-docker run --name ubuntu -p 22:22 -it -d --restart unless-stopped --privileged ubuntu:20.04
+docker run --name ubuntu -p 22:22 -itd --restart unless-stopped --privileged ubuntu:20.04
 ```
 
 ## 서버 접속

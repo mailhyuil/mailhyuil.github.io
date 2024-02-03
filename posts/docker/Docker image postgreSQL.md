@@ -27,7 +27,7 @@ docker exec -it postgres bash
 > psql을 실행
 
 ```sh
-psql --username postgres --dbname mydb
+psql -U postgres -d mydb
 
 \c mydb # db 연결
 \dt # table 목록
