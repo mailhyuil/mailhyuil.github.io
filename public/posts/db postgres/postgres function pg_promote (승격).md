@@ -4,4 +4,6 @@
 
 ```sql
 SELECT pg_promote();
+-- or --
+pg_ctl promote -D /usr/local/pgsql/data
 ```
