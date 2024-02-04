@@ -13,8 +13,9 @@
 > > > > > 소켓파일은 주로 .sock 확장자를 가진다.
 
 ```sh
-# s: 소켓 파일
-srwxr-xr-x 1 root root 0  1월  1 00:00 /tmp/sock
+ls -l docker.sock
+# srwxr-xr-x  1 sangbaekyu  staff     0B Feb  4 13:04 docker.sock
+# s: 소켓 파일 /// 이 소켓파일은 docker daemon과 docker client가 통신하기 위한 소켓파일이다.
 
 #시스템의 전체 유닉스 도메인 소켓 목록을 확인
 lsof -U
