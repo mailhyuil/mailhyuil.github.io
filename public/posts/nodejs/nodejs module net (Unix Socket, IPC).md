@@ -1,16 +1,14 @@
-# nodejs module net (TCP)
+# nodejs module net (Unix Socket, IPC)
 
-> 소켓을 사용하여 TCP 계층의 서버와 클라이언트를 만들 수 있는 모듈
+> Unix Socket 파일을 통해 IPC를 구현
 >
-> > TCP 소켓을 다룰 수 있다.
-> >
-> > > PORT 대신 Unix Socket 파일을 사용하면 IPC를 구현할 수 있다.
+> > Unix 소켓을 다룰 수 있다.
 
 ```js
-// TCP 서버
 const net = require("net");
 
-const server = net.createServer((socket) => {
+// This server listens on a Unix socket at /var/run/mysocket
+const server = net.createServer(function (client) {
   // 소켓 연결이 발생할 때 실행되는 콜백 함수
   console.log(`클라이언트가 연결되었습니다. 소켓 주소: ${socket.remoteAddress}:${socket.remotePort}`);
 
@@ -25,9 +23,6 @@ const server = net.createServer((socket) => {
   });
 });
 
-const PORT = 3000;
-
-server.listen(PORT, () => {
-  console.log(`서버가 ${PORT} 포트에서 대기 중입니다.`);
-});
+/// Unix Socket 파일을 통해 IPC를 구현
+server.listen("/var/run/process.sock");
 ```
