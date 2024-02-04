@@ -34,7 +34,7 @@ LogLevel Debug3
 
 RSAAuthentication yes
 PubkeyAuthentication yes
-PasswordAuthentication no // yes로 돼있으면 password 인증이 우선 시 됨
+PasswordAuthentication no # yes로 돼있으면 password 인증이 우선 시 됨
 ```
 
 ## known_hosts vs authorized_keys
