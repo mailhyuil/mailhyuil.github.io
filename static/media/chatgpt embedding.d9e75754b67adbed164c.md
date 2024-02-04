@@ -1,11 +1,5 @@
 # chatgpt embedding
 
-> embedding : 문장을 벡터로 변환하는 방법
->
-> > 벡터는 좌표평면에 그릴 수 있고 이를 통해 유사도를 계산할 수 있음
-
-## 사용
-
 ```ts
 import OpenAI from "openai";
 
