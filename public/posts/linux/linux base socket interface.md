@@ -25,6 +25,7 @@ const server = net.createServer((socket) => {
 });
 
 const PORT = 12345;
+
 server.listen(PORT, () => {
   console.log(`에코 서버가 포트 ${PORT}에서 실행 중입니다.`);
 });
