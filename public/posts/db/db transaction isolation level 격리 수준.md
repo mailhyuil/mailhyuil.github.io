@@ -1,4 +1,6 @@
-# 트랜젝션 격리레벨
+# db transaction isolation level
+
+> 트랜잭션 격리 수준
 
 ## Read Uncommitted (레벨 0):
 
