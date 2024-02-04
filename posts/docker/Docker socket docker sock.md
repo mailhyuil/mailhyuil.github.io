@@ -1,6 +1,8 @@
 # Docker socket docker.sock
 
-> Docker Engine은 Host OS의 /var/run/docker.sock 아래에 마운트 된 Unix 소켓
+> Unix 소켓 (IPC 소켓)을 사용하여 도커 데몬과 상호 작용을 할 수 있다.
+>
+> Docker Engine Host OS의 /var/run/docker.sock 아래에 마운트 된 Unix 소켓 (IPC 소켓)
 >
 > > docker.sock은 도커 컨테이너 내부에서 데몬과 상호 작용을 할 수 있게 해주는 Unix 소켓이다.
 > >
