@@ -21,6 +21,27 @@ hot_standby=on
 hot_standby_feedback=on
 ```
 
+### pg_hba.conf
+
+```conf
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            scram-sha-256
+# IPv6 local connections:
+host    all             all             ::1/128                 scram-sha-256
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     trust
+host    replication     all             127.0.0.1/32            scram-sha-256
+host    replication     all             ::1/128                 scram-sha-256
+
+host    all             all             all                     scram-sha-256
+host    replication     all             0.0.0.0/0               md5
+```
+
 ## postgres_replica
 
 ### primary의 데이터를 복제 하여 실행
@@ -28,7 +49,9 @@ hot_standby_feedback=on
 > replicator 유저로 실행
 
 ```sh
-pg_basebackup --pgdata=/var/lib/postgresql/data -R --slot=replication_slot --host=postgres_primary --port=5432
+# 부팅 시 실행
+# /var/lib/postgresql/data 디렉토리가 비어있어야 함
+pg_basebackup --pgdata=/var/lib/postgresql/data -U replicator -R --slot=replication_slot --host=postgres_primary --port=5432
 chmod 0700 /var/lib/postgresql/data
 postgres
 ```
