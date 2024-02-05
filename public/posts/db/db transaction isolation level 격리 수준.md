@@ -1,6 +1,10 @@
 # db transaction isolation level
 
-> 트랜잭션 격리 수준
+> ANSI/ISO SQL standard 에서 정의한 표준
+>
+> > level에 따라서 RDBMS가 LOCK 전략이 달라짐
+> >
+> > > 격리 수준이 높을수록 동시성이 감소 (Lock을 더 많이 검) (성능 저하)
 
 ## Read Uncommitted (레벨 0):
 
