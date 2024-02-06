@@ -3,24 +3,19 @@
 ## html
 
 ```html
-<ng-content></ng-content>
-```
-
-## ts
-
-```ts
-import { Component } from "@angular/core";
-
-@Component({
-  selector: "app-some",
-  templateUrl: "./some.component.html",
-  styleUrls: ["./some.component.scss"],
-})
-export class SomeComponent {}
+<div>
+  <ng-content></ng-content>
+  <ng-content select="[header]"></ng-content>
+</div>
 ```
 
 ## 사용
 
 ```html
-<app-some>add something!</app-some>
+<app-some>
+  <div header>
+    <h1>Header</h1>
+  </div>
+  <p>add something!</p>
+</app-some>
 ```

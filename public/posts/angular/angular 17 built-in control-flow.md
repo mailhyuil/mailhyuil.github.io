@@ -7,7 +7,6 @@
   The user is not logged in
 }
 
-
 @switch (accessLevel) {
   @case ('admin') { <admin-dashboard/> }
   @case ('moderator') { <moderator-dashboard/> }
@@ -15,9 +14,12 @@
 }
 
 // track이 반드시 필요
-@for (user of users; track user.id) {
+@for (user of users; track $index) {
+  {{ $index }}
+  {{ $last}}
+  {{ $first}}
   {{ user.name }}
 } @empty {
-  Empty list of users
+<div>user is empty..</div>
 }
 ```
