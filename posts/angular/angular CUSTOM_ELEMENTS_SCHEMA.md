@@ -5,3 +5,14 @@
 > > 하지만 외부에서 가져온 웹 컴포넌트나 커스텀 요소들은 앵귤러의 기본 스키마를 통과하지 못하여 경고 또는 오류가 발생할 수 있습니다.
 > >
 > > > 외부 커스텀 요소(예: 웹 컴포넌트)를 사용할 때 사용하는 스키마
+
+```
+@Component({
+  selector: 'app-image-slider',
+  templateUrl: './image-slider.component.html',
+  styleUrls: ['./image-slider.component.scss'],
+  standalone: true,
+  imports: [CommonModule, IconComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+```

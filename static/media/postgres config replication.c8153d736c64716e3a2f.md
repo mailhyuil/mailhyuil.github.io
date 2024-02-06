@@ -51,7 +51,7 @@ host    replication     all             0.0.0.0/0               md5
 ```sh
 # 부팅 시 실행
 # /var/lib/postgresql/data 디렉토리가 비어있어야 함
-pg_basebackup --pgdata=/var/lib/postgresql/data -U replicator -R --slot=replication_slot --host=postgres_primary --port=5432
+pg_basebackup --pgdata=/var/lib/postgresql/data -R --slot=replication_slot --host=postgres_primary --port=5432
 chmod 0700 /var/lib/postgresql/data
 postgres
 ```
