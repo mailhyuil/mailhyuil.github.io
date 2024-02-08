@@ -35,8 +35,9 @@ this.router.navigate(["/"], {
 });
 
 this.router.navigate(["/"], {
-  queryParams: {
-    [filterName]: urlSearchParams.getAll(filterName),
+    queryParams: {
+      [filterName]: urlSearchParams.getAll(filterName),
+    },
     queryParamsHandling: "merge",
     replaceUrl: true,
   },
