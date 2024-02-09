@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
-import Donot from "./pages/Donot";
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
 
@@ -59,7 +58,6 @@ const Main = () => {
     blog: blog,
     about: <About />,
     movie: <Movie />,
-    donot: <Donot />,
   };
 
   const onClickBlog = (event) => {
