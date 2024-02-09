@@ -8,7 +8,7 @@
 
 ## install
 
-```
+```sh
 npm i -g browserify
 ```
 
