@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
-import Movie from "./pages/Movie";
 
 const Main = () => {
   const [blog, setBlog] = useState("");
@@ -56,8 +54,6 @@ const Main = () => {
   const menuList = {
     home: <Home />,
     blog: blog,
-    about: <About />,
-    movie: <Movie />,
   };
 
   const onClickBlog = (event) => {
@@ -91,11 +87,11 @@ const Main = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </div>
-          <ul className="flex-col items-start ml-5 hidden px-4 cursor-pointer nav-ul lg:flex" ref={nav_ul}>
+          <ul className="flex-col items-start hidden px-4 cursor-pointer lg:flex" ref={nav_ul}>
             <motion.li
               initial={{ x: -400 }}
               animate={{ x: 0 }}
-              className="mt-4 mb-4 text-2xl font-black text-gray-800"
+              className="px-4 w-full py-3 text-2xl font-black text-gray-800 hover:text-pink-500"
               onClick={() => {
                 setNavIndex("home");
                 nav_ul.current.classList.toggle("hidden");
@@ -104,7 +100,7 @@ const Main = () => {
             </motion.li>
 
             <motion.li
-              className="mb-4 text-2xl font-black text-gray-800 blog"
+              className="px-4 w-full py-3 text-2xl font-black text-gray-800 blog hover:text-pink-500"
               initial={{ x: -400 }}
               animate={{ x: 0 }}
               onClick={(e) => {
@@ -140,27 +136,6 @@ const Main = () => {
                   </ul>
                 );
               })}
-            </motion.li>
-
-            <motion.li
-              initial={{ x: -400 }}
-              animate={{ x: 0 }}
-              className="mb-4 text-2xl font-black text-gray-800"
-              onClick={() => {
-                setNavIndex("about");
-                nav_ul.current.classList.toggle("hidden");
-              }}>
-              About
-            </motion.li>
-            <motion.li
-              initial={{ x: -400 }}
-              animate={{ x: 0 }}
-              className="mb-4 text-2xl font-black text-gray-800"
-              onClick={() => {
-                setNavIndex("movie");
-                nav_ul.current.classList.toggle("hidden");
-              }}>
-              Movie
             </motion.li>
           </ul>
         </nav>
