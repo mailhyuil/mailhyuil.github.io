@@ -13,9 +13,9 @@ export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
   stroke: ApexStroke;
   dataLabels: ApexDataLabels;
-  yaxis: ApexYAxis;
   labels: string[];
   legend: ApexLegend;
   subtitle: ApexTitleSubtitle;
@@ -100,7 +100,7 @@ export class ChartComponent implements OnInit {
 
 ```html
 <apx-chart
-  class="w-full h-full block"
+  class="block w-full h-full"
   [series]="series ?? chartOptions.series!"
   [chart]="chart ?? chartOptions.chart!"
   [xaxis]="xaxis ?? chartOptions.xaxis!"
