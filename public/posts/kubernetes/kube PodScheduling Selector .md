@@ -1,6 +1,7 @@
 # kubernetes Selector
 
 > metadata.label은 오브젝트의 label을 지정
+>
 > template.metadata.label은 오브젝트의 pod의 label을 지정
 >
 > > 다른 오브젝트는 selector를 이용해서 다른 오브젝트를 참조할 수 있다.

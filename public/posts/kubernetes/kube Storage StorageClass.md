@@ -1,6 +1,7 @@
 # kube Storage PersistentVolumes (PV)
 
 > Cloud 환경에서는 PersistentVolume을 요청하지 않고 다이나믹 프로비저닝을 사용한다.
+>
 > Cloud 환경에서 예비의 Storage를 가지고만 있으면 비용이 계속 발생하기 때문에 다이나믹 프로비저닝으로 요청시 PersistentVolume을 생성하는 것
 >
 > > 이때 StorageClass를 사용해서 어떤 타입의 Storage를 사용할지 정의한다.
