@@ -1,12 +1,19 @@
 # kube Troubleshooting ControlPlane (MasterNode)
 
 > controller-manager
+>
 > scheduler-manager
+>
 > etcd
+>
 > api-server
+>
 > matrics-server
+>
 > core-dns
+>
 > docker daemon
+>
 > kubelet
 
 ## kubectl get pods -n kube-system

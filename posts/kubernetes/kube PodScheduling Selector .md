@@ -29,5 +29,7 @@ selector:
 > > 좀 더 복잡한 selector를 만들 수 있다.
 > >
 > > > service에서는 matchLabels필드와 matchExpressions필드가 존재하지 않는다.
+> > >
 > > > service는 명확하게 pod을 참조할 필요가 있어서 이다.
+> > >
 > > > 그냥 matchLabels 처럼 동작 함

@@ -10,15 +10,22 @@
 
 ```
 Directory : 주어진 경로에 반드시 디렉토리가 존재해야 한다.
-DirectoryOrCreate : 주어진 경로에 아무것도 없다면, kubelet이 해당 경로에 디렉토리를 생성한다. (0755 권한)
+DirectoryOrCreate : 주어진 경로에 아무것도 없다면, kubelet이 해당 경로에 디렉토리를 생성한다. (755 권한)
 File : 주어진 경로에 반드시 파일이 존재해야 한다.
-FileOrCreate  : 주어진 경로에 아무것도 없다면, kubelet이 해당 경로에 File을 생성한다. (0755 권한)
+FileOrCreate  : 주어진 경로에 아무것도 없다면, kubelet이 해당 경로에 File을 생성한다. (755 권한)
 ```
 
 ## yaml
 
 ```yml
 spec:
+  containers:
+    - name: nginx
+      image: nginx
+      volumeMounts:
+        - name: my-volume
+          mountPath: /var/log/nginx
+          readOnly: true # default : read & write
   volumes:
     - name: my-volume
       hostPath:
@@ -28,11 +35,4 @@ spec:
       hostPath:
         path: /created_dir
         type: DirectoryOrCreate
-  containers:
-    - name: nginx
-      image: nginx
-      volumeMounts:
-        - name: my-volume
-          mountPath: /var/log/nginx
-          readOnly: true # default : read & write
 ```

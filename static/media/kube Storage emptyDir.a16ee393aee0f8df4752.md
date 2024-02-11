@@ -10,9 +10,6 @@
 
 ```yml
 spec:
-  volumes:
-    - name: shared-log
-      emptyDir: {}
   containers:
     - name: nginx
       image: nginx
@@ -20,4 +17,7 @@ spec:
         - name: shared-log
           mountPath: /var/log/nginx
           readOnly: true # default : read & write
+  volumes:
+    - name: shared-log
+      emptyDir: {}
 ```

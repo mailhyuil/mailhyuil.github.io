@@ -23,8 +23,8 @@ metadata:
 kubectl label pod my-pod app=backend
 kubectl label pod my-pod version=v1
 kubectl label pod my-pod version=v2 --overwrite
-kubectl get pod -L version
 kubectl get pod my-pod --show-labels
+kubectl get pod -L version
 kubectl get pod my-pod --label-columns app.env
 
 kubectl label node my-node gpu=true

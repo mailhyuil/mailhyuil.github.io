@@ -1,6 +1,7 @@
 # kubernetes upgrade
 
 > kubelet : Pod와 Container 시작과 같은 작업을 수행하는 컴포넌트
+>
 > kubeadm : 클러스터를 부트스트랩하는 명령
 >
 > > kubelet의 버전에 맞춰서 MasterNode의 컴포넌트도 업그레이드 해야한다.

@@ -5,10 +5,10 @@
 > cpu, memory 사용량 확인
 
 ```sh
-kubectl top pods --sort-by=cpu # memory
+kubectl top pods --sort-by=cpu # --sort-by=memory
 kubectl top pods my-pod
 
-kubectl top nodes --sort-by=cpu # memory
+kubectl top nodes --sort-by=cpu # --sort-by=memory
 kubectl top nodes my-node
 ```
 
