@@ -11,17 +11,17 @@
 ## 자주 사용하는 명령어
 
 ```sh
-kubectl config use-context minikube
-kubectl config current-context
-kubectl config get-contexts
+kubectl config get-contexts # 클러스터 목록 확인
+kubectl config current-context # 현재 클러스터 확인
+kubectl config use-context minikube # 클러스터 변경
 
 # 노드 접속
 ssh 워커노드IP 또는 마스터노드IP
 
-# 실행
+# 오브젝트 실행
 kubectl run web --image=nginx --port=80 --dry-run=client -o yaml > web.yaml # pod 생성
 kubectl create deploy web --image nginx --port 80 --replicas 3 --dry-run=client -o yaml > web.yaml # deployment 생성
-kubectl expose deploy web --type=LoadBalancer --port 80 --target-port 80 # service 생성
+kubectl expose deploy web --name web-lb --type=LoadBalancer --port 80 --target-port 80 # service 생성
 
 # yaml 파일을 읽어서 선언형으로 실행
 kubectl apply -f <file_path>
@@ -51,9 +51,18 @@ kubectl describe pod nginx
 
 # log 확인
 kubectl logs <pod-name>
+# -p 최근 실패한 인스턴스의 로그 알아내기
+kubectl logs <pod-name> -p
 
 # exec 명령어 실행
 kubectl exec -it <pod-name> -- bash
+
+# 파일 복사
+kubectl cp <local_path> <pod_name>:<pod_path>
+kubectl cp <pod_name>:<pod_path> <local_path>
+
+# cpu, memory 사용량 확인 (metrics-server 필요)
+kubectl top
 
 # scale replica 개수 조절
 kubectl scale deploy web --replicas=3
