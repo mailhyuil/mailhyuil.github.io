@@ -34,5 +34,4 @@ spec:
           configMapKeyRef:
             name: my-config
             key: BASE_URL
-
 ```
