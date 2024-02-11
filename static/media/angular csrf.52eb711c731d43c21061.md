@@ -10,7 +10,7 @@
 >
 > > 요청은 반드시 withCredentials를 true로 설정하여 프론트 엔드에서 쿠키를 보낼 수 있도록 하거나 fetch API에서 include를 설정해야 합니다.
 
-```
+```sh
 # headers
 csrf-token
 xsrf-token

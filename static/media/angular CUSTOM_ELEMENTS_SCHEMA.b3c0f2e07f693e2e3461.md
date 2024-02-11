@@ -6,7 +6,7 @@
 > >
 > > > 외부 커스텀 요소(예: 웹 컴포넌트)를 사용할 때 사용하는 스키마
 
-```
+```ts
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
