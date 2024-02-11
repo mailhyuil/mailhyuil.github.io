@@ -49,11 +49,24 @@ kubectl get pods --namespace=kube-system # namespace 확인
 
 # get labels 확인
 kubectl get pod --show-labels # label 확인
+kubectl get pod -l version=v1 # value=value로 조회
+kubectl get pod -L version # key로 조회
+kubectl get pod web --label-columns app.env # label column으로 조회
+
+# get selector 확인 # label보다 더 정밀하게 쿼리로 조회 가능
+kubectl get deploy web --show-labels # label 확인
+kubectl get deploy web --selector app=web # label로 조회
+kubectl get deploy web --selector app=web,env=dev # label로 조회
 
 # get wide 확인
 kubectl get pod -o wide # node 정보까지 확인
 kubectl get pod -o wide --sort-by=.metadata.creationTimestamp # 생성 시간 순으로 정렬
 kubectl get pod <pod-name> -o jsonpath="{.metadata.ownerReferences[0].name}"
+
+# label 추가 / 삭제
+kubectl label pod web app=web
+kubectl label pod web env=dev --overwrite
+kubectl label pod web app- env- # label 삭제
 
 # log 확인
 kubectl logs <pod-name>
@@ -68,7 +81,11 @@ kubectl cp <local_path> <pod_name>:<pod_path>
 kubectl cp <pod_name>:<pod_path> <local_path>
 
 # cpu, memory 사용량 확인 (metrics-server 필요)
-kubectl top
+kubectl top pods --sort-by=cpu # --sort-by=memory
+kubectl top pods my-pod
+
+kubectl top nodes --sort-by=cpu # --sort-by=memory
+kubectl top nodes my-node
 
 # scale replica 개수 조절
 kubectl scale deploy web --replicas=3

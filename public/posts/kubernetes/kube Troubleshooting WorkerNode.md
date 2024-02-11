@@ -1,13 +1,19 @@
 # kube Troubleshooting WorkerNode
 
 > docker-daemon
+>
 > kubelet
+>
 > kube-proxy
+>
 > CNI
 >
 > > docker-daemon과 kubelet이 실행중인지 확인
+> >
 > > kubelet이 kube-proxy와 CNI를 실행해준다.
+> >
 > > kube-proxy는 iptables를 사용하여 pod간 통신을 해준다.
+> >
 > > CNI는 pod의 네트워크를 지원한다.
 > >
 > > > ssh <worker-node-name> 로 문제가 이 있는 worker node에 접속

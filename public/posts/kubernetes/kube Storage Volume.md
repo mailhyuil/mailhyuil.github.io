@@ -8,6 +8,12 @@
 
 ```yml
 spec:
+  containers:
+    - image: nginx
+      name: nginx
+      volumeMounts: # 컨테이너의 디렉토리를 볼륨에 마운트
+        - name: my-volume
+          mountPath: /var/log/nginx
   volumes: # 볼륨으로 사용할 스토리지를 지정 (hostPath / azureDisk / fc / awsElasticBlockStore..)
     - name: my-volume
       hostPath:
@@ -22,11 +28,4 @@ spec:
         diskName: <volume-id>
         diskURI: <volume-uri>
         fsType: ext4
-
-  containers:
-    - image: nginx
-      name: nginx
-      volumeMounts: # 컨테이너의 디렉토리를 볼륨에 마운트
-        - name: my-volume
-          mountPath: /var/log/nginx
 ```
