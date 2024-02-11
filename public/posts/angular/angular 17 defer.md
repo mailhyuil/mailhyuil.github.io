@@ -1,6 +1,6 @@
 # angular control flow defer
 
-```
+```ts
 @defer {
   <comment-list />
 }

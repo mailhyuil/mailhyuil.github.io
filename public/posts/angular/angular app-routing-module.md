@@ -2,7 +2,7 @@
 
 ## install option
 
-```
+```sh
 ng new routing-app --routing --defaults
 ```
 

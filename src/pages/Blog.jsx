@@ -24,9 +24,9 @@ const Blog = ({ fileName }) => {
   }, [fileName]);
 
   return (
-    <div className="mx-4 my-3 font-primary flex justify-center lg:block">
+    <div className="flex justify-center mx-4 my-3 font-primary lg:block">
       <ReactMarkdown
-        className="prose prose-pre:p-0 prose-pre:overflow-x-clip prose-pre:rounded-none prose-pre:m-0 lg:max-w-none"
+        className="prose prose-pre:p-0 prose-pre:overflow-x-auto prose-pre:rounded-none prose-pre:m-0 lg:max-w-none"
         remarkPlugins={[remarkGfm]}
         components={{
           img: ({ node, ...props }) => <img style={{ maxWidth: "50%" }} {...props} alt="markdown_image" />,
