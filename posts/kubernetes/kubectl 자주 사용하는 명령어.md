@@ -95,11 +95,11 @@ kubectl scale deploy web --replicas=3
 kubectl set image deploy web web=nginx:v2 --record
 # image 여러개 변경
 kubectl set image deploy web web-container=nginx:v2,db-container=postgres:v2 --record
-# status 확인
+# status
 kubectl rollout status deploy web
-# history 확인
+# history
 kubectl rollout history deploy web
-# rollback
+# undo
 kubectl rollout undo deploy web --to-revision=1
 ```
 
