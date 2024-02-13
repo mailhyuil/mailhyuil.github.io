@@ -3,10 +3,10 @@
 ## import
 
 ```ts
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+imports: [
+  FormsModule,
+  ReactiveFormsModule,
+],
 ```
 
 ## FormGroup
@@ -32,9 +32,9 @@ formGroup = new FormGroup({
 
 ## formGroup 변화 check
 
-```
-this.formGroup.valueChanges.subscribe(observer => {
-        console.log(this.searchForm.valid);
+```ts
+this.formGroup.valueChanges.subscribe((observer) => {
+  console.log(this.searchForm.valid);
 });
 ```
 
