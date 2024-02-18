@@ -1,5 +1,5 @@
 # chatgpt embedding
-
+> openAI에서 제공하는 embedding 사용
 ```ts
 import OpenAI from "openai";
 

@@ -72,6 +72,8 @@ kubectl label pod web app- env- # label 삭제
 kubectl logs <pod-name>
 # -p 최근 실패한 인스턴스의 로그 알아내기
 kubectl logs <pod-name> -p
+kubectl logs deployment/<deployment_name>
+kubectl logs service/<service_name>
 
 # exec 명령어 실행
 kubectl exec -it <pod-name> -- bash
