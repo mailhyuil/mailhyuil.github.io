@@ -8,12 +8,19 @@
 import { PLATFORM_ID, Inject, Injectable } from "@angular/core";
 @Injectable()
 export class SomeService {
-  isServer: boolean = false;
+  isServer: boolean;
+  data: any;
   constructor(@Inject(PLATFORM_ID) platformId: Object, private readonly transferState: TransferState) {
     this.isServer = isPlatformServer(platformId);
     if (this.isServer) {
       // ServerSide Logic
+      this.httpClient.get("http://localhost:8080/data").subscribe((r: any) => {
+        this.data = r;
+        this.transferState.set(dataKey, r); //<--- add this line to save the state
+        console.log("data is rendered", r);
+      });
     }
+    this.data = this.transferState.get<{ data: string }>(dataKey, { data: "" });
   }
 }
 ```
