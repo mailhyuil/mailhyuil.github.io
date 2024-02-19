@@ -12,49 +12,81 @@
 > > > > >
 > > > > > > ssr을 설정한 후 http request를 보내면 서버에서 렌더링된 html을 받아온다.
 
-## install
-
-```sh
-ng add @nguniversal/express-engine
-```
-
-## import provider (standalone)
+## configs
 
 ```ts
-providers: [provideClientHydration()];
+// main.ts
+const appConfig = { providers: [provideClientHydration(), provideRouter(appRoutes)] };
+
+// main.server.ts
+const serverConfig = { providers: [provideClientHydration()] };
+export const config = mergeApplicationConfig(appConfig, serverConfig);
 ```
 
 ## server.ts
 
+> html을 렌더링해서 보내주는 서버
+
 ```ts
+import { APP_BASE_HREF } from "@angular/common";
+import { CommonEngine } from "@angular/ssr";
 import express from "express";
-import type { Request, Response } from "express";
-import * as fs from "fs";
-import { renderApplication } from "@angular/platform-server";
+import { fileURLToPath } from "node:url";
+import { dirname, join, resolve } from "node:path";
+import bootstrap from "./src/main.server";
 
-const app = express();
+// The Express app is exported so that it can be used by serverless Functions.
+export function app(): express.Express {
+  const server = express();
+  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+  const browserDistFolder = resolve(serverDistFolder, "../browser");
+  const indexHtml = join(serverDistFolder, "index.server.html");
 
-app.engine("html", async (path, options, callback) => {
-  const document = fs.readFileSync(path, "utf-8");
-  const { req } = { ...options } as { req: Request; res: Response };
+  const commonEngine = new CommonEngine();
 
-  // Bootstrap and render a Standalone Component
-  const html = await renderApplication(AppComponent, {
-    appId: "server-app",
-    document: document,
-    url: `${req.baseUrl}${req.url}`,
-    providers: [provideRouter(routes)],
+  server.set("view engine", "html");
+  server.set("views", browserDistFolder);
+
+  // Example Express Rest API endpoints
+  // server.get('/api/**', (req, res) => { });
+  // Serve static files from /browser
+  server.get(
+    "*.*",
+    express.static(browserDistFolder, {
+      maxAge: "1y",
+    })
+  );
+
+  // All regular routes use the Angular engine
+  server.get("*", (req, res, next) => {
+    const { protocol, originalUrl, baseUrl, headers } = req;
+
+    commonEngine
+      .render({
+        bootstrap,
+        documentFilePath: indexHtml,
+        url: `${protocol}://${headers.host}${originalUrl}`,
+        publicPath: browserDistFolder,
+        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+      })
+      .then((html) => res.send(html))
+      .catch((err) => next(err));
   });
-  callback(null, html);
-});
-app.set("view engine", "html");
 
-app.get("/**/*", (req: Request, res: Response) => {
-  res.render("../dist/index", {
-    req,
-    res,
+  return server;
+}
+
+function run(): void {
+  const port = process.env["PORT"] || 4000;
+
+  // Start up the Node server
+  const server = app();
+  server.listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
   });
-});
+}
+
+run();
 ```
 
 ## 브라우저 API 사용

@@ -5,22 +5,37 @@
 > > isPlatformServer를 사용해서 분기처리를 해야한다.
 
 ```ts
-import { PLATFORM_ID, Inject, Injectable } from "@angular/core";
-@Injectable()
-export class SomeService {
-  isServer: boolean;
+import { isPlatformServer } from "@angular/common";
+import { HttpClient } from "@angular/common/http";
+import { Component, Inject, OnInit, PLATFORM_ID, TransferState, makeStateKey } from "@angular/core";
+import { RouterModule } from "@angular/router";
+
+@Component({
+  standalone: true,
+  imports: [RouterModule],
+  selector: "ssr-root",
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.scss",
+})
+export class AppComponent implements OnInit {
   data: any;
-  constructor(@Inject(PLATFORM_ID) platformId: Object, private readonly transferState: TransferState) {
-    this.isServer = isPlatformServer(platformId);
-    if (this.isServer) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object, private readonly transferState: TransferState, private readonly httpClient: HttpClient) {
+    const isServer = isPlatformServer(platformId);
+    if (isServer) {
       // ServerSide Logic
-      this.httpClient.get("http://localhost:8080/data").subscribe((r: any) => {
-        this.data = r;
-        this.transferState.set(dataKey, r); //<--- add this line to save the state
-        console.log("data is rendered", r);
+      this.httpClient.get("https://jsonplaceholder.typicode.com/posts/1").subscribe((res: any) => {
+        this.data = res;
+        this.transferState.set(makeStateKey("test"), res);
+        console.log("data is rendered in server", res);
       });
     }
-    this.data = this.transferState.get<{ data: string }>(dataKey, { data: "" });
+  }
+  ngOnInit(): void {
+    // ClientSide Logic
+    this.data = this.transferState.get<{ data: string }>(makeStateKey("test"), {
+      data: "default value here",
+    });
+    console.log("data from server", this.data);
   }
 }
 ```
