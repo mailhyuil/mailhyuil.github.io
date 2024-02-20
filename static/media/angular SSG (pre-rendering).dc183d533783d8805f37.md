@@ -33,7 +33,7 @@ ng add @angular/ssr
 
 ## routes.txt
 
-> 이 파일에 명시된 route만 prerendering 되기를 원할 때 사용
+> 특정 parameterized URLs 을 prerendering 하고 싶을 때 사용 (e.g. /products/1, /products/555)
 >
 > > > routes.txt를 사용하지 않을 시 default로 모든 route가 prerendering 된다.
 

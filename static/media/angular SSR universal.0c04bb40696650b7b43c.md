@@ -16,10 +16,26 @@
 
 ```ts
 // main.ts
-const appConfig = { providers: [provideClientHydration(), provideRouter(appRoutes)] };
+const appConfig = {
+  providers: [
+    provideRouter(appRoutes),
+    provideClientHydration(
+      withHttpTransferCacheOptions({
+        // cacheOptions
+        includePostRequests: true,
+      })
+    ),
+    provideHttpClient(),
+  ],
+};
 
 // main.server.ts
-const serverConfig = { providers: [provideClientHydration()] };
+const serverConfig: ApplicationConfig = {
+  providers: [
+    provideServerRendering(),
+    provideHttpClient(withFetch()), // Server에서는 fetch api가 권장된다.
+  ],
+};
 export const config = mergeApplicationConfig(appConfig, serverConfig);
 ```
 
