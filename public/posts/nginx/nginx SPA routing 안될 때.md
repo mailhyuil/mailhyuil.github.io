@@ -10,4 +10,10 @@ location / {
     index  index.html index.htm;
     try_files $uri $uri/ /index.html; # SPA routing config
 }
+
+location /admin {
+    alias /usr/share/nginx/html/admin;
+    index index.html index.htm;
+    try_files $uri $uri/ /admin/index.html;
+}
 ```
