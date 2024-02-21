@@ -59,7 +59,7 @@ self.addEventListener("notificationclick", (e) => {
 
 ## angular.json (project.json)
 
-```
+```json
 assets: [
   "src/worker.js",
   ...
