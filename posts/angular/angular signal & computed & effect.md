@@ -20,11 +20,6 @@ this.signal.set("newValue");
 
 // update : 그 전 값에 연산을 수행해서 새로운 값으로 만들 때
 this.option.update((option) => ({ ...option, status: segment }));
-
-// mutate : 객체나 배열 내의 값만 변경해도 변경을 감지한다.
-this.todos.mutate((value) => {
-  value[0].done = true;
-});
 ```
 
 ## computed
@@ -62,7 +57,7 @@ data.set(["test"]);
 > >
 > > > effect는 자주 사용되는 API는 아니다
 
-```
+```sh
 # 사용 예시
 Logging data being displayed and when it changes, either for analytics or as a debugging tool
 Keeping data in sync with window.localStorage
