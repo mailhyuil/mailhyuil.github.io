@@ -1,5 +1,11 @@
 # angular SSR data caching
 
+> 서버에서 external api에 요청한 데이터를 클라이언트에서 다시 요청하지 않도록 하기 위해 캐싱
+>
+> > TransferHttpCacheModule는 http interceptor로서 get과 head 요청을 가로채서 캐싱한다.
+> >
+> > > includePostRequests를 true로 하면 post 메소드도 캐싱한다 이는 페이지에 들어갈 때 자동으로 post를 쏘는 페이지에서 사용된다
+
 ```ts
 import { CommonModule, isPlatformServer } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
