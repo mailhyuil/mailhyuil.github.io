@@ -38,13 +38,13 @@
 ## project.json
 
 ```json
-        "styles": [
-          "apps/client/src/styles.scss",
-          {
-            "input": "apps/client/src/font.scss",
-            "inject": false
-          }
-        ],
+"styles": [
+  "apps/client/src/styles.scss",
+  {
+    "input": "apps/client/src/font.scss",
+    "inject": false
+  }
+],
 ```
 
 ## index.html
@@ -63,7 +63,11 @@ const { join } = require("path");
 module.exports = {
   content: [join(__dirname, "src/**/!(*.stories|*.spec).{ts,html}"), ...createGlobPatternsForDependencies(__dirname)],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["pretendard variable"],
+      },
+    },
   },
   plugins: [],
 };
