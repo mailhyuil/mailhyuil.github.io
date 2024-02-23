@@ -1,19 +1,9 @@
-# tailwindcss 테일윈드css
+# tailwindcss
 
 ## install
 
 ```bash
 npm install -D tailwindcss postcss autoprefixer
-```
-
-### @nuxtjs/tailwindcss
-
-> 설치 후 nuxt.config.js에 추가하면 끝
-
-```
-modules: [
-    '@nuxtjs/tailwindcss'
-  ]
 ```
 
 ## tailwind.config.js

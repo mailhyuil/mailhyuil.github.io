@@ -1,7 +1,8 @@
 # tailwindcss plugins
 
 > tailblocks
-> tailwindcsstoolbox
+>
+> > tailwindcsstoolbox
 
 ## install
 

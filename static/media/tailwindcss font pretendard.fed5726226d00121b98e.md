@@ -18,7 +18,7 @@
   theme: {
     extend: {
       fontFamily: {
-        sans: ['PrEtEnDArD VaRiAbLE'],
+        sans: ['pretendard'],
       },
     },
   },
