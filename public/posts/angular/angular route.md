@@ -2,13 +2,18 @@
 
 ```ts
 const routes: Routes = [
-  { path: "", component: HomeComponent },
   {
-    path: "products",
-    component: ProductsComponent,
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full",
+  },
+  {
+    path: "",
+    component: LayoutComponent,
     children: [
-      { path: "", component: ProductsListComponent },
-      { path: ":id", component: ProductDetailComponent },
+      { path: "home", component: HomeComponent },
+      { path: "products", component: ProductsListComponent },
+      { path: "products/:id", component: ProductDetailComponent },
     ],
   },
   { path: "**", component: PageNotFoundComponent },

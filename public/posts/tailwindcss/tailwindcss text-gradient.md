@@ -1,5 +1,5 @@
 # tailwindcss text-gradient
 
-```
-bg-gradient-to-tl bg-clip-text text-transparent to-gray-50 from-blue-600
+```html
+<div class="bg-gradient-to-tl bg-clip-text text-transparent to-gray-50 from-blue-600"></div>
 ```

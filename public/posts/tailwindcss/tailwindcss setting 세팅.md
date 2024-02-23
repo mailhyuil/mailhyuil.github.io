@@ -65,7 +65,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["pretendard variable"],
+        sans: ["pretendard"],
       },
     },
   },
