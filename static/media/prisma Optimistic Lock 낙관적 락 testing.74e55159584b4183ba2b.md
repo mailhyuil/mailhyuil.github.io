@@ -6,7 +6,7 @@
 > >
 > > > 일반 쿼리로 20s 걸리던 작업이 트랜잭션으로 10분 이상 걸림
 > > >
-> > > > transaction에 relation이 있는 경우 relation에 대한 락이 걸리기 때문에 속도가 느려짐
+> > > > transaction에 relation이 있는 경우 relation에 대한 Row Lock이 걸리기 때문에 속도가 느려짐
 
 ## schema.prisma
 
