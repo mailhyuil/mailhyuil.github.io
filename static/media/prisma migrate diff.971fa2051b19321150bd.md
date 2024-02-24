@@ -14,10 +14,10 @@ prisma migrate diff \
 ## use up-to-date schema
 
 ```sh
-npx prisma migrate diff \
- --from-schema-datamodel prisma/schema.prisma \
+prisma migrate diff \
+ --from-schema-datasource prisma/schema.prisma \
  --to-schema-datamodel prisma/schema.prisma \
- --script > prisma/migrations/<new_migration>/migration.sql
+ --script > ./down.sql
 ```
 
 ## apply
