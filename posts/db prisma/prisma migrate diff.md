@@ -16,7 +16,7 @@ prisma migrate diff \
 ```sh
 npx prisma migrate diff \
  --from-schema-datamodel prisma/schema.prisma \
- --to-schema-datasource prisma/schema.prisma \
+ --to-schema-datamodel prisma/schema.prisma \
  --script > prisma/migrations/<new_migration>/migration.sql
 ```
 
