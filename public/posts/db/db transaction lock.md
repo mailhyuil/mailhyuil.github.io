@@ -30,10 +30,6 @@
 > > > >
 > > > > > 일반 쿼리보다 트랜잭션 쿼리가 속도는 더 빠르다.
 
-## Exclusive Lock (배타 락, X Lock, Write Lock)
-
-> 다른 트랜잭션이 read, write를 할 수 없도록 거는 락
-
 ## Shared Lock (공유 락, S Lock, Read Lock)
 
 > 여러 트랜잭션이 read를 할 수 있지만 write는 할 수 없도록 거는 락
@@ -41,6 +37,10 @@
 > > 여러 트랜잭션이 동시에 읽기를 할 수 있도록 하기 위해 사용
 > >
 > > > S Lock이 걸려있는 동안에는 다른 트랜잭션이 S Lock을 또 걸 수 있지만, X Lock은 걸 수 없다.
+
+## Exclusive Lock (배타 락, X Lock, Write Lock)
+
+> 다른 트랜잭션이 read, write를 할 수 없도록 거는 락
 
 ## Dead lock (데드 락)
 
