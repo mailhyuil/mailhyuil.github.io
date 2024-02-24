@@ -4,11 +4,13 @@
 >
 > > The shareReplay operator automatically creates a ReplaySubject between the original source and all future subscribers.
 > >
+> > 내부적으로 ReplaySubject를 생성하고 캐시된 데이터를 보내준다.
+> >
 > > > share와 다른 점은 http 요청을 계속날리지 않고 캐시된 데이터로 공유한다는 점
 
 ```js
 shareReplay(1);
-// ===
+// === //
 shareReplay({ bufferSize: 1, refCount: false });
 ```
 
