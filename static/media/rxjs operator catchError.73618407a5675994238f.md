@@ -12,10 +12,10 @@
 >
 > > rxjs에서는 of()안에 담아서 리턴해야함
 
-```
-  catchError(() => {
-                this.toastService.show('로그인을 해주세요.');
-                this.router.navigateByUrl('login');
-                return of(null);
-              })
+```js
+catchError(() => {
+  this.toastService.show("로그인을 해주세요.");
+  this.router.navigateByUrl("login");
+  return of(null);
+});
 ```
