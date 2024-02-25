@@ -1,34 +1,6 @@
 # Operators
 
-> 중간연산을 할 때 사용
->
-> > pipe()내에서 사용
-
-```js
-.pipe(map((x)=>x+10))
-```
-
-## of and map()
-
 ## first()
-
-## debounceTime()
-
-```
-const div = ref<any>(null);
-
-onMounted(() => {
-  fromEvent<MouseEvent>(div.value, "mousemove")
-    .pipe(debounceTime(100))
-    .subscribe({
-      next: (e) => (x.value = e.clientX),
-    });
-});
-```
-
-## throttleTime()
-
-## forkJoin()
 
 ## combineLatestWith()
 
@@ -46,12 +18,6 @@ obs1$.pipe(
     )
 ```
 
-## mergeMap()
-
 ## concatWith()
 
 ## distinctUnitChanged()
-
-## tap()
-
-## shareReplay()
