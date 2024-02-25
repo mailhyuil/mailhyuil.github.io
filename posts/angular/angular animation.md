@@ -5,10 +5,8 @@
 ## BrowserAnimationModule
 
 ```ts
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(BrowserAnimationsModule)],
+  providers: [provideAnimations()],
 }).catch((err) => console.error(err));
 ```
 
