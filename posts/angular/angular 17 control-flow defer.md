@@ -1,5 +1,7 @@
 # angular control flow defer
 
+> 큰 컴포넌트를 특정 컨디션을 만족할 때 로드하도록 하는 기능
+
 ```ts
 @defer {
   <comment-list />
