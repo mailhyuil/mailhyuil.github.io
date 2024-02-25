@@ -1,94 +1,45 @@
 # angular animations
 
+> state machine의 개념을 사용하여 상태에 따라 다른 애니메이션을 적용할 수 있다.
+
 ## BrowserAnimationModule
 
 ```ts
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-```
 
-```ts
 bootstrapApplication(AppComponent, {
   providers: [importProvidersFrom(BrowserAnimationsModule)],
 }).catch((err) => console.error(err));
 ```
 
-## /animations/routing.animation.ts
+## 기초
 
 ```ts
-import { animate, query, style, transition, trigger } from "@angular/animations";
+* => *               // captures a state change between any states
+void => * === :enter // captures the entering of elements
+* => void === :leave // captures the leaving of elements
+0 => 1               // captures a numeric value change from 0 to 1
+1 => 0               // captures a numeric value change from 1 to 0
+'shown' => 'hidden'  // state가 'shown'에서 'hidden'으로 바뀔 때
+'hidden' => 'shown'  // state가 'hidden'에서 'shown'으로 바뀔 때
 
-export const fadeAnimation = trigger("routeAnimations", [
-  transition("* <=> *", [
-    query(
-      ":enter",
-      [
-        style({
-          opacity: 0,
-          position: "absolute",
-          width: "100vw",
-          overflow: "hidden",
-        }),
-      ],
-      {
-        optional: true,
-      }
-    ),
-    query(
-      ":leave",
-      [
-        style({ opacity: 1 }),
-        animate(
-          "0.3s",
-          style({
-            opacity: 0,
-            position: "absolute",
-            width: "100vw",
-            overflow: "hidden",
-          })
-        ),
-      ],
-      { optional: true }
-    ),
-    query(
-      ":enter",
-      [
-        style({ opacity: 0 }),
-        animate(
-          "0.3s",
-          style({
-            opacity: 1,
-            position: "relative",
-            width: "100vw",
-            overflow: "hidden",
-          })
-        ),
-      ],
-      { optional: true }
-    ),
-  ]),
-]);
+query() // 애니메이션 할 element를 선택
+stagger() // 여러 element에 애니메이션을 적용할 때 간격을 두는 것
+group() // 여러 애니메이션을 동시에 실행 (병렬)
+sequence() // 여러 애니메이션을 순차적으로 실행 (직렬)
+animation() // 재사용 가능한 애니메이션을 만들 수 있음
+useAnimation() // animation()으로 만든 애니메이션을 사용
+animateChild() // child element에 애니메이션을 적용
+
+trigger()
+transition()
+state()
+style()
+animate()
 ```
 
-## layout
-
-### ts
+## 사용
 
 ```ts
-@Component({
-  animations: [fadeAnimation],
-})
-```
 
-```ts
-public getRouterOutletState(outlet: RouterOutlet) {
-  return outlet.isActivated ? outlet.activatedRoute : '';
-}
-```
-
-### html
-
-```html
-<div class="overflow-y-scroll flex-1" [@routeAnimations]="getRouterOutletState(o)">
-  <router-outlet #o="outlet"></router-outlet>
-</div>
 ```

@@ -1,10 +1,9 @@
 # rxjs observable forkJoin
 
+> source를 array로 받음 /// forkJoin([a$, b$])
+
 ```ts
-forkJoin([
-  logo ? this.http.get(logo.file.url, { responseType: "blob" }) : of(null),
-  banner ? this.http.get(banner.file.url, { responseType: "blob" }) : of(null),
-])
+forkJoin([logo ? this.http.get(logo.file.url, { responseType: "blob" }) : of(null), banner ? this.http.get(banner.file.url, { responseType: "blob" }) : of(null)])
   .pipe(
     filter(() => !!this.client),
     switchMap(([logoBlob, bannerBlob]) => {

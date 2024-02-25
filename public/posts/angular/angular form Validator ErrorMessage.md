@@ -21,3 +21,11 @@ customValidator(): ValidatorFn {
   };
 }
 ```
+
+## html
+
+```ts
+@if(form.errors && form.errors['customWrong']){
+<div> 커스텀 에러가 발생했습니다. </div>
+}
+```
