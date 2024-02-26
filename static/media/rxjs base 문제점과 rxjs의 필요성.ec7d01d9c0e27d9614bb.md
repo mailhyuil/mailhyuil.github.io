@@ -38,7 +38,7 @@
 1. Observable생성 콜백함수 내에서 fetch(비동기함수) 호출
 2. next()에 데이터 넣기
 
-```
+```js
 const observable = new Observable((observer) => {
   fs.readFile("README.md", "utf-8", (err, data) => {
     observer.next(data);
@@ -48,7 +48,7 @@ const observable = new Observable((observer) => {
 
 3. .subscribe({next:콜백, complete:콜백, error:콜백})
 
-```
+```js
 observable.subscribe({
   next: (data) => {
     console.log(data);

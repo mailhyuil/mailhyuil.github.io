@@ -2,7 +2,7 @@
 
 > Observable에게 전달받은 값의 consumer
 >
-> > Obserable.subscribe(Observer) 방식으로 사용
+> > Observable.subscribe(Observer) 방식으로 사용
 
 ## 구성
 

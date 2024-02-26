@@ -5,7 +5,7 @@
 > > switchMap, mergeMap, concatMap, exhaustMap을 통해 higher order observable을 쉽게 다룰 수 있다.
 
 ```js
-// 최종적으로 http.get(url)을 방출하는 url$은 higher order observable이다.
+// 내부적으로 http.get(url)을 방출하는 url$은 higher order observable이다.
 const normal$ = url$.pipe(concatMap((url) => http.get(url)));
 
 // concatMap은 내부적으로
