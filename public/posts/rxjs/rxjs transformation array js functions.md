@@ -8,4 +8,5 @@ tap; /// forEach;
 filter;
 map;
 reduce;
+every;
 ```

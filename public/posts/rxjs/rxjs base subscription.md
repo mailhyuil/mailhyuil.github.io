@@ -1,8 +1,12 @@
 # Subscription
 
-> .subscribe는 subscription 객체를 리턴한다
+> .subscribe는 동기적을 실행됨
 >
-> > subscription.unsubscribe() 함수를 사용해서 구독을 취소 할 수 있다.
+> > 비동기적으로 실행하고 싶다면 .subscribe()를 setTimeout()으로 감싸서 실행하면 된다.
+> >
+> > 또는 observeOn(asyncScheduler)를 사용하면 된다.
+> >
+> > > subscription.unsubscribe() 함수를 사용해서 구독을 취소 할 수 있다.
 
 ```ts
 import { interval } from "rxjs";
