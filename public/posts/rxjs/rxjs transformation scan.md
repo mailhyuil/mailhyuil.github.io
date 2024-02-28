@@ -1,3 +1,9 @@
 # rxjs scan
 
-> reduce와 유사하지만, 중간 결과를 포함하는 Observable을 반환한다.
+> reduce와 동작이 같음
+>
+> > reduce는 마지막 값만 방출하지만 scan은 모든 값을 방출함
+
+```js
+
+```
