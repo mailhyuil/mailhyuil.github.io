@@ -1,6 +1,8 @@
-# rxjs operator take(1) vs first()
+# rxjs take(1) vs first
 
-> first()는 조건에 맞는 값이 없으면 에러가 발생하지만 take(1)는 단순히 한개만 받는 것
+> first는 마지막 값이 없으면 에러가 발생
+>
+> > take(1)은 없어도 에러가 발생하지 않음
 
 ```ts
 // Error
