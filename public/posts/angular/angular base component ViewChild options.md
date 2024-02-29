@@ -22,9 +22,11 @@
 
 ## static
 
-> default : false
+> static true 로 쓰면 항상 있다라고 판단하고 한번만 계산해서 캐싱
 >
-> > dynamic view를 생성할 때 true로 설정
+> > 성능 때문에 들어간 피쳐
+> >
+> > > 그래서 동적으로 존재 여부가 변경되는 경우는 static: true를 쓰시면 안됨
 
 ```ts
 @ViewChild('name', {static:true})
