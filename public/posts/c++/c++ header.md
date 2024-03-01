@@ -1,5 +1,9 @@
 # c++ header
 
+> h file은 interface를 정의하는 파일이다.
+>
+> > cc 파일로 인터페이스를 구현한다.
+
 ## 헤더파일 생성
 
 > add.h
@@ -10,7 +14,9 @@
 
 #define MAX_LENGTH 100
 
-int add(int a, int b);
+namespace Math {
+    int add(int a, int b);
+}
 
 #endif
 ```
@@ -26,22 +32,6 @@ int add(int a, int b);
 int add(int a, int b) {
     return a + b;
 }
-```
-
-## 네임스페이스 사용
-
-```cpp
-#ifndef MYHEADER_H
-#define MYHEADER_H
-
-#define MAX_LENGTH 100
-namespace Math {
-    int add(int a, int b) {
-        return a + b;
-    }
-}
-
-#endif
 ```
 
 ## 사용
