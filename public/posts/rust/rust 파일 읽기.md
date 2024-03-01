@@ -1,6 +1,6 @@
 # 파일 읽기
 
-```
+```rs
 use std::fs;
 
 fn main() {

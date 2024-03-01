@@ -2,13 +2,13 @@
 
 > 러스트의 빌드 시스템이자 패키지 관리자
 
-```
+```sh
 cargo --version
 ```
 
 ## 프로젝트 생성
 
-```
+```sh
 cargo new <project_name>
 ```
 
@@ -24,7 +24,7 @@ cargo new <project_name>
 
 > build를 하면 실행파일은 ./target/debug/ 경로에 생성된다
 
-```
+```sh
 cargo build
 ```
 
@@ -36,7 +36,7 @@ cargo build
 > >
 > > > 러스트 코드 실행은 빨라지지만 컴파일이 오래걸린다
 
-```
+```sh
 cargo build --release
 ```
 
@@ -46,7 +46,7 @@ cargo build --release
 >
 > > 자동으로 빌드를 하고 실행시켜준다
 
-```
+```sh
 cargo run
 ```
 
@@ -56,13 +56,13 @@ cargo run
 
 ### install
 
-```
+```sh
 rustup component add rustfmt
 ```
 
 ### 사용법
 
-```
+```sh
 cargo fmt
 ```
 
@@ -70,7 +70,7 @@ cargo fmt
 
 > 컴파일러의 권고를 자동으로 코드에 적용시킨다.
 
-```
+```sh
 cargo fix
 ```
 
@@ -80,12 +80,12 @@ cargo fix
 
 ### install
 
-```
+```sh
 rustup component add clippy
 ```
 
 ### 사용법
 
-```
+```sh
 cargo clippy
 ```

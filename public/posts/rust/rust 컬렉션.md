@@ -4,7 +4,7 @@
 
 ## String
 
-```
+```rs
 let s = String::from("hello");
 
 let s = String::new();
@@ -16,7 +16,7 @@ let s = "hello".to_string();
 
 > mut을 붙여야한다.
 
-```
+```rs
 let mut s = String::from("hello");
 
 s.push_str("w");
@@ -26,14 +26,14 @@ println!("{}", s); // hellow
 
 ## Vector
 
-```
+```rs
 let mut v = Vec::new();
 let v = vec![1,2,3];
 ```
 
 ## HashMap
 
-```
+```rs
 use std::collections::HashMap;
 let mut scores = HashMap::new();
 
