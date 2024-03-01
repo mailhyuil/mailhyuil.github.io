@@ -10,7 +10,7 @@ struct User{
 }
 
 // 인스턴스 생성
-let user1:User = User{
+let user1:User = User {
     username:String::from("sb"),
     email:String::from("mailhyuil@gmail.com"),
     active:true
@@ -47,13 +47,13 @@ let blue = Color(0,0,255);
 > 구조체 내에 메소드를 정의하려면 impl을 사용
 
 ```rs
-struct User{
+struct User {
     username:String,
     email:String,
     active:bool
 }
 
-impl User{
+impl User {
     fn hi(){
         println!("hi")
     }

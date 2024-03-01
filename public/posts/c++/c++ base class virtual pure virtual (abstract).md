@@ -10,7 +10,6 @@
 
 ```cpp
 #include <iostream>
-using namespace std;
 
 class Shape {
     public:
@@ -23,7 +22,7 @@ class Rect : public Shape {
 };
 
 int main() {
-    //Shape s; // error
+    // Shape s; // error
     Shape* p;
 
     Rect r;
