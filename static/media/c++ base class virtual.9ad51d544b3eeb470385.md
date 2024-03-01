@@ -1,6 +1,8 @@
-# c++ 상속
+# c++ virtual
 
-> c++은 다중 상속을 지원한다.
+> 부모 클래스의 함수에 virtual을 붙이면
+>
+> > 컴파일러가 해당 가상 함수를 만나면 인스턴스의 타입을 확인하고, 해당 타입에 맞는 함수를 호출한다.
 
 ```cpp
 #include <iostream>
@@ -14,7 +16,6 @@ class Base {
 
 class Derived : public Base {
  public:
-  // : Base()는 super와 같은 역할
   Derived() : Base() { std::cout << "파생 클래스" << std::endl; }
 
   void what() { std::cout << "파생 클래스의 what()" << std::endl; }

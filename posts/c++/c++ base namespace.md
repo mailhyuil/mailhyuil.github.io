@@ -8,4 +8,14 @@ namespace header1 {
     int foo();
     void bar();
 }
+
+header1::foo();
+
+namespace parent {
+    namespace child {
+        int foo();
+    }
+}
+
+parent::child::foo();
 ```
