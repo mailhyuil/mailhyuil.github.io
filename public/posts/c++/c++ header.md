@@ -1,6 +1,6 @@
 # c++ header
 
-> h file은 interface를 정의하는 파일이다.
+> .h file은 interface를 정의하는 파일이다.
 >
 > > cc 파일로 인터페이스를 구현한다.
 
@@ -9,8 +9,8 @@
 > add.h
 
 ```cpp
-#ifndef MYHEADER_H
-#define MYHEADER_H
+#ifndef MY_HEADER_H
+#define MY_HEADER_H
 
 #define MAX_LENGTH 100
 
