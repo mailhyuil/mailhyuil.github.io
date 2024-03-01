@@ -30,7 +30,7 @@ class User {
 
 int main(){
     User* users[100];
-    users[0] = new User("John", "1234");
+    users[0] = new User("John", "1234"); // 힙에 User 인스턴스를 할당하면서 그 주소를 리턴한다.
     users[1] = new User("Hyuil", "1234");
     users[0]->say();
     users[1]->say();
