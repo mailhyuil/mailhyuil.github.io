@@ -5,40 +5,36 @@
 > > 소멸자에서 메모리를 해제해줘야한다.
 
 ```cpp
+#include <iostream>
 class User {
-private:
-    string name;
-    string password;
-    string* address;
-public:
+    std::string name;
+    std::string password;
+    std::string* address;
+
+    public:
     // 기본 생성자 (아무것도 안하는 생성자)
-    User() = default;
-    // 기본 생성자 (매개변수가 없는 생성자)
-    User() {}
+    User() : address(nullptr) {} // address를 nullptr로 초기화합니다.
 
     // 매개변수가 있는 생성자
-    User(string _name, string _password) {
-        this->name = _name;
-        this->password = _password;
+    User(std::string _name, std::string _password) {
+        name = _name;
+        password = _password;
     }
 
     // 소멸자 (클래스가 소멸될 때 호출됨)
     ~User() {
-      cout << "Bye Bye~ " << this->name << "\n\r";
-      delete this->address;
+      std::cout << "Bye Bye~ " << name << "\n\r";
+      delete address;
     }
 
-    void setAddress(string _address) {
-        this->address = new string(_address);
+    void setAddress(std::string _address) {
+        address = new std::string(_address);
     }
 };
 int main(){
   User user1; // 기본 생성자 호출
   User user2("John", "1234"); // 매개변수 생성자 호출
-
-  User hyuil("hyuil", "1234");
-  hyuil.setAddress("Seoul");
-
+  user2.setAddress("Seoul");
   return 0;
 }
 ```
