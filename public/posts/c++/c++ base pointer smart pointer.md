@@ -1,0 +1,1 @@
+# c++ pointer smart pointer
