@@ -4,7 +4,7 @@
 
 ## rustup
 
-```
+```sh
 rustup --version
 
 #최신버전으로 업데이트
@@ -25,7 +25,7 @@ rustup doc
 
 ### main.rc
 
-```
+```rs
 fn main(){
     println!("Hello World!")
 }

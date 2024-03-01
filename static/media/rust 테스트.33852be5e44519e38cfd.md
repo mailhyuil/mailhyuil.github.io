@@ -2,13 +2,13 @@
 
 ## 테스트 파일 생성
 
-```
+```sh
 cargo new adder --lib
 ```
 
 ## test annotation
 
-```
+```rs
 #[cfg(test)]
 mod tests{
     #[test]
@@ -20,7 +20,7 @@ mod tests{
 
 ## 실행
 
-```
+```sh
 cargo test
 ```
 

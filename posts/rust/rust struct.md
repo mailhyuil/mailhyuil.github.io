@@ -2,7 +2,7 @@
 
 > 클래스와 비슷하다
 
-```
+```rs
 struct User{
     username:String,
     email:String,
@@ -21,7 +21,7 @@ let user1:User = User{
 
 > 명시적으로 나열하지 않은 나머지 필드는 기존의 인스턴스의 필드와 같은 값을 사용하라
 
-```
+```rs
 let user1:User = User{
     username:String::from("bs"),
     ..user1
@@ -36,7 +36,7 @@ let user1:User = User{
 > >
 > > > RGB값(r,g,b)이나 좌표값(x, y) 같은 구조에 사용
 
-```
+```rs
 struct Color(i32,i32,i32);
 
 let blue = Color(0,0,255);
@@ -46,7 +46,7 @@ let blue = Color(0,0,255);
 
 > 구조체 내에 메소드를 정의하려면 impl을 사용
 
-```
+```rs
 struct User{
     username:String,
     email:String,

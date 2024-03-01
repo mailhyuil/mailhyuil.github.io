@@ -4,7 +4,7 @@
 
 > 참조와 값은 비교할 수 없다. 역참조 연산자를 사용하자 (e.g. \*x == 3)
 
-```
+```rs
 if number < 5 {
     ...
 } else if number < 3 {
@@ -16,7 +16,7 @@ if number < 5 {
 
 ### let 구문에서도 사용 가능
 
-```
+```rs
 let condition = true;
 let number = if condition {
     5
@@ -31,7 +31,7 @@ let number = if condition {
 >
 > > break를 사용하면 빠져나옴
 
-```
+```rs
 let mut counter = 0;
 
 loop {
@@ -44,7 +44,7 @@ loop {
 
 ## while
 
-```
+```rs
 while number <= 10 {
     ...
 }
@@ -52,7 +52,7 @@ while number <= 10 {
 
 ## for
 
-```
+```rs
 let a = [1,2,3,4,5];
 
 for e in a {
@@ -64,7 +64,7 @@ for e in a.iter() {
 }
 ```
 
-```
+```rs
 for number in 1..4 {
     ...
 }

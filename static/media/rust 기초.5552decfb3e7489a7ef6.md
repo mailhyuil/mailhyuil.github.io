@@ -33,13 +33,13 @@ fn main() {
 > >
 > > > mut의 대안
 
-```
+```rs
 let space = "   ";
 let space = spaces.len();
 ```
 
 ## 표준 라이브러리
 
-```
+```rs
 std::*
 ```

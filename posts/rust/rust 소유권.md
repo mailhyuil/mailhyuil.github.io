@@ -32,7 +32,7 @@
 
 > 클로저가 사용하는 모든 값에 대해 소유권을 갖도록 만듬
 
-```
+```rs
 let handle = thread::spawn(move || {
         println!("Here's a vector: {:?}", v);
     });
