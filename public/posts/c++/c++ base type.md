@@ -12,4 +12,13 @@ char first = hello[0];  // string의 첫번째 문자 'H'
 
 int arr[5];             // 정수형 배열
 int arr[] = {1, 2, 3};  // 정수형 배열
+
+int* arr[100];          // 정수형 포인터 배열
+arr[0] = 1;             // 정수형 포인터 배열에 값 할당
+
+int* arr = new int[100]; // 동적할당
+
+string name = "hyuil";  // string 변수
+
+string name = NULL      // 아무것도 없음
 ```

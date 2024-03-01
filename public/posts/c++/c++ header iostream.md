@@ -1,8 +1,17 @@
 # c++ iostream
 
 ```cpp
-cin
-cout
-getline(cin, str)
-ostream // output stream
+std::cin
+std::cout
+std::cerr
+std::clog
+
+std::wcin
+std::wcout
+std::wcerr
+std::wclog
+
+std::istream // input stream
+std::ostream // output stream
+std::getline(cin, str)
 ```
