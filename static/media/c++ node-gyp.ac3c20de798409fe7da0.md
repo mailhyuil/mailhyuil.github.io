@@ -74,7 +74,7 @@ node-gyp build # 빌드
 ## main.js
 
 ```js
-const addon = require("./build/Release/addon");
+const addon = require("./build/Release/addon.node");
 
 console.log(addon.sayHello()); // 'Hello World!!!'
 ```
