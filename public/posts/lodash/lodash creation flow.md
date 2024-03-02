@@ -1,13 +1,17 @@
 # lodash creation flow
 
 > 함수를 받아서 함수를 반환한다. (함수 합성 함수)
+>
+> > rxjs의 pipe와 비슷하다.
 
 ```js
-function square(n) {
-  return n * n;
-}
+import { flow } from "lodash-es";
 
-const addSquare = _.flow([_.add, square]);
-addSquare(1, 2);
-// => 9
+const fn = flow(
+  (x) => x + 10,
+  (x) => x * 2,
+  console.log
+);
+
+fn(0); // 20
 ```
