@@ -1,6 +1,6 @@
 # c++ class 생성자 member initializer list
 
-> 생성자 괄호 ( ) 뒤에 콜론(:)을 표기하고 멤버를 초기화 하는 것
+> 생성자 괄호 () 뒤에 콜론 :을 표기하고 멤버를 초기화 하는 것
 >
 > > 대입(assignment)이 아닌 초기화(initialization)
 > >
