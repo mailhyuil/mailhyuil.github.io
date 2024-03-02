@@ -2,7 +2,13 @@
 
 > heap 영역에 메모리를 동적으로 할당하고 해제하는 방법
 >
-> > malloc, calloc, realloc, free 함수를 사용한다.
+> > malloc (memory allocation 엠얼록 / 말록)
+> >
+> > calloc (clear memory allocation 캘록)
+> >
+> > realloc (reallocate memory 리얼록)
+> >
+> > free 함수를 사용한다.
 
 ```cpp
 #include <iostream>
