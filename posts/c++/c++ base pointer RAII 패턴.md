@@ -1,4 +1,4 @@
-# c++ pointer RAII
+# c++ pointer RAII 패턴
 
 > Resource acquisition is initialization
 >
