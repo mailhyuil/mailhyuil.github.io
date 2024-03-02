@@ -1,4 +1,6 @@
-# lodash higher order functions
+# lodash collection functions
+
+> collection functions는 배열과 객체 둘 다에 사용할 수 있는 함수들이다.
 
 ## forEach
 
@@ -24,10 +26,6 @@ const res = map(arr, (x) => console.log(x));
 
 ## find
 
-## findIndex
+## every
 
-## forIn
-
-## includes
-
-## reject
+## some
