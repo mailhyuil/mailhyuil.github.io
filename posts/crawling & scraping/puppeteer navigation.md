@@ -2,8 +2,8 @@
 
 > page.evaluate 내에서는 안됨
 
-```
-page.goto('', {
-   waitUntil: 'domcontentloaded',
-  })
+```js
+page.goto("", {
+  waitUntil: "domcontentloaded",
+});
 ```

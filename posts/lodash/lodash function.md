@@ -2,7 +2,7 @@
 
 ## chaining (seq)
 
-```
+```js
 _(array).operator().operator()...value();
 ```
 
@@ -26,17 +26,11 @@ _(array).operator().operator()...value();
 
 > 두번째 인자 배열에 세번째 함수를 실행한 값으로 뺀다.
 
-## forEach()
-
 ## uniq()
 
 ## sortedUniq()
 
-## find()
-
 ## assign()
-
-## includes()
 
 ## keyBy()
 
@@ -49,7 +43,5 @@ _(array).operator().operator()...value();
 ## get() and set()
 
 ## deburr()
-
-## reduce()
 
 ## cloneDeep()

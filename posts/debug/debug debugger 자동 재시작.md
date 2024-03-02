@@ -2,7 +2,7 @@
 
 ## launch.json
 
-```
+```json
 "configurations" : [
     {
         "runtimeExcutable": "nodemon",
