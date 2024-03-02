@@ -10,6 +10,4 @@
 
 ## zip
 
-## findIndex / findLastIndex
-
 ## flatten

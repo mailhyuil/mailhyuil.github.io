@@ -1,12 +1,18 @@
 # lodash groupBy
 
 ```js
-_.groupBy(collection, [method or property]);
+import { curryRight, flow, groupBy } from "lodash-es";
 
-_.groupBy([6.1, 4.2, 6.3], Math.floor);
-// => { '4': [4.2], '6': [6.1, 6.3] }
+const _groupBy = curryRight(groupBy);
 
-// The `_.property` iteratee shorthand.
-_.groupBy(["one", "two", "three"], "length");
-// => { '3': ['one', 'two'], '5': ['three'] }
+const arr = [
+  { name: "John", age: 1 },
+  { name: "Jane", age: 2 },
+  { name: "Hyuil", age: 2 },
+  { name: "SB", age: 1 },
+];
+
+const res = flow(_groupBy("age"));
+
+console.log(res(arr));
 ```
