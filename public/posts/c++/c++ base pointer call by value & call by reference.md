@@ -1,4 +1,4 @@
-# c++ base method call by value & call by reference
+# c++ base pointer call by value & call by reference
 
 ## call by value
 
