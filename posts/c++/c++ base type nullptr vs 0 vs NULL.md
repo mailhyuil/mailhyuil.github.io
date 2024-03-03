@@ -18,9 +18,9 @@
 
 ## nullptr
 
-> C++11에서 추가된 nullptr은 pointer를 초기화할 때 사용된다.
+> nullptr은 0번째 주소를 가리키는 포인터다.
 >
-> > NULL은 0이지만 nullptr은 포인터를 나타내는 타입이다.
+> > NULL은 "0"이지만 nullptr은 "0x0"이다.
 
 ```cpp
 if (ptr == nullptr) {
