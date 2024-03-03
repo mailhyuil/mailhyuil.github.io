@@ -20,6 +20,8 @@ delete user2; // double free error!!
 ## 사용
 
 ```cpp
+#include <memory>
+
 // 일반 포인터
 User* user = new User();
 
@@ -35,6 +37,8 @@ void doSomething(){
 ## make_unique
 
 ```cpp
+#include <memory>
+
 // make_unique를 사용하여 쉽게 생성할 수 있다.
 void doSomething(){
     std::unique_ptr<User> user = std::make_unique<User>();
