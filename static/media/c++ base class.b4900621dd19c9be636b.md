@@ -45,7 +45,7 @@ public:
         std::cout << "password: " << password << "\n";
         std::cout << "contacts: ";
         for (const auto& contact : *contacts) {
-            std::cout << contact << " ";
+            std::cout << contact << ", ";
         }
         std::cout << "\n";
     }
@@ -57,8 +57,10 @@ public:
 };
 
 int main(){
-    User user("sb", "1234"); // 기본 생성자 호출
-    user.addContact("hyuil1234");
+    User user("hyuil", "1234"); // 기본 생성자 호출
+    user.addContact("010-7502-0301");
+    user.addContact("mailhyuil@gmail.com");
+    user.addContact("hyuil@naver.com");
     user.printInfo();
     return 0;
 }
