@@ -3,6 +3,8 @@
 > shared_ptr 로 하게 된다면 앞서 본 순환 참조 문제가 발생하는 경우
 
 ```cpp
+#include <memory>
+
 std::vector<std::weak_ptr<User>> users;
 ```
 
@@ -13,5 +15,7 @@ std::vector<std::weak_ptr<User>> users;
 > > 이미 해제가 되었다면 아무것도 가리키지 않는 shared_ptr 을 반환 합니다.
 
 ```cpp
+#include <memory>
+
 std::shared_ptr<User> sharedUser = users.lock();
 ```
