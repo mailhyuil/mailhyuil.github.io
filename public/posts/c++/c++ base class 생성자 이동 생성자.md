@@ -10,7 +10,7 @@
 
 ```cpp
 T(T&& a) noexcept {};
-// User(User&& _user){
+// User(User&& _user) noexcept {
 //   name = _user.name;
 // };
 ```
