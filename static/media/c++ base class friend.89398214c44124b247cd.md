@@ -1,7 +1,9 @@
-# c++ keyword friend
+# c++ class friend
 
-> 클래스 내부에서 다른 클래스나 함수들을 friend 로 정의
+> A 클래스 내부에서 "friend class B" 를 사용하면
 >
+> > B 클래스는 A 클래스의 private 멤버에 접근할 수 있습니다.
+> >
 > > friend 로 정의된 클래스나 함수들은 원래 클래스의 private 로 정의된 변수나 함수들에 접근할 수 있습니다.
 
 ```cpp
@@ -12,7 +14,6 @@ class A {
 
   // B 는 A 의 친구!
   friend class B;
-
   // func 은 A 의 친구!
   friend void func();
 };
