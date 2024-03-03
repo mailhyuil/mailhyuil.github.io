@@ -1,6 +1,8 @@
 # c++ header utility move
 
 > lvalue를 rvalue로 변환해주는 함수
+>
+> > 이동시키지 않는다 단순히 rvalue로 변환해준다.
 
 ```cpp
 #include <iostream>
