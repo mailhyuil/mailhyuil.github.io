@@ -24,8 +24,6 @@ int*** ppp = &pp;       // 포인터의 포인터의 포인터 변수. pp의 주
 // 역참조
 int j = *p;             // 포인터 변수 p가 가리키는 주소의 값을 가져옴
 
-
-
 void print(string name);
 void (*print_ptr)(string) = &print; // 함수 포인터 변수. print 함수의 주소를 가리킴
 ```
