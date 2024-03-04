@@ -1,6 +1,10 @@
 # c++ pointer weak pointer
 
-> shared_ptr 로 하게 된다면 앞서 본 순환 참조 문제가 발생하는 경우
+> 객체가 소멸되면 weak_ptr의 참조도 소멸
+>
+> > 객체를 소유하지 않고 참조만
+> >
+> > > shared_ptr 로 하게 된다면 앞서 본 순환 참조 문제가 발생하는 경우
 
 ```cpp
 #include <memory>
