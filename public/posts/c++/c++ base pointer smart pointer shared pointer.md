@@ -1,8 +1,6 @@
 # c++ pointer shared pointer
 
-> shared_ptr 로 객체를 가리킬 경우, 다른 shared_ptr 역시 그 객체를 가리킬 수 있습니다.
->
-> > 특정 자원을 몇 개의 객체에서 가리키는지를 추적한 다음에, 그 수가 0이 되야만 비로소 해제를 시켜주는 방식의 포인터
+> 참조한 모든 객체가 소멸되면 원본이 소멸
 
 ```cpp
 #include <memory>
