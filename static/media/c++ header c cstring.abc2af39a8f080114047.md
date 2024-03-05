@@ -1,6 +1,6 @@
 # c++ header cstring
 
-> c언어에서 사용되는 문자열 관련 함수들을 제공하는 헤더 파일이다.
+> c언어 문자열 관련 함수 제공
 
 ```cpp
 #include <cstring>
