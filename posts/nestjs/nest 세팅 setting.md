@@ -147,11 +147,11 @@ async function bootstrap() {
   app.setGlobalPrefix("api/v1");
   /** Port */
   const port = process.env.SERVER_PORT || 3000;
+  /** OpenAPI */
+  initOpenAPI(app, port);
   /** Server Listen */
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
-  /** OpenAPI */
-  initOpenAPI(app, port);
 }
 
 bootstrap();

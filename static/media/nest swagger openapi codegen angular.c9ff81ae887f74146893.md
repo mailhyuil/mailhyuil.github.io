@@ -46,11 +46,11 @@ const ngOpenGen = new NgOpenApiGen(openApi, openApiOptions);
 ngOpenGen.generate();
 ```
 
-## tsconfig.json
+## tsconfig.base.json
 
 ```json
 "paths": {
-  "@app/api": ["api/src/index.ts"],
+  "@api": ["api/src/lib/index.ts"],
 }
 ```
 

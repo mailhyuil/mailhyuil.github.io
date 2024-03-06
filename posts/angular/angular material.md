@@ -19,6 +19,12 @@ module.exports = {
 }
 ```
 
+## style.scss
+
+```css
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+```
+
 ## ts
 
 > Module명은 `Mat`으로 시작함

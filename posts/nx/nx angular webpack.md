@@ -8,6 +8,7 @@
 "build": {
     "executor": "@nx/angular:webpack-browser",
     "options": {
+        "main": "apps/admin/src/main.ts", // "browser": "apps/admin/src/main.ts" 를 main으로 변경
         "buildLibsFromSource": false,
         "customWebpackConfig": {
           "path": "apps/client/webpack.config.js"
@@ -48,6 +49,7 @@ function getClientEnvironment() {
 module.exports = (config, options, context) => {
   // Overwrite the mode set by Angular if the NODE_ENV is set
   config.mode = config.mode;
+  config.plugins = config.plugins || [];
   config.plugins.push(new webpack.DefinePlugin(getClientEnvironment()));
   return config;
 };
