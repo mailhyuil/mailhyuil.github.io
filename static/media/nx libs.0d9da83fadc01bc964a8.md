@@ -2,6 +2,6 @@
 
 > 코드를 sharing
 
-```
+```sh
 @nx/js:library
 ```

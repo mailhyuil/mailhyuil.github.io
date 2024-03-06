@@ -10,11 +10,11 @@
 >
 > > 즉 jwt.io 같은 사이트에서 header와 payload는 항상 확인이 가능하다.
 
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.           <-- header /// 알고리즘, 타입
-eyJpZCI6MSwidXNlcm5hbWUiOiJjb2RlZ2VhciIsImlhdC  <-- payload /// 데이터
-I6MTY0MzUxOTI2MCwiZXhwIjoxNjQzNTE5NTYwfQ.       <-- payload
-jxsk2FtHsRRhoAZrsUDgHaHOLCxI9IlSMKTrkZ0zUl4     <-- verify signature /// secret을 사용하여 생성되는 랜덤한 값
+```sh
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.           # header /// 알고리즘, 타입
+eyJpZCI6MSwidXNlcm5hbWUiOiJjb2RlZ2VhciIsImlhdC  # payload /// 데이터
+I6MTY0MzUxOTI2MCwiZXhwIjoxNjQzNTE5NTYwfQ.       # payload
+jxsk2FtHsRRhoAZrsUDgHaHOLCxI9IlSMKTrkZ0zUl4     # verify signature /// secret을 사용하여 생성되는 랜덤한 값
 ```
 
 ## install

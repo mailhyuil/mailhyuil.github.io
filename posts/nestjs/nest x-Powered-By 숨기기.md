@@ -4,8 +4,8 @@
 
 ## main.ts
 
-```
-app.disable('x-powered-by');
+```ts
+app.disable("x-powered-by");
 ```
 
 ## helmet 사용
