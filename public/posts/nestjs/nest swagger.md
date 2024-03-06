@@ -10,7 +10,7 @@
 
 ## install
 
-```
+```sh
 npm i @nestjs/swagger
 ```
 

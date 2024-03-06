@@ -4,7 +4,7 @@
 >
 > > (e.g. base href 가 / 면 src="assets"은 src="/assets"로 해석됩니다.)
 
-```
+```js
 <base href="/" />
 <base href="./" />
 ```

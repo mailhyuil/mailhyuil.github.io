@@ -44,22 +44,6 @@ model Post {
 }
 ```
 
-## push
-
-> 프로토타이핑 시 사용
-
-```sh
-prisma db push
-```
-
-## migration
-
-> 최종적으로 마이그레이션 파일을 생성하여 사용
-
-```sh
-prisma migrate dev
-```
-
 ## PrismaClient 를 service로 주입하기
 
 > PrismaClient를 서비스로 구현하여 사용
@@ -100,10 +84,8 @@ imports: [
 ],
 ```
 
-# prismaService의 메소드는 비동기다! return이 먼저된다.
-
 ## prisma 환경변수 읽기
 
 ```sh
-"migrate:dev": "dotenv -e ../.env.development -- npx prisma migrate dev",
+"migrate:dev": "dotenv -e apps/server/.env.development -- prisma migrate dev",
 ```
