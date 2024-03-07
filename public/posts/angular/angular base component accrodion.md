@@ -1,5 +1,13 @@
 # angular base component accordion
 
+> max-height로 애니메이션을 주기
+>
+> > max-height가 너무 커버리면 작아지기까지 시간이 너무 걸림
+> >
+> > > 크기를 딱 맞추려면 전체 container의 scrollHeight를 넣어줘야함
+> > >
+> > > > clientHeight 대신 scrollHeight를 써야 작아져있는 상태에서도 전체 크기를 알 수 있음
+
 ## ts
 
 ```ts
@@ -8,6 +16,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { LepiIcon } from "@team-lepisode/components";
 import { Menu } from "../../header.component";
+import { AfterViewInit, ElementRef, ViewChild } from "@angular/core";
 
 export type Menu = {
   title: string;
@@ -21,11 +30,16 @@ export type Menu = {
   standalone: true,
   imports: [CommonModule, LepiIcon, RouterModule],
 })
-export class AccordionComponent {
+export class AccordionComponent implements AfterViewInit {
+  @ViewChild("container") container: ElementRef<HtmlElement>;
+  containerHeight?: string;
   @Input() menu?: Menu;
   @Output() onClick = new EventEmitter<string>();
   isOpen = false;
 
+  ngAfterViewInit() {
+    this.containerHeight = this.container.nativeElement.scrollHeight + "px";
+  }
   toggle() {
     this.isOpen = !this.isOpen;
   }
@@ -39,21 +53,14 @@ export class AccordionComponent {
 ## html
 
 ```html
-<div *ngIf="menu">
-  <div (click)="toggle()" class="p-5 border-b cursor-pointer">
-    <div class="flex items-center justify-between">
-      <div class="font-bold">{{ menu.title }}</div>
-      <lepi-icon
-        class="block duration-300 ease-out bg-gray-800 size-7"
-        [class.rotate-180]="isOpen"
-        [class.opacity-30]="!isOpen"
-        [name]="isOpen ? 'heroicons:minus' : 'heroicons:plus'"></lepi-icon>
-    </div>
-  </div>
-  <div class="overflow-hidden duration-500 ease-in-out delay-0 bg-gray-50" [class.max-h-0]="!isOpen" [class.max-h-[9999px]]="isOpen">
-    @for(child of menu.children; track $index){
-    <p class="p-5 font-bold text-gray-500 cursor-pointer hover:text-primary" (click)="_onClick(child.link)"> {{ child.title }} </p>
-    }
+<div
+  #container
+  class="flex flex-col overflow-hidden transition-all duration-300"
+  [ngStyle]="{
+    maxHeight: isOpen ? containerHeight : '0px'
+  }">
+  <div class="p-4">
+    <ng-content />
   </div>
 </div>
 ```
