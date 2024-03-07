@@ -41,13 +41,14 @@ int main() {
 int main() {
   int i;
   while (true) {
-    std::cin >> std::hex >> i;
-    std::cout << "입력 :: " << i << std::endl;
+    std::cin >> i;
     if (std::cin.fail()) {
       std::cout << "제대로 입력해주세요" << std::endl;
-      std::cin.clear();           // 플래그들을 초기화 하고
-      std::cin.ignore(100, 'n');  //개행문자가 나올 때까지 무시한다
+      std::cin.clear();           // 플래그 초기화
+      std::cin.ignore(100, '\n'); // 개행문자를 무시
+      continue;
     }
+    std::cout << "입력 :: " << i << std::endl;
     if (i == 0) break;
   }
   return 0;
