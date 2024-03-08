@@ -1,7 +1,7 @@
 # input file json to FormData
 
 ```js
-export function jsonToFormData(jsonObject, parentKey, carryFormData) {
+export function jsonToFormData(jsonObject: any, parentKey?: any, carryFormData?: any) {
   const formData = carryFormData || new FormData();
   let index = 0;
 
@@ -19,9 +19,9 @@ export function jsonToFormData(jsonObject, parentKey, carryFormData) {
 
         if (jsonObject[key] instanceof File) {
           formData.append(propName, jsonObject[key]);
-        } else if (jsonObject[key] instanceof FileList) {
+        } else if (jsonObject[key][0] instanceof File && isArray(jsonObject[key])) {
           for (let j = 0; j < jsonObject[key].length; j++) {
-            formData.append(propName + "[" + j + "]", jsonObject[key].item(j));
+            formData.append(propName, jsonObject[key][j]);
           }
         } else if (isArray(jsonObject[key]) || isObject(jsonObject[key])) {
           jsonToFormData(jsonObject[key], propName, formData);
@@ -37,12 +37,12 @@ export function jsonToFormData(jsonObject, parentKey, carryFormData) {
   return formData;
 }
 
-function isArray(val) {
+function isArray(val: any) {
   const toString = {}.toString;
   return toString.call(val) === "[object Array]";
 }
 
-function isObject(val) {
+function isObject(val: any) {
   return !isArray(val) && typeof val === "object" && !!val;
 }
 ```

@@ -68,6 +68,10 @@ export const memoryStorageOptions: MulterOption = {
 
 ### controller
 
+> FileInterceptor와 FilesInterceptor를 구별해라
+>
+> > UploadedFile과 UploadedFiles를 구별해라
+
 ```ts
 import { Controller, Post, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common";
 import { FileFieldsInterceptor, FileInterceptor } from "@nestjs/platform-express";
