@@ -5,6 +5,7 @@
 ```cpp
 // istream
 std::cin
+std::cin.ignore()
 std::cout
 std::cerr
 std::clog
