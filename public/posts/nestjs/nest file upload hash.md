@@ -55,6 +55,7 @@ export function hashFile(file: Express.Multer.File) {
     );
 
     const willDelete: string[] = [];
+
     // existingFiles와 newFiles를 비교해서 매칭되는게 있으면 후보에서 제거
     Object.keys(newFiles).map((hash) => {
       if (existingFiles[hash]) {
@@ -62,6 +63,7 @@ export function hashFile(file: Express.Multer.File) {
         delete newFiles[hash];
       }
     });
+
     // existingFiles 있고 newFiles에는 없는 파일을 willDelete에 추가하고 파일 삭제
     Object.keys(existingFiles).map((hash) => {
       if (!newFiles[hash]) {
@@ -76,7 +78,9 @@ export function hashFile(file: Express.Multer.File) {
         return this.fileService.upload(newFiles[hash]);
       }
     });
+
     const willCreate: CreateFileDTO[] = await Promise.all(willCreatePromises);
+
     const updated = await this.prisma.jobPosting
       .update({
         where: { id },
