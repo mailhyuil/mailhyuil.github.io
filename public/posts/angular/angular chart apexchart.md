@@ -7,7 +7,19 @@
 ```ts
 import { Component, HostBinding, Input, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexLegend, ApexResponsive, ApexStroke, ApexTitleSubtitle, ApexXAxis, ApexYAxis, ChartType, NgApexchartsModule } from "ng-apexcharts";
+import {
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexDataLabels,
+  ApexLegend,
+  ApexResponsive,
+  ApexStroke,
+  ApexTitleSubtitle,
+  ApexXAxis,
+  ApexYAxis,
+  ChartType,
+  NgApexchartsModule,
+} from "ng-apexcharts";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -53,7 +65,7 @@ export class ChartComponent implements OnInit {
         responsive: [{ breakpoint: undefined, options: {} }],
         chart: {
           type: this.type,
-          fontFamily: "Pretendard",
+          fontFamily: "Pretendard Variable",
           width: "100%",
           height: "100%",
           toolbar: {
