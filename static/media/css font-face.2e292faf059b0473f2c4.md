@@ -2,7 +2,7 @@
 
 ## cdn 사용
 
-```
+```css
 @font-face {
   font-family: "Pretendard";
   font-weight: 400;
@@ -12,7 +12,7 @@
 
 ## local 폰트 사용
 
-```
+```css
 @font-face {
   font-family: "Gwangyang-Sunshine-bold";
   src: url(../font/Gwangyang-Sunshine-Bold.ttf) format("woff");

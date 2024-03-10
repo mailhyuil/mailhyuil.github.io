@@ -18,7 +18,7 @@
   theme: {
     extend: {
       fontFamily: {
-        sans: ['pretendard'],
+        sans: ['Pretendard Variable'],
       },
     },
   },
