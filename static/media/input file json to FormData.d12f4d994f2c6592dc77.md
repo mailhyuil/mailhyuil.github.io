@@ -26,7 +26,7 @@ export function jsonToFormData(jsonObject: any, parentKey?: any, carryFormData?:
         } else if (isArray(jsonObject[key]) || isObject(jsonObject[key])) {
           jsonToFormData(jsonObject[key], propName, formData);
         } else if (typeof jsonObject[key] === "boolean") {
-          formData.append(propName, +jsonObject[key] ? "1" : "0");
+          formData.append(propName, +jsonObject[key] ? "true" : "false");
         } else {
           formData.append(propName, jsonObject[key]);
         }

@@ -5,6 +5,8 @@
 > > html form 데이터
 > >
 > > > FormData.append('name', value) 를 사용해서 간단하게 인풋값을 넣은 폼데이터를 전송
+> > >
+> > > > formData는 boolean값을 넣을 수 없다. (true, false를 넣어도 string으로 변환되어 전송된다)
 
 ```js
 formData.append(name, value);
