@@ -3,8 +3,10 @@
 > nest는 multer라고 하는 미들웨어를 제공
 >
 > > multer는 multipart/form-data 포멧을 다룰 수 있다.
-
-[multer_doc](https://github.com/expressjs/multer/blob/master/doc/README-ko.md)
+> >
+> > > formData는 string 값만 받을 수 있다. "true", "false" 또는 "0", "1"으로 사용
+> > >
+> > > > [multer_doc](https://github.com/expressjs/multer/blob/master/doc/README-ko.md)
 
 ## install
 

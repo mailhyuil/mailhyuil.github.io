@@ -3,32 +3,14 @@
 ## install
 
 ```sh
-npm i ngx-cookie
-```
-
-## app.module.ts
-
-```ts
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-
-import { CookieModule } from "ngx-cookie";
-
-import { AppComponent } from "./app.component";
-
-@NgModule({
-  imports: [BrowserModule, CookieModule.withOptions()],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}
+npm i ngx-cookie-service
 ```
 
 ## 사용
 
 ```ts
 import { Component } from "@angular/core";
-import { CookieService } from "ngx-cookie";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "my-very-cool-app",
