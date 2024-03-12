@@ -7,6 +7,8 @@
 > > > HttpOnly 쿠키는 서버가 관리하고
 > > >
 > > > request 시 자동으로 헤더에 담겨 보내진다.
+> > >
+> > > > httpOnly 쿠키는 withCredentials 옵션을 true로 설정해야 request에 담겨 보내진다.
 
 ```sh
 Set-Cookie: Authorization=token; HttpOnly
