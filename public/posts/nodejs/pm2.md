@@ -14,18 +14,9 @@
 npm i -g pm2
 ```
 
-## 명령어
-
-```
-pm2 start
-pm2 kill
-pm2 log
-pm2 monit
-```
-
 ## option
 
-```
+```sh
 1. --name : 실행 모드 이름
 
 2. --script : 실행되는 파일 또는 스크립트
@@ -47,79 +38,17 @@ pm2 monit
 module.exports = {
   apps: [
     {
-      name: "avirtual-client",
-      script: "./client/.output/server/index.mjs",
-      env: {
-        NITRO_PORT: 13011,
-        SERVER: "https://avirtual-api.lepisode.team/api/v1",
-      },
+      name: "@hyuil/client",
+      script: "./client/server/server.mjs",
+      instances: 1, // "max" 나 0으로 설정하면 코어 수만큼 프로세스를 생성
+      env: {},
     },
     {
-      name: "avirtual-server",
-      script: "./server/dist/main.js",
-      env: {
-        NODE_ENV: "production",
-      },
+      name: "@hyuil/server",
+      script: "./server/main.js",
+      instances: 1, // "max" 나 0으로 설정하면 코어 수만큼 프로세스를 생성
+      env: {},
     },
   ],
 };
-```
-
-## nx
-
-```ts
-module.exports = {
-  apps: [
-    {
-      name: "@wings/server",
-      script: "nx",
-      args: "serve server --configuration production",
-    },
-  ],
-};
-```
-
-## .env.production
-
-```
-NODE_ENV=development
-
-SERVER_PORT=13012
-
-DATABASE_URL="postgresql://postgres:88782314p*@59.3.87.92:5432/avirtual?schema=public"
-
-JWT_SECRET_KEY=5BTENutJCTpGO2aHfDDs2u0KKKKpKV8s
-JWT_PUBLIC_KEY=Xv26XN6L86kGOvHMS2rfV2k9HsLVEEEp
-JWT_PRIVATE_KEY=PAwXjs5j7eLj8WIeczIRgZN2TdJqi2Bn
-
-SERVER=https://avirtual-api.lepisode.team/api/v1
-```
-
-## nuxt.config.ts
-
-```ts
-runtimeConfig: {
-  public: {
-    server: process.env.SERVER,
-  },
-  server: process.env.SERVER,
-},
-```
-
-## 실행
-
-```sh
-pm2 start ecosystem.config.js
-```
-
-## log 확인
-
-```sh
-pm2 log avirtual-server --lines 300
-```
-
-## restart를 해줘야 반영 됨
-
-```sh
-pm2 restart server_name
 ```
