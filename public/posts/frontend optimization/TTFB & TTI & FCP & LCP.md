@@ -12,8 +12,6 @@
 
 ## CLS (cumulative layout shift)
 
->
-
 ## TTFB (time to first byte)
 
 > http 요청을 했을 때 처음 byte(정보)가 브라우저에 도달하는 시간
