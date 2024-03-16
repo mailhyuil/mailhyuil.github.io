@@ -1,0 +1,5 @@
+# angular signal output
+
+```ts
+
+```
