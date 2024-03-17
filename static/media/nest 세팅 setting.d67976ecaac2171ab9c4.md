@@ -207,24 +207,8 @@ import { UsersModule } from "./users/users.module";
     DiscoveryModule,
     ThrottlerModule.forRoot([
       {
-        // default
-        ttl: 60000,
-        limit: 10,
-      },
-      {
-        name: "short",
-        ttl: 1000,
-        limit: 3,
-      },
-      {
-        name: "medium",
-        ttl: 10000,
-        limit: 20,
-      },
-      {
-        name: "long",
-        ttl: 100000,
-        limit: 100,
+        ttl: 1000, // 1초
+        limit: 100, // 100 requests
       },
     ]),
   ],
