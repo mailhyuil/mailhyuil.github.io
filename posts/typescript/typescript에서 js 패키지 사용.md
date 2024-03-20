@@ -22,7 +22,7 @@ npm i @types/<package>
 
 ## tsconfig.json
 
-```
+```json
 "include": ["**/*.ts"],
 ```
 

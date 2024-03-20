@@ -8,6 +8,7 @@
 
 ```ts
 type Type<X> = X extends Y ? Y : X;
+/// type Type<X> = X === Y ? Y : X; /// X가 Y면 Y다 아니면 X다
 ```
 
 ## infer

@@ -1,4 +1,4 @@
-# 매핑타입 & 조건타입
+# MappedType
 
 ## Readonly<T>
 
@@ -28,8 +28,8 @@
 
 > 프로퍼티를 제외시켜준다
 
-```
-Exclude<keyof T,K>
+```ts
+Exclude<keyof T, K>;
 ```
 
 ## Extract<T, Union>
