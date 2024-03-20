@@ -3,10 +3,6 @@
 > 내부에 FormArray를 가진 FormGroup를 타이핑하는 방법
 
 ```ts
-export type User = {
-  name: string;
-  contacts: FormArray<Contact>;
-};
 export type Contact = FormGroup<{
   platform: FormControl<string>;
   id: FormControl<string>;
@@ -25,10 +21,11 @@ export type Contact = FormGroup<{
 })
 export class AppComponent {
   fb = inject(FormBuilder);
-  form = this.fb.nonNullable.group<User>({
-    name: "",
-    contacts: this.fb.array<Contact>([]),
+  form = this.fb.nonNullable.group({
+    name: ["", Validators.required],
+    contacts: this.fb.array<Contact>([], Validators.required),
   });
+
   add() {
     this.form.controls.contacts.push(
       this.fb.nonNullable.group({
@@ -37,10 +34,12 @@ export class AppComponent {
       })
     );
   }
+
   remove(index: number) {
     this.form.controls.contacts.removeAt(index);
   }
   submit() {
+    if (this.form.invalid) return alert("invalid");
     console.log(this.form.value);
   }
 }

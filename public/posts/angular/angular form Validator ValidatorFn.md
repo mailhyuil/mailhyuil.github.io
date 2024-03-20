@@ -11,21 +11,44 @@ interface ValidatorFn {
 ## 사용
 
 ```ts
-customValidator(): ValidatorFn {
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+
+export function CustomValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    if (control.value === 'test') {
-      return null;
-    } else {
-      return { customWrong: true };
-    }
+    if (control.value === "wrong value") return { custom: "값을 확인해주세요" };
+    return null;
   };
+}
+```
+
+## ts
+
+```ts
+form = this.fb.nonNullable.group({
+  name: this.fb.control('', {
+    validators: [Validators.required],
+    updateOn: 'change',
+  }),
+  contacts: this.fb.array<Contact>([], {
+    validators: [Validators.required, CustomValidator()],
+    updateOn: 'change',
+  }),
+});
+
+submit() {
+  if (this.form.invalid) return this.form.markAllAsTouched();
+  this.api.post(this.form.value).subscribe();
 }
 ```
 
 ## html
 
 ```ts
-@if(form.errors && form.errors['customWrong']){
-<div> 커스텀 에러가 발생했습니다. </div>
+@if(form.controls.name.errors?.['required'] && form.controls.name.touched){
+<p class="text-red-600 font-bold text-xs">이름은 필수 입력값입니다.</p>
+}
+
+@if(form.controls.contacts.errors && form.controls.contacts.touched){
+<p class="text-red-600">{{ form.controls.name.errors['custom'] }}</p>
 }
 ```
