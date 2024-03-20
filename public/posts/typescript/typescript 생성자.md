@@ -1,6 +1,6 @@
 # typescript 생성자
 
-```
+```ts
 class Parent {
   private arr: string[];
 
@@ -16,7 +16,7 @@ class Parent {
 
 or
 
-```
+```ts
 class Parent {
 
   constructor(private arr: string[];) {

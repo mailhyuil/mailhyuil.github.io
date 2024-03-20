@@ -7,5 +7,5 @@ interface A {
   (): string;
 }
 
-const a: A = () => 'hi';
+const a: A = () => "hi";
 ```
