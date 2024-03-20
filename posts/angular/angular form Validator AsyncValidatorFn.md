@@ -13,21 +13,21 @@ interface AsyncValidatorFn {
 ## 사용
 
 ```ts
-customAsyncValidator(): AsyncValidatorFn {
+EmailAsyncValidator(): AsyncValidatorFn {
   return (
     control: AbstractControl
   ):
     | Promise<ValidationErrors | null>
     | Observable<ValidationErrors | null> => {
-    return this.httpService
-      .get(`tests/check-if-exists`, {
+    return this.http
+      .get(`users/email/check-if-exists`, {
         params: {
           value: control.value,
         },
       })
       .pipe(
         map((res) => {
-          return res ? { testExists: true } : null;
+          return res ? { emailExists: "이미 존재하는 이메일입니다." } : null;
         })
       );
   };

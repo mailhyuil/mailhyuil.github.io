@@ -4,21 +4,16 @@
 
 ### ts
 
-```
-import {
-  AfterViewInit,
-  Component,
-  ContentChildren,
-  QueryList,
-} from '@angular/core';
-import { ValueAccessorDirective } from '@lcrs/common';
-import { tap } from 'rxjs';
-import { SegmentItemComponent } from './segment-item/segment-item.component';
+```ts
+import { AfterViewInit, Component, ContentChildren, QueryList } from "@angular/core";
+import { ValueAccessorDirective } from "@lcrs/common";
+import { tap } from "rxjs";
+import { SegmentItemComponent } from "./segment-item/segment-item.component";
 
 @Component({
-  selector: 'app-segment',
-  templateUrl: './segment.component.html',
-  styleUrls: ['./segment.component.scss'],
+  selector: "app-segment",
+  templateUrl: "./segment.component.html",
+  styleUrls: ["./segment.component.scss"],
   standalone: true,
   imports: [SegmentItemComponent],
   hostDirectives: [ValueAccessorDirective],
@@ -70,7 +65,7 @@ export class SegmentComponent implements AfterViewInit {
 
 ### html
 
-```
+```html
 <div class="flex items-center gap-2">
   <ng-content></ng-content>
 </div>
@@ -80,15 +75,15 @@ export class SegmentComponent implements AfterViewInit {
 
 ### ts
 
-```
-import { CommonModule } from '@angular/common';
-import { Component, Input, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+```ts
+import { CommonModule } from "@angular/common";
+import { Component, Input, OnDestroy } from "@angular/core";
+import { BehaviorSubject, Subject } from "rxjs";
 
 @Component({
-  selector: 'app-segment-item',
-  templateUrl: './segment-item.component.html',
-  styleUrls: ['./segment-item.component.scss'],
+  selector: "app-segment-item",
+  templateUrl: "./segment-item.component.html",
+  styleUrls: ["./segment-item.component.scss"],
   standalone: true,
   imports: [CommonModule],
 })
@@ -112,20 +107,19 @@ export class SegmentItemComponent implements OnDestroy {
 
 ### html
 
-```
+```html
 <button
   class="w-full py-1 font-bold rounded-full"
   [class.bg-primary]="selectedValue$.value === value"
   [class.text-white]="selectedValue$.value === value"
-  (click)="_select()"
->
+  (click)="_select()">
   <ng-content></ng-content>
 </button>
 ```
 
 ## 사용
 
-```
+```html
 <app-segment [(ngModel)]="selectedSegment">
   <app-segment-item value="전체">전체</app-segment-item>
   <app-segment-item value="오픈예정">오픈예정</app-segment-item>
