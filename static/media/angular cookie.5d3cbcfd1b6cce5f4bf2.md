@@ -17,10 +17,14 @@ import { CookieService } from "ngx-cookie-service";
   template: "<h1>My Angular App with Cookies</h1>",
 })
 export class AppComponent {
-  constructor(private cookieService: CookieService) {}
+  cookieService = inject(CookieService);
 
   getCookie(key: string) {
     return this.cookieService.get(key);
+  }
+
+  deleteCookie(key: string) {
+    this.cookieService.delete(key, "/"); // path 넣어주기
   }
 }
 ```

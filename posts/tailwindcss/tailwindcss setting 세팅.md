@@ -30,7 +30,39 @@
 
 > fout, foit 방지
 
-```js
+```css
+h1 {
+  @apply font-extrabold text-3xl line-clamp-1 break-keep;
+}
+
+h2 {
+  @apply font-bold text-2xl line-clamp-1 break-keep;
+}
+
+h3 {
+  @apply font-bold text-xl line-clamp-1 break-keep;
+}
+
+h4 {
+  @apply font-bold text-lg line-clamp-1 break-keep;
+}
+
+h5 {
+  @apply font-bold text-base line-clamp-1 break-keep;
+}
+
+h6 {
+  @apply font-bold text-sm line-clamp-1 break-keep;
+}
+
+p {
+  @apply line-clamp-1 break-keep;
+}
+
+* {
+  @apply text-neutral-700;
+}
+
 // pretendard font
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css");
 ```

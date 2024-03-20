@@ -20,14 +20,12 @@ import { Subject } from "rxjs";
   ],
 })
 export class ValueAccessorDirective<T> implements ControlValueAccessor, OnDestroy {
-  private onChange: any;
-  private onTouched: any;
+  private onChange = () => {};
+  private onTouched = () => {};
   private valueSubject = new Subject<T>();
   private disabledSubject = new Subject<boolean>();
   readonly value = this.valueSubject.asObservable();
   readonly disabled = this.disabledSubject.asObservable();
-
-  constructor() {}
 
   ngOnDestroy(): void {
     this.valueSubject.complete();
@@ -75,7 +73,7 @@ import { FileService } from "../../services/file.service";
   templateUrl: "./some.component.html",
   styleUrls: ["./some.component.scss"],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   hostDirectives: [ValueAccessorDirective],
 })
 export default class SomeComponent {
@@ -83,11 +81,12 @@ export default class SomeComponent {
   constructor(public valueAccessor: ValueAccessorDirective<string>) {
     valueAccessor.value.subscribe((v) => (this.value = v));
   }
-  doSomething(event: any) {
+
+  setValue(event: any) {
     const newValue = event.target.value;
-    this.valueAccessor.writeValue(newValue);
-    this.valueAccessor.valueChange(newValue);
-    this.valueAccessor.touchedChange(true);
+    this.value = newValue;
+    this.valueAccessor.writeValue(this.value);
+    this.valueAccessor.valueChange(this.value);
   }
 }
 ```
