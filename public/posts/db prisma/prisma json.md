@@ -2,7 +2,7 @@
 
 > json은 기본으로 배열이 될 수 있다.
 
-```
+```prisma
 image Json   @default("{}")
 image Json[] @default("[]")
 
