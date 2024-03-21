@@ -52,9 +52,9 @@ NOT
 > findMany를 사용할 때 필터링
 
 ```
-some / 최소한 하나
-every / 모든
-none / 하나도 아닌
+some // 최소한 하나
+every // 모든
+none // 하나도 아닌
 is
 isNot
 

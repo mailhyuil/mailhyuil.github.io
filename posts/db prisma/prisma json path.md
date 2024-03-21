@@ -4,7 +4,7 @@
 
 ## data
 
-```
+```json
 {
   "favorites": {
     "catBreed": "Turkish van",
@@ -26,7 +26,7 @@
 
 ## where
 
-```
+```ts
 where: {
     pets: {
       path: ['favorites', 'dogBreed'],

@@ -9,6 +9,7 @@
 > 개발용
 >
 > > push => schema를 db에 바로 적용
+> >
 > > pull => db를 schema에 적용
 
 ## migrate dev & deploy

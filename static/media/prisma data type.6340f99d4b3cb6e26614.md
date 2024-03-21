@@ -6,7 +6,7 @@
 
 > default = bytea
 
-```
+```prisma
 bytea	@db.ByteA // 1바이트
 ```
 
@@ -14,7 +14,7 @@ bytea	@db.ByteA // 1바이트
 
 > default = integer
 
-```
+```prisma
 integer | int, int4	    @db.Integer  // 4바이트
 smallint | int2	        @db.SmallInt // 2바이트
 smallserial | serial2	@db.SmallInt @default(autoincrement()) // 2바이트
@@ -26,7 +26,7 @@ oid	                    @db.Oid // 4바이트
 
 > default = bigint
 
-```
+```prisma
 bigint | int8	        @db.BigInt // 8바이트
 bigserial | serial8	    @db.BigInt @default(autoincrement()) // 8바이트
 ```
@@ -35,7 +35,7 @@ bigserial | serial8	    @db.BigInt @default(autoincrement()) // 8바이트
 
 > default = double precision
 
-```
+```prisma
 double precision	@db.DoublePrecision // 8바이트
 real	            @db.Real // 4바이트
 ```
@@ -44,7 +44,7 @@ real	            @db.Real // 4바이트
 
 > default = decimal(65,30)
 
-```
+```prisma
 decimal | numeric	@db.Decimal(p, s)† // 4바이트
 money	            @db.Money // 8바이트
 ```
@@ -59,7 +59,7 @@ money	            @db.Money // 8바이트
 > > >
 > > > > text와 varchar는 동일하지만 text는 길이 제한이 없다.
 
-```
+```prisma
 bit(x)	    @db.Bit(x)
 char(x)	    @db.Char(x)
 varbit	    @db.VarBit
@@ -75,7 +75,7 @@ uuid	    @db.Uuid
 
 > default = boolean
 
-```
+```prisma
 boolean	@db.Boolean
 ```
 
@@ -83,7 +83,7 @@ boolean	@db.Boolean
 
 > default = timestamp(3)
 
-```
+```prisma
 timestamp(x)	@db.Timestamp(x)
 timestamptz(x)	@db.Timestamptz(x)
 date	        @db.Date
@@ -95,7 +95,7 @@ timetz(x)	    @db.Timetz(x)
 
 > default = jsonb
 
-```
+```prisma
 json	@db.Json
 jsonb	@db.JsonB
 ```
