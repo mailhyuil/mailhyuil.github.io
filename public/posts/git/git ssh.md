@@ -2,7 +2,7 @@
 
 ## rsa public key 생성
 
-```
+```sh
 ssh-keygen -t rsa
 ```
 
