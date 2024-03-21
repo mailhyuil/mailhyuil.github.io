@@ -4,7 +4,7 @@
 
 ## submodule add
 
-```
+```sh
 git submodule add <submodule-url>
 ```
 
@@ -12,7 +12,7 @@ git submodule add <submodule-url>
 
 > .gitmodules 파일에 아래 내용이 추가된다.
 
-```
+```sh
 [submodule "sample-submodule"]
     path = sample-submodule
     url = https://github.com/user-id/sample-submodule
@@ -24,7 +24,7 @@ git submodule add <submodule-url>
 >
 > > 그래서 두가지 명령어를 사용해주어야 한다.
 
-```
+```sh
 # 서브모듈 정보를 기반으로 로컬 환경설정 파일을 만들어준다.
 git submodule init
 
@@ -34,7 +34,7 @@ git submodule update
 
 ## submodule remove
 
-```
+```sh
 git submodule deinit <your_submodule>
 git rm <your_submodule>
 git commit-m "Removed submodule"
@@ -43,6 +43,6 @@ rm -rf .git/modules/<your_submodule>
 
 ## submodule 명령어 한 번에 실행하기
 
-```
+```sh
 git submodule foreach 'git pull'
 ```
