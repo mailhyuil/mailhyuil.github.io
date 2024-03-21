@@ -1,4 +1,10 @@
-# python start
+# python basic
+
+## install
+
+```sh
+
+```
 
 ## anaconda
 
