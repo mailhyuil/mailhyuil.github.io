@@ -22,19 +22,21 @@ export class ErrorMessageComponent {
 ## html
 
 ```html
-@if(control?.errors && control?.touched){
-<!--  -->
-@for(error of control?.errors | keyvalue; track $index){
-<!--  -->
-@if(error.key === 'required'){
-<p class="text-red-600 font-bold text-xs">{{ name }}을(를) 입력해주세요.</p>
-} @else{
-<p class="text-red-600 font-bold text-xs">{{ error.value }}</p>
-}
-<!--  -->
-}
-<!--  -->
-}
+<div class="mt-2">
+  @if(control?.errors && control?.touched){
+  <!--  -->
+  @for(error of control?.errors | keyvalue; track $index){
+  <!--  -->
+  @if(error.key === 'required'){
+  <p class="text-xs font-bold text-red-600"> {{ name || '값' }}을(를) 입력해주세요. </p>
+  } @else{
+  <p class="text-xs font-bold text-red-600">{{ error.value }}</p>
+  }
+  <!--  -->
+  }
+  <!--  -->
+  }
+</div>
 ```
 
 ## 사용

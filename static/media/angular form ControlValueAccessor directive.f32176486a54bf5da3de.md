@@ -64,22 +64,33 @@ export class ValueAccessorDirective<T> implements ControlValueAccessor, OnDestro
 
 ```ts
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, OnInit, inject } from "@angular/core";
 import { ValueAccessorDirective } from "../../directives/value-accessor.directive";
-import { FileService } from "../../services/file.service";
+import { AbstractControl, FormsModule, NgControl } from "@angular/forms";
 
 @Component({
   selector: "app-some",
   templateUrl: "./some.component.html",
   styleUrls: ["./some.component.scss"],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ErrorMessageComponent],
   hostDirectives: [ValueAccessorDirective],
 })
 export default class SomeComponent {
   value?: string;
+
+  ngControl = inject(NgControl, {
+    optional: true,
+    self: true,
+  });
+  control?: AbstractControl;
+
   constructor(public valueAccessor: ValueAccessorDirective<string>) {
     valueAccessor.value.subscribe((v) => (this.value = v));
+  }
+
+  ngOnInit(): void {
+    this.control = this.ngControl?.control || undefined;
   }
 
   setValue(event: any) {
@@ -89,4 +100,11 @@ export default class SomeComponent {
     this.valueAccessor.valueChange(this.value);
   }
 }
+```
+
+## component.html
+
+```ts
+<input [ngModel]="value" (ngModelChange)="setValue($event)"/>
+<app-error-message [control]="control" [name]="label"></app-error-message>
 ```
