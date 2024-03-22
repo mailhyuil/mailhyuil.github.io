@@ -9,6 +9,10 @@ server {
     listen 80;
     root /usr/share/nginx/html;
 
+    location = / {
+        try_files $uri @universal;
+    }
+
     location / {
         index index.html index.htm;
         try_files $uri @universal;
