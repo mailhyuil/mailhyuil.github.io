@@ -6,6 +6,8 @@
 > >
 > > > pandas.DataFrame은 2차원 데이터를 다루는데 효과적
 
-```py
-import pandas as pd
+## install
+
+```sh
+pip install pandas
 ```

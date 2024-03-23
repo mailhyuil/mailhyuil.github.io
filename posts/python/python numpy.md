@@ -2,8 +2,10 @@
 
 > 과학적 계산을 빠르게 해주는 라이브러리
 
-```py
-import numpy as np
+## install
+
+```sh
+pip install numpy
 ```
 
 ## ndarray

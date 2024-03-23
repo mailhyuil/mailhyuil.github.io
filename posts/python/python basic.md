@@ -1,9 +1,20 @@
 # python basic
 
+> 멀티 스레드 언어
+>
+> > 인터프리터 언어
+
 ## install
 
 ```sh
+# 홈페이지에서 설치
+https://www.python.org/downloads/
 
+# apt로 설치
+sudo apt install python3
+
+# 버전 확인
+py --version
 ```
 
 ## anaconda
