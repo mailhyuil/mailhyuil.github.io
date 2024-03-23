@@ -1,6 +1,11 @@
 # git pull
 
-> git pull은 fetch와 merge를 한번에 실행하는 것과 같습니다.
+> git pull은 git fetch + git merge FETCH_HEAD를 한번에 실행하는 것과 같습니다.
+
+```sh
+git fetch
+git merge FETCH_HEAD
+```
 
 ## fetch
 
