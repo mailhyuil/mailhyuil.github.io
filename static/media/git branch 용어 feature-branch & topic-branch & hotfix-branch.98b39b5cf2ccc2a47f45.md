@@ -1,4 +1,12 @@
-# git hotfix branch
+# git branch 용어
+
+## feature-branch & topic-branch
+
+> 둘 다 같은 용어
+>
+> > 특정한 기능을 개발하기 위한 브랜치
+
+# hotfix-branch
 
 > 배포한 버전에 긴급하게 수정을 해야 할 필요가 있을 때 사용하는 브랜치
 >
