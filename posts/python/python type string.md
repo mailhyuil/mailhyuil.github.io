@@ -16,5 +16,5 @@ str.split()
 str.join()
 str.upper()
 str.lower()
-str.fotmat()
+str.format()
 ```
