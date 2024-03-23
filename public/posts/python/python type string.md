@@ -3,16 +3,18 @@
 > string은 immutable
 
 ```py
-len()
-startswith()
-endswith()
-find()
-count()
-strip()
-replace()
-split()
-join()
-upper()
-lower()
-fotmat()
+str = "hello"
+
+str.len()
+str.startswith()
+str.endswith()
+str.find()
+str.count()
+str.strip()
+str.replace()
+str.split()
+str.join()
+str.upper()
+str.lower()
+str.fotmat()
 ```
