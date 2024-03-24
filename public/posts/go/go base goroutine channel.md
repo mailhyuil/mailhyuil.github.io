@@ -11,9 +11,12 @@
 ```go
 // channel 생성
 ch := make(chan bool)
-// 함수에서 channel로 값을 전달
+// send only channel 생성
+ch := make(chan<- bool)
+
+// 함수에서 channel로 값을 전달 (send)
 ch <- true
-// main에서 channel로 값을 받아 처리
+// main에서 channel로 값을 받아 처리 (receive)
 <-ch
 ```
 
@@ -42,7 +45,7 @@ func main(){
 	}
 }
 
-func isHot(person string, ch chan string){
+func isHot(person string, ch chan<- string){
     time.Sleep(2 * time.Second)
     ch <- person + " is hot"
 }
