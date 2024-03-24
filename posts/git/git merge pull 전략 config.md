@@ -7,6 +7,4 @@
 ```sh
 # --ff-only 옵션을 기본으로 사용하도록 설정
 git config --global pull.ff only
-# --rebase 옵션을 기본으로 사용하도록 설정
-git config --global pull.rebase true
 ```

@@ -7,7 +7,11 @@
 > > > rebase는 이력은 단순해지지만, 원래의 커밋 이력이 변경됨. 정확한 이력을 남겨야 할 필요가 있을 경우에는 사용하면 안됨.
 
 ```sh
-1. develop 에서 push
-2. main에서 merge
-3. merge 후 push
+git rebase main # origin을 사용할 필요없음
+```
+
+## rebase 에러 시
+
+```sh
+git rebase --abort
 ```
