@@ -1,11 +1,17 @@
-# go type
+# go base type
+
+> custom type을 정의할 수 있다.
 
 ```go
-string
-bool
-byte === uint8
-int int8 int16 int32 int64
-uint uint8 uint16 uint32 uint64 uintptr
-float32 float64
-complex64 complex128
+type Dictionary map[string]string
+
+type Money int
+
+func main(){
+   	dictionary := Dictionary{"first": "1st", "second": "2nd"}
+
+	dictionary["third"] = "3rd"
+
+	fmt.Println(dictionary)
+}
 ```
