@@ -44,10 +44,6 @@ npm i @nestjs/throttler
 npm i @nestjs/cache-manager
 npm i cache-manager
 
-# web cache
-npm i etag
-npm i -D @types/etag
-
 ################ 선택적 패키지 #####################
 
 # prisma
