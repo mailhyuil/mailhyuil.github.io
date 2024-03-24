@@ -9,9 +9,3 @@
 ```sh
 git rebase main # origin을 사용할 필요없음
 ```
-
-## rebase 에러 시
-
-```sh
-git rebase --abort
-```
