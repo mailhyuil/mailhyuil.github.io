@@ -9,19 +9,23 @@
 ## for range 문
 
 ```go
-numbers := []int{1, 2, 3, 4, 5}
-total := 0
-for index, number := range numbers {
-  total += number
+for index, users := range users {
+  fmt.Println(index, users)
 }
-fmt.Println(total) // 15
 
-// 함수로 사용
-func addAll(numbers ...int) (total int){
-    for _, number := range numbers {
-        total += number
-    }
-    return
+// index 생략
+for _, users := range users {
+  fmt.Println(index, users)
+}
+
+// value 생략
+for index := range users {
+  fmt.Println(index, users)
+}
+
+// 전부 생략
+for range users {
+  fmt.Println(index, users)
 }
 ```
 
@@ -30,5 +34,16 @@ func addAll(numbers ...int) (total int){
 ```go
 for i := 0; i < 5; i++ {
   fmt.Println(i)
+}
+```
+
+## 함수로 사용
+
+```go
+func addAll(numbers ...int) (total int){
+    for _, number := range numbers {
+        total += number
+    }
+    return
 }
 ```
