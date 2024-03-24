@@ -1,13 +1,46 @@
 # go package
 
-> export할 함수나 변수의 앞글자를 대문자로 시작하면 된다.
+> go mod init 후 진행
+>
+> > export할 함수나 변수의 앞글자를 대문자로 시작하면 된다.
 
-## custom/custom.go
+## packages/user.go
 
 ```go
-package custom
+package user
 
-func HelloWorld() {
-    fmt.Println("Hello World")
+import "fmt"
+
+type user struct {
+	name string
+	age  int
+}
+
+func NewUser(name string, age int) *user {
+	return &user{
+		name,
+		age,
+	}
+}
+
+func (user user) PrintInfo() {
+	fmt.Println(user.name, user.age)
+}
+```
+
+## 사용
+
+```go
+package main
+
+import (
+	"fmt"
+
+	user "test.com/packages"
+)
+
+func main() {
+	sb := user.NewUser("sb", 25)
+	fmt.Println(sb)
 }
 ```

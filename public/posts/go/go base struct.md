@@ -3,6 +3,8 @@
 > go에는 object, class가 없다. 대신 struct를 사용한다.
 >
 > > go는 constructor가 없다. 대신 struct를 생성하는 함수를 만들어 사용한다.
+> >
+> > > > 함수는 struct 내부가 아닌 외부에서 receiver로 사용한다.
 
 ```go
 package main
@@ -36,5 +38,18 @@ func main(){
   }
   fmt.Println(hyuil.name)
   fmt.Println(hyuil.age)
+}
+```
+
+## receiver
+
+```go
+type user struct {
+    name string
+    age  int
+}
+
+func (u user) PrintInfo() {
+    fmt.Println(u.name, u.age)
 }
 ```

@@ -35,3 +35,18 @@ func test(){
     fmt.Println("hello")
 }
 ```
+
+## receiver
+
+> 리시버의 변수명은 보통 첫 글자를 따서 사용한다.
+
+```go
+type user struct {
+    name string
+    age  int
+}
+
+func (u user) PrintInfo() {
+    fmt.Println(u.name, u.age)
+}
+```
