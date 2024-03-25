@@ -25,5 +25,5 @@ git pull
 ## merge --squash 방식
 
 ```sh
-
+git merge --squash [브랜치명]
 ```
