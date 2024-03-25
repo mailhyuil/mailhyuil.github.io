@@ -6,6 +6,8 @@
 > >
 > > > git squash는 여러 개의 커밋을 하나의 커밋으로 합치는 방법
 
+## rebase -i 방식
+
 ```sh
 # interactive 모드로 rebase
 git rebase -i HEAD~[커밋 개수]
@@ -17,5 +19,11 @@ pick f6aba9f chore:update to golang
 # :wq로 저장하면 새로운 창이 뜨면서 커밋 메시지를 수정할 수 있다.
 # first commit 메세지를 변경
 
-git push origin [브랜치명] -f
+git pull
+```
+
+## merge --squash 방식
+
+```sh
+
 ```
