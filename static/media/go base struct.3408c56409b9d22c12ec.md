@@ -7,35 +7,34 @@
 > > > > 함수는 struct 내부가 아닌 외부에서 receiver로 사용한다.
 
 ```go
-package main
+package user
 
-import "fmt"
-
-type user struct {
+type User struct {
   name string
   age int
-  posts []post
 }
 
 // 생성자 대신 함수를 만들어 사용
-func NewUser(name string, age int) *user {
-  u := user {
+func New(name string, age int) *User {
+  u := User {
     name: name,
     age: age,
   }
   return &u
 }
+```
 
-type post struct {
-  title string
-  content string
-}
+```go
+package main
+
+import (
+  "fmt"
+  "user"
+  )
 
 func main(){
-  hyuil := user {
-    name: "hyuil",
-    age: 25,
-  }
+  hyuil := user.New("hyuil", 27)
+
   fmt.Println(hyuil.name)
   fmt.Println(hyuil.age)
 }
