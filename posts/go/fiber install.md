@@ -1,0 +1,29 @@
+# fiber install
+
+## install
+
+```sh
+go get github.com/gofiber/fiber/v2
+```
+
+## 사용
+
+```go
+package main
+
+import (
+	"log"
+
+	"github.com/gofiber/fiber"
+)
+
+func main() {
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) {
+		c.Send("Hello, World!")
+	})
+
+	log.Fatal(app.Listen(3000))
+}
+```
