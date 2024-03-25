@@ -5,6 +5,8 @@
 > > 작업 중에는 자주 커밋하고, PR 전에는 squash로 커밋을 정리해야한다.
 > >
 > > > git squash는 여러 개의 커밋을 하나의 커밋으로 합치는 방법
+> > >
+> > > > feature branch에서 develop branch로 merge할 때 사용한다.
 
 ## rebase -i 방식
 
