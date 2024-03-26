@@ -15,11 +15,19 @@
 > font-familysms 대문자, 소문자를 구별하지 않는다.
 
 ```js
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Pretendard Variable'],
-      },
+theme: {
+  extend: {
+    fontFamily: {
+      sans: ['Pretendard Variable'],
     },
   },
+},
+```
+
+## font.scss
+
+```css
+* {
+  font-family: "Pretendard Variable";
+}
 ```
