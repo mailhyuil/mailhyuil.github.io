@@ -16,8 +16,9 @@ export function jsonToFormData(jsonObject: any, parentKey?: any, carryFormData?:
         if (parentKey && isArray(jsonObject)) {
           propName = parentKey + "[" + index + "]";
         }
-
-        if (jsonObject[key] instanceof File) {
+        if (jsonObject[key] instanceof Date) {
+          formData.append(propName, jsonObject[key].toISOString());
+        } else if (jsonObject[key] instanceof File) {
           formData.append(propName, jsonObject[key]);
         } else if (jsonObject[key][0] instanceof File && isArray(jsonObject[key])) {
           for (let j = 0; j < jsonObject[key].length; j++) {
@@ -26,7 +27,7 @@ export function jsonToFormData(jsonObject: any, parentKey?: any, carryFormData?:
         } else if (isArray(jsonObject[key]) || isObject(jsonObject[key])) {
           jsonToFormData(jsonObject[key], propName, formData);
         } else if (typeof jsonObject[key] === "boolean") {
-          formData.append(propName, +jsonObject[key] ? "true" : "false");
+          formData.append(propName, jsonObject[key]);
         } else {
           formData.append(propName, jsonObject[key]);
         }

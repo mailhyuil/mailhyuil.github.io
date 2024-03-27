@@ -57,12 +57,16 @@ export class ImageResizePipe implements PipeTransform<Express.Multer.File, Promi
   }
 }
 
-export interface Image {
-  fileName: string;
-  fileSize: number;
+export type Image = {
+  id: number;
+  name: string;
+  size: number;
   type: string;
-  fieldId: string;
-}
+  originalUrl: string;
+  smallUrl: string;
+  mediumUrl: string;
+  largeUrl: string;
+};
 ```
 
 ## controller

@@ -11,6 +11,8 @@ export type Contact = FormGroup<{
 
 ## ts
 
+> patch시에는 setControl을 사용해야한다.
+
 ```ts
 @Component({
   standalone: true,
@@ -21,10 +23,24 @@ export type Contact = FormGroup<{
 })
 export class AppComponent {
   fb = inject(FormBuilder);
+  http = inject(HttpClient);
   form = this.fb.nonNullable.group({
     name: ["", Validators.required],
     contacts: this.fb.array<Contact>([], Validators.required),
   });
+
+  ngOnInit() {
+    this.http.get().subscribe((data) => {
+      const contacts = data.contacts.map((contact) =>
+        this.fb.group({
+          platform: contact.platform,
+          id: contact.id,
+        })
+      );
+
+      this.form.controls.contacts.setControl(contacts);
+    });
+  }
 
   add() {
     this.form.controls.contacts.push(
