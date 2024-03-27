@@ -16,7 +16,7 @@ function _OnSafeEvent() {
     const originalMethod = descriptor.value;
 
     const metaKeys = Reflect.getOwnMetadataKeys(descriptor.value);
-    const metas = metaKeys.map((key) => [key, Reflect.getMetadata(key, descriptor.value)]);
+    const metadata = metaKeys.map((key) => [key, Reflect.getMetadata(key, descriptor.value)]);
 
     descriptor.value = async function (...args: any[]) {
       try {
@@ -25,7 +25,8 @@ function _OnSafeEvent() {
         Logger.error(err, err.stack, "OnSafeEvent");
       }
     };
-    metas.forEach(([k, v]) => Reflect.defineMetadata(k, v, descriptor.value));
+
+    metadata.forEach(([k, v]) => Reflect.defineMetadata(k, v, descriptor.value));
   };
 }
 
