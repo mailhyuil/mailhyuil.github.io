@@ -66,6 +66,8 @@ export class InputContactComponent {
 
 ### app.component.ts
 
+> patch시에는 setControl을 사용해야한다.
+
 ```ts
 @Component({
   standalone: true,
@@ -76,10 +78,25 @@ export class InputContactComponent {
 })
 export class AppComponent {
   fb = inject(FormBuilder);
+  http = inject(HttpClient);
   form = this.fb.nonNullable.group<User>({
     name: "",
     contacts: this.fb.array<Contact>([]),
   });
+
+  ngOnInit() {
+    this.http.get().subscribe((data) => {
+      const contacts = data.contacts.map((contact) =>
+        this.fb.group({
+          platform: contact.platform,
+          id: contact.id,
+        })
+      );
+
+      this.form.controls.contacts.setControl(contacts);
+    });
+  }
+
   submit() {
     console.log(this.form.value);
   }
