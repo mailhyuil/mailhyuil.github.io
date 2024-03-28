@@ -8,9 +8,10 @@ import { CreateFileDTO } from "../app/file/file.dto";
 import { FileService } from "../app/file/file.service";
 
 @Injectable()
-export class FileUploadPipe implements PipeTransform<Express.Multer.File, Promise<CreateFileDTO | CreateFileDTO[]>> {
+export class FileUploadPipe implements PipeTransform<Express.Multer.File, Promise<CreateFileDTO | CreateFileDTO[] | undefined>> {
   constructor(private readonly fileService: FileService) {}
-  async transform(fileOrFiles: Express.Multer.File | Express.Multer.File[]): Promise<CreateFileDTO | CreateFileDTO[]> {
+  async transform(fileOrFiles: Express.Multer.File | Express.Multer.File[]): Promise<CreateFileDTO | CreateFileDTO[] | undefined> {
+    if (!fileOrFiles) return undefined;
     if (fileOrFiles instanceof Array) {
       const fileInfos = await Promise.all(
         fileOrFiles.map(async (f) => {
