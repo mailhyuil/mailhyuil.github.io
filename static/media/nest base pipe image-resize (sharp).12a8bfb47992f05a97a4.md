@@ -30,6 +30,7 @@ npm i -D @types/sharp
 ```ts
 import { Injectable, PipeTransform } from "@nestjs/common";
 import sharp from "sharp";
+import path from "path";
 
 @Injectable()
 export class ImageResizePipe implements PipeTransform<Express.Multer.File, Promise<Express.Multer.File[]>> {
@@ -44,10 +45,11 @@ export class ImageResizePipe implements PipeTransform<Express.Multer.File, Promi
 
   async resizeAndConvert(image: Express.Multer.File, width: number, fileNameSuffix: string) {
     const resizedImageBuffer = await sharp(image.buffer).resize(width).webp({ effort: 3 }).toBuffer();
+    const originalName = path.parse(image.originalname).name;
     return {
       ...image,
       buffer: resizedImageBuffer,
-      originalname: `${image.originalname}_${fileNameSuffix}.webp`,
+      originalname: `${originalName}_${fileNameSuffix}.webp`,
     };
   }
 }
