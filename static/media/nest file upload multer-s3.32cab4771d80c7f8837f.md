@@ -6,7 +6,7 @@
 npm i multer-s3
 ```
 
-## multion-option.factory.ts
+## multer-option.factory.ts
 
 ```ts
 export const multerOptionsFactory = (configService: ConfigService): MulterOptions => {
@@ -21,9 +21,9 @@ export const multerOptionsFactory = (configService: ConfigService): MulterOption
   return {
     storage: multerS3({
       s3,
-      bucket: configService.get("AWS_S3_BUCKET_NAME"),
-      contentType: multerS3.AUTO_CONTENT_TYPE,
       acl: "public-read",
+      contentType: multerS3.AUTO_CONTENT_TYPE,
+      bucket: configService.get("AWS_S3_BUCKET_NAME"),
       key(_req, file, done) {
         const ext = path.extname(file.originalname);
         const basename = path.basename(file.originalname, ext);
@@ -35,44 +35,34 @@ export const multerOptionsFactory = (configService: ConfigService): MulterOption
 };
 ```
 
-## module
+## file.module.ts
 
 ```ts
 @Module({
   imports: [
-    EnvironmentModule,
-    AuthModule,
     MulterModule.registerAsync({
       imports: [ConfigModule],
-      useFactory: multerOptionsFactory,
       inject: [ConfigService],
+      useFactory: multerOptionsFactory,
     }),
   ],
-  controllers: [UploadController],
-  providers: [UploadService],
+  controllers: [FileController],
+  providers: [FileService],
 })
-export class UploadModule {}
+export class FileModule {}
 ```
 
-## controller
+## file.controller.ts
 
 ```ts
-@Post()
-@UseInterceptors(FileInterceptor('file'))
-uploadFile(
-  @UploadedFile() file: Express.MulterS3.File // 여기서 S3에 업로드됨 // 인메모리가 아닌 S3 설정
-): Promise<string> {
-  return this.uploadService.uploadFile(file);
-}
-```
+@Controller("file")
+export class FileController {
+  constructor(private readonly fileService: FileService) {}
 
-## service
-
-```ts
-async uploadFile(file: Express.MulterS3.File) {
-    if (!file) {
-        throw new BadRequestException('파일이 존재하지 않습니다.');
-    }
-    return file.location;
+  @Post()
+  @UseInterceptors(FileInterceptor("file")) // 여기서 S3에 업로드됨 // 인메모리가 아닌 S3 설정
+  upload(@UploadedFile() file: Express.MulterS3.File): Promise<string> {
+    return this.fileService.upload(file);
+  }
 }
 ```
