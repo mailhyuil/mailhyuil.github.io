@@ -8,12 +8,6 @@ import { REQUEST } from "@nestjs/core";
 import { Request } from "express";
 import { FileDiffResult, FileService } from "../app/file/file.service";
 import { PrismaService } from "../prisma/prisma.service";
-
-export type FileDiffResult = {
-  added: CreateFileDTO[];
-  removedIds: string[];
-};
-
 export const FileDiffPipeFn = ({ field }: { field: string }) => {
   @Injectable()
   class FileDiffPipe implements PipeTransform<Express.Multer.File[], Promise<FileDiffResult>> {
@@ -24,6 +18,9 @@ export const FileDiffPipeFn = ({ field }: { field: string }) => {
     ) {}
 
     async transform(fileOrFiles: Express.Multer.File | Express.Multer.File[], metadata: ArgumentMetadata): Promise<FileDiffResult> {
+      if (!this.request.params.id) return;
+      if (!fileOrFiles) return;
+
       const files = await this.prisma.file.findMany({
         where: {
           [field]: this.request.params.id,
@@ -31,8 +28,8 @@ export const FileDiffPipeFn = ({ field }: { field: string }) => {
       });
 
       let res: FileDiffResult;
-
       if (fileOrFiles instanceof Array) {
+        if (!fileOrFiles.length) return;
         res = await this.fileService.diff({
           newMulterFiles: fileOrFiles,
           oldFileDTOs: files,
@@ -43,7 +40,6 @@ export const FileDiffPipeFn = ({ field }: { field: string }) => {
           oldFileDTOs: files,
         });
       }
-
       return res;
     }
   }
