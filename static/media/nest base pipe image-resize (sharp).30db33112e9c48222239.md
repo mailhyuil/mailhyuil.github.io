@@ -25,35 +25,30 @@ npm i -D @types/sharp
 })
 ```
 
-## pipe
+## image-resize.pipe.ts
 
 ```ts
 import { Injectable, PipeTransform } from "@nestjs/common";
 import sharp from "sharp";
 
 @Injectable()
-export class ImageResizePipe implements PipeTransform<Express.Multer.File, Promise<Image[]>> {
-  async transform(image: Express.Multer.File): Promise<Image[]> {
-    const images: Image[] = [];
+export class ImageResizePipe implements PipeTransform<Express.Multer.File, Promise<Express.Multer.File[]>> {
+  async transform(image: Express.Multer.File): Promise<Express.Multer.File[]> {
+    if (!image) return null;
+    if (!image.mimetype.includes("image")) return null;
+    const large = await this.resizeAndConvert(image, 1200, "large");
+    const medium = await this.resizeAndConvert(image, 800, "medium");
+    const small = await this.resizeAndConvert(image, 400, "small");
+    return [image, large, medium, small];
+  }
 
-    const resizeAndConvert = async (width: number, fileNameSuffix: string) => {
-      const resizedImage = await sharp(image.buffer).resize(width).webp({ effort: 3 }).toBuffer();
-
-      const fileInfo: Image = {
-        fileName: `${image.originalname}_${fileNameSuffix}`,
-        fileSize: resizedImage.length,
-        type: image.mimetype,
-        fieldId: image.fieldname,
-      };
-
-      images.push(fileInfo);
+  async resizeAndConvert(image: Express.Multer.File, width: number, fileNameSuffix: string) {
+    const resizedImageBuffer = await sharp(image.buffer).resize(width).webp({ effort: 3 }).toBuffer();
+    return {
+      ...image,
+      buffer: resizedImageBuffer,
+      originalname: `${image.originalname}_${fileNameSuffix}.webp`,
     };
-
-    await resizeAndConvert(1200, "large");
-    await resizeAndConvert(800, "medium");
-    await resizeAndConvert(400, "small");
-
-    return images;
   }
 }
 

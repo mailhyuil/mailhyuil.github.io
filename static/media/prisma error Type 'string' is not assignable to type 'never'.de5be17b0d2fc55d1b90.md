@@ -3,7 +3,7 @@
 ## error
 
 ```ts
-/// error
+/// error Type 'string' is not assignable to type 'never'
 const created = await this.prisma.some.create({
   data: {
     ...data,
