@@ -14,39 +14,10 @@
 npm i -D @types/multer
 ```
 
-## client
-
-> client에서 FormData(multipart/form-data) 객체에 file을 넣고 body에 담아 POST
-
-```js
-import { useFileDialog } from "@vueuse/core";
-
-const { files, open, reset } = useFileDialog();
-
-const submit = async () => {
-  const data = new FormData();
-
-  if (files.value) {
-    data.append("file", files.value[0]);
-
-    await useFetch("http://localhost:4200/upload", {
-      method: "POST",
-      body: data,
-    });
-  }
-};
-```
-
-## server UseInterceptors
-
-> server(nest)에서 FileInterceptor를 사용해 file 받기
->
-> > multerOptions를 사용해 file을 어떻게 처리할 지 지정 (e.g. disk에 저장, s3에 저장 ... filtering)
-
-### options
+## file.module.ts
 
 ```ts
-export const diskStorageOptions: MulterOptions = {
+const diskStorageOptions: MulterOptions = {
   storage: diskStorage({
     destination: (request, file, callback) => {
       const uploadPath: string = "public";
@@ -63,12 +34,22 @@ export const diskStorageOptions: MulterOptions = {
     },
   }),
 };
-export const memoryStorageOptions: MulterOption = {
+
+const memoryStorageOptions: MulterOption = {
   storage: memoryStorage(),
 };
+
+@Global()
+@Module({
+  // sharp에서 Buffer를 사용하려면 반드시 memoryStorage를 사용해야 한다.
+  imports: [MulterModule.register(memoryStorageOptions)],
+  controllers: [FileController],
+  providers: [FileService],
+})
+export class FileModule {}
 ```
 
-### controller
+### file.controller.ts
 
 > FileInterceptor와 FilesInterceptor를 구별해라
 >
