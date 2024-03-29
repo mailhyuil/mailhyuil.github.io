@@ -66,7 +66,9 @@ export class InputContactComponent {
 
 ### app.component.ts
 
-> patch시에는 setControl을 사용해야한다.
+> patchValue나 setValue는 formArray에서 작동하지 않는다
+>
+> > for 문을 이용해서 push 해라
 
 ```ts
 @Component({
@@ -86,14 +88,14 @@ export class AppComponent {
 
   ngOnInit() {
     this.http.get().subscribe((data) => {
-      const contacts = data.contacts.map((contact) =>
-        this.fb.group({
-          platform: contact.platform,
-          id: contact.id,
-        })
+      data.contacts.forEach((contact) =>
+        this.form.controls.contacts.push(
+          this.fb.group({
+            platform: contact.platform,
+            id: contact.id,
+          })
+        );
       );
-
-      this.form.controls.contacts.setControl(contacts);
     });
   }
 

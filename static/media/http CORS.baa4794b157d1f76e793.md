@@ -1,8 +1,10 @@
 # http CORS (Cross-Origin Resource Sharing) 교차 출처 리소스 공유
 
-> javascript의 ajax api는 cors가 기본 설정
+> CORS 발생시 서버에 리퀘스트가 오는지를 먼저 확인해라 요청이 도착하지않는다면 CORS 문제가 아닐 수 있다.
 >
-> > 반면 클라이언트의 코드 레벨이 아닌 하부 시스템에 의해 네트워크 요청이 만들어지는 경우(link, script, img, audio 등…)는 no-cors이 기본 설정
+> > javascript의 ajax api는 cors가 기본 설정
+> >
+> > > 반면 클라이언트의 코드 레벨이 아닌 하부 시스템에 의해 네트워크 요청이 만들어지는 경우(link, script, img, audio 등…)는 no-cors이 기본 설정
 
 ## 브라우저의 동작
 
