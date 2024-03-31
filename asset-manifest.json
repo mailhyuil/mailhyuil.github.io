@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.f0cd5a73.css",
-    "main.js": "/static/js/main.8b923834.js",
+    "main.js": "/static/js/main.393d1237.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.72e9303eb54f93926fd8.md",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
@@ -1824,6 +1824,7 @@
     "static/media/typescript type trick.md": "/static/media/typescript type trick.c7a3d8d35ad2ba5ae0fb.md",
     "static/media/x 장바구니.md": "/static/media/x 장바구니.6c2d592d65e7cb6a2c6f.md",
     "static/media/bastion host & openVPN.md": "/static/media/bastion host & openVPN.bebbb30761fdc0a264c9.md",
+    "static/media/encoding & transcoding.md": "/static/media/encoding & transcoding.fb2d208567babce5481b.md",
     "static/media/vueuse useFileDialog.md": "/static/media/vueuse useFileDialog.747c585b51da8188e760.md",
     "static/media/python pip 패키지 관리자.md": "/static/media/python pip 패키지 관리자.f4388a62300e7c242a66.md",
     "static/media/testing jest timer.md": "/static/media/testing jest timer.eb520d322e214c61af46.md",
@@ -3288,10 +3289,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.f0cd5a73.css.map": "/static/css/main.f0cd5a73.css.map",
-    "main.8b923834.js.map": "/static/js/main.8b923834.js.map"
+    "main.393d1237.js.map": "/static/js/main.393d1237.js.map"
   },
   "entrypoints": [
     "static/css/main.f0cd5a73.css",
-    "static/js/main.8b923834.js"
+    "static/js/main.393d1237.js"
   ]
 }
