@@ -10,6 +10,6 @@
 > > > >
 > > > > > 데이터를 보내는 시점에 길이를 알 수 없다면 Transfer-Encoding: chunked를 사용한다.
 
-```
+```sh
 Content-Length: 1234
 ```

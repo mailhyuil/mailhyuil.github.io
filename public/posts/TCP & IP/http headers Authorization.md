@@ -12,7 +12,7 @@
 > > >
 > > > > Base64로 인코딩한 정보는 쉽게 디코딩이 가능해서 Basic 인증은 반드시 HTTPS/TLS와 함께 사용해야 합니다.
 
-```
+```sh
 Authorization: Basic <BASE64_USERNAME>:<BASE64_PASSWORD>
 ```
 
@@ -22,6 +22,6 @@ Authorization: Basic <BASE64_USERNAME>:<BASE64_PASSWORD>
 >
 > > OAuth 2.0 프레임워크 또는 JWT에서 사용하는 토큰 인증 방식
 
-```
+```sh
 Authorization: Bearer <credentials>
 ```

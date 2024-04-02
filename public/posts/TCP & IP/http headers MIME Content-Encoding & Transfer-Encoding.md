@@ -10,7 +10,7 @@
 > >
 > > > 종단 간 적용 (서버에서 인코딩하고 클라이언트에서 디코딩한다.)
 
-```
+```sh
 Content-Encoding: gzip
 ```
 
@@ -26,6 +26,6 @@ Content-Encoding: gzip
 > > > >
 > > > > > 홉 간 적용 (서버에서 인코딩하고 프록시에서 디코딩한다.) (홉 간에 여러 다른 인코딩을 적용할 수 있다.)
 
-```
+```sh
 Transfer-Encoding: chunked
 ```

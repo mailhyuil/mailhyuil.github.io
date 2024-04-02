@@ -16,8 +16,8 @@
 
 ### html form tag에서 PUT, PATCH, DELETE 사용하기
 
-```
+```html
 <form action="/hi" method="POST">
-    <input type="hidden" name="_method" value="PUT"/>
+  <input type="hidden" name="_method" value="PUT" />
 </form>
 ```
