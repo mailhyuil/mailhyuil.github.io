@@ -2,8 +2,9 @@
 
 ## install
 
-```
-npm i --save @nestjs/axios axios
+```sh
+npm i axios
+npm i @nestjs/axios
 ```
 
 ## Module import
