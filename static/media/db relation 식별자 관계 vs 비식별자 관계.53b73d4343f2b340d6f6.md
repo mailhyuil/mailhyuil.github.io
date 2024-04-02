@@ -21,6 +21,7 @@ model Order {
     orderNumber String      @unique
     productOrder ProductOrder[]
 }
+
 /// 식별자 관계
 model ProductOrder {
     productId   Int
