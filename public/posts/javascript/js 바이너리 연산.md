@@ -1,14 +1,19 @@
 # js 버퍼 바이너리 연산
 
-```
-readInt8(), writeUInt16BE()
-slice(), copy(), fill()
-compare()
-alloc(), from()
-& AND
-| OR
-^ XOR
-~ NOT
-<< SHIFT
->> SHIFT
+```js
+readInt8();
+writeUInt16BE();
+slice();
+copy();
+fill();
+compare();
+alloc();
+from();
+
+& // AND
+| // OR
+^ // XOR
+~ // NOT
+<< // SHIFT
+>> // SHIFT
 ```
