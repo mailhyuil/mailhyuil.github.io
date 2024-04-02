@@ -10,7 +10,7 @@
 
 > 헤더 + 데이터(페이로드)로 이루어져 있다.
 
-```
+```sh
 ========= header ============
 Source port: 16 bits
 Destination port: 16 bits

@@ -11,7 +11,7 @@
 > 함수명을 쓰지 말아라
 > 필터를 위해 쿼리 파라미터를 사용해라.
 
-```
+```sh
 users/:userId
 users/:userId/posts
 users/search
@@ -24,7 +24,7 @@ users/search
 > > 메타데이터는 headers에 담아라 (request에 include=metadata를 추가해라)
 > > pagination header, link header
 
-```
+```sh
 Link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="prev",
 <https://api.github.com/repositories/1300192/issues?page=4>; rel="next",
 <https://api.github.com/repositories/1300192/issues?page=515>; rel="last",

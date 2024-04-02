@@ -4,7 +4,7 @@
 
 > 헤더 + 데이터(페이로드)
 
-```
+```sh
 ========= header ============
 version: 4 bits
 header length: 4 bits

@@ -14,7 +14,7 @@
 
 ## 요청
 
-```
+```sh
 Range: bytes=0-1234
 
 # 파일을 전부 요청
@@ -23,7 +23,7 @@ Range: bytes=0-
 
 ## 응답
 
-```
+```sh
 Content-Range: bytes 0-1234/12345
 Content-Length: 1235
 ```

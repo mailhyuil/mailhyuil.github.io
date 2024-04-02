@@ -16,7 +16,7 @@
 
 ## 일반 http 응답
 
-```
+```sh
 HTTP/1.1 200 OK
 Content-Type: text/plain
 Content-Length: 19
@@ -26,7 +26,7 @@ Hello World from TCP
 
 ## chunked http 응답
 
-```
+```sh
 HTTP/1.1 200 OK
 Content-Type: text/plain
 Transfer-Encoding: chunked

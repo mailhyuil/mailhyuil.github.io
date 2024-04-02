@@ -8,7 +8,7 @@
 > > >
 > > > > 명시적으로 close를 보내서 연결을 바로 끊을 수 있다.
 
-```
+```sh
 Connection: keep-alive
 Keep-Alive: timeout=5
 

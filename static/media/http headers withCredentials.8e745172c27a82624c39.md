@@ -20,7 +20,7 @@
 
 > 아래의 조건을 만족하지 않으면 CORS 에러가 발생한다.
 
-```
+```sh
 client : withCredentials 옵션을 true 로 설정하여 Authorization, Cookie 헤더에 credentials을 포함될 것이라는 것을 명시
 
 server : Access-Control-Allow-Credentials 헤더를 true 로 설정하여 credentials 정보를 포함한 요청을 허용

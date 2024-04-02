@@ -16,7 +16,7 @@
 
 ## 3-way handshake
 
-```
+```sh
 클라이언트: SYN
 서버: SYN + ACK
 클라이언트: ACK
@@ -24,7 +24,7 @@
 
 ## 4-way handshake
 
-```
+```sh
 클라이언트: FIN
 서버: ACK
 서버: FIN

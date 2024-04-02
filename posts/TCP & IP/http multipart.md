@@ -6,7 +6,7 @@
 > >
 > > > boundary를 사용하여 각 데이터를 구분한다.
 
-```
+```sh
 HTTP/1.1 200 OK
 Content-Type: multipart/form-data; boundary=---------------------------9051914041544843365972754266
 Content-Length: 68109

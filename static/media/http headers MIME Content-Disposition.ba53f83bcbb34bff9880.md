@@ -4,6 +4,6 @@
 >
 > > attachment를 사용하면 바로 다운로드 받는다
 
-```
+```sh
 Content-Disposition: attachment filename="hello.jpg"
 ```
