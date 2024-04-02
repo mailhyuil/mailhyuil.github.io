@@ -1,21 +1,9 @@
-# js slice & splice
+# array splice 요소 삭제
 
-> 시간복잡도 O(n)
-
-## slice(시작인덱스, 끝인덱스?)
-
-> 끝인덱스는 포함되지 않는다.
->
-> > 새로운 배열 리턴
-> >
-> > > substring()과 같은 기능
+## 특정 인덱스의 요소 삭제
 
 ```js
-const arr = [0, 1, 2, 3, 4, 5];
-arr.slice(); // [0, 1, 2, 3, 4, 5]
-arr.slice(0, 1); // [0]
-arr.slice(-1); // [5]
-arr.slice(0, n); // n개의 요소를 가진 새로운 배열 리턴
+array.splice(index, 1);
 ```
 
 ## splice(시작인덱스, 삭제할개수?, 추가할요소?)
