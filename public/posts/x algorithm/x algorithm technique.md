@@ -40,12 +40,16 @@ new Array(n + 1).fill(0);
 
 ## 값 변환
 
-```
-Number(input[0]) // 소수점도 그대로 놔둠
-parseInt() // 2020년도 -> 2020 integer로 변환
-+input[0]
-input[0].toString()
-input+''
+```js
+// to number
+Number(str); // 소수점도 그대로 놔둠
+parseInt(str); // 2020년도 -> 2020 integer로 변환
++str;
+
+// to string
+num.toString(); // null, undefined는 에러 반환
+num + "";
+String(num);
 ```
 
 ## 빠른 출력
