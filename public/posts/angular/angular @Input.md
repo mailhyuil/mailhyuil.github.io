@@ -1,5 +1,6 @@
 # angular @Input()
 
-## @Input({required:true})
-
-## @Input({transform:()=>)})
+```ts
+@Input({required:true})
+@Input({transform:()=>)})
+```
