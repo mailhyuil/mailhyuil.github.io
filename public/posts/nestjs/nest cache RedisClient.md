@@ -17,13 +17,18 @@ import { createClient } from "redis";
 export type RedisClient = ReturnType<typeof createClient>;
 export const REDIS_CLIENT = Symbol("REDIS_CLIENT");
 
-export const redisProvider = [
+export const RedisProvider = [
   {
     provide: REDIS_CLIENT,
     useFactory: async () => {
       const client = createClient({
-        url: "redis://localhost:6379",
+        url: process.env["REDIS_URL"], // "redis://localhost:6379"
       });
+
+      // set config
+      // client.expire('key', 60);
+      // ...
+
       await client.connect();
       return client;
     },
@@ -35,18 +40,17 @@ export const redisProvider = [
 
 ```ts
 import { Module } from "@nestjs/common";
-import { redisProvider } from "./redis.provider";
+import { RedisProvider, REDIS_CLIENT } from "./redis.provider";
 import { RedisClientType } from "redis";
 import { OnModuleDestroy } from "@nestjs/common/interfaces";
 import { Inject } from "@nestjs/common";
-import { REDIS_CLIENT } from "./redis.provider";
 import { Global } from "@nestjs/common";
 import { RedisService } from "./redis.service";
 
 @Global()
 @Module({
-  providers: [redisProvider, RedisService],
-  exports: [RedisService],
+  providers: [RedisProvider],
+  exports: [RedisProvider],
 })
 export class RedisModule implements OnModuleDestroy {
   constructor(@Inject(REDIS_CLIENT) private readonly redis: RedisClientType) {}
@@ -57,55 +61,33 @@ export class RedisModule implements OnModuleDestroy {
 }
 ```
 
-## redis.service.ts
+## app.module.ts
 
 ```ts
-import { Inject, Injectable } from "@nestjs/common";
-import { REDIS_CLIENT, RedisClient } from "./redis.provider";
+@Module({
+  imports: [RedisModule],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+```
 
-@Injectable()
-export class RedisService {
-  constructor(
-    @Inject(REDIS_CLIENT)
-    private readonly redis: RedisClient
-  ) {}
+## app.controller.ts
 
-  get(key: string) {
-    return this.redis.get(key);
-  }
+```ts
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService, @Inject(REDIS_CLIENT) private readonly redis: RedisClientType) {}
 
-  async set(key: string, value: any, ttl?: number) {
-    const res = await this.redis.set(key, value); /// 성공: OK, 실패: null
-    this.redis.expire(key, ttl || 10); /// default 10 seconds /// expire는 set 이후에 실행되어야 함
+  @Get()
+  async getData() {
+    const cache = await this.redis.get("key");
+    if (cache) return cache;
+
+    const res = await this.appService.getData();
+
+    this.redis.set("key", JSON.stringify(res));
     return res;
-  }
-
-  mGet(keys: string[]) {
-    return this.redis.mGet(keys);
-  }
-
-  mSet(keyValues: string[]) {
-    return this.redis.mSet(keyValues);
-  }
-
-  hGet(key: string, field: string) {
-    return this.redis.hGet(key, field);
-  }
-
-  hSet(key: string, field: string, value: any) {
-    return this.redis.hSet(key, field, value);
-  }
-
-  hDel(key: string, field: string) {
-    return this.redis.hDel(key, field);
-  }
-
-  del(key: string) {
-    return this.redis.del(key);
-  }
-
-  ping() {
-    return this.redis.ping();
   }
 }
 ```
