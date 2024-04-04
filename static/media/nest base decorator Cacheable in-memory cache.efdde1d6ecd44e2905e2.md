@@ -1,19 +1,32 @@
 # nestjs decorator Cacheable in-memory cache
 
-## decorator 생성
+## app.module.ts
+
+> import DiscoveryModule
+
+```ts
+import { DiscoveryModule } from "@nestjs/core";
+
+@Module({
+  imports: [DiscoveryModule],
+  controllers: [AppController],
+  providers: [AppService, CacheDecoratorRegister],
+})
+export class AppModule {}
+```
+
+## cacheable.decorator.ts
+
+> decorator 생성
 
 ```ts
 export const CACHEABLE = Symbol("CACHEABLE");
 export const Cacheable = (ttl: number) => SetMetadata(CACHEABLE, ttl);
-
-@Injectable()
-class TargetClass {
-  @Cacheable(0)
-  test() {}
-}
 ```
 
-## CacheDecoratorRegister 생성
+## cache-decorator-register.ts
+
+> CacheDecoratorRegister 생성
 
 ```ts
 @Injectable()
@@ -44,9 +57,7 @@ export class CacheDecoratorRegister implements OnModuleInit {
           instance[methodName] = async function (...args: any[]) {
             const name = `${instance.constructor.name}.${methodName}`;
             const value = await this.cache.get(name, args);
-            if (value) {
-              return value;
-            }
+            if (value) return value;
 
             const result = await methodRef.call(instance, ...args);
             await this.cache.set(name, args, result, ttl);
@@ -54,6 +65,21 @@ export class CacheDecoratorRegister implements OnModuleInit {
           };
         });
       });
+  }
+}
+```
+
+## 사용
+
+```ts
+@Controller()
+export class SomeController {
+  constructor(private readonly someService: SomeService) {}
+
+  @Cacheable(0)
+  @Get()
+  getData() {
+    return this.someService.getData();
   }
 }
 ```
