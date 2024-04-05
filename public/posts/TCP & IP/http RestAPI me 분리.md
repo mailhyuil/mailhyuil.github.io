@@ -8,6 +8,8 @@
 
 ## endpoint
 
+> me, myself, current 등의 이름 가능
+
 ```sh
 /users/me
 /users/:id
