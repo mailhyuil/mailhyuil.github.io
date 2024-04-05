@@ -33,8 +33,12 @@ export class InputContactComponent {
   add() {
     this.formArray.push(
       this.fb.nonNullable.group({
-        platform: this.fb.nonNullable.control(""),
-        id: this.fb.nonNullable.control(""),
+        platform: this.fb.nonNullable.control("", {
+          validators: [Validators.required],
+        }),
+        id: this.fb.nonNullable.control("", {
+          validators: [Validators.required],
+        }),
       })
     );
   }
@@ -90,9 +94,13 @@ export class AppComponent {
     this.http.get().subscribe((data) => {
       data.contacts.forEach((contact) =>
         this.form.controls.contacts.push(
-          this.fb.group({
-            platform: contact.platform,
-            id: contact.id,
+          this.fb.nonNullable.group({
+            platform: this.fb.nonNullable.control("", {
+              validators: [Validators.required],
+            }),
+            id: this.fb.nonNullable.control("", {
+              validators: [Validators.required],
+            }),
           })
         );
       );
