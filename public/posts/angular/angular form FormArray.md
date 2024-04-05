@@ -27,17 +27,23 @@ export class AppComponent {
   fb = inject(FormBuilder);
   http = inject(HttpClient);
   form = this.fb.nonNullable.group({
-    name: ["", Validators.required],
-    contacts: this.fb.array<Contact>([], Validators.required),
+    name: ["", [Validators.required]],
+    contacts: this.fb.array<Contact>([], {
+      validators: [Validators.required]
+    }),
   });
 
   ngOnInit() {
     this.http.get().subscribe((data) => {
       data.contacts.forEach((contact) =>
         this.form.controls.contacts.push(
-          this.fb.group({
-            platform: contact.platform,
-            id: contact.id,
+          this.fb.nonNullable.group({
+            platform: this.fb.nonNullable.control("", {
+              validators: [Validators.required],
+            }),
+            id: this.fb.nonNullable.control("", {
+              validators: [Validators.required],
+            }),
           })
         );
       );
@@ -47,8 +53,12 @@ export class AppComponent {
   add() {
     this.form.controls.contacts.push(
       this.fb.nonNullable.group({
-        platform: this.fb.nonNullable.control(""),
-        id: this.fb.nonNullable.control(""),
+        platform: this.fb.nonNullable.control("",{
+          validators: [Validators.required]
+        }),
+        id: this.fb.nonNullable.control("",{
+          validators: [Validators.required]
+        }),
       })
     );
   }
