@@ -22,48 +22,48 @@ npm i winston-daily-rotate-file
 
 ```ts
 import { utilities, WinstonModule } from "nest-winston";
+import process from "process";
 import winston from "winston";
 import winstonDaily from "winston-daily-rotate-file";
-const { combine, timestamp, printf, colorize } = winston.format;
+const { combine, timestamp, printf } = winston.format;
 
 const logDir = "logs"; // logs 디렉토리 하위에 로그 파일 저장
 
 const logFormat = printf((info) => {
   return `${info.timestamp} ${info.level}: ${info.message}`;
 });
-const env = process.env.NODE_ENV;
 
-const productionTransports = [
+const productionTransports = () => [
   // info 레벨 로그를 저장할 파일 설정
   new winstonDaily({
     level: "info",
     datePattern: "YYYY-MM-DD",
     dirname: logDir,
-    filename: `%DATE%.log`, // file 이름 날짜로 저장
-    maxFiles: 30, // 30일치 로그 파일 저장
+    filename: `%DATE%.info.log`,
+    maxFiles: 30,
     zippedArchive: true,
   }),
   // warn 레벨 로그를 저장할 파일 설정
   new winstonDaily({
     level: "warn",
     datePattern: "YYYY-MM-DD",
-    dirname: logDir + "/warn",
-    filename: `%DATE%.warn.log`, // file 이름 날짜로 저장
-    maxFiles: 30, // 30일치 로그 파일 저장
+    dirname: logDir,
+    filename: `%DATE%.warn.log`,
+    maxFiles: 30,
     zippedArchive: true,
   }),
   // error 레벨 로그를 저장할 파일 설정
   new winstonDaily({
     level: "error",
     datePattern: "YYYY-MM-DD",
-    dirname: logDir + "/error", // error.log 파일은 /logs/error 하위에 저장
+    dirname: logDir,
     filename: `%DATE%.error.log`,
     maxFiles: 30,
     zippedArchive: true,
   }),
 ];
 
-const localTransports = [
+const localTransports = () => [
   new winston.transports.Console({
     level: "silly", // 모든 단계를 로그
     format: winston.format.combine(
@@ -87,7 +87,7 @@ const winstonLogger = WinstonModule.createLogger({
     }),
     logFormat
   ),
-  transports: env === "production" ? productionTransports : localTransports,
+  transports: process.env["NODE_ENV"] === "production" ? productionTransports() : localTransports(),
 });
 
 // morgan winston 설정
@@ -105,6 +105,21 @@ export { stream, winstonLogger };
 ```ts
 import { winstonLogger } from "./winston.config";
 
-app.useLogger(winstonLogger);
+const app = await NestFactory.create(AppModule, {
+  logger: winstonLogger,
+});
 app.use(morgan("combined", { stream }));
+```
+
+## pm2 log 끄기
+
+```js
+module.exports = {
+  apps: [
+    {
+      out_file: "/dev/null",
+      error_file: "/dev/null",
+    },
+  ],
+};
 ```

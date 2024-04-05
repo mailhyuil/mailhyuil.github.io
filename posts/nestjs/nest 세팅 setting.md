@@ -35,20 +35,40 @@ npm i dayjs
 npm i axios
 npm i @nestjs/axios
 # lodash
-npm i lodash-es
-npm i -D @types/lodash-es
+npm i lodash
+npm i -D @types/lodash
 # rate limit
 npm i @nestjs/throttler
-
 # server cache
 npm i @nestjs/cache-manager
 npm i cache-manager
-
-################ 선택적 패키지 #####################
-
 # prisma
 npm i @prisma/client
 npm i -D prisma
+# event
+npm i @nestjs/event-emitter
+# schedule
+npm i @nestjs/schedule
+# file upload
+npm i -D @types/multer
+
+################ 선택적 패키지 #####################
+
+# redis cache
+npm i redis
+
+# websocket-server
+npm i @nestjs/websockets
+npm i @nestjs/platform-socket.io
+# websocket-client
+npm i ngx-socket-io
+# npm i socket.io
+# npm i socket.io-client
+# npm i @types/socket.io
+
+# message queue
+npm i bull
+npm i @nestjs/bull
 
 # mongoose
 npm i mongoose
@@ -64,31 +84,6 @@ npm i @apollo/server
 # graphql client
 npm i @apollo/client
 npm i apollo-angular
-
-# redis cache
-npm i redis
-
-# message queue
-npm i bull
-npm i @nestjs/bull
-
-# event
-npm i @nestjs/event-emitter
-
-# schedule
-npm i @nestjs/schedule
-
-# websocket-server
-npm i @nestjs/websockets
-npm i @nestjs/platform-socket.io
-# websocket-client
-npm i ngx-socket-io
-# npm i socket.io
-# npm i socket.io-client
-# npm i @types/socket.io
-
-# file upload
-npm i -D @types/multer
 
 # image optimize
 npm i sharp
@@ -115,7 +110,7 @@ npm i multer-s3
 ## main.ts
 
 ```ts
-import { INestApplication, Logger } from "@nestjs/common";
+import { INestApplication } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import compression from "compression";
@@ -127,16 +122,22 @@ import morgan from "morgan";
 import { NgOpenApiGen } from "ng-openapi-gen";
 import { join } from "path";
 import { AppModule } from "./app/app.module";
+import { winstonLogger, stream } from "./winston.config";
+import { CacheModule, CacheInterceptor } from "@nestjs/cache-manager";
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: winstonLogger,
+  });
+
+  /** Logger */
+  app.use(morgan("combined", { stream }));
   /** Cookie Parser */
   app.use(cookieParser());
   /** Compression */
   app.use(compression());
   /** Security */
   app.use(helmet());
-  /** Logger */
-  app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
   /** CORS */
   app.enableCors();
   /** Global Prefix */
@@ -147,7 +148,7 @@ async function bootstrap() {
   initOpenAPI(app, port);
   /** Server Listen */
   await app.listen(port);
-  Logger.log(`🚀 Application is running on: http://localhost:${port}`);
+  winstonLogger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
 
 bootstrap();
@@ -184,36 +185,35 @@ async function initOpenAPI(app: INestApplication<any>, port: any) {
 
 ```ts
 import { BadRequestException, Module, ValidationPipe, NestModule } from "@nestjs/common";
-import { APP_FILTER, APP_PIPE } from "@nestjs/core";
-import { AllExceptionsFilter } from "./filters/exception.filter";
-
-import { APP_GUARD, APP_INTERCEPTOR, DiscoveryModule } from "@nestjs/core";
+import { APP_FILTER, APP_PIPE, APP_GUARD, APP_INTERCEPTOR, DiscoveryModule } from "@nestjs/core";
+import { GlobalExceptionsFilter } from "./filters/global-exception.filter";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 import { ValidationError } from "class-validator";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { CacheControlInterceptor } from "./interceptors/cache-control.interceptor";
-import { EtagInterceptor } from "./interceptors/etag.interceptor";
 import { PrismaModule } from "./prisma/prisma.module";
-import { UsersModule } from "./users/users.module";
+
 @Module({
   imports: [
     PrismaModule,
-    UsersModule,
     DiscoveryModule,
     ThrottlerModule.forRoot([
       {
-        ttl: 1000, // 1초
+        ttl: 1000, // 1 seconds
         limit: 100, // 100 requests
       },
     ]),
+    CacheModule.register({
+      ttl: 5, // 5 seconds
+      max: 10, // maximum number of items in cache
+    }),
   ],
   controllers: [AppController],
   providers: [
     AppService,
     {
       provide: APP_FILTER,
-      useClass: AllExceptionsFilter,
+      useClass: GlobalExceptionsFilter,
     },
     {
       provide: APP_GUARD,
@@ -221,11 +221,7 @@ import { UsersModule } from "./users/users.module";
     },
     {
       provide: APP_INTERCEPTOR,
-      useClass: CacheControlInterceptor,
-    },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: EtagInterceptor,
+      useClass: CacheInterceptor,
     },
     {
       provide: APP_PIPE,
