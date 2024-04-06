@@ -31,21 +31,37 @@ export class FileController {
     const filepath = join(process.cwd(), "sample.mp4");
     const file = createReadStream(filepath);
     const fileStat = statSync(filepath);
+    const fileSize = fileStat.size;
     res.set({
+      "Accept-Ranges": "bytes", // 구간 스킵 가능 (프로그래스바를 클리해서 넘어갈 수 있게 해줌)
       "Content-Type": "video/mp4",
       "Content-Disposition": 'attachment; filename="sample.mp4"',
-      "Content-Length": fileStat.size.toString(),
+      "Content-Length": fileSize.toString(),
     });
     return new StreamableFile(file);
   }
+}
+```
 
-  // the same as
-  //   @Get()
-  //   @Header("Content-Type", "application/json")
-  //   @Header("Content-Disposition", 'attachment; filename="package.json"')
-  //   getStaticFile(): StreamableFile {
-  //     const file = createReadStream(join(process.cwd(), "package.json"));
-  //     return new StreamableFile(file);
-  //   }
+## express version
+
+```ts
+@Controller("files")
+export class FileController {
+  @Get()
+  getFile(@Res() res: Response): StreamableFile {
+    const filepath = join(process.cwd(), "sample.mp4");
+    const file = createReadStream(filepath);
+    const fileStat = statSync(filepath);
+    const fileSize = fileStat.size;
+    res.set({
+      "Accept-Ranges": "bytes", // 구간 스킵 가능 (프로그래스바를 클리해서 넘어갈 수 있게 해줌)
+      "Content-Type": "video/mp4",
+      "Content-Disposition": 'attachment; filename="sample.mp4"',
+      "Content-Length": fileSize.toString(),
+    });
+    const readStream = createReadStream(join(process.cwd(), "sample.mp4"));
+    readStream.pipe(res);
+  }
 }
 ```
