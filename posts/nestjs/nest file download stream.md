@@ -28,10 +28,13 @@ import type { Response } from "express";
 export class FileController {
   @Get()
   getFile(@Res({ passthrough: true }) res: Response): StreamableFile {
-    const file = createReadStream(join(process.cwd(), "package.json"));
+    const filepath = join(process.cwd(), "sample.mp4");
+    const file = createReadStream(filepath);
+    const fileStat = statSync(filepath);
     res.set({
-      "Content-Type": "application/json",
-      "Content-Disposition": 'attachment; filename="package.json"',
+      "Content-Type": "video/mp4",
+      "Content-Disposition": 'attachment; filename="sample.mp4"',
+      "Content-Length": fileStat.size.toString(),
     });
     return new StreamableFile(file);
   }
