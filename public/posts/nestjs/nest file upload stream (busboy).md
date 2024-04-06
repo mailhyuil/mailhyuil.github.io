@@ -16,24 +16,40 @@ npm i connect-busboy
 
 ```ts
 import busboy from "connect-busboy";
-app.user(busboy());
+
+app.use(busboy());
 ```
 
 ## controller
 
 ```ts
-import { Controller, Post, Req, UploadedFiles, UseInterceptors } from "@nestjs/common";
-import { FileFieldsInterceptor, FileInterceptor } from "@nestjs/platform-express";
-import { options } from "./multer-option";
+import { Controller, Post, Req } from "@nestjs/common";
+import { Request } from "express";
 @Controller("file")
 export class FileController {
   @Post()
-  async uploadFile(@Req() req: any) {
+  uploadFile(@Req() req: Request) {
+    // 📁 write file
+    const ws = createWriteStream(join(__dirname, "../../..", "sample.mp4"));
+    ws.on("finish", () => {
+      console.log("File Written");
+      ws.close();
+    });
+
+    // 🚎 busboy
     req.pipe(req.busboy);
     req.busboy.on("file", function (name, file, info) {
-      const { filename, encoding, mimetype } = info;
+      const { filename, encoding, mimeType } = info;
       file.on("data", (data) => {
         console.log(data); // stream data
+        // write file in /assets
+        ws.write(data);
+      });
+      file.on("end", () => {
+        console.log("File [" + filename + "] Finished");
+      });
+      file.on("error", (err) => {
+        console.log("Error", err);
       });
     });
   }
