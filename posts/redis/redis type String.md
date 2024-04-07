@@ -2,7 +2,7 @@
 
 ```sh
 # Setter
-SET
+SET key value
 APPEND
 # Getter
 GET
