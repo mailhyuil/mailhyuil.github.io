@@ -1,4 +1,4 @@
-# api payment TOSS
+# api payment toss
 
 1. api key로 결제 창 띄우기 (paymentWidget.requestBillingAuth())
 2. 사용자가 결제 => Authorization Code(authKey, customerKey)를 params로 리턴

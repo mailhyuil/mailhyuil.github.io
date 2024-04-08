@@ -30,10 +30,13 @@ export class FileController {
   @Post()
   uploadFile(@Req() req: Request) {
     // 📁 write file
-    const ws = createWriteStream(join(__dirname, "../../..", "sample.mp4"));
+    const outputPath = __dirname;
+    const ws = createWriteStream(join(outputPath, "sample.mp4"));
+    ws.on("close", () => {
+      console.log("Write Stream Closed");
+    });
     ws.on("finish", () => {
-      console.log("File Written");
-      ws.close();
+      console.log("Write Stream Finished");
     });
 
     // 🚎 busboy
@@ -41,15 +44,15 @@ export class FileController {
     req.busboy.on("file", function (name, file, info) {
       const { filename, encoding, mimeType } = info;
       file.on("data", (data) => {
-        console.log(data); // stream data
-        // write file in /assets
         ws.write(data);
       });
       file.on("end", () => {
-        console.log("File [" + filename + "] Finished");
+        console.log("busboy ended");
+        ws.end();
+        ws.close();
       });
       file.on("error", (err) => {
-        console.log("Error", err);
+        console.error("busboy error : ", err);
       });
     });
   }
