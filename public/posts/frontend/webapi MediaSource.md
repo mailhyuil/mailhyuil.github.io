@@ -1,30 +1,37 @@
 # MediaSource
 
-> video의 bytes를 나눠서 로드할 수 있게 해주는 web api
+> HTMLMediaELement가 MediaSource를 사용
+>
+> > MediaSource는 SourceBuffer를 소유하고 사용한다.
+> >
+> > > SourceBuffer를 이용해 MediaSource에 미디어 세그먼트를 전달해주고
+> > >
+> > > HTMLMediaElement(Video)는 플레이하면서 필요한 데이터를 MediaSource로 부터꺼내와 사용한다.
+> > >
+> > > > mp4 파일은 fragmented mp4로 보내야한다.
 
 ```js
-const chunkSize = Number(VIDEO_CHUNK_SIZE_BYTES);
+this.mediaSource = new MediaSource(); // 생성하면 sourceopen 이벤트가 발생함
+video.src = URL.createObjectURL(this.mediaSource); // mediaSource의 url을 video src에 커넥트
 
-let startByte = 0;
-startByte = startByte + chunkSize;
-const endByte = startByte + chunkSize - 1;
-
-const mediaSource = new MediaSource();
-
-const videoUrl = URL.createObjectURL(mediaSource);
-
-mediaSource.addEventListener(
-  "sourceopen",
-  async () => {
-    const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
-
-    const res = await fetch("https://www.w3schools.com/html/mov_bbb.mp4");
-    const buffer = await res.arrayBuffer();
-    await sourceBuffer.appendBuffer(buf);
-    sourceBuffer.addEventListener("updateend", () => {
-      mediaSource.endOfStream();
+this.mediaSource.addEventListener("sourceopen", () => {
+  // sourceopen 시 sourceBuffer를 생성하여 arrayBuffer를 add
+  const sourceBuffer = this.mediaSource.addSourceBuffer(this.mimeCodec);
+  // arrayBuffer를 fetch하여 sourceBuffer에 add
+  this.http
+    .get("videos/:id", {
+      responseType: "arrayBuffer",
+      header: {
+        Range: `bytes=${this.start}-${this.end}`,
+      },
+    })
+    .subscribe((arrayBuffer) => {
+      sourceBuffer.addEventListener("updateend", () => {
+        // arrayBuffer add가 끝나면 endOfStream을 호출시켜 비디오 실행 준비 완료
+        this.mediaSource.endOfStream();
+        video.play();
+      });
+      sourceBuffer.appendBuffer(arrayBuffer);
     });
-  },
-  { once: true }
-);
+});
 ```
