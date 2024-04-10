@@ -1,4 +1,6 @@
-# js marquee, infinity slider
+# js marquee, infinity slider, carousel
+
+> 캐로셀 슬라이더, 무한 슬라이더, 마퀴
 
 ## to right
 
@@ -56,13 +58,13 @@ onMounted(async () => {
 <template>
   <div
     ref="container"
-    class="relative flex h-32 w-full gap-10 overflow-hidden">
+    class="relative flex w-full h-32 gap-10 overflow-hidden">
     <div
-      class="absolute left-0 top-0 w-32 h-10"
+      class="absolute top-0 left-0 w-32 h-10"
       v-for="i of 10">
       <img
         src="http://placehold.it/400"
-        class="w-full h-full object-cover" />
+        class="object-cover w-full h-full" />
     </div>
   </div>
 </template>
@@ -129,13 +131,13 @@ onMounted(async () => {
 <template>
   <div
     ref="container"
-    class="relative flex h-32 w-full gap-10 overflow-hidden">
+    class="relative flex w-full h-32 gap-10 overflow-hidden">
     <div
-      class="absolute left-0 top-0 w-32 h-10"
+      class="absolute top-0 left-0 w-32 h-10"
       v-for="i of 10">
       <img
         src="http://placehold.it/400"
-        class="w-full h-full object-cover" />
+        class="object-cover w-full h-full" />
     </div>
   </div>
 </template>
@@ -146,12 +148,12 @@ onMounted(async () => {
 ## html
 
 ```
-<div #container class="relative flex h-24 w-full gap-10 overflow-hidden">
+<div #container class="relative flex w-full h-24 gap-10 overflow-hidden">
   <div
     *ngFor="let i of [].constructor(10)"
-    class="absolute left-0 top-0 w-32 h-12"
+    class="absolute top-0 left-0 w-32 h-12"
   >
-    <img src="http://placehold.it/400" class="w-full h-full object-cover" />
+    <img src="http://placehold.it/400" class="object-cover w-full h-full" />
   </div>
 </div>
 ```

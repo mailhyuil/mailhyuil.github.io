@@ -7,6 +7,7 @@
 ## install
 
 ```sh
+# node-redis 설치
 npm i redis
 ```
 
