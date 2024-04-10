@@ -5,7 +5,10 @@
 > Promise.all을 사용
 
 ```ts
-const res = await Promise.all([client.get("key1"), client.get("key2")]);
+const res = await Promise.all([
+  client.hGetAll("key1"), //
+  client.hGetAll("key2"),
+]);
 ```
 
 ## 다른 언어 (python) 방식
