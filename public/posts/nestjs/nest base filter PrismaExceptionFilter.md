@@ -17,7 +17,7 @@ export class PrismaClientExceptionFilter extends BaseExceptionFilter {
     const message = exception.message.replace(/\n/g, "");
 
     switch (exception.code) {
-      case "P2016": {
+      case "P2015": {
         const status = HttpStatus.NOT_FOUND;
         response.status(status).json({
           statusCode: status,
