@@ -24,11 +24,11 @@ import { ToastService } from "./toast.service";
   providedIn: "root",
 })
 export class GlobalErrorHandler implements ErrorHandler {
+  router = inject(Router);
+  authApi = inject(AuthService);
   authStore = inject(AuthStore);
   toastService = inject(ToastService);
-  router = inject(Router);
   cookieService = inject(CookieService);
-  authApi = inject(AuthService);
 
   handleError(error: any) {
     if (error instanceof HttpErrorResponse) {
@@ -39,33 +39,37 @@ export class GlobalErrorHandler implements ErrorHandler {
         this.toastService.openDanger("서버에 연결할 수 없습니다.");
       }
       if (status === 400) {
-        this.handleBadRequest(message);
+        this.handleBadRequest();
       }
       if (status === 401) {
-        this.handleUnauthorized(message);
+        this.handleUnauthorized();
       }
       if (status === 403) {
-        this.handleForbidden(message);
+        this.handleForbidden();
       }
       if (status === 404) {
-        this.handleNotFound(message);
+        this.handleNotFound();
       }
       if (status === 409) {
-        this.handleConflict(message);
+        this.handleConflict();
       }
       if (status === 429) {
-        this.handleTooManyRequests(message);
+        this.handleTooManyRequests();
       }
       if (status === 498) {
-        this.handleInvalidToken(message);
+        this.handleInvalidToken();
       }
       if (status === 500) {
-        this.handleInternalServerError(message);
+        this.handleInternalServerError();
+      }
+
+      if (process.env.NODE_ENV !== "production") {
+        console.error(`[${status}] ${message}`);
       }
     }
   }
 
-  private async handleInvalidToken(message: string) {
+  private async handleInvalidToken() {
     this.authStore.clearAuth();
     this.authApi
       .authControllerGetAccessTokenByRefreshToken()
@@ -77,33 +81,33 @@ export class GlobalErrorHandler implements ErrorHandler {
       });
   }
 
-  private async handleUnauthorized(message: string): Promise<void> {
+  private async handleBadRequest(): Promise<void> {
+    this.toastService.openDanger("요청이 잘못되었습니다, 확인 후 다시 시도해주세요.");
+  }
+
+  private async handleNotFound(): Promise<void> {
+    this.toastService.openDanger("존재하지 않는 리소스를 요청했습니다.");
+  }
+
+  private async handleUnauthorized(): Promise<void> {
     this.authStore.clearAuth();
     this.toastService.openDanger("로그인 후 이용해주세요.");
     this.router.navigateByUrl("/login");
   }
 
-  private async handleForbidden(message: string): Promise<void> {
-    this.toastService.openDanger(message);
+  private async handleForbidden(): Promise<void> {
+    this.toastService.openDanger("권한이 없습니다.");
   }
 
-  private async handleBadRequest(message: string): Promise<void> {
-    this.toastService.openDanger("처리할 수 없는 요청입니다.");
+  private async handleConflict(): Promise<void> {
+    this.toastService.openDanger("이미 존재하는 리소스입니다.");
   }
 
-  private async handleNotFound(message: string): Promise<void> {
-    this.toastService.openDanger(message);
+  private async handleTooManyRequests(): Promise<void> {
+    this.toastService.openDanger("너무 많은 요청을 보냈습니다. 잠시 후 다시 시도해주세요.");
   }
 
-  private async handleConflict(message: string): Promise<void> {
-    this.toastService.openDanger(message);
-  }
-
-  private async handleTooManyRequests(message: string): Promise<void> {
-    this.toastService.openDanger(message);
-  }
-
-  private async handleInternalServerError(message: string): Promise<void> {
+  private async handleInternalServerError(): Promise<void> {
     this.toastService.openDanger("서버에서 문제가 발생했습니다.");
   }
 }
@@ -115,5 +119,5 @@ export class GlobalErrorHandler implements ErrorHandler {
 @NgModule({
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }],
 })
-class MyModule {}
+class AppModule {}
 ```
