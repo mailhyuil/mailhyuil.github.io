@@ -1,53 +1,24 @@
 # pipe
 
-> 요청 객체를 변환할 수 있는 기회를 제공
+> input data(param, query, body)를 변환하거나 검증하는 코드를 분리할 수 있다.
+>
+> > input data는 항상 string으로 온다! 파이프에서 값을 변환해줄 수 있다.
+> >
+> > > 이를 더 쉽게하기 위해 class-transformer, class-validator를 사용한다. (또는 zod)
 
-## 인수 변환 파이프
+## built-in pipes
 
 ```ts
+ValidationPipe;
+ParseIntPipe;
+ParseFloatPipe;
+ParseBoolPipe;
+ParseArrayPipe;
+ParseUUIDPipe;
+ParseEnumPipe;
+DefaultValuePipe;
+ParseFilePipe;
+
+// 사용
 @Param('id', ParseIntPipe)
-@Param('id', ParseBoolPipe)
-@Param('id', ParseArrayPipe)
-@Param('id', ParseUUIDPipe)
-@Query('offset', new DefaultValuePipe(0))
-```
-
----
-
-## ValidationPipe
-
-### validation 모듈 설치
-
-```shell
-npm i class-validator class-transformer
-```
-
-### main.ts
-
-```ts
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhiteListed: true,
-      transform: true,
-    })
-  ); // pipe 설정
-  await app.listen(3000);
-}
-bootstrap();
-```
-
-### DTO
-
-```ts
-export class CreateMovieDto {
-  @isString()
-  readonly title: string;
-  @isNumber()
-  readonly year: number;
-  @isString({ each: true })
-  readonly genres: string[];
-}
 ```

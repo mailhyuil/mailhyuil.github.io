@@ -3,12 +3,11 @@
 ## appConfig.ts
 
 ```ts
-import { ApplicationConfig, importProvidersFrom } from "@angular/core";
+import { ApplicationConfig, importProvidersFrom, APP_INITIALIZER } from "@angular/core";
 import { PreloadAllModules, provideRouter, withPreloading } from "@angular/router";
 import { ApiConfiguration } from "api/src/lib/api-configuration";
 import { ApiModule } from "./../../../../api/src/lib/api.module";
 import { appRoutes } from "./app.routes";
-import { NgxsModule } from "@ngxs/store";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,7 +19,13 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideHttpClient(withInterceptors([HttpInterceptor])),
-    importProvidersFrom([ApiModule, ApiConfiguration, NgxsModule.forRoot([UserState]), { provide: ErrorHandler, useClass: GlobalErrorHandler }]),
+    importProvidersFrom([ApiModule, ApiConfiguration]),
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: AuthFactory,
+      multi: true,
+    },
   ],
 };
 ```

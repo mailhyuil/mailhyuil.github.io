@@ -10,11 +10,14 @@
 
 ```ts
 export class UploadComponent {
-  upload(file: File) {
+  upload(uploadUrl: string, file: File) {
     // Create a new tus upload
     const upload = new tus.Upload(file, {
-      endpoint: "http://localhost:1080/files/",
+      uploadUrl,
       retryDelays: [0, 3000, 5000, 10000, 20000],
+      chunkSize: 5 * 1024 * 1024, // 5MB
+      storeFingerprintForResuming: true,
+      removeFingerprintOnSuccess: true,
       metadata: {
         filename: file.name,
         filetype: file.type,

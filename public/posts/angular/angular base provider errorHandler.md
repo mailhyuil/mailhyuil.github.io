@@ -12,128 +12,99 @@
 
 ```ts
 import { HttpErrorResponse } from "@angular/common/http";
-import { ErrorHandler, Injectable } from "@angular/core";
+import { ErrorHandler, Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
-import { IAdminDTO } from "@cms/common";
-import { Store } from "@ngxs/store";
-import { lastValueFrom } from "rxjs";
-import { AdminState, SetAdmin } from "../stores/admin.store";
-import { HttpService } from "./http.service";
+import { AuthService } from "@lcrs/api";
+import { CookieService } from "ngx-cookie-service";
+import { switchMap } from "rxjs";
+import { AuthStore } from "../store/auth.store";
 import { ToastService } from "./toast.service";
 
-@Injectable()
+@Injectable({
+  providedIn: "root",
+})
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(
-    private readonly store: Store,
-    private readonly httpService: HttpService,
-    private readonly toastService: ToastService,
-    private readonly router: Router,
-    private readonly logger: Logger
-  ) {}
+  authStore = inject(AuthStore);
+  toastService = inject(ToastService);
+  router = inject(Router);
+  cookieService = inject(CookieService);
+  authApi = inject(AuthService);
 
   handleError(error: any) {
     if (error instanceof HttpErrorResponse) {
       const status: number = error.status;
       const message: string = error.error.message;
+
+      if (status === 0) {
+        this.toastService.openDanger("서버에 연결할 수 없습니다.");
+      }
       if (status === 400) {
-        this.handleBadRequest();
+        this.handleBadRequest(message);
       }
       if (status === 401) {
-        this.handleUnauthorized();
+        this.handleUnauthorized(message);
       }
       if (status === 403) {
-        this.handleForbidden();
+        this.handleForbidden(message);
       }
       if (status === 404) {
-        this.handleNotFound();
+        this.handleNotFound(message);
+      }
+      if (status === 409) {
+        this.handleConflict(message);
+      }
+      if (status === 429) {
+        this.handleTooManyRequests(message);
       }
       if (status === 498) {
-        this.handleInvalidToken();
+        this.handleInvalidToken(message);
       }
       if (status === 500) {
-        this.handleInternalServerError();
+        this.handleInternalServerError(message);
       }
     }
-    this.logger.log(error); // 원본 에러를 로깅..
   }
 
-  private async handleInvalidToken() {
-    this.store.reset(AdminState);
-
-    const refreshToken = localStorage.getItem("REFRESH_TOKEN_KEY");
-    // refresh token이 없으면 로그인 페이지로 이동
-    if (!refreshToken) {
-      this.toastService.show("로그인 후 이용해주세요.");
-      this.router.navigateByUrl("/login");
-      return;
-    }
-
-    // refresh token이 있으면 refresh token으로 access token을 재발급 받는다.
-    const { accessToken } = await lastValueFrom(
-      this.httpService.get<{ accessToken: string }>("auth/refresh", {
-        headers: {
-          RefreshToken: `Bearer ${refreshToken}`,
-        },
-      })
-    ).catch((error) => {
-      this.toastService.show("로그인 후 이용해주세요.");
-      this.router.navigateByUrl("/login");
-      return { accessToken: null };
-    });
-
-    // 재발급 받은 access token이 있으면 local storage에 저장하고 admin 정보를 store에 저장한다.
-    if (accessToken) {
-      localStorage.setItem("ACCESS_TOKEN_KEY", accessToken);
-
-      const admin = await lastValueFrom(this.httpService.get<IAdminDTO>("auth")).catch((error) => {
-        this.toastService.show("로그인 후 이용해주세요.");
-        this.router.navigateByUrl("/login");
-        return null;
+  private async handleInvalidToken(message: string) {
+    this.authStore.clearAuth();
+    this.authApi
+      .authControllerGetAccessTokenByRefreshToken()
+      .pipe(switchMap(() => this.authApi.authControllerGetAuth()))
+      .subscribe((user) => {
+        if (user) {
+          this.authStore.setAuth(user);
+        }
       });
-
-      // admin 정보가 있으면 store에 저장한다.
-      if (admin) {
-        this.store.dispatch(new SetAdmin(admin));
-      }
-    }
   }
 
-  private async handleUnauthorized(): Promise<void> {
-    this.store.reset(AdminState);
-    this.toastService.show("로그인 후 이용해주세요.", "danger");
+  private async handleUnauthorized(message: string): Promise<void> {
+    this.authStore.clearAuth();
+    this.toastService.openDanger("로그인 후 이용해주세요.");
     this.router.navigateByUrl("/login");
   }
 
-  private async handleForbidden(): Promise<void> {
-    this.toastService.show("사용 권한이 없습니다.");
+  private async handleForbidden(message: string): Promise<void> {
+    this.toastService.openDanger(message);
   }
-  private async handleBadRequest(): Promise<void> {
-    this.toastService.show("처리할 수 없는 요청입니다.");
-  }
-  private async handleInternalServerError(): Promise<void> {
-    this.toastService.show("서버에서 문제가 발생했습니다.");
-  }
-  private async handleNotFound(): Promise<void> {
-    this.toastService.show("요청하신 리소스를 찾을 수 없습니다.");
-  }
-}
-```
 
-## HttpInterceptor
+  private async handleBadRequest(message: string): Promise<void> {
+    this.toastService.openDanger("처리할 수 없는 요청입니다.");
+  }
 
-```ts
-@Injectable({
-  providedIn: "root",
-})
-export class HttpInterceptorImpl implements HttpInterceptor, OnDestroy {
-  constructor(private readonly errorHandlerService: ErrorHandlerService) {}
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(
-      catchError((e) => {
-        this.errorHandlerService.handleError(e); // 에러 핸들러에게 에러를 넘긴다.
-        return of();
-      })
-    );
+  private async handleNotFound(message: string): Promise<void> {
+    this.toastService.openDanger(message);
+  }
+
+  private async handleConflict(message: string): Promise<void> {
+    this.toastService.openDanger(message);
+  }
+
+  private async handleTooManyRequests(message: string): Promise<void> {
+    this.toastService.openDanger(message);
+  }
+
+  private async handleInternalServerError(message: string): Promise<void> {
+    this.toastService.openDanger("서버에서 문제가 발생했습니다.");
   }
 }
 ```
