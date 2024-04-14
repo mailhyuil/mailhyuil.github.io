@@ -15,6 +15,10 @@ ng add @angular/ssr
 
 ## angular.json
 
+> discoverRoutes를 true로하면 angular route 내의 모든 route를 ssg한다.
+>
+> > 기본이 true기 때문에 항상 false로 설정해주자
+
 ```json
 {
   "architect": {
