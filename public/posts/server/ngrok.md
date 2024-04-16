@@ -1,14 +1,19 @@
-## ngrok
-
-> https 환경으로 포트포워딩을 해준다
+# ngrok
 
 ## install
 
-> 사이트에서 다운로드 받아 설치
+```sh
+choco install ngrok
+```
+
+## add-authtoken
+
+```sh
+ngrok config add-authtoken 123Asdf384EpasdfaSlPasDe7GDoYnKf_3334pasdfsdfTG3Ab1v
+```
 
 ## 사용
 
 ```sh
-# localhost:4000일때
-ngrok http 4000
+ngrok http 3000
 ```
