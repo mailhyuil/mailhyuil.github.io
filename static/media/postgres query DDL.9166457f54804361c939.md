@@ -26,4 +26,7 @@ ALTER TABLE "User" ADD COLUMN "age" INTEGER;
 
 -- 테이블 삭제
 DROP TABLE "User";
+
+-- 인덱스 생성
+CREATE INDEX index_name ON table_name (field_name1, field_name2);
 ```
