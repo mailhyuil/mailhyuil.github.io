@@ -9,20 +9,22 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY prisma ./prisma/
+COPY apps/server/.env.production ./.env
 
-RUN npm install
+RUN npm config set registry https://registry.npmjs.org/
+RUN npm ci
 
 COPY . .
 
-RUN npx nx build server --skip-nx-cache
+RUN npx nx build server --configuration=production
 
-FROM node:${NODE_VERSION}-alpine
+FROM node:${NODE_VERSION}-alpine AS production
 
 COPY --from=builder /app/dist/apps/server ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/prisma ./prisma/
-COPY --from=builder /app/.env.production ./.env
+COPY --from=builder /app/.env ./.env
 
 EXPOSE 3000
 
