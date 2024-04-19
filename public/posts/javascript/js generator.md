@@ -4,20 +4,20 @@
 
 ## Generator 함수
 
-```
+```js
 function* someGeneratorFunction() {
-  console.log('1번 실행')
-  yield 1 // return과 비슷함
-  console.log('2번 실행')
-  yield 2
-  console.log('3번 실행')
-  yield 3
+  console.log("1번 실행");
+  yield 1; // return과 비슷함
+  console.log("2번 실행");
+  yield 2;
+  console.log("3번 실행");
+  yield 3;
 }
 ```
 
 ## Generator 객체
 
-```
+```js
 const iter = someGeneratorFunction()
 
 iter.next() // 1번 실행

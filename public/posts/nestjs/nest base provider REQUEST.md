@@ -2,7 +2,11 @@
 
 > req 객체를 담고있는 provider
 >
-> > sub-trees context 내에서는 직접 등록해야함
+> > @Inject(REQUEST)를 사용하면 service가 request scope가 된다.
+> >
+> > > request scope service는 onModuleInit이 발생하지 않는다.
+> > >
+> > > > sub-trees context 내에서는 직접 등록해야함
 
 ```ts
 @Injectable()

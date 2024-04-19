@@ -13,14 +13,14 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
-RUN npx nx build client --skip-nx-cache
+RUN npx nx build client --configuration=production
 
 FROM nginx:alpine
-COPY --from=builder /app/Dockerfiles/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist/apps/client/browser /usr/share/nginx/html
 EXPOSE 80
 EXPOSE 443
