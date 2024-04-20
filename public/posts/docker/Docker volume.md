@@ -27,7 +27,7 @@ docker volume ls
 docker volume prune
 ```
 
-## host경로를 container에 마운트 (bind mount)
+## host to container (bind mount)
 
 ```bash
 # 특정 경로를 마운트
