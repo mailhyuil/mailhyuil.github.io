@@ -4,11 +4,11 @@
 
 ```json
 compilerOptions: {
+    // "strict": true,
     "strictPropertyInitialization": false,
-
-    "noUncheckedIndexedAccess": true,
     "strictNullChecks": true,
 
+    "noUncheckedIndexedAccess": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true
