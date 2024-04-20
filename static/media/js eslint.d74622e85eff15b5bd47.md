@@ -1,16 +1,20 @@
-# eslint
+# js eslint
 
 ## install
 
-```
-npm i eslint
+```sh
+npm i -D eslint
+npm i -D eslint-config-unicorn
+npx eslint --init
 ```
 
-## config
+## .eslintrc.json / eslint.config.js
 
-> npx eslint --init
+> .eslintrc 파일은 deprecated 되었지만 여전히 많이 사용된다
 >
-> > .eslintrc.js
+> > 현재는 flat config (eslint.config.js)가 experimental로 사용 중
+> >
+> > > flat config 사용시 eslint extension 설정으로 flat config로 바꿔줘야 에디터에서 에러를 보여준다.
 
 ```js
 module.exports = {
@@ -21,7 +25,7 @@ module.exports = {
     node: true,
     mocha: true,
   },
-  extends: "eslint:recommended",
+  extends: ["eslint:recommended"],
   parserOptions: {
     ecmaVersion: 12,
   },
