@@ -22,3 +22,39 @@ IP
 MAC
 ...
 ```
+
+## Directionality
+
+```sh
+Bidirectional
+Unidirectional
+Full/Half duplex
+```
+
+## State
+
+```sh
+Stateful # TCP, gRPC, apache thrift
+Stateless # UDP, HTTP
+```
+
+## Routing
+
+```sh
+Proxies
+Gateways
+```
+
+## Flow & Congestion control
+
+```sh
+Flow & Congestion control # TCP, QUIC
+No Flow & Congestion control # UDP
+```
+
+## Error Management
+
+```sh
+Error code
+Retries and timeouts
+```
