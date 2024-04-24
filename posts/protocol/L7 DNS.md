@@ -10,9 +10,9 @@
 >
 > > 뒤에서 부터 최상위 도메인, 최하위 도메인 순으로 읽는다.
 
-```
-# 절대 도메인 (FQDN) : admin.mailhyuil.com
-# 최상위 도메인(1차 도메인): com
-# 하위 도메인(2차 도메인): mailhyuil
-# 최하위 도메인(3차 도메인): admin
+```sh
+절대 도메인 (FQDN) : admin.mailhyuil.com
+최상위 도메인(1차 도메인): com
+하위 도메인(2차 도메인): mailhyuil
+최하위 도메인(3차 도메인): admin
 ```

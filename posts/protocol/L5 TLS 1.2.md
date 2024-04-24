@@ -1,20 +1,23 @@
-# TLS (Transport Layer Security)
+# TLS 1.2
 
-> 보안 소켓 계층 (Secure Sockets Layer)을 이르는 말로 독립적인 프로토콜 계층
->
-> (TLS(Transport Layer Security)는 SSL의 후속 버전)
->
-> > TCP/IP 4계층 중 application layer에 위치
-> >
-> > > 개인정보 보호, 인증, 무결성을 인터넷 통신에 제공
-> > >
-> > > > > ssl 인증서는 보험이다 -> 안전 배상금이 클 수록 비싸다.
+> 대칭키 암호화 사용
 
-## SSL/TLS 통신 단계
+```sh
+# TCP 3-way handshake
+SYN
+SYN/ACK
+ACK
+# TLS Handshake (키교환)
+Client Hello
+Server Hello
+Client Fin
+Server Fin
+# Data Transfer
+GET
+200 OK
+```
 
-1. TLS 핸드셰이크
-2. 전송
-3. 종료
+# TLS 핸드셰이크
 
 ![](/img/ssl.png)
 
