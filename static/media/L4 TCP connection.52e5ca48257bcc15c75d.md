@@ -1,6 +1,6 @@
 # tcp connection
 
-> 소켓쌍(a pair of sockets)을 사용하여 3-way handshake를 통해 생성
+> 소켓쌍(a pair of sockets)을 사용하여 3-way handshake, 파일 디스크립터가 생성되고 TCB가 생성됨
 >
 > > 하나의 컴퓨터에는 여러 개의 tcp connection이 존재할 수 있음 (ip:port로 구분)
 > >
@@ -14,7 +14,11 @@
 >
 > > 메모리에 생성되며, 소켓쌍과 1:1로 대응됨
 
-## 3-way handshake
+## CONNECT (3-way handshake)
+
+> SYN : synchronize : 연결을 요청하는 패킷
+>
+> > ACK : acknowledge : 수신 확인 패킷
 
 ```sh
 클라이언트: SYN
@@ -22,7 +26,11 @@
 클라이언트: ACK
 ```
 
-## 4-way handshake
+## CLOSE (4-way handshake)
+
+> FIN : finish : 연결을 종료하는 패킷
+>
+> > CLOSE가 끝나면 서버의 파일 디스크립터는 제거되지만, 클라이언트의 파일 디스크립터는 제거되지 않음
 
 ```sh
 클라이언트: FIN
