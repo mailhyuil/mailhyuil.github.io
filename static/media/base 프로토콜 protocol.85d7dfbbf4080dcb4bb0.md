@@ -33,6 +33,8 @@ Full/Half duplex
 
 ## State
 
+> stateful은 메모리에 상태를 저장하고, stateless는 상태를 저장하지 않는다.
+
 ```sh
 Stateful # TCP, gRPC, apache thrift
 Stateless # UDP, HTTP
