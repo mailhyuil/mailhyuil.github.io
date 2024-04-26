@@ -19,12 +19,17 @@ server {
 }
 
 server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-    server_name example.com;
-    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    server_name           example.com;
+    listen                443 ssl;
+    listen                [::]:443 ssl;
+    ssl_certificate       /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key   /etc/letsencrypt/live/example.com/privkey.pem;
+
+    # ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # by default
+    # ssl_ciphers         HIGH:!aNULL:!MD5; # by default
+
+
+    client_max_body_size 1G;
 
     location = / {
         proxy_http_version 1.1;
@@ -50,7 +55,6 @@ server {
     location /api/v1/ {
         proxy_pass http://server:3000;
     }
-
 
     location @ssr {
         proxy_http_version 1.1;
