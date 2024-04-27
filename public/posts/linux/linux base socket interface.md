@@ -1,6 +1,6 @@
 # linux socket interface
 
-> socket api
+> socket api (c 구조체)
 >
 > > 운영체제가 제공하는 소켓 인터페이스 (이 인터페이스를 사용하여 node, python, java 등의 언어로 소켓 프로그래밍을 할 수 있다)
 > >
