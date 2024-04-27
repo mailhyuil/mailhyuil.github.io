@@ -1,12 +1,14 @@
 # tcp connection
 
-> 소켓쌍(a pair of sockets)을 사용하여 3-way handshake, 파일 디스크립터가 생성되고 TCB가 생성됨
+> connection을 수립해주는 주체는 커널이다.
 >
-> > 하나의 컴퓨터에는 여러 개의 tcp connection이 존재할 수 있음 (ip:port로 구분)
+> > 소켓쌍(a pair of sockets)을 사용하여 3-way handshake, 파일 디스크립터가 생성되고 TCB가 생성됨
 > >
-> > > 소켓은 앱이 tcp통신을 요청할 때 생성되고, 그 소켓을 통해 tcp connection이 생성됨
+> > > 하나의 컴퓨터에는 여러 개의 tcp connection이 존재할 수 있음 (ip:port로 구분)
 > > >
-> > > > 동시에 여러 http 요청을 보내면 브라우저는 각 요청마다 포트로 요청으로 보내고, 각각의 tcp connection이 생성됨 (chrome 브라우저의 동시 최대 요청은 6개로 제한됨)
+> > > > 소켓은 앱이 tcp통신을 요청할 때 생성되고, 그 소켓을 통해 tcp connection이 생성됨
+> > > >
+> > > > > 동시에 여러 http 요청을 보내면 브라우저는 각 요청마다 포트로 요청으로 보내고, 각각의 tcp connection이 생성됨 (chrome 브라우저의 동시 최대 요청은 6개로 제한됨)
 
 ## TCB (Transmission Control Block)
 
