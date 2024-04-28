@@ -20,8 +20,8 @@ sleep() # 시간 대기
 
 open() # 파일 열기
 close() # 파일 닫기
-read() # 파일 읽기
-write() # 파일 쓰기
+read() # 파일 읽기 === "recv() with a flags argument 0"
+write() # 파일 쓰기 === "send() with a flags argument 0"
 
 socket() # 소켓 생성
 bind() # 소켓 주소 할당
