@@ -1,4 +1,4 @@
-# nest rate limit
+# nest throttling & ratelimiting
 
 ## install
 
@@ -45,6 +45,22 @@ import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
   ],
 })
 export class AppModule {}
+```
+
+## proxy guard
+
+> proxy 서버를 사용할 경우 proxy ip가 아닌 origin ip를 추출하여 사용
+>
+> > 반드시 request header에 `X-Forwarded-For` 또는 `X-Real-IP`를 사용하여 origin ip를 추출해야 함
+
+```ts
+@Injectable()
+export class ThrottlerBehindProxyGuard extends ThrottlerGuard {
+  protected getTracker(req: Record<string, any>): Promise<string> {
+    const originIp = req.ips.length ? req.ips[0] : req.ip;
+    return originIp; // individualize IP extraction to meet your own needs
+  }
+}
 ```
 
 ## @Throttle & @SkipThrottle
