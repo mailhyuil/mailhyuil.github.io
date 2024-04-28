@@ -2,9 +2,7 @@
 
 > tcp에서 커넥션을 수립해주는 주체는 커널이다.
 >
-> > 커널이 SYN Queue/Accept Queue를 생성한다.
-> >
-> > 커널의 메모리와 백엔드 프로세스의 메모리는 분리되어 있기 때문에 (커널 메모리, 유저 메모리)
+> > 커널은 SYN Queue와 Accept Queue를 가지고 있다.
 > >
 > > > queue가 가득 차면 connection은 거부된다 (backend 프로세스가 일을 빠르게 처리 못할 시 발생)
 > > >
@@ -15,11 +13,20 @@
 > > > > queue의 크기는 backlog 값으로 설정 가능하다 (default: 128)
 
 ```sh
-kernel create socket & SYN queue / Accept queue
 client SYN # kernel이 SYN queue에 저장
 kernel SYN/ACK # server SYN/ACK
-server ACK # kernel이 SYN queue에서 제거 후 Accept queue에 connection을 저장
-backend accept() # accept queue에서 제거
-socket file descriptor 생성
-send buffer / receive buffer 로 데이터 전송
+server ACK
+kernel connection established # kernel이 SYN queue에서 제거 후 Accept queue에 connection을 저장
+
+backend accept() # accept queue에 있는 connection을 가져옴
+
+client send data # client가 데이터를 전송
+kernel put it into receive buffer # kernel의 receive buffer에 데이터를 저장
+backend read() or recv() # socket의 receive buffer에서 데이터를 읽음
+backend write() or send() # socket의 send buffer에 데이터를 저장
+kernel put it into send buffer # kernel의 send buffer에 데이터를 저장
+kernel send data # client에 데이터를 전송
+
+backend close() # connection 종료
+kernel connection closed # socket file descriptor 제거
 ```
