@@ -51,7 +51,7 @@ export class AppModule {}
 
 > proxy 서버를 사용할 경우 proxy ip가 아닌 origin ip를 추출하여 사용
 >
-> > 반드시 request header에 `X-Forwarded-For` 또는 `X-Real-IP`를 사용하여 origin ip를 추출해야 함
+> > 반드시 request header에 `X-Forwarded-For`를 사용하여 origin ip를 추출해야 함
 
 ```ts
 @Injectable()
