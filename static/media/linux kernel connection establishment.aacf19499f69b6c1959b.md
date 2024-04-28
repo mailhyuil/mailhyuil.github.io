@@ -15,18 +15,17 @@
 ```sh
 client SYN # kernel이 SYN queue에 저장
 kernel SYN/ACK # server SYN/ACK
-server ACK
-kernel connection established # kernel이 SYN queue에서 제거 후 Accept queue에 connection을 저장
+client ACK # kernel이 SYN queue에서 제거 -> socket과 socket descriptor를 생성 -> Accept queue에 저장 (socket은 pending 상태)
 
-backend accept() # accept queue에 있는 connection을 가져옴
+server accept() # Accept queue에 있는 첫번째 connection을 가져옴 (socket이 connected 상태가 됨)
 
 client send data # client가 데이터를 전송
 kernel put it into receive buffer # kernel의 receive buffer에 데이터를 저장
-backend read() or recv() # socket의 receive buffer에서 데이터를 읽음
-backend write() or send() # socket의 send buffer에 데이터를 저장
+server read() or recv() # socket의 receive buffer에서 데이터를 읽음
+server write() or send() # socket의 send buffer에 데이터를 저장
 kernel put it into send buffer # kernel의 send buffer에 데이터를 저장
 kernel send data # client에 데이터를 전송
 
-backend close() # connection 종료
+server close() # connection 종료
 kernel connection closed # socket file descriptor 제거
 ```

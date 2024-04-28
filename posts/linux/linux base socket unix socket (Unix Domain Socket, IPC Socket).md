@@ -19,4 +19,6 @@ ls -l docker.sock
 
 #시스템의 전체 유닉스 도메인 소켓 목록을 확인
 lsof -U
+
+echo hello world | nc -U docker.sock
 ```
