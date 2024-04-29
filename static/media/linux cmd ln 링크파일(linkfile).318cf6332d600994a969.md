@@ -1,6 +1,8 @@
 # linux 링크파일 link ln
 
-> 윈도우에서는 끝에 .lnk 확장자를 붙여줌
+> hard link 는 원본과 같은 i-node를 갖고있다.
+>
+> > soft link는 다른 i-node 갖고있다. 그 i-node는 원본 i-node를 참조한다.
 
 ```sh
 # 하드링크

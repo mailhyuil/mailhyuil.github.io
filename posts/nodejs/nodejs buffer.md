@@ -34,3 +34,16 @@ buffer.copy(otherBuffer);
 
 buffer.concat([buf1, buf2, buf3]);
 ```
+
+```js
+const text = "안녕하세요";
+console.log("text : ", text);
+const buf = Buffer.from(text); // default utf-8
+console.log("buffer : ", buf);
+const ascii = buf.toString("base64");
+console.log("ascii : ", ascii);
+const buf2 = Buffer.from(ascii, "base64");
+console.log("buffer2 : ", buf2);
+const utf8 = buf2.toString("utf-8");
+console.log("utf8 : ", utf8);
+```
