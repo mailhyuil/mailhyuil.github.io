@@ -8,5 +8,6 @@
 -p # port forwarding
 --rm # stop 시 삭제
 --restart # 컨테이너 재시작 정책
+--privileged # 특권 모드
 -u 0 # root로 실행
 ```
