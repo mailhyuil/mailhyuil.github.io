@@ -7,6 +7,8 @@
 > > 하나의 키를 시크릿키(Secret Key), 대칭키(Symmetric Key), 세션키(Session Key : 세션 동안 데이터를 안전하게 암호화하고 복호화하는 데 사용), 쉐어드키(Shared Key), 단용키 라고 부른다.
 > >
 > > > uuid, openssl, gpg.. 으로 생성
+> > >
+> > > > 대칭키는 비대칭키보다 빠르다 그래서 (TLS에 사용됨)
 
 ```sh
 client(대칭키) --encrypted-data--> server(대칭키)
