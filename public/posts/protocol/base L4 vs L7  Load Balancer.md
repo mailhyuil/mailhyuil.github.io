@@ -5,6 +5,8 @@
 > IP, PORT만 다루는 로드밸런서
 >
 > > TCP 연결을 그대로 전달하는 방식이다.
+> >
+> > > protocol에 대해 잘 모르는 경우 유용 e.g. postgres protocol, mysql protocol...
 
 ```sh
 # Pros
