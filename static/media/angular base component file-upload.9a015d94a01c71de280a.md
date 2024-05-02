@@ -92,7 +92,9 @@ export default class FileUploadComponent {
     this.valueAccessor.touchedChange(true);
   }
 
-  remove(file: File) {
+  remove(file: File, objectUrl: string) {
+    URL.revokeObjectURL(objectUrl);
+
     if (this.isFileArray(this.value)) {
       this.value = this.value.filter((f) => f !== file);
       this.setObjectUrls(this.value);
@@ -107,7 +109,7 @@ export default class FileUploadComponent {
     this.valueAccessor.touchedChange(true);
   }
 
-  setObjectUrl(file: File) {
+  private setObjectUrl(file: File) {
     if (!file) {
       this.uploadingUrl = undefined;
       return;
@@ -115,7 +117,7 @@ export default class FileUploadComponent {
     this.uploadingUrl = URL.createObjectURL(file);
   }
 
-  setObjectUrls(files: File[]) {
+  private setObjectUrls(files: File[]) {
     if (!files) {
       this.uploadingUrls = [];
       return;
@@ -176,7 +178,12 @@ export default class FileUploadComponent {
   </div>
   <label>
     <input type="file" [maxLength]="maxLength" [accept]="accept.join(',')" [multiple]="multiple" hidden (change)="onChange($event)" />
-    <div class="p-5 transition-all duration-300 border cursor-pointer rounded-xl hover:bg-gray-50" (drop)="onDrop($event)" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" [class.bg-gray-50]="isActive">
+    <div
+      class="p-5 transition-all duration-300 border cursor-pointer rounded-xl hover:bg-gray-50"
+      (drop)="onDrop($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      [class.bg-gray-50]="isActive">
       <div class="flex flex-col items-center gap-2">
         <lepi-icon class="size-5 bg-primary" name="heroicons:arrow-up-tray-16-solid" />
         <p class="text-sm">사진 또는 파일을 드래그할 수 있어요</p>
@@ -208,7 +215,10 @@ export default class FileUploadComponent {
       </div>
     </div>
     <div class="flex items-center justify-center ml-auto">
-      <lepi-icon class="transition-all bg-red-500 size-7 hover:scale-110" (click)="remove(v)" name="heroicons:x-circle-16-solid"></lepi-icon>
+      <lepi-icon
+        class="transition-all bg-red-500 size-7 hover:scale-110"
+        (click)="remove(v, uploadingUrls[$index])"
+        name="heroicons:x-circle-16-solid"></lepi-icon>
     </div>
   </div>
   }
@@ -236,7 +246,10 @@ export default class FileUploadComponent {
       </div>
     </div>
     <div class="flex items-center justify-center ml-auto">
-      <lepi-icon class="transition-all bg-red-500 size-7 hover:scale-110" (click)="remove(value)" name="heroicons:x-circle-16-solid"></lepi-icon>
+      <lepi-icon
+        class="transition-all bg-red-500 size-7 hover:scale-110"
+        (click)="remove(value, uploadingUrl)"
+        name="heroicons:x-circle-16-solid"></lepi-icon>
     </div>
   </div>
   }

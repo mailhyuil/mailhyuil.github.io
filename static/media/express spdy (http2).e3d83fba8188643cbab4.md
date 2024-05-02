@@ -1,5 +1,9 @@
 # express spdy (http2)
 
+> 스피디
+>
+> > 구글이 개발한 HTTP/2 프로토콜을 지원하는 모듈이다.
+
 ## app.js
 
 ```js

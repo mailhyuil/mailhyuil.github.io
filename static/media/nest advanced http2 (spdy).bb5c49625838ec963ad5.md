@@ -20,15 +20,14 @@ import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { ExpressAdapter } from "@nestjs/platform-express";
 import express, { Express } from "express";
-import { ServerOptions } from "https";
-import spdy from "spdy";
+import spdy, { ServerOptions } from "spdy";
 import { AppModule } from "./app/app.module";
 async function bootstrap() {
   const expressApp: Express = express();
 
   const spdyOpts: ServerOptions = {
     key: process.env["TLS_KEY"],
-    cert: process.env["TLS_CRT"],
+    cert: process.env["TLS_CERT"],
   };
 
   const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp));
@@ -40,7 +39,7 @@ async function bootstrap() {
   /** Port */
   const port = process.env.SERVER_PORT || 3000;
   await spdy.createServer(spdyOpts, expressApp).listen(port);
-  Logger.log(`🚀 Application is running on: http://localhost:${port}`);
+  Logger.log(`🚀 Application is running on: https://localhost:${port}`);
 }
 
 bootstrap();

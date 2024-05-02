@@ -1,20 +1,9 @@
-# nginx
-
-![](img/apache&nginx.png)
-
-## default.conf
+# nginx http2
 
 ```conf
 server {
-    listen 80;
-    listen [::]:80;
-    server_name my_server_name;
-    return 301 https://mailhyuil.com;
-}
-
-server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
     server_name my_server_name;
 
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
