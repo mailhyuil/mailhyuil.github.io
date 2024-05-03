@@ -1,0 +1,1 @@
+# nginx base gzip
