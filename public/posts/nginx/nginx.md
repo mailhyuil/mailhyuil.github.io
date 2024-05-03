@@ -6,30 +6,61 @@
 
 ```conf
 server {
+    server_name example.com;
+
     listen 80;
     listen [::]:80;
-    server_name my_server_name;
-    return 301 https://mailhyuil.com;
+
+    location /.well-known/acme-challenge/ {
+        allow all;
+        root /var/www/certbot;
+    }
+
+    return 301 https://$host$request_uri;
 }
 
 server {
+    server_name example.com;
+
+    http2 on;
     listen 443 ssl;
     listen [::]:443 ssl;
-    server_name my_server_name;
 
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_certificate /etc/nginx/ssl/ssl_certificate.pem;
-    ssl_certificate_key /etc/nginx/ssl/ssl_certificate_key.pem;
-    ssl_password_file /etc/nginx/ssl/ssl_password_file.pass;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+    gzip on;
+    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+    gzip_vary on;
+    gzip_comp_level 7;
+    gzip_proxied any;
+    gzip_types text/plain text/css text/javascript image/svg+xml image/x-icon application/javascript application/x-javascript text/xml application/xml application/xml+rss application/json;
+
+    client_max_body_size 1G;
+
+    location = / {
+        proxy_pass http://client:4000;
+    }
 
     location / {
-        root /usr/share/nginx/html;
-        index index.html;
-        try_files $uri $uri/ /index.html =404;
+        root /app/client/browser;
+        index index.html index.htm;
+        try_files $uri $uri/ @ssr;
+    }
+
+    location /admin {
+        alias /app/admin;
+        index index.html index.htm;
+        try_files $uri $uri/ /admin/index.html;
     }
 
     location /api/v1/ {
-        proxy_pass http://localhost:20001;
+        proxy_pass http://server:3000;
+    }
+
+    location @ssr {
+        proxy_pass http://client:4000;
     }
 }
 ```
