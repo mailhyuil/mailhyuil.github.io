@@ -9,7 +9,7 @@
 > > > > adapter가 모니터 모드를 지원해야 한다.
 
 ```sh
-# ifconfig [interface] down
+iwconfig # 현재 wireless interface의 상태를 확인
 
 ifconfig wlan0 down # interface를 비활성화
 airmon-ng check kill # 네트워크 관련 프로세스를 모두 종료
