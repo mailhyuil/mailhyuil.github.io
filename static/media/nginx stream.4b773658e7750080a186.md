@@ -1,7 +1,0 @@
-# nginx stream
-
-```conf
-stream {
-
-}
-```

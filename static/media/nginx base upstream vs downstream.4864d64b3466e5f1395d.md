@@ -1,8 +1,10 @@
-# nginx upstream
+# nginx base upstream vs downstream
 
-> upstream_server === Origin Server
+> A -> B로 데이터를 보낼 때
 >
-> > nginx를 프록시 서버로 사용할 때, upstream server는 nginx가 요청을 전달할 분산 서버들을 의미한다.
+> > A의 upstream서버는 B, B의 downstream 서버는 A 이다.
+> >
+> > > 하나의 서버는 upstream이 될 수도 있고 downstream이 될 수도 있다.
 
 ## upstream
 
@@ -30,24 +32,6 @@ server {
 # 한번 접속한 ip는 계속 같은 서버를 사용한다.
 upstream my_server {
 	ip_hash;
-    server ip_address:4200;
-    server ip_address:4201;
-}
-
-
-# least_conn
-# least_conn 옵션은 가중치를 고려하면서 연결된 접속자가 가장 적은 서버로 요청을 분배한다.
-upstream my_server {
-	least_conn;
-    server ip_address:4200;
-    server ip_address:4201;
-}
-
-
-# least_time
-# least_time 옵션은 연결된 접속자가 가장 적으면서 평균 응답시간이 가장 적은 쪽으로 요청을 분배한다.
-upstream my_server {
-	least_time;
     server ip_address:4200;
     server ip_address:4201;
 }

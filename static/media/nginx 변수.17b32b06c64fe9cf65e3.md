@@ -1,6 +1,6 @@
 # nginx 변수
 
-```
+```sh
 $scheme # http, https
 $host # www.example.com
 $uri # e.g. /api/v1/users
