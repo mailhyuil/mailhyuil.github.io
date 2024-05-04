@@ -5,5 +5,5 @@
 > > digest : the output of the hash function.
 
 ```sh
-openssl genrsa -des3 -out 파일이름.key
+openssl dgst -sha256 <file>
 ```
