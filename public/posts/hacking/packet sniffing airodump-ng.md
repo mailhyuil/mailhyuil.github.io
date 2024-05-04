@@ -1,8 +1,28 @@
-# packet sniffing airodump-ng
+# Packet Sniffing airodump-ng
+
+> 주변에 있는 무선 네트워크의 정보를 보여주는 프로그램이다.
+>
+> > monitor mode일 때만 사용할 수 있다.
 
 ```sh
-iwconfig # 현재 interface의 상태를 확인
+airodump-ng wlan0 # 2.4GHz 감지
+airodump-ng --band a wlan0 # 5GHz 감지 (어댑터가 5GHz를 지원해야 함)
+airodump-ng --band abg wlan0 # 5GHz & 2.4GHz 감지
 
-# airodump-ng [interface]
-airodump-ng mon0
+12:23:AA:BF:F0:EE  -95        4        0    0   1  130   WPA2 CCMP   PSK  <length:  7>
+50:46:AE:4B:FF:05  -92       12        0    0   7  324   WPA2 CCMP   PSK  SK_WiFiGIGAFF02_2.4G
+12:23:AA:8D:88:D2  -90       11        0    0   4  130   WPA2 CCMP   PSK  <length:  7>
+00:23:AA:BF:F0:EE  -91        5        0    0   1  130   WPA2 CCMP   PSK  SK_WiFiGIGAF0EC
+
+BSSID # target MAC address
+PWR # 신호 강도 (숫자가 클수록 강한 신호)
+Beacons # 네트워크 존재를 알리는 패킷 수
+#Data
+#/s $ Data 패킷 수
+CH # 네트워크가 사용하는 채널
+MB # 최대 전송 속도
+ENC # 암호화 방식
+CIPHER # 네트워크 내에서 사용하는 암호화 방식
+AUTH # 인증 방식
+ESSID # 네트워크 이름
 ```
