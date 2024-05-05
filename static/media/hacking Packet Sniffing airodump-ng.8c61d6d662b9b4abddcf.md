@@ -8,11 +8,7 @@
 airodump-ng wlan0 # 2.4GHz 감지
 airodump-ng --band a wlan0 # 5GHz 감지 (어댑터가 5GHz를 지원해야 함)
 airodump-ng --band abg wlan0 # 5GHz & 2.4GHz 감지
-
-12:23:AA:BF:F0:EE  -95        4        0    0   1  130   WPA2 CCMP   PSK  <length:  7>
-50:46:AE:4B:FF:05  -92       12        0    0   7  324   WPA2 CCMP   PSK  SK_WiFiGIGAFF02_2.4G
-12:23:AA:8D:88:D2  -90       11        0    0   4  130   WPA2 CCMP   PSK  <length:  7>
-00:23:AA:BF:F0:EE  -91        5        0    0   1  130   WPA2 CCMP   PSK  SK_WiFiGIGAF0EC
+airodump-ng --bssid 08:5D:DD:13:04:20 --channel 10 --write test wlan0 # 패킷 캡쳐해서 file로 저장
 
 BSSID # target MAC address
 PWR # 신호 강도 (숫자가 클수록 강한 신호)
