@@ -1,4 +1,4 @@
-# 압축
+# 압축 tar
 
 > 보통 tar.gz로 압축을 많이 함
 >
@@ -28,15 +28,4 @@ tar -xzvf <압축명.tar.gz> [-C 압축 풀 경로]
 -C # 경로를 지정
 -x # tar 압축을 풂
 -z # gzip으로 압축하거나 해제함
-```
-
-## gzip
-
-> gunzip 또는 gzip으로 압축을 풀 수 있음
-
-```
-gunzip 파일이름.gz
-gunzip example.txt.gz
-
-gzip -d 파일이름.gz
 ```
