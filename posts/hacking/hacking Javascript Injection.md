@@ -1,4 +1,12 @@
-# bettercap
+# hacking Javascript Injection
+
+## hstshijack.cap
+
+```sh
+set hstshijack.payloads *:/injection1.js, *:/injection2.js
+```
+
+## 사용
 
 ```sh
 bettercap -iface eth0

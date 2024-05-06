@@ -3,9 +3,12 @@
 ```sh
 bettercap -iface eth0
 
-# caplets 설치
-caplets.update
-caplets.show
+help
+help net.probe
+
+set arp.spoof.fullduplex true
+
+arp.spoof on
 ```
 
 ## arp.spoof로 인터넷 연결이 안될 때
