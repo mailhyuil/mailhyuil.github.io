@@ -1,6 +1,12 @@
 # linux iptables
 
-> iptables는 리눅스상에서 방화벽을 설정하는 도구
+> 방화벽, 패킷 필터링, NAT, 포트 포워딩, 패킷 로깅 등을 설정할 수 있는 리눅스의 패키지
+
+## install
+
+```sh
+apt install iptables -y
+```
 
 ## 문법
 
