@@ -10,7 +10,7 @@
 apt install lsb-release -y
 ```
 
-## 사용
+## usage
 
 ```sh
 lsb_release -a

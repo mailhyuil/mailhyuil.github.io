@@ -14,7 +14,7 @@ import * as cookieParser from "cookie-parser";
 app.use(cookieParser());
 ```
 
-## 사용
+## usage
 
 ```ts
 export class SomeController {

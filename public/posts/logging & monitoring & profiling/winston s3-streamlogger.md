@@ -7,7 +7,7 @@ npm i winston
 npm i s3-streamlogger
 ```
 
-## 사용
+## usage
 
 ```js
 const winston = require("winston");

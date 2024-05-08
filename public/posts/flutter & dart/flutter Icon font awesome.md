@@ -6,7 +6,7 @@
 flutter pub add font_awesome_flutter
 ```
 
-## 사용
+## usage
 
 ```dart
 FaIcon(FontAwesomeIcons.user)

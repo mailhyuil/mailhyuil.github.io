@@ -6,7 +6,7 @@
 flutter pub add video_player
 ```
 
-## 사용
+## usage
 
 ```dart
 import 'package:flutter/material.dart';

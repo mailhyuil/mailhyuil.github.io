@@ -6,7 +6,7 @@
 npm i ngx-cookie-service
 ```
 
-## 사용
+## usage
 
 ```ts
 import { Component } from "@angular/core";

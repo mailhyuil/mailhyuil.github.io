@@ -6,7 +6,7 @@
 npm install --save video.js
 ```
 
-## 사용
+## usage
 
 ```js
 import videojs from "video.js";

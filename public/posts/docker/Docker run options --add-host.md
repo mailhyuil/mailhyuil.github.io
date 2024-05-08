@@ -2,7 +2,7 @@
 
 > 컨테이너의 /etc/hosts 파일에 호스트를 추가한다.
 
-## 사용
+## usage
 
 ```sh
 docker run --add-host <host>:<ip> <image>

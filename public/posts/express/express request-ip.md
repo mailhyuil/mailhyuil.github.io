@@ -8,7 +8,7 @@
 npm i request-ip
 ```
 
-## 사용
+## usage
 
 ```js
 import requestIp from "request-ip";

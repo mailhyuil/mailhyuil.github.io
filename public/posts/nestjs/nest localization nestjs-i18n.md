@@ -57,7 +57,7 @@ import { AcceptLanguageResolver, I18nModule, QueryResolver } from "nestjs-i18n";
 export class AppModule {}
 ```
 
-## 사용
+## usage
 
 ```ts
 import { Controller, Get, Req } from "@nestjs/common";

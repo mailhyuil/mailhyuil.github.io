@@ -6,7 +6,7 @@
 npm i ngx-skeleton-loader
 ```
 
-## 사용
+## usage
 
 ```ts
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';

@@ -4,7 +4,7 @@
 >
 > > transport는 데이터를 전송해주는 인터페이스다. e.g. redis에게 데이터를 전송하기 위해서 redis transport를 사용한다.
 
-## 사용
+## usage
 
 ```ts
 import { CustomTransportStrategy, Server } from "@nestjs/microservices";

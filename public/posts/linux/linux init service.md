@@ -8,7 +8,7 @@
 > >
 > > systemctl give greater control options.
 
-## 사용
+## usage
 
 ```sh
 service nginx start

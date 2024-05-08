@@ -14,7 +14,7 @@ npm install openai
 export OPENAI_API_KEY='your-api-key-here'
 ```
 
-## 사용
+## usage
 
 ```ts
 import OpenAI from "openai";

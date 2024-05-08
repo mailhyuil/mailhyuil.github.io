@@ -12,7 +12,7 @@ static ParentWidget of(BuildContext context) {
 }
 ```
 
-## 사용
+## usage
 
 ```dart
 Theme.of(context).textTheme.titleLarge.color,

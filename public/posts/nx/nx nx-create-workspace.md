@@ -4,7 +4,7 @@
 >
 > > Integrated를 선택해야 빌드 시 package.json에 패키지들이 포함됨
 
-## 사용
+## usage
 
 ```sh
 npx nx create-workspace

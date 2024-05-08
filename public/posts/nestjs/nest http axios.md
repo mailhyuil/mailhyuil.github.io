@@ -17,7 +17,7 @@ npm i @nestjs/axios
 export class CatsModule {}
 ```
 
-## 사용법
+## usage법
 
 ```ts
 findAll(): Observable<AxiosResponse<Cat[]>> {

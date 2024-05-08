@@ -22,7 +22,7 @@ flutter pub add location
 <key>UIBackgroundModes</key> <!-- Background Mode 에서 필요하면 사용 -->
 ```
 
-## 사용
+## usage
 
 ```dart
 import 'package:flutter/material.dart';

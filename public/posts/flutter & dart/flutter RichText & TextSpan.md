@@ -4,7 +4,7 @@
 >
 > > RichText 내에서 TextSpan 사용
 
-## 사용
+## usage
 
 ```dart
 RichText(

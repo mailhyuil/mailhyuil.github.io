@@ -56,7 +56,7 @@ $request_time 요청을 처리하는데 걸린시간
 $connection 로그를 남길 당시의 커넥션 수
 ```
 
-### 사용
+### usage
 
 ```
 access_log <로그 경로> <포맷 이름>;
@@ -75,7 +75,7 @@ emerg 서비스 불가 수준 오류 - 설정, syntax등이 잘못된 경우
 debug 디버그 정보
 ```
 
-### 사용
+### usage
 
 ```
 error_log <에러로그 경로> <에러로그 레벨>

@@ -17,7 +17,7 @@ source ~/.bash_profile
 pg_rman init
 ```
 
-## 사용
+## usage
 
 ```sh
 # Full backup -- 전체 데이터베이스 클러스터를 백업

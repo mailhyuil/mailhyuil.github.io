@@ -6,7 +6,7 @@
 go get -u github.com/lucas-clemente/quic-go
 ```
 
-## 사용
+## usage
 
 ```go
 package main

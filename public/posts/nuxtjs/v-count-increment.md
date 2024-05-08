@@ -33,7 +33,7 @@ export default defineNuxtPlugin((nuxtapp) => {
 })
 ```
 
-## 사용
+## usage
 
 ```
 <h1 v-count-increment="after.total">0</h1>

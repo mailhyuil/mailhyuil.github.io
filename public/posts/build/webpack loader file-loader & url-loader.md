@@ -20,7 +20,7 @@
 > >
 > > > type: 'asset/inline'
 
-## 사용
+## usage
 
 ```js
 module: {

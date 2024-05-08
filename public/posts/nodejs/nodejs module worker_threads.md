@@ -19,7 +19,7 @@ parentPort.postMessage("message"); // worker에게 메시지 전달
 workerPort.postMessage("message"); // main에게 메시지 전달
 ```
 
-## 사용
+## usage
 
 ### main.js
 

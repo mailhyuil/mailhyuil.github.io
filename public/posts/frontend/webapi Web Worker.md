@@ -1,6 +1,6 @@
 # webapi Web Worker
 
-## 사용
+## usage
 
 ```js
 if (window.Worker) {

@@ -8,7 +8,7 @@
 npm i -D webpack-dev-server
 ```
 
-## 사용
+## usage
 
 ```js
 module.exports = {

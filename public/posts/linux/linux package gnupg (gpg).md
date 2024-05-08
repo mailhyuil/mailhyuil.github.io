@@ -10,7 +10,7 @@
 apt install gnupg -y
 ```
 
-## 사용
+## usage
 
 ```sh
 # 비대칭키 생성

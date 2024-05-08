@@ -8,7 +8,7 @@
 npm i -D terser-webpack-plugin
 ```
 
-## 사용
+## usage
 
 ```js
 const TerserPlugin = require("terser-webpack-plugin");

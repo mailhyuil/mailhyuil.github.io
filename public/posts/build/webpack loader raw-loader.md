@@ -12,7 +12,7 @@
 npm i -D raw-loader
 ```
 
-## 사용
+## usage
 
 ```js
 module.exports = {

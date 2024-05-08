@@ -1,6 +1,6 @@
 # webapi navigator serviceWorker
 
-## 사용
+## usage
 
 ```js
 if ("serviceWorker" in navigator) {

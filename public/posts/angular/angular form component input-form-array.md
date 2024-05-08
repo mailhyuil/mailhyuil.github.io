@@ -66,7 +66,7 @@ export class InputContactComponent {
 </div>
 ```
 
-## 사용
+## usage
 
 ### app.component.ts
 

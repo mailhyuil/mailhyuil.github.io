@@ -6,7 +6,7 @@
 npm i redis
 ```
 
-## 사용
+## usage
 
 ```js
 

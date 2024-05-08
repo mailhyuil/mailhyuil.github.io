@@ -6,7 +6,7 @@
 flutter pub add socket_io_client
 ```
 
-## 사용법
+## usage법
 
 ```dart
 import 'package:socket_io_client/socket_io_client.dart' as IO;

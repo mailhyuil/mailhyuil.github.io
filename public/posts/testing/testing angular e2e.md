@@ -1,6 +1,6 @@
 # angular test e2e
 
-## 사용
+## usage
 
 ```sh
 # cypress 설치

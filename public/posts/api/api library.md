@@ -8,7 +8,7 @@
 npm i api
 ```
 
-## 사용
+## usage
 
 ```js
 import api from "api";

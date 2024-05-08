@@ -26,7 +26,7 @@ service telnet
 }
 ```
 
-## 사용
+## usage
 
 ```sh
 sudo systemctl restart xinetd

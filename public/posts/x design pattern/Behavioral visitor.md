@@ -95,7 +95,7 @@ destinations.forEach((d) => d.accept(visitor));
 console.log("visitor's souvenirs list : ", visitor.souvenirs);
 ```
 
-## 사용 예
+## usage 예
 
 ```ts
 class Employee {

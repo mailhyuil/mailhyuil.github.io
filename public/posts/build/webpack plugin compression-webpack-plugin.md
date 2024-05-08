@@ -8,7 +8,7 @@
 npm install -D compression-webpack-plugin
 ```
 
-## 사용
+## usage
 
 ```js
 const CompressionPlugin = require("compression-webpack-plugin");

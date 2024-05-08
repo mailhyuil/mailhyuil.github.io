@@ -1,6 +1,6 @@
 # unsafe rust
 
-## 사용 이유
+## usage 이유
 
 1. 로우 포인터를 역참조할 때
 2. static mut 값에 접근할 때

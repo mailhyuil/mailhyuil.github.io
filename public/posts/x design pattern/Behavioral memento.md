@@ -50,15 +50,15 @@ class Caretaker {
 }
 
 // 객체 생성
-const originator = new Originator('Initial state');
+const originator = new Originator("Initial state");
 const caretaker = new Caretaker();
 
 // 상태 변경 후 Memento 저장
-originator.setState('Changed state');
+originator.setState("Changed state");
 caretaker.addMemento(originator.createMemento());
 
 // 상태 변경 후 Memento 저장
-originator.setState('New state');
+originator.setState("New state");
 caretaker.addMemento(originator.createMemento());
 
 // 이전 상태로 복원
@@ -66,7 +66,7 @@ originator.restoreMemento(caretaker.getMemento(0));
 console.log(originator.getState()); // "Changed state"
 ```
 
-## 사용 예
+## usage 예
 
 ```ts
 class Person {
@@ -103,8 +103,8 @@ class CareTaker {
   }
 }
 
-const mike = new Person('Mike Foley', '1112 Main', 'Dallas', 'TX');
-const john = new Person('John Wang', '48th Street', 'San Jose', 'CA');
+const mike = new Person("Mike Foley", "1112 Main", "Dallas", "TX");
+const john = new Person("John Wang", "48th Street", "San Jose", "CA");
 const caretaker = new CareTaker();
 
 // save state // 상태를 저장
@@ -114,8 +114,8 @@ caretaker.add(2, john.hydrate());
 
 // mess up their names // 상태 바꾸기
 
-mike.name = 'King Kong';
-john.name = 'Superman';
+mike.name = "King Kong";
+john.name = "Superman";
 
 // restore original state // 상태 복원
 

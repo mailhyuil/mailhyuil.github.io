@@ -8,7 +8,7 @@
 > > >
 > > > > 비동기로 작동
 
-## 사용
+## usage
 
 ```js
 if (!window.indexedDB) {

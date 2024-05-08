@@ -56,7 +56,7 @@ export class AppModule implements NestModule {
 }
 ```
 
-## 사용
+## usage
 
 ```ts
 @Injectable()

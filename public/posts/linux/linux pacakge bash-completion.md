@@ -6,7 +6,7 @@
 apt install bash-completion -y
 ```
 
-## 사용
+## usage
 
 ```sh
 source /usr/share/bash-completion/bash_completion

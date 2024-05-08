@@ -6,7 +6,7 @@
 npm i electron-log
 ```
 
-## 사용
+## usage
 
 ```js
 /// main에서 사용

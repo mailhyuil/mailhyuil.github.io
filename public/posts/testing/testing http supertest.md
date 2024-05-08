@@ -8,7 +8,7 @@
 npm i -D supertest
 ```
 
-## 사용
+## usage
 
 ```js
 import request from "supertest";

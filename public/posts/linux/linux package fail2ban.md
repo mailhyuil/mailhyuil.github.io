@@ -14,7 +14,7 @@
 apt install fail2ban -y
 ```
 
-## 사용
+## usage
 
 ```sh
 systemctl enable fail2ban --now

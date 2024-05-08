@@ -28,7 +28,7 @@ func (user user) PrintInfo() {
 }
 ```
 
-## 사용
+## usage
 
 ```go
 package main

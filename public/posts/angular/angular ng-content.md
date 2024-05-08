@@ -9,7 +9,7 @@
 </div>
 ```
 
-## 사용
+## usage
 
 ```html
 <app-some>

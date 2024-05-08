@@ -20,7 +20,7 @@ ch <- true
 <-ch
 ```
 
-## 사용
+## usage
 
 ```go
 package main

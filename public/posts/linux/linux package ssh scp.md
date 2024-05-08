@@ -14,7 +14,7 @@ apt install openssh-server -y
 apt install openssh-client -y
 ```
 
-## 사용
+## usage
 
 ```sh
 scp [옵션] [파일명] [remote_user]@[remote_ip]:[저장할 위치]

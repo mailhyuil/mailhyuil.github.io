@@ -48,7 +48,7 @@ ng extract-i18n [project-name]
   }
 ```
 
-## 사용
+## usage
 
 ### html
 

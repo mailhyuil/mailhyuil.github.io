@@ -46,7 +46,7 @@ class SomeNotifier extends ChangeNotifier {
 }
 ```
 
-## 사용
+## usage
 
 > 값이 계속 바뀐다면 watch
 >

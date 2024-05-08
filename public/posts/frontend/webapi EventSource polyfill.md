@@ -7,7 +7,7 @@ npm i event-source-polyfill
 npm i -D @types/event-source-polyfill
 ```
 
-## 사용
+## usage
 
 ```ts
 import { EventSourcePolyfill } from "event-source-polyfill";

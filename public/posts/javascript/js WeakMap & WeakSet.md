@@ -3,10 +3,10 @@
 > 어딘가에서 나도 모르게 참조 되고있는 객체는 가비지 컬렉팅 되지 않는다..!
 
 ```js
-let john = { name: 'John' };
+let john = { name: "John" };
 
 let map = new Map();
-map.set(john, 'add some value..'); // 맵이 객체를 참조하게 됨
+map.set(john, "add some value.."); // 맵이 객체를 참조하게 됨
 
 john = null; // 참조를 null로 덮어써도 가비지 컬렉터의 대상이 되지 않는다.
 
@@ -21,17 +21,17 @@ console.log(map.size); // 1 여전히 남아있음..
 > > 객체의 참조가 사라지면 WeakMap의 참조도 해제된다.
 
 ```js
-let john = { name: 'John' };
+let john = { name: "John" };
 
 let weakMap = new WeakMap();
-weakMap.set(john, '...');
+weakMap.set(john, "...");
 
 john = null; // 참조를 덮어씀
 
 // john을 나타내는 객체는 이제 메모리에서 지워집니다!
 ```
 
-## 사용 예
+## usage 예
 
 > 위크맵은 부차적인 데이터를 저장할 곳이 필요할 때 그 진가를 발휘합니다.
 
@@ -92,9 +92,9 @@ obj = null;
 ```js
 let visitedSet = new WeakSet();
 
-let john = { name: 'John' };
-let pete = { name: 'Pete' };
-let mary = { name: 'Mary' };
+let john = { name: "John" };
+let pete = { name: "Pete" };
+let mary = { name: "Mary" };
 
 visitedSet.add(john); // John이 사이트를 방문합니다.
 visitedSet.add(pete); // 이어서 Pete가 사이트를 방문합니다.

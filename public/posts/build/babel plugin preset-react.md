@@ -17,7 +17,7 @@ npm i -D @babel/preset-react
 }
 ```
 
-## 사용
+## usage
 
 > 터미널에서 실행하거나 node에서 실행하여 컴파일 가능
 

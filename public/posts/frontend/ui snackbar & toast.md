@@ -6,7 +6,7 @@
 npm i toastify-js
 ```
 
-## 사용
+## usage
 
 ```js
 import Toastify from "toastify-js";

@@ -50,7 +50,7 @@ export class SomeModule implements OnModuleDestroy {
 }
 ```
 
-## 사용
+## usage
 
 ```ts
 @Injectable()

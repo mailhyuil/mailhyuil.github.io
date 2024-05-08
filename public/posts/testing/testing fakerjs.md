@@ -8,7 +8,7 @@
 npm i -D @faker-js/faker
 ```
 
-## 사용
+## usage
 
 ```ts
 import { fake } from "@faker-js/faker";

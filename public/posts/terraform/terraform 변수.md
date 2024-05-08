@@ -15,7 +15,7 @@ variable "env" {
 }
 ```
 
-### 사용
+### usage
 
 ```
 tags = {
@@ -40,7 +40,7 @@ locals {
 }
 ```
 
-### 사용
+### usage
 
 ```
 availabilty_zone = local.az_a

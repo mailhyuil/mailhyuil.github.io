@@ -8,7 +8,7 @@
 apt install netcat
 ```
 
-## 사용
+## usage
 
 ```sh
 # nc [OPTIONS] HOST PORT

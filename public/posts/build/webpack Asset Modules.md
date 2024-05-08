@@ -2,7 +2,7 @@
 
 > raw-loader, url-loader, file-loader 를 대체하는 새로운 모듈 유형
 
-## 사용
+## usage
 
 ```js
 {

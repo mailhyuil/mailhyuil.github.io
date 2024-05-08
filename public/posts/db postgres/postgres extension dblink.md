@@ -16,7 +16,7 @@ SELECT dblink_connect('연결명', 'hostaddr=원격DB주소 port=원격DB포트 
 SELECT dblink_disconnect('연결명')
 ```
 
-## 사용
+## usage
 
 ```sql
 SELECT * FROM dblink('연결명', 'SELECT 쿼리') AS alias_name (column_name data_type)

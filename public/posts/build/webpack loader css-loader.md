@@ -12,7 +12,7 @@
 npm i -D css-loader
 ```
 
-## 사용
+## usage
 
 ```js
 const HtmlWebpackPlugin = require("html-webpack-plugin");

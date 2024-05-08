@@ -6,7 +6,7 @@
 brew install mongosh
 ```
 
-## 사용법
+## usage법
 
 ```sh
 mongosh

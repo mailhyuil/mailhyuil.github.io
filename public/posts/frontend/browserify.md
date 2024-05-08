@@ -24,7 +24,7 @@ const http = require("http");
 const path = require("path");
 ```
 
-## 사용
+## usage
 
 ```sh
 browserify main.js -o bundle.js

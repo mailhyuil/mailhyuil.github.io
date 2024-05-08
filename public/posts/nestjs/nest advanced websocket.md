@@ -16,7 +16,15 @@ npm i ngx-socket-io
 
 ```ts
 import { Logger } from "@nestjs/common";
-import { MessageBody, OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, SubscribeMessage, WebSocketGateway, WebSocketServer } from "@nestjs/websockets";
+import {
+  MessageBody,
+  OnGatewayConnection,
+  OnGatewayDisconnect,
+  OnGatewayInit,
+  SubscribeMessage,
+  WebSocketGateway,
+  WebSocketServer,
+} from "@nestjs/websockets";
 import { Server } from "http";
 import { Socket } from "net";
 
@@ -89,7 +97,7 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-### 사용
+### usage
 
 ```ts
 socket.emit("chat", "Hello World");

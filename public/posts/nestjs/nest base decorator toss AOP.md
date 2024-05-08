@@ -15,7 +15,7 @@ npm i @toss/nestjs-aop
 export class AppModule {}
 ```
 
-## 사용
+## usage
 
 ```ts
 export const CACHE_DECORATOR = Symbol("CACHE_DECORATOR");

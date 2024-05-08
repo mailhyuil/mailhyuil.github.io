@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 ```
 
-## 사용
+## usage
 
 ```ts
 this.httpClient.get<T>(`${this.baseUrl}/${url}`, {

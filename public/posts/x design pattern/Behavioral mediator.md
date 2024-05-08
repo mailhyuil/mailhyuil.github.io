@@ -68,16 +68,16 @@ const colleagueB = new ConcreteColleagueB(mediator);
 mediator.subscribe(colleagueA);
 mediator.subscribe(colleagueB);
 
-colleagueA.send('Hello from A!'); // Logs "ConcreteColleagueB received: Hello from A!"
-colleagueB.send('Hello from B!'); // Logs "ConcreteColleagueA received: Hello from B!"
+colleagueA.send("Hello from A!"); // Logs "ConcreteColleagueB received: Hello from A!"
+colleagueB.send("Hello from B!"); // Logs "ConcreteColleagueA received: Hello from B!"
 
 mediator.unsubscribe(colleagueA);
 
 colleagueA.send("This message won't be received by anyone!"); // Does not log anything
-colleagueB.send('Hello again from B!'); // Logs "ConcreteColleagueA received: Hello again from B!"
+colleagueB.send("Hello again from B!"); // Logs "ConcreteColleagueA received: Hello again from B!"
 ```
 
-## 사용 예
+## usage 예
 
 > 채팅방을 연상하면 된다.
 >
@@ -121,9 +121,9 @@ class User {
 
 const chatroom = new ChatRoom();
 
-const user1 = new User('SB', chatroom);
-const user2 = new User('Hyuil', chatroom);
+const user1 = new User("SB", chatroom);
+const user2 = new User("Hyuil", chatroom);
 
-user1.send('Hi there!');
-user2.send('Hey!');
+user1.send("Hi there!");
+user2.send("Hey!");
 ```

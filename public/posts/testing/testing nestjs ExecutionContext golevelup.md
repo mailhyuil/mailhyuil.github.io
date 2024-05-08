@@ -10,7 +10,7 @@
 npm i -D @golevelup/ts-jest
 ```
 
-## 사용
+## usage
 
 ```ts
 import { createMock } from "@golevelup/ts-jest";

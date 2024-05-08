@@ -13,7 +13,7 @@ apt install psmisc
 apt install lsof
 ```
 
-## 사용
+## usage
 
 ```sh
 fuser -k <port>/tcp

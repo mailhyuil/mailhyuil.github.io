@@ -10,7 +10,7 @@
 flutter pub add shared_preferences
 ```
 
-## 사용
+## usage
 
 ```dart
 SharedPreferences sp = await SharedPreferences.getInstance();

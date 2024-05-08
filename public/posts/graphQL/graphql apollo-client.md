@@ -6,7 +6,7 @@
 npm i @apollo/client graphql
 ```
 
-## 사용
+## usage
 
 ```js
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from "@apollo/client";

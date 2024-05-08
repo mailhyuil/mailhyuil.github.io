@@ -6,7 +6,7 @@
 npm i redis
 ```
 
-## 사용법
+## usage법
 
 ```js
 const axios = require("axios").default;

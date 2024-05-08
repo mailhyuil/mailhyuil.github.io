@@ -7,7 +7,7 @@
 ```sh
 npm i -D typescript
 
-## 사용
+## usage
 npx tsc
 ```
 

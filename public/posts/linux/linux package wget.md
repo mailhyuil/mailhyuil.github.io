@@ -6,7 +6,7 @@
 apt install wget -y
 ```
 
-## 사용
+## usage
 
 ```sh
 wget http://example.org/file.tar.gz

@@ -1,6 +1,6 @@
 # go http
 
-## 사용
+## usage
 
 ```go
 package main

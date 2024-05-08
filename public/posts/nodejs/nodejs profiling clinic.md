@@ -6,7 +6,7 @@
 npm install -g clinic
 ```
 
-## 사용
+## usage
 
 ```sh
 clinic doctor -- node server.js

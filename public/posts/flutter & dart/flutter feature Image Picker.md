@@ -25,7 +25,7 @@ flutter pub add image_picker
 <string>Used to demonstrate image picker plugin</string>
 ```
 
-## 사용
+## usage
 
 ```dart
 class CameraScreen extends StatefulWidget {

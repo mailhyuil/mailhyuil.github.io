@@ -14,7 +14,7 @@ shareReplay(1);
 shareReplay({ bufferSize: 1, refCount: false });
 ```
 
-## 사용
+## usage
 
 ```js
 import { Injectable, inject } from '@angular/core';

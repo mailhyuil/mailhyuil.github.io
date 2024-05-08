@@ -21,7 +21,7 @@ app.use(
 );
 ```
 
-## 사용
+## usage
 
 ```ts
 @Get()

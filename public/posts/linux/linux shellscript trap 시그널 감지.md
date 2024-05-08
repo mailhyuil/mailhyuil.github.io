@@ -10,7 +10,7 @@
 trap <command> <signal>
 ```
 
-## 사용
+## usage
 
 ```sh
 #!/bin/bash

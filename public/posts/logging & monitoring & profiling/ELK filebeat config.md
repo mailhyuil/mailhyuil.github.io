@@ -36,7 +36,7 @@ output.file:
   #rotate_on_startup: true
 ```
 
-## 사용
+## usage
 
 ```sh
 ./filebeat -e -c filebeat.yml -d "publish"

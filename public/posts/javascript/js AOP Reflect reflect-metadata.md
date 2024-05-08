@@ -10,7 +10,7 @@
 npm i reflect-metadata
 ```
 
-## 사용
+## usage
 
 ```ts
 import "reflect-metadata";

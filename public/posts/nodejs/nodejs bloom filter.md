@@ -6,7 +6,7 @@
 npm i bloom-filters
 ```
 
-## 사용
+## usage
 
 ```js
 const { BloomFilter } = require("bloom-filters");

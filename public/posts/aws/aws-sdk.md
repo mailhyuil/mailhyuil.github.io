@@ -17,7 +17,7 @@ npm i s3-streamlogger
 ...
 ```
 
-## 사용
+## usage
 
 ```ts
 // v2

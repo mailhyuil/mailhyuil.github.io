@@ -4,7 +4,7 @@
 >
 > > Positioned(absolute와 같은 개념)를 사용하여 위치를 지정
 
-## 사용
+## usage
 
 > Positioned는 top, left, right, bottom을 사용하여 위치를 지정할 때 사용
 

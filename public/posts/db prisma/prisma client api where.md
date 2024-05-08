@@ -2,7 +2,7 @@
 
 > Prisma.[Name]WhereInput
 
-## 사용
+## usage
 
 ```ts
 const where: Prisma.PostWhereInput = {

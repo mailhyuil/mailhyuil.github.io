@@ -8,7 +8,7 @@
 apt install vsftpd -y
 ```
 
-## 사용
+## usage
 
 ```sh
 ftp hostname@ip

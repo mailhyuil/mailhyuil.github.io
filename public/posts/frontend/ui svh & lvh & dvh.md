@@ -13,7 +13,7 @@ lvh (Large Viewport) : 주소바 UI가 축소된 상태의 뷰포트 높이
 dvh (Dynamic Viewport) : svh / lvh 사이에서 동적으로 변화
 ```
 
-## 사용
+## usage
 
 ```css
 .container {

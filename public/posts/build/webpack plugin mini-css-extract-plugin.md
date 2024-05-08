@@ -6,7 +6,7 @@
 npm install -D mini-css-extract-plugin
 ```
 
-## 사용
+## usage
 
 ```js
 module.exports = {

@@ -8,7 +8,7 @@
 npm i -D jest-mock-extended
 ```
 
-## 사용
+## usage
 
 ```js
 import { mock } from 'jest-mock-extended';

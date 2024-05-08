@@ -1,6 +1,6 @@
 # nest SetMetadata
 
-## 사용
+## usage
 
 ```ts
 @SetMetadata("roles", ["admin"])

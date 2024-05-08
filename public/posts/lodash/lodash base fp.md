@@ -13,7 +13,7 @@ iteratee-first # iteratee를 첫번째 인자로 받는다.
 data-last # 데이터를 마지막 인자로 받는다.
 ```
 
-## 사용
+## usage
 
 > lodash-es는 아직 지원하지 않기 때문에 cherry-pick하여 사용한다.
 

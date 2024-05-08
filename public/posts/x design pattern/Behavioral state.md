@@ -6,7 +6,7 @@
 > >
 > > > 모든 전략(상태)에 대한 인터페이스를 정의해라
 
-## 사용 예
+## usage 예
 
 ```ts
 interface State {
@@ -15,13 +15,13 @@ interface State {
 
 class HappyState implements State {
   think() {
-    return 'I am happy 🙂';
+    return "I am happy 🙂";
   }
 }
 
 class SadState implements State {
   think() {
-    return 'I am sad 🙁';
+    return "I am sad 🙁";
   }
 }
 

@@ -6,7 +6,7 @@
 npm i -D node-mock-http
 ```
 
-## 사용
+## usage
 
 ```js
 const httpMocks = require("node-mocks-http");

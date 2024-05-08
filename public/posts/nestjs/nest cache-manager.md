@@ -20,7 +20,7 @@ npm i redis@^3.0.0 # 3.0.0
 npm i cache-manager-redis-store@^2.0.0 # 2.0.0
 ```
 
-## 사용
+## usage
 
 ### app.module.ts
 

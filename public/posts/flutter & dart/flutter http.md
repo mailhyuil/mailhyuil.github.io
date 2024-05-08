@@ -12,7 +12,7 @@ flutter pub add http
 flutter pub add dio
 ```
 
-## 사용
+## usage
 
 > http.get 으로 데이터를 가져오고
 >

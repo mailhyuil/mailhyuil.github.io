@@ -10,7 +10,7 @@
 apt install -y dnsutils
 ```
 
-## 사용
+## usage
 
 ```sh
 dig google.com

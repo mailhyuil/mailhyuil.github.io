@@ -8,7 +8,7 @@
 npm i -D copy-webpack-plugin
 ```
 
-## 사용
+## usage
 
 ```js
 const HtmlWebpackPlugin = require("html-webpack-plugin");

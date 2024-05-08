@@ -69,7 +69,7 @@ export class CacheDecoratorRegister implements OnModuleInit {
 }
 ```
 
-## 사용
+## usage
 
 ```ts
 @Controller()

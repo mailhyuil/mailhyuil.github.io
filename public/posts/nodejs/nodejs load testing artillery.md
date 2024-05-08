@@ -6,7 +6,7 @@
 npm i -g artillery
 ```
 
-## 사용
+## usage
 
 ```sh
 artillery quick -c 20 -n 100 http://localhost:4200

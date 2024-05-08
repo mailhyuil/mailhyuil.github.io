@@ -12,7 +12,7 @@ choco install ngrok
 ngrok config add-authtoken 123Asdf384EpasdfaSlPasDe7GDoYnKf_3334pasdfsdfTG3Ab1v
 ```
 
-## 사용
+## usage
 
 ```sh
 ngrok http 3000

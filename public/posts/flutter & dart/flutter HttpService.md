@@ -84,7 +84,7 @@ class HttpService {
 
 ```
 
-## 사용
+## usage
 
 ```dart
 final HttpService _httpService = getIt<HttpService>();

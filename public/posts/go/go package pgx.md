@@ -6,7 +6,7 @@
 go get github.com/jackc/pgx
 ```
 
-## 사용
+## usage
 
 ```go
 package main

@@ -22,7 +22,7 @@ android {
 }
 ```
 
-## 사용
+## usage
 
 ```dart
 controller = WebViewController()

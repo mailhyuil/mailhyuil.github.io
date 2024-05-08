@@ -12,7 +12,7 @@
 npm i core-js
 ```
 
-### 사용
+### usage
 
 ```
 import core-js

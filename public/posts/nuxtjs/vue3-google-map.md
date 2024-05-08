@@ -6,7 +6,7 @@
 npm i vue3-google-map
 ```
 
-## 사용
+## usage
 
 ```vue
 <script lang="ts" setup>

@@ -4,7 +4,7 @@
 >
 > > 메소드를 통해 value값을 변경
 
-## 사용법
+## usage법
 
 > with SingleTickerProviderStateMixin 추가 // 페이지에 들어왔을 때 Ticker를 하나만 생성 하고 페이지를 벗어나면 Ticker를 제거
 >

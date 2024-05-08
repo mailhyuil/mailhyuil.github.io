@@ -17,7 +17,7 @@ delete user;
 delete user2; // double free error!!
 ```
 
-## 사용
+## usage
 
 ```cpp
 #include <memory>

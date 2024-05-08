@@ -7,7 +7,7 @@ apt update -y
 apt install postgis -y
 ```
 
-## 사용
+## usage
 
 ```sql
 CREATE EXTENSION postgis;

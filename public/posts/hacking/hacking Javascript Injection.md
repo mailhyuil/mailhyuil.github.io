@@ -6,7 +6,7 @@
 set hstshijack.payloads *:/injection1.js, *:/injection2.js
 ```
 
-## 사용
+## usage
 
 ```sh
 bettercap -iface eth0

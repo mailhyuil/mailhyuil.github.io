@@ -7,7 +7,7 @@
 apt install cron -y
 ```
 
-## 사용
+## usage
 
 ```sh
 # cron systemctl 활성화

@@ -36,7 +36,7 @@ style()
 animate()
 ```
 
-## 사용
+## usage
 
 ```ts
 

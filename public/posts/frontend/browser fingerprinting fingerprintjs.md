@@ -6,7 +6,7 @@
 npm i @fingerprintjs/fingerprintjs
 ```
 
-## 사용
+## usage
 
 ```js
 // Initialize the agent at application startup.

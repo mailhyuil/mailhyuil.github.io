@@ -6,7 +6,7 @@
 CREATE EXTENSION pg_tde;
 ```
 
-## 사용
+## usage
 
 ```sql
 CREATE TABLE users (

@@ -10,7 +10,7 @@ interface AsyncValidatorFn {
 }
 ```
 
-## 사용
+## usage
 
 ```ts
 EmailAsyncValidator(): AsyncValidatorFn {

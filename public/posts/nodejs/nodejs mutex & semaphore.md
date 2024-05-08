@@ -46,7 +46,7 @@ class Mutex {
 export default Mutex;
 ```
 
-## 사용
+## usage
 
 ```ts
 const mutex = new Mutex();

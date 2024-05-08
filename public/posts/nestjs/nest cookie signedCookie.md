@@ -16,7 +16,7 @@ import * as cookieParser from "cookie-parser";
 app.use(cookieParser("VERY_SECRET_KEY"));
 ```
 
-## 사용
+## usage
 
 ```ts
 export class SomeController {

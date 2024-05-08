@@ -16,7 +16,7 @@ GITHUB_SHA	: 액션을 트리거한 커밋의 SHA	// 6dcb09b5b57875f334f61aebed6
 GITHUB_REF	: 액션을 트리거한 브랜치 또는 태그 이름	// refs/heads/master
 ```
 
-## 사용
+## usage
 
 ```yaml
 - name: Create docker image

@@ -8,7 +8,7 @@
 npm i winston-transport
 ```
 
-## 사용
+## usage
 
 ```ts
 import Transport from "winston-transport";

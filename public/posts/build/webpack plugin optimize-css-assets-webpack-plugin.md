@@ -8,7 +8,7 @@
 npm i -D optimize-css-assets-webpack-plugin
 ```
 
-## 사용
+## usage
 
 ```js
 optimization: {

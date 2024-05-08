@@ -13,7 +13,7 @@ S3_BUCKET=Y
 SECRET_KEY=X
 ```
 
-## 사용
+## usage
 
 ```go
 package main

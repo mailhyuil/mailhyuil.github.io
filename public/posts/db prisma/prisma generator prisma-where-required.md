@@ -8,7 +8,7 @@
 npm i @kz-d/prisma-where-required
 ```
 
-## 사용
+## usage
 
 ```prisma
 generator where-required {

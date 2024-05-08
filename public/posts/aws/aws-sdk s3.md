@@ -6,7 +6,7 @@
 npm i @aws-sdk/client-s3
 ```
 
-## 사용
+## usage
 
 ```ts
 import { S3Client, ListBucketsCommand } from "@aws-sdk/client-s3";

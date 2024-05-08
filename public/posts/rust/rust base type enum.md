@@ -10,7 +10,7 @@ IpAddrKind::V4;
 IpAddrKind::V6;
 ```
 
-## 사용법
+## usage법
 
 ```rs
 fn route(ip_type: IpAddrKind){}

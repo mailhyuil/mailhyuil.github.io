@@ -48,7 +48,7 @@ providers: [
 // app.useGlobalGuards(new RolesGuard());
 ```
 
-## 사용
+## usage
 
 > @UseGuards() 데코레이터 사용
 

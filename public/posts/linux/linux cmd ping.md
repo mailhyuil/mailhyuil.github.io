@@ -12,7 +12,7 @@
 apt install iputils-ping -y
 ```
 
-## 사용
+## usage
 
 ```sh
 ping <ip>

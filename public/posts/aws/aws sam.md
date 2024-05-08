@@ -15,7 +15,7 @@ brew tap aws/tap
 brew install aws-sam-cli
 ```
 
-### 사용법
+### usage법
 
 ```
 sam init

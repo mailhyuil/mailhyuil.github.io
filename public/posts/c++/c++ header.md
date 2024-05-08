@@ -34,7 +34,7 @@ int add(int a, int b) {
 }
 ```
 
-## 사용
+## usage
 
 ```cpp
 // 표준 라이브러리 헤더파일

@@ -8,7 +8,7 @@
 flutter pub add get_it
 ```
 
-## 사용법
+## usage법
 
 > 최상위 레벨에 get_it을 import하고, get_it을 사용하여 의존성 주입
 >

@@ -12,7 +12,7 @@ flutter pub add flutter_dotenv
 SERVER=http://localhost:3000
 ```
 
-## 사용
+## usage
 
 ```dart
 import 'package:flutter/material.dart';

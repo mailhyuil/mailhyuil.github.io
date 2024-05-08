@@ -9,7 +9,7 @@
 npm i -g redis-cli
 ```
 
-## 사용
+## usage
 
 ```sh
 # connect

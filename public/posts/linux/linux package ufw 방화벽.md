@@ -15,7 +15,7 @@ ufw default deny incoming
 ufw default allow outgoing
 ```
 
-## 사용법
+## usage법
 
 > 허용할 서비스/포트 설정: UFW를 사용하여 허용할 서비스 또는 포트를 지정
 

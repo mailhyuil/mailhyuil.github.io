@@ -26,7 +26,7 @@ const firebaseConfig = {
 export const firebase = initializeApp(firebaseConfig);
 ```
 
-## 사용
+## usage
 
 ```js
 const defaultAuth = firebase.auth();

@@ -26,7 +26,7 @@ export class FileExtensionValidationPipe implements PipeTransform {
 }
 ```
 
-## 사용
+## usage
 
 ```ts
 @Post('file')

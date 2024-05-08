@@ -17,7 +17,7 @@
 </svg>
 ```
 
-## 사용
+## usage
 
 ```html
 <svg><use xlink:href="#icon-pricetag" /></svg>

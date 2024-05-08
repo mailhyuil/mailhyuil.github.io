@@ -19,7 +19,7 @@ TabController
 StreamController
 ```
 
-## 사용법
+## usage법
 
 ```dart
 // controller 선언

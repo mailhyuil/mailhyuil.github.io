@@ -6,7 +6,7 @@
 npm i chromadb
 ```
 
-## 사용
+## usage
 
 ```js
 import { ChromaClient } from "chromadb";

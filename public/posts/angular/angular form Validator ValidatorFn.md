@@ -8,7 +8,7 @@ interface ValidatorFn {
 }
 ```
 
-## 사용
+## usage
 
 ```ts
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";

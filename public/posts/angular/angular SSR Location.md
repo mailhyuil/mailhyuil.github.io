@@ -19,7 +19,7 @@ export class LocationService {
 }
 ```
 
-## 사용
+## usage
 
 ```ts
 Object.fromEntries(new URLSearchParams(this.location.search).entries());

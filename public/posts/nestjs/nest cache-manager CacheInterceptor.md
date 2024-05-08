@@ -6,7 +6,7 @@
 > >
 > > > @Res() 를 사용하면 적용되지 않음
 
-## 사용
+## usage
 
 ```ts
 import { Module } from "@nestjs/common";

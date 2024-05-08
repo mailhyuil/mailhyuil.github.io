@@ -17,7 +17,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 });
 ```
 
-## 사용
+## usage
 
 ```vue
 <script lang="ts" setup>

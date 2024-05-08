@@ -6,7 +6,7 @@
 helm plugin install <helm_diff_plugin_url>
 ```
 
-## 사용
+## usage
 
 ```sh
 helm diff upgrade [release name] [chart] [flags] # helm diff upgrade revision <release name> 1

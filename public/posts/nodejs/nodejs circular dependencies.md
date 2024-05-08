@@ -6,7 +6,7 @@
 npm i -g madge
 ```
 
-## 사용
+## usage
 
 ```sh
 # find all dependencies

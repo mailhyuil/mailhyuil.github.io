@@ -67,7 +67,7 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-## 사용
+## usage
 
 ```ts
 export class AppComponent {

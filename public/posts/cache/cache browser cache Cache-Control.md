@@ -24,7 +24,7 @@ min-refresh
 immutable
 ```
 
-## 사용
+## usage
 
 ```sh
 # 브라우저에만 10초동안 캐시하고 서버에 etag 검증을 받도록 한다.

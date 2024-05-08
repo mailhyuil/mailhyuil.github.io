@@ -21,7 +21,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 ```
 
-## 사용
+## usage
 
 ```js
 import { getAuth, onAuthStateChanged } from "firebase/auth";

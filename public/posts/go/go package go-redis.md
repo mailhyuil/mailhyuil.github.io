@@ -6,7 +6,7 @@
 go get github.com/redis/go-redis/v9
 ```
 
-## 사용
+## usage
 
 ```go
 import (

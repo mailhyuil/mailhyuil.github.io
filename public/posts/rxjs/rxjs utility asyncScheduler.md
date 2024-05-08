@@ -4,7 +4,7 @@
 >
 > > Promise : asapScheduler
 
-## 사용
+## usage
 
 > setTimeout과 setInterval처럼 사용
 

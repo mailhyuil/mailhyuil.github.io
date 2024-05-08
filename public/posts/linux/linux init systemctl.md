@@ -10,7 +10,7 @@
 apt install systemd -y
 ```
 
-## 사용
+## usage
 
 ```sh
 systemctl status cron.service # 상태 확인

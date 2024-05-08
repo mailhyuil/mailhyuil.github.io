@@ -6,7 +6,7 @@
 npm i autocannon
 ```
 
-## 사용
+## usage
 
 ```sh
 autocannon -c 500 -d 5 http://localhost:4200

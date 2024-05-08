@@ -38,14 +38,14 @@ class NonterminalExpression extends AbstractExpression {
 }
 
 // 객체 생성
-const input = '10+11';
+const input = "10+11";
 const syntaxTree = [];
 
 // Syntax Tree 생성
-for (let token of input.split('')) {
-  if (token === '0' || token === '1') {
+for (let token of input.split("")) {
+  if (token === "0" || token === "1") {
     syntaxTree.push(new TerminalExpression());
-  } else if (token === '+') {
+  } else if (token === "+") {
     syntaxTree.push(new NonterminalExpression(syntaxTree.pop(), syntaxTree.pop()));
   }
 }
@@ -56,7 +56,7 @@ syntaxTree[0].interpret(context);
 console.log(`Interpreted '${input}' as ${context.output}`); // "Interpreted '10+11' as 5"
 ```
 
-## 사용 예
+## usage 예
 
 ```ts
 const Context = function (input) {
@@ -101,19 +101,19 @@ Expression.prototype = {
 };
 
 function run() {
-  const roman = 'MCMXXVIII';
+  const roman = "MCMXXVIII";
   const context = new Context(roman);
   const tree = [];
 
-  tree.push(new Expression('thousand', 'M', ' ', ' ', ' ', 1000));
-  tree.push(new Expression('hundred', 'C', 'CD', 'D', 'CM', 100));
-  tree.push(new Expression('ten', 'X', 'XL', 'L', 'XC', 10));
-  tree.push(new Expression('one', 'I', 'IV', 'V', 'IX', 1));
+  tree.push(new Expression("thousand", "M", " ", " ", " ", 1000));
+  tree.push(new Expression("hundred", "C", "CD", "D", "CM", 100));
+  tree.push(new Expression("ten", "X", "XL", "L", "XC", 10));
+  tree.push(new Expression("one", "I", "IV", "V", "IX", 1));
 
   for (const i = 0, len = tree.length; i < len; i++) {
     tree[i].interpret(context);
   }
 
-  console.log(roman + ' = ' + context.output);
+  console.log(roman + " = " + context.output);
 }
 ```

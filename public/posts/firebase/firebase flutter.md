@@ -23,7 +23,7 @@ flutter pub add firebase_auth
 flutter pub add firebase_analytics
 ```
 
-## 사용
+## usage
 
 ```dart
 import 'package:firebase_core/firebase_core.dart';

@@ -42,7 +42,7 @@ importProvidersFrom([
     ]),
 ```
 
-## 사용
+## usage
 
 ```ts
 import { Firestore, collectionData, collection } from "@angular/fire/firestore";

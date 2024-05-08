@@ -4,7 +4,7 @@
 >
 > > redis.conf 파일을 생성해서 설정을 변경
 
-## 사용
+## usage
 
 ```sh
 redis-server /path/to/redis.conf

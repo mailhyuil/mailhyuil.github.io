@@ -6,7 +6,7 @@
 npm install -D webpack-merge
 ```
 
-## 사용
+## usage
 
 ```js
 const { merge } = require("webpack-merge");

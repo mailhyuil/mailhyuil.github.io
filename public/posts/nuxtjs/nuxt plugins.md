@@ -18,7 +18,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 });
 ```
 
-## 사용
+## usage
 
 > useNuxtApp()
 

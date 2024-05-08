@@ -6,7 +6,7 @@
 flutter pub add flutter_animate
 ```
 
-## 사용
+## usage
 
 ```dart
 Animate(

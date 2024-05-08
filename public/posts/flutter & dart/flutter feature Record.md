@@ -21,7 +21,7 @@ flutter pub add record
 <string>We need to access to the microphone to record audio file</string>
 ```
 
-## 사용
+## usage
 
 ```dart
 // Import package

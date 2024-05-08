@@ -6,7 +6,7 @@
 flutter pub add audioplayers
 ```
 
-## 사용
+## usage
 
 ```dart
 final player = AudioPlayer();

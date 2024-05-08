@@ -6,7 +6,7 @@
 apt install curl -y
 ```
 
-## 사용
+## usage
 
 ```sh
 # http request

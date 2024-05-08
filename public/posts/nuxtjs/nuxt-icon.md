@@ -12,7 +12,7 @@ yarn add --dev nuxt-icon
 modules: ['nuxt-icon']
 ```
 
-## 사용법
+## usage법
 
 ```
 <Icon name="uil:github" />

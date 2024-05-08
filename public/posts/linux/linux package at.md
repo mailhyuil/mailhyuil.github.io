@@ -11,7 +11,7 @@ apt install at -y
 systemctl enable atd --now
 ```
 
-## 사용
+## usage
 
 ```sh
 # at <time> <date> -f <file>

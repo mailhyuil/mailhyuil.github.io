@@ -15,7 +15,7 @@
 const proxy = new Proxy(target, handler);
 ```
 
-## 사용
+## usage
 
 > target의 proxy를 생성하고 target 대신 proxy를 사용하면
 > proxy에 한 행위가 전부 target에 반영된다.

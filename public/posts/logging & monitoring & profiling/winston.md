@@ -13,7 +13,7 @@ npm i winston
 npm i winston-daily-rotate-file
 ```
 
-## 사용
+## usage
 
 ```js
 const winston = require("winston");

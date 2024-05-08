@@ -11,7 +11,7 @@ interface Component {
 
 class Leaf implements Component {
   operation(): void {
-    console.log('Leaf operation');
+    console.log("Leaf operation");
   }
 }
 
@@ -30,7 +30,7 @@ class Composite implements Component {
   }
 
   operation(): void {
-    console.log('Composite operation');
+    console.log("Composite operation");
     this.children.forEach((child) => {
       child.operation();
     });
@@ -46,7 +46,7 @@ composite.add(leaf2);
 composite.operation();
 ```
 
-## 사용
+## usage
 
 ```ts
 public abstract class ComputerDevice {

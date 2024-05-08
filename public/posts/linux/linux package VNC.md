@@ -18,7 +18,7 @@ apt install metacity -y
 apt install tightvnc -y
 ```
 
-## 사용
+## usage
 
 ```sh
 # 명령어 입력 후 비밀번호설정

@@ -4,7 +4,7 @@
 >
 > > 마스터 프로세스 CORE를 제외한 나머지 CORE 만큼의 워커 프로세스를 생성하여, 각기 다른 프로세스에서 코드가 실행되도록 도와줍니다.
 
-## 사용
+## usage
 
 > cluster.fork()로 worker process생성
 >

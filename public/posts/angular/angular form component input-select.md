@@ -145,7 +145,7 @@ export default class InputSelectComponent {
 </div>
 ```
 
-## 사용
+## usage
 
 ```html
 <app-input-select placeholder="근무 연차를 선택해주세요" class="flex-1" formControlName="period" label="근무 연차">

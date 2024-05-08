@@ -7,7 +7,7 @@ npm i winston-logstash
 
 ```
 
-## 사용
+## usage
 
 ```js
 // See test cases from test-bench/winston-3x/test/smoke.js

@@ -1,6 +1,6 @@
 # flutter Dismissable
 
-## 사용
+## usage
 
 ```dart
 Dismissable(

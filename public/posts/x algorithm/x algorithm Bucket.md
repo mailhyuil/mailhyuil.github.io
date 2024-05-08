@@ -38,7 +38,7 @@ class LeakyBucket {
 }
 ```
 
-### 사용 중인 플랫폼
+### usage 중인 플랫폼
 
 ```
 Amazon MWS(Maketplace WEb Service)
@@ -83,7 +83,7 @@ class TokenBucket {
 }
 ```
 
-### 사용 중인 플랫폼
+### usage 중인 플랫폼
 
 ```
 AWS : API Gateway, EC2, EBS, CPU Credit

@@ -6,7 +6,7 @@
 npm i getmac
 ```
 
-## 사용
+## usage
 
 ```js
 import getMAC, { isMAC } from "getmac";

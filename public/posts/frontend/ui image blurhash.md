@@ -6,7 +6,7 @@
 npm i blurhash
 ```
 
-## 사용
+## usage
 
 ```js
 const { encode, decode } = require("blurhash");

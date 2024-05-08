@@ -8,7 +8,7 @@
 apt install wipe -y
 ```
 
-## 사용
+## usage
 
 ```sh
 wipe -rfiv test.gpg

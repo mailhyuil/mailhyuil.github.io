@@ -6,7 +6,7 @@
 npm i xlsx
 ```
 
-## 사용
+## usage
 
 ```ts
 const XLSX = require("xlsx");

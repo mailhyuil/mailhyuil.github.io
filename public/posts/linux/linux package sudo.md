@@ -6,7 +6,7 @@
 apt install sudo -y
 ```
 
-## 사용자 계정 추가
+## usage자 계정 추가
 
 > 사용자명은 "user"
 

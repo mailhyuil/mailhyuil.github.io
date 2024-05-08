@@ -10,7 +10,7 @@
 flutter pub add visibility_detector
 ```
 
-## 사용
+## usage
 
 ```dart
 @override

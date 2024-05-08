@@ -14,7 +14,7 @@ import { NgOptimizedImage } from "@angular/common";
 export class SomeComponent {}
 ```
 
-## 사용
+## usage
 
 ```html
 <img ngSrc="cat.jpg" />

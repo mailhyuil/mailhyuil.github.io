@@ -19,7 +19,7 @@
 
 ## scroll-margin
 
-## 사용법
+## usage법
 
 ```css
 #container {

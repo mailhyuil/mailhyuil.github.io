@@ -117,7 +117,7 @@ export class SegmentItemComponent implements OnDestroy {
 </button>
 ```
 
-## 사용
+## usage
 
 ```html
 <app-segment [(ngModel)]="selectedSegment">

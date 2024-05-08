@@ -12,7 +12,7 @@ npm i bcryptjs
 npm i -D @types/bcryptjs
 ```
 
-## 사용법
+## usage법
 
 ```js
 import * as bcrypt from "bcrypt";

@@ -16,7 +16,7 @@ source ./emsdk_env.sh
 emcc -v
 ```
 
-## 사용
+## usage
 
 ```sh
 emcc test.cpp -o test.js # test.js와 test.wasm 파일이 생성된다.

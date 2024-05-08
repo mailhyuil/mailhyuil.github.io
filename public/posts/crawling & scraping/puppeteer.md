@@ -6,7 +6,7 @@
 npm i puppeteer
 ```
 
-## 사용
+## usage
 
 ```js
 import puppeteer from "puppeteer";

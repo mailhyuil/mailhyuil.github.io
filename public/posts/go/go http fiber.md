@@ -6,7 +6,7 @@
 go get github.com/gofiber/fiber/v2
 ```
 
-## 사용
+## usage
 
 ```go
 package main

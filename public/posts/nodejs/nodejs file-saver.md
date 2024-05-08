@@ -9,7 +9,7 @@ npm i file-saver
 npm i -D @types/file-saver
 ```
 
-## 사용
+## usage
 
 ```js
 import { saveAs } from 'file-saver';

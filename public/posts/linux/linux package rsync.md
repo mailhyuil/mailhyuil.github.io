@@ -14,7 +14,7 @@
 apt install rsync -y
 ```
 
-## 사용
+## usage
 
 ```sh
 -a : archive 모드로 타임스탬프, 심볼릭링크, 퍼미션, 그룹, 소유자, 장치 등의 파일 보존

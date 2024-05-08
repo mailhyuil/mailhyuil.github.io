@@ -10,7 +10,7 @@
 animate(keyframes, options);
 ```
 
-## 사용
+## usage
 
 ```js
 const div = document.createElement("div");

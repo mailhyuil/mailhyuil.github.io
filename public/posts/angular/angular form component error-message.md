@@ -39,7 +39,7 @@ export class ErrorMessageComponent {
 </div>
 ```
 
-## 사용
+## usage
 
 ```html
 <app-error-message [control]="form.controls.name" name="이름"></app-error-message>
