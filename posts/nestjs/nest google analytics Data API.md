@@ -25,7 +25,7 @@ async function bootstrap() {
 
 ```ts
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { GoogleAnalyticsDTO } from "./google-analytics.dto";
 const propertyId = process.env.GA_PROPERTY_ID;
 
@@ -59,21 +59,24 @@ export class GoogleAnalyticsService {
       },
       {}
     );
-    if (!res.rows) return console.log("No data found");
 
-    res[0].dimensionValues;
+    if (!res.rows) {
+      throw new NotFoundException("Google Analytics data을 찾을 수 없습니다.");
+    }
+
+    const dimensionValues = res.rows[0]?.dimensionValues;
     // [ { value: '20240508', oneValue: 'value' } ] // date
 
-    res[0].metricValues;
+    const metricValues = res.rows[0]?.metricValues;
     // [
     //   { value: '3', oneValue: 'value' }, // totalUsers
     //   { value: '2', oneValue: 'value' }, // newUsers
     //   { value: '24', oneValue: 'value' } // screenPageViews
     // ]
 
-    const totalUsers = res[0].metricValues[0].value;
-    const newUsers = res[0].metricValues[1].value;
-    const screenPageViews = res[0].metricValues[2].value;
+    const totalUsers = metricValues?.[0]?.value || 0;
+    const newUsers = metricValues?.[1]?.value || 0;
+    const screenPageViews = metricValues?.[2]?.value || 0;
 
     return {
       totalUsers,
