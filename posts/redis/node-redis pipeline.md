@@ -1,4 +1,4 @@
-# nest cache node-redis pipeline
+# node-redis pipeline
 
 ## node-redis 방식
 

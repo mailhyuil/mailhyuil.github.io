@@ -1,4 +1,4 @@
-# nest cache node-redis HGETALL, HSET 사용 시 주의사항
+# node-redis HGETALL, HSET 사용 시 주의사항
 
 ## HSET
 
