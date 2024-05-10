@@ -5,8 +5,8 @@
 ## usage
 
 ```ts
-await client.zAdd(key, {
-  value: "value", // member
-  score: 1,
+await client.zAdd("product", {
+  value: "smartphone", // member
+  score: parseInt(price, 16), // 16진수라면 10진수로 변환
 });
 ```
