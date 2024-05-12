@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.f0cd5a73.css",
-    "main.js": "/static/js/main.8968c7cb.js",
+    "main.js": "/static/js/main.8129c877.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.72e9303eb54f93926fd8.md",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
@@ -1093,6 +1093,7 @@
     "static/media/prisma schema.md": "/static/media/prisma schema.f1399e5dacb391134595.md",
     "static/media/angular base interceptor.md": "/static/media/angular base interceptor.84da5556e594448cdb3c.md",
     "static/media/angular clock.md": "/static/media/angular clock.bb43bf5abca77f516716.md",
+    "static/media/nginx websocket.md": "/static/media/nginx websocket.568d6d1cfa1e6b8f6664.md",
     "static/media/angular animation angular-animations.md": "/static/media/angular animation angular-animations.1bb398901ea40c4ffa14.md",
     "static/media/angular pwa.md": "/static/media/angular pwa.bb8e860a558718dd64e9.md",
     "static/media/postgres query DDL.md": "/static/media/postgres query DDL.9166457f54804361c939.md",
@@ -1431,7 +1432,6 @@
     "static/media/Thick Client vs Thin Client.md": "/static/media/Thick Client vs Thin Client.03e4ca8d473eb5ca4080.md",
     "static/media/js array splice 요소 삭제.md": "/static/media/js array splice 요소 삭제.7bd2f45a9e73a982bec0.md",
     "static/media/nest base pipe class-transformer plainToInstance & instanceToPlain.md": "/static/media/nest base pipe class-transformer plainToInstance & instanceToPlain.3d31503e91fdb78cf59a.md",
-    "static/media/nginx websocket.md": "/static/media/nginx websocket.0b0cd34de4c158927088.md",
     "static/media/nginx websockets TLS & SSL.md": "/static/media/nginx websockets TLS & SSL.0b0cd34de4c158927088.md",
     "static/media/typescript.md": "/static/media/typescript.38dd713c7f89d16ae388.md",
     "static/media/c++ base compiler gcc vs g++.md": "/static/media/c++ base compiler gcc vs g++.1b52147160187dd89f07.md",
@@ -1995,6 +1995,7 @@
     "static/media/cpu 단위.md": "/static/media/cpu 단위.5b367ee3d9467ef45722.md",
     "static/media/데이터 웨어하우스.md": "/static/media/데이터 웨어하우스.5cc2411ae16d01eb30a1.md",
     "static/media/hacking ARP Spoofing.md": "/static/media/hacking ARP Spoofing.be9b9a6d9697bd356b91.md",
+    "static/media/nginx base directive stream.md": "/static/media/nginx base directive stream.a363e884358e355ff3f7.md",
     "static/media/Docker image prometheus & grafana.md": "/static/media/Docker image prometheus & grafana.163520b2896839c408c5.md",
     "static/media/docker-entrypoint-initdb.d.md": "/static/media/docker-entrypoint-initdb.d.261b775a751d1a0bd524.md",
     "static/media/flutter WebRTC.md": "/static/media/flutter WebRTC.d997fcedea72d01bd648.md",
@@ -2534,7 +2535,7 @@
     "static/media/rxjs error handling catchError.md": "/static/media/rxjs error handling catchError.e95f3a366096975aa9e2.md",
     "static/media/tailwindcss outline.md": "/static/media/tailwindcss outline.c87dfdf8fec312dec352.md",
     "static/media/linux init systemctl 네트워크 재시작.md": "/static/media/linux init systemctl 네트워크 재시작.9006054bddf0395f79b2.md",
-    "static/media/nginx base events.md": "/static/media/nginx base events.7c1ce3349cead3bf1849.md",
+    "static/media/nginx base directive events.md": "/static/media/nginx base directive events.7c1ce3349cead3bf1849.md",
     "static/media/regex tel.md": "/static/media/regex tel.b14777c995ebd01a7756.md",
     "static/media/A11Y.md": "/static/media/A11Y.6f8af587e86cc37d4c15.md",
     "static/media/close 메소드.md": "/static/media/close 메소드.c3f2e3cb9de42a892a16.md",
@@ -3186,7 +3187,7 @@
     "static/media/rxjs transformation scan mergeScan.md": "/static/media/rxjs transformation scan mergeScan.ee1830762e8617dd199b.md",
     "static/media/L4 SCTP.md": "/static/media/L4 SCTP.333c1719acc0a36af884.md",
     "static/media/chatgpt intent base chatbot.md": "/static/media/chatgpt intent base chatbot.aacb5f60f081c6e344a0.md",
-    "static/media/nginx base http.md": "/static/media/nginx base http.03f1d674904eb3ba7f29.md",
+    "static/media/nginx base directive http.md": "/static/media/nginx base directive http.03f1d674904eb3ba7f29.md",
     "static/media/angular url.md": "/static/media/angular url.f60543d874f442833fb9.md",
     "static/media/aws email SES.md": "/static/media/aws email SES.28c2edd5cf232a36bf5d.md",
     "static/media/c++ header c cstdio.md": "/static/media/c++ header c cstdio.cbbc6d43811738ee7d02.md",
@@ -3534,10 +3535,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.f0cd5a73.css.map": "/static/css/main.f0cd5a73.css.map",
-    "main.8968c7cb.js.map": "/static/js/main.8968c7cb.js.map"
+    "main.8129c877.js.map": "/static/js/main.8129c877.js.map"
   },
   "entrypoints": [
     "static/css/main.f0cd5a73.css",
-    "static/js/main.8968c7cb.js"
+    "static/js/main.8129c877.js"
   ]
 }
