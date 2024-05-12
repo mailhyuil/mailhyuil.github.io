@@ -1,6 +1,6 @@
 # cache 읽기 전략
 
-## cache-aside (look-aside)
+## look-aside (cache-aside)
 
 > 캐시된 데이터가 있는지 우선적으로 확인
 >
