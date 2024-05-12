@@ -1,0 +1,20 @@
+# nginx base directive stream
+
+> tcp
+
+```conf
+stream {
+    upstream allbackend {
+        server 127.0.0.1:2222;
+        server 127.0.0.1:3333;
+        server 127.0.0.1:4444;
+        server 127.0.0.1:5555;
+    }
+    server {
+          listen 8080;
+          proxy_pass allbackend;
+
+    }
+}
+events { }
+```
