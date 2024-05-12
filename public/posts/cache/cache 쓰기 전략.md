@@ -1,23 +1,21 @@
 # cache 쓰기 전략
 
-## write-around
-
-> write-through보다 빠름
->
-> > 모든 데이터를 db에 저장
-> >
-> > > cache-miss가 발생하는 경우에만 db와 캐시에 저장
-
 ## write-through
 
-> 데이터를 캐시서버와 db에 동시에 저장
+> 데이터를 cache store와 db에 동시에 저장 (cache store에 저장하면 cache store가 바로 db에 저장)
+
+## write-around
+
+> 모든 데이터를 db에 바로 저장
 >
-> > 캐시서버에 저장하면 캐시서버가 바로 db에 저장
+> > db의 데이터를 read 하는 경우(cache-miss가 발생하는 경우)에만 cache store에 저장
+> >
+> > > write-through보다 빠름
 
 ## write-back (write-behind)
 
-> 모든 데이터를 db가 아닌 캐시서버에 저장
+> 모든 데이터를 cache store에 바로 저장
 >
-> > 스케줄링을 통해 일정 시간마다 db에 저장
+> > 스케줄링을 통해 일정 시간마다 cache store에서 db로 동기화
 > >
 > > > Write가 빈번하면서 Read를 하는데 많은 양의 Resource가 소모되는 서비스에 적합
