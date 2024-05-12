@@ -9,19 +9,15 @@
 > > > cache-miss 발생 시 데이터를 가져와서 캐시에 저장
 
 ```js
-const cache = require("memory-cache");
-
-async function getDataFromCache(key) {
-  // cache-aside
-  let data = cache.get(key);
-  // cache-miss
-  if (!data) {
-    data = await fetchDataFromSource();
-    // write-around
-    cache.put(key, data, 60000);
-  }
-  return data;
+// look-aside
+let data = cache.get(key);
+// cache-miss 발생 시
+if (!data) {
+  data = await fetchDataFromSource();
+  // write-around
+  cache.put(key, data, 60000);
 }
+return data;
 ```
 
 ## read-through + write-around
