@@ -2,26 +2,28 @@
 
 ## root
 
-> root / 위치에 있는 index.html을 서빙하겠다는 뜻
+> 기본 디렉토리를 설정
+>
+> > location은 root 디렉토리를 기준으로 찾는다.
 
 ```conf
-location /app {
-    # /usr/share/nginx/html/app/index.html 에서 찾는다.
-    # root 경로에서 /app을 찾음
-    root /usr/share/nginx/html;
+location / {
+    # /app를 기본 디렉토리로 설정
+    # /app/index.html를 찾는다.
+    root /app;
     index index.html index.htm;
 }
 ```
 
 ## alias
 
-> alias / 위치에 있는 index.html을 서빙하겠다는 뜻
+> location의 위치를 alias 위치로 매핑
 
 ```conf
 location /app {
-    # /usr/share/nginx/html/index.html 에서 찾는다.
-    # alias 경로를 /app으로 매핑
-    alias /usr/share/nginx/html;
+    # /app을 /some/where/app에 매핑
+    # /some/where/app/index.html 에서 찾는다.
+    alias /some/where/app;
     index index.html index.htm;
 }
 ```
