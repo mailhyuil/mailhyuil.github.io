@@ -3,9 +3,15 @@
 ```ts
 await client.sort(key, {
   GET: [
-    "#",
-    "key:*->field_name", // sort by hash field
+    "#", // member
+    "items:*->title", // title
+    "items:*->year", // year
   ],
-  BY: "score",
+  BY: "nosort",
+  DIRECTION: "DESC",
+  LIMIT: {
+    offset: 0,
+    count: 10,
+  },
 });
 ```
