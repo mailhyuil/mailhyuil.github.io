@@ -7,15 +7,16 @@
 > > > 스트리밍 방식으로 데이터를 가져올 수 있다.
 
 ```sql
-declare c cursor for select id from users where age between 20 and 30;
+DECLARE c CURSOR FOR SELECT id FROM users WHERE age BETWEEN 20 AND 30;
 
-fetch c; -- 첫번째 데이터
-fetch c; -- 두번째 데이터
-fetch c; -- 세번째 데이터
-fetch c; -- 네번째 데이터
-fetch c; -- 다섯번째 데이터
+FETCH c; -- 첫번째 데이터
+FETCH c; -- 두번째 데이터
+FETCH c; -- 세번째 데이터
+FETCH c; -- 네번째 데이터
+FETCH c; -- 다섯번째 데이터
 
-fetch last c; -- 마지막 데이터
-
-close c; -- cursor 닫기
+FETCH FIRST c; -- 첫번째 데이터
+FETCH LAST c; -- 마지막 데이터
+FETCH PRIOR c; -- 이전 데이터
+FETCH NEXT c; -- 다음 데이터
 ```
