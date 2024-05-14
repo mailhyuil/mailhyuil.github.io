@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.f0cd5a73.css",
-    "main.js": "/static/js/main.9f660c82.js",
+    "main.js": "/static/js/main.227a9f19.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.72e9303eb54f93926fd8.md",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
@@ -1134,6 +1134,7 @@
     "static/media/브라우저 cache swr (stale-while-revalidate).md": "/static/media/브라우저 cache swr (stale-while-revalidate).816ba42d3bf66a857284.md",
     "static/media/L7 http headers MIME.md": "/static/media/L7 http headers MIME.f3662d7946c1435f7825.md",
     "static/media/c++ base class struct (interface).md": "/static/media/c++ base class struct (interface).98b86bc28c8105178869.md",
+    "static/media/db migration Expand-Contract Pattern.md": "/static/media/db migration Expand-Contract Pattern.000c577c2e04692c41c1.md",
     "static/media/tailwindcss responsive 반응형.md": "/static/media/tailwindcss responsive 반응형.204391bd96657ca9efb5.md",
     "static/media/STUN & TURN 서버.md": "/static/media/STUN & TURN 서버.0b6e72e27492ded24af0.md",
     "static/media/js Math.md": "/static/media/js Math.419083e29f417cee9c88.md",
@@ -3543,10 +3544,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.f0cd5a73.css.map": "/static/css/main.f0cd5a73.css.map",
-    "main.9f660c82.js.map": "/static/js/main.9f660c82.js.map"
+    "main.227a9f19.js.map": "/static/js/main.227a9f19.js.map"
   },
   "entrypoints": [
     "static/css/main.f0cd5a73.css",
-    "static/js/main.9f660c82.js"
+    "static/js/main.227a9f19.js"
   ]
 }
