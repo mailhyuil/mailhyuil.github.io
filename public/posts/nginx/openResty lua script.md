@@ -1,3 +1,0 @@
-# nginx lua script
-
-## install

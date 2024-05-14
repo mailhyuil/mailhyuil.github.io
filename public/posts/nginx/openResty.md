@@ -1,6 +1,8 @@
 # OpenResty
 
-> port 8080
+> lua script를 사용하여 nginx를 동적으로 처리하는 웹 서버
+>
+> > port 8080
 
 ## docker
 
@@ -26,7 +28,7 @@ server {
 
 ## lua script
 
-> LuaJIT을 사용하여 처리
+> luaJIT을 사용하여 처리
 >
 > > /usr/local/openresty/nginx/scripts/hi.lua
 > >
