@@ -12,8 +12,8 @@
 
 ```sh
 MULTI
-SET key1 value1
-SET key2 value2
+SET color red
+SET count 2
 EXEC
 ```
 
@@ -22,9 +22,12 @@ EXEC
 > WATCH가 실행된 시점에서부터 key가 변경된 이후로 실행된 transaction은 실패한다.
 
 ```sh
-WATCH key1 key2
+WATCH color
+
+SET color blue
+
 MULTI
-SET key1 value1
-SET key2 value2
-EXEC
+SET color red
+SET count 2
+EXEC # fail
 ```
