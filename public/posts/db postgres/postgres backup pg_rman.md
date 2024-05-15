@@ -1,5 +1,7 @@
 # postgres pg_rman
 
+> rman : Recovery Manager
+
 ## install
 
 ```sh
