@@ -14,12 +14,6 @@ client.executeIsolated(async (isolatedClient) => {
     .hSet("key", {
       field: "value",
     })
-    .exec((err, replies) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(replies);
-      }
-    });
+    .exec();
 });
 ```
