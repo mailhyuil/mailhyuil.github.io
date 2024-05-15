@@ -7,6 +7,8 @@
 > > > MULTI & EXEC는 순서를 보장한다.
 > > >
 > > > > 다른 데이터베이스와는 다르게 redis의 트랜잭션은 rollback을 지원하지 않는다.
+> > > >
+> > > > > WATCH & MULTI를 사용하면 해당 connection은 오직 그 transaction이 점유하게된다.
 
 ## MULTI & EXEC
 
