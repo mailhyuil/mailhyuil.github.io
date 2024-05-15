@@ -17,8 +17,18 @@ const client = redis.createClient({
     addOneAndStore: redis.defineScript({
       NUMBER_OF_KEYS: 1,
       SCRIPT: `
-        return redis.call('SET', KEYS[1], 1 + tonumber(ARGV[1]))
+        local key = KEYS[1]
+        local value = tonumber(ARGV[1])
+        
+        return redis.call('SET', key, value + 1)
       `,
+      transformArguments: (key, value) => {
+        return [key, value.toString()];
+        // EVALSHA <id> 1 <key> <value>
+      },
+      transformReply: (reply) => {
+        return reply;
+      },
     }),
   },
 });
