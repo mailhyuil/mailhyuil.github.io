@@ -2,39 +2,55 @@
 
 ```ts
 import { Test, TestingModule } from "@nestjs/testing";
-import { PrismaService } from "../../prisma/prisma.service";
-import { ExampleService } from "./example.service";
+import { ExampleService } from "../src/app/examples/example.service";
+import { PrismaService } from "../src/prisma/prisma.service";
+
+const result = [];
+
+const one = result[0];
+
+const db = {
+  example: {
+    findMany: jest.fn().mockResolvedValue(result),
+    findUnique: jest.fn().mockResolvedValue(one),
+    findUniqueOrThrow: jest.fn().mockResolvedValue(one),
+    findFirst: jest.fn().mockResolvedValue(one),
+    findFirstOrThrow: jest.fn().mockResolvedValue(one),
+    create: jest.fn().mockResolvedValue(one),
+    update: jest.fn().mockResolvedValue(one),
+    upsert: jest.fn().mockResolvedValue(one),
+    delete: jest.fn().mockResolvedValue(one),
+  },
+};
 
 describe("ExampleService", () => {
-  let service: ExampleService;
   let prisma: PrismaService;
+  let service: ExampleService;
+
   beforeEach(async () => {
-    const moduleRef: TestingModule = await Test.createTestingModule({
-      providers: [ExampleService, PrismaService],
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        ExampleService,
+        {
+          provide: PrismaService,
+          useValue: db,
+        },
+      ],
     }).compile();
 
-    service = moduleRef.get<ExampleService>(ExampleService);
-    prisma = moduleRef.get(PrismaService);
+    prisma = module.get<PrismaService>(PrismaService);
+    service = module.get<ExampleService>(ExampleService);
   });
 
   it("should be defined", () => {
     expect(service).toBeDefined();
   });
 
-  it("should return all examples", async () => {
-    const mock: ExampleDTO[] = [
-      {
-        id: 1,
-      },
-      {
-        id: 2,
-      },
-    ];
-
-    prisma.example.findMany = jest.fn().mockReturnValue(mock);
-    const found = await service.findAll();
-
-    expect(found).toEqual(mock);
+  describe("findAll", () => {
+    it("should return an array of examples", async () => {
+      const examples = await service.findAll();
+      expect(examples).toEqual(result);
+    });
   });
 });
 ```
