@@ -1,6 +1,13 @@
-# nest testing prisma
+# nx jest
 
-## notice.service.spec.ts
+## install
+
+```sh
+npm install -D @nx/jest
+nx g @nx/jest
+```
+
+## apps/server/\_\_test\_\_/services/example.service.spec.ts
 
 ```ts
 import { Test, TestingModule } from "@nestjs/testing";

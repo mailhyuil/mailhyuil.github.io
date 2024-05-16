@@ -33,3 +33,9 @@ SET color red
 SET count 2
 EXEC # fail
 ```
+
+## 문제점
+
+> 값이 바뀌면 "무조건" 실패
+>
+> > 유효한 변경이라도 실패한다.

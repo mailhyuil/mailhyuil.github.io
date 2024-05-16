@@ -1,6 +1,6 @@
-# db migration Expand-Contract Pattern
+# Expand-Contract Pattern
 
-> database를 migration할 때 사용하는 패턴
+> database를 migration 하거나 앱의 로직을 변경할 때 사용하는 패턴
 >
 > > 스키마 추가(확장)는 아무리 해도 에러가 발생하지 않는다
 > >
