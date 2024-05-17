@@ -22,7 +22,7 @@ export const withLock = async (key: string, cb: () => any) => {
     // Try to do a SET NX operation
     const acquired = await client.set(lockKey, token, {
       NX: true,
-      PX: 2000,
+      PX: 2000, // lock 내에서 발생하는 crash로 서버 전체가 멈출 수 있다. 항상 timeout을 설정해서 lock을 해제할 수 있도록 한다.
     });
     // IF brief pause (retryDelay) and then retry
     if (!acquired) {
