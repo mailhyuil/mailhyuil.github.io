@@ -26,11 +26,6 @@ expect("hello").toHaveLength(5);
 /// instanceof
 expect(new A()).toBeInstanceOf(A);
 
-/// 에러 발생 여부
-expect(() => {
-  throw new Error("error");
-}).toThrow("error");
-
 /// 정규식
 expect("hello").toMatch(/ello/);
 
