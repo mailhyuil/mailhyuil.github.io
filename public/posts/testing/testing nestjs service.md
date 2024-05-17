@@ -4,6 +4,7 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { ExampleService } from "../src/app/examples/example.service";
 import { PrismaService } from "../src/prisma/prisma.service";
+import { NotFoundException } from "@nestjs/common";
 
 const result = [];
 
@@ -50,6 +51,14 @@ describe("ExampleService", () => {
     it("should return an array of examples", async () => {
       const examples = await service.findAll();
       expect(examples).toEqual(result);
+    });
+  });
+
+  describe("findById", () => {
+    it("should throw NotFoundException", async () => {
+      await service.findById("test").catch((e) => {
+        expect(e).toBeInstanceOf(NotFoundException);
+      });
     });
   });
 });
