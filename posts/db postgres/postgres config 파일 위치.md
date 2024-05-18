@@ -5,7 +5,8 @@
 ## 쿼리로 확인
 
 ```sql
-SHOW config_file
+SHOW config_file;
+SHOW data_directory;
 ```
 
 ## psql로 확인
