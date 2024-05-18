@@ -5,8 +5,8 @@
 ## install
 
 ```sh
-tar -xf pg_rman-x.y.z-pgxx.tar.gz
-cd ppg_rman-x.y.z-pgxx
+tar -xf pg_rman-1.3.16-pg14.tar.gz
+cd pg_rman-1.3.16-pg14
 make
 make install
 
@@ -22,6 +22,32 @@ archive_command = 'test ! -f /home/ubuntu/archivedir/%f && cp %p /home/ubuntu/ar
 
 # 백업 카탈로그 초기화
 pg_rman init
+```
+
+## install error
+
+```sh
+# error
+pg_rman.h:13:10: fatal error: postgres_fe.h: No such file or directory
+   13 | #include "postgres_fe.h"
+# solution
+apt install postgresql-server-dev-14
+
+# error
+/usr/bin/ld: cannot find -lselinux: No such file or directory
+/usr/bin/ld: cannot find -llz4: No such file or directory
+/usr/bin/ld: cannot find -lpam: No such file or directory
+/usr/bin/ld: cannot find -lgssapi_krb5: No such file or directory
+/usr/bin/ld: cannot find -lreadline: No such file or directory
+# solution
+apt install libselinux1-dev liblz4-dev libpam0g-dev libkrb5-dev libreadline-dev -y
+
+# error
+/bin/mkdir -p '/usr/lib/postgresql/14/bin'
+/usr/bin/install -c  pg_rman '/usr/lib/postgresql/14/bin'
+/usr/bin/install: cannot create regular file '/usr/lib/postgresql/14/bin/pg_rman': Permission denied
+# solution
+chmod 755 /usr/lib/postgresql/14/bin
 ```
 
 ## usage
