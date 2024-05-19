@@ -14,6 +14,7 @@ make install
 vi ~/.bash_profile
   export BACKUP_PATH=/home/ubuntu/backup
   export PGDATA=/var/lib/pgsql/13/data
+  export ARCLOG_PATH=/home/ubuntu/archivedir
 source ~/.bash_profile
 
 # postgresql.conf 설정
