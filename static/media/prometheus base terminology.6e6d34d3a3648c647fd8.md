@@ -14,7 +14,26 @@
 
 ## instance
 
+```sh
+localhost:9090
+```
+
 ## job
+
+```sh
+prometheus
+```
+
+## label
+
+```sh
+metric_name{label_name="label_value"}
+
+# single label
+{job="prometheus"}
+# multiple label
+{job="prometheus", instance="localhost:9090"}
+```
 
 ## sample
 
