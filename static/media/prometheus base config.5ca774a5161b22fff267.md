@@ -43,4 +43,21 @@ scrape_configs: # scrape할 대상을 설정
     static_configs:
       - targets:
           - localhost:9090
+  - job_name: node_exporter
+    honor_timestamps: true
+    track_timestamps_staleness: false
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    scrape_protocols:
+      - OpenMetricsText1.0.0
+      - OpenMetricsText0.0.1
+      - PrometheusText0.0.4
+    metrics_path: /metrics
+    scheme: http
+    enable_compression: true
+    follow_redirects: true
+    enable_http2: true
+    static_configs:
+      - targets:
+          - localhost:9100
 ```
