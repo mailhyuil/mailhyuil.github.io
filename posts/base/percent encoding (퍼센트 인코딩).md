@@ -5,3 +5,7 @@
 > urlencoded라고도 불림
 >
 > > x-www-form-urlencoded 사용시 필수
+
+```js
+encodeURI("안녕하세요"); // "%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94"
+```

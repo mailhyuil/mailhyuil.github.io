@@ -59,6 +59,7 @@ services:
       -c autovacuum=on
       -c autovacuum_vacuum_scale_factor=0.1
       -c autovacuum_analyze_scale_factor=0.3
+
   server:
     container_name: server
     image: hyuil/server:0.0.1
@@ -67,6 +68,7 @@ services:
     restart: always
     networks:
       - private
+
   nginx:
     container_name: nginx
     image: hyuil/nginx:0.0.1
@@ -77,8 +79,19 @@ services:
     networks:
       - public
       - private
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - private
+
 volumes:
   postgres-data: {}
+
 networks:
   public:
     driver: bridge
