@@ -16,36 +16,20 @@ export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
     const res = ctx.getResponse<Response>();
     const errorCode = exception.code;
     const prismaError = PrismaErrorsMap[errorCode];
+    const error = {
+      exception,
+      request: {
+        body: req.body,
+        query: req.query,
+        params: req.params,
+        rawBody: Buffer.from(req["rawBody"]).toString(),
+      },
+    };
+    // logger로 변경해주기
+    console.error(error);
     if (prismaError) {
-      const errorMeta = exception.meta;
-      const error = {
-        statusCode: prismaError.statusCode,
-        meta: errorMeta,
-        request: {
-          body: req.body,
-          query: req.query,
-          params: req.params,
-          rawBody: Buffer.from(req["rawBody"]).toString(),
-        },
-        exception,
-      };
-      // logger로 변경해주기
-      console.error(error);
       res.status(prismaError.statusCode).json(error);
     } else {
-      const error = {
-        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
-        statusMessage: "Internal Server Error",
-        request: {
-          body: req.body,
-          query: req.query,
-          params: req.params,
-          rawBody: Buffer.from(req["rawBody"]).toString(),
-        },
-        exception,
-      };
-      // logger로 변경해주기
-      console.error(error);
       res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
     }
   }
