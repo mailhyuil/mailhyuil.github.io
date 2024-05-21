@@ -16,13 +16,19 @@ export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
     const res = ctx.getResponse<Response>();
     const errorCode = exception.code;
     const prismaError = PrismaErrorsMap[errorCode];
+
+    let rawBody;
+    if (req["rawBody"]) {
+      rawBody = Buffer.from(req["rawBody"]).toString();
+    }
+
     const error = {
       exception,
       request: {
         body: req.body,
         query: req.query,
         params: req.params,
-        rawBody: Buffer.from(req["rawBody"]).toString(),
+        rawBody,
       },
     };
     // logger로 변경해주기
