@@ -13,10 +13,9 @@
 ```sh
 short-lived jobs
       |
-      |
  push gateway                                      alertmanager
-      |
-       ---> [retrieval | storage | http_server]
-      |                | HDD/SSD |
+      |                                                  |
+      |---> [retrieval | storage | http_server] <--------|
+      |                | HDD/SSD |                       |
 jobs/exporter                                      grafana / prometheus web ui / client
 ```
