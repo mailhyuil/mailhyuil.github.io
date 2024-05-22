@@ -25,7 +25,10 @@
 ## Logical operators
 
 ```sh
-AND
-OR
-UNLESS
+and
+or
+unless
+
+ignoring(handler) group_left
+on(handler) group_left
 ```
