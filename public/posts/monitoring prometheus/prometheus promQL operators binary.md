@@ -1,13 +1,31 @@
 # prometheus promQL binary operators
 
+## Arithmetic operators
+
 ```sh
-# Arithmetic operators
-+, -, *, /, %, ^
-e.g.) node_memory_MemTotal_bytes / 1024 / 1024
++
+-
+*
+/ # node_memory_MemTotal_bytes / 1024 / 1024
+%
+^
+```
 
-# Comparison operators
-==, !=, >, <, >=, <=
+## Comparison operators
 
-# Logical operators
-AND, OR, UNLESS
+```sh
+==
+!=
+>
+<
+>=
+<=
+```
+
+## Logical operators
+
+```sh
+AND
+OR
+UNLESS
 ```
