@@ -1,6 +1,4 @@
-# prometheus promQL operators
-
-## binary operators
+# prometheus promQL binary operators
 
 ```sh
 # Arithmetic operators
@@ -13,5 +11,3 @@ e.g.) node_memory_MemTotal_bytes / 1024 / 1024
 # Logical operators
 AND, OR, UNLESS
 ```
-
-## aggregation operators
