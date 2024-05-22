@@ -78,3 +78,42 @@ export class TaskService {
   }
 }
 ```
+
+## example
+
+```ts
+ async scheduleClass(entity: Class) {
+    const job = this.taskService.getCronJob(entity.id);
+    if (job) {
+      this.taskService.deleteCron(entity.id);
+    }
+
+    if (dayjs().isAfter(entity.liveOpenAt)) {
+      this.logger.log(
+        `🚩 ${entity.name} 이미 지난 라이브 강의가 오픈되었습니다.`,
+      );
+      await this.prisma.class.update({
+        where: { id: entity.id },
+        data: {
+          status: 'LIVE_OPENED',
+        },
+      });
+      return;
+    }
+
+    this.taskService.addCronJob({
+      jobName: entity.id,
+      date: dayjs(entity.liveOpenAt).toDate(),
+      callback: async () => {
+        this.logger.log(`${entity.name} 라이브 강의가 오픈되었습니다.`);
+        await this.prisma.class.update({
+          where: { id: entity.id },
+          data: {
+            status: 'LIVE_OPENED',
+          },
+        });
+      },
+    });
+    this.logger.log(`🕐 "${entity.name}" 라이브 강의가 스케줄링되었습니다.`);
+  }
+```

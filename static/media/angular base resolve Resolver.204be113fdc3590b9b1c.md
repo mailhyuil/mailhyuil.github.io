@@ -2,7 +2,9 @@
 
 > Resolver는 라우팅이 완료 되기 전에 원하는 값을 가져와 준다.
 >
-> > 컴포넌트 OnInit이 되기 전에 값을 가져온다.
+> > component가 OnInit이 되기 전에 값을 가져온다.
+> >
+> > > > component의 APP_INITIALIZER라고 생각하면 된다.
 
 ## resolver 구현
 
