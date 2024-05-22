@@ -1,1 +1,0 @@
-# prometheus promQL aggregation operators
