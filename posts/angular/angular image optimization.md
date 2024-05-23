@@ -14,8 +14,10 @@ import { NgOptimizedImage } from "@angular/common";
 export class SomeComponent {}
 ```
 
-## usage
+## html
 
 ```html
-<img ngSrc="cat.jpg" />
+<div class="relative w-full overflow-hidden rounded-xl aspect-video bg-gray-50">
+  <img class="absolute object-cover" [ngSrc]="file.url" fill priority />
+</div>
 ```
