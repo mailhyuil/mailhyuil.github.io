@@ -1,15 +1,20 @@
+# strategy pattern
+
 ```ts
 interface IMP3Function {
   mp3(): void;
 }
+
 interface ICallFunction {
   call(): void;
 }
+
 class NewMp3Function implements IMP3Function {
   mp3(): void {
     console.log("good sound");
   }
 }
+
 class NewCallFunction implements ICallFunction {
   call(): void {
     console.log("very good call");
