@@ -25,26 +25,34 @@ import { shareReplay } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class HomeService implements OnDestroy {
   private http = inject(HttpClient);
   private cache$: Observable<any>;
+  private readonly refresh$ = new Subject<void>();
 
-  constructor() {}
+  ngOnDestroy (){
+    this.refresh$.complete();
+  }
 
   getData(): Observable<any> {
     if (!this.cache$) {
       this.cache$ = this.http.get<any>('https://api.example.com/data').pipe(
         shareReplay(1) // 데이터를 캐시하고 여러 구독자 간에 재사용
+        takeUntil(this.refresh$) // refresh$가 발행되면 구독을 취소한다.
       );
     }
     return this.cache$;
   }
 
   refresh(){
-    this.cache$ = this.http.get<any>('https://api.example.com/data').pipe(
-        shareReplay(1)
-      );
-    return this.cache$;
+    this.cache$ = null;
+    this.refresh$.next();
+  }
+
+  refreshAndGetData(){
+    this.cache$ = null;
+    this.refresh$.next();
+    return this.getData();
   }
 }
 ```
