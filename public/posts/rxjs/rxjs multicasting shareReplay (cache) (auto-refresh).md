@@ -9,38 +9,39 @@ import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 
 const REFRESH_INTERVAL = 1000 * 60 * 5; // 5분
-const CACHE_SIZE = 1;
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
-  private http = inject(HttpClient);
-  private cache$: Observable<any>;
+export class HomeService implements OnDestroy {
+  private readonly http = inject(HttpClient);
+  private readonly cache$: Observable<any>;
+  private readonly refresh$ = new Subject<void>();
 
-  constructor() {}
-
-  request(){
-    return this.http.get<any>('https://api.example.com/data')
+  ngOnDestroy (){
+    this.refresh$.next();
+    this.refresh$.complete();
   }
 
-  getData(): Observable<any> {
+  findAll(): Observable<any> {
     if (!this.cache$) {
       const timer$ = timer(0, REFRESH_INTERVAL);
-
       this.cache$ = timer$.pipe(
-        switchMap((_) => this.request()),
-        shareReplay(CACHE_SIZE)
+        switchMap(() => this.http.get<any>('https://api.example.com/data')),
+        shareReplay(1),
+        takeUntil(this.refresh$)
       );
     }
-
     return this.cache$;
   }
 
   refresh(){
-    this.cache$ = this.request().pipe(
-        shareReplay(CACHE_SIZE)
-      );
-    return this.cache$;
+    this.cache$ = null;
+    this.refresh$.next();
+  }
+
+  refreshAndFindAll(){
+    this.refresh();
+    return this.findAll();
   }
 }
 ```

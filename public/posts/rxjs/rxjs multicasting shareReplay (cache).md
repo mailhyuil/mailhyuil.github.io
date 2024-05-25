@@ -17,28 +17,24 @@ shareReplay({ bufferSize: 1, refCount: false });
 ## usage
 
 ```js
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService implements OnDestroy {
-  private http = inject(HttpClient);
-  private cache$: Observable<any>;
+  private readonly http = inject(HttpClient);
+  private readonly cache$: Observable<any>;
   private readonly refresh$ = new Subject<void>();
 
   ngOnDestroy (){
+    this.refresh$.next();
     this.refresh$.complete();
   }
 
-  getData(): Observable<any> {
+  findAll() {
     if (!this.cache$) {
       this.cache$ = this.http.get<any>('https://api.example.com/data').pipe(
-        shareReplay(1) // 데이터를 캐시하고 여러 구독자 간에 재사용
-        takeUntil(this.refresh$) // refresh$가 발행되면 구독을 취소한다.
+        shareReplay(1)
+        takeUntil(this.refresh$)
       );
     }
     return this.cache$;
@@ -49,19 +45,14 @@ export class HomeService implements OnDestroy {
     this.refresh$.next();
   }
 
-  refreshAndGetData(){
-    this.cache$ = null;
-    this.refresh$.next();
-    return this.getData();
+  refreshAndFindAll(){
+    this.refresh();
+    return this.findAll();
   }
 }
 ```
 
 ```ts
-import { CommonModule } from "@angular/common";
-import { Component, OnInit, inject } from "@angular/core";
-import { HomeService } from "./home.service";
-
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -71,17 +62,20 @@ import { HomeService } from "./home.service";
 })
 export default class HomeComponent implements OnInit {
   homeService = inject(HomeService);
+  update$ = new Subject<void>();
   data: any;
-  constructor() {}
   ngOnInit(): void {
-    this.homeService.getData().subscribe((res) => {
+    this.homeService.findAll().subscribe((res) => {
       this.data = res;
     });
   }
-  refresh() {
-    this.homeService.refresh().subscribe((res) => {
-      this.data = res;
-    });
+  update() {
+    this.homeService
+      .update()
+      .pipe(switchMap(() => this.homeService.refreshAndFindAll()))
+      .subscribe((res) => {
+        this.data = res;
+      });
   }
 }
 ```

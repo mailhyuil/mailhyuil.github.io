@@ -5,6 +5,7 @@
 > > 이벤트 버스는 메세지 브로커의 일종이다
 > >
 > > > eventEmitter는 옵저버 패턴
+> > >
 > > > eventBus는 pub/sub 패턴이다.
 
 ```ts
@@ -88,10 +89,7 @@ class EventBus {
   }
 }
 
-//////////////////////////////////////////
-
 const eventBus = new EventBus();
-
 eventBus.postStickyEvent("eventName", "some data");
 ```
 
