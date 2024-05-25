@@ -9,12 +9,14 @@ select = output<string>();
 ## outputFromObservable
 
 ```ts
-counter$ = from([1, 2, 3, 4]);
-counter = outputFromObservable(this.counter$);
+nameChange$ = new Observable<string>(/* ... */);
+nameChange = outputFromObservable(this.nameChange$); // OutputRef<string>
 ```
 
-## html
+## outputToObservable
 
-```html
-
+```ts
+outputToObservable(myComp.instance.onNameChange)
+.pipe(...)
+.subscribe(...)
 ```
