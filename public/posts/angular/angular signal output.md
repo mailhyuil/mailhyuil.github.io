@@ -12,3 +12,9 @@ select = output<string>();
 counter$ = from([1, 2, 3, 4]);
 counter = outputFromObservable(this.counter$);
 ```
+
+## html
+
+```html
+
+```

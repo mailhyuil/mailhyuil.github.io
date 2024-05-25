@@ -75,7 +75,8 @@ pg_rman purge # 삭제된 백업의 카탈로그 정보 삭제
 
 # 복구
 pg_ctl stop
-pg_rman restore --hard-copy # --hard-copy : 아카이브 로그 복사 (심볼릭 링크 X)
+# --hard-copy : 아카이브 로그 복사 후 복구
+pg_rman restore --hard-copy
 pg_rman restore --hard-copy --recovery-target-time '2024-05-18 16:55:00' # 시간으로 복구
 pg_rman restore --hard-copy --recovery-target-timeline=4 # 타임라인 4로 복구
 pg_ctl start
