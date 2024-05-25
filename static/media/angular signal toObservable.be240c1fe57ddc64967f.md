@@ -2,13 +2,11 @@
 
 > 내부적으로 effect를 사용
 >
-> > takeUntilDestroyed 달아주기
+> > 알아서 destroy됨
 
 ```ts
 constructor(){
-    toObservable(this.signal$).pipe(
-        takeUntilDestroyed(this)
-    ).subscribe(() => {
+    toObservable(this.signal$).subscribe(() => {
         console.log('signal$');
     });
 }
