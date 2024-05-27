@@ -9,6 +9,8 @@
 > horizontal partitioning: row 단위로 나누는 것
 >
 > > row가 많아지면 성능이 떨어지는데, 이를 해결하기 위해 row를 나누어 저장
+> >
+> > > sharding과 비슷한 원리이지만 sharding은 데이터베이스의 테이블을 여러 서버에 분산시키는 것이고, partitioning은 데이터베이스의 테이블을 나누어 저장하는 것
 
 ## vertical partitioning
 
