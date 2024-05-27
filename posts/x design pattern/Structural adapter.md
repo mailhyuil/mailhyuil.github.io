@@ -26,7 +26,7 @@ class HashTagPrinter {
     this.textArr.push(text);
   }
   printWithHash() {
-    return this.textArr.map((text) => `#${text}`).join(' ');
+    return this.textArr.map((text) => `#${text}`).join(" ");
   }
 }
 // Adapter를 만들어서 호환이 될 수 있도록 한다.!
@@ -46,9 +46,9 @@ class HashTagPrinterAdapter {
 
 const printer = new HashTagPrinterAdapter(new HashTagPrinter());
 
-printer.pushText('Hello');
-printer.pushText('Design');
-printer.pushText('Pattern');
+printer.pushText("Hello");
+printer.pushText("Design");
+printer.pushText("Pattern");
 
 console.log(printer.print()); // #Hello #Design #Pattern
 ```

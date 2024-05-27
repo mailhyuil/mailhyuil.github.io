@@ -5,3 +5,5 @@
 ```sh
 npm install --save @willsoto/nestjs-prometheus
 ```
+
+## usage
