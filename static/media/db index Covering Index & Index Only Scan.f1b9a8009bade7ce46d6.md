@@ -1,6 +1,8 @@
-# 커버링 인덱스
+# Covering Index & Index Only Scan
 
 > 쿼리를 충족시키는데 필요한 모든 데이터를 갖고 있는 인덱스
+>
+> 이를 통해 Index Only Scan을 수행할 수 있다.
 >
 > > select할 필드들이 where, order by, group by 혹은 index에 포함된 경우다.
 > >

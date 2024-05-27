@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.f0cd5a73.css",
-    "main.js": "/static/js/main.9fc9c730.js",
+    "main.js": "/static/js/main.85bdb89c.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.72e9303eb54f93926fd8.md",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
@@ -757,6 +757,7 @@
     "static/media/data tree.md": "/static/media/data tree.b6378fff7be429e283e1.md",
     "static/media/kube Storage PersistentVolumeClaims.md": "/static/media/kube Storage PersistentVolumeClaims.385dd8bfdf2adb0f0c0d.md",
     "static/media/angular MVVM.md": "/static/media/angular MVVM.0a92d3a7fad71d806689.md",
+    "static/media/db index Covering Index & Index Only Scan.md": "/static/media/db index Covering Index & Index Only Scan.f1b9a8009bade7ce46d6.md",
     "static/media/firebase flutter.md": "/static/media/firebase flutter.58f9fb1294023c1276d4.md",
     "static/media/go base goroutine channel.md": "/static/media/go base goroutine channel.4e0214664b6f735baacc.md",
     "static/media/nodejs module net (TCP).md": "/static/media/nodejs module net (TCP).5bd0fd99acd5f23887c2.md",
@@ -851,7 +852,6 @@
     "static/media/webapi MutationObserver.md": "/static/media/webapi MutationObserver.9e1de62c404c2f9004ba.md",
     "static/media/nuxt.md": "/static/media/nuxt.77548ccb0d583efdc41f.md",
     "static/media/typescript type Mapped Type.md": "/static/media/typescript type Mapped Type.8a841e7e6d52833cd2df.md",
-    "static/media/db index covering index (커버링 인덱스).md": "/static/media/db index covering index (커버링 인덱스).11b2642e1d600d7ca8d3.md",
     "static/media/kube object env Secret.md": "/static/media/kube object env Secret.85c3341456fea27044e1.md",
     "static/media/kube Storage Volume.md": "/static/media/kube Storage Volume.425deb1c4b616b5821a7.md",
     "static/media/mongoose relation.md": "/static/media/mongoose relation.e13cf93ac1416f72e8a3.md",
@@ -1583,10 +1583,10 @@
     "static/media/linux cmd source.md": "/static/media/linux cmd source.07721eda171849ed8bc9.md",
     "static/media/nest session.md": "/static/media/nest session.de3f921190fc1de75b8d.md",
     "static/media/c++ header string string_view.md": "/static/media/c++ header string string_view.758ace7642def26d363f.md",
+    "static/media/db base TPS & TPM.md": "/static/media/db base TPS & TPM.d4457be3329d8c5c08df.md",
     "static/media/postgres backup & recovery docker.md": "/static/media/postgres backup & recovery docker.de8a4828db88e46b8fe6.md",
     "static/media/linux package telnet.md": "/static/media/linux package telnet.db3103379c6ac28458c6.md",
     "static/media/angular debug.md": "/static/media/angular debug.0b38b1aa70a8070ec9a7.md",
-    "static/media/db transaction TPS & TPM.md": "/static/media/db transaction TPS & TPM.d9a75500a10afe902221.md",
     "static/media/ffmpeg 비트레이트 bitrate.md": "/static/media/ffmpeg 비트레이트 bitrate.1e4449c59c46d6ad2892.md",
     "static/media/js es2023 문법.md": "/static/media/js es2023 문법.8818b96745d122d7fbe3.md",
     "static/media/angular image optimization.md": "/static/media/angular image optimization.8eb9feab9e11ee2cf3ac.md",
@@ -3640,10 +3640,10 @@
     "static/media/x 휴지통.md": "/static/media/x 휴지통.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.f0cd5a73.css.map": "/static/css/main.f0cd5a73.css.map",
-    "main.9fc9c730.js.map": "/static/js/main.9fc9c730.js.map"
+    "main.85bdb89c.js.map": "/static/js/main.85bdb89c.js.map"
   },
   "entrypoints": [
     "static/css/main.f0cd5a73.css",
-    "static/js/main.9fc9c730.js"
+    "static/js/main.85bdb89c.js"
   ]
 }
