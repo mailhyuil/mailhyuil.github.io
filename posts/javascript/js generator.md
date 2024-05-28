@@ -1,6 +1,8 @@
 # Generator
 
 > Generator는 Generator 함수를 실행 했을 때 반환되는 객체로, well-formed Iterable로 평가된다.
+>
+> > 리턴된 함수 속으로 다시 들어갈 수 있다. (yield)
 
 ## Generator 함수
 
