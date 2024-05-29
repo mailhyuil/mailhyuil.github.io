@@ -1,6 +1,10 @@
 # db sharding consistent-hash
 
-> consistent hashing을 사용하여 데이터베이스의 테이블을 여러 서버에 분산시키는 방법
+> 노드의 수가 3개인 경우 hashFunc(key) % 3 으로 노드를 선택하여 요청
+>
+> 만약 노드의 수가 늘어나면 hashFunc(key) % 4로 기존에 선택하던 노드가 바뀔 수 있음
+>
+> > 이를 방지하기 위해 consistent-hash는 hash ring이라는 개념을 사용하여 노드를 선택
 
 ## install
 
