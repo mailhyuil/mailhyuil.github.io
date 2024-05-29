@@ -14,9 +14,3 @@ crud handler   => command, query, event   - [app]
 business logic => aggregateRoot           - [domain]
 database logic => repository              - [infra]
 ```
-
-## Command / Query
-
-## Event
-
-## Saga
