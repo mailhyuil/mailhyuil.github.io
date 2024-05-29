@@ -2,7 +2,9 @@
 
 > 만약 100% cpu bound problem이라면 multi-threading으로는 문제를 해결할 수 없다.
 >
-> > monitoring을 통해서 cpu bound인지 io bound인지 확인
+> > monitoring을 통해서 cpu bound인지 I/O bound인지 확인
+> >
+> > > cpu burst가 많은지 I/O burst가 많은지에 따라 결정 (burst 연속된 작업)
 
 ## CPU bound
 
