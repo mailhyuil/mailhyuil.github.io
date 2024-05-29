@@ -31,3 +31,5 @@
 > > > > multi-threading으로 성능을 향상시킬 수 있다.
 > > > >
 > > > > Async I/O 사용으로 성능을 향상시킬 수 있다.
+
+## Memory bound
