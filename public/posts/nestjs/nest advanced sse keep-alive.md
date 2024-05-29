@@ -2,27 +2,24 @@
 
 ## server
 
-```js
-  @Sse(':macAddress/status-monitor')
-  @Auth(Role.ADMIN, Role.SUPER_ADMIN)
-  @ApiOperation({
-    summary: 'Device 상태 모니터링',
-  })
-  async statusMonitor(@Res({passthrough:true}) res:Response, @Param('macAddress') macAddress: string) {
-    const keepAlive$ = interval(40000);
-    const subscription = keepAlive$.subscribe(() => {
-      this.deviceService.update$.next('keep-alive');
+```ts
+export class SomeController {
+  @Sse()
+  async statusMonitor(@Res({ passthrough: true }) res: Response) {
+    const subscription = interval(40000).subscribe(() => {
+      this.someService.update$.next("keep-alive");
     });
-    res.on('close',()=>{
+    res.on("close", () => {
       subscription.unsubscribe();
-      })
-    return this.deviceService.update$.asObservable();
+    });
+    return this.someService.update$.asObservable();
   }
+}
 ```
 
 ## client
 
-```js
+```ts
 eventSource.onmessage = async (event) => {
   if (event.data === "keep-alive") return;
   // logic..
