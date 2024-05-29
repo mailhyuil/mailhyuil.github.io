@@ -46,7 +46,9 @@ host    replication     all             0.0.0.0/0               md5
 
 ### primary의 데이터를 복제 하여 실행
 
-> replicator 유저로 실행
+> postgres_master의 data 폴더를 통째로 postgres_replica로 복사
+>
+> > replicator 유저로 실행
 
 ```sh
 # 부팅 시 실행
