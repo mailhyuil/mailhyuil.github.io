@@ -2,9 +2,11 @@
 
 > Go 언어에서 사용되는 경량 스레드(lightweight thread)
 >
-> go에서는 goroutine을 사용하여 동시성을 구현할 수 있다.
->
-> > goroutine은 main 함수가 종료되면 같이 종료된다.
+> > go에서는 goroutine을 사용하여 동시성을 구현할 수 있다.
+> >
+> > multi-threading이다.
+> >
+> > > goroutine은 main 함수가 종료되면 같이 종료된다.
 
 ```go
 main(){

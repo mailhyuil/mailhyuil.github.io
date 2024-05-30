@@ -1,8 +1,14 @@
 # node worker_threads
 
-> 워커 스레드의 가장 중요한 목표는 I/O 작업이 아닌 CPU 집약적인 작업의 퍼포먼스를 향상시키는 겁니다.
+> worker_threads의 가장 중요한 목표는 I/O 작업이 아닌 CPU 집약적인 작업의 퍼포먼스를 향상시키는 겁니다.
 >
-> > 멀티코어에서 사용하면 실제로 병렬로 수행
+> > parallel threading를 구현
+> >
+> > > 각 코어에서 thread를 생성해서 작업 가능
+> > >
+> > > > nodejs background thread가 아닌 javascript thread를 말하는 것!
+> > > >
+> > > > > javascript thread를 멀티코어에서 실행하는 것 (nodejs 앱은 하나)
 
 ## import
 

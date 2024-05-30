@@ -1,8 +1,12 @@
 # nodejs cluster
 
-> 멀티 프로세싱을 구현하기 위한 모듈
+> multi processing을 구현
 >
-> > 마스터 프로세스 CORE를 제외한 나머지 CORE 만큼의 워커 프로세스를 생성하여, 각기 다른 프로세스에서 코드가 실행되도록 도와줍니다.
+> > 각 코어에 process를 생성
+> >
+> > > child_process로 구현되었음
+> > >
+> > > > nodejs 앱 자체를 멀티코어에서 실행하는 것
 
 ## usage
 

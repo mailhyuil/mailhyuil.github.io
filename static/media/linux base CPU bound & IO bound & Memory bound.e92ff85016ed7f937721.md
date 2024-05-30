@@ -16,7 +16,7 @@
 > > >
 > > > > scale-up으로 성능을 향상시킬 수 있다.
 > > > >
-> > > > multi-processing으로 성능을 향상시킬 수 있다.
+> > > > multi-processing 또는 parallel-threading으로 성능을 향상시킬 수 있다.
 
 ## I/O bound
 
