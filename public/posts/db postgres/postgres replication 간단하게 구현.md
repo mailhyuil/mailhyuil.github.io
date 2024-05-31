@@ -1,6 +1,6 @@
 # postgres replication
 
-## postgres_primary -> pg_hba.conf
+## postgres_primary & postgres_replica -> pg_hba.conf
 
 > 실제 사용할 때는 readonly user를 생성해서 사용하는 것이 좋음
 
@@ -18,11 +18,15 @@ cp -R data_primary data_standby
 
 ## postgres_replica -> postgresql.conf
 
+> primary connection의 info를 기입
+
 ```conf
 primary_conninfo = 'application_name=standby1 host=host.docker.internal port=5432 user=postgres password=postgres'
 ```
 
 ## postgres_primary -> postgresql.conf
+
+> standby server의 info를 기입
 
 ```conf
 synchronous_standby_names = 'first 1 (standby1)' # 처음 1개가 동기화 되어야 함
