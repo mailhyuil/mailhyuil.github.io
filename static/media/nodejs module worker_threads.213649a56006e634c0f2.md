@@ -9,6 +9,8 @@
 > > > > nodejs background thread가 아닌 javascript thread를 말하는 것!
 > > > >
 > > > > > javascript thread를 멀티코어에서 실행하는 것 (nodejs 앱은 하나)
+> > > > >
+> > > > > user-level thread가 아닌 kernel-level thread를 사용하는 것
 
 ## import
 

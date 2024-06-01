@@ -14,7 +14,7 @@ So yeah, use cluster for web servers and child_process for workers.
 
 cluster allows TCP servers to be shared between workers.
 
-# worker_threads : 멀티코어에서 병렬 쓰레딩으로 작업을 수행, SharedArrayBuffer를 사용하여 메모리를 공유할 수 있음
+# worker_threads : 멀티코어에서 병렬 쓰레딩으로 작업을 수행, sharedMemory 를 사용하여 메모리를 공유할 수 있음
 # child_process : 백그라운드 작업, 하나의 프로세스를 여러개의 "자식 프로세스"로 나눌 때 사용 background tasks or to split a single process into multiple
 # cluster : 같은 포트를 공유하는 여러개의 프로세스를 나눌 때 사용
 ```
