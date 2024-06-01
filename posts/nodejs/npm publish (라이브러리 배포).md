@@ -16,7 +16,7 @@ npm config ls -l # 설정 확인
 
 ```js
 {
-  "name": "@mailhyuil/parent",
+  "name": "@mailhyuil/test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -27,7 +27,7 @@ npm config ls -l # 설정 확인
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mailhyuil/child": "file:child"
+    "@mailhyuil/local": "file:local"
   }
 }
 ```
