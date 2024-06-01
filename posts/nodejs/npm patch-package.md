@@ -6,6 +6,5 @@
 
 ```sh
 npm i patch-package
-
 npx patch-package [package-name]
 ```
