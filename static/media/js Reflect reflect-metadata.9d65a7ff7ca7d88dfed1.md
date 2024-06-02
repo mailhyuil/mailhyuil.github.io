@@ -10,10 +10,21 @@
 npm i reflect-metadata
 ```
 
+## decorator로 사용 시
+
+```json
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
+```
+
 ## usage
 
 ```ts
-import "reflect-metadata";
+import "reflect-metadata"; // Reflect API를 몽키패칭한다.
 
 // 메타데이터를 받아서 저장하는 데코레이터
 function MyDecorator(metadata: string) {

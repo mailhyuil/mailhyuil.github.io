@@ -1,71 +1,85 @@
-# js Proxy
+# js AOP Proxy
 
-> 이미 있는 readonly 객체에 새로운 기능을 추가할 수 있음
+> target을 handler에 있는 trap을 이용하여 가공한다.
+>
+> > receiver로 this binding을 조작할 수 있다.
+>
+> > Proxy는 Reflect와 다르게 target을 직접 wrapping 한다.
+> >
+> > 단지 target을 가공하는 역할만 한다.
+> >
+> > > 반면 Reflect는 target의 메소드를 호출를 호출하면서 가공한다.
+
+## 생성
 
 ```js
-type Client = typeof client;
-
-const buildClientProxy = (timeoutMs: number) => {
-	const startTime = Date.now();
-
-	const handler = {
-		get(target: Client, key: keyof Client) {
-			if (Date.now() >= startTime + timeoutMs) {
-				throw new Error('Lock has expired.');
-			}
-			const prop = Reflect.get(target, key); // target[key] 대신 Reflect.get(target, key)를 사용하면 property가 없을 때 undefined가 아닌 에러를 발생시킴
-			return typeof prop === 'function' ? prop.bind(target) : prop;
-		}
-	};
-
-	return new Proxy(client, handler) as Client;
-};
-
-const clientProxy = buildClientProxy(timeoutMs);
-
-clientProxy.rPush(bidHistoryKey(attrs.itemId), serialized);
-clientProxy.hSet(itemsKey(item.id), {
-    bids: item.bids + 1,
-    price: attrs.amount,
-    highestBidUserId: attrs.userId
-});
+const proxy = new Proxy(target, handler);
 ```
 
-## 함수 뒤에 호출하기
+## usage
+
+> target의 proxy를 생성하고 target 대신 proxy를 사용하면
+> proxy에 한 행위가 전부 target에 반영된다.
+>
+> > handler에 트랩 메소드를 정의하면 특정 행위에 대해 가공을 할 수 있다
+
+```ts
+let target = {};
+let proxy = new Proxy(target, {}); // 빈 핸들러
+
+proxy.test = 5; // 프락시에 값을 씁니다. -- (1)
+alert(target.test); // 5, target에 새로운 프로퍼티가 생겼네요!
+
+alert(proxy.test); // 5, 프락시를 사용해 값을 읽을 수도 있습니다. -- (2)
+
+for (let key in proxy) alert(key); // test, 반복도 잘 동작합니다. -- (3)
+```
+
+## 핸들러 사용
+
+> 핸들러에 프록시 트랩 메소드를 구현
 
 ```js
-class Client {
-  rPush(key: string, value: string) {
-    console.log(`rPush ${key} ${value}`);
-  }
-  hSet(key: string, value: any) {
-    console.log(`hSet ${key} ${value}`);
-  }
-}
-const client = new Client();
+let numbers = [0, 1, 2];
 
-const buildClientProxy = () => {
-  const handler = {
-    get(target: Client, key: keyof Client) {
-      const prop = Reflect.get(target, key); // target[key] 대신 Reflect.get(target, key)를 사용하면 property가 없을 때 undefined가 아닌 에러를 발생시킴
-      console.log("before");
-      if (typeof prop === "function") {
-        return function () {
-          // 반드시 function을 사용 (화살표 함수 x)
-          const fn = prop.bind(target)(arguments[0], arguments[1]);
-          console.log("after");
-          return fn;
-        };
-      }
-      return prop;
-    },
-  };
-  return new Proxy(client, handler) as Client;
-};
+numbers = new Proxy(numbers, {
+  get(target, prop) {
+    if (prop in target) {
+      return target[prop];
+    } else {
+      return 0; // 기본값
+    }
+  },
+});
 
-const clientProxy = buildClientProxy();
+alert(numbers[1]); // 1
+alert(numbers[123]); // 0 (해당하는 요소가 배열에 없으므로 0이 반환됨)
+```
 
-clientProxy.hSet("key", "value");
-clientProxy.rPush("key", "value");
+## 트랩 메소드
 
+```sh
+get	# 프로퍼티를 읽을 때
+set	# 프로퍼티에 쓸 때
+has	# in 연산자가 동작할 때
+deleteProperty	# delete 연산자가 동작할 때
+apply	# 함수를 호출할 때
+construct	# new 연산자가 동작할 때
+getPrototypeOf	# Object.getPrototypeOf
+setPrototypeOf	# Object.setPrototypeOf
+isExtensible	# Object.isExtensible
+preventExtensions	# Object.preventExtensions
+defineProperty	# Object.defineProperty, Object.defineProperties
+getOwnPropertyDescriptor	# Object.getOwnPropertyDescriptor, for..in, Object.keys/values/entries
+ownKeys	# Object.getOwnPropertyNames, Object.getOwnPropertySymbols, for..in, Object/keys/values/entries
+```
+
+## 폐기 가능한 프록시
+
+> 생성자로 만들어진 프록시 객체는 지워지거나(garbage collection) 재사용이 불가능하다.
+>
+> > revocable() 메소드를 사용하면 폐기 가능한 프록시를 생성할 수 있다.
+
+```js
+Proxy.revocable(); // 메소드를 사용하면 폐기 가능한 프록시를 생성할 수 있다.
 ```

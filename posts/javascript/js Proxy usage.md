@@ -67,5 +67,4 @@ const clientProxy = buildClientProxy();
 
 clientProxy.hSet("key", "value");
 clientProxy.rPush("key", "value");
-
 ```

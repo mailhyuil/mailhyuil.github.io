@@ -5,6 +5,7 @@
 > > receiver로 this binding을 조작할 수 있다.
 >
 > > Proxy는 Reflect와 다르게 target을 직접 wrapping 한다.
+> >
 > > 단지 target을 가공하는 역할만 한다.
 > >
 > > > 반면 Reflect는 target의 메소드를 호출를 호출하면서 가공한다.
@@ -80,5 +81,5 @@ ownKeys	# Object.getOwnPropertyNames, Object.getOwnPropertySymbols, for..in, Obj
 > > revocable() 메소드를 사용하면 폐기 가능한 프록시를 생성할 수 있다.
 
 ```js
-Proxy.revocable() 메소드를 사용하면 폐기 가능한 프록시를 생성할 수 있다.
+Proxy.revocable(); // 메소드를 사용하면 폐기 가능한 프록시를 생성할 수 있다.
 ```
