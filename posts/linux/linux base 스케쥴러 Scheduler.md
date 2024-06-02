@@ -1,4 +1,4 @@
-# linux base scheduler
+# linux base 스케쥴러 Scheduler
 
 > cpu core에 할당되는 프로세스를 관리하는 scheduler
 >
