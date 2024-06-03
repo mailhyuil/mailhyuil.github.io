@@ -66,6 +66,7 @@ export class AppComponent {
   remove(index: number) {
     this.form.controls.contacts.removeAt(index);
   }
+
   submit() {
     if (this.form.invalid) return alert("invalid");
     console.log(this.form.value);
