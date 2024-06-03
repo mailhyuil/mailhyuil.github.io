@@ -16,7 +16,11 @@ type UserConstructor = {
 ## Generic Constructor Type
 
 ```ts
-export type Constructor<T> = {
+type Constructor<T> = {
+  new (...args: any[]): T;
+};
+// or
+type Constructor<T> = {
   new (...args: any[]): T;
   readonly prototype: T;
 };

@@ -19,3 +19,12 @@ function example(foo: any) {
 }
 example("hello world");
 ```
+
+## rxjs filter에서 사용
+
+```ts
+pipe(
+  filter((x): x is Foo => x instanceof Foo),
+  map((x) => x.bar)
+);
+```

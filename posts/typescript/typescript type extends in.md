@@ -1,4 +1,4 @@
-# typescript type in
+# typescript type extends in
 
 > extends와 함께 key가 전부 일치하는지 확인
 
