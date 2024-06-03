@@ -24,6 +24,7 @@ const dog: Animal = {
   isLeashed: true,
   bark: () => console.log("bark"),
 };
+
 const cat: Animal = {
   name: "hyuil",
   type: "cat",
@@ -38,4 +39,7 @@ function makeSound(animal: Animal) {
     animal.meow();
   }
 }
+
+makeSound(dog);
+makeSound(cat);
 ```
