@@ -1,21 +1,32 @@
 # typescript satisfies
 
-## before
+> 미리 유효성 검사를 해주는 연산자
+>
+> > 기존에 if(typeof === 'object')로 검사를 해주었던 부분을 satisfies로 대체할 수 있음
 
 ```ts
-const palette: Record<"red" | "green" | "blue", [number, number, number] | string> = {
-  red: [255, 0, 0],
-  green: "#00ff00",
-  bleu: [0, 0, 255], // blue 오타
+type MyState = StateName | StateCordinates;
+type StateName = "Seoul" | "Busan" | "Daegu" | "Incheon" | "Gwangju";
+type StateCordinates = {
+  x: number;
+  y: number;
 };
-```
 
-## after (satisfies)
+type User = {
+  state: MyState;
+};
 
-```ts
-const palette = {
-  red: [255, 0, 0],
-  green: "#00ff00",
-  bleu: [0, 0, 255], // blue 오타
-} satisfies Record<"red" | "green" | "blue", [number, number, number] | string>;
+const user = {
+  state: "Seoul",
+} satisfies User; // User의 타입을 사용해서 미리 유효성 검사를 한다. // prevalidating, pretypechecking
+
+user.state.toUpperCase();
+
+/* 원래 이렇게 해야하는것을 대체해준다.
+ *
+ * if(typeof user.state === 'string') {
+ *   user.state.toUpperCase();
+ * }
+ *
+ */
 ```
