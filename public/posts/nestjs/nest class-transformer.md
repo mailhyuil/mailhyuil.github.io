@@ -1,5 +1,7 @@
 # class-transformer
 
+> json을 dto로 serialize, deserialize 해주는 라이브러리
+
 ## install
 
 ```bash
