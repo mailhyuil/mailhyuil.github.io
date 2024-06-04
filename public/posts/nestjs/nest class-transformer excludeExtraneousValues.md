@@ -5,34 +5,11 @@
 ## DTO
 
 ```ts
-export class ScoreSumDTO
-  extends PickType(ScoreDTO, [
-    "id",
-    "test",
-    "createdAt",
-    "updatedAt",
-    "discriminationSum",
-    "deletionSum",
-    "substitutionSum",
-    "synthesisSum",
-    "memorySum",
-    "recallColorSum",
-    "recallNumberSum",
-    "readingSum",
-    "recognitionSum",
-    "feedback",
-  ])
-  implements IScoreSumDTO {}
+export class MemberDTO extends PickType(UserDTO, ["id", "name"]) implements MemberDTO {}
 ```
 
 ## Controller
 
 ```js
-@Get('findByTestId/:testId')
-async findFirstByTestId(@Param('testId') testId: string) {
-    const found = await this.scoreService.findFirstByTestId(testId);
-    return plainToInstance(ScoreSumDTO, found, {
-        excludeExtraneousValues: true,
-    });
-}
+plainToInstance(MemberDTO, found, { excludeExtraneousValues: true });
 ```
