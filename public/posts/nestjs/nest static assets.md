@@ -2,6 +2,37 @@
 
 > 정적 파일을 url로 접근 가능하게 하는 방법
 
+## project.json (nx)
+
+> public 폴더를 dist에 포함시키기
+
+```sh
+"assets": ["apps/server/src/public"],
+```
+
+## nest-cli.json (nest)
+
+> public 폴더는 root에 위치
+
+```json
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "assets": [
+      {
+        "include": "../public",
+        "outDir": "dist/public",
+        "watchAssets": true
+      }
+    ],
+    "watchAssets": true
+  }
+}
+```
+
 ## main.ts
 
 ```ts
@@ -16,12 +47,4 @@ async function bootstrap() {
   await app.listen(4200);
 }
 /// http://localhost:4200/hello.txt
-```
-
-## project.json
-
-> public 폴더를 dist에 포함시키기
-
-```
-"assets": ["apps/server/src/assets", "apps/server/src/public"],
 ```
