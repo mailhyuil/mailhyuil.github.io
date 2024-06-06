@@ -18,7 +18,7 @@ const user = {
   age: 30,
 } as User;
 
-// 선언하는 object가 User의 모든 속성을 만족하도록 체크
+// 컴파일러가 User 타입을 참고하여 선언하는 object가 User의 어떤 속성을 만족하는지 체크
 const user = {
   name: "John",
   age: 30,
