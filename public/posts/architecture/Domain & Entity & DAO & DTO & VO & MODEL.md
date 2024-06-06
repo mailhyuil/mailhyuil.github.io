@@ -1,35 +1,55 @@
-# Domain & Entity & DTO & VO
+# Domain Model & Entity & DTO & VO
+
+> 각 계층을 설계시에 그 계층에서 다룰 data format을 정의하는게 중요하다
+>
+> > 밑의 개념들은 전부 각 계층에서 사용할 data format을 정의하는 객체들이다.
+
+## DTO
+
+> 레이어 또는 프로세스와 프로세스 간 데이터 전달을 위한 객체
+>
+> > 이론적으로 모든 계층은 자신만의 data format을 가진 DTO를 사용하는게 관심사의 분리를 위해 좋다.
+> >
+> > > 데이터 '전달' 용도로만 사용하기 때문에 메서드로 getter/setter 만 갖는다.
+> > >
+> > > > frontend 단에서는 api로부터 받은 DTO를 viewmodel로서 사용한다.
 
 ## Domain
 
 > 소프트웨어로 해결하고자하는 문제 영역
 
+## Domain Model (Object)
+
+> 도메인의 개념을 표현하는 객체
+>
+> > 로직을 포함한다.
+> >
+> > > 하나의 aggregate로 집합을 만들어서 관리한다.
+
+## AggregateRoot
+
+> 같은 도메인(Aggregate)에 속하는 Model들 묶어주는 최상위 객체
+>
+> > AggregateRoot를 통해서 같은 Aggregate에 속한 모델들을 조작한다.
+
 ## Entity
 
-> Database와 연동되는 객체
+> Database의 Row와 매핑되어있는 객체
 >
-> > 실제 DB의 테이블과 매칭될 클래스
+> > 로직을 포함하지 않는다.
+> >
+> > > Repository 계층의 DTO로 사용된다.
 
 ## DAO
 
 > === Repository
 
-## DTO
+## VO
 
-> 레이어 간 데이터 전달을 위한 객체
->
-> > controller <-> service <-> repository
-> >
-> > > 데이터 '전달' 용도로만 사용하기 때문에 메서드로 getter/setter 만 갖는다.
-
-## VO === MODEL
-
-> 값 그 자체를 나태는 객체
+> 값 그 자체를 나태는 객체 e.g. Money, Address, URL ...
 >
 > > 로직을 포함한다.
 > >
 > > > 불변성 보장을 위해 생성자를 사용해 인스턴스로 만든다.
 > > >
 > > > > 모든 값이 같은 두개의 vo는 같은 객체로 취급한다.
-> > > >
-> > > > > 모델이라고도 한다.
