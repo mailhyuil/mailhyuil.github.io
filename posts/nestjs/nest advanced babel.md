@@ -71,8 +71,10 @@ module.exports = {
 ## package.json
 
 ```json
-"script":{
+{
+  "script": {
     "serve": "webpack --config webpack.development.config.js --watch",
-    "build": "tsc --noEmit && webpack --config webpack.production.config.js",
+    "build": "tsc --noEmit && webpack --config webpack.production.config.js"
+  }
 }
 ```
