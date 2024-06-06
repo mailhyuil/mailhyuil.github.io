@@ -8,10 +8,12 @@
 
 > declaration 을 true로 하면 컴파일 시 .d.ts 을 생성한다
 
-```
+```json
 {
-  "declaration": true, /* Generates corresponding '.d.ts' file. */
-  "outDir": "./dist",  /* Redirect output structure to the directory. */
+  "complierOptions": {
+    "declaration": true /* Generates corresponding '.d.ts' file. */,
+    "outDir": "./dist" /* Redirect output structure to the directory. */
+  }
 }
 ```
 
@@ -19,6 +21,6 @@
 
 > Type definition 파일을 지정한다.
 
-```
+```json
 "types": "dist/index.d.ts"
 ```

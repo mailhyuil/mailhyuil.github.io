@@ -1,6 +1,10 @@
 # typescript custom decorator
 
-> descriptor를 인자로 받는 function
+> @Function을 사용하면 인자로 Constructor를 받는다.
+>
+> > Constructor의 prototype을 통해서 prototype에 접근하여 해당 클래스나 함수 프로퍼티를 수정할 수 있다.
+> >
+> > > descriptor를 인자로 받는 function
 
 ## class decorator
 
