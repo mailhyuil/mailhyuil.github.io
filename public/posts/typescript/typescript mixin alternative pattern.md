@@ -7,34 +7,33 @@
 ## 구현
 
 ```js
+// This can live anywhere in your codebase:
+function applyMixins(derivedCtor: any, constructors: any[]) {
+  constructors.forEach((baseCtor) => {
+    Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+      Object.defineProperty(derivedCtor.prototype, name, Object.getOwnPropertyDescriptor(baseCtor.prototype, name) || Object.create(null));
+    });
+  });
+}
+```
+
+```js
 class Flyable {
   fly: () {};
 }>;
 class Quackable {
   quack: () {};
 }
+
+interface Base extends Flyable, Quackable {}
+
 class Base {
   name = "hyuil";
 }
-interface Base extends Flyable, Quackable {}
 
 applyMixins(Base, [Flyable, Quackable]);
 
 let base = new Base();
 base.fly();
 base.quack();
-
-// This can live anywhere in your codebase:
-function applyMixins(derivedCtor: any, constructors: any[]) {
-  constructors.forEach((baseCtor) => {
-    Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
-      Object.defineProperty(
-        derivedCtor.prototype,
-        name,
-        Object.getOwnPropertyDescriptor(baseCtor.prototype, name) ||
-          Object.create(null)
-      );
-    });
-  });
-}
 ```
