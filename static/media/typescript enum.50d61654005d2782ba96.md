@@ -17,7 +17,10 @@ const Enum = {
   A: "에이",
   B: "비",
 } as const;
-type EnumType = (typeof Enum)[keyof typeof Enum]; // '에이' | '비'
+
+type EnumType = typeof Enum; // { A: '에이', B: '비' }
+type EnumKeys = keyof EnumType; // 'A' | 'B'
+type EnumValues = EnumType[keyof EnumType]; // '에이' | '비'
 ```
 
 ## enum은 사용하지 말 것
