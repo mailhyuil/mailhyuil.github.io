@@ -1,9 +1,11 @@
 # typescript duck typing
 
 > If it walks like a duck and it quacks like a duck, then it must be a duck.
+>
 > 만약 오리처럼 걷고 오리처럼 운다면, 그건 오리다.
 >
 > > 타입을 미리 정하는게 아니라 실행이 되었을 때 해당 Method들을 확인하여 타입을 정한다.
+> >
 > > Interface Person을 implements하지 않아도 완전히 똑같은 properties를 가지고 있으면 타입체크에 통과한다.
 > >
 > > > 자바같은 정적 타이핑언어보다 유연성을 제공한다.
