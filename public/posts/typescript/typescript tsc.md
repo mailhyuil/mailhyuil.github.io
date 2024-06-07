@@ -3,13 +3,13 @@
 > 타입스크립트 컴파일 명령어
 
 ```sh
-npx tsc
+npx tsc --init # 초기화
 ```
 
 ## 컴파일
 
 ```sh
-npx tsc app.ts
+tsc app.ts
 ```
 
 ## 컴파일 타겟 지정
@@ -17,13 +17,13 @@ npx tsc app.ts
 > 문법 버전에 맞게 컴파일
 
 ```sh
-npx tsc --target es6 app.ts
+tsc --target es6 app.ts
 ```
 
 ## 모듈
 
 ```sh
-npx tsc --module es6 hello.ts utils.ts
+tsc --module es6 hello.ts utils.ts
 ```
 
 ## tsconfig.json
