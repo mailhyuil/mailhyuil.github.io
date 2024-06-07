@@ -12,15 +12,19 @@
 {
   "compilerOptions": {
     "strict": true,
+    /* "strict": true 로 설정 시 밑에 옵션들이 true로 설정된다.
+     *
     "alwaysStrict": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
-    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
+    "noImplicitAny": true,
     "noImplicitThis": true,
+     *
+     */
+
     // 추가하면 좋은 옵션
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
