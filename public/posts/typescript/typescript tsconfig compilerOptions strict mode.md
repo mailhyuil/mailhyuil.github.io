@@ -8,16 +8,25 @@
 > > >
 > > > > 파일만 strict모드를 지정할 수 있는 플러그인이 있다.
 
-## strictNullChecks
-
-## noImplicitAny
-
-## strictFunctionTypes
-
-## strictBindCallApply
-
-## strictPropertyInitialization
-
-## noImplicitThis
-
-## alwaysStrict
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "useUnknownInCatchVariables": true,
+    "noImplicitThis": true,
+    // 추가하면 좋은 옵션
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true
+  }
+}
+```
