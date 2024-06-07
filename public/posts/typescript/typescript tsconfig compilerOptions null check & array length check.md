@@ -3,8 +3,6 @@
 ```json
 {
   "strict": true,
-  "strictNullChecks": true,
-  "noPropertyAccessFromIndexSignature": true,
   "noUncheckedIndexedAccess": true,
   "noFallthroughCasesInSwitch": true,
   "noImplicitOverride": true,

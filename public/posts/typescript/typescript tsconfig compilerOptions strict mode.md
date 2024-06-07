@@ -26,7 +26,6 @@
      */
 
     // 추가하면 좋은 옵션
-    "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
