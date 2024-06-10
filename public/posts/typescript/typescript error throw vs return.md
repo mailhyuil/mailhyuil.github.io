@@ -33,28 +33,57 @@ type Result<Error, Value> =
       value: Value;
     };
 
-class TypeMismatch extends Error {
+class UserNotFoundException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = "TypeMismatch";
+    this.name = "UserNotFoundException";
   }
 }
+// .. other Errors
 
-const result: Result = await task();
+type UserDto = { id: string; name: string };
 
-if (!result.success) {
-  // error에 type이 정의되어 있기 때문에 error를 처리하기가 쉽다.
-  if (result.error instanceof NotFoundException) {
-    return res.status(404).json({
-      errorMessage: result.error.message,
-    });
+const users: UserDto[] = [
+  {
+    id: "1234",
+    name: "John",
+  },
+  {
+    id: "5678",
+    name: "Doe",
+  },
+];
+
+const findById = (id: string): Result<UserNotFoundException, UserDto> => {
+  const user = users.find((user) => user.id === id);
+  if (!user) {
+    return {
+      success: false,
+      error: new UserNotFoundException("User not found"),
+    };
   }
-  if (result.error instanceof TypeMismatch) {
-    return res.status(400).json({
-      errorMessage: result.error.message,
-    });
+  return {
+    success: true,
+    value: user,
+  };
+};
+
+function main() {
+  const result = findById("1234");
+
+  if (!result.success) {
+    if (result.error instanceof UserNotFoundException) {
+      console.error("Http 404 Error: ", result.error.message);
+      res.status(404).send({ message: result.error.message, context: { result } });
+      return;
+    }
+    console.error("Http 500 Error: ", result);
+    res.status(500).send({ message: "Internal Server Error", context: { result } });
+    return;
   }
+
+  console.log("Found User : ", result.value);
 }
 
-// otherwise continue handling the request
+main();
 ```

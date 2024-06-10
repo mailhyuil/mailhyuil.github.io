@@ -1,54 +1,46 @@
 # nest PrismaExceptionFilter
 
+> PrismaGlobalExceptionFilter에서는 error code를 확인하고
+>
+> > 에러를 HttpException으로 바꿔주면서
+> >
+> > > stack trace와 context만 추가해주는 용도로 사용
+
 ## prisma-global-error.filter.ts
 
 ```ts
-import { ArgumentsHost, Catch, HttpStatus } from "@nestjs/common";
+import { ArgumentsHost, Catch, HttpException, HttpStatus, InternalServerErrorException } from "@nestjs/common";
 import { BaseExceptionFilter } from "@nestjs/core";
 import { Prisma } from "@prisma/client";
-import { Request, Response } from "express";
 
 @Catch(Prisma.PrismaClientKnownRequestError)
 export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
-  catch(exception: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
-    const ctx = host.switchToHttp();
-    const req = ctx.getRequest<Request>();
-    const res = ctx.getResponse<Response>();
-    const errorCode = exception.code;
+  catch(error: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
+    const errorCode = error.code;
     const prismaError = PrismaErrorsMap[errorCode];
-
-    let rawBody;
-    if (req["rawBody"]) {
-      rawBody = Buffer.from(req["rawBody"]).toString();
-    }
-
-    const error = {
-      exception,
-      request: {
-        body: req.body,
-        query: req.query,
-        params: req.params,
-        rawBody,
-      },
-    };
-    // logger로 변경해주기
-    console.error(error);
     if (prismaError) {
-      res.status(prismaError.statusCode).json(error);
+      throw new HttpException(prismaError.message, prismaError.statusCode, {
+        cause: error,
+      });
     } else {
-      res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
+      throw new InternalServerErrorException("Prisma Error", {
+        cause: error,
+      });
     }
   }
 }
-
+type PrismaError = {
+  statusCode: HttpStatus;
+  message: string;
+};
 // https://www.prisma.io/docs/orm/reference/error-reference
-const PrismaErrorsMap: Record<string, { statusCode: number; message: string }> = {
+const PrismaErrorsMap: Record<string, PrismaError> = {
   P2000: {
     statusCode: HttpStatus.BAD_REQUEST,
     message: "입력값이 데이터 타입의 길이를 초과하였습니다.",
   },
   P2001: {
-    statusCode: HttpStatus.NO_CONTENT,
+    statusCode: HttpStatus.NOT_FOUND,
     message: "존재하지 않는 레코드입니다.",
   },
   P2002: {
