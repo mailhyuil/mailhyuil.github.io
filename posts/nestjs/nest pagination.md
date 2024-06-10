@@ -68,13 +68,12 @@ async search(
 
     const count = await tx.example.count({ where });
 
-    const itemsWithRow = items.map((item, index) => {
-      item['row'] =
-        count - options.pageSize * (options.pageIndex - 1) - index;
-      return item;
+    const itemsWithRowNumber = items.map((item, index) => {
+      const rowNumber = count - options.pageSize * (options.pageIndex - 1) - index;
+      return { ...item, rowNumber };
     });
 
-    return { items: itemsWithRow, count };
+    return { items: itemsWithRowNumber, count };
   });
 
   return {
