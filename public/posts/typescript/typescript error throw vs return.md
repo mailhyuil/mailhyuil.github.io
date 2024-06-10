@@ -6,13 +6,15 @@
 try {
   await task();
 } catch (error) {
-  // error는 any 타입으로 들어오기 때문에 처리하기가 애매하다.
-  // typescript에서 error는 function signature에 포함되지 않기 때문에..
-  if (error instanceof NotFoundError) {
+  if (error instanceof NotFoundException) {
     return res.status(404).json({
       errorMessage: error.message,
     });
   }
+  // and then what?..
+
+  // error는 any 타입으로 들어오기 때문에 처리하기가 애매하다.
+  // typescript에서 error는 function signature에 포함되지 않기 때문에..
 }
 ```
 
@@ -42,7 +44,7 @@ const result: Result = await task();
 
 if (!result.success) {
   // error에 type이 정의되어 있기 때문에 error를 처리하기가 쉽다.
-  if (result.error instanceof NotFoundError) {
+  if (result.error instanceof NotFoundException) {
     return res.status(404).json({
       errorMessage: result.error.message,
     });
