@@ -11,9 +11,11 @@ npm i class-transformer
 npm i bcryptjs
 npm i -D @types/bcryptjs
 npm i compression
+npm i -D @types/compression
 npm i helmet
 # logging
 npm i morgan
+npm i -D @types/morgan
 npm i winston
 npm i nest-winston
 npm i winston-daily-rotate-file
