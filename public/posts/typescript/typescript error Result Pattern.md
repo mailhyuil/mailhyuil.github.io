@@ -1,5 +1,7 @@
 # typescript error Result Pattern
 
+> Result 또는 Either 라고 불리는 객체를 리턴ㄴ하여 에러를 처리하는 방법
+
 ## Result (Either)
 
 ```ts
