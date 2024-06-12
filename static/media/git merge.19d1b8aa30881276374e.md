@@ -10,4 +10,5 @@
 3. merge 후 push
 
 git merge [브랜치명]
+git merge --no-ff [브랜치명]
 ```

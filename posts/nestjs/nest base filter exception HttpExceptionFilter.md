@@ -10,32 +10,40 @@ import { Request, Response } from "express";
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
-  catch(exception: HttpException, host: ArgumentsHost) {
+  catch(error: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const res = ctx.getResponse<Response>();
     const req = ctx.getRequest<Request>();
-    const statusCode = exception.getStatus();
-    const response = exception.getResponse() as object;
+    const statusCode = error.getStatus();
+    const errorResponse = error.getResponse();
+    const message = error.message;
+    const cause = error.cause;
+    const stack = error.stack;
 
     let rawBody;
     if (req["rawBody"]) {
       rawBody = Buffer.from(req["rawBody"]).toString();
     }
 
-    const error = {
-      ...response,
+    const json = {
+      statusCode,
       path: req.url,
       timestamp: new Date().toISOString(),
-      request: {
+      message,
+      context: {
         body: req.body,
         query: req.query,
         params: req.params,
         rawBody,
+        error: errorResponse,
       },
     };
-    // logger로 변경해주기
-    console.error(error);
-    res.status(statusCode).json(error);
+    res.status(statusCode).json(json);
+    console.error(
+      `MESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(
+        json.context
+      )}\nSTACK: ${stack}\nCAUSE: ${cause}`
+    );
   }
 }
 ```
