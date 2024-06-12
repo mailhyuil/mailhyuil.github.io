@@ -3,29 +3,75 @@
 > 객체의 결합을 통해 기능을 동적으로 유연하게 확장시키는 것
 
 ```ts
-class Obj {
-  private arr: string[];
-  constructor() {
-    this.arr = ['a'];
+interface Coffee {
+  cost(): number;
+  description(): string;
+}
+
+class SimpleCoffee implements Coffee {
+  cost(): number {
+    return 1;
   }
 
-  getSome() {
-    return this.arr;
+  description(): string {
+    return "Simple coffee";
   }
 }
 
-class Decorator {
-  private values: string[];
-  constructor(private baseObj: Obj) {
-    this.baseObj = baseObj;
-    this.values = ['b'];
+abstract class CoffeeDecorator implements Coffee {
+  // protected를 사용하여 상속받은 클래스에서 접근 가능하도록 함
+  constructor(protected coffee: Coffee) {}
+
+  abstract cost(): number;
+  abstract description(): string;
+}
+
+class MilkDecorator extends CoffeeDecorator {
+  cost(): number {
+    return this.coffee.cost() + 0.5;
   }
-  getSome() {
-    return [...this.baseObj.getSome(), ...this.values];
+
+  description(): string {
+    return this.coffee.description() + ", milk";
   }
 }
 
-const o = new Obj();
-const d = new Decorator(o);
-console.log(d.getSome());
+class SugarDecorator extends CoffeeDecorator {
+  cost(): number {
+    return this.coffee.cost() + 0.2;
+  }
+
+  description(): string {
+    return this.coffee.description() + ", sugar";
+  }
+}
+
+class WhippedCreamDecorator extends CoffeeDecorator {
+  cost(): number {
+    return this.coffee.cost() + 0.7;
+  }
+
+  description(): string {
+    return this.coffee.description() + ", whipped cream";
+  }
+}
+
+class CaramelDecorator extends CoffeeDecorator {
+  cost(): number {
+    return this.coffee.cost() + 0.6;
+  }
+
+  description(): string {
+    return this.coffee.description() + ", caramel";
+  }
+}
+
+let coffee: Coffee = new SimpleCoffee();
+coffee = new MilkDecorator(coffee);
+coffee = new SugarDecorator(coffee);
+coffee = new WhippedCreamDecorator(coffee);
+coffee = new CaramelDecorator(coffee);
+
+console.log(`Cost: $${coffee.cost()}`); // Outputs: Cost: $3.0
+console.log(`Description: ${coffee.description()}`); // Outputs: Description: Simple coffee, milk, sugar, whipped cream, caramel
 ```
