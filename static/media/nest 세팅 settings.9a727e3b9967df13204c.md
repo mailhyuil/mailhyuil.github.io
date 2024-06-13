@@ -48,6 +48,7 @@ npm i cache-manager
 # prisma
 npm i @prisma/client
 npm i -D prisma
+npm i prisma-error-enum
 # event
 npm i @nestjs/event-emitter
 # schedule
