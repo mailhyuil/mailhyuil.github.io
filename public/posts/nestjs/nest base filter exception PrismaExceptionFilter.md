@@ -9,13 +9,14 @@ npm i prisma-error-enum
 ## prisma-global-error.filter.ts
 
 ```ts
-import { ArgumentsHost, Catch, HttpStatus } from "@nestjs/common";
+import { ArgumentsHost, Catch, HttpStatus, Logger } from "@nestjs/common";
 import { BaseExceptionFilter } from "@nestjs/core";
 import { Prisma } from "@prisma/client";
 import { Request, Response } from "express";
 import { PrismaError } from "prisma-error-enum";
 @Catch(Prisma.PrismaClientKnownRequestError)
 export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
+  private readonly logger = new Logger(PrismaGlobalExceptionFilter.name);
   catch(error: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const res = ctx.getResponse<Response>();
@@ -31,6 +32,7 @@ export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
     const { name, clientVersion, ...rest } = error;
 
     const json = {
+      statusCode: 500,
       message: "Internal Server Error",
       path: req.url,
       timestamp: new Date().toISOString(),
@@ -47,13 +49,14 @@ export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
 
     if (!prismaError) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(json);
-      console.error(`MESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
+      this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
       return;
     }
 
     json.message = prismaError.message;
+    json.statusCode = prismaError.status;
     res.status(prismaError.status).json(json);
-    console.error(`MESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
+    this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
   }
 }
 
@@ -61,21 +64,20 @@ type PrismaErrorType = {
   status: HttpStatus;
   message: string;
 };
-type PrismaErrorKeys = (typeof PrismaError)[keyof typeof PrismaError];
-
+type PrismaErrorValues = (typeof PrismaError)[keyof typeof PrismaError];
 // https://www.prisma.io/docs/orm/reference/error-reference
-const PrismaErrorsMap: Partial<Record<PrismaErrorKeys, PrismaErrorType>> = {
+const PrismaErrorsMap: Partial<Record<PrismaErrorValues, PrismaErrorType>> = {
   [PrismaError.RecordDoesNotExist]: {
     status: HttpStatus.NOT_FOUND,
-    message: `요청한 조건의 항목을 찾을 수 없습니다.`,
+    message: "요청한 조건의 항목을 찾을 수 없습니다.",
   },
   [PrismaError.RelatedRecordNotFound]: {
     status: HttpStatus.NOT_FOUND,
-    message: `요청한 항목을 찾을 수 없습니다.`,
+    message: `요청한 항목과 관계된 항목을 찾을 수 없습니다.`,
   },
   [PrismaError.RecordsNotFound]: {
     status: HttpStatus.NOT_FOUND,
-    message: `수정 또는 삭제할 항목을 찾을 수 없습니다.`,
+    message: `요청한 항목을 찾을 수 없습니다.`,
   },
   [PrismaError.UniqueConstraintViolation]: {
     status: HttpStatus.CONFLICT,
