@@ -80,37 +80,15 @@ interface UserDto {
   blockedAt: Date;
   deletedAt: Date;
 }
-function isUserDto(arg: any): arg is UserDto {
-  return (
-    "id" in arg &&
-    "username" in arg &&
-    "realname" in arg &&
-    "email" in arg &&
-    "password" in arg &&
-    "createdAt" in arg &&
-    "updatedAt" in arg &&
-    "blockedAt" in arg &&
-    "deletedAt" in arg
-  );
-}
-// the same as...
-// function isUserDTO(arg: any): arg is UserDTO {
-//   return (
-//     arg.id !== undefined &&
-//     arg.username !== undefined &&
-//     arg.realname !== undefined &&
-//     arg.email !== undefined &&
-//     arg.password !== undefined &&
-//     arg.createdAt !== undefined &&
-//     arg.updatedAt !== undefined &&
-//     arg.blockedAt !== undefined &&
-//     arg.deletedAt !== undefined
-//   );
-// }
 
-// the same as...
-// function isUserDto(arg: any): arg is UserDto {
-//   const keys: (keyof UserDto)[] = ["id", "username", "realname", "email", "password", "createdAt", "updatedAt", "blockedAt", "deletedAt"];
-//   return keys.every((key) => key in arg);
-// }
+// 모든 키를 가지고 있는지 확인하는 방법
+function isUserDto(arg: any): arg is UserDto {
+  const keys: (keyof UserDto)[] = Object.keys(arg) as (keyof UserDto)[];
+  return keys.every((key) => key in arg);
+}
+
+// flag만 하나 선택해서 확인하는 방법
+function isUserDto(arg: any): arg is UserDto {
+  return arg.type === "User";
+}
 ```

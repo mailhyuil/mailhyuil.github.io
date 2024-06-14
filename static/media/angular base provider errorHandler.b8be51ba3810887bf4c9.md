@@ -4,7 +4,17 @@
 >
 > > 에러를 catch해야 프로그램이 안 멈추고 계속 실행된다.
 
-## ErrorHandler
+## http-error.interceptor.ts
+
+```ts
+return next(apiReq).pipe(
+  catchError((error) => {
+    return throwError(() => error);
+  })
+);
+```
+
+## global-error-handler.ts
 
 > 전역 에러 핸들
 >
@@ -35,36 +45,45 @@ export class GlobalErrorHandler implements ErrorHandler {
       const status: number = error.status;
       const message: string = error.error.message;
 
+      if (process.env.NODE_ENV !== "production") {
+        console.error(`[${status}] ${message}`);
+      }
+
       if (status === 0) {
         this.toastService.openDanger("서버에 연결할 수 없습니다.");
+        return;
       }
       if (status === 400) {
         this.handleBadRequest();
+        return;
       }
       if (status === 401) {
         this.handleUnauthorized();
+        return;
       }
       if (status === 403) {
         this.handleForbidden();
+        return;
       }
       if (status === 404) {
         this.handleNotFound();
+        return;
       }
       if (status === 409) {
         this.handleConflict();
+        return;
       }
       if (status === 429) {
         this.handleTooManyRequests();
+        return;
       }
       if (status === 498) {
         this.handleInvalidToken();
+        return;
       }
       if (status === 500) {
         this.handleInternalServerError();
-      }
-
-      if (process.env.NODE_ENV !== "production") {
-        console.error(`[${status}] ${message}`);
+        return;
       }
     }
   }
