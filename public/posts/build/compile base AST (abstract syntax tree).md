@@ -65,7 +65,7 @@ interface Node {
 }
 // tsc
 interface Node {
-  kind: number;
+  kind: number; // ts.SyntaxKind[node.kind]를 사용해서 string으로 변환할 수 있다.
   // 소스의 위치를 알아내기 위해 사용됨
   pos: number;
   end: number;

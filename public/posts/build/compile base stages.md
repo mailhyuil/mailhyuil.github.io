@@ -18,13 +18,13 @@
 SourceCode ~~ scanner ~~> Token Stream ~~ parser ~~> AST
 ```
 
-## binder
+## binder (tsc)
 
 > symbol map을 생성하고 AST를 사용하여 type system을 제공한다.
 >
 > > 이 type system은 node들을 연결하는데 사용된다.
 
-## checker
+## checker (tsc)
 
 > type system을 사용하여 AST를 검사한다.
 
