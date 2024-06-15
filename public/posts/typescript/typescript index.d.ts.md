@@ -22,5 +22,5 @@
 > Type definition 파일을 지정한다.
 
 ```json
-"types": "dist/index.d.ts"
+{ "types": "dist/index.d.ts" }
 ```

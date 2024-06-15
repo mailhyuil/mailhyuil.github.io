@@ -5,3 +5,9 @@
 > > 필요시에만 필요한 코드를 불러와서 사용할 수 있기 때문에 초기 로딩 속도를 줄일 수 있다.
 > >
 > > > esModule의 import() 구문을 사용해야 한다!
+
+```ts
+import("./module").then((module) => {
+  module.default();
+});
+```
