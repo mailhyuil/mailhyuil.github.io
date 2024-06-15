@@ -9,23 +9,53 @@
 ## code
 
 ```ts
-function hello() {
-  console.log("world");
+function square(n) {
+  return n * n;
 }
 ```
 
 ## AST
 
-```sh
--> SourceFile
-  -> FunctionDeclaration
-      - Identifier
-  -> Block
-    -> ExpressionStatement
-      -> CallExpression
-        -> PropertyAccessExpression
-            - Identifier
-            - Identifier
-          - StringLiteral
-  - EndOfFileToken
+```json
+{
+  "type": "FunctionDeclaration", // Node
+  "id": {
+    "type": "Identifier", // Node
+    "name": "square"
+  },
+  "params": [
+    {
+      "type": "Identifier", // Node
+      "name": "n"
+    }
+  ],
+  "body": {
+    "type": "BlockStatement", // Node
+    "body": [
+      {
+        "type": "ReturnStatement", // Node
+        "argument": {
+          "type": "BinaryExpression", // Node
+          "operator": "*",
+          "left": {
+            "type": "Identifier", // Node
+            "name": "n"
+          },
+          "right": {
+            "type": "Identifier", // Node
+            "name": "n"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+## Node
+
+```ts
+interface Node {
+  type: string;
+}
 ```
