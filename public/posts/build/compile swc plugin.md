@@ -9,49 +9,31 @@ function onClick() {
 onClick();
 ```
 
-## transformer.ts
+## transformer.rs
 
-```ts
-import * as ts from "typescript";
-export default function (program: ts.Program, pluginOptions: any) {
-  return (ctx: ts.TransformationContext) => {
-    return (sourceFile: ts.SourceFile) => {
-      function visitor(node: ts.Node): ts.Node {
-        if (ts.isBlock(node)) {
-          // return 시 이 block을 return된 block으로 대체한다.
-          return ts.factory.createBlock([
-            ...node.statements, // keep the original statements
-            ts.factory.createExpressionStatement(
-              ts.factory.createCallExpression(
-                ts.factory.createPropertyAccessExpression(ts.factory.createIdentifier("console"), ts.factory.createIdentifier("log")),
-                undefined,
-                [ts.factory.createStringLiteral("world")]
-              )
-            ),
-          ]);
+```rs
+use swc_core::{
+    ast::*,
+    visit::{VisitMut, VisitMutWith},
+    common::Spanned,
+};
+
+impl VisitMut for TransformVisitor {
+    fn visit_mut_bin_expr(&mut self, e: &mut BinExpr) {
+        e.visit_mut_children_with(self);
+
+        if e.op == op!("===") {
+            e.left = Box::new(Ident::new("kdy1".into(), e.left.span()).into());
         }
-        return ts.visitEachChild(node, visitor, ctx);
-      }
-      return ts.visitEachChild(sourceFile, visitor, ctx);
-    };
-  };
+    }
 }
 ```
 
-## tsconfig.json
+## .swcrc
 
 ```json
 {
-  "compilerOptions": {
-    "target": "es2022",
-    "outDir": "./dist",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "plugins": [{ "transform": "./transformers/transformer.ts" }]
-  },
-  "include": ["src/**/*"]
+  "$schema": "https://swc.rs/schema.json",
+  "jsc": {}
 }
 ```
