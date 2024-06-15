@@ -4,18 +4,15 @@
 >
 > import/require 가 무엇을 참조하는지 알아내기 위해 사용하는 프로세스
 >
-> > 각 import가 어떤 모듈을 가리키는지 해석하는 과정을 의미
-> >
-> > > node로 되어있으면 node.js의 모듈 해석 방식을 따르고 classic으로 되어있으면 전통적인 모듈 해석 방식을 따른다.
+> > node로 되어있으면 node.js의 모듈 해석 방식을 따르고 classic으로 되어있으면 전통적인 모듈 해석 방식을 따른다.
 
-## main.ts
+## 상대 경로 vs 비상대 경로
+
+> 상대경로와 비상대경로는 resolve 방식이 다르다.
+>
+> > moduleResolution은 정의된 파일을 찾기 위해 어디를 탐색할지 결정한다.
 
 ```ts
-import { MyModule } from "my-module";
-// "my-module"은 ts / tsx / d.ts 파일 중 하나에 정의되어 있을 것이다.
-// moduleResolution은 "my-module"이 정의된 파일을 찾기 위해 어디를 탐색할지 결정한다.
-//
-
 /* 상대적 경로의 모듈 */
 // 현재 파일의 위치를 기준으로 상대적 경로를 사용하여 모듈을 참조한다.
 import { MyModule } from "/my-module";

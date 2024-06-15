@@ -14,7 +14,9 @@ export namespace Shapes {
     x: number;
     y: number;
   };
+
   export type Color = "red" | "green" | "blue";
+
   export class Triangle {
     /* ... */
   }
