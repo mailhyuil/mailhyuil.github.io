@@ -54,8 +54,20 @@ function square(n) {
 
 ## Node
 
+> 각 노드는 type을 가지고 있다. (ex. FunctionDeclaration, Identifier, BlockStatement, ReturnStatement, BinaryExpression)
+>
+> > tsc의 경우 kind를 사용하고 number로 된 enum을 사용한다.
+
 ```ts
+// babel
 interface Node {
   type: string;
+}
+// tsc
+interface Node {
+  kind: number; // ts.SyntaxKind[node.kind]를 사용해서 string으로 변환할 수 있다.
+  // 소스의 위치를 알아내기 위해 사용됨
+  pos: number;
+  end: number;
 }
 ```

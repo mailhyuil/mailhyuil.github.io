@@ -1,6 +1,10 @@
 # compilation stages
 
-> 5 stages of compilation
+> tsc : 5 stages of compilation / babel : 3 stages of compilation
+>
+> > babel은 parser, transformer, emitting 3단계
+> >
+> > tsc는 binder, checker가 추가된 5단계로 이루어져 있다.
 
 ## parser
 
@@ -14,13 +18,15 @@
 SourceCode ~~ scanner ~~> Token Stream ~~ parser ~~> AST
 ```
 
-## binder
+## binder (tsc)
 
 > symbol map을 생성하고 AST를 사용하여 type system을 제공한다.
 >
 > > 이 type system은 node들을 연결하는데 사용된다.
 
-## checker
+## checker (tsc)
+
+> type system을 사용하여 AST를 검사한다.
 
 ## transformer
 
@@ -37,3 +43,5 @@ afterDeclarations : 타입이 선언된 후 (type defs를 변환할 수 있다.)
 ## emitter
 
 > AST를 가져와서 output을 생성한다.
+>
+> > 최종 AST를 취하여 다시 소스 코드 문자열로 만드는데, 소스 맵 또한 생성합니다..
