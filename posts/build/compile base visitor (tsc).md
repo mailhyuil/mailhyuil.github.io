@@ -35,3 +35,19 @@ const transformer: ts.TransformerFactory<ts.SourceFile> = (context) => {
 
 export default transformer;
 ```
+
+## forEachChild 사용하기
+
+```ts
+export function forEachChild<T>(node: Node, cbNode: (node: Node) => T, cbNodeArray?: (nodes: Node[]) => T): T {
+  if (!node) {
+    return;
+  }
+  switch (node.kind) {
+    case SyntaxKind.BinaryExpression:
+      return visitNode(cbNode, (<BinaryExpression>node).left) || visitNode(cbNode, (<BinaryExpression>node).operatorToken) || visitNode(cbNode, (<BinaryExpression>node).right);
+    case SyntaxKind.IfStatement:
+      return visitNode(cbNode, (<IfStatement>node).expression) || visitNode(cbNode, (<IfStatement>node).thenStatement) || visitNode(cbNode, (<IfStatement>node).elseStatement);
+  }
+}
+```
