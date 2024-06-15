@@ -2,8 +2,10 @@
 
 > bash로 실행
 
-```sh
-"script":{
+```json
+{
+  "scripts": {
     "docker:build": "bash docker.build.sh"
+  }
 }
 ```
