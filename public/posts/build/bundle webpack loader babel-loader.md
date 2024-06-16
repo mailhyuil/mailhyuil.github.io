@@ -21,27 +21,27 @@ npm i @babel/polyfill
 ## webpack.config.js
 
 ```js
-entry: {
+module.exports = {
+  entry: {
     index : [
         '@babel/polyfill', // promise, async, await 등등의 최신 문법을 사용하기 위해 맨앞에 추가
         'index.js'
     ],
-},
-module: {
-  rules: [
-    // ...
-    {
-      test: /\.js$/,
-      include: path.resolve(__dirname, "src/main/resources/static/js"),
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, "src/main/resources/static/js"),
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+        options: {
+          presets: ["@babel/preset-env"],
+        },
       },
-      options: {
-        presets: ["@babel/preset-env"],
-      },
-    },
-    // ...
-  ];
+    ];
+  }
 }
 ```

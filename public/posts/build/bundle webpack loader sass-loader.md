@@ -11,6 +11,9 @@ npm i -D sass-loader
 ```js
 module.exports = {
   module: {
+    output: {
+      filename: "main.js",
+    },
     rules: [
       {
         test: /\.s[ac]ss/i,

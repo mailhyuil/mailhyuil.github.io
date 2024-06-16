@@ -7,3 +7,16 @@
 ```sh
 npm i -D ts-loader
 ```
+
+## usage
+
+```js
+module.exports = {
+  output: {
+    filename: "main.js",
+  },
+  module: {
+    rules: [{ test: /\.ts$/, exclude: /node_modules/, use: "ts-loader" }],
+  },
+};
+```

@@ -23,33 +23,35 @@
 ## usage
 
 ```js
-module: {
-  rules: [
-    {
-      test: /\.(png|jpg|gif|svg)$/,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            publicPath: '/dist/images/', // 이미지 파일이 저장될 경로
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              publicPath: "/dist/images/", // 이미지 파일이 저장될 경로
+            },
           },
-        },
-      ],
-    },
-    {
-      test: /\.(woff|woff2|eot|ttf|otf)$/,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 8192, // 크기 임계값 (8KB)
-            name: '[name].[ext]',
-            publicPath: '/dist/fonts/', // 폰트 파일이 저장될 경로
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192, // 크기 임계값 (8KB)
+              name: "[name].[ext]",
+              publicPath: "/dist/fonts/", // 폰트 파일이 저장될 경로
+            },
           },
-        },
-      ],
-    },
-  ],
-}
+        ],
+      },
+    ],
+  },
+};
 ```
