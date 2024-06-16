@@ -1,27 +1,4 @@
-# babel plugin
-
-## .babelrc
-
-```json
-{
-  "plugins": ["./transformer.mjs"]
-}
-```
-
-## transformer.mjs
-
-```js
-export default function ({ types: t }) {
-  return {
-    visitor: {
-      Identifier(path) {
-        const { node } = path;
-        console.log(node.name);
-      },
-    },
-  };
-}
-```
+# babel plugin react (jsx)
 
 ## usage
 
