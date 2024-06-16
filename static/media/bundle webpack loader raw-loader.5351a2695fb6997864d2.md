@@ -17,7 +17,7 @@ npm i -D raw-loader
 ```js
 module.exports = {
   output: {
-    filename: "my-first-webpack.bundle.js",
+    filename: "main.js",
   },
   module: {
     rules: [{ test: /\.txt$/, use: "raw-loader" }],

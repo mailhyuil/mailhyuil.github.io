@@ -1,1 +1,0 @@
-# webpack loader swc-loader

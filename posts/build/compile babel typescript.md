@@ -17,31 +17,29 @@ npm i -D babel-plugin-transform-typescript-metadata
 babel src -d dist --extensions .ts
 ```
 
-## babel.config.js
+## webpack.config.js
 
 ```js
-module: {
-  rules: [
-    {
-      test: /\.(?:ts|js)$/,
-      include: path.resolve(__dirname, 'src'),
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            ['@babel/preset-env', { loose: true }],
-            '@babel/preset-typescript',
-          ],
-          plugins: [
-            'babel-plugin-transform-typescript-metadata',
-            ['@babel/plugin-proposal-decorators', { legacy: true }],
-          ],
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(?:ts|js)$/,
+        include: path.resolve(__dirname, "src"),
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            // .babelrc 파일을 사용하지 않고 webpack.config.js에 설정
+            presets: [["@babel/preset-env", { loose: true }], "@babel/preset-typescript"],
+            plugins: ["babel-plugin-transform-typescript-metadata", ["@babel/plugin-proposal-decorators", { legacy: true }]],
+          },
         },
       },
-    },
-  ],
-},
+    ],
+  },
+  watch: true,
+};
 ```
 
 ## tsconfig.json
@@ -60,7 +58,7 @@ module: {
 ```json
 {
   "scripts": {
-    "typecheck": "tsc --noEmit --watch",
+    "typecheck": "tsc --watch",
     "bundle": "webpack --config webpack.config.js --watch",
     "build": "npm run typecheck && npm run bundle"
   }
