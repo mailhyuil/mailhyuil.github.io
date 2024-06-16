@@ -1,6 +1,6 @@
 # nx 환경분리
 
-> project.json 파일의 configuations에 local 추가
+> project.json 파일의 configurations에 local 추가
 >
 > > 자동으로 env.local을 읽는다.
 

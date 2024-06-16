@@ -2,8 +2,10 @@
 
 ```js
 const path = require("path");
-
-/** 이 주석을 넣으면 자동완성 기능 가능
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const isProduction = process.env.NODE_ENV === "production";
+/**
  * @type {import('webpack').Configuration}
  */
 module.exports = {
@@ -11,6 +13,27 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+  },
+  mode: isProduction ? "production" : "development",
+  devtool: isProduction ? false : "source-map",
+  sourceMap: !isProduction,
+  optimization: {
+    minimize: isProduction,
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
   },
 };
 ```
