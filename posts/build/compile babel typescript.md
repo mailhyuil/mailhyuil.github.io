@@ -13,6 +13,8 @@ npm i -D @babel/preset-env
 npm i -D @babel/preset-typescript
 npm i -D @babel/plugin-proposal-decorators
 npm i -D babel-plugin-transform-typescript-metadata
+
+babel src -d dist --extensions .ts
 ```
 
 ## babel.config.js
@@ -56,9 +58,11 @@ module: {
 ## package.json
 
 ```json
-"scripts": {
-    "type": "tsc --noEmit",
-    "build": "webpack --config webpack.config.js --watch",
-    "start:babel": "npm run type --watch && npm run build",
+{
+  "scripts": {
+    "typecheck": "tsc --noEmit --watch",
+    "bundle": "webpack --config webpack.config.js --watch",
+    "build": "npm run typecheck && npm run bundle"
+  }
 }
 ```

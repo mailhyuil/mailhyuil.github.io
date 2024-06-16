@@ -1,4 +1,6 @@
-# babel plugin custom
+# babel plugin
+
+## usage
 
 ```ts
 import babel, { PluginObj } from "@babel/core";
