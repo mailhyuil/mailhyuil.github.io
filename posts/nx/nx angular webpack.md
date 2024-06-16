@@ -46,6 +46,12 @@ function getClientEnvironment() {
   };
 }
 
+/**
+ * @param {import('webpack').Configuration} config
+ * @param {*} options
+ * @param {*} context
+ * @returns {import('webpack').Configuration}
+ */
 module.exports = (config, options, context) => {
   // Overwrite the mode set by Angular if the NODE_ENV is set
   config.mode = config.mode;
