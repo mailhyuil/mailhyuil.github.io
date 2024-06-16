@@ -15,7 +15,7 @@ npm i -D @babel/preset-env
 npm i -D @babel/preset-typescript
 
 # js가 아닌 파일을 사용 시 ts파일을 반드시 명시해줘야한다.
-babel --extensions .ts src -d dist
+babel src -d dist --extensions .ts
 ```
 
 ## babel.config.json
