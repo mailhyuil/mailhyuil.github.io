@@ -1,5 +1,7 @@
 # typescript namespace
 
+> namespace = module (이전에 module keyword로 사용되었으나 혼동의 여지가 있어 namespace로 변경됨)
+>
 > encapsulate your code within a scope
 >
 > > global scope와 분리하기 위한 방법
