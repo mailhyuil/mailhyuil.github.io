@@ -96,3 +96,7 @@ import { MyModule } from "my-module";
 ```
 
 ## nodenext
+
+> import문은 node 방식, require문은 classic 방식으로 해석한다.
+>
+> > Node.js v12 이후부터 지원하는 방식이다.
