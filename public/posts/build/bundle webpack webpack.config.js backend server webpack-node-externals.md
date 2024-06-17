@@ -1,14 +1,14 @@
 # bundle webpack backend server
 
-> > node_modules를 externals로 설정하여 번들링하지 않도록 설정한다.
-> >
-> > frontend 앱에서는 번들링되어도 괜찮지만 backend 서버에서는 번들링되면 안된다.
-> >
-> > 바이너리 디펜던시나 require를 잘못 사용해버리는 문제가 발생함. (require("foo") is turned into just foo, a global variable.)
-> >
-> > 따라서 node_modules를 externals로 설정하여 번들링하지 않도록 설정한다.
-> >
-> > > webpack 5부터는 `externalsPresets`와 `externals`를 사용하여 설정한다.
+> node_modules를 externals로 설정하여 번들링하지 않도록 설정한다.
+>
+> frontend 앱에서는 번들링되어도 괜찮지만 backend 서버에서는 번들링되면 안된다.
+>
+> 바이너리 디펜던시나 require를 잘못 사용해버리는 문제가 발생함. (require("foo") is turned into just foo, a global variable.)
+>
+> 따라서 node_modules를 externals로 설정하여 번들링하지 않도록 설정한다.
+>
+> > webpack 5부터는 `externalsPresets`와 `externals`를 사용하여 설정한다.
 
 ## install
 
