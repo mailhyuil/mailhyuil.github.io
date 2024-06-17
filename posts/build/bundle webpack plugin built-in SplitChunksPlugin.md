@@ -3,8 +3,9 @@
 > built-in webpack plugin
 
 ```js
+const webpack = require("webpack");
+
 module.exports = {
-  //...
   optimization: {
     splitChunks: {
       chunks: "async",

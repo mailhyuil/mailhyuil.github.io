@@ -15,13 +15,9 @@ npm i -g browserify
 ## 코드
 
 ```js
-/// 이런 코드가 포함되어 있을 경우
-/// nodejs에서는 동작하지만 브라우저에서는 동작하지 않는다.
-/// browserify를 사용하면 브라우저에서도 동작한다.
-const os = require("os");
-const zlib = require("zlib");
-const http = require("http");
-const path = require("path");
+/// require()의 경우 nodejs에서는 동작하지만 브라우저에서는 동작하지 않는다.
+/// browserify를 사용하면 require() 함수의 동작을 흉내내어 브라우저에서도 동작하도록 변환해준다.
+const someLib = require("some-lib");
 ```
 
 ## usage

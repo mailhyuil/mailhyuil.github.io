@@ -11,9 +11,11 @@ npm i -D optimize-css-assets-webpack-plugin
 ## usage
 
 ```js
-optimization: {
-  minimizer: [
-    new OptimizeCSSAssetsPlugin(),
-  ],
-},
+const webpack = require("webpack");
+
+module.exports = {
+  optimization: {
+    minimizer: [new OptimizeCSSAssetsPlugin()],
+  },
+};
 ```

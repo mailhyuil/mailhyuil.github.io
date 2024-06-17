@@ -6,18 +6,16 @@
 
 ## package.json에서 정의
 
-```
-"browserslist": [
-  "> 1%”,
-  "last 2 versions",
-  “not ie <= 10”
-]
+```json
+{
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 10"]
+}
 ```
 
 ## .browserslistrc에서 정의
 
-```
- > 1%
+```json
+> 1%
 last 2 versions
 not ie <= 10
 ```
