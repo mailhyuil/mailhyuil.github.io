@@ -1,6 +1,15 @@
 # js import.meta
 
 > 현재 모듈의 meta 데이터를 가지고 있는 import.meta 객체
+>
+> > \_\_dirname, \_\_filename과 같은 역할
+
+## dirname & filename
+
+```js
+import.meta.dirname; // === __dirname;
+import.meta.filename; // === __filename;
+```
 
 ## url
 
