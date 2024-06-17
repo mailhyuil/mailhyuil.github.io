@@ -8,7 +8,54 @@ npm i -D webpack-cli
 npm i -D webpack-dev-server
 
 # bundle
-npx webpack
+webpack build --config webpack.config.js
+```
+
+## webpack.config.js
+
+```js
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
+  mode: "development",
+  entry: "./src/main.ts",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+    extensions: [".js", ".ts"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: ["ts-loader"],
+      },
+    ],
+  },
+  devtool: "source-map",
+  optimization: {
+    minimize: false,
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
+  },
+  plugins: [],
+};
 ```
 
 ## Entry
@@ -22,7 +69,7 @@ npx webpack
 > > > > webpack.config.js에서 설정가능
 
 ```js
-/** 이 주석을 넣으면 자동완성 기능 가능
+/**
  * @type {import('webpack').Configuration}
  */
 module.exports = {
@@ -53,7 +100,8 @@ module.exports = {
 ## Mode
 
 > mode 파라미터를 development, production 또는 none으로 설정하면 webpack에 내장된 환경별 최적화를 활성화
-> 기본값 production
+>
+> > 기본값 production
 
 ```js
 module.exports = {

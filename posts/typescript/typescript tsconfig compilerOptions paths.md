@@ -36,7 +36,7 @@ npm i -D tsconfig-paths
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@hyuil/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"]
@@ -57,7 +57,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@hyuil": path.resolve(__dirname, "src"),
+      "@": path.resolve(__dirname, "src"),
     },
     extensions: [".tsx", ".ts", ".js"],
   },

@@ -6,9 +6,15 @@
 
 ## dirname & filename
 
+> Node.js version 20.11.0 이상부터 사용 가능
+
 ```js
 import.meta.dirname; // === __dirname;
 import.meta.filename; // === __filename;
+
+// import.meta.dirname 이 없을 경우 대체 방법
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 ```
 
 ## url
