@@ -5,10 +5,16 @@
 ## usage
 
 ```js
-{
-  test: /\.(png|jpe?g)$/,
-  type: "asset"
-}
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g)$/,
+        type: "asset",
+      },
+    ],
+  },
+};
 ```
 
 ## asset/resource
