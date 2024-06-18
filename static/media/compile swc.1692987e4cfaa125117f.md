@@ -8,7 +8,7 @@
 npm i -D @swc/cli
 npm i -D @swc/core
 
-npx swc ./file.js
+swc ./file.js
 ```
 
 ## .swcrc
