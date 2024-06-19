@@ -11,3 +11,13 @@
 > > > > > 베스트 프랙티스가 아니며, 장기간 사용을 위해 최적화가 필요하다.
 > > > > >
 > > > > > > e.g. 소위 '하드코딩' 이라 불리는 방법으로 코딩하여 만든 솔루션이다.
+
+## ad-hoc environment variable
+
+> 한번 실행시킬 때만 적용되는 환경변수
+
+```sh
+DEBUG=express:* node app.js
+TEST_VAR=123 node app.js
+...
+```
