@@ -7,8 +7,6 @@
 ```sh
 npm i -D @swc/cli
 npm i -D @swc/core
-
-swc ./file.js
 ```
 
 ## .swcrc
@@ -18,7 +16,7 @@ swc ./file.js
   "$schema": "https://swc.rs/schema.json",
   "jsc": {
     "parser": {
-      "syntax": "ecmascript",
+      "syntax": "typescript",
       "jsx": false,
       "dynamicImport": false,
       "privateMethod": false,
@@ -34,9 +32,23 @@ swc ./file.js
     "target": "es5",
     "loose": false,
     "externalHelpers": false,
+    "minify": {
+      "mangle": true,
+      "compress": true
+    },
     // Requires v1.2.50 or upper and requires target to be es2016 or upper.
     "keepClassNames": false
   },
-  "minify": false
+  "minify": true
+}
+```
+
+## script
+
+```json
+{
+  "scripts": {
+    "compile": "swc ./main.ts -o dist/main.js"
+  }
 }
 ```

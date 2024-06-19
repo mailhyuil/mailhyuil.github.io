@@ -1,6 +1,4 @@
-# swc (Speedy Web Compiler)
-
-> Rust-based compiler
+# bundle swc spack
 
 ## install
 
@@ -43,12 +41,28 @@ npm i -D @swc/core
 }
 ```
 
+## spack.config.js
+
+```js
+const { config } = require("@swc/core/spack");
+
+module.exports = config({
+  mode: "production",
+  entry: {
+    web: __dirname + "./main.ts",
+  },
+  output: {
+    path: __dirname + "/dist",
+  },
+});
+```
+
 ## script
 
 ```json
 {
   "scripts": {
-    "compile": "swc ./main.ts -o dist/main.js"
+    "build": "spack --config ./spack.config.js"
   }
 }
 ```
