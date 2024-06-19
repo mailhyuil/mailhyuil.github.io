@@ -4,8 +4,8 @@
 >
 > > E -> S -> R 순으로 복합 인덱스 구성
 
-```
-E : Equality 동등 조건 =
-S : Sort 정렬 조건 order by
-R : Range 범위 조건 < >
+```sh
+=          동등 조건(Equality) # id, name, email ...
+ORDER BY   정렬 조건(Sort)     # created_at, last_login, age, price ...
+< >        범위 조건(Range)    # age, price, salary, date ...
 ```
