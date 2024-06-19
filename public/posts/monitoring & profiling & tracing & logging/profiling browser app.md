@@ -1,3 +1,3 @@
 # profiling browser app
 
-> devtool -> memory
+> devtool -> memory or performance
