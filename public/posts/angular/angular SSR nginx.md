@@ -7,24 +7,26 @@
 ```conf
 server {
     listen 80;
-    root /usr/share/nginx/html;
+    root /app/dist/browser;
 
     location = / {
-        try_files $uri @universal;
+        try_files @universal;
+        error_page 502 = @fallback;
     }
 
     location / {
-        index index.html index.htm;
-        try_files $uri @universal;
+        index index.csr.html index.html index.htm;
+        try_files $uri $uri/ @universal;
     }
 
     location @universal {
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
         proxy_pass http://localhost:4000;
+        error_page 502 = @fallback;
+    }
+
+    location @fallback {
+        index index.csr.html index.html;
+        try_files $uri $uri/ /index.csr.html =404;
     }
 }
 ```
