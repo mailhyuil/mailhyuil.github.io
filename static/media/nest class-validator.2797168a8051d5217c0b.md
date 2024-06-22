@@ -1,6 +1,8 @@
 # class-validator
 
 > dto를 유효성 검사하는 라이브러리
+>
+> > 데이터가 validate를 받아야만 controller로 값이 넘어간다.
 
 ## install
 
