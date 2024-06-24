@@ -1,66 +1,16 @@
 # Webpack (웹팩)
 
-> 웹팩은 기본으로 브라우저 환경에서 동작하도록 번들링한다.
->
-> > 서버 환경에서 동작하도록 번들링하려면 추가 설정이 필요하다.
-
-## install
+## pack chain
 
 ```sh
-npm i -D webpack
-npm i -D webpack-cli
-npm i -D webpack-dev-server
 
-# bundle
-webpack build --config webpack.config.js
 ```
 
-## webpack.config.js
+## dependency graph
 
-```js
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export default {
-  mode: "development",
-  entry: "./src/main.ts",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
-    extensions: [".js", ".ts"],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: ["ts-loader"],
-      },
-    ],
-  },
-  devtool: "source-map",
-  optimization: {
-    minimize: false,
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
-        },
-      },
-    },
-  },
-  plugins: [],
-};
-```
+> entry 부터 시작하여 모든 의존성을 찾아내는 과정
+>
+> > graph에 관계되어 있지 않은 모듈 assets는 번들에 포함되지 않는다.
 
 ## Entry
 

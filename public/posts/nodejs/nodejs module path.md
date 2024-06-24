@@ -23,7 +23,18 @@
 > > window 유닉스 운영체제에 알맞는 구분자로 합쳐준다.
 
 ```js
-path.join("Users", "test", "test.js");
+path.join("app", "src", "index.js"); // /app/src/index.js
+```
+
+## path.resolve
+
+> 맨 앞의 경로를 기준으로 찾는다.
+>
+> > 맨 앞의 인자에 cd 후 나머지 인자를 합쳐주는걸로 생각하면 된다.
+
+```js
+path.resolve("app", "src", "index.js"); // /src/index.js
+path.resolve(__dirname, "src", "index.js"); // working dir을 기준으로 찾기.
 ```
 
 ## 그 밖의 기능
