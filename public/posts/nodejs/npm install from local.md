@@ -1,4 +1,4 @@
-# npm install 로컬 라이브러리 설치
+# npm install from local
 
 ## install
 
