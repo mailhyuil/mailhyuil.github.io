@@ -2,11 +2,11 @@
 
 > webpack은 js, json 파일만 읽을 수 있다
 >
-> > js, json 파일 내에 require()나 import 구문으로 삽입된 다른 assets들 (css, typescript ...)은 loader를 사용해서 웹팩이 읽을 수 있게 전처리를 해야한다.
+> > assets(font, image..), css, typescript.. 파일들은 loader를 사용해서 웹팩이 읽을 수 있게 전처리를 해야한다.
 > >
-> > > loader는 파일을 모듈 번들링 프로세스에 통합하여 번들에 포함시킵니다.
+> > > 전처리된 파일은 js module, css module, assets module..로 변환하여 번들링한다.
 > > >
-> > > > module > rules로 loader를 설정
+> > > > loader는 파일을 모듈 번들링 프로세스에 통합하여 번들에 포함시킵니다.
 
 ## webpack.config.js
 
