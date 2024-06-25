@@ -33,7 +33,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader"], // style-loader가 최종적으로 css를 html에 삽입한다.
       },
     ],
   },
