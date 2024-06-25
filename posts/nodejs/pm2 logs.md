@@ -9,8 +9,12 @@
 ## usage
 
 ```sh
-pm2 logs # 로그 출력
+pm2 logs [app_name | app_id]       # 로그 출력
+pm2 logs [app_name | app_id] --err # 에러 로그만 출력
+pm2 logs [app_name | app_id] --out # 정상 로그만 출력
+
 pm2 flush # 로그 초기화
+
 pm2 install pm2-logrotate # 로그 자동 삭제
 ```
 
