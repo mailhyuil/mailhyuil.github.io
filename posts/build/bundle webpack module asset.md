@@ -1,4 +1,4 @@
-# webpack Asset Modules
+# webpack asset module
 
 > raw-loader, url-loader, file-loader 를 대체하는 새로운 모듈 유형
 
