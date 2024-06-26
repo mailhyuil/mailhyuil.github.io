@@ -51,6 +51,10 @@ module.exports = {
       remotes: {
         components: "components@http://localhost:3000/remoteEntry.js",
       },
+      exposes: {
+        "./HomePage": "./src/pages/HomePage/HomePage.jsx",
+      },
+      shared: ["react", "react-dom"],
     }),
   ],
 };
