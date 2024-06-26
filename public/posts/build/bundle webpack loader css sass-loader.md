@@ -3,7 +3,10 @@
 ## install
 
 ```sh
+npm i -D sass
 npm i -D sass-loader
+npm i -D css-loader
+npm i -D style-loader
 ```
 
 ## webpack.config.js

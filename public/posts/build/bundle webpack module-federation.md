@@ -1,0 +1,33 @@
+# bundle webpack module-federation
+
+## install
+
+```sh
+npm i -D webpack webpack-cli # webpack version 5 이상
+```
+
+## webpack.config.js
+
+> localhost:3000/remoteEntry.js 에서 Button, Card 컴포넌트를 불러올 수 있게 설정
+
+```js
+const webpack = require("webpack");
+const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlugin;
+
+module.exports = {
+  devServer: {
+    port: 3000,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "components",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./Button": "./src/components/Button/Button.jsx",
+        "./Card": "./src/components/Card/Card.jsx",
+      },
+      shared: ["react", "react-dom"],
+    }),
+  ],
+};
+```

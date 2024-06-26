@@ -14,7 +14,7 @@
 
 ## url-loader
 
-> 파일을 base64로 인코딩하여 인라인으로 추가시킨다.
+> 파일을 base64로 인코딩하여 인라인으로 추가시킨다. (파일을 복사하지 않는다.)
 >
 > > 파일이 limit 옵션을 넘으면 file-loader로 작동한다.
 > >
@@ -27,7 +27,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         use: [
           {
             loader: "file-loader",
