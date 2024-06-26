@@ -21,16 +21,12 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, // 3. css를 파일로 추출
-          "css-loader", // 2. css를 CommonJS로 변환
+          MiniCssExtractPlugin.loader, // 3. css module에서 css를 파일로 추출
+          "css-loader", // 2. css를 css module로 변환
           "sass-loader", // 1. sass를 css로 변환
         ],
       },
     ],
   },
 };
-```
-
-```
-
 ```

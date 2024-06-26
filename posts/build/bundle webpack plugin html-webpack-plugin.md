@@ -13,6 +13,7 @@ npm i -D html-webpack-plugin
 ## usage
 
 ```js
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -23,11 +24,25 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html", // 사용할 HTML 템플릿 파일 경로
+      template: path.resolve(__dirname, "src/index.html"), // 사용할 HTML 템플릿 파일 경로
+      chunks: ["index"], // 번들링된 파일을 삽입할 위치
+      inject: true, // 번들링된 파일을 삽입할 위치
+      filename: "index.html", // 생성할 HTML 파일 이름
       minify: {
         collapseWhitespace: true, // 빈칸 제거
         removeComments: true, // 주석 제거
         removeAttributeQuotes: true, // 따옴표 제거
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src/product.html"),
+      chunks: ["product"],
+      inject: true,
+      filename: "product.html",
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeAttributeQuotes: true,
       },
     }),
   ],

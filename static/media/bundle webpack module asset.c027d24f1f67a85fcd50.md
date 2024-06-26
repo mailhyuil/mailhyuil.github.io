@@ -9,7 +9,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         type: "asset",
       },
     ],
@@ -40,3 +40,12 @@ module.exports = {
 > data URI와 별도의 파일 내보내기 중에서 자동으로 선택
 >
 > > url-loader, file-loader 와 같은 역할
+
+## index.js
+
+```js
+import img from "./image.png";
+
+const imgEl = document.createElement("img");
+imgEl.src = img;
+```

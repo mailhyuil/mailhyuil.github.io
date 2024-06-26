@@ -11,6 +11,11 @@
   background-color: blue;
   color: red;
 }
+
+:global(.global_button) {
+  background-color: red;
+  color: blue;
+}
 ```
 
 ## index.html

@@ -24,11 +24,7 @@ npx webpack-bundle-analyzer stats.json
 ```js
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
-module.exports = function (options, webpack) {
-  console.log("webpack.config.js works!");
-  return {
-    ...options,
-    plugins: [...options.plugins, new BundleAnalyzerPlugin()],
-  };
+module.exports = {
+  plugins: [new BundleAnalyzerPlugin()],
 };
 ```
