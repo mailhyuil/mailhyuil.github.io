@@ -1,9 +1,9 @@
 # php superglobals
 
 ```php
-$GLOBAL
-$_SERVER
-$_REQUEST
-$_POST
-$_GET
+$GLOBAL // deprecated
+$_SERVER // server and execution environment information
+$_REQUEST // HTTP request variables
+$_POST // HTTP POST variables
+$_GET // HTTP GET variables
 ```

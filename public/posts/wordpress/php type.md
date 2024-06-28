@@ -3,6 +3,7 @@
 ```php
 # string
 $x = "Hello world!";
+$y = "Hello $x";
 # integer
 $y = 5985;
 # float

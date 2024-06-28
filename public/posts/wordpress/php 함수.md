@@ -6,5 +6,5 @@ function add($x, $y) {
     return $z;
 }
 
-echo "5 + 10 = " . add(5, 10) . "<br>";
+echo "5 + 10 = " . add(5, 10) . "<br>"; // . is concatenation operator
 ```
