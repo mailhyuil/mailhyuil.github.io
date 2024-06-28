@@ -12,8 +12,6 @@
 apt install xargs
 ```
 
-​
-
 ## usage
 
 ```sh
