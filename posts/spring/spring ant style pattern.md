@@ -1,6 +1,8 @@
 # ant style pattern & wildcards
 
-> 사용할 수 있는지 여부는 공식문서 확인
+> apache ant에서 사용하는 파일 매칭 패턴
+>
+> > unix의 glob 패턴과 유사하지만 다른 부분이 있음
 
 ## ?
 
