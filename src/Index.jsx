@@ -37,6 +37,7 @@ const Main = () => {
   }, {});
   const categoryKeys = Object.keys(categoryMap);
   const [searchIndex, setSearchIndex] = useState(0);
+  const [emit, setEmit] = useState(false);
   useEffect(() => {
     const getMarkdownsByQuery = () => {
       const res = markdowns.filter((md) => {
@@ -57,11 +58,14 @@ const Main = () => {
     };
 
     getMarkdownsByQuery();
-  }, [query]);
+  }, [query, emit]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (blogList.length === 0) return;
+      if (blogList.length === 0 && e.key !== "Enter") return;
+      if (blogList.length === 0 && e.key === "Enter") {
+        setEmit((emit) => !emit);
+      }
       if (e.key === "ArrowDown") {
         setSearchIndex((index) => (index + 1) % blogList.length);
       } else if (e.key === "ArrowUp") {
@@ -146,9 +150,17 @@ const Main = () => {
                     onClick={() => {
                       goToBlog(blog);
                     }}
-                    className={`p-1 text-sm font-semibold text-gray-600 border-b cursor-pointer hover:bg-gray-100 
-                      ${index === searchIndex ? "bg-pink-100" : ""}`}>
-                    {blog}
+                    className={`
+                      p-1 border-b cursor-pointer hover:bg-gray-100 transition-all duration-300 ease-in-out
+                      ${index === searchIndex ? "bg-gray-100 " : ""}
+                      `}>
+                    <p
+                      className={`
+                        transition-all duration-300 ease-in-out text-sm font-normal text-gray-600 origin-left
+                         ${index === searchIndex ? "bg-gray-100 translate-x-3 scale-110 !font-bold" : ""}
+                         `}>
+                      {blog}
+                    </p>
                   </li>
                 );
               })}

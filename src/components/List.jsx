@@ -26,9 +26,3 @@ const List = ({ props }) => {
   );
 };
 export default List;
-
-// () => {
-//     setNavIndex("blog");
-//     setBlog(<Blog filename={md} />);
-//     setQuery("");
-//   }
