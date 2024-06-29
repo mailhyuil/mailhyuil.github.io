@@ -36,6 +36,7 @@ const Main = () => {
     return prev;
   }, {});
   const categoryKeys = Object.keys(categoryMap);
+  const [searchIndex, setSearchIndex] = useState(0);
   useEffect(() => {
     const getMarkdownsByQuery = () => {
       const res = markdowns.filter((md) => {
@@ -48,15 +49,33 @@ const Main = () => {
         return isMatchArray.every((e) => e === true);
       });
       if (query !== "") {
-        setBlogList([...res]);
+        setBlogList(() => [...res]);
       } else {
-        setBlogList([]);
+        setBlogList(() => []);
       }
+      setSearchIndex(0);
     };
 
     getMarkdownsByQuery();
   }, [query]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (blogList.length === 0) return;
+      if (e.key === "ArrowDown") {
+        setSearchIndex((index) => (index + 1) % blogList.length);
+      } else if (e.key === "ArrowUp") {
+        setSearchIndex((index) => (index - 1 + blogList.length) % blogList.length);
+      } else if (e.key === "Enter") {
+        goToBlog(blogList[searchIndex]);
+        setSearchIndex(0);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [blogList, searchIndex]);
   const onQueryChange = (e) => {
     const query = e.target.value;
     setQuery(query);
@@ -127,7 +146,8 @@ const Main = () => {
                     onClick={() => {
                       goToBlog(blog);
                     }}
-                    className="p-1 text-sm font-semibold text-gray-600 border-b cursor-pointer hover:bg-gray-100">
+                    className={`p-1 text-sm font-semibold text-gray-600 border-b cursor-pointer hover:bg-gray-100 
+                      ${index === searchIndex ? "bg-pink-100" : ""}`}>
                     {blog}
                   </li>
                 );
