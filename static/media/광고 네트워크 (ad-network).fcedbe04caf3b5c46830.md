@@ -2,7 +2,7 @@
 
 ## 웹
 
-```
+```sh
 adsense
 adThrive
 ezoic
@@ -26,7 +26,7 @@ revenueHits
 
 ## 앱
 
-```
+```sh
 adMob
 facebookAudienceNetwork
 appLovin
