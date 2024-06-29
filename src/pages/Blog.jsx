@@ -3,25 +3,21 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
-const importAll = (e) => e.keys().map(e);
-const markdownFiles = importAll(require.context("/public/posts", true, /\.md$/)).sort().reverse();
-
-const Blog = ({ fileName }) => {
+const Blog = ({ blog }) => {
   const [post, setPost] = useState();
 
-  const loadPost = async () => {
-    const res = await fetch(
-      markdownFiles.filter((e) => {
-        return e.split("/")[3].split(".")[0] === fileName;
-      })
-    );
-    const foundPost = await res.text();
-    setPost(foundPost);
-  };
-
   useEffect(() => {
+    const loadPost = async () => {
+      const path = blog.replace(".", "posts");
+      const res = await fetch(path).catch((e) => {
+        console.error(e);
+        throw new Error("loadPost failed");
+      });
+      const foundPost = await res.text();
+      setPost(foundPost);
+    };
     loadPost();
-  }, [fileName]);
+  }, [blog]);
 
   return (
     <div className="flex justify-center mx-4 my-3 font-primary lg:block">

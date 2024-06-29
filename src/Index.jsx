@@ -1,158 +1,131 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import List from "./components/List";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
+const funnyMemoryQuotes = [
+  "머릿속에 거미줄이 쳐졌나 봐... 🕸️",
+  "내 머리가 지금 새털구름 같아요... ☁️",
+  "기억의 배터리가 방전됐나 봐... 🔋",
+  "제 머리가 순간적으로 멈췄어요... 🛑",
+  "기억이 안개 속에서 길을 잃었나 봐... 🌫️",
+  "저희 뇌는 잠시 쉬고 있습니다... 😴",
+  "제 기억이 마치 엑스파일 같네요... 👽",
+  "기억의 블랙홀에 빠진 것 같아요... 🕳️",
+  "머릿속이 파일럿 모드로 전환됐어요... ✈️",
+  "기억이 도망가서 아직 못 찾았어요... 🕵️",
+];
 
 const Main = () => {
   const [blog, setBlog] = useState("");
-  const [foundBlog, setFoundBlog] = useState([]);
+  const [blogList, setBlogList] = useState([]);
   const [query, setQuery] = useState("");
-  const [navIndex, setNavIndex] = useState("home");
-  const blogCategory = useRef([]);
-  const categories = new Set();
-  const navUl = useRef();
-  const menuList = {
+  const [currentPage, setCurrentPage] = useState("home");
+  const [isOpen, setIsOpen] = useState(false);
+  const pages = {
     home: <Home />,
     blog: blog,
   };
-
-  useEffect(() => {
-    const res = getAllMDFile().filter((md) => {
-      const splitQuery = query.split(" ");
-      const isMatchArray = splitQuery.map((e) => {
-        const regex = new RegExp(e, "gi");
-        const comparison = regex.test(md);
-        return comparison;
-      });
-      return isMatchArray.every((e) => e === true);
-    });
-    if (query !== "") {
-      setFoundBlog([...res]);
-    } else {
-      setFoundBlog([]);
+  const markdowns = require.context("/public/posts", true, /\.md$/).keys();
+  const categoryMap = markdowns.reduce((prev, cur) => {
+    const category = cur.split("/")[1];
+    if (!prev[category]) {
+      prev[category] = [];
     }
+    prev[category].push(cur);
+    return prev;
+  }, {});
+  const categoryKeys = Object.keys(categoryMap);
+  useEffect(() => {
+    const getMarkdownsByQuery = () => {
+      const res = markdowns.filter((md) => {
+        const splitQuery = query.split(" ");
+        const isMatchArray = splitQuery.map((e) => {
+          const regex = new RegExp(e, "gi");
+          const comparison = regex.test(md);
+          return comparison;
+        });
+        return isMatchArray.every((e) => e === true);
+      });
+      if (query !== "") {
+        setBlogList([...res]);
+      } else {
+        setBlogList([]);
+      }
+    };
+
+    getMarkdownsByQuery();
   }, [query]);
 
-  const getAllMDFile = () => {
-    return require.context("/public/posts", true, /\.md$/).keys();
+  const onQueryChange = (e) => {
+    const query = e.target.value;
+    setQuery(query);
   };
 
-  getAllMDFile()
-    .map((text) => text.split("/")[1])
-    .map((e) => categories.add(e));
-
-  const getMDFilesByCategory = (cat) => {
-    const list = [];
-    getAllMDFile()
-      .filter((e) => {
-        return cat === e.split("/")[1];
-      })
-      .map((e) => list.push((e.split("/")[2] || "").split(".")[0]));
-    return list;
+  const goToBlog = (blog) => {
+    setCurrentPage("blog");
+    setBlog(<Blog blog={blog} />);
+    setBlogList([]);
   };
 
-  const onChange = (e) => {
-    setQuery(e.target.value);
-  };
-
-  const onClickBlog = (event) => {
-    if (event.target.classList.contains("blog")) blogCategory.current.map((e) => e.classList.toggle("hidden"));
-  };
-
-  const onClickBlogCategory = (event, e) => {
-    if (event.target.classList.contains("blog-category")) {
-      Object.keys(event.target.childNodes)
-        .map((item) => event.target.childNodes[item])
-        .map((e) => e.classList?.toggle("hidden"));
-    }
-  };
+  function randomPlaceholder() {
+    return funnyMemoryQuotes[Math.floor(Math.random() * funnyMemoryQuotes.length)];
+  }
   return (
     <div className="flex w-full h-full">
-      <div className="flex flex-col flex-1 h-full bg-white lg:flex-row">
-        <nav className="overflow-y-auto lg:h-full scrollbar-hide font-primary">
-          <div className="flex justify-center p-3">
-            <img width="128" height="108" className="hidden mt-5 lg:block" src="/img/myblog_logo.webp" alt="logo" />
-            <img width="96" height="41" className="lg:hidden" src="/img/myblog_logo2.webp" alt="logo" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="absolute w-12 h-12 lg:hidden left-3 top-1"
+      <div className="flex flex-1 h-full bg-white ">
+        <nav className="overflow-y-auto h-full scrollbar-hide font-primary">
+          <div className="flex justify-center p-3 pt-5">
+            <img
+              className="aspect-[128/108] w-auto cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+              src="/img/myblog_logo.webp"
+              alt="logo"
               onClick={() => {
-                navUl.current.classList.toggle("hidden");
-              }}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+                setCurrentPage("home");
+                setIsOpen(false);
+              }}
+            />
           </div>
-          <ul className="flex-col items-start hidden px-4 cursor-pointer lg:flex" ref={navUl}>
+          <ul className="flex-col items-start  px-4 cursor-pointer flex">
             <motion.li
+              className="w-full px-4 py-3 text-2xl font-black text-gray-800 hover:text-pink-500 duration-300 ease-in-out"
               initial={{ x: -400 }}
-              animate={{ x: 0 }}
-              className="w-full px-4 py-3 text-2xl font-black text-gray-800 hover:text-pink-500"
-              onClick={() => {
-                setNavIndex("home");
-                navUl.current.classList.toggle("hidden");
-              }}>
-              Home
-            </motion.li>
-
-            <motion.li
-              className="w-full px-4 py-3 text-2xl font-black text-gray-800 blog hover:text-pink-500"
-              initial={{ x: -400 }}
-              animate={{ x: 0 }}
-              onClick={(e) => {
-                onClickBlog(e, blogCategory);
-              }}>
-              Blog
-              {Array.from(categories).map((e, index) => {
-                return (
-                  <ul
-                    className="hidden text-xl font-semibold text-gray-800 transition-all ease-in border-b border-dashed blog-category border-slate-400 hover:text-pink-500"
-                    key={index}
-                    ref={(el) => (blogCategory.current[index] = el)}
-                    onClick={(event) => {
-                      onClickBlogCategory(event, e);
-                    }}>
-                    {e}
-                    {getMDFilesByCategory(e).map((md, index) => {
-                      return (
-                        <li
-                          className="hidden text-sm font-light text-gray-700 transition-all duration-200 ease-in blog-list hover:bg-gray-900 hover:text-white"
-                          key={index}
-                          onClick={() => {
-                            setNavIndex("blog");
-                            setBlog(<Blog fileName={md} />);
-                            navUl.current.classList.toggle("hidden");
-                            setFoundBlog([]);
-                            setQuery("");
-                          }}>
-                          {md}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                );
-              })}
+              animate={{ x: 0 }}>
+              <h2 onClick={() => setIsOpen((isOpen) => !isOpen)}>Recipes</h2>
+              {isOpen &&
+                categoryKeys.map((key, index) => {
+                  return (
+                    <List
+                      key={index}
+                      props={{
+                        category: key,
+                        blogs: categoryMap[key],
+                        goToBlog,
+                      }}
+                    />
+                  );
+                })}
             </motion.li>
           </ul>
         </nav>
         <motion.main className="flex flex-col flex-1 overflow-y-auto scrollbar-hide">
           <div className="p-2">
-            <input autoFocus placeholder="Search whatever you want to search!" className="w-full px-2 py-1 font-bold border-2 rounded-md " value={query} onChange={onChange} />
+            <input
+              autoFocus
+              placeholder={randomPlaceholder()}
+              className="w-full px-2 py-1 font-bold border-2 placeholder:text-sm placeholder:font-bold rounded-md border-gray-200 focus:outline-pink-500 duration-300 ease-in-out transition-colors focus:bg-pink-50"
+              value={query}
+              onChange={onQueryChange}
+            />
           </div>
-          <div className="flex-1">
+          <div className="flex-1" onClick={() => setIsOpen(false)}>
             <ul>
-              {foundBlog.map((blog, index) => {
+              {blogList.map((blog, index) => {
                 return (
                   <li
                     key={index}
                     onClick={() => {
-                      setNavIndex("blog");
-                      setBlog(<Blog fileName={blog.split("/")[2].split(".")[0]} />);
-                      navUl.current.classList.toggle("hidden");
-                      setFoundBlog([]);
+                      goToBlog(blog);
                     }}
                     className="p-1 text-sm font-semibold text-gray-600 border-b cursor-pointer hover:bg-gray-100">
                     {blog}
@@ -160,7 +133,7 @@ const Main = () => {
                 );
               })}
             </ul>
-            {menuList[navIndex]}
+            {pages[currentPage]}
           </div>
         </motion.main>
       </div>
