@@ -20,6 +20,10 @@
 >
 > > 로그인, tcp_wrappers, xinetd 관련 로그
 
+## /var/log/kern.log
+
+> 커널 로그
+
 ## /var/log/lastlog
 
 > 마지막으로 로그인한 사용자의 정보가 기록
