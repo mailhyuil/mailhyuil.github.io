@@ -17,7 +17,7 @@ EOF
 ## cat <<EOF pipelining with filename
 
 ```sh
-cat <<EOF>hello.txt
+cat <<EOF > hello.txt
 hello
 EOF
 ```
