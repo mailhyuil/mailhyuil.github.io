@@ -9,10 +9,10 @@ http {
     server {
         location / {
             proxy_pass http://localhost:8000;
-            error_page 502 = /fallback_index;
+            error_page 502 = @fallback;
         }
 
-        location = /fallback_index {
+        location = @fallback {
             internal;
             root /path/to/fallback;
             index index.html;
