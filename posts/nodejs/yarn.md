@@ -4,6 +4,10 @@
 
 ```sh
 npm i -g yarn
+# yarn classic 사용
+yarn set version classic
+# yarn berry 사용
+yarn set version stable
 ```
 
 ## usage
