@@ -1,10 +1,4 @@
-# linux 파일 생성
-
-## echo 사용
-
-```sh
-echo hello > hello.txt
-```
+# linux cmd cat <<EOF pipelining
 
 ## cat <<EOF pipelining
 
@@ -22,7 +16,7 @@ hello
 EOF
 ```
 
-## cat <<EOF pipelining shortcut
+## shortcut
 
 ```sh
 cat > hello.txt
