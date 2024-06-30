@@ -1,7 +1,27 @@
 # nodejs module system commonjs require.resolve
 
-> require()는 모듈을 가져오지만 require.resolve()는 모듈의 경로를 가져온다.
+> 모듈 파일의 절대경로를 반환하는 함수
 
 ```js
 require.resolve("module-name");
+
+require.resolve("prisma"); // /workspace/workdir/node_modules/.pnpm/prisma@5.16.1/node_modules/prisma/build/index.js
+```
+
+## usage
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: require.resolve("jquery"),
+        loader: "expose-loader",
+        options: {
+          exposes: ["$", "jQuery"],
+        },
+      },
+    ],
+  },
+};
 ```
