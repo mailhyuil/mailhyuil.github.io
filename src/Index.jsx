@@ -5,12 +5,12 @@ import Blog from "./pages/Blog";
 import Home from "./pages/Home";
 const funnyMemoryQuotes = [
   "머릿속에 거미줄이 쳐졌나 봐... 🕸️",
-  "내 머리가 지금 새털구름 같아요... ☁️",
+  "머리가 지금 새털구름 같아요... ☁️",
   "기억의 배터리가 방전됐나 봐... 🔋",
-  "제 머리가 순간적으로 멈췄어요... 🛑",
+  "머리가 순간적으로 멈췄어요... 🛑",
   "기억이 안개 속에서 길을 잃었나 봐... 🌫️",
-  "저희 뇌는 잠시 쉬고 있습니다... 😴",
-  "제 기억이 마치 엑스파일 같네요... 👽",
+  "뇌가 잠시 쉬고 있습니다... 😴",
+  "기억이 마치 엑스파일 같네요... 👽",
   "기억의 블랙홀에 빠진 것 같아요... 🕳️",
   "머릿속이 파일럿 모드로 전환됐어요... ✈️",
   "기억이 도망가서 아직 못 찾았어요... 🕵️",
@@ -62,9 +62,13 @@ const Main = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (currentPage === "home" && blogList.length === 0) return;
       if (blogList.length === 0 && e.key !== "Enter") return;
       if (blogList.length === 0 && e.key === "Enter") {
         setEmit((emit) => !emit);
+      }
+      if (e.key === "Escape") {
+        setBlogList([]);
       }
       if (e.key === "ArrowDown") {
         setSearchIndex((index) => (index + 1) % blogList.length);
@@ -97,7 +101,7 @@ const Main = () => {
   return (
     <div className="flex w-full h-full">
       <div className="flex flex-1 h-full bg-white ">
-        <nav className="overflow-y-auto h-full scrollbar-hide font-primary">
+        <nav className="h-full overflow-y-auto scrollbar-hide font-primary">
           <div className="flex justify-center p-3 pt-5">
             <img
               className="aspect-[128/108] w-auto cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
@@ -109,11 +113,8 @@ const Main = () => {
               }}
             />
           </div>
-          <ul className="flex-col items-start  px-4 cursor-pointer flex">
-            <motion.li
-              className="w-full px-4 py-3 text-2xl font-black text-gray-800 hover:text-pink-500 duration-300 ease-in-out"
-              initial={{ x: -400 }}
-              animate={{ x: 0 }}>
+          <ul className="flex flex-col items-start px-4 cursor-pointer">
+            <motion.li className="w-full px-4 py-3 text-2xl font-black text-gray-800 duration-300 ease-in-out hover:text-pink-500" initial={{ x: -400 }} animate={{ x: 0 }}>
               <h2 onClick={() => setIsOpen((isOpen) => !isOpen)}>Recipes</h2>
               {isOpen &&
                 categoryKeys.map((key, index) => {
@@ -136,7 +137,7 @@ const Main = () => {
             <input
               autoFocus
               placeholder={randomPlaceholder()}
-              className="w-full px-2 py-1 font-bold border-2 placeholder:text-sm placeholder:font-bold rounded-md border-gray-200 focus:outline-pink-500 duration-300 ease-in-out transition-colors focus:bg-pink-50"
+              className="w-full px-2 py-1 font-bold transition-colors duration-300 ease-in-out border-2 border-gray-200 rounded-md placeholder:text-sm placeholder:font-bold focus:outline-pink-500 focus:bg-pink-50"
               value={query}
               onChange={onQueryChange}
             />
