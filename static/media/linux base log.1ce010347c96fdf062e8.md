@@ -4,13 +4,25 @@
 
 > 시스템에서 발생하는 표준 메시지가 기록되는 파일
 >
-> > root 권한으로만 접근 가능
+> > non-debug and non-critical messages. This log should be considered the "general system activity" log.
+> >
+> > 디버그 용도가 아닌 일반적인 시스템 활동 로그만 기록되니 디버깅을 하기 위해서는 /var/log/syslog 파일을 참조
+
+## /var/log/syslog
+
+> 시스템에서 발생하는 모든 로그가 기록되는 파일
+>
+> > logs everything, except auth related messages.
 
 ## /var/log/secure
 
 > 인증과 관련된 로그가 기록
 >
 > > 로그인, tcp_wrappers, xinetd 관련 로그
+
+## /var/log/kern.log
+
+> 커널 로그
 
 ## /var/log/lastlog
 

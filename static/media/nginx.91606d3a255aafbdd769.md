@@ -5,6 +5,14 @@
 ## default.conf
 
 ```conf
+gzip on;
+gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+gzip_vary on;
+gzip_comp_level 7;
+gzip_proxied any;
+gzip_types text/plain text/css text/javascript image/svg+xml image/x-icon application/javascript application/x-javascript text/xml application/xml application/xml+rss application/json;
+
+
 server {
     server_name example.com;
 
@@ -30,21 +38,13 @@ server {
     ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
-    gzip on;
-    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
-    gzip_vary on;
-    gzip_comp_level 7;
-    gzip_proxied any;
-    gzip_types text/plain text/css text/javascript image/svg+xml image/x-icon application/javascript application/x-javascript text/xml application/xml application/xml+rss application/json;
-
-    client_max_body_size 1G;
+    root /app/client/browser;
 
     location = / {
-        proxy_pass http://client:4000;
+        try_files '' @ssr;
     }
 
     location / {
-        root /app/client/browser;
         index index.html index.htm;
         try_files $uri $uri/ @ssr;
     }
@@ -52,15 +52,24 @@ server {
     location /admin {
         alias /app/admin;
         index index.html index.htm;
-        try_files $uri $uri/ /admin/index.html;
+        try_files $uri $uri/ /admin/index.html =404;
     }
 
     location /api/v1/ {
+        client_max_body_size 1G;
         proxy_pass http://server:3000;
     }
 
     location @ssr {
-        proxy_pass http://client:4000;
+        internal;
+        proxy_pass http://localhost:4000;
+        error_page 500 502 503 504 = @fallback;
+    }
+
+    location @fallback {
+        internal;
+        index index.csr.html index.html;
+        try_files $uri $uri/ /index.csr.html =404;
     }
 }
 ```
