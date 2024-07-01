@@ -1,6 +1,6 @@
 # Weak Etag vs Strong Etag
 
-```
+```txt
 ETag 1  ETag 2  Strong Comparison   Weak Comparison
 ---------------------------------------------------
 W/"1"   W/"1"   no match            match
