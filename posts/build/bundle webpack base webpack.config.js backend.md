@@ -2,7 +2,7 @@
 
 > target을 node로 설정하여 webpack이 fs, path 등의 내장 모듈을 건드리지 않도록 설정한다.
 >
-> > node_modules를 externals로 설정하여 번들링하지 않도록 설정한다.
+> > node_modules를 externals로 설정하여 번들링하지 않도록 설정한다. (node_modules의 모듈이 전부 번들링 가능한 경우에는 번들링해도 된다.)
 > >
 > > frontend 앱에서는 번들링되어도 괜찮지만 backend 서버에서는 번들링되면 안된다.
 > >
