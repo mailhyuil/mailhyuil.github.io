@@ -1,7 +1,9 @@
 # mailhyuil's blog
-- frontend
-  - javascript
-  - React.js
-  - tailwindcss
-  
+
+## Used Tech
+
+- Javascript
+- React
+- Tailwindcss
+
 copyright &copy; mailhyuil@gmail.com
