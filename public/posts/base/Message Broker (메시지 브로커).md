@@ -6,7 +6,7 @@
 >
 > > Kafka는 처리량이 많을 때 사용되는 분산 메시징 시스템
 
-```
+```txt
 Publisher -> Message Broker -> Subscriber
 ```
 
