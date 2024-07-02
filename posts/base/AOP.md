@@ -2,7 +2,7 @@
 
 ## 횡단 관심사 (cross-cutting concerns) & 종단 관심사 (core concerns)
 
-```
+```txt
 로깅 (Logging)
 모니터링 (Monitoring)
 보안 (Security)

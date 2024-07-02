@@ -7,8 +7,3 @@
 ## 엣지 서버
 
 > 가장 가까운 CDN 서버
-
-## pictshare
-
-> cdn
-> https://image.lepisode.team/
