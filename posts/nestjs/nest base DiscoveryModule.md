@@ -35,9 +35,9 @@ export class AppService {
   constructor(
     private readonly discoveryService: DiscoveryService, //
     private readonly metadataScanner: MetadataScanner
-  ) {}
-  getData(): { message: string } {
-    return { message: "Hello API" };
+  ) {
+    this.discoveryService.getProviders();
+    this.metadataScanner.scanFromPrototype();
   }
 }
 ```
