@@ -1,6 +1,8 @@
-# Null Object Pattern + Fallback Pattern
+# js function fallback parameter
 
-> null object를 fallback으로 사용
+> fallback을 설정해주면 인자를 안넣거나 undefined로 넣으면 fallback이 사용됨
+>
+> > null을 넣을 경우에는 null이 넘어온다.
 
 ```js
 const nullUser: User = {
