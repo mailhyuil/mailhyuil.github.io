@@ -18,23 +18,21 @@ import { createClient } from "redis";
 export type RedisClient = ReturnType<typeof createClient>;
 export const REDIS_CLIENT = Symbol("REDIS_CLIENT");
 
-export const RedisProvider = [
-  {
-    provide: REDIS_CLIENT,
-    useFactory: async () => {
-      const client = createClient({
-        url: process.env["REDIS_URL"], // "redis://localhost:6379"
-      });
+export const RedisProvider = {
+  provide: REDIS_CLIENT,
+  useFactory: async () => {
+    const client = createClient({
+      url: process.env["REDIS_URL"], // "redis://localhost:6379"
+    });
 
-      // set config
-      // client.expire('key', 60);
-      // ...
+    // set config
+    // client.expire('key', 60);
+    // ...
 
-      await client.connect();
-      return client;
-    },
+    await client.connect();
+    return client;
   },
-];
+};
 ```
 
 ## redis.module.ts
