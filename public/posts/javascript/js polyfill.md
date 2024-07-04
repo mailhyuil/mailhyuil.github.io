@@ -8,12 +8,12 @@
 
 ### install
 
-```
+```sh
 npm i core-js
 ```
 
 ### usage
 
-```
+```js
 import core-js
 ```
