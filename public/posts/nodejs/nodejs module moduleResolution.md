@@ -30,34 +30,86 @@ import { MyModule } from "my-module";
 
 ## node
 
-> nodejs의 모듈 해석 방식을 따른다. (types 프로퍼티를 main으로 바꿔주면 nodejs 방식)
+> 경로가 주어졌을 때는 Relative 알고리즘 수행
+>
+> > 이름만 주어졌을 때는 Alias -> Self-Import -> Node 순으로 알고리즘을 수행
+> >
+> > > 전부 실패 시 ERR_MODULE_NOT_FOUND 발생
 
-```js
-/* 상대적 경로일 시 */
-// 특정된 위치 한곳만 탐색한다.
-import { MyModule } from "./my-module";
-/*
- *  /root/src/folder/my-module.js
- *  /root/src/folder/my-module.jsx
- *  /root/src/folder/my-module/package.json
- *  /root/src/folder/my-module/index.js
- *  /root/src/folder/my-module/index.jsx
- */
+### Relative Modules
 
-/* 비상대적 경로일 시 */
-// 밑의 위치를 탐색
-import { MyModule } from "my-module";
-/*
- *  /root/src/node_modules/my-module.js
- *  /root/src/node_modules/my-module.jsx
- *  /root/src/node_modules/my-module/package.json
- *  /root/node_modules/my-module.js
- *  /root/node_modules/my-module.jsx
- *  /root/node_modules/my-module/package.json
- *  /node_modules/my-module.js
- *  /node_modules/my-module.jsx
- *  /node_modules/my-module/package.json
- */
+> "/", "./", "../" 로 시작할 시 발동
+
+```txt
+import { bar } from './foo'
+
+1. if foo exists, execute by file extension. in this case, Node.js will throw an ERR_UNKNOWN_FILE_EXTENSION because foo doesn't have any file extension.
+// 주어진 위치에 foo가 존재하면 file extension에 의해 실행된다, 하지만 이경우에는 extenstion이 없기 때무에 ERR_UNKNOWN_FILE_EXTENSION가 발생한다.
+2. if foo.js exists, executes as a javascript module
+// 주어진 위치에 foo.js가 존재하면 js module로 실행된다.
+3. if foo.json exists, parses json, and returns JS object
+// 주어진 위치에 foo.json이 존재하면 js object를 반환한다.
+4. if foo.node exists, runs as a binary add-on.
+// 주어진 위치에 foo.node가 존재하면 binary add-on을 실행한다.
+5. if foo/package.json Node.JS will search for the main field. If present, Node.js will run steps 1–4 and 6–8 for the given path in main
+// 주어진 위치에 foo 디렉토리가 존재하고 내부에 package.json이 있다면 main field가 있다면 main 위치에서 1-4번을 다시 수행하고 main 위치에서 6-8번을 실행한다.
+6. if foo/index.js exists, executes as a javascript module
+7. if foo/index.json exists, parse json, and rerun object
+8. if foo/index.node exists, runs as a binary add-on.
+```
+
+### Alias Modules
+
+> typescript의 paths, webpack의 alias와 같은 기능
+>
+> > alias에 #을 붙여야한다.
+
+```json
+{
+  "name": "my-site",
+  "imports": {
+    "#foo": "./src/bar.js"
+  }
+}
+
+// import { bar } from '#foo'
+```
+
+### Self Import Modules
+
+```json
+{
+  "name": "my-site",
+  "exports": {
+    "./foo": "./src/bar.js"
+  }
+}
+
+// import { bar } from 'my-site/foo'
+```
+
+### Node Modules
+
+> 현재 디렉토리 위치에서 부터 node_modules 폴더 내부를 확인
+
+```txt
+import { bar } from 'foo'
+
+/home/node/workspace/node_modules/foo
+/home/node/workspace/node_modules/foo.js
+/home/node/workspace/node_modules/foo.json
+/home/node/workspace/node_modules/foo.node
+/home/node/workspace/node_modules/foo/package.json # main 필드 확인
+/home/node/workspace/node_modules/<main>/index
+/home/node/workspace/node_modules/<main>/index.js
+/home/node/workspace/node_modules/<main>/index.json
+/home/node/workspace/node_modules/<main>/index.node
+/home/node/workspace/node_modules/<main>/index.js # main 위치에서
+
+# 반복
+/home/node/node_modules
+/home/node_modules
+/node_modules
 ```
 
 ## nodenext
