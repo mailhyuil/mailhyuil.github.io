@@ -4,9 +4,9 @@
 >
 > > Object와 유사하지만 메타데이터를 다루는 목적이다.
 
-```
-Reflect.defineProperty()
-Reflect.get()
+```js
+Reflect.defineProperty();
+Reflect.get();
 ```
 
 ## reflect-metadata

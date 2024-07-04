@@ -4,12 +4,12 @@
 
 ## css
 
-```
-point-events:none
+```css
+point-events: none;
 ```
 
 ## tailwindcss
 
-```
+```css
 pointer-events-none
 ```
