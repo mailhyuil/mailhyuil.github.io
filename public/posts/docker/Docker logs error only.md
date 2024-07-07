@@ -6,9 +6,9 @@
 
 ```sh
 # error only
-docker logs <container_name> -f 1 > /dev/null
+docker logs <container_name> -f 1> /dev/null
 # access only
-docker logs <container_name> -f 2 > /dev/null
+docker logs <container_name> -f 2> /dev/null
 
-docker logs server --since 2024-06-23 --until 2024-06-24 1 > /dev/null
+docker logs server --since 2024-06-23 --until 2024-06-24 1> /dev/null
 ```

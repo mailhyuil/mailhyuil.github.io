@@ -1,10 +1,12 @@
-# nodejs module moduleResolution
+# nodejs module resolution
 
 > module을 어떻게 resolve (해석, path 탐색, 참조)할지 지정한다.
 >
 > import/require 가 무엇을 참조하는지 알아내기 위해 사용하는 프로세스
 >
 > > node로 되어있으면 node.js의 모듈 해석 방식을 따르고 classic으로 되어있으면 전통적인 모듈 해석 방식을 따른다.
+> >
+> > > esm은 반드시 확장자를 붙여야한다. (e.g. ./components/button/button.js)
 
 ## 상대 경로 vs 비상대 경로
 
@@ -62,7 +64,7 @@ import { bar } from './foo'
 
 > typescript의 paths, webpack의 alias와 같은 기능
 >
-> > alias에 #을 붙여야한다.
+> > 반드시 alias에 #을 붙여야한다.
 
 ```json
 {
@@ -77,15 +79,29 @@ import { bar } from './foo'
 
 ### Self Import Modules
 
+> ./foo를 사용하면 my-site/foo로 해당 파일에 접근 가능
+>
+> > types, import, require, default는 특별한 필드 네임
+> >
+> > ./require를 사용하면 require("my-site")
+> >
+> > ./import를 사용하면 import \* from "my-site"로 접근 가능
+> >
+> > > main, module 필드와 같은 역할을 한다.
+
 ```json
 {
   "name": "my-site",
   "exports": {
-    "./foo": "./src/bar.js"
+    ".": {
+      "foo": "./src/bar.js", // import { bar } from 'my-site/foo'
+      "import": "./dist/index.mjs", // import * as mySite from 'my-site' // module 필드와 같은 역할
+      "require": "./dist/index.cjs", // const mySite = require('my-site') // main 필드와 같은 역할
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts" // import { MySiteType } from 'my-site'
+    }
   }
 }
-
-// import { bar } from 'my-site/foo'
 ```
 
 ### Node Modules
