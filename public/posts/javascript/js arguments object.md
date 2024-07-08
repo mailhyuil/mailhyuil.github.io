@@ -2,10 +2,10 @@
 
 > 매개변수의 값을 배열로 가지고 있는 object
 >
-> > 현재는 fun(...args){} 로 대체 가능하다.
+> > 현재는 foo(...args){} 로 대체 가능하다.
 
 ```js
-function func1(a, b, c) {
+function foo(a, b, c) {
   console.log(arguments[0]);
   // Expected output: 1
 
@@ -16,5 +16,5 @@ function func1(a, b, c) {
   // Expected output: 3
 }
 
-func1(1, 2, 3);
+foo(1, 2, 3);
 ```
