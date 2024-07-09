@@ -63,6 +63,8 @@ npm i @nestjs/schedule
 npm i -D @types/multer
 # nestjs-cls
 npm i nestjs-cls
+npm i @nestjs-cls/transactional
+npm i @nestjs-cls/transactional-adapter-prisma
 
 ################ 선택적 패키지 #####################
 
@@ -207,6 +209,8 @@ import { PrismaModule } from "./prisma/prisma.module";
 import { EventEmitterModule } from "@nestjs/event-emitter";
 import { GlobalValidationPipe } from "./pipes/global-validation.pipe";
 import { ClsModule } from "nestjs-cls";
+import { ClsPluginTransactional } from "@nestjs-cls/transactional";
+import { TransactionalAdapterPrisma } from "@nestjs-cls/transactional-adapter-prisma";
 
 @Module({
   imports: [
@@ -226,6 +230,16 @@ import { ClsModule } from "nestjs-cls";
     ClsModule.forRoot({
       global: true,
       middleware: { mount: true },
+      plugins: [
+        new ClsPluginTransactional({
+          imports: [
+            PrismaModule, // module in which the PrismaClient is provided
+          ],
+          adapter: new TransactionalAdapterPrisma({
+            prismaInjectionToken: PrismaService, // the injection token of the PrismaClient
+          }),
+        }),
+      ],
     }),
   ],
   controllers: [AppController],
