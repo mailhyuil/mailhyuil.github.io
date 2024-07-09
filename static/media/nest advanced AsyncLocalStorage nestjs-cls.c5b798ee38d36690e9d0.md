@@ -8,7 +8,7 @@
 > > >
 > > > Request ID를 로깅 목적으로 tracking
 > > >
-> > > request의 user를 추적
+> > > request의 user를 추적 (req.user 대신 사용)
 > > >
 > > > multi-tenant app에서 dynamic tenant database connection을 관리
 > > >

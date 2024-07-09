@@ -35,34 +35,19 @@ export class AppModule {}
 ```ts
 @Injectable()
 class UserService {
-  constructor(private readonly userRepository: UserRepository) {}
-
-  @Transactional()
-  async runTransaction() {
-    // both methods are executed in the same transaction
-    const user = await this.userRepository.createUser("John");
-    const foundUser = await this.userRepository.getUserById(r1.id);
-    assert(foundUser.id === user.id);
-  }
-}
-```
-
-## repository
-
-```ts
-@Injectable()
-class UserRepository {
   constructor(private readonly txHost: TransactionHost<TransactionalAdapterPrisma>) {}
 
-  async getUserById(id: number) {
-    // txHost.tx is typed as the transactional PrismaClient
-    return this.txHost.tx.user.findUnique({ where: { id } });
-  }
-
-  async createUser(name: string) {
-    return this.txHost.tx.user.create({
-      data: { name: name, email: `${name}@email.com` },
+  @Transactional()
+  async createPostOfUsername(username: string, data: CreatePostDto) {
+    // both methods are executed in the same transaction
+    const foundUser = await this.txHost.tx.user.findUniqueOrThrow({ where: { username } });
+    const createdPost = await this.txHost.tx.user.create({
+      data: {
+        ...data,
+        user: { connect: { id: foundUser.id } },
+      },
     });
+    return createdPost;
   }
 }
 ```

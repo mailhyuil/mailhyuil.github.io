@@ -5,14 +5,20 @@
 ```bash
 ################ 필수 패키지 #####################
 
+# env
 npm i dotenv
-npm i class-validator
-npm i class-transformer
+# encryption
 npm i bcryptjs
 npm i -D @types/bcryptjs
+# security
+npm i helmet
+# response compression
 npm i compression
 npm i -D @types/compression
-npm i helmet
+# validation
+npm i class-validator
+npm i class-transformer
+npm i nestjs-form-data
 # logging
 npm i morgan
 npm i -D @types/morgan
@@ -55,6 +61,8 @@ npm i @nestjs/event-emitter
 npm i @nestjs/schedule
 # file upload
 npm i -D @types/multer
+# nestjs-cls
+npm i nestjs-cls
 
 ################ 선택적 패키지 #####################
 
@@ -198,6 +206,7 @@ import { AppService } from "./app.service";
 import { PrismaModule } from "./prisma/prisma.module";
 import { EventEmitterModule } from "@nestjs/event-emitter";
 import { GlobalValidationPipe } from "./pipes/global-validation.pipe";
+import { ClsModule } from "nestjs-cls";
 
 @Module({
   imports: [
@@ -213,6 +222,10 @@ import { GlobalValidationPipe } from "./pipes/global-validation.pipe";
     CacheModule.register({
       ttl: 5, // 5 seconds
       max: 10, // maximum number of items in cache
+    }),
+    ClsModule.forRoot({
+      global: true,
+      middleware: { mount: true },
     }),
   ],
   controllers: [AppController],
@@ -281,78 +294,107 @@ export const GlobalValidationPipe = new ValidationPipe({
 ## prisma-global-error.filter.ts
 
 ```ts
-import { ArgumentsHost, Catch, HttpStatus } from "@nestjs/common";
+import { ArgumentsHost, Catch, HttpStatus, Logger } from "@nestjs/common";
 import { BaseExceptionFilter } from "@nestjs/core";
 import { Prisma } from "@prisma/client";
-import { Response } from "express";
-
+import { Request, Response } from "express";
+import { PrismaError } from "prisma-error-enum";
 @Catch(Prisma.PrismaClientKnownRequestError)
 export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
-  catch(exception: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
-    console.error(exception.message);
+  private readonly logger = new Logger(PrismaGlobalExceptionFilter.name);
+  catch(error: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
-    const response = ctx.getResponse<Response>();
-    const errorCode = exception.code;
+    const res = ctx.getResponse<Response>();
+    const req = ctx.getRequest<Request>();
+    const errorCode = error.code;
     const prismaError = PrismaErrorsMap[errorCode];
-    if (prismaError) {
-      const errorMeta = exception.meta;
-      response.status(prismaError.status).json({
-        statusCode: prismaError.status,
-        message: prismaError.message,
-        meta: errorMeta,
-        exception,
-      });
-    } else {
-      response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
-        message: "Internal Server Error",
-        exception,
-      });
+
+    let rawBody;
+    if (req["rawBody"]) {
+      rawBody = Buffer.from(req["rawBody"]).toString();
     }
+
+    const { name, clientVersion, ...rest } = error;
+
+    const json = {
+      statusCode: 500,
+      message: "Internal Server Error",
+      path: req.url,
+      timestamp: new Date().toISOString(),
+      context: {
+        body: req.body,
+        query: req.query,
+        params: req.params,
+        rawBody,
+        error: {
+          ...rest,
+        },
+      },
+    };
+
+    if (!prismaError) {
+      res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(json);
+      this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
+      return;
+    }
+
+    json.message = prismaError.message;
+    json.statusCode = prismaError.status;
+    res.status(prismaError.status).json(json);
+    this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
   }
 }
 
+type PrismaErrorType = {
+  status: HttpStatus;
+  message: string;
+};
+type PrismaErrorValues = (typeof PrismaError)[keyof typeof PrismaError];
 // https://www.prisma.io/docs/orm/reference/error-reference
-const PrismaErrorsMap: Record<string, { status: number; message: string }> = {
-  P2000: {
-    status: HttpStatus.BAD_REQUEST,
-    message: "입력값이 데이터 타입의 길이를 초과하였습니다.",
+const PrismaErrorsMap: Partial<Record<PrismaErrorValues, PrismaErrorType>> = {
+  [PrismaError.RecordDoesNotExist]: {
+    status: HttpStatus.NOT_FOUND,
+    message: "요청한 조건의 항목을 찾을 수 없습니다.",
   },
-  P2001: {
-    status: HttpStatus.NO_CONTENT,
-    message: "존재하지 않는 레코드입니다.",
+  [PrismaError.RelatedRecordNotFound]: {
+    status: HttpStatus.NOT_FOUND,
+    message: `요청한 항목과 관계된 항목을 찾을 수 없습니다.`,
   },
-  P2002: {
+  [PrismaError.RecordsNotFound]: {
+    status: HttpStatus.NOT_FOUND,
+    message: `요청한 항목을 찾을 수 없습니다.`,
+  },
+  [PrismaError.UniqueConstraintViolation]: {
     status: HttpStatus.CONFLICT,
-    message: "이미 존재하는 고유값이 있습니다.",
+    message: `고유 제약 조건에 실패했습니다.`,
   },
-  P2003: {
+  [PrismaError.ForeignConstraintViolation]: {
     status: HttpStatus.CONFLICT,
     message: "외래 키 제약 조건이 실패했습니다.",
   },
-  P2004: {
+  [PrismaError.NullConstraintViolation]: {
+    status: HttpStatus.CONFLICT,
+    message: "Null 제약 조건이 실패했습니다.",
+  },
+  [PrismaError.ValueTooLongForColumnType]: {
+    status: HttpStatus.BAD_REQUEST,
+    message: "입력값이 데이터 타입의 길이를 초과하였습니다.",
+  },
+  [PrismaError.ConstraintViolation]: {
     status: HttpStatus.BAD_REQUEST,
     message: "데이터베이스에서 제약 조건이 실패했습니다.",
   },
-  P2005: {
+  [PrismaError.InvalidValueForFieldType]: {
     status: HttpStatus.BAD_REQUEST,
-    message: "필드와 타입이 일치하지 않습니다.",
+    message: `요청한 값과 테이블 필드의 타입이 일치하지 않습니다.`,
   },
-  P2006: {
+  [PrismaError.InvalidValue]: {
     status: HttpStatus.BAD_REQUEST,
-    message: "입력값이 유효하지 않습니다.",
+    message: "요청에 필요한 값이 유효하지 않습니다.",
   },
-  P2011: {
-    status: HttpStatus.CONFLICT,
-    message: "Null 제약 조건을 위반했습니다.",
-  },
-  P2012: {
+  [PrismaError.MissingRequiredValue]: {
     status: HttpStatus.BAD_REQUEST,
-    message: "필요한 값이 누락되었습니다.",
-  },
-  P2015: {
-    status: HttpStatus.NOT_FOUND,
-    message: "관련된 레코드를 찾을 수 없습니다.",
+    message: "요청에 필요한 값이 누락되었습니다.",
   },
 };
 ```
