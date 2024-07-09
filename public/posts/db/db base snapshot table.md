@@ -19,7 +19,7 @@ model PostSnapshot {
     createdAt DateTime @default(now()) @map("created_at")
     postId String
     post Post @relation(fields: [postId], references: [id])
-    files FileSnapshot[]
+    attachments AttachmentSnapshot[]
     @@map("post_snapshots")
 }
 
@@ -39,27 +39,27 @@ model CommentSnapshot {
     createdAt DateTime @default(now()) @map("created_at")
     commentId String
     comment Comment @relation(fields: [commentId], references: [id])
-    files FileSnapshot[]
+    attachments AttachmentSnapshot[]
     @@map("comment_snapshots")
 }
 
-model File {
+model Attachment {
     id    String      @id @default(cuid())
     createdAt DateTime @default(now()) @map("created_at")
-    snapshots FileSnapshot[]
-    @@map("files")
+    snapshots AttachmentSnapshot[]
+    @@map("attachments")
 }
 
-model FileSnapshot {
+model AttachmentSnapshot {
     id    String      @id @default(cuid())
     name  String
     url   String
     extension String?
     createdAt DateTime @default(now()) @map("created_at")
-    fileId String
-    file File @relation(fields: [fileId], references: [id])
+    attachmentId String
+    attachment Attachment @relation(fields: [attachmentId], references: [id])
     postSnapshots PostSnapshot[]
     commentSnapshots CommentSnapshot[]
-    @@map("file_snapshots")
+    @@map("attachment_snapshots")
 }
 ```

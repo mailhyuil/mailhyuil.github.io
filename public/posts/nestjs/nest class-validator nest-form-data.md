@@ -19,26 +19,30 @@ import { NestjsFormDataModule } from "nestjs-form-data";
 export class AppModule {}
 ```
 
+## dto
+
+```ts
+export class CreatePostDto {
+  @ApiProperty()
+  @IsFile()
+  @MaxFileSize(1e6)
+  @HasMimeType(["image/jpeg", "image/png"])
+  image: ImageDto;
+}
+```
+
 ## controller
 
 ```ts
 @Controller()
-export class NestjsFormDataController {
-  @Post("load")
+export class PostController {
+  constructor(private readonly postService: PostService) {}
+
+  @Post()
   @FormDataRequest()
-  getHello(@Body() testDto: FormDataTestDto): void {
-    console.log(testDto);
+  @UseInterceptors(FileInterceptor("image"))
+  create(@Body() body: CreatePostDto, @FileInterceptor("image") image: Express.Multer.File): void {
+    return await this.postService.create(body);
   }
-}
-```
-
-## dto
-
-```ts
-export class FormDataTestDto {
-  @IsFile()
-  @MaxFileSize(1e6)
-  @HasMimeType(["image/jpeg", "image/png"])
-  avatar: MemoryStoredFile;
 }
 ```
