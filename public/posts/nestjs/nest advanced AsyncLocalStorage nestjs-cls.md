@@ -23,6 +23,8 @@ npm i nestjs-cls
 ## app.module.ts
 
 ```ts
+import { ClsModule } from "nestjs-cls";
+
 @Module({
   imports: [
     ClsModule.forRoot({
@@ -39,6 +41,8 @@ export class AppModule {}
 ## user-ip.interceptor.ts
 
 ```ts
+import { ClsService } from "nestjs-cls";
+
 @Injectable()
 export class UserIpInterceptor implements NestInterceptor {
   constructor(private readonly cls: ClsService) {}
