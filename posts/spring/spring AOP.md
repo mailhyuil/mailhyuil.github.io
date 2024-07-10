@@ -24,19 +24,23 @@
 
 ### Advice : 각 Joinpoint에 삽입되어 동작할 코드를 담은 오브젝트
 
+```txt
 1. Before Advice : Joinpoint 전에 실행
 2. Around Advice : Joinpoint 앞과 뒤에서 실행
 3. After Returning Advice : Joinpoint 메소드가 리턴될시 실행. Return된 object에 접근가능
 4. After Advice : Joinpoint후에 무조건 실행됨(예외발생시에도 실행. finally와 유사함.)
 5. After Throwing Advice : Jointpoint 메소드 실행중 예외발생시 실행
+```
+
+### Adviser : Pointcut + Advice // 어드바이스와 포인트컷을 묶은 오브젝트
 
 ### Weaving : Pointcut에 의해서 결정된 Joinpoint에 지정된 Advice 를 삽입하는 과정
 
+```txt
 1. 컴파일시에 Weaving하기
 2. 클래스 로딩 시에 Weaving하기
 3. 런타임시에 Weaving하기
-
-### Adviser : Pointcut + Advice // 어드바이스와 포인트컷을 묶은 오브젝트
+```
 
 ## 동작원리
 
