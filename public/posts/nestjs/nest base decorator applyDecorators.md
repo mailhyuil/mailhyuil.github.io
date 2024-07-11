@@ -1,12 +1,8 @@
 # nest base decorator custom decorator 기존 데이터 수정
 
-> OnEvent 데코레이터 사용 시 에러를 잡아서 로그를 남기는 기능을 추가
->
-> > applyDecorators를 사용하여 데코레이터를 합치면 앞에 있는 데코레이터 위에 데코레이터를 추가한 효과와 같다.
+> ClassDecorator, MethodDecorator를 합성할 수 있는 함수
 
 ```ts
-// on-safe-event.decorator.ts
-
 import { applyDecorators, Logger } from "@nestjs/common";
 import { OnEvent, OnEventType } from "@nestjs/event-emitter";
 import { OnEventOptions } from "@nestjs/event-emitter/dist/interfaces";
