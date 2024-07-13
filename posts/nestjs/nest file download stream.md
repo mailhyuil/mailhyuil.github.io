@@ -29,7 +29,6 @@ export class FileController {
   @Get()
   getFile(@Res({ passthrough: true }) res: Response): StreamableFile {
     const filepath = join(process.cwd(), "sample.mp4");
-    const file = createReadStream(filepath);
     const fileStat = statSync(filepath);
     const fileSize = fileStat.size;
     res.set({
@@ -38,7 +37,8 @@ export class FileController {
       "Content-Disposition": 'attachment; filename="sample.mp4"',
       "Content-Length": fileSize.toString(),
     });
-    return new StreamableFile(file);
+    const readStream = createReadStream(filepath);
+    return new StreamableFile(readStream);
   }
 }
 ```
@@ -51,7 +51,6 @@ export class FileController {
   @Get()
   getFile(@Res() res: Response): StreamableFile {
     const filepath = join(process.cwd(), "sample.mp4");
-    const file = createReadStream(filepath);
     const fileStat = statSync(filepath);
     const fileSize = fileStat.size;
     res.set({

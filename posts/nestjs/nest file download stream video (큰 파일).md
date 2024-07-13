@@ -11,8 +11,8 @@
 ```ts
 @Get()
 getFile(@Res() res: Response) {
-    const stream = createReadStream(join(process.cwd(), 'hello.txt'));
-    stream.pipe(res as unknown as NodeJS.WritableStream);
+    const readStream = createReadStream(join(process.cwd(), 'hello.txt'));
+    readStream.pipe(res as unknown as NodeJS.WritableStream);
 }
 ```
 
@@ -29,22 +29,22 @@ export class FileController {
   @Get()
   getFile(@Req() req: Request, @Res({ passthrough: true }) res: Response): StreamableFile {
     const filepath = join(process.cwd(), "sample.mp4");
-    const file = createReadStream(filepath);
     const stat = fs.statSync(filepath);
     const fileSize = stat.size;
     const range = req.headers.range; // bytes=0-
 
     // range 헤더가 없으면 전체 파일을 보내준다.
     if (!range) {
+      const readStream = createReadStream(filepath);
       res.set({
         "Accept-Ranges": "bytes", // 구간 스킵 가능 (프로그래스바를 클릭해서 넘어갈 수 있게 해줌)
         "Content-Type": "video/mp4",
         "Content-Length": fileSize,
       });
-      return new StreamableFile(file);
+      return new StreamableFile(readStream);
     }
-    // range 헤더가 있으면 구간을 보내준다.
 
+    // range 헤더가 있으면 구간을 보내준다.
     const MAX_CHUNK_SIZE = 1000 * 1000 * 50; // 50MB
     // range헤더 파싱
     const parts = range.replace(/bytes=/, "").split("-");

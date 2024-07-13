@@ -169,7 +169,11 @@ bootstrap();
 
 async function initOpenAPI(app: INestApplication<any>, port: any) {
   /** OpenAPI */
-  const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle("API")
+    .addServer(`http://localhost:${port}`)
+    .addCookieAuth()
+    .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup("api/v1/document", app, document);
@@ -211,6 +215,7 @@ import { GlobalValidationPipe } from "./pipes/global-validation.pipe";
 import { ClsModule } from "nestjs-cls";
 import { ClsPluginTransactional } from "@nestjs-cls/transactional";
 import { TransactionalAdapterPrisma } from "@nestjs-cls/transactional-adapter-prisma";
+import { HttpExceptionFilter } from "./filters/http-exception.filter";
 
 @Module({
   imports: [
@@ -247,7 +252,7 @@ import { TransactionalAdapterPrisma } from "@nestjs-cls/transactional-adapter-pr
     AppService,
     {
       provide: APP_FILTER,
-      useClass: GlobalExceptionsFilter,
+      useClass: HttpExceptionFilter,
     },
     {
       provide: APP_FILTER,
@@ -283,25 +288,6 @@ export const GlobalValidationPipe = new ValidationPipe({
   transform: true,
   whitelist: true,
   enableDebugMessages: true,
-  exceptionFactory: (errors: ValidationError[]) => {
-    if (errors?.length > 0) {
-      const children = errors[0].children;
-
-      if (children?.length > 0) {
-        const error = children[0].constraints;
-        const keys = Object.keys(error);
-        const type = keys[keys.length - 1];
-        const message = error[type];
-        return new BadRequestException(message);
-      }
-
-      const error = errors[0].constraints;
-      const keys = Object.keys(error);
-      const type = keys[keys.length - 1];
-      const message = error[type];
-      return new BadRequestException(message);
-    }
-  },
 });
 ```
 
@@ -349,14 +335,22 @@ export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
 
     if (!prismaError) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(json);
-      this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
+      this.logger.error(
+        `\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(
+          json.context,
+        )}`,
+      );
       return;
     }
 
     json.message = prismaError.message;
     json.statusCode = prismaError.status;
     res.status(prismaError.status).json(json);
-    this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
+    this.logger.error(
+      `\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(
+        json.context,
+      )}`,
+    );
   }
 }
 

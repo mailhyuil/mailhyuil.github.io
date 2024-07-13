@@ -10,30 +10,30 @@
 
 ```ts
 // 의존성이 필요한 객체
-class Dependency {
+class Service {
   doSomething() {
-    console.log('Dependency is doing something');
+    console.log("Service is doing something");
   }
 }
 
 // 의존성을 주입받는 객체
-class Dependent {
-  private dependency: Dependency;
+class Controller {
+  private service: Service;
 
-  constructor(dependency: Dependency) {
-    this.dependency = dependency;
+  constructor(service: Service) {
+    this.service = service;
   }
 
   doSomething() {
-    console.log('Dependent is doing something');
-    this.dependency.doSomething();
+    console.log("Controller is doing something");
+    this.service.doSomething();
   }
 }
 
-// 의존성 주입
-const dependency = new Dependency();
-const dependent = new Dependent(dependency);
+// 의존성 주입 (DI 컨테이너의 역할)
+const service = new Service();
+const controller = new Controller(service);
 
 // 의존성 주입 후 실행
-dependent.doSomething();
+controller.doSomething();
 ```
