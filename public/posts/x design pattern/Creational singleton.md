@@ -1,13 +1,13 @@
 # singleton
 
-> Creational
+> Creational Design Pattern
 >
 > > 생성자를 private으로 설정하여 new 연산자로 생성을 못하도록 한다.
 
 ```ts
 class Settings {
   static instance: Settings;
-  public readonly mode = 'dark';
+  public readonly mode = "dark";
 
   // prevent new with private constructor
   // 생성자를 private으로 설정하여 new 연산자로 생성을 못하도록 한다.

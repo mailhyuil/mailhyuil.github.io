@@ -1,15 +1,15 @@
 # prototype
 
-> Creational
+> Creational Design Pattern
 
 ```ts
 const zombie = {
   eatBrains() {
-    return 'yum 🧠';
+    return "yum 🧠";
   },
 };
 
-const chad = Object.create(zombie, { name: { value: 'chad' } });
+const chad = Object.create(zombie, { name: { value: "chad" } });
 
 chad.__proto__;
 Object.getPrototypeOf(chad);
