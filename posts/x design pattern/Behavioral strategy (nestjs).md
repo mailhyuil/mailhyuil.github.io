@@ -16,7 +16,7 @@ export class ExplorerService {
     const providers = this.discoveryService.getProviders();
 
     return providers
-      .filter((wrapper) => wrapper.isDependencyTreeStatic())
+      .filter(wrapper => wrapper.isDependencyTreeStatic())
       .filter(({ metatype, instance }) => {
         if (!instance || !metatype) {
           return false;
@@ -44,8 +44,8 @@ export class UserController {
 ## user.strategy.ts
 
 ```ts
-export interface UserStrategy {
-  update(data: UpdateUserDTO): Promise<string>;
+export abstract class UserStrategy {
+  abstract update(data: UpdateUserDTO): Promise<string>;
 }
 ```
 
@@ -58,7 +58,7 @@ export class AdminStrategy implements UserStrategy {
   constructor(private readonly prismService: PrismService) {}
   async update(data: UpdateUserDTO) {
     const updated = await this.prismService.update(data);
-    return plainToClass(UserDTO, updated);
+    return plainToInstance(UserDTO, updated);
   }
 }
 ```
@@ -72,7 +72,7 @@ export class MemberStrategy implements UserStrategy {
   constructor(private readonly prismService: PrismService) {}
   async update(data: UpdateUserDTO) {
     const updated = await this.prismService.update(data);
-    return plainToClass(UserDTO, updated);
+    return plainToInstance(UserDTO, updated);
   }
 }
 ```
@@ -87,11 +87,11 @@ export class UserService {
   constructor(
     private readonly explorerService: ExplorerService,
     private readonly metadataScanner: MetadataScanner,
-    private readonly reflector: Reflector
+    private readonly reflector: Reflector,
   ) {
     const providers = this.explorerService.find("strategy:user");
-    providers.forEach((provider) => {
-      this.metadataScanner.scanFromPrototype(provider, Object.getPrototypeOf(provider), (methodName) => {
+    providers.forEach(provider => {
+      this.metadataScanner.scanFromPrototype(provider, Object.getPrototypeOf(provider), methodName => {
         const role = this.reflector.get("strategy:user", provider);
         this.userStrategy[role] = provider;
       });
