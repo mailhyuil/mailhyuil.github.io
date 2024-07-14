@@ -2,7 +2,7 @@
 
 > js에서는 기본으로 프로토타입 패턴을 사용하기 때문에 필요없다.
 
-```
+```js
 // Define the object to be pooled
 function PooledObject() {
   // Initialize the object
@@ -12,10 +12,10 @@ function PooledObject() {
 }
 
 // Create the object pool
-var objectPool = {
+const objectPool = {
   pool: [],
   maxSize: 10,
-  get: function() {
+  get: function () {
     // If there are no objects in the pool, create a new one
     if (this.pool.length == 0) {
       return new PooledObject();
@@ -24,7 +24,7 @@ var objectPool = {
       return this.pool.shift();
     }
   },
-  release: function(obj) {
+  release: function (obj) {
     // Reset the object properties
     obj.property1 = null;
     obj.property2 = null;
@@ -33,17 +33,16 @@ var objectPool = {
     if (this.pool.length < this.maxSize) {
       this.pool.push(obj);
     }
-  }
+  },
 };
 
 // Use the object pool
-var obj1 = objectPool.get();
+const obj1 = objectPool.get();
 obj1.property1 = "Hello";
 obj1.property2 = "World";
 // ...
 objectPool.release(obj1);
 
-var obj2 = objectPool.get();
+const obj2 = objectPool.get();
 // obj2 will be the same as obj1
-
 ```

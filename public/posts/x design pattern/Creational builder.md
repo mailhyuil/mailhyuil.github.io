@@ -1,6 +1,6 @@
 # builder
 
-> Creational
+> Creational Design Pattern
 
 ```ts
 class HotDog {
@@ -20,5 +20,5 @@ class HotDog {
   }
 }
 
-const myLunch = new HotDog('gluten free').addKetchup().addMustard().addKraut();
+const myLunch = new HotDog("gluten free").addKetchup().addMustard().addKraut();
 ```
