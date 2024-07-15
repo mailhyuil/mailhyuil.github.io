@@ -8,6 +8,10 @@
 >
 > > CSP가 제공
 
+### API Server
+
+> 6443 port
+
 ## Worker Node
 
 > kubelet, kube-proxy, Container Runtime, CNI

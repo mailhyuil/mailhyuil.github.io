@@ -11,6 +11,6 @@ docker buildx inspect --bootstrap
 docker buildx build --platform linux/arm64/v8,linux/amd64 -f Dockerfile.server -t gurumee92/buildx-test .
 ```
 
-# docker build options --push (테스트 필요)
+# docker build options --push
 
 > 자동으로 push
