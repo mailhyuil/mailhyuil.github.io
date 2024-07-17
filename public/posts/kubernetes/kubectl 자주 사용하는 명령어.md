@@ -11,9 +11,14 @@
 ## config
 
 ```sh
-kubectl config get-contexts # 클러스터 목록 확인
-kubectl config current-context # 현재 클러스터 확인
-kubectl config use-context minikube # 클러스터 변경
+# 클러스터 목록 확인
+kubectl config get-contexts
+
+# 현재 클러스터 확인
+kubectl config current-context
+
+# 클러스터 변경
+kubectl config use-context minikube
 ```
 
 ## 노드 접속 (ssh)
@@ -32,7 +37,9 @@ kubectl run web --image=nginx --port=80 --env TEST=hello --dry-run=client -o yam
 
 ```sh
 kubectl create deploy web --image nginx --port 80 --replicas 3 --dry-run=client -o yaml > web.yaml
+
 kubectl create configmap my-config --from-literal BASE_URL=http://localhost:8080 --dry-run=client -o yaml > my-config.yaml
+
 kubectl create secret generic my-secret --from-literal PASSWORD=1234 --dry-run=client -o yaml > my-secret.yaml
 ```
 
@@ -75,17 +82,27 @@ kubectl get node # pod / deploy / svc / node / namespace / rs / all
 ## 생성된 오브젝트 namespace로 보기
 
 ```sh
-kubectl get pod -A # all namespace
-kubectl get pods --namespace=kube-system # namespace 확인
+# 모든 namespace 확인
+kubectl get pod -A
+
+# 특정 namespace 확인
+kubectl get pods --namespace=kube-system
 ```
 
 ## 생성된 오브젝트 labels로 보기
 
 ```sh
-kubectl get pod --show-labels # label 확인
-kubectl get pod -l version=v1 # value=value로 조회
-kubectl get pod -L version # key로 조회
-kubectl get pod web --label-columns app.env # label column으로 조회
+# label 보기
+kubectl get pod --show-labels
+
+# 특정 label key를 가진 pod 조회
+kubectl get pod -L version
+
+# 특정 label의 key=value가 일치하는 pod 조회
+kubectl get pod -l version=v1
+
+# 특정 label column으로 조회
+kubectl get pod web --label-columns app.env
 ```
 
 ## 생성된 오브젝트 selector로 보기
@@ -93,39 +110,63 @@ kubectl get pod web --label-columns app.env # label column으로 조회
 > label보다 더 정밀하게 쿼리로 조회 가능
 
 ```sh
-kubectl get deploy web --show-labels # label 확인
-kubectl get deploy web --selector app=web # label로 조회
-kubectl get deploy web --selector app=web,env=dev # label로 조회
+# label 보기
+kubectl get deploy web --show-labels
+
+# 특정 label의 key=value가 일치하는 deploy 조회
+kubectl get deploy web --selector app=web
+
+# 여러 label의 key=value가 일치하는 deploy 조회
+kubectl get deploy web --selector app=web,env=dev
 ```
 
 ## 생성된 오브젝트 모든 정보 보기
 
 ```sh
-kubectl get pod -o wide # node 정보까지 확인
-kubectl get pod -o wide --sort-by=.metadata.creationTimestamp # 생성 시간 순으로 정렬
+# node 정보까지 확인
+kubectl get pod -o wide
+```
+
+## 정렬해서 보기 (--sort-by)
+
+```sh
+# 생성 시간 순으로 정렬
+kubectl get pod -o wide --sort-by=.metadata.creationTimestamp
+```
+
+## jsonpath로 조회
+
+```sh
 kubectl get pod <pod-name> -o jsonpath="{.metadata.ownerReferences[0].name}"
 ```
 
-## label 추가 / 삭제
+## label 추가, 변경, 삭제
 
 ```sh
+# label 추가
 kubectl label pod web app=web
+
+# label 변경
 kubectl label pod web env=dev --overwrite
-kubectl label pod web app- env- # label 삭제
+
+# label 삭제
+kubectl label pod web app- env-
 ```
 
 ## 로그 보기 (logs)
 
 ```sh
 kubectl logs <pod-name>
+
+kubectl logs deployment/<deployment_name>
+
+kubectl logs service/<service_name>
 ```
 
 ## 최근 실패한 인스턴스의 로그 보기 (logs -p)
 
 ```sh
 kubectl logs <pod-name> -p
-kubectl logs deployment/<deployment_name>
-kubectl logs service/<service_name>
 ```
 
 ## 명령어 실행 (exec)
@@ -137,7 +178,10 @@ kubectl exec -it <pod-name> -- bash
 ## 파일 복사 (cp)
 
 ```sh
+# pod -> local
 kubectl cp <local_path> <pod_name>:<pod_path>
+
+# local -> pod
 kubectl cp <pod_name>:<pod_path> <local_path>
 ```
 
@@ -187,17 +231,34 @@ kubectl rollout history deploy web
 kubectl rollout undo deploy web --to-revision=1
 ```
 
-## vim
+## 자주 사용하는 vim 단축키
 
 ```sh
-dd # 한줄 삭제
-D # 커서부터 끝까지 삭제
-yy # 한줄 복사
-2yy # 2줄 복사
+# 한줄 삭제
+dd
 
-grep -i -v <제외할 단어> <찾을 단어>
+# 커서부터 끝까지 삭제
+D
+
+# 한줄 복사
+yy
+
+# 2줄 복사
+2yy
+
+# mac os에서 붙여넣기
+ctrl + v
+
+# window os에서 붙여넣기
+shift + insert
+```
+
+# 자주 사용하는 linux cmd
+
+```sh
+# output grep
+| grep -i -v <제외할 단어> <찾을 단어>
+
+# output을 잘라서 보기
 cut -d ' ' -f 1
-
-ctrl + v # mac 붙여넣기
-shift + insert # window 붙여넣기
 ```
