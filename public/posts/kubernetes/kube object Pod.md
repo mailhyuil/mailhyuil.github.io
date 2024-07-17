@@ -17,7 +17,13 @@
 ## 명령어
 
 ```sh
+# pod 생성
+kubectl run <pod-name> --image=<image-name> --port=<port> --env <env-name>=<env-value>
+
+# pod 조회
 kubectl get pods
+
+# pod 삭제
 kubectl delete pod <pod-name>
 ```
 
