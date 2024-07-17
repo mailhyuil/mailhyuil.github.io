@@ -188,9 +188,13 @@ kubectl label pod web app- env-
 ```sh
 kubectl logs <pod-name>
 
+# multi container pod 환경일 경우 컨테이너 이름 지정
+kubectl logs <pod-name> -c <container-name>
+
 kubectl logs deployment/<deployment_name>
 
 kubectl logs service/<service_name>
+
 ```
 
 ## 최근 실패한 인스턴스의 로그 보기 (logs -p)

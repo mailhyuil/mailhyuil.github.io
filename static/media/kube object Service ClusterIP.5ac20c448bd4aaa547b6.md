@@ -1,10 +1,12 @@
-# LoadBalancer
+# ClusterIP
 
-> 외부 IP를 할당 받는다 (클라우드 업체의 로드밸러서와 연동)
+> 여러 파드를 묶어서 로드밸런싱할 수 있는 ClusterIP만 할당
 >
-> > 클라우드 서비스에서 제공하는 LoadBalancer를 "프로비저닝" 즉 연동하여 사용
+> > 외부에서는 접근할 수 없다. / 같은 클러스터 내부에서만 접근 가능
 > >
-> > > 프로덕션 환경에서 사용
+> > > private 서비스들에 이용
+> > >
+> > > > Service Default 타입
 
 ```yaml
 ---
@@ -17,13 +19,14 @@ metadata:
     service: order
     project: snackbar
 spec:
-  type: LoadBalancer # type
+  type: ClusterIP # type
   selector:
     service: order
     project: snackbar
   ports:
     - port: 80
       targetPort: 8080
+
 ---
 apiVersion: apps/v1
 kind: Deployment
