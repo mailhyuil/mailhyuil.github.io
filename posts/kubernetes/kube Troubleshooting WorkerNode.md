@@ -1,12 +1,6 @@
 # kube Troubleshooting WorkerNode
 
-> docker-daemon
->
-> kubelet
->
-> kube-proxy
->
-> CNI
+> docker-daemon, kubelet, kube-proxy, CNI 확인
 >
 > > docker-daemon과 kubelet이 실행중인지 확인
 > >
