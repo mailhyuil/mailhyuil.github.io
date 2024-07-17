@@ -1,6 +1,12 @@
 # decorator
 
 > 객체의 결합을 통해 기능을 동적으로 유연하게 확장시키는 것
+>
+> > 1. interface 생성
+> >
+> > 2. interface 구현체 생성
+> >
+> > 3. 구현체를 매개변수로 받는 interface 구현체 생성 (Decorator)
 
 ```ts
 interface Coffee {
