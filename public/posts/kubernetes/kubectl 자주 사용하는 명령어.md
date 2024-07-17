@@ -1,10 +1,12 @@
 # kubectl
 
-> kubectl은 ~/.kube/config를 읽어서 api server로 요청한다.
+> kubectl은 ~/.kube/config를 읽어서 API Server로 요청한다.
 >
 > > ~/.kube/config 로 yaml 파일을 설정
 > >
-> > > static pod path : 마스터 노드:/etc/kubernetes/manifests // 파일만 생성하면 자동으로 실행
+> > > static pod path : 마스터 노드:/etc/kubernetes/manifests //
+> > >
+> > > (파일만 생성하면 자동으로 실행)
 > > >
 > > > > kubelet path : 워커 노드:/var/lib/kubelet
 
