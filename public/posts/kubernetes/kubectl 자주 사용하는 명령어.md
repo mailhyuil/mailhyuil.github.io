@@ -20,13 +20,17 @@ kubectl config get-contexts
 kubectl config current-context
 
 # 클러스터 변경
-kubectl config use-context minikube
+kubectl config use-context <cluster_name>
 ```
 
 ## 노드 접속 (ssh)
 
 ```sh
-ssh 워커노드IP 또는 마스터노드IP
+ssh 워커노드_IP
+# docker-daemon, kubelet, kube-proxy, CNI 확인
+
+ssh 마스터노드_IP
+# controller-manager, scheduler-manager, etcd, api-server, matrics-server, core-dns, docker-daemon, kubelet 확인
 ```
 
 ## pod 생성 (run)
