@@ -32,16 +32,40 @@ ssh 워커노드IP 또는 마스터노드IP
 ## pod 생성 (run)
 
 ```sh
+# 즉시 pod 생성
+kubectl run web --image=nginx --port=80 --env TEST=hello
+
+# yaml로 pod 생성
 kubectl run web --image=nginx --port=80 --env TEST=hello --dry-run=client -o yaml > web.yaml
 ```
 
-## deploy, configmap, secret 생성 (create)
+## deployment 생성 (create)
 
 ```sh
+# 즉시 deployment 생성
+kubectl create deploy web --image nginx --port 80 --replicas 3
+
+# yaml로 deployment 생성
 kubectl create deploy web --image nginx --port 80 --replicas 3 --dry-run=client -o yaml > web.yaml
+```
 
+## configmap 생성 (create)
+
+```sh
+# 즉시 configmap 생성
+kubectl create configmap my-config --from-literal BASE_URL=http://localhost:8080
+
+# yaml로 configmap 생성
 kubectl create configmap my-config --from-literal BASE_URL=http://localhost:8080 --dry-run=client -o yaml > my-config.yaml
+```
 
+## secret 생성 (create)
+
+```sh
+# 즉시 secret 생성
+kubectl create secret generic my-secret --from-literal PASSWORD=1234
+
+# yaml로 secret 생성
 kubectl create secret generic my-secret --from-literal PASSWORD=1234 --dry-run=client -o yaml > my-secret.yaml
 ```
 
