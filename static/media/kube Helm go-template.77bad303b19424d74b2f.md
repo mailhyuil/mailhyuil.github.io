@@ -6,7 +6,7 @@
 
 ## templates
 
-```
+```go
 { .Values.pod.image }
 ```
 
