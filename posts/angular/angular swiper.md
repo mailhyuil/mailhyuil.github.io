@@ -74,19 +74,23 @@ export default class ImageSliderComponent implements OnInit {
 
 ## component.html
 
+> 반드시 absolute로 설정!!
+
 ```html
-<swiper-container init="false" swiper [options]="swiperOptions">
-  <swiper-slide>
-    <img src="http://placehold.it/500" />
-  </swiper-slide>
-  <swiper-slide>
-    <img src="http://placehold.it/500" />
-  </swiper-slide>
-  <swiper-slide>
-    <img src="http://placehold.it/500" />
-  </swiper-slide>
-  <swiper-slide>
-    <img src="http://placehold.it/500" />
-  </swiper-slide>
-</swiper-container>
+<div class="relative w-full">
+  <swiper-container class="absolute h-full" init="false" swiper [options]="swiperOptions">
+    <swiper-slide>
+      <img src="http://placehold.it/500" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="http://placehold.it/500" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="http://placehold.it/500" />
+    </swiper-slide>
+    <swiper-slide>
+      <img src="http://placehold.it/500" />
+    </swiper-slide>
+  </swiper-container>
+</div>
 ```

@@ -4,9 +4,11 @@
 >
 > > 1. interface 생성
 > >
-> > 2. interface 구현체 생성
+> > 2. interface 구현체 생성 (base object)
 > >
-> > 3. 구현체를 매개변수로 받는 interface 구현체 생성 (Decorator)
+> > 3. interface를 매개변수로 받는 abstract class 생성 (decorator)
+> >
+> > 4. decorator를 상속하여 abstract 메소드를 구현 (매개변수로 받은 값을 변형)
 
 ```ts
 interface Coffee {
