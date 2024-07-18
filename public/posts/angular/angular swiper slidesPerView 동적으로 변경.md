@@ -5,5 +5,6 @@
 > > params로 접근해서 변경
 
 ```ts
-this.swiper.params.slidesPerView = this.items.length >= 8 ? undefined : "auto";
+const length = this.items.length;
+this.swiper.params.slidesPerView = length >= 8 ? undefined : Math.floor(length / 2);
 ```

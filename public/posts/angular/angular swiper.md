@@ -55,7 +55,7 @@ import { Autoplay } from "swiper/modules";
   imports: [CommonModule, IconComponent, SwiperDirective],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export default class ImageSliderComponent implements OnInit {
+export default class ImageSliderComponent {
   swiper?: Swiper;
   swiperOptions: SwiperOptions = {
     modules: [Autoplay],
@@ -71,8 +71,6 @@ export default class ImageSliderComponent implements OnInit {
       },
     },
   };
-  constructor() {}
-  ngOnInit(): void {}
 }
 ```
 
