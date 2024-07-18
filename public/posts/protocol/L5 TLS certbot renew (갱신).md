@@ -1,4 +1,4 @@
-# letsencrypt 갱신
+# certbot renew (갱신)
 
 ## 갱신
 
@@ -9,7 +9,6 @@ systemctl stop nginx
 
 # 갱신
 cerbot renew
-certbot certificates
 systemctl enable nginx --now
 ```
 
@@ -29,7 +28,7 @@ systemctl enable nginx --now
 
 ### cron
 
-> crontab e
+> crontab -e
 
 ```sh
 30 4 * * 0 /etc/letsencrypt/letsencrypt-renew.sh

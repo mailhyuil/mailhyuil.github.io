@@ -1,4 +1,4 @@
-# angular swiper index
+# angular swiper realIndex vs activeIndex
 
 > loop: true 상태에서는 realIndex
 >
