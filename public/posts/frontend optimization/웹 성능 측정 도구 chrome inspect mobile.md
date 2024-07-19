@@ -1,4 +1,4 @@
-# chrome ios inspect
+# chrome inspect mobile
 
 > setting -> content setting -> enable Web Inspector
 >
