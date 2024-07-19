@@ -1,5 +1,7 @@
 # certbot renew (갱신)
 
+> renew 후 nginx를 restart 해야한다!
+
 ## 갱신
 
 ```sh
@@ -8,7 +10,7 @@ certbot renew --dry-run
 systemctl stop nginx
 
 # 갱신
-cerbot renew
+certbot renew
 systemctl enable nginx --now
 ```
 
