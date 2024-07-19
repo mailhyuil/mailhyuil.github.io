@@ -45,6 +45,8 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from "@angular/core";
 import { IconComponent } from "@team-lepisode/components";
 import { SwiperDirective } from "apps/client/src/app/directives/swiper.directive";
 import { SwiperOptions, Swiper } from "swiper/types";
+import { Autoplay } from "swiper/modules";
+
 @Component({
   selector: "app-image-slider",
   templateUrl: "./image-slider.component.html",
@@ -53,10 +55,12 @@ import { SwiperOptions, Swiper } from "swiper/types";
   imports: [CommonModule, IconComponent, SwiperDirective],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export default class ImageSliderComponent implements OnInit {
+export default class ImageSliderComponent {
   swiper?: Swiper;
   swiperOptions: SwiperOptions = {
-    modules: [],
+    modules: [Autoplay],
+    autoplay: { delay: 5000 },
+    loop: true
     slidesPerView: 3,
     spaceBetween: 50,
     navigation: true,
@@ -67,8 +71,6 @@ export default class ImageSliderComponent implements OnInit {
       },
     },
   };
-  constructor() {}
-  ngOnInit(): void {}
 }
 ```
 
