@@ -3,5 +3,5 @@
 > curl, nslookup 사용 가능
 
 ```sh
-k run net --image wbitt/network-multitool
+kubectl run net --image wbitt/network-multitool
 ```
