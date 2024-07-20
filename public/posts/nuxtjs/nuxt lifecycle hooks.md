@@ -4,7 +4,7 @@
 
 [Nuxt Lifecycle Hooks](https://nuxt.com/docs/api/advanced/hooks)
 
-## usage법
+## usage
 
 1. nuxt.config
 

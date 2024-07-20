@@ -42,7 +42,7 @@ SECRET=mycode
 dotenv -e .env.development -- nest start --watch
 ```
 
-## usage법
+## usage
 
 ```js
 import dotenv from "dotenv";

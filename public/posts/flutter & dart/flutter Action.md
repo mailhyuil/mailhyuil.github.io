@@ -1,6 +1,6 @@
 # flutter Action
 
-## usage법
+## usage
 
 ```dart
 actions: [

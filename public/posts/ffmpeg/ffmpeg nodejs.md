@@ -6,7 +6,7 @@
 npm i fluent-ffmpeg
 ```
 
-## usage법
+## usage
 
 ```ts
 import ffmpeg from "fluent-ffmpeg";

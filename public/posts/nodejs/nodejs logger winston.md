@@ -8,7 +8,7 @@
 npm install winston winston-daily-rotate-file
 ```
 
-## usage법
+## usage
 
 ```js
 import winston from "winston";

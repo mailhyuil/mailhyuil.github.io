@@ -10,7 +10,7 @@ brew install k9s
 choco install k9s
 ```
 
-## usage법
+## usage
 
 ```sh
 k9s

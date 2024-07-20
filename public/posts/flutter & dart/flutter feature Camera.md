@@ -23,7 +23,7 @@ defaultConfig {
 <string>Microphone permission is required.</string>
 ```
 
-## usage법
+## usage
 
 ```dart
 import 'package:camera/camera.dart';

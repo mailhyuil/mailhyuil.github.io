@@ -6,7 +6,7 @@
 flutter pub add intl
 ```
 
-## usage법
+## usage
 
 ```dart
 DateFormat('yyyy-MM-dd HH:mm').format(createdAt),

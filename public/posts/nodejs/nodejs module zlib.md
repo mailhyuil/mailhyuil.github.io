@@ -4,7 +4,7 @@
 >
 > > Gzip으로 압축해주는 nodejs 내장 라이브러리
 
-## usage법
+## usage
 
 ```js
 const zlib = reauire("zlib");

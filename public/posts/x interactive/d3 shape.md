@@ -35,7 +35,7 @@ d3.lineRadial()
 d3.linkRadial()
 ```
 
-## usage법
+## usage
 
 ```
     const path = d3.path(); // path 생성

@@ -60,7 +60,7 @@ cargo run
 rustup component add rustfmt
 ```
 
-### usage법
+### usage
 
 ```sh
 cargo fmt
@@ -84,7 +84,7 @@ cargo fix
 rustup component add clippy
 ```
 
-### usage법
+### usage
 
 ```sh
 cargo clippy

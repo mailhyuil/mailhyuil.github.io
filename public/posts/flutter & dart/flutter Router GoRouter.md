@@ -43,7 +43,7 @@ final _router = GoRouter(
 );
 ```
 
-## usage법
+## usage
 
 ```dart
 context.go('/test');

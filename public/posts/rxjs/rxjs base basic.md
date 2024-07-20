@@ -12,7 +12,7 @@
 >
 > > Observable은 generator와 같이 next를 이용해서 여러번 값을 방출 가능하다.
 
-## usage법
+## usage
 
 ```ts
 /* Producer */

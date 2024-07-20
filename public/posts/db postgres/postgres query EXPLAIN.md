@@ -4,7 +4,7 @@
 >
 > > 아래부터 읽어라
 
-## usage법
+## usage
 
 ```sql
 EXPLAIN [ ( option [, ...] ) ] 쿼리문

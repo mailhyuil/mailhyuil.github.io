@@ -15,7 +15,7 @@ yarn add @types/victor
 import Victor from "victor";
 ```
 
-## usage법
+## usage
 
 ```
 const pos = Victor(0,0)
