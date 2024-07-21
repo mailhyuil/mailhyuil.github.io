@@ -8,8 +8,8 @@
 
 ```sh
 sudo cat test.txt > test2.txt # test2.txt 파일은 사용자 권한으로 생성됨
-sudo cat test.txt | tee test2.txt # test2.txt 파일은 sudo 권한으로 생성됨
 
+sudo cat test.txt | tee test2.txt # test2.txt 파일은 sudo 권한으로 생성됨
 
 sudo cat test.txt | tee test2.txt > /dev/null # 터미널 출력 가리기
 ```
