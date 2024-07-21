@@ -18,7 +18,8 @@ file
 man
 
 cat
-head
+head -n 1 # 처음 1줄 출력
+head -1   # 처음 1줄 출력 (short version)
 tail
 tail -f # 실시간 로그 보기
 more
