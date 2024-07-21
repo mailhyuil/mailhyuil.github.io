@@ -16,6 +16,7 @@ import { DeepMockProxy, mockDeep } from "jest-mock-extended";
 import { PrismaService } from "./../../prisma/prisma.service";
 import { PostDto } from "./post.dto";
 import { PostService } from "./post.service";
+
 type PostEntityType = Prisma.PostGetPayload<{
   orderBy: {
     createdAt: "desc";

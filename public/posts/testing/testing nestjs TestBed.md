@@ -1,4 +1,22 @@
-# nest testing overrideProvider
+# nest testing TestBed
+
+## providers를 사용
+
+```ts
+const moduleRef = await Test.createTestingModule({
+  providers: [
+    PostService,
+    {
+      provide: PrismaService,
+      useValue: db,
+    },
+  ],
+}).compile();
+```
+
+## override를 사용
+
+> 모듈을 전체 import한 한 후, 특정 일부 provider들 만 override하는 방법
 
 ```ts
 const moduleRef = await Test.createTestingModule({
