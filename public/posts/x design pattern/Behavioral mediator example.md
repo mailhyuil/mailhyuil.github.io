@@ -1,4 +1,4 @@
-# mediator example
+# mediator pattern example
 
 ```ts
 // message type
