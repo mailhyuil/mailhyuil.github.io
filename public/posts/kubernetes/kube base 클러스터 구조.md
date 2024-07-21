@@ -34,19 +34,35 @@
 
 > 클러스터의 모든 정보를 저장하는 key-value 저장소
 
+### kubelet
+
+> Master Node의 API Server와 통신하여 Container Engine을 통해 Pod를 실행 (Master, Worker Node에 모두 존재)
+>
+> > 내부에 cAdvisor가 포함되어 있어서 리소스 사용량을 모니터링
+
+### Container Engine (e.g. containerd, cri-o..)
+
+> container를 실행하는 데 사용
+>
+> > repository에서 이미지를 다운로드, container를 실행 등등의 작업을 수행
+
 ## Worker Node
 
-> kubelet, kube-proxy, Container Runtime, CNI
+> kubelet, kube-proxy, Container Engine, CNI
 >
 > > 하나의 인스턴스 (e.g. EC2)
 
 ### kubelet
 
-> Master Node의 API Server와 통신하여 docker engine을 통해 Pod를 실행
+> Master Node의 API Server와 통신하여 Container Engine을 통해 Pod를 실행
+>
+> > 내부에 cAdvisor가 포함되어 있어서 리소스 사용량을 모니터링
 
-### Container Runtime (e.g. docker-engine)
+### Container Engine (e.g. containerd, cri-o..)
 
 > container를 실행하는 데 사용
+>
+> > repository에서 이미지를 다운로드, container를 실행 등등의 작업을 수행
 
 ### kube-proxy
 
