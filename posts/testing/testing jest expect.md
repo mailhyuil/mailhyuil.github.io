@@ -48,4 +48,8 @@ test("async test", async () => {
 const mockFn = jest.fn();
 mockFn();
 expect(mockFn).toBeCalled();
+
+/// 비동기
+expect(asyncFunc()).resolves.toBe("hello");
+expect(asyncFunc()).rejects.toBe("error");
 ```

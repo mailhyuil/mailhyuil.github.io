@@ -1,6 +1,4 @@
-# nest testing prisma
-
-## notice.service.spec.ts
+# nest testing service
 
 ```ts
 import { Test, TestingModule } from "@nestjs/testing";
@@ -60,9 +58,7 @@ describe("ExampleService", () => {
 
   describe("findById", () => {
     it("should throw NotFoundException", async () => {
-      await service.findById("test").catch(e => {
-        expect(e).toBeInstanceOf(NotFoundException);
-      });
+      expect(service.findById("test")).rejects.toThrow(NotFoundException);
     });
   });
 });
