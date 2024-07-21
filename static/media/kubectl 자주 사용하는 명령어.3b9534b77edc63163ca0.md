@@ -1,12 +1,23 @@
 # kubectl
 
+## ~/.kube (local)
+
 > kubectl은 `~/.kube/config`를 읽어서 API Server로 요청한다.
+
+```txt
+cache      config     http-cache
+```
+
+## /etc/kubernetes (master node)
+
+> static pod path = 마스터 노드:/etc/kubernetes/manifests (파일만 생성하면 kubelet이 자동으로 실행)
 >
-> > config path = ~/.kube/config
-> >
-> > static pod path = 마스터 노드:/etc/kubernetes/manifests (파일만 생성하면 자동으로 실행)
-> >
 > > kubelet path = 워커 노드:/var/lib/kubelet
+
+```txt
+addons      controller-manager.conf  manifests
+admin.conf  kubelet.conf             scheduler.conf
+```
 
 ## config
 
