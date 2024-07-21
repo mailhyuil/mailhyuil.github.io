@@ -60,9 +60,7 @@ describe("ExampleService", () => {
 
   describe("findById", () => {
     it("should throw NotFoundException", async () => {
-      await service.findById("test").catch(e => {
-        expect(e).toBeInstanceOf(NotFoundException);
-      });
+      expect(service.findById("test")).rejects.toThrow(NotFoundException);
     });
   });
 });
