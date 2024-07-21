@@ -1,7 +1,9 @@
 # testing jest expect error & exception
 
 ```js
-await service.findById("wrong").catch((e) => {
-  expect(e).toBeInstanceOf(NotFoundException);
-});
+// sync
+expect(service.findById("wrong")).toThrow(NotFoundException);
+
+// async
+expect(service.findById("wrong")).rejects.toThrow(NotFoundException);
 ```
