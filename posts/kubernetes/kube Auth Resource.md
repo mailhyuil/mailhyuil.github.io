@@ -32,7 +32,7 @@
 
 ### 십진법 접두어
 
-```
+```txt
 E(Exa)
 P(Peta)
 T(Tera)
@@ -43,7 +43,7 @@ K(Kilo)
 
 ### 이진법 접두어
 
-```
+```txt
 Ei(Exbi)
 Pi(Pebi)
 Ti(Tebi)

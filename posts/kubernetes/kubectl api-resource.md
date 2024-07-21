@@ -12,7 +12,7 @@ kubectl api-resources
 
 ## resources
 
-```
+```txt
 NAME                                SHORTNAMES          APIVERSION                              NAMESPACED   KIND
 bindings                                                v1                                      true         Binding
 componentstatuses                   cs                  v1                                      false        ComponentStatus
