@@ -38,7 +38,9 @@
 
 > Master Node의 API Server와 통신하여 Container Engine을 통해 Pod를 실행 (Master, Worker Node에 모두 존재)
 >
-> > 내부에 cAdvisor가 포함되어 있어서 리소스 사용량을 모니터링
+> > 내부에 cAdvisor가 포함되어 있다.
+> >
+> > cAdvisor : 리소스 사용량을 모니터링, Container Engine에서 발생하는 이벤트 모니터링 (CNI 통한 네트워킹..)
 
 ### Container Engine (e.g. containerd, cri-o..)
 
@@ -56,7 +58,9 @@
 
 > Master Node의 API Server와 통신하여 Container Engine을 통해 Pod를 실행
 >
-> > 내부에 cAdvisor가 포함되어 있어서 리소스 사용량을 모니터링
+> > 내부에 cAdvisor가 포함되어 있다.
+> >
+> > cAdvisor : 리소스 사용량을 모니터링, Container Engine에서 발생하는 이벤트 모니터링 (CNI 통한 네트워킹..)
 
 ### Container Engine (e.g. containerd, cri-o..)
 
