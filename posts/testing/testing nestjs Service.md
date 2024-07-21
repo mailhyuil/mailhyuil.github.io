@@ -6,9 +6,11 @@ import { ExampleService } from "../src/app/examples/example.service";
 import { PrismaService } from "../src/prisma/prisma.service";
 import { NotFoundException } from "@nestjs/common";
 
-const result = [];
+// type ExampleWithRelation = Prisma.ExampleGetPayload<{}>;
 
-const one = result[0];
+const result: ExampleDto[] = [];
+
+const one: ExampleDto = result[0];
 
 const db = {
   example: {
@@ -56,7 +58,7 @@ describe("ExampleService", () => {
 
   describe("findById", () => {
     it("should throw NotFoundException", async () => {
-      await service.findById("test").catch((e) => {
+      await service.findById("test").catch(e => {
         expect(e).toBeInstanceOf(NotFoundException);
       });
     });
