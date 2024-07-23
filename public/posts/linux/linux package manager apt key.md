@@ -4,7 +4,7 @@
 >
 > > 다만 외부 저장소에서 패키지를 설치하는 경우에는 해당 저장소의 신뢰성을 확인하고 GPG 서명을 확인하는 것이 중요합니다.
 
-```
+```sh
 # https://download.docker.com/linux/ubuntu 에는 dists와 gpg가 있음
 # gpg를 다운받아서 keyrings 폴더에 넣기
 # https://download.docker.com/linux/ubuntu 다운로드

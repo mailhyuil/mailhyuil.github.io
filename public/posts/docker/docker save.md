@@ -1,7 +1,7 @@
 # docker save
 
-> image를 tar로 저장
-
 ```sh
-docker save <image> -i <name.tar>
+docker save -o <name.tar> <image_name>
+# scp로 전달
+docker load -i <name.tar>
 ```
