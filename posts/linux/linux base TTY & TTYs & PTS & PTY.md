@@ -1,6 +1,6 @@
 # linux base TTY TTYs PTS PTY
 
-## TTY
+## TTY (Tele Type writer)
 
 > 일반적인 콘솔(터미널)
 >
@@ -16,10 +16,10 @@ CTRL + ALT + F1 ~ F6
 
 > 시리얼 TTY
 
-## PTS
+## PTS (Pseudo Terminal Slave)
 
 > xwindows를 위한 가상 콘솔(터미널)
 
-## PTY
+## PTY (Pseudo Terminal)
 
 > 외부 원격 접속을 위한 가상 콘솔(터미널)
