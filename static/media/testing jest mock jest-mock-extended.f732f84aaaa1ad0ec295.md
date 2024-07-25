@@ -1,7 +1,5 @@
 # nodejs testing jest-mock-extended
 
-> mock의 기능을 확장
-
 ## install
 
 ```bash

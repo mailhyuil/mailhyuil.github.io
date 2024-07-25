@@ -1,4 +1,4 @@
-# jest.config.js
+# testing jest config
 
 > jest.config.js 파일 방식
 >
@@ -6,9 +6,9 @@
 > >
 > > > 둘 다 가능
 
+## jest.config.ts
+
 ```js
-{
-  "bail": 1,
-  "verbose": true
-}
+/* eslint-disable */
+export default {};
 ```
