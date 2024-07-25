@@ -6,16 +6,29 @@
 npm i -D jest-mock-extended@2.0.4
 ```
 
-## notice.service.spec.ts
+## post.service.spec.ts
 
 ```ts
 import { NotFoundException } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
-import { Post, Prisma, PrismaClient } from "@prisma/client";
-import { DeepMockProxy, mockDeep } from "jest-mock-extended";
+import { Post, PostSnapshot, Prisma, PrismaClient } from "@prisma/client";
+import { plainToInstance } from "class-transformer";
+import { DeepMockProxy, mock, mockDeep } from "jest-mock-extended";
 import { PrismaService } from "./../../prisma/prisma.service";
-import { PostDto } from "./post.dto";
+import { CreatePostDto, PostDto } from "./post.dto";
 import { PostService } from "./post.service";
+const snapshotSelect = {
+  postId: true,
+  title: true,
+  content: true,
+  createdAt: true,
+  attachments: {
+    select: {
+      id: true,
+      url: true,
+    },
+  },
+};
 
 type PostEntityType = Prisma.PostGetPayload<{
   orderBy: {
@@ -27,41 +40,20 @@ type PostEntityType = Prisma.PostGetPayload<{
       orderBy: {
         createdAt: "desc";
       };
-      select: {
-        postId: true;
-        title: true;
-        content: true;
-        createdAt: true;
-        attachments: {
-          select: {
-            id: true;
-            url: true;
-          };
-        };
-      };
+      select: typeof snapshotSelect;
     };
   };
 }>;
 
-const postSnapshotEntity: PostEntityType["snapshots"][0] = {
-  postId: "1",
-  title: "title",
-  content: "content",
-  createdAt: new Date(),
-  attachments: [],
-};
+type SnapshotEntityType = Prisma.PostSnapshotGetPayload<{
+  select: typeof snapshotSelect;
+}>;
 
-const postEntity = {
+const postSnapshotEntity: SnapshotEntityType = mock<SnapshotEntityType>();
+const postEntity: PostEntityType = mock<PostEntityType>({
   snapshots: [postSnapshotEntity],
-} satisfies PostEntityType;
-
-const postDto: PostDto = {
-  id: "1",
-  title: "title",
-  content: "content",
-  attachments: [],
-  createdAt: new Date(),
-};
+});
+const postDto = plainToInstance(PostDto, postEntity.snapshots[0]);
 
 describe("PostService", () => {
   let service: PostService;
@@ -69,6 +61,7 @@ describe("PostService", () => {
 
   beforeEach(async () => {
     prismaMock = mockDeep<PrismaClient>();
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         PostService,
@@ -78,6 +71,7 @@ describe("PostService", () => {
         },
       ],
     }).compile();
+
     service = module.get<PostService>(PostService);
   });
 
@@ -87,38 +81,45 @@ describe("PostService", () => {
 
   describe("findAll", () => {
     it("should return an array of posts", async () => {
-      // mocking
-      prismaMock.post.findMany.mockResolvedValueOnce([postEntity] as any);
-      // testing
+      prismaMock.post.findMany.mockResolvedValueOnce([postEntity] as unknown as Post[]);
       const found = await service.findAll();
       expect(found).toEqual([postDto]);
       expect(found[0]).toBeInstanceOf(PostDto);
     });
+    it("should return an empty array", async () => {
+      prismaMock.post.findMany.mockResolvedValueOnce([]);
+      expect(service.findAll()).resolves.toEqual([]);
+    });
   });
+
   describe("findById", () => {
     it("should return a post", async () => {
-      // mocking
-      const snapshots = jest.fn().mockResolvedValueOnce([postSnapshotEntity]);
       prismaMock.post.findUniqueOrThrow.mockImplementationOnce(
         () =>
           ({
-            snapshots,
-          } as any)
-      );
-      // testing
-      expect(service.findById("")).resolves.toEqual(postDto);
-    });
-    it("should throw NotFoundException", async () => {
-      // mocking
-      const snapshots = jest.fn().mockRejectedValueOnce(new NotFoundException());
-      prismaMock.post.findUniqueOrThrow.mockImplementationOnce(
-        () =>
-          ({
-            snapshots,
+            snapshots: jest.fn(async () => [postSnapshotEntity]),
           } as unknown as Prisma.Prisma__PostClient<Post>)
       );
-      // testing
-      expect(service.findById("")).rejects.toThrow(NotFoundException);
+      const found = await service.findById("good-id");
+      expect(found).toEqual(postDto);
+    });
+  });
+
+  describe("create", () => {
+    it("should create a post", async () => {
+      const createDto = mock<CreatePostDto>({
+        ...postDto,
+      });
+      prismaMock.postSnapshot.create.mockResolvedValueOnce(postSnapshotEntity as unknown as PostSnapshot);
+      const created = await service.create(createDto);
+      expect(created).toEqual(postDto);
+    });
+  });
+
+  describe("remove", () => {
+    it("should remove a post", async () => {
+      prismaMock.post.delete.mockResolvedValueOnce(postEntity as unknown as Post);
+      expect(service.remove("good-id")).resolves.not.toThrow(new NotFoundException());
     });
   });
 });
