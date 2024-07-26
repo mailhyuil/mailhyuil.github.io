@@ -45,11 +45,11 @@ type PostEntityType = Prisma.PostGetPayload<{
   };
 }>;
 
-type SnapshotEntityType = Prisma.PostSnapshotGetPayload<{
+type PostSnapshotEntityType = Prisma.PostSnapshotGetPayload<{
   select: typeof snapshotSelect;
 }>;
 
-const postSnapshotEntity: SnapshotEntityType = mock<SnapshotEntityType>();
+const postSnapshotEntity: PostSnapshotEntityType = mock<PostSnapshotEntityType>();
 const postEntity: PostEntityType = mock<PostEntityType>({
   snapshots: [postSnapshotEntity],
 });
