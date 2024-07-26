@@ -1,6 +1,6 @@
 # supertest
 
-> http test
+> superagent 라이브러리로 구현한 http testing 라이브러리
 
 ## install
 
