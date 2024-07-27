@@ -1,6 +1,6 @@
 # testing 작성 리스트
 
-```
+```txt
 존재하는 모든 entity를 반환한다. (read)
 조건에 맞는 entity를 반환한다. (read)
 entity의 id가 주어진다면 해당 id의 entity를 반환한다. (read)

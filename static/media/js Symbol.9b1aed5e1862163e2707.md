@@ -19,7 +19,7 @@ Also, imagine that another script wants to have its own identifier inside user, 
 ```
 
 ```js
-const ord = Symbol("orderID");
+const ord: symbol = Symbol("orderID");
 const myOrder = {
   ord: "123",
 };
