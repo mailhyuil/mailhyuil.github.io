@@ -10,7 +10,19 @@ env:
     value: ENV_VALUE
 ```
 
-## env.valueFrom : configMap, secret
+## envFrom.configMapRef / envFrom.secretRef
+
+> configMap, secret의 모든 값을 가져오기
+
+```yaml
+envFrom:
+  - configMapRef:
+      name: CONFIG_MAP_NAME
+  - secretRef:
+      name: SECRET_NAME
+```
+
+## env.valueFrom.configMapKeyRef / env.valueFrom.secretKeyRef
 
 > configMap, secret의 일부 값을 가져오기
 
@@ -21,17 +33,19 @@ env:
     valueFrom:
       configMapKeyRef:
         name: CONFIG_MAP_NAME
-        key: CONFIG_MAP_KEY
+        key: KEY_NAME
 # secretKeyRef
 env:
   - name: ENV_NAME
     valueFrom:
       secretKeyRef:
         name: SECRET_NAME
-        key: SECRET_KEY
+        key: KEY_NAME
 ```
 
-## valueFrom : Resource 정보 가져오기
+## env.valueFrom.fieldRef / env.valueFrom.resourceFieldRef
+
+> Resource 정보 가져오기
 
 ```yaml
 # fieldRef : metadata같은 리소스 정보를 가져오기
@@ -48,16 +62,4 @@ env:
         containerName: CONTAINER_NAME
         resource: RESOURCE_NAME
         divisor: RESOURCE_DIVISOR
-```
-
-## envFrom
-
-> configMap, secret의 모든 값을 가져오기
-
-```yaml
-envFrom:
-  - configMapRef:
-      name: CONFIG_MAP_NAME
-  - secretRef:
-      name: SECRET_NAME
 ```
