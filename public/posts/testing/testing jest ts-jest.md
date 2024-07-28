@@ -7,7 +7,12 @@
 ## ts-jest 직접 사용
 
 ```sh
-ts-jest config:init
+npm install -D jest
+npm install -D @types/jest
+npm install -D ts-jest
+npm install -D typescript
+
+npx ts-jest config:init
 ```
 
 ## babel transform 사용
@@ -15,15 +20,21 @@ ts-jest config:init
 > jest.config.ts
 
 ```ts
-/* eslint-disable */
-export default {
-  displayName: "server",
-  preset: "../../jest.preset.js",
+/** @type {import('ts-jest').JestConfigWithTsJest} **/
+module.exports = {
   testEnvironment: "node",
   transform: {
-    "^.+\\.[tj]s$": ["ts-jest", { tsconfig: "<rootDir>/tsconfig.spec.json" }],
+    "^.+.tsx?$": ["ts-jest", {}],
   },
-  moduleFileExtensions: ["ts", "js", "html"],
-  coverageDirectory: "../../coverage/apps/server",
 };
+```
+
+## some.spec.ts
+
+> test, expect.. 는 import할 필요 없음
+
+```ts
+test("1 + 1은?", () => {
+  expect(1 + 1).toBe(2);
+});
 ```
