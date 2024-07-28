@@ -11,10 +11,13 @@ npm i -D jest-when
 ## usage
 
 ```js
-const fn = jest.fn(); // 1) Start with any normal jest mock function
-when(fn) // 2) Wrap it with when()
-  .calledWith(/* any matchers here */) // 3) Add your matchers with calledWith()
-  .mockReturnValue(/* some value */); // 4) Then use any of the normal set of jest mock functions
+const { when } = require("jest-when");
 
-expect(fn(1)).toEqual("yay!");
+const fn = jest.fn(); // 1) Start with any normal jest mock function
+
+when(fn) // 2) Wrap it with when()
+  .calledWith(1, 1) // 3) Add your matchers with calledWith()
+  .mockReturnValue(2); // 4) Then use any of the normal set of jest mock functions
+
+expect(fn(1, 1)).toBe(2);
 ```
