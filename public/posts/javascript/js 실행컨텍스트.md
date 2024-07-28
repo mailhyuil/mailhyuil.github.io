@@ -3,11 +3,13 @@
 > 실행할 코드에 제공할 환경 정보들을 모아놓은 객체
 >
 > > 자바스크립트는 동일한 환경에 있는 환경 정보들을 모은 실행 컨텍스트를 콜스택에 쌓아올린 후 실행하여 코드의 환경과 순서를 보장할 수 있게 됩니다.
+> >
+> > > stack 메모리에 쌓아놓고, 가장 위에 있는 실행 컨텍스트를 실행하고, 실행이 끝나면 stack에서 제거합니다.
 
 ## 실행컨텍스트의 구성요소
 
 ```txt
-variableEnvironment: 변수객체(현재 컨텍스트의 유효 범위)
-lexicalEnvironment: 렉시컬 환경(현재 컨텍스트의 유효 범위)
-thisBinding: this(현재 컨텍스트의 this)
+variableEnvironment(Value Object): 변수객체(현재 컨텍스트의 유효 범위)
+lexicalEnvironment(Scope Chain): 렉시컬 환경(현재 컨텍스트의 유효 범위)
+thisBinding(This Value): this(현재 컨텍스트의 this)
 ```
