@@ -9,12 +9,22 @@
 > > 실행하면 바로 반응하지 않고 비동기적으로 실행된다
 > >
 > > > 자신만의 thread / queue를 가지고 있다
+> > >
+> > > > What is an actor? According to Wikipedia, an actor is a thing that can:
+
+```txt
+send messages
+receive messages
+create child actors
+```
 
 ## Reactor
 
 > actor에 이벤트에 대한 핸들러가 추가된 것
 >
 > > 디스패치 방식으로 이벤트를 처리한다
+> >
+> > > nodejs의 이벤트 루프가 이에 해당한다
 
 ## Proactor
 
@@ -27,3 +37,5 @@
 ## Active Object
 
 > 행위를 다른 actor에게 위임하고 비동기적으로 결과를 받는다
+>
+> > command 패턴과 비슷하다
