@@ -1,4 +1,4 @@
-# linux shellscript 변수 중괄호
+# linux shellscript 변수 ${}
 
 > 기능상 똑같음
 >

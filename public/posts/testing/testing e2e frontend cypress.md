@@ -1,10 +1,11 @@
-# angular test e2e
+# testing e2e frontend cypress
 
-## usage
+## install
 
 ```sh
-# cypress 설치
+# install
 ng e2e
+
 # server 실행 후 cypress 실행
 npm run start
 npm run cypress:open
