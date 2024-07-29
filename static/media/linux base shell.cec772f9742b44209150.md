@@ -16,7 +16,7 @@
 > >
 > > > 장점: GUI보다 메모리 사용량이 적고 실행속도가 빠름
 
-```
+```sh
 sh = bourn shell
 bash = bourn again shell
 ash = 암키스트 shell
@@ -36,7 +36,7 @@ cmd
 > > >
 > > > > 예시: 검색창, 메뉴, 아이콘, 파일탐색기 등
 
-```
+```sh
 xwindow = linux
 explor = window
 ```
