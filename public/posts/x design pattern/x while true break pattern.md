@@ -10,12 +10,18 @@ while (true) {
     break;
   }
 }
-
 // or
-
 do {
   if (condition) {
     break;
   }
 } while (true);
+
+// alternative
+let running = true;
+while (!running) {
+  if (condition) {
+    running = false;
+  }
+}
 ```
