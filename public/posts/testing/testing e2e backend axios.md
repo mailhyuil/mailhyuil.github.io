@@ -1,47 +1,31 @@
-# nest testing e2e backend axios
+# testing e2e backend axios
 
-> endpoint 단위로 테스트
->
-> > app.getHttpServer()를 통해 http server를 가져온다.
-
-## install
-
-```sh
-npm i -D supertest
-npm i -D @types/supertest
-```
-
-# testing
+## setup
 
 ```ts
-import request from "supertest";
-import { Test } from "@nestjs/testing";
-import { ExampleModule } from "./example/example.module";
-import { ExampleService } from "./example/example.service";
-import { INestApplication } from "@nestjs/common";
+/* eslint-disable */
 
-describe("Example", () => {
-  let app: INestApplication;
-  let exampleService = { findAll: (): ExampleDTO[] => [{ id: "1" }, { id: "2" }] };
+import axios from "axios";
 
-  beforeAll(async () => {
-    const moduleRef = await Test.createTestingModule({
-      imports: [ExampleModule],
-    })
-      .overrideProvider(ExampleService)
-      .useValue(exampleService)
-      .compile();
+module.exports = async function () {
+  // Configure axios for tests to use.
+  const host = process.env.HOST ?? "localhost";
+  const port = process.env.PORT ?? "3000";
+  axios.defaults.baseURL = `http://${host}:${port}`;
+};
+```
 
-    app = moduleRef.createNestApplication();
-    await app.init();
-  });
+## usage
 
-  it(`/GET examples`, () => {
-    return request(app.getHttpServer()).get("/examples").expect(200).expect(exampleService.findAll());
-  });
+```ts
+import axios from "axios";
 
-  afterAll(async () => {
-    await app.close();
+describe("GET /api", () => {
+  it("should return a message", async () => {
+    const res = await axios.get(`/api`);
+
+    expect(res.status).toBe(200);
+    expect(res.data).toEqual({ message: "Hello API" });
   });
 });
 ```
