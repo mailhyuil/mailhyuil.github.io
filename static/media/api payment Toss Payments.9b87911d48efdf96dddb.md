@@ -1,10 +1,16 @@
-# api payment toss
+# api payment Toss Payments
 
-1. api key로 결제 창 띄우기 (paymentWidget.requestBillingAuth())
-2. 사용자가 결제 => Authorization Code(authKey, customerKey)를 params로 리턴
-3. 리턴 받은 Authorization Code를 서버로 전송
-4. Authorization Code로 Access Token(결제 key or 빌링 key)를 pg 서버에 요청 (https://api.tosspayments.com/v1/billing/authorizations/issue)
-5. Access Token 받기
+> 국내 3대 PG사 : KG이니시스, 토스페이먼츠, NHN한국사이버결제
+
+## flow
+
+```txt
+1. orderId와 amount를 먼저 임시저장소에 저장 (e.g. localStorage)
+2. 클라이언트가 위젯으로 결제하기 요청
+3. 성공 리다이렉트 URL로 이동 (paymentKey, paymentType, orderId, amount)
+4. 성공 리다이렉트 URL에서 1번의 요청 불러와서 리다이렉트 URL 데이터와 맞는지 비교 (가격, 포인트 사용 등등)
+5. 문제가 없다면 백엔드로 결제 승인 요청
+```
 
 ## API 키
 

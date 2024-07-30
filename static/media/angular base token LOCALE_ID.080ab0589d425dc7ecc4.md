@@ -4,13 +4,17 @@
 >
 > > registerLocaleData, LOCALE_ID 둘 다 적용해줘야한다.
 
-## main.ts
+## app.component.ts
 
 ```ts
 import { registerLocaleData } from "@angular/common";
 import localeKo from "@angular/common/locales/ko";
+import localeKoExtra from "@angular/common/locales/extra/ko";
 
-registerLocaleData(localeKo);
+registerLocaleData(localeKo, "ko-KR", localeKoExtra);
+
+@Component({})
+export class AppComponent {}
 ```
 
 ## app.config.ts
