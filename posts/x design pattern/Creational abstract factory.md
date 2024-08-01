@@ -1,6 +1,6 @@
-# abstract factory abstract factory
+# abstract abstract factory
 
-> 팩토리 클래스를 추상화 하여 같은 성격의 인스턴스들을 통일성 있게 생성하는 패턴
+> 관련된 객체들의 가족을 생성하는 인터페이스를 제공하여 구체적인 클래스를 지정하지 않고도 객체를 생성하는 패턴
 >
 > > (e.g. Window, Mac, Linux OS 조건에 따라 같은 성격의 요소들을 생성하는 팩토리)
 
