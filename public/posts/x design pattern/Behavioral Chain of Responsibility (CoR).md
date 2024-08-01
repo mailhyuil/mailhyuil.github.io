@@ -1,106 +1,11 @@
-# chain of responsibility (책임 연쇄 패턴)
+# design pattern CoR vs Decorator
 
-```ts
-/**
- * The Handler interface declares a method for building the chain of handlers.
- * It also declares a method for executing a request.
- */
-interface Handler<Request = string, Result = string> {
-  setNext(handler: Handler<Request, Result>): Handler<Request, Result>;
+```txt
+I generally think of the Decorator as "adding" to some thing, where as Chain of Responsiblity is more like handling something thing.
 
-  handle(request: Request): Result;
-}
+In comparing the two patterns (besides being apples and oranges) the biggest difference is the Chain of Responsibility can kill the chain at any point.
 
-/**
- * The default chaining behavior can be implemented inside a base handler class.
- */
-abstract class AbstractHandler implements Handler {
-  private nextHandler: Handler;
+Think of decorators as a layered unit in which each layer always does pre/post processing. Chain of Responsibility is more like a linked list, and generally 1 thing handles processing.
 
-  public setNext(handler: Handler): Handler {
-    this.nextHandler = handler;
-    // Returning a handler from here will let us link handlers in a
-    // convenient way like this:
-    // monkey.setNext(squirrel).setNext(dog);
-    return handler;
-  }
-
-  public handle(request: string): string {
-    if (this.nextHandler) {
-      return this.nextHandler.handle(request);
-    }
-
-    return null;
-  }
-}
-
-/**
- * All Concrete Handlers either handle a request or pass it to the next handler
- * in the chain.
- */
-class MonkeyHandler extends AbstractHandler {
-  public handle(request: string): string {
-    if (request === "Banana") {
-      return `Monkey: I'll eat the ${request}.`;
-    }
-    return super.handle(request);
-  }
-}
-
-class SquirrelHandler extends AbstractHandler {
-  public handle(request: string): string {
-    if (request === "Nut") {
-      return `Squirrel: I'll eat the ${request}.`;
-    }
-    return super.handle(request);
-  }
-}
-
-class DogHandler extends AbstractHandler {
-  public handle(request: string): string {
-    if (request === "MeatBall") {
-      return `Dog: I'll eat the ${request}.`;
-    }
-    return super.handle(request);
-  }
-}
-
-/**
- * The client code is usually suited to work with a single handler. In most
- * cases, it is not even aware that the handler is part of a chain.
- */
-function clientCode(handler: Handler) {
-  const foods = ["Nut", "Banana", "Cup of coffee"];
-
-  for (const food of foods) {
-    console.log(`Client: Who wants a ${food}?`);
-
-    const result = handler.handle(food);
-    if (result) {
-      console.log(`  ${result}`);
-    } else {
-      console.log(`  ${food} was left untouched.`);
-    }
-  }
-}
-
-/**
- * The other part of the client code constructs the actual chain.
- */
-const monkey = new MonkeyHandler();
-const squirrel = new SquirrelHandler();
-const dog = new DogHandler();
-
-monkey.setNext(squirrel).setNext(dog);
-
-/**
- * The client should be able to send a request to any handler, not just the
- * first one in the chain.
- */
-console.log("Chain: Monkey > Squirrel > Dog\n");
-clientCode(monkey);
-console.log("");
-
-console.log("Subchain: Squirrel > Dog\n");
-clientCode(squirrel);
+The Chain of Responsibility pattern allows for multiple things to handle an event but it also gives them the opportunity to terminate the chain at any point.
 ```
