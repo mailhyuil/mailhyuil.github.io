@@ -30,13 +30,21 @@
 
 ## AggregateRoot
 
-> 같은 도메인(Aggregate)에 속하는 Model들 묶어주는 최상위 객체
+> 같은 도메인(Aggregate)에 속하는 Model(Entity)들 묶어주는 최상위 객체
 >
 > > AggregateRoot를 통해서 같은 Aggregate에 속한 모델들을 조작한다.
+> >
+> > > Entity의 일종이다.
 
-## Entity
+## Entity (도메인의 개념을 표현하는 객체)
 
-> Database의 Row와 매핑되어있는 객체
+> 도메인의 상태와 행위를 가지는 객체
+>
+> > 비즈니스 로직을 포함한다.
+
+## Entity (데이터베이스의 Row와 매핑되는 객체)
+
+> Database의 Row와 매핑되어있는 객체 (e.g. prisma의 model)
 >
 > > 로직을 포함하지 않는다.
 > >

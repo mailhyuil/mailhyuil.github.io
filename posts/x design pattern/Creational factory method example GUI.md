@@ -1,8 +1,8 @@
-# abstract abstract factory
+# abstract factory method
 
-> 관련된 객체들의 가족을 생성하는 인터페이스를 제공하여 구체적인 클래스를 지정하지 않고도 객체를 생성하는 패턴
->
-> > (e.g. Window, Mac, Linux OS 조건에 따라 같은 성격의 요소들을 생성하는 팩토리)
+> 서브클래스에서 객체 생성 메소드를 오버라이드하여 객체를 생성하는 패턴
+
+## usage 1
 
 ```ts
 interface GUIFactory {
@@ -89,15 +89,14 @@ if (config.OS == "Windows") {
 const app: Application = new Application(factory);
 ```
 
+## result
+
 ```ts
-class IOSButton {}
-
-class AndroidButton {}
-
 // Without Factory
+class IOSButton {}
+class AndroidButton {}
 const button1 = os === "ios" ? new IOSButton() : new AndroidButton();
 const button2 = os === "ios" ? new IOSButton() : new AndroidButton();
-
 class ButtonFactory {
   createButton(os: string): IOSButton | AndroidButton {
     if (os === "ios") {
