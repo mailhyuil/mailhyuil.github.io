@@ -18,7 +18,7 @@ value instanceof SomeDto;
 typeof value === "function" && value.name === someFn.name;
 ```
 
-## interface & object type
+## interface & reference type
 
 ```ts
 isSomething(value:any): value is Something {

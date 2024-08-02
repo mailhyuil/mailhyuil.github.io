@@ -1,115 +1,103 @@
 # abstract abstract factory
 
-> 관련된 객체들의 가족을 생성하는 인터페이스를 제공하여 구체적인 클래스를 지정하지 않고도 객체를 생성하는 패턴
->
-> > (e.g. Window, Mac, Linux OS 조건에 따라 같은 성격의 요소들을 생성하는 팩토리)
+> 관련된 객체 집합을 생성하는 인터페이스를 제공하여 구체적인 클래스를 지정하지 않고도 객체를 생성하는 패턴
 
 ```ts
-interface GUIFactory {
-  createButton(): Button;
-  createCheckbox(): Checkbox;
+interface Factory {
+  createKeyboard(): Keyboard;
+  createComputer(): Computer;
+  createMouse(): Mouse;
+  createProduct(): ComputerSet;
+}
+interface Keyboard {
+  type(): string;
+}
+interface Computer {
+  compute(): string;
+}
+interface Mouse {
+  click(): string;
+}
+interface ComputerSet {
+  keyboard: Keyboard;
+  computer: Computer;
+  mouse: Mouse;
 }
 
-class WinFactory implements GUIFactory {
-  createButton(): Button {
-    return new WinButton();
-  }
-  createCheckbox(): Checkbox {
-    return new WinCheckbox();
-  }
-}
-
-class MacFactory implements GUIFactory {
-  createButton(): Button {
-    return new MacButton();
-  }
-  createCheckbox(): Checkbox {
-    return new MacCheckbox();
-  }
-}
-
-interface Button {
-  paint();
-}
-
-class WinButton implements Button {
-  // 버튼을 윈도우 스타일로 렌더링하세요.
-  paint() {}
-}
-
-class MacButton implements Button {
-  // 버튼을 맥 스타일로 렌더링하세요.
-  paint() {}
-}
-
-interface Checkbox {
-  paint();
-}
-
-class WinCheckbox implements Checkbox {
-  // 윈도우 스타일의 확인란을 렌더링하세요.
-  paint() {}
-}
-
-class MacCheckbox implements Checkbox {
-  // 맥 스타일의 확인란을 렌더링하세요.
-  paint() {}
-}
-
-class Application {
-  private factory: GUIFactory;
-  private button: Button;
-  constructor(factory: GUIFactory) {
-    this.factory = factory;
-  }
-
-  createUI() {
-    this.button = this.factory.createButton();
-  }
-
-  paint() {
-    this.button.paint();
+abstract class AbstractFactory implements Factory {
+  abstract createKeyboard(): Keyboard;
+  abstract createComputer(): Computer;
+  abstract createMouse(): Mouse;
+  createProduct() {
+    const keyboard = this.createKeyboard();
+    const computer = this.createComputer();
+    const mouse = this.createMouse();
+    return { keyboard, computer, mouse };
   }
 }
 
-/* main */
-
-const config = { OS: "Mac" };
-
-let factory;
-
-if (config.OS == "Windows") {
-  factory = new WinFactory();
-} else if (config.OS == "Mac") {
-  factory = new MacFactory();
-} else {
-  console.error("Error! Unknown operating system.");
+class AppleKeyboard implements Keyboard {
+  type() {
+    return "Apple Keyboard";
+  }
 }
-
-const app: Application = new Application(factory);
-```
-
-```ts
-class IOSButton {}
-
-class AndroidButton {}
-
-// Without Factory
-const button1 = os === "ios" ? new IOSButton() : new AndroidButton();
-const button2 = os === "ios" ? new IOSButton() : new AndroidButton();
-
-class ButtonFactory {
-  createButton(os: string): IOSButton | AndroidButton {
-    if (os === "ios") {
-      return new IOSButton();
-    } else {
-      return new AndroidButton();
-    }
+class AppleComputer implements Computer {
+  compute() {
+    return "Apple Computer";
+  }
+}
+class AppleMouse implements Mouse {
+  click() {
+    return "Apple Mouse";
   }
 }
 
-// With Factory
-const factory = new ButtonFactory();
-const btn1 = factory.createButton(os);
-const btn2 = factory.createButton(os);
+class WindowsKeyboard implements Keyboard {
+  type() {
+    return "Windows Keyboard";
+  }
+}
+class WindowsComputer implements Computer {
+  compute() {
+    return "Windows Computer";
+  }
+}
+class WindowsMouse implements Mouse {
+  click() {
+    return "Windows Mouse";
+  }
+}
+
+class AppleFactory extends AbstractFactory {
+  createKeyboard() {
+    return new AppleKeyboard();
+  }
+  createComputer() {
+    return new AppleComputer();
+  }
+  createMouse() {
+    return new AppleMouse();
+  }
+}
+
+class WindowsFactory extends AbstractFactory {
+  createKeyboard() {
+    return new WindowsKeyboard();
+  }
+  createComputer() {
+    return new WindowsComputer();
+  }
+  createMouse() {
+    return new WindowsMouse();
+  }
+}
+
+const appleFactory = new AppleFactory();
+const windowsFactory = new WindowsFactory();
+
+const appleSet = appleFactory.createProduct();
+const windowsSet = windowsFactory.createProduct();
+
+console.log(appleSet);
+console.log(windowsSet);
 ```
