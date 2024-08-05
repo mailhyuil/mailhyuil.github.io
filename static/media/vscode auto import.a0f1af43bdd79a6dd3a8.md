@@ -1,5 +1,7 @@
 # vscode auto import all
 
+> 코드 베이스에 module이 최소 한번 import되어야 vscode의 auto suggestion이 작동한다.
+
 ## settings.json
 
 ```json
