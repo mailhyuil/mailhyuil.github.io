@@ -1,32 +1,30 @@
 # typescript static method
 
-> typescript 는 static 클래스가 없다
+> mutation을 하지 않고 사이드이펙트가 없는 순수함수를 구현 시 사용하자
 >
-> > 내부 변수를 사용하지 않으면 static으로 생성해라
+> > use private static methods to indicate a pure function.
 > >
-> > > utility methods 에 많이 사용됨 (e.g. validates)
-> > >
-> > > > namespace나 module로 대체 가능 (new class 생성을 막기 위해)
+> > > namespace나 module로 대체 가능 (new class 생성을 막기 위해)
 
 ```ts
-class Obj {
-  static do() {
-    console.log("something");
+class Person {
+  private readonly name: string;
+  private readonly age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
   }
-}
-Obj.do();
 
-// namespace로 대체
-namespace Obj {
-  export function do() {
-    console.log("something");
+  static incrementAge(person: Person, age: number) {
+    return new Person(person.name, person.age + age);
+  }
+
+  printInfo() {
+    console.log(`Name: ${this.name}, Age: ${this.age}`);
   }
 }
 
-// module로 대체
-module Obj {
-  export function do() {
-    console.log("something");
-  }
-}
+const person = new Person("John", 25);
+const newPerson = Person.incrementAge(person, 1);
+person.printInfo();
 ```

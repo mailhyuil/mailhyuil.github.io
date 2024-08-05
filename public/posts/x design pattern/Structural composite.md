@@ -3,6 +3,12 @@
 > 여러 개의 객체들로 구성된 복합 객체와 단일 객체를 클라이언트에서 구별없이 다루게 해주는 패턴
 >
 > > 트리 구조로 이루어진 객체들을 재귀적으로 구조화하여 표현할 수 있음
+> >
+> > > 다계층의 구조를 갖는다.
+> > >
+> > > > 부모역할을 할 수 있는 component(composite)와 자식역할만 하는 component(leaf)를 나눠서 구현해라
+> > > >
+> > > > 부모역할을 하는 component는 children을 배열로 갖고있고 add/remove 메소드를 가지고 있다.
 
 ## 구조
 
@@ -51,66 +57,107 @@ composite.operation();
 ## usage
 
 ```ts
-public abstract class ComputerDevice {
-  public abstract int getPrice();
-  public abstract int getPower();
+// Component
+abstract class Device {
+  abstract getPrice(): number;
+  abstract getPower(): number;
 }
-public class Keyboard extends ComputerDevice {
-  private int price;
-  private int power;
-  public Keyboard(int power, int price) {
-    this.power = power;
-    this.price = price;
-  }
-  public int getPrice() { return price; }
-  public int getPower() { return power; }
-}
-public class Body { 동일한 구조 }
-public class Monitor { 동일한 구조 }
-public class Computer extends ComputerDevice {
-  // 복수 개의 ComputerDevice 객체를 가리킴
-  private List<ComputerDevice> components = new ArrayList<ComputerDevice>();
 
-  // ComputerDevice 객체를 Computer 클래스에 추가
-  public addComponent(ComputerDevice component) { components.add(component); }
-  // ComputerDevice 객체를 Computer 클래스에서 제거
-  public removeComponent(ComputerDevice component) { components.remove(component); }
-
-  // 전체 가격을 포함하는 각 부품의 가격을 합산
-  public int getPrice() {
-    int price = 0;
-    for(ComputerDevice component : components) {
-      price += component.getPrice();
-    }
-    return price;
+// Leaf
+class Keyboard extends Device {
+  constructor(private power: number, private price: number) {
+    super();
   }
-  // 전체 소비 전력량을 포함하는 각 부품의 소비 전력량을 합산
-  public int getPower() {
-    int power = 0;
-    for(ComputerDevice component : components) {
-      price += component.getPower();
-    }
-    return power;
+
+  getPrice(): number {
+    return this.price;
+  }
+
+  getPower(): number {
+    return this.power;
   }
 }
-public class Client {
-  public static void main(String[] args) {
-    // 컴퓨터의 부품으로 Keyboard, Body, Monitor 객체를 생성
-    Keyboard keyboard = new Keyboard(5, 2);
-    Body body = new Body(100, 70);
-    Monitor monitor = new Monitor(20, 30);
 
-    // Computer 객체를 생성하고 addComponent()를 통해 부품 객체들을 설정
-    Computer computer = new Computer();
-    computer.addComponent(keyboard);
-    computer.addComponent(body);
-    computer.addComponent(monitor);
+// Leaf
+class Body extends Device {
+  constructor(private power: number, private price: number) {
+    super();
+  }
 
-    // 컴퓨터의 가격과 전력 소비량을 구함
-    int computerPrice = computer.getPrice();
-    int computerPower = computer.getPower();
-    System.out.println("Computer Price: " + computerPrice + "만원");
-    System.out.println("Computer Power: " + computerPower + "W");
+  getPrice(): number {
+    return this.price;
+  }
+
+  getPower(): number {
+    return this.power;
   }
 }
+
+// Leaf
+class Monitor extends Device {
+  constructor(private power: number, private price: number) {
+    super();
+  }
+
+  getPrice(): number {
+    return this.price;
+  }
+
+  getPower(): number {
+    return this.power;
+  }
+}
+
+// Leaf
+class Mouse extends Device {
+  constructor(private power: number, private price: number) {
+    super();
+  }
+
+  getPrice(): number {
+    return this.price;
+  }
+
+  getPower(): number {
+    return this.power;
+  }
+}
+
+// Composite
+class Computer extends Device {
+  private components: Device[] = [];
+
+  addComponent(component: Device): void {
+    this.components.push(component);
+  }
+
+  removeComponent(component: Device): void {
+    this.components = this.components.filter((c) => c !== component);
+  }
+
+  getPrice(): number {
+    return this.components.reduce((total, component) => total + component.getPrice(), 0);
+  }
+
+  getPower(): number {
+    return this.components.reduce((total, component) => total + component.getPower(), 0);
+  }
+}
+
+// Client code
+const keyboard = new Keyboard(5, 2);
+const mouse = new Mouse(2, 5);
+const monitor = new Monitor(20, 30);
+const body = new Body(100, 70);
+
+const computer = new Computer();
+computer.addComponent(keyboard);
+computer.addComponent(mouse);
+computer.addComponent(body);
+computer.addComponent(monitor);
+
+const computerPrice = computer.getPrice();
+const computerPower = computer.getPower();
+console.log(`Computer Price: ${computerPrice} 만원`);
+console.log(`Computer Power: ${computerPower} W`);
 ```
