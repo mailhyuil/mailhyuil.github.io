@@ -22,7 +22,8 @@ module.exports = {
 ## style.scss
 
 ```css
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@use "@angular/material" as mat;
+@include mat.core();
 ```
 
 ## ts
