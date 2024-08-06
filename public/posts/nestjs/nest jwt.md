@@ -27,59 +27,98 @@ npm i @nestjs/jwt
 
 ```sh
 JWT_ACCESS_TOKEN_SECRET=VERY_SECRET_ACCESS_TOKEN
-JWT_ACCESS_TOKEN_EXPIRATION_TIME=1h
+JWT_ACCESS_TOKEN_EXPIRES_IN=1h
 JWT_REFRESH_TOKEN_SECRET=VERY_SECRET_REFRESH_TOKEN
-JWT_REFRESH_TOKEN_EXPIRATION_TIME=30d
+JWT_REFRESH_TOKEN_EXPIRES_IN=30d
 ```
 
-## auth.module.ts
+## access-token.module.ts
 
 ```ts
+import { Global, Module, OnModuleInit } from "@nestjs/common";
+import { JwtModule, JwtService } from "@nestjs/jwt";
+import { AccessTokenService } from "./token.token";
+
+const secret = process.env["JWT_ACCESS_TOKEN_SECRET"];
+const expiresIn = process.env["JWT_ACCESS_TOKEN_EXPIRES_IN"];
+
+@Global()
 @Module({
   imports: [
     JwtModule.register({
+      secret,
+      signOptions: { expiresIn },
       global: true,
-      useFactory: () => ({
-        // default config
-        secret: process.env.JWT_SECRET_KEY,
-        signOptions: { expiresIn: "7d" },
-      }),
     }),
   ],
-  controllers: [AuthController],
-  providers: [AuthService],
-  exports: [AuthService],
+  controllers: [],
+  providers: [
+    {
+      provide: AccessTokenService,
+      useExisting: JwtService,
+    },
+  ],
+  exports: [AccessTokenService],
 })
-export class AuthModule {}
-```
-
-## AuthService
-
-```ts
-@Injectable()
-export class AuthService {
-  constructor(private readonly prismaService: PrismaService, private readonly jwtService: JwtService) {}
-  createAccessToken(payload: any): string {
-    return this.jwtService.sign(payload, {
-      secret: process.env["JWT_ACCESS_TOKEN_SECRET"],
-      expiresIn: process.env["JWT_ACCESS_TOKEN_EXPIRATION_TIME"],
-    });
-  }
-  verifyAccessToken(token: string): any {
-    return this.jwtService.verify(token, {
-      secret: process.env["JWT_ACCESS_TOKEN_SECRET"],
-    });
-  }
-  createRefreshToken(payload: any): string {
-    return this.jwtService.sign(payload, {
-      secret: process.env["JWT_REFRESH_TOKEN_SECRET"],
-      expiresIn: process.env["JWT_REFRESH_TOKEN_EXPIRATION_TIME"],
-    });
-  }
-  verifyRefreshToken(token: string): any {
-    return this.jwtService.verify(token, {
-      secret: process.env["JWT_REFRESH_TOKEN_SECRET"],
-    });
+export class AccessTokenModule implements OnModuleInit {
+  onModuleInit() {
+    if (!secret) {
+      throw new Error("JWT_ACCESS_TOKEN_SECRET 환경변수가 정의되지 않았습니다.");
+    }
+    if (!expiresIn) {
+      throw new Error("JWT_ACCESS_TOKEN_EXPIRES_IN 환경변수가 정의되지 않았습니다.");
+    }
   }
 }
+```
+
+## refresh-token.module.ts
+
+```ts
+import { Global, Module, OnModuleInit } from "@nestjs/common";
+import { JwtModule, JwtService } from "@nestjs/jwt";
+import { RefreshTokenService } from "./token.token";
+
+const secret = process.env["JWT_REFRESH_TOKEN_SECRET"];
+const expiresIn = process.env["JWT_REFRESH_TOKEN_EXPIRES_IN"];
+
+@Global()
+@Module({
+  imports: [
+    JwtModule.register({
+      secret,
+      signOptions: { expiresIn },
+      global: true,
+    }),
+  ],
+  controllers: [],
+  providers: [
+    {
+      provide: RefreshTokenService,
+      useExisting: JwtService,
+    },
+  ],
+  exports: [RefreshTokenService],
+})
+export class RefreshTokenModule implements OnModuleInit {
+  onModuleInit() {
+    if (!secret) {
+      throw new Error("JWT_REFRESH_TOKEN_SECRET 환경변수가 정의되지 않았습니다.");
+    }
+    if (!expiresIn) {
+      throw new Error("JWT_REFRESH_TOKEN_EXPIRES_IN 환경변수가 정의되지 않았습니다.");
+    }
+  }
+}
+```
+
+## app.module.ts
+
+```ts
+@Module({
+  imports: [AccessTokenModule, RefreshTokenModule],
+  controllers: [],
+  providers: [],
+})
+export class AppModule {}
 ```

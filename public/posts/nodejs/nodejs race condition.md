@@ -1,5 +1,9 @@
 # nodejs race condition
 
+> nodejs는 자바스크립트(cpu)를 싱글 스레드에서 돌리기 때문에 연산으로 인한 race condition 버그는 발생하지 않는다.
+>
+> > 하지만 비동기 task(I/O)를 백그라운드 멀티 스레드에서 돌리기 때문에 순서로 인한 race condition 버그가 발생할 수 있다.
+
 ## problem
 
 ```ts
