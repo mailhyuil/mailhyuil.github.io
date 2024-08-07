@@ -65,6 +65,8 @@ npm i -D @types/multer
 npm i nestjs-cls
 npm i @nestjs-cls/transactional
 npm i @nestjs-cls/transactional-adapter-prisma
+# AOP
+npm i @toss/nestjs-aop
 
 ################ 선택적 패키지 #####################
 
@@ -169,11 +171,7 @@ bootstrap();
 
 async function initOpenAPI(app: INestApplication<any>, port: any) {
   /** OpenAPI */
-  const swaggerConfig = new DocumentBuilder()
-    .setTitle("API")
-    .addServer(`http://localhost:${port}`)
-    .addCookieAuth()
-    .build();
+  const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup("api/v1/document", app, document);
@@ -213,6 +211,7 @@ import { PrismaModule } from "./prisma/prisma.module";
 import { EventEmitterModule } from "@nestjs/event-emitter";
 import { GlobalValidationPipe } from "./pipes/global-validation.pipe";
 import { ClsModule } from "nestjs-cls";
+import { AopModule } from "@toss/nestjs-aop";
 import { ClsPluginTransactional } from "@nestjs-cls/transactional";
 import { TransactionalAdapterPrisma } from "@nestjs-cls/transactional-adapter-prisma";
 import { HttpExceptionFilter } from "./filters/http-exception.filter";
@@ -220,7 +219,7 @@ import { HttpExceptionFilter } from "./filters/http-exception.filter";
 @Module({
   imports: [
     PrismaModule,
-    DiscoveryModule,
+    AopModule
     EventEmitterModule.forRoot(),
     ThrottlerModule.forRoot([
       {
@@ -229,6 +228,7 @@ import { HttpExceptionFilter } from "./filters/http-exception.filter";
       },
     ]),
     CacheModule.register({
+      global: true,
       ttl: 5, // 5 seconds
       max: 10, // maximum number of items in cache
     }),
@@ -261,10 +261,6 @@ import { HttpExceptionFilter } from "./filters/http-exception.filter";
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
-    },
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: CacheInterceptor,
     },
     {
       provide: APP_PIPE,
@@ -335,22 +331,14 @@ export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
 
     if (!prismaError) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(json);
-      this.logger.error(
-        `\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(
-          json.context,
-        )}`,
-      );
+      this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
       return;
     }
 
     json.message = prismaError.message;
     json.statusCode = prismaError.status;
     res.status(prismaError.status).json(json);
-    this.logger.error(
-      `\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(
-        json.context,
-      )}`,
-    );
+    this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
   }
 }
 

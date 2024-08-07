@@ -14,7 +14,7 @@
 
 > 위와 같지만 nestjs의 DI를 config를 위해 사용할 때
 >
-> > (e.g. provider를 inject)
+> > useFactory를 사용할 때
 
 ```ts
 @Module({
