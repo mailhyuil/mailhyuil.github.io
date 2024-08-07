@@ -1,4 +1,4 @@
-# angular materical css 변수 바꾸기
+# angular material css 변수 바꾸기
 
 ## style.scss
 
