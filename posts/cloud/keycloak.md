@@ -39,9 +39,9 @@ docker restart keycloak
 </dependency>
 ```
 
-## applicatin.properties
+## application.properties
 
-```
+```sh
 keycloak.auth-server-url=http://localhost:8080/auth
 keycloak.realm=springboot-test
 keycloak.resource=login-app

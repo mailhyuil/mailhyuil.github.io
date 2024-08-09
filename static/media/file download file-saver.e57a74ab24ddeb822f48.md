@@ -1,4 +1,4 @@
-# nodejs file-saver
+# front file download file-saver
 
 > 파일 저장 같은 기능을 할 수 있는 라이브러리
 
@@ -14,5 +14,6 @@ npm i -D @types/file-saver
 ```js
 import { saveAs } from 'file-saver';
 
+saveAs(url, 'pdf-export.pdf');
 saveAs(blob as Blob, 'pdf-export.pdf');
 ```
