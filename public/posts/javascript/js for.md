@@ -1,39 +1,34 @@
 # js for
 
-## forEach
+## for (const key in obj)
 
-> Array 객체에서만 사용 가능
-
-```
-arr.forEach((element, index) => {
-    console.log(`${index} = ${element}`);
-});
-```
-
-## for in
-
-> 객체의 속성들을 반복하여 작업을 수행
+> 객체의 key를 순회 (배열도 객체이기 때문에 사용 가능)
 >
-> > 객체의 모든 열거 가능한 속성에 대해 반복
+> > key in obj 를 생각
 
-```
-(value, key) in obj
+```js
+for (const key in obj) {
+  console.log(`${key} = ${obj[key]}`);
+}
 ```
 
-```
+```js
+// array의 key는 index이기 때문에
 for(const index in arr) {
     console.log(`${index} = ${arr[index]}`);
 }​
 ```
 
-## for of
+## for (const value of iterable)
 
-> 컬렉션 전용 반복 구문
+> 컬렉션 전용 반복 구문 (Array, Map, Set, String, TypedArray, arguments, NodeList 등)
 >
 > > [Symbol.iterator] 속성을 가지는 컬렉션 전용
+> >
+> > Object는 Symbol.iterator 속성을 가지지 않음
 
-```
-for(const [ index, element ] of elements) {
-    console.log(`${index} = ${element}`);
+```js
+for (const [index, element] of elements) {
+  console.log(`${index} = ${element}`);
 }
 ```
