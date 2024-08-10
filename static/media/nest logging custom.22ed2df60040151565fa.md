@@ -1,4 +1,4 @@
-# nest LoggerService
+# nest logging custom
 
 ## 구현
 
@@ -6,7 +6,7 @@
 import { LoggerService } from "@nestjs/common";
 import * as fs from "fs";
 
-export class EmojiLogger implements LoggerService {
+export class CustomLoggerService implements LoggerService {
   log(message: string) {
     this.writeToFile("📢 " + message);
   }
@@ -27,7 +27,7 @@ export class EmojiLogger implements LoggerService {
   private writeToFile(message: string) {
     const logFilePath = "log.txt";
 
-    fs.appendFile(logFilePath, message + "\n", (err) => {
+    fs.appendFile(logFilePath, message + "\n", err => {
       if (err) {
         console.error("Error writing to log file:", err);
       }
@@ -40,6 +40,6 @@ export class EmojiLogger implements LoggerService {
 
 ```ts
 const app = await NestFactory.create(AppModule, {
-  logger: new EmojiLogger(),
+  logger: new CustomLoggerService(),
 });
 ```

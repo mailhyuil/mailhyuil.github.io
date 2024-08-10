@@ -21,8 +21,11 @@ interface UserType {
 
 // 모든 키를 가지고 있는지 확인하는 방법
 function isUserDto(arg: any): arg is UserType {
-  const keys: (keyof UserType)[] = Object.keys(arg) as (keyof UserType)[];
-  return keys.every((key) => key in arg);
+  const keys = Object.keys(arg);
+  return keys.every(
+    key =>
+      key in ["id", "username", "realname", "email", "password", "createdAt", "updatedAt", "blockedAt", "deletedAt"],
+  );
 }
 
 // flag만 하나 선택해서 확인하는 방법

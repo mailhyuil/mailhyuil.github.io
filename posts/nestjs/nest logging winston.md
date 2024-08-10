@@ -29,7 +29,7 @@ const { combine, timestamp, printf } = winston.format;
 
 const logDir = "logs"; // logs 디렉토리 하위에 로그 파일 저장
 
-const logFormat = printf((info) => {
+const logFormat = printf(info => {
   return `${info.timestamp} ${info.level}: ${info.message}`;
 });
 
@@ -71,7 +71,7 @@ const localTransports = () => [
       utilities.format.nestLike("APP", {
         prettyPrint: true, // nest에서 제공하는 옵션. 로그 가독성을 높여줌
         colors: true, // 로그에 색깔을 넣어서 출력
-      })
+      }),
     ),
   }),
 ];
@@ -85,14 +85,14 @@ const winstonLogger = WinstonModule.createLogger({
     timestamp({
       format: "YYYY-MM-DD HH:mm:ss",
     }),
-    logFormat
+    logFormat,
   ),
   transports: process.env["NODE_ENV"] === "production" ? productionTransports() : localTransports(),
 });
 
 // morgan winston 설정
 const stream = {
-  write: (message) => {
+  write: message => {
     winstonLogger.log(message);
   },
 };
