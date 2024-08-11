@@ -8,9 +8,17 @@
 
 ## RESTless API
 
-> 서버가 다운되지 않는 한 모든 API 요청에 "200 OK"로 응답한다.
+> 서버가 다운되지 않는 한 모든 API 요청에 "200 OK"로 응답한다. 응답 결과는 응답 본문의 헤더를 참고합니다.
 >
-> > 응답 결과는 응답 본문의 헤더를 참고합니다.
+> > Soft Error 방식
+
+## 장점
+
+```txt
+Transport(HTTP Protocol)와 Payload(Return Value)를 분리함으로써 둘간의 의존성을 줄일 수 있다.
+
+Http Status Code는 너무 Opinion Based이다. (e.g. 누군가는 search 결과가 없을 때 404를 반환하고, 누군가는 200을 반환한다.)
+```
 
 ### 성공 200 OK
 
