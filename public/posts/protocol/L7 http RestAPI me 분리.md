@@ -25,8 +25,8 @@
 })
 @ApiBody({ type: UpdateMemberDTO })
 @ApiOkResponse({ type: UserDTO })
-async updateMemberMe(@Body() body: UpdateMemberDTO, @GetUser() user: User) {
-  return await this.userService.updateMember(user.id, body);
+async updateMe(@Body() body: UpdateMemberDTO, @GetUser() user: User) {
+  return await this.userService.updateMe(body, user.id);
 }
 
 @Auth(Role.ADMIN)
@@ -36,7 +36,7 @@ async updateMemberMe(@Body() body: UpdateMemberDTO, @GetUser() user: User) {
 })
 @ApiBody({ type: UpdateMemberDTO })
 @ApiOkResponse({ type: UserDTO })
-async updateMember(@Param('id') id: string, @Body() body: UpdateMemberDTO) {
-  return await this.userService.updateMember(id, body);
+async update(@Param('id') id: string, @Body() body: UpdateMemberDTO) {
+  return await this.userService.update(id, body);
 }
 ```
