@@ -4,9 +4,9 @@
 >
 > > 종속된 entity를 뒤에 붙이자
 
-```
-/users # findAllUsers
-/users/:id # findUserById
-/users/:id/posts # findAllPostByUserId
+```txt
+/users                   # findAllUsers
+/users/:id               # findUserById
+/users/:id/posts         # findAllPostByUserId
 /users/:id/posts/:postId # findPostOfUserById
 ```
