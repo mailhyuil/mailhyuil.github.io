@@ -28,7 +28,14 @@ for(const index in arr) {
 > > Object는 Symbol.iterator 속성을 가지지 않음
 
 ```js
-for (const [index, element] of elements) {
-  console.log(`${index} = ${element}`);
+const arr = [1, 2, 3, 4];
+
+for (const value of arr) {
+  console.log(`${value}`);
+}
+
+// iterable의 entries() 메서드를 사용하여 index와 value를 동시에 사용
+for (const [index, value] of arr.entries()) {
+  console.log(`${i}:${value}`);
 }
 ```
