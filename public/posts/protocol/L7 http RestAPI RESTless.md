@@ -17,7 +17,7 @@
 ```txt
 Transport(HTTP Protocol)와 Payload(Return Value)를 분리함으로써 둘간의 의존성을 줄일 수 있다.
 
-Http Status Code는 너무 Opinion Based이다. (e.g. 누군가는 search 결과가 없을 때 404를 반환하고, 누군가는 200을 반환한다.)
+Http Status Code는 너무 Opinion-Based이다. (e.g. 누군가는 search 결과가 없을 때 404를 반환하고, 누군가는 200을 반환한다.)
 ```
 
 ### 성공 200 OK
