@@ -46,3 +46,11 @@ import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
   },
 },
 ```
+
+## image.component.html
+
+```html
+<div class="relative w-auto h-full overflow-hidden">
+  <img class="absolute object-cover" [ngSrc]="src() || 'public/svg/placeholder.svg'" fill priority />
+</div>
+```

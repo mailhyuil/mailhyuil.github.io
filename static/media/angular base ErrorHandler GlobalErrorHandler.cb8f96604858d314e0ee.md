@@ -4,11 +4,12 @@
 >
 > > HttpClient에서 발생하는 HttpErrorResponse는 Error를 상속하지 않아서 잡지않는다.
 
-## global-error-handler.ts
+## global-error.handler.ts
 
 ```ts
+import { ToastService } from "@/common";
 import { ErrorHandler, inject, Injectable } from "@angular/core";
-import { ToastService } from "@lcrs/common";
+import { UserFriendlyError } from "./user-friendly.error";
 
 @Injectable({
   providedIn: "root",
@@ -19,6 +20,16 @@ export class GlobalErrorHandler implements ErrorHandler {
     if (error instanceof UserFriendlyError) {
       this.toastService.openDanger(error.message);
     }
+  }
+}
+```
+
+## user-friendly.error.ts
+
+```ts
+export class UserFriendlyError extends Error {
+  constructor(message: string) {
+    super(message);
   }
 }
 ```
