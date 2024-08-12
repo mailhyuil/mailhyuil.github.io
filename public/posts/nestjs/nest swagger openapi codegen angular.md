@@ -13,37 +13,56 @@ npm i json-schema-ref-parser
 ng-openapi-gen --input my-api.yaml --output my-app/src/app/api
 ```
 
-## nestjs main.ts
+## server/open-api/init-openapi.ts
 
 > swagger 문서를 code로 생성
 
 ```ts
+import { INestApplication, Logger } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { writeFile } from "fs";
 import $RefParser from "json-schema-ref-parser";
 import { NgOpenApiGen } from "ng-openapi-gen";
+import { resolve } from "path";
+import { AppModule } from "../src/app/app.module";
 
-/** OpenAPI */
-const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
-const document = SwaggerModule.createDocument(app, swaggerConfig);
-SwaggerModule.setup("api/v1/document", app, document);
+export async function initOpenApi(app?: INestApplication, port?: number | string) {
+  if (!app) {
+    app = await NestFactory.create(AppModule);
+  }
+  if (!port) {
+    port = process.env.SERVER_PORT || 3000;
+  }
+  /** OpenAPI */
+  const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
 
-const openApiPath = join(__dirname, "./assets/openapi.json");
-writeFile(openApiPath, JSON.stringify(document), () => {
-  Logger.log(`✅ openapi.json 파일을 생성했습니다.`);
-});
+  const document = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup("api/v1/document", app, document);
 
-const openApiOptions = {
-  input: openApiPath,
-  output: "api/src/lib",
-  indexFile: true,
-};
+  const openApiPath = resolve(__dirname, "openapi.json");
+  writeFile(openApiPath, JSON.stringify(document), () => {
+    Logger.log(`✅ openapi.json 파일을 생성했습니다. ${openApiPath}`);
+  });
 
-const RefParser = new $RefParser.default();
-const openApi = await RefParser.bundle(openApiOptions.input, {
-  dereference: { circular: false },
-});
+  const openApiOptions = {
+    input: openApiPath,
+    output: "api/src/lib",
+    indexFile: true,
+  };
 
-const ngOpenGen = new NgOpenApiGen(openApi, openApiOptions);
-ngOpenGen.generate();
+  const RefParser = new $RefParser.default();
+  const openApi = await RefParser.bundle(openApiOptions.input, {
+    dereference: { circular: false },
+  });
+
+  try {
+    const ngOpenGen = new NgOpenApiGen(openApi, openApiOptions);
+    ngOpenGen.generate();
+  } catch (error) {
+    Logger.error(error);
+  }
+}
 ```
 
 ## tsconfig.base.json

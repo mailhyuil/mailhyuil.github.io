@@ -13,150 +13,399 @@ JWT_REFRESH_TOKEN_SECRET=VERY_SECRET_REFRESH_TOKEN
 JWT_REFRESH_TOKEN_EXPIRATION_TIME=30d
 ```
 
-## UserService
-
-```js
-import { Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
-
-@Injectable()
-export class UserService {
-  constructor(private readonly prisma:PrismaService){}
-  async setCurrentRefreshToken(refreshToken: string, userId: string) {
-
-    const currentHashedRefreshToken = await bcrypt.hash(refreshToken, 10);
-
-    this.prisma.user.update({
-      where: { id: userId },
-      data: { refreshToken: currentHashedRefreshToken }
-    })
-  }
-}
-```
-
-## AuthController
+## auth.controller.ts
 
 ```js
 import {
-  Req,
+  Body,
   Controller,
-  HttpCode,
+  Get,
   Post,
-  UseGuards,
-  ClassSerializerInterceptor, UseInterceptors,
+  Req,
+  Res,
+  UnauthorizedException,
 } from '@nestjs/common';
+import {
+  ApiBody,
+  ApiNoContentResponse,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
+import { type Request, type Response } from 'express';
+import { LoginDTO } from './auth.dto';
 import { AuthService } from './auth.service';
+import { accessTokenOptions, refreshTokenOptions } from './cookie.options';
 
-@Controller('auth')
+@ApiTags('Auth')
+@Controller({ path: 'auth', version: '1' })
 export class AuthController {
-  constructor(
-    private readonly authService: AuthService
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
-  @Auth()
   @Post('login')
-  async login(@Body() body: LoginDto, @GetUser() user: User, @Res() res: Response) {
-    const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.id);
-    const refreshTokenCookie = this.authService.getCookieWithJwtRefreshToken(user.id);
-    await this.usersService.setCurrentRefreshToken(refreshToken, user.id);
-    res.setHeader('Set-Cookie', [accessTokenCookie, refreshTokenCookie]);
-    return user;
+  @ApiOperation({
+    summary: '로그인',
+  })
+  @ApiBody({ type: LoginDTO })
+  @ApiNoContentResponse()
+  async login(
+    @Body() body: LoginDTO,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const { accessToken, refreshToken, xAccessToken, xRefreshToken } =
+      await this.authService.login(body);
+    res.cookie('X-Authorization', xAccessToken, {
+      ...accessTokenOptions,
+    });
+    res.cookie('X-RefreshToken', xRefreshToken, {
+      ...refreshTokenOptions,
+    });
+    res.cookie('Authorization', accessToken, {
+      ...accessTokenOptions,
+      httpOnly: true,
+    });
+    res.cookie('RefreshToken', refreshToken, {
+      ...refreshTokenOptions,
+      httpOnly: true,
+    });
+  }
+
+  @Get('logout')
+  @ApiOperation({
+    summary: '로그아웃',
+  })
+  @ApiNoContentResponse()
+  async logout(@Res({ passthrough: true }) res: Response) {
+    res.clearCookie('Authorization');
+    res.clearCookie('X-Authorization');
+    res.clearCookie('RefreshToken');
+    res.clearCookie('X-RefreshToken');
+  }
+
+  @Get('refresh')
+  @ApiOperation({
+    summary: '토큰 재발급',
+  })
+  @ApiNoContentResponse()
+  async getAccessTokenByRefreshToken(
+    @Req() req: Request,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const refreshToken = req.cookies['RefreshToken'];
+    const xRefreshToken = req.cookies['X-RefreshToken'];
+
+    const result = await this.authService.getAccessTokenByRefreshToken(
+      refreshToken,
+      xRefreshToken,
+    );
+
+    if (result.ok === false) {
+      res.clearCookie('Authorization');
+      res.clearCookie('X-Authorization');
+      res.clearCookie('RefreshToken');
+      res.clearCookie('X-RefreshToken');
+      if (result.error instanceof UnauthorizedException) {
+        throw result.error;
+      }
+      throw result.error;
+    }
+
+    const { accessToken, xAccessToken } = result.value;
+
+    res.cookie('Authorization', accessToken, {
+      ...accessTokenOptions,
+      httpOnly: true,
+    });
+    res.cookie('X-Authorization', xAccessToken, {
+      ...accessTokenOptions,
+    });
   }
 }
 ```
 
-## AuthService
+## auth.service.ts
 
 ```js
-import { Injectable } from '@nestjs/common';
+import { UserNotFoundException } from '@/server/errors/exception';
+import {
+  Inject,
+  Injectable,
+  Logger,
+  OnModuleInit,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserService } from '../users/users.service';
-import TokenPayload from './tokenPayload.interface';
-
+import { PrismaService } from 'apps/server/src/prisma/prisma.service';
+import bcrypt from 'bcryptjs';
+import { plainToInstance } from 'class-transformer';
+import { PrismaError } from 'prisma-error-enum';
+import {
+  GetAccessTokenByRefreshTokenResult,
+  LoginDTO,
+  LoginResponseDTO,
+} from './auth.dto';
+import { AccessTokenService, RefreshTokenService } from './token/token.token';
 @Injectable()
-export class AuthService {
+export class AuthService implements OnModuleInit {
+  private readonly logger = new Logger(AuthService.name);
   constructor(
-    private readonly userService: UserService,
-    private readonly jwtService: JwtService,
+    private readonly prisma: PrismaService,
+    @Inject(AccessTokenService)
+    private readonly accessTokenService: JwtService,
+    @Inject(RefreshTokenService)
+    private readonly refreshTokenService: JwtService,
   ) {}
-  public getCookieWithJwtAccessToken(userId: number) {
-    const payload: TokenPayload = { userId };
-    const token = this.jwtService.sign(payload, {
-      secret: process.env['JWT_ACCESS_TOKEN_SECRET'],
-      expiresIn: `${process.env['JWT_ACCESS_TOKEN_EXPIRATION_TIME']}s`
-    });
-    return `Authentication=${token}; HttpOnly; Path=/; Max-Age=${process.env['JWT_ACCESS_TOKEN_EXPIRATION_TIME']}`;
+
+  onModuleInit() {
+    this.initAdmin();
   }
 
-  public getCookieWithJwtRefreshToken(userId: number) {
-    const payload: TokenPayload = { userId };
-    const token = this.jwtService.sign(payload, {
-      secret: process.env['JWT_REFRESH_TOKEN_SECRET'],
-      expiresIn: `${process.env['JWT_REFRESH_TOKEN_EXPIRATION_TIME']}s`
-    });
-    const cookie = `Refresh=${token}; HttpOnly; Path=/; Max-Age=${process.env['JWT_REFRESH_TOKEN_EXPIRATION_TIME']}`;
-    return {
-      cookie,
-      token
+  async initAdmin() {
+    const username = process.env.ADMIN_USERNAME;
+    if (!username) {
+      throw new Error('ADMIN_USERNAME 환경변수가 정의되지 않았습니다.');
     }
+    const password = process.env.ADMIN_PASSWORD;
+    if (!password) {
+      throw new Error('ADMIN_PASSWORD 환경변수가 정의되지 않았습니다.');
+    }
+    const found = await this.prisma.user.findFirst({
+      where: {
+        roles: {
+          has: 'ADMIN',
+        },
+      },
+    });
+    if (!found) {
+      await this.prisma.user.create({
+        data: {
+          username,
+          password: bcrypt.hashSync(password),
+          name: 'admin',
+          birthDate: new Date(),
+          roles: ['ADMIN'],
+          tel: '010-0000-0000',
+          authentications: {
+            create: {
+              provider: 'LOCAL',
+            },
+          },
+        },
+      });
+      this.logger.log('Admin 계정 생성 완료');
+    }
+  }
+
+  async login(data: LoginDTO) {
+    const { username, password } = data;
+    const res = await this.prisma.$transaction(async (tx) => {
+      const found = await tx.user
+        .findUniqueOrThrow({
+          where: {
+            username,
+          },
+          select: {
+            id: true,
+            password: true,
+            authentications: {
+              where: {
+                provider: 'LOCAL',
+              },
+            },
+          },
+        })
+        .catch((error) => {
+          if (error.code === PrismaError.RecordsNotFound) {
+            throw new UserNotFoundException({ username: data.username }, error);
+          }
+          throw error;
+        });
+
+      if (!bcrypt.compareSync(password, found.password)) {
+        throw new UnauthorizedException('사용자 정보를 다시 확인해주세요.');
+      }
+      const accessToken = this.accessTokenService.sign({ id: found.id });
+      const xAccessToken = this.accessTokenService.sign({ verified: true });
+      const refreshToken = this.refreshTokenService.sign({ id: found.id });
+      const xRefreshToken = this.refreshTokenService.sign({ verified: true });
+      await tx.authentication.update({
+        where: {
+          userId: found.id,
+          provider: 'LOCAL',
+        },
+        data: {
+          accessToken,
+          refreshToken: bcrypt.hashSync(refreshToken),
+        },
+      });
+      return {
+        accessToken,
+        xAccessToken,
+        refreshToken,
+        xRefreshToken,
+      };
+    });
+    return plainToInstance(LoginResponseDTO, res);
+  }
+
+  async getAccessTokenByRefreshToken(
+    refreshToken: string,
+    xRefreshToken: string,
+  ): Promise<GetAccessTokenByRefreshTokenResult<UnauthorizedException>> {
+    if (!refreshToken || !xRefreshToken) {
+      return {
+        ok: false,
+        error: new UnauthorizedException('토큰이 존재하지 않습니다.'),
+      };
+    }
+    // ! xRefreshToken 검증
+    try {
+      const payload = this.refreshTokenService.verify(xRefreshToken);
+      if (!payload.verified) {
+        return {
+          ok: false,
+          error: new UnauthorizedException('2차 토큰이 유효하지 않습니다.'),
+        };
+      }
+    } catch (error) {
+      this.logger.error(error);
+      return {
+        ok: false,
+        error: new UnauthorizedException('2차 토큰이 유효하지 않습니다.'),
+      };
+    }
+    // ! refreshToken 검증
+    let payload;
+    try {
+      payload = this.refreshTokenService.verify(refreshToken);
+    } catch (error) {
+      return {
+        ok: false,
+        error: new UnauthorizedException('토큰이 유효하지 않습니다.', {
+          cause: error,
+        }),
+      };
+    }
+    // ! payload.id로 유저 조회
+    const user = await this.prisma.user.findUnique({
+      where: { id: payload.id },
+      select: {
+        id: true,
+        authentications: {
+          where: {
+            provider: 'LOCAL',
+          },
+          select: {
+            refreshToken: true,
+          },
+        },
+      },
+    });
+
+    if (!user) {
+      return {
+        ok: false,
+        error: new UnauthorizedException('유저가 존재하지 않습니다.'),
+      };
+    }
+
+    const userRefreshToken = user.authentications[0].refreshToken;
+    if (!userRefreshToken) {
+      return {
+        ok: false,
+        error: new UnauthorizedException(
+          '유저의 리프레시 토큰이 존재하지 않습니다.',
+        ),
+      };
+    }
+
+    if (!bcrypt.compareSync(refreshToken, userRefreshToken)) {
+      return {
+        ok: false,
+        error: new UnauthorizedException('토큰이 매칭되지 않았습니다.'),
+      };
+    }
+
+    const accessToken = this.accessTokenService.sign({ id: user.id });
+    const xAccessToken = this.accessTokenService.sign({ verified: true });
+    return {
+      ok: true,
+      value: {
+        accessToken,
+        xAccessToken,
+      },
+    };
   }
 }
 ```
 
-## guard
+## aut.guard.ts
 
 ```ts
-import { Injectable, ExecutionContext } from "@nestjs/common";
-import { AuthGuard } from "@nestjs/passport";
+import { CanActivate, ExecutionContext, Inject, Injectable } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
+import { Request, Response } from "express";
+import { ClsService } from "nestjs-cls";
+import { PrismaService } from "../../../prisma/prisma.service";
+import { InvalidTokenException } from "../auth.exception";
+import { AccessTokenService } from "../token/token.token";
 
 @Injectable()
-export class JwtAuthGuard extends AuthGuard("jwt") {
-  canActivate(context: ExecutionContext) {
-    // 추가적인 인증 로직을 적용할 수 있습니다.
-    return super.canActivate(context);
-  }
+export class AuthGuard implements CanActivate {
+  constructor(
+    @Inject(AccessTokenService) private readonly accessToken: JwtService,
+    private readonly prisma: PrismaService,
+    private readonly cls: ClsService
+  ) {}
 
-  handleRequest(err: any, user: any, info: any) {
-    // 에러 처리를 위한 로직을 추가할 수 있습니다.
-    if (err || !user) {
-      throw err || new UnauthorizedException();
+  async canActivate(context: ExecutionContext) {
+    const req: Request = context.switchToHttp().getRequest();
+    const res: Response = context.switchToHttp().getResponse();
+    const cookies = req.cookies;
+    const token = cookies["Authorization"];
+    const xToken = cookies["X-Authorization"];
+
+    if (!xToken) {
+      res.clearCookie("Authorization");
+      res.clearCookie("X-Authorization");
+      res.clearCookie("RefreshToken");
+      res.clearCookie("X-RefreshToken");
+      throw new InvalidTokenException();
     }
-    return user;
-  }
 
-  getRequest(context: ExecutionContext) {
-    const ctx = context.switchToHttp();
-    const request = ctx.getRequest();
-    return request;
-  }
-
-  getTokenFromCookie(request: any): string | null {
-    if (request && request.cookies) {
-      return request.cookies["Authentication"];
-    }
-    if
-    return null;
-  }
-
-  getRefreshTokenFromCookie(request: any): string | null {
-    if (request && request.cookies) {
-      return request.cookies["Refresh"];
-    }
-    return null;
-  }
-
-  async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = this.getRequest(context);
-    const token = this.getTokenFromCookie(request);
-    if (!token) {
-      const refreshToken = this.getRefreshTokenFromCookie(request);
-      if (!refreshToken) {
-        return false;
+    try {
+      const { verified } = this.accessToken.verify(xToken);
+      if (!verified) {
+        throw new InvalidTokenException();
       }
+    } catch (error) {
+      throw new InvalidTokenException();
     }
 
-    // JWT 검증을 수행하고 유효한지 확인하는 로직
-    request.jwtToken = token; // 옵션: 요청에 토큰을 저장할 수 있습니다.
+    if (!token) {
+      throw new InvalidTokenException();
+    }
+
+    let id = "";
+    try {
+      const payload = this.accessToken.verify(token);
+      if (!payload.id) {
+        throw new InvalidTokenException();
+      }
+      id = payload.id;
+    } catch (e) {
+      throw new InvalidTokenException();
+    }
+
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+    });
+
+    if (!user) {
+      throw new InvalidTokenException();
+    }
+
+    req["user"] = user;
+    this.cls.set("user", user);
 
     return true;
   }

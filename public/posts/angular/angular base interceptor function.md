@@ -13,7 +13,7 @@ export function HttpInterceptorFn(req: HttpRequest<unknown>, next: HttpHandlerFn
 }
 ```
 
-## appConfig
+## app.config.ts
 
 ```ts
 export const appConfig: ApplicationConfig = {

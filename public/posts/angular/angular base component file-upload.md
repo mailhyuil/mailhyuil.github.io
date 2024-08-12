@@ -3,19 +3,18 @@
 ## ts
 
 ```ts
-import { CommonModule } from "@angular/common";
-import { Component, Input, booleanAttribute, inject } from "@angular/core";
-import { ToastService } from "@lcrs/common";
+import { AttachmentDto } from "@/api";
+import { FileSizePipe, ToastService, ValueAccessorDirective } from "@/common";
+import { CommonModule, NgOptimizedImage } from "@angular/common";
+import { Component, EventEmitter, Input, Output, booleanAttribute, inject } from "@angular/core";
 import { LepiHint, LepiIcon } from "@lepisode-ui/components";
-import { FileSizePipe } from "../../pipes/file-size.pipe";
-import { ValueAccessorDirective } from "../value-accessor.directive";
 
 @Component({
   selector: "app-file-upload",
   templateUrl: "./file-upload.component.html",
   styleUrls: ["./file-upload.component.scss"],
   standalone: true,
-  imports: [CommonModule, FileSizePipe, LepiIcon, LepiHint],
+  imports: [CommonModule, FileSizePipe, LepiIcon, LepiHint, NgOptimizedImage],
   hostDirectives: [ValueAccessorDirective],
 })
 export default class FileUploadComponent {
@@ -25,10 +24,15 @@ export default class FileUploadComponent {
   @Input() hint?: string;
   @Input() maxLength?: number;
   @Input({ transform: booleanAttribute }) required = false;
-  toast = inject(ToastService);
+
+  @Input() currentFiles?: AttachmentDto[];
+  @Output() handleDeletedUrl = new EventEmitter<string>();
+  toastService = inject(ToastService);
   multiple = false;
   uploadingUrl?: string;
   uploadingUrls: string[] = [];
+  isActive = false;
+
   constructor(public valueAccessor: ValueAccessorDirective<File | File[] | undefined>) {
     valueAccessor.value.subscribe((value) => {
       if (!value) return;
@@ -66,22 +70,20 @@ export default class FileUploadComponent {
     this.valueAccessor.touchedChange(true);
   }
 
-  isActive = false;
   onDrop(event: any) {
     event.preventDefault();
     event.stopPropagation();
-    const files: FileList = event.dataTransfer.files;
+    const files = event.dataTransfer.files;
     const isValidated = this.validate(files);
     if (!isValidated) return;
     if (this.isFileArray(this.value)) {
       this.isActive = false;
-      this.value = Array.from(files);
+      this.value = Array.from([...this.value, ...files]);
       this.setObjectUrls(this.value);
       this.valueAccessor.valueChange(this.value);
       this.valueAccessor.touchedChange(true);
       return;
     }
-
     this.isActive = false;
     const file = files[0];
     if (!file) return;
@@ -109,7 +111,7 @@ export default class FileUploadComponent {
     this.valueAccessor.touchedChange(true);
   }
 
-  private setObjectUrl(file: File) {
+  setObjectUrl(file: File) {
     if (!file) {
       this.uploadingUrl = undefined;
       return;
@@ -117,7 +119,7 @@ export default class FileUploadComponent {
     this.uploadingUrl = URL.createObjectURL(file);
   }
 
-  private setObjectUrls(files: File[]) {
+  setObjectUrls(files: File[]) {
     if (!files) {
       this.uploadingUrls = [];
       return;
@@ -136,16 +138,18 @@ export default class FileUploadComponent {
     ev.stopPropagation();
     this.isActive = false;
   }
+
   private validate(files: FileList | null) {
     if (this.isFileArray(this.value)) {
-      if (this.maxLength && files && files.length + this.value.length > this.maxLength) {
-        this.toast.openDanger(`최대 ${this.maxLength}개까지 업로드 가능합니다.`);
+      const currentFileCount = this.currentFiles?.length ?? 0;
+      if (this.maxLength && files && files.length + currentFileCount + this.value.length > this.maxLength) {
+        this.toastService.openDanger(`최대 ${this.maxLength}개까지 업로드 가능합니다.`);
         return false;
       }
     }
 
-    if (this.maxLength && files && files.length + (this.value ? 1 : 0) > this.maxLength) {
-      this.toast.openDanger(`최대 ${this.maxLength}개까지 업로드 가능합니다.`);
+    if (this.isFile(this.value) && this.maxLength && files && files.length + (this.value ? 1 : 0) > this.maxLength) {
+      this.toastService.openDanger(`최대 ${this.maxLength}개까지 업로드 가능합니다.`);
       return false;
     }
 
@@ -159,6 +163,11 @@ export default class FileUploadComponent {
   isFile(value: File | File[] | undefined): value is File {
     return value instanceof File;
   }
+
+  emitDeleteFile(id: string, index: number) {
+    this.currentFiles?.splice(index, 1);
+    this.handleDeletedUrl.emit(id);
+  }
 }
 ```
 
@@ -168,11 +177,11 @@ export default class FileUploadComponent {
 <div class="flex flex-col gap-2">
   <div class="flex items-center gap-2">
     <p class="text-sm font-bold" *ngIf="label">
-      {{ label }} @if(required){
+      {{ label }} @if (required) {
       <span class="text-primary">*</span>
       }
     </p>
-    @if(hint){
+    @if (hint) {
     <lepi-hint>{{ hint }}</lepi-hint>
     }
   </div>
@@ -191,24 +200,21 @@ export default class FileUploadComponent {
     </div>
   </label>
 
-  <!--  -->
-  @if(value && isFileArray(value) && uploadingUrls){
-  <!--  -->
-  @for(v of value; track $index){
+  @if (value && isFileArray(value) && uploadingUrls) { @for (v of currentFiles; track v.id) {
   <div class="flex gap-5 p-5 overflow-hidden text-sm text-gray-500 border cursor-pointer rounded-xl">
-    @if(v.type.includes('image') ){
-    <img class="object-cover w-full h-12" [src]="uploadingUrls[$index]" />
-    }
-    <!--  -->
-    @if(v.type.includes('video') ){
-    <video class="object-cover w-full h-12" [src]="uploadingUrls[$index]"></video>
+    @if (v.type.includes('image')) {
+    <div class="relative w-full h-12 overflow-hidden">
+      <img class="absolute object-cover" [ngSrc]="v.url" fill priority />
+    </div>
+    } @if (v.type.includes('video')) {
+    <video class="object-cover w-full h-12" [src]="v.url"></video>
     }
     <div class="grid w-full grid-cols-3 grid-rows-1 gap-1">
       <div class="flex items-ceneter">
         <p class="text-xs line-clamp-1">파일 이름: {{ v.name }}</p>
       </div>
       <div class="flex items-ceneter">
-        <p class="text-xs line-clamp-1">사이즈: {{ v.size || 0 | fileSize }}</p>
+        <p class="text-xs line-clamp-1"> 사이즈: {{ v.size || 0 | fileSize }} </p>
       </div>
       <div class="flex items-ceneter">
         <p class="text-xs line-clamp-1">타입: {{ v.type }}</p>
@@ -217,21 +223,40 @@ export default class FileUploadComponent {
     <div class="flex items-center justify-center ml-auto">
       <lepi-icon
         class="transition-all bg-red-500 size-7 hover:scale-110"
-        (click)="remove(v, uploadingUrls[$index])"
+        (click)="emitDeleteFile(v.url, $index)"
         name="heroicons:x-circle-16-solid"></lepi-icon>
     </div>
   </div>
-  }
-  <!--  -->
-  }
-  <!--  -->
-  @if(value && isFile(value) && uploadingUrl){
+  } @for (v of value; track v.text) {
   <div class="flex gap-5 p-5 overflow-hidden text-sm text-gray-500 border cursor-pointer rounded-xl">
-    @if(value.type.includes('image') ){
-    <img class="object-cover w-full h-12" [src]="uploadingUrl" />
+    @if (v.type.includes('image')) {
+    <img class="object-cover w-full h-12" [src]="uploadingUrls[$index]" />
+    } @if (v.type.includes('video')) {
+    <video class="object-cover w-full h-12" [src]="uploadingUrls[$index]"></video>
     }
-    <!--  -->
-    @if(value.type.includes('video') ){
+    <div class="grid w-full grid-cols-3 grid-rows-1 gap-1">
+      <div class="flex items-ceneter">
+        <p class="text-xs line-clamp-1">파일 이름: {{ v.name }}</p>
+      </div>
+      <div class="flex items-ceneter">
+        <p class="text-xs line-clamp-1"> 사이즈: {{ v.size || 0 | fileSize }} </p>
+      </div>
+      <div class="flex items-ceneter">
+        <p class="text-xs line-clamp-1">타입: {{ v.type }}</p>
+      </div>
+    </div>
+    <div class="flex items-center justify-center ml-auto">
+      <lepi-icon
+        class="transition-all bg-red-500 size-7 hover:scale-110"
+        (click)="remove(v, uploadingUrls[$index]!)"
+        name="heroicons:x-circle-16-solid"></lepi-icon>
+    </div>
+  </div>
+  } } @if (value && isFile(value) && uploadingUrl) {
+  <div class="flex gap-5 p-5 overflow-hidden text-sm text-gray-500 border cursor-pointer rounded-xl">
+    @if (value.type.includes('image')) {
+    <img class="object-cover w-full h-12" [src]="uploadingUrl" />
+    } @if (value.type.includes('video')) {
     <video class="object-cover w-full h-12" [src]="uploadingUrl"></video>
     }
     <div class="grid w-full grid-cols-3 grid-rows-1 gap-1">
