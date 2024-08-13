@@ -17,13 +17,18 @@ model Post {
 ## service
 
 ```ts
-pagination(cursor: { id: string; createdAt: Date }) {
+export class PostCursorDTO {
+  id: string;
+  createdAt: Date;
+}
+
+export function pagination(cursor: PostCursorDTO) {
   await this.prisma.user.findMany({
     cursor: {
       id_createdAt: cursor ? cursor : undefined,
     },
     orderBy: {
-      createdAt: 'desc',
+      createdAt: "desc",
     },
     take: 10, // 가져올 아이템 수
   });
