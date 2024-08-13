@@ -39,6 +39,7 @@ export class BusinessExceptionFilter implements ExceptionFilter {
       `
 MESSAGE: ${errorResponse.message}
 TIMESTAMP: ${errorResponse.timestamp}
+METHOD: ${req.method}
 PATH: ${errorResponse.path}
 ERROR: ${JSON.stringify(errorResponse.error)}
 STACK: ${stack}
@@ -55,7 +56,7 @@ CAUSE: ${cause}
 >
 > > response에 ERROR 객체가 아닌 string이 들어있다.
 > >
-> > > code: 9999
+> > > code: "-1"
 
 ```ts
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from "@nestjs/common";
@@ -81,7 +82,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       path: req.url,
       timestamp: new Date().toISOString(),
       error: {
-        code: 9999,
+        code: "-1",
         message: response,
       } as ERROR,
     };
@@ -92,6 +93,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       `
 MESSAGE: ${errorResponse.message}
 TIMESTAMP: ${errorResponse.timestamp}
+METHOD: ${req.method}
 PATH: ${errorResponse.path}
 ERROR: ${JSON.stringify(errorResponse.error)}
 STACK: ${stack}
@@ -106,7 +108,7 @@ CAUSE: ${cause}
 
 > BusinessException으로 잡지 못한 Prisma Error는 409 Conflict에러로 보내주기
 >
-> > code: 9998
+> > code: "-2"
 
 ```ts
 import { ArgumentsHost, Catch, HttpStatus, Logger } from "@nestjs/common";
@@ -131,7 +133,7 @@ export class PrismaErrorFilter extends BaseExceptionFilter {
       path: req.url,
       timestamp: new Date().toISOString(),
       error: {
-        code: 9998,
+        code: "-2",
         message,
         data,
       } as ERROR,
@@ -143,6 +145,7 @@ export class PrismaErrorFilter extends BaseExceptionFilter {
       `
 MESSAGE: ${errorResponse.message}
 TIMESTAMP: ${errorResponse.timestamp}
+METHOD: ${req.method}
 PATH: ${errorResponse.path}
 ERROR: ${JSON.stringify(errorResponse.error)}
 `
@@ -151,45 +154,51 @@ ERROR: ${JSON.stringify(errorResponse.error)}
 }
 ```
 
+## ValidationException
+
+> 유효성 검사에서 실패한 에러
+>
+> > code: "-3"
+
 ## error.ts
 
 ```ts
 export type ERROR = {
-  code: number | string;
+  code: string;
   message: string;
   data?: any;
 };
 
 export namespace ERROR {
   export const USER_NOT_FOUND: ERROR = {
-    code: 1001,
+    code: "0100",
     message: `유저를 찾지 못했습니다.`,
   };
   export const USER_ALREADY_EXISTS: ERROR = {
-    code: 1002,
+    code: "0101",
     message: `
 유저가 이미 존재합니다.
 아이디를 다시 확인하고 가입하려는 아이디가 이미 존재하는지 확인하십시오.
 `,
   };
   export const USER_CREATE_FAILED: ERROR = {
-    code: 1003,
+    code: "0102",
     message: "유저 생성에 실패했습니다.",
   };
   export const USER_UPDATE_FAILED: ERROR = {
-    code: 1004,
+    code: "0103",
     message: "유저 수정에 실패했습니다.",
   };
   export const NOTICE_NOT_FOUND: ERROR = {
-    code: 1005,
+    code: "0200",
     message: "공지사항을 찾을 수 없습니다.",
   };
   export const NOTICE_CREATE_FAILED: ERROR = {
-    code: 1006,
+    code: "0201",
     message: "공지사항 생성에 실패했습니다.",
   };
   export const NOTICE_UPDATE_FAILED: ERROR = {
-    code: 1007,
+    code: "0202",
     message: "공지사항 수정에 실패했습니다.",
   };
 }

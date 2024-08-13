@@ -3,30 +3,45 @@
 ## global-validation.pipe.ts
 
 ```ts
-import { HttpException, ValidationPipe } from "@nestjs/common";
+import { ValidationException } from "@/server/pipes/global-validation.pipe";
+import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
+import { Request, Response } from "express";
+import { ERROR } from "../error";
 
-export const GlobalValidationPipe = new ValidationPipe({
-  transformOptions: {
-    enableImplicitConversion: true,
-  },
-  transform: true,
-  whitelist: true,
-  enableDebugMessages: true,
-  exceptionFactory: (errors) => {
-    const message = errors
-      .flatMap((error) => (error.children?.length ? error.children : error))
-      .map((error) => {
-        const { property, constraints, value } = error;
-        const constraintValues = Object.values(constraints);
-        return { [property]: value, fail: constraintValues };
-      });
-    return new ValidationException(message);
-  },
-});
+@Catch(ValidationException)
+export class ValidationExceptionFilter implements ExceptionFilter {
+  private readonly logger = new Logger(ValidationExceptionFilter.name);
+  catch(error: ValidationException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const res = ctx.getResponse<Response>();
+    const req = ctx.getRequest<Request>();
+    const statusCode = error.getStatus();
+    const response = error.getResponse() as ERROR;
+    const message = error.message;
+    const cause = error.cause;
+    const stack = error.stack;
 
-export class ValidationException extends HttpException {
-  constructor(message: any) {
-    super(message, 400);
+    const errorResponse = {
+      statusCode,
+      message,
+      path: req.url,
+      timestamp: new Date().toISOString(),
+      error: response,
+    };
+
+    res.status(statusCode).json(errorResponse);
+
+    this.logger.error(
+      `
+  MESSAGE: ${errorResponse.message}
+  TIMESTAMP: ${errorResponse.timestamp}
+  METHOD: ${req.method}
+  PATH: ${errorResponse.path}
+  ERROR: ${JSON.stringify(errorResponse.error)}
+  STACK: ${stack}
+  CAUSE: ${cause}
+  `
+    );
   }
 }
 ```

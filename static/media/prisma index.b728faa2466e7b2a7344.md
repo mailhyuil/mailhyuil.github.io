@@ -8,6 +8,19 @@
 > > >
 > > > > 필드인덱스를 생성하여 검색을 하면, 우선 필드를 이용해서 PK를 찾고 다시 PK인덱스에서 검색해서 원하는 데이터를 찾는다.
 
+```prisma
+model User {
+  id        String     @id @default(cuid())
+  name      String
+  age       Int
+  sex       String
+  birthDate DateTime
+  identity  String
+  @@index([sex, identity])
+  @@index([sex, age(sort: Desc), birthDate])
+}
+```
+
 ## arguments
 
 ### length
@@ -25,16 +38,3 @@
 ### clustered
 
 > allows you to configure whether a constraint or index is clustered or non-clustered
-
-```
-model Example {
-  id    Int @id
-  value Int
-
-  @@index([value], type: Hash)
-}
-```
-
-```
-@@index([author, created_at(sort: Desc)])
-```
