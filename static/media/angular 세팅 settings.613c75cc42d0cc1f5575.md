@@ -15,9 +15,10 @@ npm i swiper
 
 npm i ngx-tiptap
 npm i @tiptap/starter-kit
-npm i @tiptap/extension-image
 npm i @tiptap/extension-text-align
 npm i @tiptap/extension-text-style
+npm i @tiptap/extension-image
+npm i tiptap-extension-resize-image
 
 npm i angulartics2
 
@@ -55,4 +56,16 @@ export const appConfig: ApplicationConfig = {
     },
   ],
 };
+```
+
+## tailwind.config.js
+
+```js
+
+```
+
+## root.scss
+
+```scss
+
 ```
