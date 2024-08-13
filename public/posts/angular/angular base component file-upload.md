@@ -19,13 +19,14 @@ import { LepiHint, LepiIcon } from "@lepisode-ui/components";
 })
 export default class FileUploadComponent {
   value?: File | File[];
+  @Input() currentFiles?: AttachmentDto[];
+  @Input() currentFile?: AttachmentDto;
   @Input() accept: string[] = [];
   @Input() label?: string;
   @Input() hint?: string;
   @Input() maxLength?: number;
   @Input({ transform: booleanAttribute }) required = false;
 
-  @Input() currentFiles?: AttachmentDto[];
   @Output() handleDeletedUrl = new EventEmitter<string>();
   toastService = inject(ToastService);
   multiple = false;
@@ -147,25 +148,31 @@ export default class FileUploadComponent {
         return false;
       }
     }
-
-    if (this.isFile(this.value) && this.maxLength && files && files.length + (this.value ? 1 : 0) > this.maxLength) {
-      this.toastService.openDanger(`최대 ${this.maxLength}개까지 업로드 가능합니다.`);
-      return false;
+    if (this.isFile(this.value)) {
+      if (this.maxLength && files && files.length + (this.currentFile ? 1 : 0) + (this.value ? 1 : 0) > this.maxLength) {
+        this.toastService.openDanger(`최대 ${this.maxLength}개까지 업로드 가능합니다.`);
+        return false;
+      }
     }
-
     return true;
   }
 
   isFileArray(value: File | File[] | undefined): value is File[] {
+    if (this.currentFiles) return true;
     return Array.isArray(value);
   }
 
   isFile(value: File | File[] | undefined): value is File {
+    if (this.currentFile) return true;
     return value instanceof File;
   }
 
-  emitDeleteFile(id: string, index: number) {
-    this.currentFiles?.splice(index, 1);
+  emitDeleteFile(id: string, index?: number) {
+    if (index) {
+      this.currentFiles?.splice(index, 1);
+    } else {
+      this.currentFile = undefined;
+    }
     this.handleDeletedUrl.emit(id);
   }
 }
@@ -200,7 +207,7 @@ export default class FileUploadComponent {
     </div>
   </label>
 
-  @if (value && isFileArray(value) && uploadingUrls) { @for (v of currentFiles; track v.id) {
+  @for (v of currentFiles; track v.id) {
   <div class="flex gap-5 p-5 overflow-hidden text-sm text-gray-500 border cursor-pointer rounded-xl">
     @if (v.type.includes('image')) {
     <div class="relative w-full h-12 overflow-hidden">
@@ -227,7 +234,7 @@ export default class FileUploadComponent {
         name="heroicons:x-circle-16-solid"></lepi-icon>
     </div>
   </div>
-  } @for (v of value; track v.text) {
+  } @if (value && isFileArray(value) && uploadingUrls) { @for (v of value; track v.text) {
   <div class="flex gap-5 p-5 overflow-hidden text-sm text-gray-500 border cursor-pointer rounded-xl">
     @if (v.type.includes('image')) {
     <img class="object-cover w-full h-12" [src]="uploadingUrls[$index]" />
@@ -252,7 +259,34 @@ export default class FileUploadComponent {
         name="heroicons:x-circle-16-solid"></lepi-icon>
     </div>
   </div>
-  } } @if (value && isFile(value) && uploadingUrl) {
+  } } @if (currentFile) {
+  <div class="flex gap-5 p-5 overflow-hidden text-sm text-gray-500 border cursor-pointer rounded-xl">
+    @if (currentFile.type.includes('image')) {
+    <div class="relative w-full h-12 overflow-hidden">
+      <img class="absolute object-cover" [ngSrc]="currentFile.url" fill priority />
+    </div>
+    } @if (currentFile.type.includes('video')) {
+    <video class="object-cover w-full h-12" [src]="currentFile.url"></video>
+    }
+    <div class="grid w-full grid-cols-3 grid-rows-1 gap-1">
+      <div class="flex items-ceneter">
+        <p class="text-xs line-clamp-1">파일 이름: {{ currentFile.name }}</p>
+      </div>
+      <div class="flex items-ceneter">
+        <p class="text-xs line-clamp-1"> 사이즈: {{ currentFile.size || 0 | fileSize }} </p>
+      </div>
+      <div class="flex items-ceneter">
+        <p class="text-xs line-clamp-1">타입: {{ currentFile.type }}</p>
+      </div>
+    </div>
+    <div class="flex items-center justify-center ml-auto">
+      <lepi-icon
+        class="transition-all bg-red-500 size-7 hover:scale-110"
+        (click)="emitDeleteFile(currentFile.url)"
+        name="heroicons:x-circle-16-solid"></lepi-icon>
+    </div>
+  </div>
+  } @if (value && isFile(value) && uploadingUrl) {
   <div class="flex gap-5 p-5 overflow-hidden text-sm text-gray-500 border cursor-pointer rounded-xl">
     @if (value.type.includes('image')) {
     <img class="object-cover w-full h-12" [src]="uploadingUrl" />
