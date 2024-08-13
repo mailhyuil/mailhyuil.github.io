@@ -28,13 +28,12 @@ npm i object-to-formdata
 npm i file-saver
 ```
 
-## appConfig.ts
+## app.config.ts
 
 ```ts
 import { ApplicationConfig, importProvidersFrom, APP_INITIALIZER } from "@angular/core";
 import { PreloadAllModules, provideRouter, withPreloading } from "@angular/router";
-import { ApiConfiguration } from "api/src/lib/api-configuration";
-import { ApiModule } from "./../../../../api/src/lib/api.module";
+import { ApiModule } from "@/api";
 import { appRoutes } from "./app.routes";
 
 export const appConfig: ApplicationConfig = {
@@ -47,7 +46,7 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideHttpClient(withInterceptors([HttpInterceptor])),
-    importProvidersFrom([ApiModule, ApiConfiguration]),
+    importProvidersFrom([ApiModule]),
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {
       provide: APP_INITIALIZER,
