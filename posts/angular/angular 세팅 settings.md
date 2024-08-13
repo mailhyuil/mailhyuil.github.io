@@ -22,6 +22,10 @@ npm i @tiptap/extension-text-style
 npm i angulartics2
 
 npm i @nextcss/color-tools
+
+npm i object-to-formdata
+
+npm i file-saver
 ```
 
 ## appConfig.ts
