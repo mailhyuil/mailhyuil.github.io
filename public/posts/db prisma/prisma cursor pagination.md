@@ -9,7 +9,7 @@ model Post {
   content    String
   createdAt  DateTime   @default(now()) @map("created_at")
   updatedAt  DateTime   @updatedAt @map("updated_at")
-  @@unique([id, createdAt])
+  @@unique([createdAt(sort: Desc), id])
   @@map("posts")
 }
 ```
@@ -25,7 +25,7 @@ export class PostCursorDTO {
 export function pagination(cursor: PostCursorDTO) {
   await this.prisma.user.findMany({
     cursor: {
-      id_createdAt: cursor ? cursor : undefined,
+      createdAt_id: cursor ? cursor : undefined,
     },
     orderBy: {
       createdAt: "desc",
