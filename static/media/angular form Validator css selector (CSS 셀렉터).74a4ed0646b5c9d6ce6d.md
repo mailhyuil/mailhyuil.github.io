@@ -6,18 +6,35 @@
 
 ## css class
 
-```txt
-.ng-valid
-.ng-invalid
-.ng-pending
-.ng-pristine
-.ng-dirty
-.ng-untouched
-.ng-touched
-.ng-submitted (폼 엘리먼트에만 적용)
+```css
+/* 유효한 상태 */
+.ng-valid {
+}
+/* 유효하지 않은 상태 */
+.ng-invalid {
+}
+/* 사용자가 입력한 상태 */
+.ng-dirty {
+}
+/* input이 focus되었다가 blur된 상태 */
+.ng-touched {
+}
+/* input이 focus되지 않은 상태 */
+.ng-untouched {
+}
+/* 유효성 검사가 완료되지 않은 상태 */
+.ng-pending {
+}
+/* 유효성 검사가 완료된 상태 */
+.ng-pristine {
+}
+
+/* (form element에만 적용) */
+.ng-submitted {
+}
 ```
 
-## forms.css
+## global-form.css
 
 ```css
 .ng-valid[required],
