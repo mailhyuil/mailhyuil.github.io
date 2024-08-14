@@ -7,6 +7,8 @@
 > > > PK는 기본으로 PK인덱스가 생성된다.
 > > >
 > > > > 필드인덱스를 생성하여 검색을 하면, 우선 필드를 이용해서 PK를 찾고 다시 PK인덱스에서 검색해서 원하는 데이터를 찾는다.
+> > > >
+> > > > > 동등 비교만 수행할 경우에는 Hash type index가 가장 빠르다
 
 ```prisma
 model User {
@@ -18,6 +20,7 @@ model User {
   identity  String
   @@index([sex, identity])
   @@index([sex, age(sort: Desc), birthDate])
+  @@index([name], type: Hash)
 }
 ```
 
