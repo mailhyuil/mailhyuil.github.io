@@ -4,7 +4,7 @@
 >
 > > SELECT \* FROM table_name FOR SHARE;
 > >
-> > > 읽기는 가능하지만 쓰기는 불가능하다.
+> > > 읽기는 가능하지만 쓰기는 불가능하다. (낙관적 lock에 가깝다)
 > > >
 > > > > FOR SHARE 가능
 > > > >

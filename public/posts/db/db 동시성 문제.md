@@ -1,4 +1,4 @@
-# db transaction isolation
+# db transaction isolation 동시성 문제
 
 ## Dirty Read (더티 리드)
 
@@ -29,3 +29,7 @@
 > > 트랜잭션 내에서 업데이트한 데이터를 커밋하기 전에 다른 트랜잭션이 업데이트한다면 발생
 > >
 > > > Serializable로 해결 가능
+
+## Read Skew (리드 스큐)
+
+## Write Skew (라이트 스큐)
