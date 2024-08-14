@@ -24,13 +24,14 @@ export class PostCursorDTO {
 
 export function pagination(cursor: PostCursorDTO) {
   await this.prisma.user.findMany({
-    cursor: {
-      createdAt_id: cursor ? cursor : undefined,
-    },
     orderBy: {
       createdAt: "desc",
     },
     take: 10, // 가져올 아이템 수
+    cursor: {
+      createdAt_id: cursor ? cursor : undefined,
+    },
+    skip: 1,
   });
 }
 ```

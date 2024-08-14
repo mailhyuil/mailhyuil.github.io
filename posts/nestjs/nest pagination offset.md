@@ -1,11 +1,8 @@
-# nest pagination
+# nest pagination offset
 
 ## pagination.dto.ts
 
 ```ts
-import { ApiProperty } from "@nestjs/swagger";
-import { IsOptional } from "class-validator";
-
 export class PageInfoDTO {
   @ApiProperty({ description: "현재 페이지" })
   pageIndex: number;
@@ -60,7 +57,7 @@ async search(
     const items = await tx.example.findMany({
       where,
       orderBy: {
-        [options.orderBy]: options.align,
+        [options.orderBy || 'createdAt']: options.align || 'desc',
       },
       skip: (options.pageIndex - 1) * options.pageSize,
       take: options.pageSize,
