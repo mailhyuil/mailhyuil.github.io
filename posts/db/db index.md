@@ -18,7 +18,11 @@
 >
 > > tree가 균형을 이루고 높이가 높지 않기 때문
 
-## 클러스터 인덱스 (primary index) vs 넌클러스터 인덱스 (secondary index)
+## 클러스터 인덱스 (primary index, index organized table) vs 넌클러스터 인덱스 (secondary index)
+
+> postgres의 경우 모든 index는 secondary index이다.
+>
+> All indexes in PostgreSQL are secondary indexes (postgresql doc)
 
 ### 클러스터 인덱스 (primary index)
 

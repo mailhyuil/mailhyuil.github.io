@@ -4,11 +4,11 @@
 
 ```prisma
 model User {
-  id          String           @id @default(cuid())
+  id          String            @id @default(cuid())
   name        String
-  roles       Role[]
+  roles       Role[]            @unique
   status      UserStatus        @default(ACTIVE)
-  tel         String            @unique
+  tel         String
   username    String?           @unique
   password    String?
   email       String?           @unique
