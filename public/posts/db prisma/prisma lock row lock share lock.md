@@ -10,7 +10,7 @@
 > > > >
 > > > > FOR UPDATE 차단
 > > > >
-> > > > INSERT, UPDATE, DELETE 차단
+> > > > UPDATE, DELETE 차단
 
 ```ts
 const startDate = "2022-01-01";

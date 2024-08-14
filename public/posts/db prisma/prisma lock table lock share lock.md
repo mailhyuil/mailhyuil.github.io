@@ -4,7 +4,7 @@
 >
 > > FOR SHARE, FOR UPDATE 가능
 > >
-> > INSERT, UPDATE, DELETE 차단
+> > UPDATE, DELETE 차단
 
 ## usage
 
