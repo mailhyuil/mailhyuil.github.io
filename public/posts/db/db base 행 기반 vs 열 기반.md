@@ -20,4 +20,4 @@
 > > >
 > > > > `OLAP`에 적합 (대용량 데이터 처리)
 > > > >
-> > > > > postgresql의 인덱싱 방식과 유사
+> > > > > postgresql의 indexing table은 column store 방식을 사용한다.
