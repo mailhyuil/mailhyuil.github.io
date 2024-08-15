@@ -1,4 +1,4 @@
-# postgres transaction 조회
+# postgres transaction begin
 
 ```sql
 BEGIN;

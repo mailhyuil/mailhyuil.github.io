@@ -76,7 +76,7 @@ await this.prisma.$transaction(
 >
 > > 트랜잭션 내에서 읽은 후 커밋되기 전에 다른 트랜잭션이 추가(INSERT) 또는 삭제(DELETE)한다면 발생
 > >
-> > > 해결: Serializable, Repeatable Read in Postgres
+> > > 해결: Serializable, Snapshot
 
 ```ts
 await this.prisma.$transaction(
@@ -100,7 +100,9 @@ await this.prisma.$transaction(
 >
 > > 트랜잭션 내에서 업데이트한 데이터를 커밋하기 전에 다른 트랜잭션이 업데이트한다면 발생
 > >
-> > > 해결: Serializable, Repeatable Read in Postgres
+> > > write skew의 특수한 케이스
+> > >
+> > > > 해결: Serializable, Snapshot
 
 ```ts
 const seatId = 1;
@@ -150,25 +152,21 @@ await this.prisma.$transaction(
 > > > 해결: Serializable
 
 ```ts
-const targetDate = "2022-01-01";
+const id = "1234";
+const shiftId = "1234";
 
 await this.prisma.$transaction(
   async tx => {
-    const schedule = await tx.schedule.findUniqueOrThrow({
-      where: { date: targetDate },
-    });
-    if (schedule.remainingDayoffSlots.length === 0)
-      throw new Error("해당 날짜에 연차를 사용할 수 있는 인원이 다 찼습니다.");
+    const count = await tx.employ.count({
+      where: { shiftId, dayoff: true },
+    }); //* Repeatable Read를 사용 시 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
+
+    if (count >= 2) throw new Error("하루에 두명 이상 연차를 사용할 수 없습니다.");
 
     // 다른 트랜잭션이 이 시점에서 연차를 사용하고 커밋할 수 있습니다.
     await tx.employee.update({
-      where: { id: 1 },
+      where: { id, shiftId, dayoff: false },
       data: { dayoff: true },
-    });
-
-    await tx.schedule.update({
-      where: { date: targetDate },
-      data: { remainingDayoffSlots: { decrement: 1 } },
     });
     // 두 트랜잭션이 성공적으로 완료되면 연차 사용 가능한 슬롯 수가 잘못될 수 있습니다.
   },
