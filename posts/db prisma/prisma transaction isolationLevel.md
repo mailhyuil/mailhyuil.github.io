@@ -27,7 +27,7 @@
 > > 해결: Read Committed
 
 ```ts
-await this.prisma.$transaction(async tx => {
+await this.prisma.$transaction(async (tx) => {
   // 다른 트랜잭션이 order2의 amount를 1000에서 2000으로 변경
   const order1 = await tx.order.findUnique({ where: { id: 1 } });
   const order2 = await tx.order.findUnique({ where: { id: 2 } });
@@ -57,16 +57,16 @@ await this.prisma.$transaction(async tx => {
 
 ```ts
 await this.prisma.$transaction(
-  async tx => {
-    const found = await tx.user.findUnique({ where: { id: 1 } });
+  async (tx) => {
+    const found1 = await tx.user.findUnique({ where: { id: 1 } });
     console.log(found.name); // 휴일
     // 이 구간에서 다른 트랜잭션이 이름을 변경하고 커밋
-    const found = await tx.user.findUnique({ where: { id: 1 } });
+    const found2 = await tx.user.findUnique({ where: { id: 1 } });
     console.log(found.name); // 상백
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  },
+  }
 );
 ```
 
@@ -80,17 +80,17 @@ await this.prisma.$transaction(
 
 ```ts
 await this.prisma.$transaction(
-  async tx => {
-    const found = await tx.user.findMany(); // [user1, user2]
+  async (tx) => {
+    const found1 = await tx.user.findMany(); // [user1, user2]
     // 이 구간에서 다른 트랜잭션이 새로운 데이터를 추가하고 커밋
-    const found = await tx.user.findMany(); // [user1, user2, user3]
+    const found2 = await tx.user.findMany(); // [user1, user2, user3]
     // 이 구간에서 다른 트랜잭션이 기존 데이터를 삭제하고 커밋
-    const found = await tx.user.findMany(); // [user1, user3]
+    const found3 = await tx.user.findMany(); // [user1, user3]
     // user2, user3은 유령이였나?..
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  },
+  }
 );
 ```
 
@@ -108,7 +108,7 @@ await this.prisma.$transaction(
 const seatId = 1;
 
 await this.prisma.$transaction(
-  async tx => {
+  async (tx) => {
     const seat = await tx.seat.findUniqueOrThrow({
       where: { id: seatId },
     });
@@ -118,7 +118,7 @@ await this.prisma.$transaction(
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  },
+  }
 );
 ```
 
@@ -132,14 +132,14 @@ await this.prisma.$transaction(
 
 ```ts
 await this.prisma.$transaction(
-  async tx => {
-    const count = await tx.user.count(); // 3
+  async (tx) => {
+    const count1 = await tx.user.count(); // 3
     // 이 구간에서 다른 트랜잭션이 이름을 변경하고 커밋
-    const count = await tx.user.count(); // 5
+    const count2 = await tx.user.count(); // 5
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  },
+  }
 );
 ```
 
@@ -156,7 +156,7 @@ const id = "1234";
 const shiftId = "1234";
 
 await this.prisma.$transaction(
-  async tx => {
+  async (tx) => {
     const count = await tx.employ.count({
       where: { shiftId, dayoff: true },
     }); //* Repeatable Read를 사용 시 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
@@ -172,6 +172,6 @@ await this.prisma.$transaction(
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
-  },
+  }
 );
 ```
