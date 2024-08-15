@@ -27,14 +27,8 @@
 > (업데이트 된 값이 아닌 처음 시작할 때 읽은 데이터를 반복해서 읽는다는 의미)
 >
 > > Dirty Read 방지 / Non-Repeatable Read 방지 / Phantom Read 발생 가능
-
-## Serializable
-
-> 동시적으로 실행되는 트랜잭션을 순차적으로 실행
->
-> > 모든 Read 문제를 해결
 > >
-> > > 항상 실패를 대비해야한다.
+> > > 내부적으로 비관적 락을 사용한다.
 
 ## Snapshot
 
@@ -45,3 +39,15 @@
 > > > postgresql에서는 MVCC(Multi-Version Concurrency Control)를 사용하여 repeatable read를 스냅샷으로 구현
 > > >
 > > > > 즉 postgres에서는 repeatable read 수준에서도 팬텀리드가 발생하지 않음!
+> > > >
+> > > > > 내부적으로 낙관적 락을 사용한다.
+
+## Serializable
+
+> 동시적으로 실행되는 트랜잭션을 순차적으로 실행
+>
+> > 모든 Read 문제를 해결
+> >
+> > > 항상 실패를 대비해야한다.
+> > >
+> > > > 내부적으로 비관적 락을 사용한다.

@@ -1,0 +1,11 @@
+# postgres transaction isolation level
+
+```sql
+BEGIN;
+SET TRANSACTION ISOLATION LEVEL REPETABLE READ;
+-- SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+...
+
+COMMIT;
+```
