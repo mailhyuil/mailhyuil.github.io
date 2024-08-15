@@ -9,7 +9,7 @@
 ## usage
 
 ```ts
-await prisma.$transaction(async (tx) => {
+await prisma.$transaction(async tx => {
   await tx.$queryRaw(Prisma.sql`LOCK TABLE posts IN SHARE MODE`);
 });
 ```

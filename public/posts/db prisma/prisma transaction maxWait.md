@@ -1,10 +1,10 @@
 # prisma transaction timeout.md
 
-> The maximum amount of time the interactive transaction can run before being canceled and rolled back.
+> The maximum amount of time Prisma Client will wait to acquire a transaction from the database.
 >
-> > The default value is 5 seconds.
-> >
-> > > 오래걸리는 작업이면 늘려주자
+> > The default value is 2 seconds.
+>
+> > 오래걸리는 작업이면 늘려주자
 
 ```ts
 await prisma.$transaction(
