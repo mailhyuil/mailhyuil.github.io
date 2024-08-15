@@ -1,24 +1,4 @@
-# prisma transaction isolationLevel
-
-> 기본으로 database의 default isolation level을 사용하며, isolationLevel을 변경할 수 있다.
->
-> > postgres: `READ COMMITTED`
-> >
-> > mysql: `REPEATABLE READ`
-> >
-> > sqlite: `SERIALIZABLE`
-> >
-> > > 올바른 격리수준을 설정한 경우 동시성 문제가 발생하면 fail한다.
-
-## usage
-
-> 밑의 코드를 READ COMMITTED로 수행하면 동시성 문제가 발생할 수 있다.
->
-> > 발생 가능한 문제: phantom read, non-repeatable read, read skew, write skew, lost update
-> >
-> > > postgresql을 사용 시 repeatable read로 설정하면 phantom read, non-repeatable read을 방지할 수 있다.
-> > >
-> > > 다른 RDBMS 사용 시 serializable로 설정하면 phantom read, non-repeatable read을 방지할 수 있다.
+# db transaction isolation 동시성 문제
 
 ## Dirty Read (더티 리드)
 

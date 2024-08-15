@@ -1,6 +1,8 @@
 # prisma optimistic lock (낙관적 락)
 
 > 애플리케이션 레벨에서 구현
+>
+> > FOR SHARE 수준의 lock에 가깝다.
 
 ```ts
 const userEmail = "alice@prisma.io";
