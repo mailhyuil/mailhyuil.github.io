@@ -147,9 +147,9 @@ await this.prisma.$transaction(
 
 > 두개의 트랜잭션이 한정된 데이터를 동시에 성공적으로 업데이트하는 경우
 >
-> > e.g. 좌석 예약, 재고 관리 등
+> > e.g. Double Booking Problem, 좌석 예약, 재고 관리 등
 > >
-> > > 해결: Serializable
+> > > 해결: Serializable, 2PL (2 Phase Locking)
 
 ```ts
 const id = "1234";

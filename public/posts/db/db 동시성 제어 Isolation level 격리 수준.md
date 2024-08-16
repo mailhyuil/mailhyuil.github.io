@@ -52,8 +52,6 @@
 
 > 동시적으로 실행되는 트랜잭션을 순차적으로 실행
 >
-> > 모든 Read 문제를 해결
+> > 구현: this isolation level works exactly the same as Repeatable Read except that it also monitors for conditions which could make execution of a concurrent set of serializable transactions behave in a manner inconsistent with all possible serial (one at a time) executions of those transactions.
 > >
-> > > 항상 실패를 대비해야한다.
-> > >
-> > > > 구현: The Serializable isolation level is implemented using a technique known in academic database literature as Serializable Snapshot Isolation, which builds on Snapshot Isolation by adding checks for serialization anomalies.
+> > The Serializable isolation level is implemented using a technique known in academic database literature as Serializable Snapshot Isolation, which builds on Snapshot Isolation by adding checks for serialization anomalies.
