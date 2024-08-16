@@ -19,6 +19,10 @@
 > > Dirty Read 방지 / Non-Repeatable Read 발생 가능
 > >
 > > > 대부분의 RDBMS가 default로 사용하는 격리 수준
+> > >
+> > > > 구현: Read Committed mode starts each command with a new snapshot
+> > > >
+> > > > 매 커맨드가 새로운 스냅샷을 읽는다. 때문에 commit된 데이터가 읽혀버리는 현상이 발생한다.
 
 ## Repeatable Read
 
@@ -28,7 +32,9 @@
 >
 > > Dirty Read 방지 / Non-Repeatable Read 방지 / Phantom Read 발생 가능
 > >
-> > > 내부적으로 비관적 락을 사용한다.
+> > > 구현: a query in a repeatable read transaction sees a snapshot as of the start of the first non-transaction-control statement in the transaction, not as of the start of the current statement within the transaction. Thus, successive SELECT commands within a single transaction see the same data
+> > >
+> > > 트랜잭션이 시작할 때의 스냅샷을 유지한다. 때문에 트랜잭션 내에서 반복적으로 값을 읽어도 항상 같은 값을 유지한다.
 
 ## Snapshot
 
@@ -40,7 +46,7 @@
 > > >
 > > > > 즉 postgres에서는 repeatable read 수준에서도 팬텀리드가 발생하지 않음!
 > > > >
-> > > > > 내부적으로 낙관적 락을 사용한다.
+> > > > > 트랜잭션이 시작할 때의 스냅샷을 유지한다. 때문에 트랜잭션 내에서 반복적으로 값을 읽어도 항상 같은 값을 유지한다.
 
 ## Serializable
 
@@ -50,4 +56,4 @@
 > >
 > > > 항상 실패를 대비해야한다.
 > > >
-> > > > 내부적으로 비관적 락을 사용한다.
+> > > > 구현: The Serializable isolation level is implemented using a technique known in academic database literature as Serializable Snapshot Isolation, which builds on Snapshot Isolation by adding checks for serialization anomalies.
