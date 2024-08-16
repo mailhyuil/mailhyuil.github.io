@@ -4,7 +4,9 @@
 >
 > > 배타적 락(x-lock)을 사용하여 동시성 제어
 > >
-> > > double booking problem (이중 예약 문제)를 해결
+> > > double booking problem (이중 예약 문제)를 해결: 두 명의 사용자가 동시에 같은 자원을 예약하는 문제
+> > >
+> > > > lost updates, read and write skews를 방지할 수 있다.
 
 ```sql
 SELECT * FROM table_name FOR UPDATE;
