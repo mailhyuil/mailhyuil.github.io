@@ -1,24 +1,8 @@
-# prisma transaction isolationLevel
+# db transaction isolation 동시성 문제
 
-> 기본으로 database의 default isolation level을 사용하며, isolationLevel을 변경할 수 있다.
+> read transaction: dirty read, non-repeatable read, phantom read, read skew
 >
-> > postgres: `READ COMMITTED`
-> >
-> > mysql: `REPEATABLE READ`
-> >
-> > sqlite: `SERIALIZABLE`
-> >
-> > > 올바른 격리수준을 설정한 경우 동시성 문제가 발생하면 fail한다.
-
-## usage
-
-> 밑의 코드를 READ COMMITTED로 수행하면 동시성 문제가 발생할 수 있다.
->
-> > 발생 가능한 문제: phantom read, non-repeatable read, read skew, write skew, lost update
-> >
-> > > postgresql을 사용 시 repeatable read로 설정하면 phantom read, non-repeatable read을 방지할 수 있다.
-> > >
-> > > 다른 RDBMS 사용 시 serializable로 설정하면 phantom read, non-repeatable read을 방지할 수 있다.
+> write transaction: dirty write, lost update, write skew
 
 ## Dirty Read (더티 리드)
 
@@ -27,7 +11,7 @@
 > > 해결: Read Committed
 
 ```ts
-await this.prisma.$transaction(async (tx) => {
+await this.prisma.$transaction(async tx => {
   // 다른 트랜잭션이 order2의 amount를 1000에서 2000으로 변경
   const order1 = await tx.order.findUnique({ where: { id: 1 } });
   const order2 = await tx.order.findUnique({ where: { id: 2 } });
@@ -57,7 +41,7 @@ await this.prisma.$transaction(async (tx) => {
 
 ```ts
 await this.prisma.$transaction(
-  async (tx) => {
+  async tx => {
     const found1 = await tx.user.findUnique({ where: { id: 1 } });
     console.log(found.name); // 휴일
     // 이 구간에서 다른 트랜잭션이 이름을 변경하고 커밋
@@ -66,7 +50,7 @@ await this.prisma.$transaction(
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  }
+  },
 );
 ```
 
@@ -76,11 +60,11 @@ await this.prisma.$transaction(
 >
 > > 트랜잭션 내에서 읽은 후 커밋되기 전에 다른 트랜잭션이 추가(INSERT) 또는 삭제(DELETE)한다면 발생
 > >
-> > > 해결: Serializable, Snapshot
+> > > 해결: Serializable, Repeatable Read in Postgres
 
 ```ts
 await this.prisma.$transaction(
-  async (tx) => {
+  async tx => {
     const found1 = await tx.user.findMany(); // [user1, user2]
     // 이 구간에서 다른 트랜잭션이 새로운 데이터를 추가하고 커밋
     const found2 = await tx.user.findMany(); // [user1, user2, user3]
@@ -90,7 +74,7 @@ await this.prisma.$transaction(
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  }
+  },
 );
 ```
 
@@ -108,7 +92,7 @@ await this.prisma.$transaction(
 const seatId = 1;
 
 await this.prisma.$transaction(
-  async (tx) => {
+  async tx => {
     const seat = await tx.seat.findUniqueOrThrow({
       where: { id: seatId },
     });
@@ -118,7 +102,7 @@ await this.prisma.$transaction(
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  }
+  },
 );
 ```
 
@@ -132,14 +116,14 @@ await this.prisma.$transaction(
 
 ```ts
 await this.prisma.$transaction(
-  async (tx) => {
+  async tx => {
     const count1 = await tx.user.count(); // 3
     // 이 구간에서 다른 트랜잭션이 이름을 변경하고 커밋
     const count2 = await tx.user.count(); // 5
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
-  }
+  },
 );
 ```
 
@@ -147,16 +131,16 @@ await this.prisma.$transaction(
 
 > 두개의 트랜잭션이 한정된 데이터를 동시에 성공적으로 업데이트하는 경우
 >
-> > e.g. 좌석 예약, 재고 관리 등
+> > e.g. Double Booking Problem, 좌석 예약, 재고 관리 등
 > >
-> > > 해결: Serializable
+> > > 해결: Serializable, 2PL (2 Phase Locking)
 
 ```ts
 const id = "1234";
 const shiftId = "1234";
 
 await this.prisma.$transaction(
-  async (tx) => {
+  async tx => {
     const count = await tx.employ.count({
       where: { shiftId, dayoff: true },
     }); //* Repeatable Read를 사용 시 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
@@ -172,6 +156,10 @@ await this.prisma.$transaction(
   },
   {
     isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
-  }
+  },
 );
 ```
+
+## Deadlock (데드락)
+
+> 동시성 충돌을 방지하기 위해서 Lock을 사용하는데 서로가 서로의 자원을 대기하게 되어 무한 대기 상태에 빠지는 현상

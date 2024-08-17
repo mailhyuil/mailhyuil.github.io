@@ -1,8 +1,12 @@
-# db transaction lock Dead lock (데드 락) 방지
+# db transaction lock Dead lock (데드 락)
 
-> 두개의 트랜잭션이 서로가 서로의 자원을 사용하려고 대기하고 있을 때 발생
+> 두 개 이상의 트랜잭션이 서로 상대방의 락을 기다리고 있어 무한 대기 상태에 빠지는 현상
 >
-> > e.g. 두개의 트랜잭션이 같이 같은 자원에 share lock을 걸고 데이터를 읽은 후 데이터를 update 하려고 하면 서로가 쓰기가 차단하기 때문에 데드락이 발생한다.
+> > 데드락을 방지하기 위해서는 트랜잭션을 짧게 유지하고, 트랜잭션을 사용하는 순서를 일정하게 유지하는 것이 중요하다.
+> >
+> > > timeout을 설정하여 데드락으로 인한 무한 대기를 방지할 수 있다.
+> > >
+> > > 애초에 deadlock이 발생하지 않도록 설계하는 것이 가장 좋다.
 
 ## 데드락 발생 조건
 
@@ -24,11 +28,19 @@
 자원과 자원을 사용하기 위해 대기하는 프로세스들이 원형으로 구성되어 있어 자신에게 할당된 자원을 점유하면서 앞이나 뒤에 있는 프로세스의 자원을 요구해야 한다.
 ```
 
-## 방지법
+## example
 
-```txt
-FOR SHARE FOR SHARE problem : 두개의 트랜잭션이 같이 같은 자원에 share lock을 걸고 데이터를 읽은 후 데이터를 update 하려고 하면 서로가 쓰기가 차단하기 때문에 데드락이 발생한다.
-(FOR UPDATE를 사용하면 해결 가능)
+```sql
+-- transaction 1
+begin transaction;
+insert into test values(20);
+insert into test values(30);
 
-FOR UPDATE FOR UPDATE problem : 두개의 트랜잭션이 각각 자원에 exclusive lock을 걸고 서로의 값을 읽거나 쓰려고 할 때 발생
+-- transaction 2
+begin transaction;
+insert into test values(30);
+insert into test values(20);
+
+-- deadlock detected
+-- deadlock을 먼저 발생시킨 transaction은 rollback 된다.
 ```

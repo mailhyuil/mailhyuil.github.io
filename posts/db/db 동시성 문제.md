@@ -131,9 +131,9 @@ await this.prisma.$transaction(
 
 > 두개의 트랜잭션이 한정된 데이터를 동시에 성공적으로 업데이트하는 경우
 >
-> > e.g. 좌석 예약, 재고 관리 등
+> > e.g. Double Booking Problem, 좌석 예약, 재고 관리 등
 > >
-> > > 해결: Serializable, SELECT FOR UPDATE in REPEATABLE READ
+> > > 해결: Serializable, 2PL (2 Phase Locking)
 
 ```ts
 const id = "1234";
@@ -160,6 +160,6 @@ await this.prisma.$transaction(
 );
 ```
 
-## Serialization Anomalies (직렬화 이상)
+## Deadlock (데드락)
 
-> 두개 이상의 트랜잭션이 동시에 실행될 때, 순서에 따라 결과가 달라지는 현상
+> 동시성 충돌을 방지하기 위해서 Lock을 사용하는데 서로가 서로의 자원을 대기하게 되어 무한 대기 상태에 빠지는 현상
