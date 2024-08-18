@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.f63651ab.js",
+    "main.js": "/static/js/main.620d2352.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.1b0614d94b1a7ce997b6.md",
     "static/media/SOLID Principle.md": "/static/media/SOLID Principle.a1911865648493a32e9d.md",
-    "static/media/nest 세팅 settings.md": "/static/media/nest 세팅 settings.52b24b35817cb453142a.md",
+    "static/media/nest 세팅 settings.md": "/static/media/nest 세팅 settings.b3f7c2e170a372b5803b.md",
     "static/media/nest jwt refreshToken cookie.md": "/static/media/nest jwt refreshToken cookie.2abd8224eefb47055b5d.md",
     "static/media/angular base component file-upload.md": "/static/media/angular base component file-upload.324997e292a31a00b60f.md",
     "static/media/spring Pagination (페이징 처리).md": "/static/media/spring Pagination (페이징 처리).9bc1fade6b9872ecaa05.md",
@@ -2815,6 +2815,7 @@
     "static/media/go package.md": "/static/media/go package.f82f6681f2130420e44b.md",
     "static/media/postgres query 따옴표.md": "/static/media/postgres query 따옴표.c81b039ed8141227ea4b.md",
     "static/media/js Date dayjs 날짜 초기화.md": "/static/media/js Date dayjs 날짜 초기화.4e2241811105fa654026.md",
+    "static/media/nest versioning.md": "/static/media/nest versioning.bb6870f2bd08f70991c7.md",
     "static/media/nuxt computed vs watch.md": "/static/media/nuxt computed vs watch.c787d589d3bc7dd608ab.md",
     "static/media/nx angular material.md": "/static/media/nx angular material.a68e4b660e219aa90a81.md",
     "static/media/postgres base tuple_id (row_id).md": "/static/media/postgres base tuple_id (row_id).07ae1b23ecc24912f70b.md",
@@ -4048,10 +4049,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.f63651ab.js.map": "/static/js/main.f63651ab.js.map"
+    "main.620d2352.js.map": "/static/js/main.620d2352.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.f63651ab.js"
+    "static/js/main.620d2352.js"
   ]
 }
