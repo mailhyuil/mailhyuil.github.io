@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.ecf62aff.js",
+    "main.js": "/static/js/main.f63651ab.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.1b0614d94b1a7ce997b6.md",
@@ -619,6 +619,7 @@
     "static/media/js deep copy vs swallow copy vs defensive copy vs copy on write.md": "/static/media/js deep copy vs swallow copy vs defensive copy vs copy on write.2893bd409b5b7d9f5534.md",
     "static/media/kube HealthCheck livenessProbe.md": "/static/media/kube HealthCheck livenessProbe.4c25e879ad93dbe4e515.md",
     "static/media/ffmpeg 포멧.md": "/static/media/ffmpeg 포멧.c8b98a5ef765fca3ccdd.md",
+    "static/media/kube Storage Volume.md": "/static/media/kube Storage Volume.c6b7e2a2a0524bc02b4b.md",
     "static/media/prisma index.md": "/static/media/prisma index.66d83e6adc690241a49f.md",
     "static/media/nodejs module dgram (UDP).md": "/static/media/nodejs module dgram (UDP).7a490c7d99e697b27961.md",
     "static/media/Behavioral command with receiver.md": "/static/media/Behavioral command with receiver.ff408c02b5afd5935a0e.md",
@@ -748,7 +749,7 @@
     "static/media/angular state management ngxs HMR.md": "/static/media/angular state management ngxs HMR.b9f16841e5846b4f6eac.md",
     "static/media/nest base module moduleRef.md": "/static/media/nest base module moduleRef.c2321cc6f872e89ad1b8.md",
     "static/media/js array.md": "/static/media/js array.64ee7d895d5a4082607c.md",
-    "static/media/kube Storage PersistentVolumes.md": "/static/media/kube Storage PersistentVolumes.a4079f3c4ec6deab1587.md",
+    "static/media/kube Storage Volume object PersistentVolumes.md": "/static/media/kube Storage Volume object PersistentVolumes.a4079f3c4ec6deab1587.md",
     "static/media/firebase angular.md": "/static/media/firebase angular.ccd0e561ed531e0464bd.md",
     "static/media/flutter State Inherited Widget.md": "/static/media/flutter State Inherited Widget.aa92564caf2aef062170.md",
     "static/media/kube object Service LoadBalancer.md": "/static/media/kube object Service LoadBalancer.41312277db94041239da.md",
@@ -779,7 +780,7 @@
     "static/media/d3 간단한 BarChart.md": "/static/media/d3 간단한 BarChart.2f59c27ffe6b9188597a.md",
     "static/media/확률 & 통계 산포도.md": "/static/media/확률 & 통계 산포도.4ed4108c35641544282b.md",
     "static/media/flutter feature VideoPlayer.md": "/static/media/flutter feature VideoPlayer.5dfbaedd3d38db67cd58.md",
-    "static/media/kube Storage hostPath.md": "/static/media/kube Storage hostPath.f524ccb1fd03c707646b.md",
+    "static/media/kube Storage Volume hostPath.md": "/static/media/kube Storage Volume hostPath.f524ccb1fd03c707646b.md",
     "static/media/nest static assets.md": "/static/media/nest static assets.1a508331bce0cef1787b.md",
     "static/media/node-redis script.md": "/static/media/node-redis script.d8d999935c22112c26db.md",
     "static/media/postgres replication 간단하게 구현.md": "/static/media/postgres replication 간단하게 구현.b5d7bae6aa52d0db31fc.md",
@@ -818,7 +819,7 @@
     "static/media/flutter RouteGuard.md": "/static/media/flutter RouteGuard.3da23b9cf4878fa677c8.md",
     "static/media/nodejs module stream.md": "/static/media/nodejs module stream.5966539dfac974437652.md",
     "static/media/postgres backup pg_basebackup.md": "/static/media/postgres backup pg_basebackup.e7e2c85612f3c8d53ba1.md",
-    "static/media/kube Storage StorageClass.md": "/static/media/kube Storage StorageClass.d7fdf25ea740b8f14067.md",
+    "static/media/kube Storage Volume object StorageClass.md": "/static/media/kube Storage Volume object StorageClass.d7fdf25ea740b8f14067.md",
     "static/media/bundle webpack base webpack.config.js.md": "/static/media/bundle webpack base webpack.config.js.8f6c5b24829a09875cad.md",
     "static/media/css font-face.md": "/static/media/css font-face.443e28db989519257b1e.md",
     "static/media/postgres config pg_hba.md": "/static/media/postgres config pg_hba.236e8be7f75ec1cecbea.md",
@@ -875,7 +876,7 @@
     "static/media/data Queue.md": "/static/media/data Queue.06246eb4945da306e652.md",
     "static/media/testing base TDD.md": "/static/media/testing base TDD.ca5a43898bef080bf3c3.md",
     "static/media/bundle webpack plugin copy-webpack-plugin.md": "/static/media/bundle webpack plugin copy-webpack-plugin.3638242e5bcac505cc9d.md",
-    "static/media/kube Storage PersistentVolumeClaims.md": "/static/media/kube Storage PersistentVolumeClaims.073278bbc401da3a22e7.md",
+    "static/media/kube Storage Volume object PersistentVolumeClaims.md": "/static/media/kube Storage Volume object PersistentVolumeClaims.073278bbc401da3a22e7.md",
     "static/media/postgres utility pg_basebackup.md": "/static/media/postgres utility pg_basebackup.607cf1711dd46e3e48f4.md",
     "static/media/angular MVVM.md": "/static/media/angular MVVM.6b730be92763a2bb6f86.md",
     "static/media/c++ base pointer.md": "/static/media/c++ base pointer.534b9d7c6177171bde8f.md",
@@ -953,7 +954,6 @@
     "static/media/angular base directive html element.md": "/static/media/angular base directive html element.c30d50323984a154639f.md",
     "static/media/ELK elasticsearch crud.md": "/static/media/ELK elasticsearch crud.7f32f24be0e747bd370c.md",
     "static/media/js Promise allSettled.md": "/static/media/js Promise allSettled.6e9871c0519529336fc0.md",
-    "static/media/kube Storage Volume.md": "/static/media/kube Storage Volume.dba8a46ffd01fc6a5fc1.md",
     "static/media/linux package logrotate.md": "/static/media/linux package logrotate.ddfbc962ea0820e77a86.md",
     "static/media/gzip.md": "/static/media/gzip.3809852fbfcf8ff8bec2.md",
     "static/media/kube Auth Resource.md": "/static/media/kube Auth Resource.063736a9f8d6aa6e5a64.md",
@@ -1454,7 +1454,7 @@
     "static/media/aws auto scaling.md": "/static/media/aws auto scaling.bf44e52644dbb4c5c6bc.md",
     "static/media/nest express.md": "/static/media/nest express.e7ff13e574f33c063001.md",
     "static/media/L5 TLS certbot renew (갱신).md": "/static/media/L5 TLS certbot renew (갱신).43cbf59d186d9a0b715d.md",
-    "static/media/kube Storage emptyDir.md": "/static/media/kube Storage emptyDir.a16ee393aee0f8df4752.md",
+    "static/media/kube Storage Volume emptyDir.md": "/static/media/kube Storage Volume emptyDir.a16ee393aee0f8df4752.md",
     "static/media/linux shellscript exit & return.md": "/static/media/linux shellscript exit & return.7ba9a5b36f12804970b8.md",
     "static/media/npm publish (라이브러리 배포) commonjs 지원.md": "/static/media/npm publish (라이브러리 배포) commonjs 지원.9ec7937fc8fcb19ee60d.md",
     "static/media/rxjs transformation map mergeMap.md": "/static/media/rxjs transformation map mergeMap.cca6e47795bd4725bf88.md",
@@ -4048,10 +4048,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.ecf62aff.js.map": "/static/js/main.ecf62aff.js.map"
+    "main.f63651ab.js.map": "/static/js/main.f63651ab.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.ecf62aff.js"
+    "static/js/main.f63651ab.js"
   ]
 }

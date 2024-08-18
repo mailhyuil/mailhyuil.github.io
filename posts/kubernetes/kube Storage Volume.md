@@ -6,6 +6,17 @@
 >
 > > 컨테이너내에 있는 파일 디렉토리를 Volume에 마운트 시켜서 사용
 
+```txt
+1. emptyDir
+    > pod에 저장
+2. hostPath
+    > host에 저장
+4. persistentVolume / persistentVolumeClaim
+    > persistentVolume이라는 오브젝트를 생성 후 persistentVolumeClaim으로 요청
+5. storageClass
+    > cloud 환경에서 다이나믹 프로비저닝을 사용하기 위한 오브젝트
+```
+
 ```yml
 spec:
   containers:
