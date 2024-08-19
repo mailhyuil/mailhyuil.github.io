@@ -1,5 +1,11 @@
 # nodejs node-archiver (zip files)
 
+> 파일의 크기가 큰 경우 highWaterMark 를 설정하여 buffer size 를 늘려야 한다.
+>
+> 버퍼의 제한을 두는 옵션
+>
+> > highWaterMark라는 이름은 개념적으로 "수위 표식"(watermark)에서 유래된 용어
+
 ## install
 
 ```sh
@@ -83,7 +89,9 @@ archive.finalize();
 ## axios 와 함께 사용하기
 
 ```ts
-const archive = archiver("zip");
+const archive = archiver("zip", {
+  highWaterMark: 1024 * 1024 * 6, // buffer size 늘리기 // 큰 파일을 다운로드 할 때 사용
+});
 const promises = files.map((file) => {
   return new Promise<void>((resolve, reject) => {
     this.http
