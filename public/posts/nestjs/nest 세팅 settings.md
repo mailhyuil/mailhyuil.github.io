@@ -157,14 +157,16 @@ async function bootstrap() {
   /** CORS */
   app.enableCors();
   /** Global Prefix */
-  app.setGlobalPrefix("api/v1");
+  app.setGlobalPrefix("api");
+  /** Versioning */
+  app.enableVersioning();
   /** Port */
   const port = process.env.SERVER_PORT || 3000;
   /** OpenAPI */
   initOpenAPI(app, port);
   /** Server Listen */
   await app.listen(port);
-  winstonLogger.log(`🚀 Application is running on: http://localhost:${port}`);
+  winstonLogger.log(`🚀 Application is running on: http://localhost:${port}/api`);
 }
 
 bootstrap();
@@ -264,7 +266,11 @@ export async function initOpenApi(app?: INestApplication, port?: number | string
     port = process.env.SERVER_PORT || 3000;
   }
   /** OpenAPI */
-  const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle("API")
+    .addServer(`http://localhost:${port}`)
+    .addCookieAuth()
+    .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup("api/v1/document", app, document);
@@ -354,14 +360,22 @@ export class PrismaGlobalExceptionFilter extends BaseExceptionFilter {
 
     if (!prismaError) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(json);
-      this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
+      this.logger.error(
+        `\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(
+          json.context,
+        )}`,
+      );
       return;
     }
 
     json.message = prismaError.message;
     json.statusCode = prismaError.status;
     res.status(prismaError.status).json(json);
-    this.logger.error(`\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(json.context)}`);
+    this.logger.error(
+      `\nMESSAGE: ${json.message}\nPATH: ${json.path}\nTIMESTAMP: ${json.timestamp}\nCONTEXT: ${JSON.stringify(
+        json.context,
+      )}`,
+    );
   }
 }
 
