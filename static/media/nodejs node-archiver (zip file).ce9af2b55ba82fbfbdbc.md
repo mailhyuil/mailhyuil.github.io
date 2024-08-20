@@ -90,7 +90,8 @@ archive.finalize();
 
 ```ts
 const archive = archiver("zip", {
-  highWaterMark: 1024 * 1024 * 6, // buffer size 늘리기 // 큰 파일을 다운로드 할 때 사용
+  highWaterMark: 1024 * 1024 * 64, // buffer size 늘리기 // 큰 파일을 다운로드 할 때 사용
+  zlib: { level: 9 }, // Sets the compression level.
 });
 const promises = files.map((file) => {
   return new Promise<void>((resolve, reject) => {
@@ -98,24 +99,18 @@ const promises = files.map((file) => {
       .get(file.url, {
         responseType: "stream",
       })
-      .subscribe({
-        next: (response) => {
-          archive.append(response.data, { name: file.name });
-          resolve();
-        },
-        error: (error) => {
-          if (error instanceof AxiosError) {
-            const message = error.response?.data.message;
-            reject(new Error(message));
-          }
-          reject(error);
-        },
+      .subscribe((response) => {
+        if (response.data instanceof internal.Readable) {
+          response.data.on("end", resolve);
+          archive.append(response.data, { name: file.name }).on("error", reject);
+        }
       });
   });
 });
-await Promise.all(promises);
 const outputStream = new PassThrough();
 archive.pipe(outputStream);
-await archive.finalize();
+Promise.all(promises).then(() => {
+  archive.finalize();
+});
 return outputStream;
 ```
