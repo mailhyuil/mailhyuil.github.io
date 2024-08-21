@@ -12,6 +12,7 @@ gzip_comp_level 7;
 gzip_proxied any;
 gzip_types text/plain text/css text/javascript image/svg+xml image/x-icon application/javascript application/x-javascript text/xml application/xml application/xml+rss application/json;
 
+client_max_body_size 1G;
 
 server {
     server_name example.com;
@@ -56,7 +57,18 @@ server {
     }
 
     location /api/v1/ {
-        client_max_body_size 1G;
+        proxy_pass http://server:3000;
+    }
+
+    location /api/v1/sse/ {
+        proxy_set_header  X-Forwarded-For $remote_addr;
+
+        proxy_set_header Connection "";
+        proxy_http_version 1.1;
+        chunked_transfer_encoding off;
+
+        proxy_buffering off;
+        proxy_cache off;
         proxy_pass http://server:3000;
     }
 

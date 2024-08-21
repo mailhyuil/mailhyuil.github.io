@@ -6,6 +6,10 @@
 
 ```conf
 location / {
+    proxy_pass http://backend;
+}
+
+location /sse/ {
     proxy_set_header Connection "";
     proxy_http_version 1.1;
 
