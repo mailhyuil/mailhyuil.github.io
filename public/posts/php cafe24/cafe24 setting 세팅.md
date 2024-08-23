@@ -6,9 +6,11 @@
 npm i -D tailwindcss
 npm i -D puppeteer
 npm i -D chokidar
+
+npx tailwindcss init # tailwindcss intellisense를 위한 설정 파일 생성
 ```
 
-## sftp.json
+## .vscode/sftp.json
 
 ```json
 {
@@ -27,6 +29,8 @@ npm i -D chokidar
 ```
 
 ## /layout/basic/js/tailwindcss.js
+
+> https://cdn.tailwindcss.com 의 코드를 복사해서 붙여넣기
 
 ## layout/basic/layout.html
 
