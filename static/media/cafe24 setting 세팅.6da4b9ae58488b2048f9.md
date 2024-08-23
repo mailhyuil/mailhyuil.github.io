@@ -101,3 +101,56 @@ async function watch() {
 
 watch();
 ```
+
+# 마무리!
+
+> tailwindcss를 생성해줍시다.
+
+## tailwind.config.js
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./skin4/**/*.{js,html}"],
+  important: true,
+};
+```
+
+## ./input.css
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## ./package.json
+
+```json
+{
+  "name": "dep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node watch.js",
+    "style": "tailwindcss -i ./input.css -o ./skin4/layout/basic/css/global.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chokidar": "^3.6.0",
+    "puppeteer": "^23.1.1",
+    "tailwindcss": "^3.4.10"
+  }
+}
+```
+
+## layout/basic/layout.html
+
+> 가장 위에 추가
+
+```html
+<!--@css(/layout/basic/css/global.css)-->
+```
