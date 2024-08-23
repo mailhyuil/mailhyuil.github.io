@@ -47,7 +47,7 @@ const chokidar = require("chokidar");
 const puppeteer = require("puppeteer");
 let timeoutId = null;
 
-// 내 컴퓨터의 브라우저를 사용하고 싶다면 아래 주석을 풀고 값을 넣어 실행하세요
+// 내 컴퓨터의 브라우저를 사용하고 싶다면 브라우저 실행 부분의 주석을 풀고 값을 넣어 실행하세요
 // 사용하지 않으면 puppeteer가 자체적으로 브라우저를 실행합니다.
 const executablePath = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const userDataDir = "C:/Users/sangb/AppData/Local/Google/Chrome/User Data";
@@ -66,9 +66,9 @@ async function watch() {
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: null,
-    executablePath,
-    userDataDir,
-    args: [`--profile-directory=${profileDirectory}`],
+    // executablePath,
+    // userDataDir,
+    // args: [`--profile-directory=${profileDirectory}`],
   });
 
   const page = await browser.newPage();
