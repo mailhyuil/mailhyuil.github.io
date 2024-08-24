@@ -51,9 +51,12 @@ const chokidar = require("chokidar");
 const puppeteer = require("puppeteer");
 let timeoutId = null;
 
-// 내 컴퓨터의 브라우저를 사용하고 싶다면 브라우저 실행 부분의 주석을 풀고 값을 넣어 실행하세요
-// 사용하지 않으면 puppeteer가 자체적으로 브라우저를 실행합니다.
-const executablePath = "C:/Program Files/Google/Chrome/Application/chrome.exe";
+// 맥os를 사용하고 있다면 아래 주석을 풀고 값을 넣어 실행하세요
+const executablePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+// 윈도우
+// const executablePath = "C:/Program Files/Google/Chrome/Application/chrome.exe";
+
+// 나의 프로필 사용하고 싶다면 브라우저 실행 부분의 주석을 풀고 값을 넣어 실행하세요
 const userDataDir = "C:/Users/sangb/AppData/Local/Google/Chrome/User Data";
 const profileDirectory = "Profile 1";
 
@@ -70,7 +73,7 @@ async function watch() {
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: null,
-    // executablePath,
+    executablePath,
     // userDataDir,
     // args: [`--profile-directory=${profileDirectory}`],
   });
@@ -86,17 +89,16 @@ async function watch() {
   });
 
   // 파일 저장(변경) 감지 시 로그 출력
-  watcher.on("change", (path) => {
+  watcher.on("change", path => {
+    console.log("👀 파일이 변경되었습니다. 페이지를 새로고침합니다. :)");
     if (timeoutId) clearTimeout(timeoutId);
     timeoutId = setTimeout(async () => {
       const currentUrl = await page.url().split("?random=")[0];
-      await page.goto(`${currentUrl}?random=${new Date().getTime()}`).then(() => {
-        console.log("파일이 변경되었습니다. 페이지를 새로고침합니다. :)");
-      });
-    }, 1000);
+      await page.goto(`${currentUrl}?random=${new Date().getTime()}`);
+    }, 1500); // 네트워크 환경에 따라 조절하세요
   });
 
-  console.log("파일 변경을 감지합니다. ;)");
+  console.log("🚀 파일 변경을 감지합니다. ;)");
 }
 
 watch();
