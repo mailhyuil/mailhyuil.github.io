@@ -28,14 +28,10 @@ npx tailwindcss init # tailwindcss intellisense를 위한 설정 파일 생성
 }
 ```
 
-## /layout/basic/js/tailwindcss.js
-
-> https://cdn.tailwindcss.com 의 코드를 복사해서 붙여넣기
-
 ## layout/basic/layout.html
 
 ```html
-  <!--@js(/layout/basic/js/tailwindcss.js)-->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       important: true,
