@@ -43,27 +43,34 @@ npx tailwindcss init # tailwindcss intellisense를 위한 설정 파일 생성
 ## watch.js
 
 ```js
+const child_process = require("child_process");
+const chokidarRes = child_process.execSync("npm list chokidar || npm i -D chokidar");
+console.log(chokidarRes.toString());
+const puppeteerRes = child_process.execSync("npm list puppeteer-core || npm i -D puppeteer-core");
+console.log(puppeteerRes.toString());
+
 const chokidar = require("chokidar");
-const puppeteer = require("puppeteer");
-let timeoutId = null;
+const puppeteer = require("puppeteer-core");
 
-// 맥os를 사용하고 있다면 아래 주석을 풀고 값을 넣어 실행하세요
-const executablePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-// 윈도우
-// const executablePath = "C:/Program Files/Google/Chrome/Application/chrome.exe";
+const os = require("os");
+const isWindow = os.platform().includes("win");
 
-// 나의 프로필 사용하고 싶다면 브라우저 실행 부분의 주석을 풀고 값을 넣어 실행하세요
+const executablePath = isWindow
+  ? "C:/Program Files/Google/Chrome/Application/chrome.exe"
+  : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const userDataDir = "C:/Users/sangb/AppData/Local/Google/Chrome/User Data";
 const profileDirectory = "Profile 1";
-
-// 최초로 이동할 페이지의 URL을 설정하세요
-const startUrl = "https://depdep.cafe24.com/skin-skin4";
 
 // 스킨 폴더의 이름을 입력하세요
 // 프로젝트 구성은 /workspace/skin4/ 이런 식으로 되어있을 겁니다.
 // workspace 레벨에 package.json이 위치해야합니다.
 const projectDir = "skin4";
+// 최초로 이동할 페이지의 URL을 설정하세요
+const startUrl = "https://depdep.cafe24.com/skin-skin4";
+// 파일 변경 후 리로드까지의 딜레이(ms)를 설정하세요
+const reloadDelay = 1000;
 
+let timeoutId = null;
 async function watch() {
   // 브라우저 실행
   const browser = await puppeteer.launch({
@@ -85,13 +92,13 @@ async function watch() {
   });
 
   // 파일 저장(변경) 감지 시 로그 출력
-  watcher.on("change", path => {
+  watcher.on("change", (path) => {
     console.log("👀 파일이 변경되었습니다. 페이지를 새로고침합니다. :)");
     if (timeoutId) clearTimeout(timeoutId);
     timeoutId = setTimeout(async () => {
       const currentUrl = await page.url().split("?random=")[0];
       await page.goto(`${currentUrl}?random=${new Date().getTime()}`);
-    }, 1500); // 네트워크 환경에 따라 조절하세요
+    }, reloadDelay);
   });
 
   console.log("🚀 파일 변경을 감지합니다. ;)");
