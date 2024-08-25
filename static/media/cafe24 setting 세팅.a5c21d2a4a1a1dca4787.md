@@ -58,12 +58,12 @@ const isWindow = os.platform().includes("win");
 const executablePath = isWindow
   ? "C:/Program Files/Google/Chrome/Application/chrome.exe"
   : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+
+// 나의 프로필을 사용하고 싶을 시 밑의 설정을 사용하세요
 const userDataDir = "C:/Users/sangb/AppData/Local/Google/Chrome/User Data";
 const profileDirectory = "Profile 1";
 
 // 스킨 폴더의 이름을 입력하세요
-// 프로젝트 구성은 /workspace/skin4/ 이런 식으로 되어있을 겁니다.
-// workspace 레벨에 package.json이 위치해야합니다.
 const projectDir = "skin4";
 // 최초로 이동할 페이지의 URL을 설정하세요
 const startUrl = "https://depdep.cafe24.com/skin-skin4";
@@ -92,7 +92,7 @@ async function watch() {
   });
 
   // 파일 저장(변경) 감지 시 로그 출력
-  watcher.on("change", (path) => {
+  watcher.on("change", path => {
     console.log("👀 파일이 변경되었습니다. 페이지를 새로고침합니다. :)");
     if (timeoutId) clearTimeout(timeoutId);
     timeoutId = setTimeout(async () => {
