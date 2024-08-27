@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.5858ff7f.js",
+    "main.js": "/static/js/main.d570054f.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.72e9303eb54f93926fd8.md",
     "static/media/flutter 광고 admob_flutter.md": "/static/media/flutter 광고 admob_flutter.57e56eb8b1788e09ac87.md",
@@ -1713,6 +1713,7 @@
     "static/media/linux cmd sh.md": "/static/media/linux cmd sh.5e9d9f8891d7b21f4c99.md",
     "static/media/L7 http 1.1.md": "/static/media/L7 http 1.1.79292cbb5489301a07c9.md",
     "static/media/nest advanced message queue bullmq Injectable Processor.md": "/static/media/nest advanced message queue bullmq Injectable Processor.a866e0769bc9f1b32364.md",
+    "static/media/prisma create vs createMany.md": "/static/media/prisma create vs createMany.d3b181a6c2c3caae1ab4.md",
     "static/media/flutter Router GoRouter CustomTransitionPage.md": "/static/media/flutter Router GoRouter CustomTransitionPage.09d3f357d0ff1a92e827.md",
     "static/media/aws-sdk s3.md": "/static/media/aws-sdk s3.3bdb2e037d48a3536d5f.md",
     "static/media/testing jest fixture.md": "/static/media/testing jest fixture.0b8612c13ab182e5da0f.md",
@@ -4072,10 +4073,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.5858ff7f.js.map": "/static/js/main.5858ff7f.js.map"
+    "main.d570054f.js.map": "/static/js/main.d570054f.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.5858ff7f.js"
+    "static/js/main.d570054f.js"
   ]
 }
