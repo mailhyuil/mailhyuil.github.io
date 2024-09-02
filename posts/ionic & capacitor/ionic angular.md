@@ -7,12 +7,24 @@ npm i @ionic/angular
 npm i @ionic/core
 ```
 
-## html
+## app.component.html
 
 ```html
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+```
+
+## default.layout.html
+
+```html
+<app-side-menu></app-side-menu>
+<div class="ion-page" id="main-content">
+  <app-header></app-header>
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+</div>
 ```
 
 ## style
@@ -37,7 +49,3 @@ npm i @ionic/core
 @tailwind components;
 @tailwind utilities;
 ```
-
-# @ionic/angular alert
-
-# @ionic/angular actionSheet
