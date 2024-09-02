@@ -12,7 +12,7 @@ npm i swiper
 import { register } from "swiper/element/bundle";
 
 register();
-bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));
 ```
 
 ## swiper.directive.ts
@@ -59,10 +59,16 @@ export default class ImageSliderComponent {
   swiper?: Swiper;
   swiperOptions: SwiperOptions = {
     modules: [Autoplay],
-    autoplay: { delay: 5000 },
+    autoplay: { delay: 5000, waitForTransition: false },
     loop: true
     slidesPerView: 3,
     spaceBetween: 50,
+    breakpoints: {
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 50,
+      },
+    },
     navigation: true,
     pagination: { clickable: true },
     on: {
@@ -79,20 +85,18 @@ export default class ImageSliderComponent {
 > 반드시 absolute로 설정!!
 
 ```html
-<div class="relative w-full">
-  <swiper-container class="absolute h-full" init="false" swiper [options]="swiperOptions">
-    <swiper-slide>
-      <img src="http://placehold.it/500" />
-    </swiper-slide>
-    <swiper-slide>
-      <img src="http://placehold.it/500" />
-    </swiper-slide>
-    <swiper-slide>
-      <img src="http://placehold.it/500" />
-    </swiper-slide>
-    <swiper-slide>
-      <img src="http://placehold.it/500" />
-    </swiper-slide>
-  </swiper-container>
-</div>
+<swiper-container class="w-full" init="false" swiper [options]="swiperOptions">
+  <swiper-slide>
+    <img src="http://placehold.it/500" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="http://placehold.it/500" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="http://placehold.it/500" />
+  </swiper-slide>
+  <swiper-slide>
+    <img src="http://placehold.it/500" />
+  </swiper-slide>
+</swiper-container>
 ```
