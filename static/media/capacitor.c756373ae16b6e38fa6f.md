@@ -7,8 +7,9 @@
 ## install
 
 ```sh
+npm i -g @capacitor/cli
+
 npm i @capacitor/core
-npm i -D @capacitor/cli
 ```
 
 ## init

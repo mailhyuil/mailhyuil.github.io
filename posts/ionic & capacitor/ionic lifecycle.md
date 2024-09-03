@@ -1,6 +1,6 @@
 # ionic lifecycle
 
-> ion-router-outlet을 사용할 시 outlet이
+> ion-router-outlet을 사용할 시 사용할 수 있는 lifecycle hook
 
 ## ionViewWillEnter
 
