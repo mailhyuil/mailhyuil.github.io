@@ -2,7 +2,7 @@
 
 ## project.json
 
-> tailwindcss 의 @base가 먹히지 않으면 core를 빼고 전부 삭제
+> tailwindcss와 함께 사용한다면 typography 초기화를 위해서 node_modules/@ionic/angular/css/typography.css를 삭제
 
 ```json
 "styles": [
