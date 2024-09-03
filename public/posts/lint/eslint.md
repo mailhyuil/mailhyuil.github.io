@@ -4,7 +4,6 @@
 
 ```sh
 npm i -D eslint
-npm i -D eslint-config-unicorn
 npm i -D eslint-config-prettier # prettier와 충돌하는 lint rules를 꺼주는 패키지
 
 npx eslint --init
