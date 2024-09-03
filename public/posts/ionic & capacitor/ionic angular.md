@@ -44,8 +44,4 @@ npm i @ionic/core
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 ```
