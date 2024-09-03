@@ -1,6 +1,6 @@
 # typescript eslint no-throw-literal
 
-> class로 정의한 error만 throw하도록 eslint 설정
+> class로 정의한 custom error만 throw하도록 eslint 설정
 
 ```json
 {
