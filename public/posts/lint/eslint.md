@@ -5,12 +5,14 @@
 ```sh
 npm i -D eslint
 npm i -D eslint-config-unicorn
+npm i -D eslint-config-prettier # prettier와 충돌하는 lint rules를 꺼주는 패키지
+
 npx eslint --init
 ```
 
 ## .eslintrc.json / eslint.config.js
 
-> .eslintrc 파일은 deprecated 되었지만 여전히 많이 사용된다
+> .eslintrc.json 파일은 deprecated 되었지만 여전히 많이 사용된다
 >
 > > 현재는 flat config (eslint.config.js)가 experimental로 사용 중
 > >
@@ -36,7 +38,3 @@ module.exports = {
   },
 };
 ```
-
-## eslint-config-prettier && eslint-plugin-prettier
-
-> eslint 와 prettier가 충돌하는 규칙을 꺼주는 패키지

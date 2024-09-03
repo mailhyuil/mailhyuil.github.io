@@ -1,5 +1,15 @@
 # typescript eslint
 
+## install
+
+```sh
+npm i -D eslint
+npm i -D @typescript-eslint/parser
+npm i -D @typescript-eslint/eslint-plugin
+```
+
+## .eslintrc.json
+
 ```json
 {
     "files": ["*.ts", "*.tsx"],
