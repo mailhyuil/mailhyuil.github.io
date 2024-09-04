@@ -9,7 +9,7 @@ import { Color } from "@ionic/core";
   providedIn: "root",
 })
 export class ToastService {
-  constructor(private readonly toastController: ToastController) {}
+  toastController = inject(ToastController);
 
   async show(message: string, color: Color = "primary") {
     const toast: HTMLIonToastElement = await this.toastController.create({
