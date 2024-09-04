@@ -1,33 +1,18 @@
 # pretendard + tailwindcss
 
-## style.css
+## public/fonts/PretendardVariable.woff2
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url("https://fastly.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css");
-```
-
-## tailwind.config.js
-
-> font-familysms 대문자, 소문자를 구별하지 않는다.
-
-```js
-theme: {
-  extend: {
-    fontFamily: {
-      sans: ['Pretendard Variable'],
-    },
-  },
-},
-```
+> 파일 다운로드해서 넣기
 
 ## font.scss
 
 ```css
+@font-face {
+  font-family: "PretendardVariable";
+  src: local("PretendardVariable"), url(/fonts/PretendardVariable.woff2) format("woff2");
+}
+
 * {
-  font-family: "Pretendard Variable";
+  font-family: "PretendardVariable", sans-serif;
 }
 ```
