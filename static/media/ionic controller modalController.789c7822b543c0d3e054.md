@@ -1,14 +1,6 @@
-# @ionic/angular modal
+# ionic modalController
 
-> ModalController 사용
-
-## modal 생성
-
-```
-ng g c modals/create-notice --type modal
-```
-
-## ts
+## page.component.ts
 
 ```ts
 @Component({
@@ -38,8 +30,8 @@ export class NoticePage {
 }
 ```
 
-## html
+## page.component.html
 
-```
+```html
 <button (click)="openModal()"></button>
 ```
