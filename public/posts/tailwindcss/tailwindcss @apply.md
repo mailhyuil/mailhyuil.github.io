@@ -1,6 +1,6 @@
 # tailwindcss @apply
 
-## global css
+## global.css
 
 ```css
 @tailwind base;
