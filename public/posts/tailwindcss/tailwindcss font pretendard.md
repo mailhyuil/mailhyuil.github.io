@@ -12,7 +12,7 @@
 
 ## tailwind.config.js
 
-> font-familysms 대문자, 소문자를 구별하지 않는다.
+> font-family는 대문자, 소문자를 구별하지 않는다.
 
 ```js
 theme: {
