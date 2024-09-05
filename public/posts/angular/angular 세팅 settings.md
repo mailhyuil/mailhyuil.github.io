@@ -4,12 +4,15 @@
 
 ```sh
 npm i @angular/material
+
 npm i ngx-material-timepicker
+
+npm i ngx-cookie-service
+
+npm i ngx-pagination
 
 npm i ng2-charts
 npm i chart.js
-
-npm i ngx-cookie-service
 
 npm i swiper
 
@@ -44,7 +47,7 @@ export const appConfig: ApplicationConfig = {
       withPreloading(PreloadAllModules),
       withInMemoryScrolling({
         scrollPositionRestoration: "top",
-      })
+      }),
     ),
     provideHttpClient(withInterceptors([HttpInterceptor])),
     importProvidersFrom([ApiModule]),
