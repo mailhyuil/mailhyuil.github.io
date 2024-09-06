@@ -8,7 +8,7 @@
 
 ```sh
 npm i ng-openapi-gen
-npm i json-schema-ref-parser
+npm i @apidevtools/json-schema-ref-parser
 
 ng-openapi-gen --input my-api.yaml --output my-app/src/app/api
 ```
@@ -22,7 +22,7 @@ import { INestApplication, Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { writeFile } from "fs";
-import $RefParser from "json-schema-ref-parser";
+import $RefParser from "@apidevtools/json-schema-ref-parser";
 import { NgOpenApiGen } from "ng-openapi-gen";
 import { resolve } from "path";
 import { AppModule } from "../src/app/app.module";
@@ -35,7 +35,11 @@ export async function initOpenApi(app?: INestApplication, port?: number | string
     port = process.env.SERVER_PORT || 3000;
   }
   /** OpenAPI */
-  const swaggerConfig = new DocumentBuilder().setTitle("API").addServer(`http://localhost:${port}`).addCookieAuth().build();
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle("API")
+    .addServer(`http://localhost:${port}`)
+    .addCookieAuth()
+    .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup("api/v1/document", app, document);
@@ -51,7 +55,7 @@ export async function initOpenApi(app?: INestApplication, port?: number | string
     indexFile: true,
   };
 
-  const RefParser = new $RefParser.default();
+  const RefParser = new $RefParser();
   const openApi = await RefParser.bundle(openApiOptions.input, {
     dereference: { circular: false },
   });
