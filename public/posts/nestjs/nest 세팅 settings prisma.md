@@ -20,6 +20,7 @@ npx prisma init
 ```prisma
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["relationJoins", "prismaSchemaFolder", "omitApi"]
 }
 
 datasource db {

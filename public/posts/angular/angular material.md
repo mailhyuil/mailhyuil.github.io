@@ -3,20 +3,38 @@
 ## install
 
 ```sh
+# 설치
 npm i @angular/material
-# ng add @angular/material
+
+# 자동 세팅 (수동으로 해도 된다.)
+ng add @angular/material
 ```
 
-## tailwindcss와 함께 사용
+## 수동 세팅
 
-> important 설정으로 tailwindcss가 우선적용되도록 함
+### prebuilt theme 추가
 
-```js
-// tailwind.config.js
-module.exports = {
-  important: true,
-  ...
-}
+```json
+"styles": [
+  "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+  "src/styles.scss"
+],
+```
+
+### index.html에 typography 추가
+
+```html
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+```
+
+### app.config.ts에 BrowserAnimationsModule 추가
+
+```ts
+importProvidersFrom([
+  BrowserAnimationsModule,
+]),
 ```
 
 ## style.scss
@@ -24,27 +42,4 @@ module.exports = {
 ```css
 @use "@angular/material" as mat;
 @include mat.core();
-```
-
-## ts
-
-> Module명은 `Mat`으로 시작함
->
-> > MatButtonModule
-
-```ts
-import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { MatButtonModule } from "@angular/material/button";
-@Component({
-  imports: [MatSlideToggleModule, MatButtonModule],
-})
-class SomeComponent {}
-```
-
-## html
-
-```html
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
-
-<button mat-button></button>
 ```
