@@ -37,7 +37,7 @@ npm i -D @types/cookie-parser
 # openapi
 npm i @nestjs/swagger
 npm i ng-openapi-gen
-npm i json-schema-ref-parser
+npm i @apidevtools/json-schema-ref-parser
 # date
 npm i dayjs
 # http
@@ -133,9 +133,7 @@ import compression from "compression";
 import cookieParser from "cookie-parser";
 import { writeFile } from "fs";
 import helmet from "helmet";
-import $RefParser from "json-schema-ref-parser";
 import morgan from "morgan";
-import { NgOpenApiGen } from "ng-openapi-gen";
 import { join } from "path";
 import { AppModule } from "./app/app.module";
 import { winstonLogger, stream } from "./winston.config";
@@ -253,7 +251,7 @@ import { INestApplication, Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { writeFile } from "fs";
-import $RefParser from "json-schema-ref-parser";
+import $RefParser from "@apidevtools/json-schema-ref-parser";
 import { NgOpenApiGen } from "ng-openapi-gen";
 import { resolve } from "path";
 import { AppModule } from "../src/app/app.module";
@@ -286,7 +284,7 @@ export async function initOpenApi(app?: INestApplication, port?: number | string
     indexFile: true,
   };
 
-  const RefParser = new $RefParser.default();
+  const RefParser = new $RefParser();
   const openApi = await RefParser.bundle(openApiOptions.input, {
     dereference: { circular: false },
   });
