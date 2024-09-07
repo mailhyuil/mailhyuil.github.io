@@ -44,6 +44,10 @@ npm i object-to-formdata
 
 # file-saver
 npm i file-saver
+
+# icon
+npm i -D @iconify/json
+npm i -D @iconify/tailwind
 ```
 
 ## app.config.ts
@@ -78,7 +82,13 @@ export const appConfig: ApplicationConfig = {
 ## tailwind.config.js
 
 ```js
+const { addDynamicIconSelectors } = require("@iconify/tailwind");
 
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  plugins: [addDynamicIconSelectors()],
+  important: true,
+};
 ```
 
 ## mat.scss
