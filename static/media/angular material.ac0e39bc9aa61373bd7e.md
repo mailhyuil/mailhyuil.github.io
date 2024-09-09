@@ -36,10 +36,3 @@ importProvidersFrom([
   BrowserAnimationsModule,
 ]),
 ```
-
-## style.scss
-
-```css
-@use "@angular/material" as mat;
-@include mat.core();
-```

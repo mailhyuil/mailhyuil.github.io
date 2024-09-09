@@ -44,6 +44,10 @@ npm i object-to-formdata
 
 # file-saver
 npm i file-saver
+
+# icon
+npm i -D @iconify/json
+npm i -D @iconify/tailwind
 ```
 
 ## app.config.ts
@@ -64,7 +68,7 @@ export const appConfig: ApplicationConfig = {
       }),
     ),
     provideHttpClient(withInterceptors([HttpInterceptor])),
-    importProvidersFrom([ApiModule]),
+    importProvidersFrom([ApiModule, BrowserAnimationsModule]),
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {
       provide: APP_INITIALIZER,
@@ -78,11 +82,23 @@ export const appConfig: ApplicationConfig = {
 ## tailwind.config.js
 
 ```js
+const { addDynamicIconSelectors } = require("@iconify/tailwind");
 
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  plugins: [addDynamicIconSelectors()],
+  important: true,
+};
 ```
 
-## root.scss
+## mat.scss
 
-```scss
+> "node_modules/@angular/material/prebuilt-themes/indigo-pink.css" 추가
 
+## index.html
+
+```html
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 ```
