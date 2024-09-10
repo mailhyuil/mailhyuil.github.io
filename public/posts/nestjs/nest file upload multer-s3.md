@@ -74,6 +74,7 @@ import { multerS3Factory } from "./multer-s3.factory";
   ],
   controllers: [],
   providers: [],
+  exports: [MulterModule],
 })
 export class AwsS3Module {}
 ```
