@@ -1,6 +1,7 @@
 ## nest global
 
 > main.ts에서 useGlobal~를 사용하면 application 단에서 global을 사용
+>
 > 이 방식은 module에 register된 외부 모듈에 대해서는 적용되지 않는다.
 >
 > > 따라서 AppModule에서 global token을 사용하여 등록해주자

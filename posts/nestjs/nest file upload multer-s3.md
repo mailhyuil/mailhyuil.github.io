@@ -1,5 +1,7 @@
 # nest multer-s3
 
+> 그냥 @aws-sdk/client-s3를 사용하자
+
 ## install
 
 ```sh

@@ -1,12 +1,32 @@
-# aws-sdk s3
+# nest file upload Image
 
-## install
+## prisma
 
-```sh
-npm i @aws-sdk/client-s3
+```prisma
+model Image {
+    id    String      @id @default(cuid())
+    url   String
+    createdAt DateTime @default(now()) @map("created_at")
+    @@map("images")
+}
 ```
 
-## usage
+## aws-s3.module.ts
+
+```ts
+import { Module } from "@nestjs/common";
+import { AwsS3Service } from "./aws-s3.service";
+
+@Module({
+  imports: [],
+  controllers: [],
+  providers: [AwsS3Service],
+  exports: [AwsS3Service],
+})
+export class AwsS3Module {}
+```
+
+## aws-s3.service.ts
 
 ```ts
 import { DeleteObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
@@ -59,4 +79,39 @@ export class AwsS3Service {
     return await this.s3.send(command);
   }
 }
+```
+
+## aws-s3-upload.pipe.ts
+
+```ts
+import { Injectable, PipeTransform } from "@nestjs/common";
+import { MemoryStoredFile } from "nestjs-form-data";
+import { AwsS3DTO } from "./aws-s3.dto";
+import { AwsS3Service } from "./aws-s3.service";
+
+export const AwsS3UploadPipeFn = (fieldName: string) => {
+  @Injectable()
+  class AwsS3UploadPipe implements PipeTransform<unknown, Promise<unknown>> {
+    constructor(private readonly awsS3Service: AwsS3Service) {}
+    async transform(body: unknown): Promise<unknown> {
+      const files = body[fieldName] as MemoryStoredFile[] | MemoryStoredFile;
+      if (!files) return body;
+
+      if (!Array.isArray(files)) {
+        body[fieldName] = await this.awsS3Service.upload(files);
+        return body;
+      }
+
+      const fileDtos: AwsS3DTO[] = await Promise.all(
+        files.map(async file => {
+          return this.awsS3Service.upload(file);
+        }),
+      );
+
+      body[fieldName] = fileDtos;
+      return body;
+    }
+  }
+  return AwsS3UploadPipe;
+};
 ```
