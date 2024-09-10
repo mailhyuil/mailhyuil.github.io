@@ -1,7 +1,5 @@
 # nest file upload Image
 
-> cdn을 사용하여 구현
-
 ## prisma
 
 ```prisma
@@ -13,16 +11,8 @@ model Image {
 }
 ```
 
-## controller
+## aws-s3.module.ts
 
 ```ts
 
 ```
-
-## service
-
-```ts
-
-```
-
-## client
