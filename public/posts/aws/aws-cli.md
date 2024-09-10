@@ -6,7 +6,7 @@
 
 ## 명령어
 
-```
+```sh
 aws s3
 aws ec2
 aws iam
