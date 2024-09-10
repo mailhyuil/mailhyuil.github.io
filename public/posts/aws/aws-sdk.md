@@ -10,9 +10,10 @@ npm install aws-sdk
 npm i @aws-sdk/client-*
 # npm i @aws-sdk/client-s3
 # npm i @aws-sdk/client-dynamodb
+# npm i @aws-sdk/client-sqs
+# npm i @aws-sdk/client-cloudfront
 
 # 그 외
-npm i multer-s3
 npm i s3-streamlogger
 ...
 ```

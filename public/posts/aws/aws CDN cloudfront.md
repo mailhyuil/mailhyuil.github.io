@@ -1,10 +1,8 @@
 # aws cloudfront
 
-> aws cdn
+> 생성 후 policy를 복사하여 s3 버킷에 붙여넣기
 >
-> > 생성 후 policy를 복사하여 s3 버킷에 붙여넣기
-> >
-> > > cloudfront_domain/<s3-resource-location>로 접근 가능
+> > cloudfront_domain/<s3-resource-location>로 접근 가능
 
 ## 뷰어 요청
 
