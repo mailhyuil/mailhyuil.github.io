@@ -1,4 +1,4 @@
-# RDS
+# RDS (Relational Database Service)
 
 > PaaS (Platform as a Service) 서비스 (e.g. RDS for Postgres)
 
