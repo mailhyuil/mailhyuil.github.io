@@ -1,13 +1,9 @@
-# aws ecs (Elastic Container Service)
+# aws ECS (Elastic Container Service)
 
 > ECS는 컨테이너 인스턴스의 프로비저닝, 클러스터링, 스케일링, 로드 밸런싱 등을 자동으로 처리합니다. (트래픽이 늘어날 수 있는 서버를 쉽게 관리하기 위해서 사용)
 >
 > > 작업(Task) 단위로 컨테이너를 그룹화
 > >
-> > > fargate나 ec2로 사용할 수 있다.
+> > > Fargate나 EC2로 사용할 수 있다.
 > > >
-> > > > ec2 내부에 ecs 컨테이너 에이전트가 기본으로 설정이 된 상태
-
-## ecr
-
-> container registry
+> > > > EC2 내부에 ECS 컨테이너 에이전트가 기본으로 설정이 된 상태

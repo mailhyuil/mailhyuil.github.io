@@ -3,6 +3,7 @@
 ## install
 
 ```sh
+npm i -D @types/react
 npm i react-email
 npm i @react-email/components
 ```
@@ -18,7 +19,19 @@ npm i @react-email/components
 ## email.template.tsx
 
 ```tsx
-import { Body, Container, Head, Heading, Hr, Html, Preview, Section, Tailwind, Text } from "@react-email/components";
+import {
+  Body,
+  Container,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Preview,
+  Section,
+  Tailwind,
+  Text,
+  Link,
+} from "@react-email/components";
 import * as React from "react";
 
 export const EmailAuthEmail = ({ password }): React.ReactElement => {
@@ -27,15 +40,17 @@ export const EmailAuthEmail = ({ password }): React.ReactElement => {
       <Head />
       <Preview>이메일 인증 안내</Preview>
       <Tailwind>
-        <Body className="mx-auto my-auto bg-white font-sans text-neutral-900">
+        <Body className="mx-auto my-auto font-sans bg-white text-neutral-900">
           <Container>
             <Hr />
-            <Heading>이메일 인증 안내</Heading>
-            <Text>안녕하세요. 통합 관리 시스템입니다.</Text>
-            <Text>이메일 인증을 위해 아래 인증번호를 회원가입 창에 입력해 주세요.</Text>
+            <Heading> 이메일 인증 안내</Heading>
+            <Text>안녕하세요. oooo입니다.</Text>
+            <Text>이메일 인증을 위해 아래 링크를 클릭해주세요</Text>
             <Hr />
             <Section className="bg-neutral-100">
-              <Text className="text-center text-2xl font-extrabold ">{password}</Text>
+              <Link className="text-xl font-extrabold text-center" href={url}>
+                인증하기
+              </Link>
             </Section>
           </Container>
         </Body>
@@ -81,7 +96,7 @@ export class EmailService {
           headers,
         })
         .subscribe({
-          next: (res) => {
+          next: res => {
             if (res.data.header.isSuccessful) {
               console.log(`✅ 인증용 이메일 발송에 성공했습니다.`);
               resolve();

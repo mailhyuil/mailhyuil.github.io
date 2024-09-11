@@ -16,7 +16,7 @@
 >
 > > 생성 시 설치할 소프트웨어 넣어주기
 
-```
+```sh
 #!/bin/bash
 sudo yum update -y
 sudo amazon-linux-extras install nginx1 -y
