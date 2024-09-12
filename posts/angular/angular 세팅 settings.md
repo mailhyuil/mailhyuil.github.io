@@ -32,6 +32,8 @@ npm i @tiptap/extension-text-align
 npm i @tiptap/extension-text-style
 npm i @tiptap/extension-image
 npm i tiptap-extension-resize-image
+npm i @tiptap/extension-link
+npm i tiptap-extension-font-size
 
 # google analytics
 npm i angulartics2

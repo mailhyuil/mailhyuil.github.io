@@ -1,5 +1,9 @@
 # nest base module dynamic module register & forRoot & forFeature
 
+> 기능은 같지만 사용하는 방법에 따른 컨벤션일 뿐이다
+>
+> > 단 global: true로 설정해줘야 forRoot와 forFeature의 동작방식으로 사용할 수 있다.
+
 ## register & forRoot & forFeature
 
 > module을 여러번 호출할 지, 그리고 config를 어떻게 사용할지에 따라 컨벤션을 달리한다.
