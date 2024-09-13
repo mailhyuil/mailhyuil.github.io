@@ -8,6 +8,7 @@
   "outputs": ["{options.outputPath}"],
   "options": {
     "baseHref": "/admin/",
+    "deployUrl": "/admin/", // link, style 등의 경로에 /admin/ 추가
     }
   },
 ```
