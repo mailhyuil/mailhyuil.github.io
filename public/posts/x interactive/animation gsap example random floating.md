@@ -3,7 +3,7 @@
 ```js
 const arr = gsap.utils.toArray(".hi");
 
-arr.forEach((object) => {
+arr.forEach(object => {
   gsap.to(object, {
     duration: 1 + Math.random() * 0.5, // Random duration between 2 and 5 seconds
     y: () => Math.random() * 20, // Random Y position within the viewport height
