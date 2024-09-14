@@ -8,7 +8,18 @@
 
 ```sh
 # cli 설치
-npm i -g nextui-cli
+npm i -D nextui-cli
 
-npm install @nextui-org/react framer-motion
+npx nextui --add
+```
+
+## usage
+
+```tsx
+import React from "react";
+import { Button } from "@nextui-org/react";
+
+export default function App() {
+  return <Button color="primary">Button</Button>;
+}
 ```

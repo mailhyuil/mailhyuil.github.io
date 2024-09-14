@@ -1,6 +1,8 @@
 # next SSG (Static Site Generation)
 
 > 빌드 시에 HTML이 생성되고, 매 요청마다 재사용
+>
+> > angular의 resolver 역할을 대신할 수 있다.
 
 ## getStaticProps
 
@@ -39,7 +41,7 @@ export async function getStaticPaths() {
   const posts = await res.json();
 
   // Get the paths we want to pre-render based on posts
-  const paths = posts.map((post) => ({
+  const paths = posts.map(post => ({
     params: { id: post.id },
   }));
 
