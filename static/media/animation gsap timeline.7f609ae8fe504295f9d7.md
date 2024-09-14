@@ -10,31 +10,11 @@ gsap.to(ele, {
 gsap.to(ele, {
   delay: 20,
 });
-/* === */
+
+// is the same as
+
 const tl = gsap.timeline();
 tl.to(ele, {}).to(ele, {}).to(ele, {});
-```
-
-## timeline + scrollTrigger
-
-> gsap.timeline({scrollTrigger:...})
-
-```js
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: wrapper2.value,
-    start: "center bottom",
-    end: "bottom bottom",
-    scrub: 1,
-    markers: true,
-  },
-});
-
-tl.to(box2.value, {
-  backgroundColor: "red",
-}).to(box2.value, {
-  backgroundColor: "green",
-});
 ```
 
 ## label
