@@ -1,23 +1,4 @@
-# gsap timeline
-
-> gsap.to를 여러개 써서 delay를 건것 과 같다
-
-```js
-gsap.to(ele, {});
-gsap.to(ele, {
-  delay: 10,
-});
-gsap.to(ele, {
-  delay: 20,
-});
-
-// is the same as
-
-const tl = gsap.timeline();
-tl.to(ele, {}).to(ele, {}).to(ele, {});
-```
-
-## label
+# gsap timeline label
 
 > addLabel("label_name")을 중간에 삽입하면 play("label_name")으로 라벨 밑부터 시작가능
 
