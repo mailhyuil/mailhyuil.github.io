@@ -9,9 +9,9 @@ function handler() {
   alert("Hello from " + event.target.tagName); // Hello from H1
 }
 
-elem.addEventListener("click", handler);
+ele.addEventListener("click", handler);
 
 onDestroy(){
-  elem.removeEventListener("click", handler)
+  ele.removeEventListener("click", handler)
 };
 ```
