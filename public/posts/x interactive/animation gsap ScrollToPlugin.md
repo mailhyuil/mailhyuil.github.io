@@ -7,5 +7,12 @@ import { ScrollToPlugin } from "gsap/all";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-gsap.to(window, { duration: 3, scrollTo: hi.value });
+ScrollTrigger.create({
+  trigger: ".section_02",
+  start: "top 80%",
+  end: "top 20%",
+  markers: true,
+  onEnter: () => gsap.to(window, { scrollTo: ".section_02" }),
+  onEnterBack: () => gsap.to(window, { scrollTo: ".section_01" }),
+});
 ```
