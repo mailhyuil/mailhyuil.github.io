@@ -12,11 +12,8 @@ npm i ngx-material-timepicker
 # cookie
 npm i ngx-cookie-service
 
-# data-grid
-npm i ag-grid-angular
-
-# client-side pagination
-npm i ngx-pagination
+# table/grid
+npm i @tanstack/angular-table
 
 # chart
 npm i ng2-charts
