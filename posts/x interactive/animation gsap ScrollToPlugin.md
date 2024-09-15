@@ -4,6 +4,7 @@
 
 ```js
 import { ScrollToPlugin } from "gsap/all";
+
 gsap.registerPlugin(ScrollToPlugin);
 
 gsap.to(window, { duration: 3, scrollTo: hi.value });

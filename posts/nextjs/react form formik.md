@@ -1,11 +1,17 @@
-# react Form
+# react Form Formik
 
-> Formik 사용
+## install
+
+```sh
+npm i formik
+```
+
+## usage
 
 ```tsx
 <Formik
   initialValues={{ name: "", email: "" }}
-  validate={(values) => {
+  validate={values => {
     const errors: Record<string, string> = {};
     if (!values.name) {
       errors.name = "Required";
@@ -22,7 +28,8 @@
       alert(JSON.stringify(values, null, 2));
       setSubmitting(false);
     }, 400);
-  }}>
+  }}
+>
   {({ isSubmitting }) => (
     <Form>
       <Field className="border-2 rounded-xl border-gray-500" type="text" name="name" />
@@ -48,7 +55,7 @@ export default function UserPage() {
     <main className="p-5">
       <Formik
         initialValues={{ name: "", email: "" }}
-        validate={(values) => {
+        validate={values => {
           const errors: Record<string, string> = {};
           if (!values.name) {
             errors.name = "이름을 입력해주세요.";
@@ -66,14 +73,19 @@ export default function UserPage() {
             setSubmitting(false);
           }, 400);
           router.push("test");
-        }}>
+        }}
+      >
         {({ isSubmitting, errors }) => (
           <Form className="flex flex-col gap-3">
             <Input name="name" />
             {errors.name && <div className="text-red-500">{errors.name}</div>}
             <Input name="email" type="email" />
             {errors.email && <div className="text-red-500">{errors.email}</div>}
-            <button className=" bg-blue-500 disabled:bg-red-500 rounded-lg py-3 font-bold text-2xl text-white" type="submit" disabled={isSubmitting}>
+            <button
+              className=" bg-blue-500 disabled:bg-red-500 rounded-lg py-3 font-bold text-2xl text-white"
+              type="submit"
+              disabled={isSubmitting}
+            >
               Submit
             </button>
           </Form>

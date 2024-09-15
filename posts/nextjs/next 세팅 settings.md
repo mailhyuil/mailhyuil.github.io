@@ -11,9 +11,8 @@ npm i -D nextui
 npx nextui --add
 
 # form
-npm i @tanstack/react-form
 npm i zod
-npm i @tanstack/zod-form-adapter
+npm i react-hook-form
 
 # swiper
 npm i swiper
