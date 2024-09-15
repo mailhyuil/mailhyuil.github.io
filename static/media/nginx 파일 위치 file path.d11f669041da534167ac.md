@@ -7,13 +7,13 @@
 /etc/nginx/conf.d/default.conf
 ```
 
-# nginx html 위치
+## nginx html 위치
 
 ```sh
 /usr/share/nginx/html
 ```
 
-# nginx log 위치
+## nginx log 위치
 
 ```sh
 /var/log/nginx/access.log

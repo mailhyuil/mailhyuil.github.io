@@ -2,7 +2,7 @@
 
 ## $host
 
-> www.example.com ... 을 의미
+> "www.example.com" ... 을 의미
 
 ## $request_uri
 

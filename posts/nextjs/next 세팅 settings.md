@@ -15,6 +15,9 @@ npx nextui --add
 npm i zod
 npm i react-hook-form
 
+# grid/table
+npm i @tanstack/react-table
+
 # animation
 npm i framer-motion
 npm i @floating-ui/react
