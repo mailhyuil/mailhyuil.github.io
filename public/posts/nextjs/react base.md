@@ -69,6 +69,8 @@ ReactDOM.createRoot(document("#root")).render(<App />);
 
 ## cli로 react app 생성하기
 
+> 위의 과정을 cli로 간단하게 생성할 수 있다.
+
 ```sh
 # cli 설치
 npm install -g create-react-app
