@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-npm install zustand
+npm i zustand
 ```
 
 ## useStore.ts

@@ -4,7 +4,7 @@
 >
 > > angular의 interceptor, guard의 역할을 대신할 수 있다.
 
-## some-middleware.ts
+## some.middleware.ts
 
 ```ts
 import { NextResponse } from "next/server";
