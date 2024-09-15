@@ -1,6 +1,6 @@
 # nginx
 
-![](img/apache&nginx.png)
+![apache & nginx](img/apache&nginx.png)
 
 ## default.conf
 
@@ -39,13 +39,13 @@ server {
     ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
-    root /app/client/browser;
 
     location = / {
         try_files '' @ssr;
     }
 
     location / {
+        root /app/client/browser;
         index index.html index.htm;
         try_files $uri $uri/ @ssr;
     }
