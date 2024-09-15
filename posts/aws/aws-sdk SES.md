@@ -128,16 +128,6 @@ export class AwsSesService {
       throw new UnauthorizedException("Failed to verify email");
     }
   }
-
-  async verifyEmailAddress(address: string) {
-    const command = new VerifyEmailIdentityCommand({
-      EmailAddress: address,
-    });
-    await this.ses.send(command).catch(error => {
-      this.logger.error(error);
-      throw new InternalServerErrorException("Failed to verify email address");
-    });
-  }
 }
 ```
 

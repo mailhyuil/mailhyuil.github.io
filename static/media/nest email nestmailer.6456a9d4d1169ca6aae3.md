@@ -1,11 +1,14 @@
-# nest mailer
+# nest mailer nestmailer
 
-> smtp 메일 서버가 필요 (e.g. 네이버 메일 서버, 구글 메일 서버)
+> nodemailer 를 wrapping한 라이브러리
+>
+> > smtp 메일 서버가 필요 (e.g. 네이버 메일 서버, 구글 메일 서버)
 
 ## install
 
 ```sh
-npm i @nestjs-modules/mailer
+npm i @nestjs-modules/mailer nodemailer
+npm i -D @types/nodemailer
 ```
 
 ## module
