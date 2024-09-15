@@ -3,16 +3,21 @@
 ## install
 
 ```sh
+# state management
 npm i @tanstack/react-query
 npm i zustand
 
-# nextui
+# nextui components
 npm i -D nextui
 npx nextui --add
 
 # form
 npm i zod
 npm i react-hook-form
+
+# animation
+npm i framer-motion
+npm i @floating-ui/react
 
 # swiper
 npm i swiper
