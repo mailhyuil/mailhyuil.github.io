@@ -2,8 +2,9 @@
 
 ## install
 
-```
-yarn add gsap
+```sh
+npm i gsap
+npm i -D @types/gsap
 ```
 
 ## usage 전
@@ -23,7 +24,7 @@ gsap.set(".selector", { toVars });
 
 ## ease
 
-```
+```txt
 ease: "none" // no ease (same as "linear")
 
 "power1", "power2", "power3", "power4",
