@@ -1,5 +1,9 @@
 # react hook useRef
 
+> element의 참조를 저장할 수 있는 hook
+>
+> > react의 forwardRef 함수를 사용한다.
+
 ```ts
 export default function Counter() {
   let ref = useRef(0);
