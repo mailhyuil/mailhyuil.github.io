@@ -1,8 +1,8 @@
 # next middleware
 
-> 요청과 응답을 중간에서 가로채는 역할을 하는 기능
+> server side에서 요청과 응답을 중간에서 가로채는 역할을 하는 기능
 >
-> > angular의 interceptor, guard의 역할을 대신할 수 있다.
+> > server side를 사용해야만 사용할 수 있는 기능
 
 ## some.middleware.ts
 
