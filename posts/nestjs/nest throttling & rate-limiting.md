@@ -1,4 +1,4 @@
-# nest throttling & ratelimiting
+# nest throttling & rate-limiting
 
 ## install
 
