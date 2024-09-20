@@ -1,5 +1,7 @@
 # gsap scrollTrigger to
 
+> gsap.to로 구현하는 방법
+
 ```js
 gsap.to(box1.value.childNodes[0], {
   scrollTrigger: {
