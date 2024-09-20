@@ -2,6 +2,15 @@
 
 > ScrollTrigger를 사용하는 방법에는 gsap.to 방식, gsap.timeline 방식, ScrollTrigger.create 방식이 있다.
 
+## setup
+
+```ts
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+```
+
 ## trigger
 
 > element 요소, selector를 사용할 수 있다.

@@ -1,5 +1,7 @@
 # gsap scrollTrigger ScrollTrigger.create
 
+> ScrollTrigger로 직접 구현하는 방법
+
 ```js
 ScrollTrigger.create({
   trigger: ele,
