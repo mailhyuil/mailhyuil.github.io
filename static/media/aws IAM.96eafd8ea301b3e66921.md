@@ -1,10 +1,14 @@
 # aws IAM
 
-> 보안, 인증, 인가
+> 보안, 인증, 인가를 담당하는 서비스
 >
-> > 개발을 위한 권한(Read & Write), Billing Viewer(예산 관리)(Read), Log Viewer 등의 권한(Read)을 부여할 수 있다.
+> > 사용자, 그룹, 역할을 생성하고 그것들을 AWS Account에 연결하여 권한을 부여한다.
 > >
-> > > 항상 root 계정을 사용하지 않고, IAM 사용자를 생성하여 사용하는 것이 좋다.
+> > AWS Account는 root 계정을 가지고 있으며 AWS Organization을 통해 다른 계정을 추가할 수 있다.
+> >
+> > > 개발을 위한 권한(Read & Write), Billing Viewer(예산 관리)(Read), Log Viewer 등의 권한(Read)을 부여할 수 있다.
+> > >
+> > > > 항상 root 계정을 사용하지 않고, IAM 사용자를 생성하여 사용하는 것이 좋다.
 
 ## Access Control
 
