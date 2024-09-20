@@ -1,49 +1,34 @@
-# aws iam
+# aws IAM
 
 > 보안, 인증, 인가
 >
 > > 개발을 위한 권한(Read & Write), Billing Viewer(예산 관리)(Read), Log Viewer 등의 권한(Read)을 부여할 수 있다.
+> >
+> > > 항상 root 계정을 사용하지 않고, IAM 사용자를 생성하여 사용하는 것이 좋다.
 
-## group
+## Access Control
+
+```txt
+user-based: 각 사용자에게 직접 권한을 부여하여 접근을 제어하는 방식이다.
+group-based: 사용자를 그룹으로 묶고, 해당 그룹에 권한을 부여하여 관리하는 방식이다.
+role-based: 역할을 통해 권한을 부여받고, 그 역할을 맡은 엔터티가 해당 권한을 사용하는 방식이다. 서비스나 다른 AWS 계정에도 적용된다.
+attribute-based: 사용자의 속성이나 리소스의 태그에 기반하여 권한을 부여하는 방식으로, 정책에 조건을 추가하여 접근을 제어한다.
+```
 
 ## user
 
-## role
+```txt
 
-## access control
-
-> user-based
->
-> > group-based
-> >
-> > > role-based
-> > >
-> > > > attribute-based
-
-## policy
-
-> json으로 설정
->
-> > Id-Based Policy
-> >
-> > > Resource-Based Policy
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [...] // 권한 부여 규칙(Rule 혹은 Policy)의 나열
-}
 ```
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow", // 허용 여부 Allow | Deny
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::musma/*"
-    }
-  ]
-}
+## role
+
+```txt
+
+```
+
+## group
+
+```txt
+
 ```
