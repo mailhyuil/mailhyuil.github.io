@@ -2,7 +2,7 @@
 
 > Guard에서 user를 넣어주기
 
-## guard
+## auth.guard.ts
 
 ```ts
 const request = context.switchToHttp().getRequest();
@@ -10,7 +10,7 @@ const request = context.switchToHttp().getRequest();
 request.user = user; // user data를 request안에 저장해두기
 ```
 
-## decorator
+## get-user.decorator.ts
 
 ```ts
 type UserRecord = keyof User;
