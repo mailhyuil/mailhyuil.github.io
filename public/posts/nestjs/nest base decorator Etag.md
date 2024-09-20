@@ -16,6 +16,7 @@ import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from "@nes
 import etag from "etag";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+
 @Injectable()
 export class EtagInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
