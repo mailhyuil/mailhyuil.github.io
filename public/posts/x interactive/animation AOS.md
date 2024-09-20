@@ -4,14 +4,20 @@
 
 ```sh
 npm i aos
-```
+@import "node_modules/aos/dist/aos.css";
 
-## cdn
-
-```html
-<!-- AOS Animation -->
+# cdn
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+```
+
+## init
+
+> deferred script의 DOMContentLoaded 이벤트를 사용하여 초기화
+>
+> > 또는 ngOnInit()에서 초기화
+
+```html
 <script defer>
   document.addEventListener("DOMContentLoaded", function () {
     AOS.init({
@@ -36,7 +42,6 @@ npm i aos
     });
   });
 </script>
-<!------------------->
 ```
 
 ## usage
