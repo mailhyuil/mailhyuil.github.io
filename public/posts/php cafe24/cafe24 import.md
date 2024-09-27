@@ -1,7 +1,11 @@
 # cafe34 import
 
-> <!--@<file_extension>(path)-->
-
 ```html
-<!--@css(/path/to/default.css)-->
+<!--@css(/path/to/global.css)-->
+
+<!--@js(/path/to/common.js)-->
+
+<!--@layout(/path/to/layout.html)-->
+
+<!--@import(/path/to/component.html)-->
 ```
