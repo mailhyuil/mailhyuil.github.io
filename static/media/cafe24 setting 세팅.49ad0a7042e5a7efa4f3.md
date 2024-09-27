@@ -53,7 +53,7 @@ const chokidar = require("chokidar");
 const puppeteer = require("puppeteer-core");
 
 const os = require("os");
-const isWindow = os.platform().includes("win");
+const isWindow = os.platform() === "win32";
 
 const executablePath = isWindow
   ? "C:/Program Files/Google/Chrome/Application/chrome.exe"
@@ -64,9 +64,9 @@ const userDataDir = "C:/Users/sangb/AppData/Local/Google/Chrome/User Data";
 const profileDirectory = "Profile 1";
 
 // 스킨 폴더의 이름을 입력하세요
-const projectDir = "skin4";
+const projectDir = "skin6";
 // 최초로 이동할 페이지의 URL을 설정하세요
-const startUrl = "https://depdep.cafe24.com/skin-skin4";
+const startUrl = "https://depdep.cafe24.com/skin-skin6";
 // 파일 변경 후 리로드까지의 딜레이(ms)를 설정하세요
 const reloadDelay = 1000;
 
@@ -107,7 +107,7 @@ async function watch() {
 watch();
 ```
 
-# 마무리!
+## 마무리
 
 > tailwindcss를 생성해줍시다.
 
