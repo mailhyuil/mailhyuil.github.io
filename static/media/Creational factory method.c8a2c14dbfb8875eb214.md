@@ -7,11 +7,13 @@
 ## core
 
 ```ts
-interface Task {
-  createSomething(): Something; // 이 부분이 팩토리 메서드 패턴
+// Factory
+interface AnimalFactory {
+  createAnimal(): Animal; // 이 부분이 팩토리 메서드 패턴
 }
 
-interface Something {
+// Product : 이 인터페이스를 자식 클래스에서 Cat, Dog..으로 구현하여 생성하면 팩토리 메소드 패턴이다.
+interface Animal {
   doSomething(): void;
 }
 ```
