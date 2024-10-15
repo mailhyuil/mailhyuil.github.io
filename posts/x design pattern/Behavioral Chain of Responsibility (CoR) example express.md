@@ -1,4 +1,4 @@
-# design pattern Cor example Express
+# design pattern CoR example Express
 
 ```ts
 import express, { RequestHandler } from "express";

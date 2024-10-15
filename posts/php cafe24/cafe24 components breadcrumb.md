@@ -1,8 +1,9 @@
-# cafe24 module breadcrumb
+# cafe24 components breadcrumb
 
-> TODO: 끝에 있는 name만 진하게
+## html
 
 ```html
+<!--breadcrumb-->
 <div module="Product_menupackage">
   <div module="product_headcategory">
     <div class="dep-gap-1 dep-justify-end dep-flex dep-py-5">
@@ -20,4 +21,10 @@
     </div>
   </div>
 </div>
+```
+
+## js
+
+```js
+
 ```
