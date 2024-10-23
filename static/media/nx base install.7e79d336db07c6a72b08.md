@@ -8,8 +8,9 @@
 
 ```sh
 npm install -g nx
-
 npm i -g create-nx-workspace
+
+create-nx-workspace <workspace-name> --preset=apps
 ```
 
 ## 명령어
