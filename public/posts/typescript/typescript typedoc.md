@@ -71,6 +71,6 @@ export function isERROR(error: any): error is ERROR {
     return false;
   }
   const keys = Object.keys(error);
-  return keys.every((key) => key in ["type", "code", "message"]);
+  return keys.every(key => key in ["type", "code", "message"]);
 }
 ````

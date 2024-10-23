@@ -12,13 +12,13 @@ export class ForbiddenResourceInterceptor implements NestInterceptor {
     const req = context.switchToHttp().getRequest();
     const user = req.user;
     return next.handle().pipe(
-      tap((data) => {
+      tap(data => {
         if (user.roles.includes(Role.ADMIN)) return data;
 
         if (data instanceof UserDTO && data.id !== user.id) {
           throw new ForbiddenException("접근할 수 없는 리소스입니다.");
         }
-      })
+      }),
     );
   }
 }

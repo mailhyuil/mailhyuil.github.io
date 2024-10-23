@@ -9,7 +9,7 @@ const { PassThrough } = require("stream");
 
 const pass = new PassThrough();
 
-pass.on("data", (chunk) => {
+pass.on("data", chunk => {
   console.log(chunk.toString());
 });
 

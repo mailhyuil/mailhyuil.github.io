@@ -20,7 +20,7 @@ export class RoleGuard implements CanActivate {
 
     const userRoles: Role[] = user.roles;
 
-    const intersections = userRoles?.filter((role) => roles.includes(role));
+    const intersections = userRoles?.filter(role => roles.includes(role));
 
     if (!intersections || !intersections.length) {
       throw new ForbiddenException("사용 권한이 없습니다.");

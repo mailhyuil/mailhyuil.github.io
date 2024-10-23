@@ -1,6 +1,6 @@
 # js 에러 핸들링
 
-> https://httpstst.us/500 에러던져주는 api
+> <https://httpstst.us/500> 에러던져주는 api
 
 ## Uncaught Error
 
@@ -41,7 +41,7 @@ foo();
 console.log("이후에도 동작합니다~");
 ```
 
-## 에러는 예외적인 상황에서 하는게 좋다!
+## 에러는 예외적인 상황에서 하는게 좋다
 
 > 방어적 프로그래밍
 >

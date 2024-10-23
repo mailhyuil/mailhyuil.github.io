@@ -50,7 +50,7 @@ class UserService {
     private readonly txHost: TransactionHost<TransactionalAdapterPrisma>,
     // InjectTransaction 데코레이터 사용 시 tx를 바로 주입받을 수 있음
     @InjectTransaction()
-    private readonly tx: Transaction<TransactionalAdapterPrisma>
+    private readonly tx: Transaction<TransactionalAdapterPrisma>,
   ) {}
 
   // Transactional 데코레이터 사용 시
@@ -69,7 +69,7 @@ class UserService {
 
   // withTransaction 사용 시
   async createPostOfUsername(username: string, data: CreatePostDto) {
-    return this.txHost.withTransaction(async (tx) => {
+    return this.txHost.withTransaction(async tx => {
       const foundUser = await tx.user.findUniqueOrThrow({ where: { username } });
       const createdPost = await tx.user.create({
         data: {

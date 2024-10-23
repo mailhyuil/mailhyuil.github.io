@@ -24,7 +24,7 @@ export class EtagInterceptor implements NestInterceptor {
     const oldEtag = req.headers["if-none-match"]; // Get the ETag value from the request headers.
 
     return next.handle().pipe(
-      map((data) => {
+      map(data => {
         const currentEtag = etag(JSON.stringify(data), { weak: true }); // Generate the ETag.
         if (oldEtag && oldEtag === currentEtag) {
           res.status(304); // Send a 304 response if the ETags match.
@@ -32,7 +32,7 @@ export class EtagInterceptor implements NestInterceptor {
         } else {
           return data; // Proceed with the response.
         }
-      })
+      }),
     );
   }
 }

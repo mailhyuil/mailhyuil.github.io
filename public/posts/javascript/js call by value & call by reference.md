@@ -6,7 +6,7 @@
 > >
 > > 참조값을 직접 전달하는 것이 아닌 주소값에 대한 복사본을 만들어 수정 그리고 원본에 . 연산자로 접근하여 할당한다. (call by value)
 
-## 마치 call by reference 처럼 보인다 하지만..
+## 마치 call by reference 처럼 보인다 하지만 call by value 이다 (정확히는 call by sharing)
 
 ```js
 function changeName(obj) {

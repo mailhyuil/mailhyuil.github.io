@@ -26,7 +26,7 @@ export class SerializeInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map((data: ClassConstructor) => {
         return plainToInstance(this.dto, data);
-      })
+      }),
     );
   }
 }

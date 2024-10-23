@@ -10,7 +10,7 @@
 
 > dom.iterable 추가
 
-```
+```js
 "lib": ["dom.iterable"],
 ```
 

@@ -59,12 +59,12 @@ for (const file of g2) {
 // these are like a Dirent, but with some more added powers
 // check out http://npm.im/path-scurry for more info on their API
 const g3 = new Glob("**/baz/**", { withFileTypes: true });
-g3.stream().on("data", (path) => {
+g3.stream().on("data", path => {
   console.log(
     "got a path object",
     path.fullpath(),
     path.isDirectory(),
-    path.readdirSync().map((e) => e.name)
+    path.readdirSync().map(e => e.name),
   );
 });
 
@@ -75,16 +75,16 @@ g3.stream().on("data", (path) => {
 // For example:
 const results = await glob("**", { stat: true, withFileTypes: true });
 
-const timeSortedFiles = results.sort((a, b) => a.mtimeMs - b.mtimeMs).map((path) => path.fullpath());
+const timeSortedFiles = results.sort((a, b) => a.mtimeMs - b.mtimeMs).map(path => path.fullpath());
 
-const groupReadableFiles = results.filter((path) => path.mode & 0o040).map((path) => path.fullpath());
+const groupReadableFiles = results.filter(path => path.mode & 0o040).map(path => path.fullpath());
 
 // custom ignores can be done like this, for example by saying
 // you'll ignore all markdown files, and all folders named 'docs'
 const customIgnoreResults = await glob("**", {
   ignore: {
-    ignored: (p) => /\.md$/.test(p.name),
-    childrenIgnored: (p) => p.isNamed("docs"),
+    ignored: p => /\.md$/.test(p.name),
+    childrenIgnored: p => p.isNamed("docs"),
   },
 });
 
@@ -92,7 +92,7 @@ const customIgnoreResults = await glob("**", {
 // their parent folder, plus either `.ts` or `.js`
 const folderNamedModules = await glob("**/*.{ts,js}", {
   ignore: {
-    ignored: (p) => {
+    ignored: p => {
       const pp = p.parent;
       return !(p.isNamed(pp.name + ".ts") || p.isNamed(pp.name + ".js"));
     },
@@ -107,7 +107,7 @@ const newFiles = await glob("**", {
   // only want the files, not the dirs
   nodir: true,
   ignore: {
-    ignored: (p) => {
+    ignored: p => {
       return new Date() - p.mtime > 60 * 60 * 1000;
     },
     // could add similar childrenIgnored here as well, but

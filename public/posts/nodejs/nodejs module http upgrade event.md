@@ -14,7 +14,9 @@ const server = http.createServer((req, res) => {
 });
 
 server.on("upgrade", (req, socket, head) => {
-  socket.write("HTTP/1.1 101 Web Socket Protocol Handshake\r\n" + "Upgrade: WebSocket\r\n" + "Connection: Upgrade\r\n" + "\r\n");
+  socket.write(
+    "HTTP/1.1 101 Web Socket Protocol Handshake\r\n" + "Upgrade: WebSocket\r\n" + "Connection: Upgrade\r\n" + "\r\n",
+  );
 
   socket.pipe(socket); // echo back /// echo back이란? 클라이언트가 보낸 메시지를 그대로 돌려주는 것을 의미한다.
 });

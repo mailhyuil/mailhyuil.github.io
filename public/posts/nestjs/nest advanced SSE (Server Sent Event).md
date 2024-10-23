@@ -26,12 +26,12 @@ export class ServerSentEventController {
   async findOneSse(): Promise<Observable<MessageEvent>> {
     // 1000*60*30 = 30분
     return interval(1000 * 60 * 30).pipe(
-      switchMap(async (_) => {
+      switchMap(async _ => {
         const notice = await this.noticeService.findOne();
         return {
           data: { notice },
         } as MessageEvent;
-      })
+      }),
     );
   }
 }

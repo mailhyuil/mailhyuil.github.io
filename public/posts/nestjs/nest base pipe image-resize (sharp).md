@@ -83,7 +83,7 @@ export class UploadController {
   @UseInterceptors(FileInterceptor("file"))
   async upload(
     @UploadedFile(ImageResizePipe)
-    images: Image[]
+    images: Image[],
   ) {
     console.log(images);
   }

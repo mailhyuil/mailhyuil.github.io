@@ -13,7 +13,7 @@
 export class AService {
   constructor(
     @Inject(forwardRef(() => BService))
-    private bService: BService
+    private bService: BService,
   ) {}
 }
 ```
@@ -25,7 +25,7 @@ export class AService {
 export class BService {
   constructor(
     @Inject(forwardRef(() => AService))
-    private aService: AService
+    private aService: AService,
   ) {}
 }
 ```

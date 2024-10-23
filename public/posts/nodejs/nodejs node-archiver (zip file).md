@@ -93,13 +93,13 @@ const archive = archiver("zip", {
   highWaterMark: 1024 * 1024 * 64, // buffer size 늘리기 // 큰 파일을 다운로드 할 때 사용
   zlib: { level: 9 }, // Sets the compression level.
 });
-const promises = files.map((file) => {
+const promises = files.map(file => {
   return new Promise<void>((resolve, reject) => {
     this.http
       .get(file.url, {
         responseType: "stream",
       })
-      .subscribe((response) => {
+      .subscribe(response => {
         if (response.data instanceof internal.Readable) {
           response.data.on("end", resolve);
           archive.append(response.data, { name: file.name }).on("error", reject);

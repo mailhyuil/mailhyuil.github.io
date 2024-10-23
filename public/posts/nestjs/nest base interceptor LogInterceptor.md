@@ -11,7 +11,7 @@ export class LogInterceptor implements NestInterceptor {
     const res = context.switchToHttp().getResponse();
 
     return next.handle().pipe(
-      tap((data) => {
+      tap(data => {
         if (req.method === "GET") return;
         const logData = {
           timestamp: new Date().toISOString(),
@@ -22,7 +22,7 @@ export class LogInterceptor implements NestInterceptor {
           // Add more relevant information as needed
         };
         this.logService.create(logData);
-      })
+      }),
     );
   }
 }

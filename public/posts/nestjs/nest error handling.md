@@ -44,7 +44,7 @@ PATH: ${errorResponse.path}
 ERROR: ${JSON.stringify(errorResponse.error)}
 STACK: ${stack}
 CAUSE: ${cause}
-`
+`,
     );
   }
 }
@@ -98,7 +98,7 @@ PATH: ${errorResponse.path}
 ERROR: ${JSON.stringify(errorResponse.error)}
 STACK: ${stack}
 CAUSE: ${cause}
-`
+`,
     );
   }
 }
@@ -148,7 +148,7 @@ TIMESTAMP: ${errorResponse.timestamp}
 METHOD: ${req.method}
 PATH: ${errorResponse.path}
 ERROR: ${JSON.stringify(errorResponse.error)}
-`
+`,
     );
   }
 }

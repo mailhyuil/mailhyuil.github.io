@@ -7,7 +7,7 @@ const promise = new Promise<void>((resolve, reject) => {
       responseType: "stream",
     })
     .subscribe({
-      next: (response) => {
+      next: response => {
         if (response.data instanceof internal.Readable) {
           response.data.on("end", resolve);
           archive.append(response.data, { name: file.name }).on("error", reject);

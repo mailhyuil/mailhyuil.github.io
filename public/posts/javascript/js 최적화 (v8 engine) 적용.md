@@ -6,7 +6,7 @@
 
 ## 동적 속성 대신 정적 속성 사용하기
 
-## 다형적(polymorphic)연산 보다는 단형적(monomorphic)연산을 사용한다.
+## 다형적(polymorphic)연산 보다는 단형적(monomorphic)연산을 사용한다
 
 > 단형적 연산 : hidden class 가 항상 같다.
 >

@@ -13,7 +13,11 @@ export class SomeController {
 
   @Post()
   @Auth()
-  async create(@Body() body: CreateSomeDTO, @Query() query: CreateSomeQueryDTO, @GetUser() user: User): Promise<SomeDTO> {
+  async create(
+    @Body() body: CreateSomeDTO,
+    @Query() query: CreateSomeQueryDTO,
+    @GetUser() user: User,
+  ): Promise<SomeDTO> {
     return this.someService.getProfile(body, {
       ...query,
       user,

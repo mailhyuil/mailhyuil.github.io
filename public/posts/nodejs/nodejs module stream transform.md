@@ -5,14 +5,14 @@
 > > pipeline과 함께 사용한다.
 
 ```js
-zlib.createGzip(), // transform stream
-zlib.createGunzip(), // transform stream
+zlib.createGzip(); // transform stream
+zlib.createGunzip(); // transform stream
 
-const stream = require('stream')
+const stream = require("stream");
 
 stream.pipeline(
-	fs.createReadStream('big-file.txt')
-	zlib.createGzip(), // transform stream
-	fs.createWriteStream('big-file.gz')
-)
+  fs.createReadStream("big-file.txt"),
+  zlib.createGzip(), // transform stream
+  fs.createWriteStream("big-file.gz"),
+);
 ```

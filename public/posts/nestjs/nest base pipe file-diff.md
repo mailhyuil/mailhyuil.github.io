@@ -14,10 +14,13 @@ export const FileDiffPipeFn = ({ field }: { field: string }) => {
     constructor(
       private readonly fileService: FileService,
       private readonly prisma: PrismaService,
-      @Inject(REQUEST) private readonly request: Request
+      @Inject(REQUEST) private readonly request: Request,
     ) {}
 
-    async transform(fileOrFiles: Express.Multer.File | Express.Multer.File[], metadata: ArgumentMetadata): Promise<FileDiffResult> {
+    async transform(
+      fileOrFiles: Express.Multer.File | Express.Multer.File[],
+      metadata: ArgumentMetadata,
+    ): Promise<FileDiffResult> {
       if (!this.request.params.id) return;
       if (!fileOrFiles) return;
 

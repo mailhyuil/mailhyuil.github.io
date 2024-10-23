@@ -35,16 +35,16 @@ export class CacheDecoratorRegister implements OnModuleInit {
     private readonly discoveryService: DiscoveryService,
     private readonly metadataScanner: MetadataScanner,
     private readonly reflector: Reflector,
-    private readonly cache: Cache
+    private readonly cache: Cache,
   ) {}
 
   onModuleInit() {
     return this.discoveryService
       .getProviders() // #1. 모든 provider 조회
-      .filter((wrapper) => wrapper.isDependencyTreeStatic())
+      .filter(wrapper => wrapper.isDependencyTreeStatic())
       .filter(({ instance }) => instance && Object.getPrototypeOf(instance))
       .forEach(({ instance }) => {
-        this.metadataScanner.scanFromPrototype(instance, Object.getPrototypeOf(instance), (methodName) => {
+        this.metadataScanner.scanFromPrototype(instance, Object.getPrototypeOf(instance), methodName => {
           // #2. 메타데이터 value
           const ttl = this.reflector.get(CACHEABLE, instance[methodName]);
           if (!ttl) {

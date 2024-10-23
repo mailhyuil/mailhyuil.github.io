@@ -10,6 +10,8 @@
 
 ```txt
 variableEnvironment(Value Object): 변수객체(현재 컨텍스트의 유효 범위)
+
 lexicalEnvironment(Scope Chain): 렉시컬 환경(현재 컨텍스트의 유효 범위)
+
 thisBinding(This Value): this(현재 컨텍스트의 this)
 ```

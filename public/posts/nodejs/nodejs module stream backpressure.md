@@ -12,7 +12,7 @@
 const fs = require("fs");
 
 const readableStream = fs.createReadStream("largefile.txt");
-readableStream.on("data", (chunk) => {
+readableStream.on("data", chunk => {
   if (!someConsumer.write(chunk)) {
     // 만약 소비자가 처리할 수 없는 경우
     readableStream.pause(); // 스트림을 일시 중지

@@ -20,7 +20,7 @@ export class SomeController {
 ## client
 
 ```ts
-eventSource.onmessage = async (event) => {
+eventSource.onmessage = async event => {
   if (event.data === "keep-alive") return;
   // logic..
 };

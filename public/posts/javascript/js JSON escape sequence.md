@@ -16,7 +16,7 @@ const res2 = JSON.parse(wrong);
 console.log(res2);
 ```
 
-## url encode나 base64 encode가 되면 escape sequence가 사리지니까 작동한다.
+## url encode나 base64 encode가 되면 escape sequence가 사리지니까 작동한다
 
 ```js
 const username = "안녕\n하세요";

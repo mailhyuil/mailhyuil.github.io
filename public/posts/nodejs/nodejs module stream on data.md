@@ -5,7 +5,7 @@
 > > 반드시 write
 
 ```ts
-stream.on("data", (chunk) => {
+stream.on("data", chunk => {
   stream.write(chunk);
 });
 ```

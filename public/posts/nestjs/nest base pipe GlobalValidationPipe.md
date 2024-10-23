@@ -40,7 +40,7 @@ export class ValidationExceptionFilter implements ExceptionFilter {
   ERROR: ${JSON.stringify(errorResponse.error)}
   STACK: ${stack}
   CAUSE: ${cause}
-  `
+  `,
     );
   }
 }
@@ -100,7 +100,7 @@ export class ValidationExceptionFilter implements ExceptionFilter {
   ERROR: ${JSON.stringify(errorResponse.error)}
   STACK: ${stack}
   CAUSE: ${cause}
-  `
+  `,
     );
   }
 }

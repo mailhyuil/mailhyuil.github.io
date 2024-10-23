@@ -7,7 +7,7 @@ stream.on("end", () => {
 });
 
 // data event에서 write를 안해주면 data는 사라져버린다
-stream.on("data", (chunk) => {
+stream.on("data", chunk => {
   stream.write(chunk);
 });
 ```

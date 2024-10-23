@@ -1,15 +1,16 @@
 # 화살표 함수를 쓰면 안되는 경우
 
-# 객체 메소드
+## 객체 메소드
 
 > 화살표 함수의 this는 상위스코프를 가르키기에
-> 객체 내 화살표함수의 this는 객체의 상위 스코프인 전역객체(window)를 가르킨다.
+>
+> > 객체 내 화살표함수의 this는 객체의 상위 스코프인 전역객체(window)를 가르킨다.
 
-# prototype 메소드
+## prototype 메소드
 
 > 객체 메소드와 마찬가지
 
-# addEventListener
+## addEventListener
 
 > 마찬가지로 this가 전역객체(window)를 가르킨다.
 >

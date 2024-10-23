@@ -12,6 +12,6 @@
 
 > boolean이 참일 시 값을 할당
 
-```
+```js
 {'border-b-2 border-admin-primary': segment.status === option.status}
 ```

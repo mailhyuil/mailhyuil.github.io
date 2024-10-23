@@ -10,7 +10,11 @@
 
 ```ts
 // 1. Kakao 객체를 불러오기
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/${VERSION}/kakao.min.js" integrity="${INTEGRITY_VALUE}" crossorigin="anonymous"></script>;
+<script
+  src="https://t1.kakaocdn.net/kakao_js_sdk/${VERSION}/kakao.min.js"
+  integrity="${INTEGRITY_VALUE}"
+  crossorigin="anonymous"
+></script>;
 
 // 2. Kakao 객체를 선언하여 컴파일러에게 알려주기
 declare const Kakao: any;

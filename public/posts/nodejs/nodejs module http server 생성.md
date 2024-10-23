@@ -17,7 +17,7 @@ server.listen(port, () => {
 
 ## createServer res
 
-```
+```txt
 res.statusCode
 res.end
 res.setHeaders
@@ -25,7 +25,7 @@ res.setHeaders
 
 ## createServer req
 
-```
+```txt
 req.url
 req.method
 req.on('data',(data)=>{})

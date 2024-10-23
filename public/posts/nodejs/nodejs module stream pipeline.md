@@ -5,17 +5,17 @@
 > > transform 스트림을 쉽게 활용할 수 있게 해준다
 
 ```js
-const stream = require('stream')
+const stream = require("stream");
 
 stream.pipeline(
-	fs.createReadStream('big-file.txt')
-	zlib.createGzip(), // transform
-	fs.createWriteStream('big-file.gz')
-)
+  fs.createReadStream("big-file.txt"),
+  zlib.createGzip(), // transform
+  fs.createWriteStream("big-file.gz"),
+);
 
 stream.pipeline(
-	fs.createReadStream('big-file.gz')
-	zlib.createGunzip(), // transform
-	fs.createWriteStream('big-file.txt')
-)
+  fs.createReadStream("big-file.gz"),
+  zlib.createGunzip(), // transform
+  fs.createWriteStream("big-file.txt"),
+);
 ```

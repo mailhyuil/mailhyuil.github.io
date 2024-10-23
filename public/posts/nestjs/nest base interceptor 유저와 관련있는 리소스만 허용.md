@@ -8,11 +8,11 @@ export class ForbiddenResourceInterceptor implements NestInterceptor {
     const res = context.switchToHttp().getResponse();
 
     return next.handle().pipe(
-      map((data) => {
+      map(data => {
         const user = req.user;
         if (data?.userId && !user?.roles?.includes("ADMIN") && user.id !== data.userId) throw new ForbiddenException();
         return data;
-      })
+      }),
     );
   }
 }

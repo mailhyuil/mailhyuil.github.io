@@ -15,7 +15,7 @@ const obj = {
 
 ```js
 // SINGLE EVENT HANDLER
-handleChange = (event) => {
+handleChange = event => {
   const { name, value } = event.target;
   this.setState({ [name]: value });
 };

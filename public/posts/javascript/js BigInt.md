@@ -8,10 +8,9 @@
 > > >
 > > > > BigInt와 Number를 연산하는 경우에는 한쪽을 형변환 해주어야 한다.
 
-```
-10n
-BigInt(10)
+```js
+// 10n = BigInt(10)
 
-const res = 10n + 20n
-const res = BigInt(10) + BigInt(20)
+const res = 10n + 20n;
+const res = BigInt(10) + BigInt(20);
 ```

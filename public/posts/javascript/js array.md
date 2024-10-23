@@ -6,7 +6,7 @@
 > >
 > > > 배열을 따라한 객체이다.
 
-# sparse array
+## sparse array
 
 > integer값을 object에 매핑 시킨다.
 >
@@ -37,7 +37,7 @@ console.log(arr);
 
 ## 시간 복잡도
 
-```
+```txt
 push() : O(1)
 pop() : O(1)
 shift() : O(n)

@@ -29,7 +29,7 @@ server.addService(todo.Todo.service, {
     console.log(call.request);
     callback(null, { items: [{ id: 1, text: "hello" }] });
   },
-  findAllStream: (call) => {
+  findAllStream: call => {
     console.log(call.request);
     call.write({ id: 1, text: "hello" });
     call.write({ id: 2, text: "world" });
@@ -86,7 +86,7 @@ client.findAll({}, (err, response) => {
 });
 
 const call = client.findAllStream({});
-call.on("data", (data) => {
+call.on("data", data => {
   console.log(data);
 });
 call.on("end", () => {

@@ -4,7 +4,7 @@
 >
 > > if(array.length > 0)은 배열이 빈 배열인지 체크
 
-```
+```js
 if(array && array.length > 0)
 // or
 if(array?.length > 0)

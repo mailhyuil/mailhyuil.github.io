@@ -31,7 +31,7 @@ server {
 # 만약 A라는 ip가 ip_address:10001에 접속했으면 이후에도 ip_address:10001에 계속 접속하게 되며,
 # 한번 접속한 ip는 계속 같은 서버를 사용한다.
 upstream my_server {
-	ip_hash;
+ ip_hash;
     server ip_address:4200;
     server ip_address:4201;
 }
