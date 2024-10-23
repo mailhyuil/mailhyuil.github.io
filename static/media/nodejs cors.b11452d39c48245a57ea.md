@@ -14,7 +14,7 @@
 > > >
 > > > > > Options 응답은 chrome Network Other탭에 있음
 
-```
+```txt
 Access-Control-Request-Method // 허용된 메소드
 Access-Control-Request-Headers // 허용된 헤더
 Origin
