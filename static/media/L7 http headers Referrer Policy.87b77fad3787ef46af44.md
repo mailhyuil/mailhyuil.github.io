@@ -1,6 +1,6 @@
 # Referrer-Policy
 
-> Referrer란 이전 방문 페이지의 주소를 의미한다.
+> HTTP 리퍼러(HTTP Referrer)는 웹 브라우저로 월드 와이드 웹을 서핑할 때, 하이퍼링크를 통해서 각각의 사이트로 방문시 남는 흔적
 
 ## no-referrer
 
