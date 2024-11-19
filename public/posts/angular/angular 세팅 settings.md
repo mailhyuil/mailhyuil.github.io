@@ -81,12 +81,49 @@ export const appConfig: ApplicationConfig = {
 ## tailwind.config.js
 
 ```js
+const { createGlobPatternsForDependencies } = require("@nx/angular/tailwind");
+const { join } = require("path");
 const { addDynamicIconSelectors } = require("@iconify/tailwind");
+const { toneMap } = require("@nextcss/color-tools");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  content: [join(__dirname, "src/**/!(*.stories|*.spec).{ts,html}"), ...createGlobPatternsForDependencies(__dirname)],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#1469C0",
+          ...toneMap("#1469C0"),
+        },
+        secondary: {
+          DEFAULT: "#FFBEB2",
+          ...toneMap("#FFBEB2"),
+        },
+        info: {
+          DEFAULT: "#1E88E5",
+          ...toneMap("#1E88E5"),
+        },
+        success: {
+          DEFAULT: "#43A047",
+          ...toneMap("#43A047"),
+        },
+        warning: {
+          DEFAULT: "#FB8C00",
+          ...toneMap("#FB8C00"),
+        },
+        medium: {
+          DEFAULT: "#808080",
+          ...toneMap("#808080"),
+        },
+        danger: {
+          DEFAULT: "#E53935",
+          ...toneMap("#E53935"),
+        },
+      },
+    },
+  },
   plugins: [addDynamicIconSelectors()],
-  important: true,
 };
 ```
 
