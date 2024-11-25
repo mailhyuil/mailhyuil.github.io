@@ -1,4 +1,4 @@
-# parallex effect
+# parallax effect
 
 ```css
 background-attachment: fixed;
