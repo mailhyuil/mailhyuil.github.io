@@ -54,6 +54,4 @@ scrub: 1
 
 > 디버깅을 위한 인디케이터 표시
 
-## toggleClass
-
 ## toggleActions
