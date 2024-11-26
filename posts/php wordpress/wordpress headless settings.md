@@ -56,3 +56,11 @@ services:
 volumes:
   db_data: {}
 ```
+
+## plugins
+
+```txt
+Enable CORS
+WordPress REST API Authentication
+JWT Authentication for WP REST API
+```
