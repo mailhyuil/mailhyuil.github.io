@@ -1,5 +1,7 @@
 # wordpress headless settings
 
+> [reference doc](https://developer.wordpress.org/rest-api/reference/)
+
 ## install
 
 ```sh
