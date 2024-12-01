@@ -1,5 +1,15 @@
 # css grid layout
 
+## basic
+
+```html
+<div class="grid content-center h-screen grid-cols-6 overflow-hidden lg:grid-cols-12 py-14 lg:py-28">
+  <div class="relative h-full col-span-full md:col-span-4 md:col-end-9 lg:col-start-2 lg:col-end-12"></div>
+</div>
+```
+
+## usage
+
 ```html
 <!-- 전체 화면을 12분할 후 content-center로 가운데 정렬 -->
 <div class="grid content-center h-screen grid-cols-6 overflow-hidden bg-yellow-500 lg:grid-cols-12">
