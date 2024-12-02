@@ -3,8 +3,14 @@
 ## basic
 
 ```html
-<div class="grid content-center h-screen grid-cols-6 overflow-hidden lg:grid-cols-12 py-14 lg:py-28">
+<div class="grid content-center h-screen grid-cols-6 grid-rows-1 overflow-hidden lg:grid-cols-12 py-14 lg:py-28">
   <div class="relative h-full col-span-full md:col-span-4 md:col-end-9 lg:col-start-2 lg:col-end-12"></div>
+</div>
+
+<div class="grid gap-y-[2rem]">
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
 ```
 
@@ -28,7 +34,7 @@
           translate: none;
           rotate: none;
           scale: none;
-          transform: scale(0.5012, 0.5012);
+          transform: scale(0.5, 0.5);
         "
       >
         <img
