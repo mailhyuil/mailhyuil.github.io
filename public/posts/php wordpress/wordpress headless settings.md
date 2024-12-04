@@ -32,7 +32,8 @@ export const WpApiProvider = {
 ```yaml
 services:
   db:
-    platform: linux/x86_64
+    # platform: linux/x86_64
+    platform: linux/amd64
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
@@ -48,7 +49,7 @@ services:
       - db
     image: wordpress:latest
     ports:
-      - "8000:80"
+      - '8080:80'
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
