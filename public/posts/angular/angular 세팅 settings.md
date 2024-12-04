@@ -47,6 +47,9 @@ npm i file-saver
 # icon
 npm i -D @iconify/json
 npm i -D @iconify/tailwind
+
+# tailwindcss plugins
+npm install -D @tailwindcss/typography
 ```
 
 ## app.config.ts
