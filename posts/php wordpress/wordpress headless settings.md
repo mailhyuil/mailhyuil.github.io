@@ -6,6 +6,11 @@
 
 ```sh
 npm i wpapi
+npm i @types/wpapi
+
+npm i wp-types
+
+npm i @wordpress/block-library
 ```
 
 ## wp-api.service.ts
@@ -51,6 +56,9 @@ services:
     ports:
       - '8080:80'
     restart: always
+    volumes:
+      - ./wordpress:/var/www/html # 로컬 디렉토리를 컨테이너 내부로 마운트
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
@@ -60,10 +68,22 @@ volumes:
   db_data: {}
 ```
 
+## uploads.ini
+
+```ini
+file_uploads = On
+memory_limit = 500M
+upload_max_filesize = 500M
+post_max_size = 500M
+max_execution_time = 600
+```
+
 ## plugins
 
 ```txt
+Advanced Custom Fields
 Enable CORS
+
 WordPress REST API Authentication
 JWT Authentication for WP REST API
 ```
