@@ -1,7 +1,9 @@
 # wordpress headless settings
 
 > [reference doc](https://developer.wordpress.org/rest-api/reference/)
+>
 >> http://localhost:8080/?rest_route=/wp/v2/posts 로 접근 가능
+
 ## install
 
 ```sh

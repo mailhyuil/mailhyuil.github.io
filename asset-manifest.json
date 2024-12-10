@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.2f4cc653.js",
+    "main.js": "/static/js/main.6d9353bc.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -288,8 +288,8 @@
     "static/media/js 실행컨텍스트 call & apply & bind.md": "/static/media/js 실행컨텍스트 call & apply & bind.ba67303c3444786513c3.md",
     "static/media/angular zonejs.md": "/static/media/angular zonejs.de09716b02f512b062af.md",
     "static/media/퀴즈 빈칸.md": "/static/media/퀴즈 빈칸.5d69f9cb75994cfb7686.md",
+    "static/media/wordpress 세팅 settings headless.md": "/static/media/wordpress 세팅 settings headless.6cbfac5772b267ac1236.md",
     "static/media/linux package vim.md": "/static/media/linux package vim.4bce1f7f1d2993a2ecaa.md",
-    "static/media/wordpress 세팅 settings headless.md": "/static/media/wordpress 세팅 settings headless.389432719767f4019499.md",
     "static/media/rust package thread.md": "/static/media/rust package thread.3de7af13a832b9036f86.md",
     "static/media/linux shellscript if.md": "/static/media/linux shellscript if.a553b2da9635f1ce5d74.md",
     "static/media/rxjs base Subject vs EventEmitter.md": "/static/media/rxjs base Subject vs EventEmitter.7940aa728b5d845bafe1.md",
@@ -4241,10 +4241,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.2f4cc653.js.map": "/static/js/main.2f4cc653.js.map"
+    "main.6d9353bc.js.map": "/static/js/main.6d9353bc.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.2f4cc653.js"
+    "static/js/main.6d9353bc.js"
   ]
 }
