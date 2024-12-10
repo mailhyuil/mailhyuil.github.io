@@ -296,7 +296,7 @@ ctrl + v
 shift + insert
 ```
 
-# 자주 사용하는 linux cmd
+## 자주 사용하는 linux cmd
 
 ```sh
 # output grep
