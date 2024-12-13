@@ -1,11 +1,16 @@
 # kube taint & toleration
 
-> node의 taint에는 임의의 string이 들어간다 (key=value:effect)
+> Node의 taint (key=value:effect)
 >
-> pod의 toleration에는 임의의 string이 들어간다
+> Pod의 toleration (key=value:effect)
 >
-> > node의 taint와 pod의 toleration의 string이 일치하면 pod가 스케줄링될 수 있다.
+> > Node에 taint가 있으면 그 Node에는 Pod가 스케줄링 되지 않는다
 > >
-> > node에 taint가 있는데 pod의 toleration이 없거나 일치하지 않으면 스케줄링될 수 없다.
-> >
-> > node에 taint가 없으면 pod의 toleration이 있어도 없어도 스케줄링될 수 있다.
+> > 하지만 Pod의 toleration에 taint의 key와 value가 일치하면 스케줄링 될 수 있다.
+
+```sh
+k describe node node01 | grep -i taint
+# Taints: node-role.kubernetes.io/master:NoSchedule
+
+k taint node node01 key1=value1:NoSchedule
+```
