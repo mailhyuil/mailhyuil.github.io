@@ -274,6 +274,12 @@ kubectl rollout history deploy web
 kubectl rollout undo deploy web --to-revision=1
 ```
 
+## busybox로 명령어 실행
+
+```sh
+kubectl run test --image busybox -it --rm -- sh
+```
+
 ## 자주 사용하는 vim 단축키
 
 ```sh
