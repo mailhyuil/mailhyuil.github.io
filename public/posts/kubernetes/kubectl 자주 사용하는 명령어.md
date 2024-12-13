@@ -304,4 +304,9 @@ shift + insert
 
 # output을 잘라서 보기
 cut -d ' ' -f 1
+
+# 파일 생성
+cat > deployment.yaml
+...
+ctrl + d
 ```

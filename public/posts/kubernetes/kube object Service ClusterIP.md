@@ -1,4 +1,4 @@
-# ClusterIP
+# ClusterIP (virtual IP)
 
 > 여러 파드를 묶어서 로드밸런싱할 수 있는 ClusterIP만 할당
 >
