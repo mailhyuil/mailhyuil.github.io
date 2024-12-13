@@ -18,6 +18,6 @@
 >
 > > 특정 namespace에 대한 정책을 정의할 때 사용
 
-## labelSelector
+## labelSelector (--selector)
 
 ## fieldSelector
