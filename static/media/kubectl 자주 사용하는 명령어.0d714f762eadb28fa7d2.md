@@ -142,8 +142,12 @@ kubectl get pod -l version=v1
 
 # 특정 label column으로 조회
 kubectl get pod web --label-columns app.env
+```
 
-# label 넣기
+## label 추가, 변경, 삭제
+
+```sh
+# label 추가가
 kubectl label pod web version=v1
 
 # label 변경
@@ -186,19 +190,6 @@ kubectl get pod <pod-name> -o jsonpath="{.metadata.ownerReferences[0].name}"
 ```sh
 # 생성 시간 순으로 정렬
 kubectl get pod -o wide --sort-by=.metadata.creationTimestamp
-```
-
-## label 추가, 변경, 삭제
-
-```sh
-# label 추가
-kubectl label pod web app=web
-
-# label 변경
-kubectl label pod web env=dev --overwrite
-
-# label 삭제
-kubectl label pod web app- env-
 ```
 
 ## 로그 보기 (logs)
@@ -313,4 +304,9 @@ shift + insert
 
 # output을 잘라서 보기
 cut -d ' ' -f 1
+
+# 파일 생성
+cat > deployment.yaml
+...
+ctrl + d
 ```
