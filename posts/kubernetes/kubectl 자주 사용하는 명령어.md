@@ -88,6 +88,18 @@ kubectl create secret generic my-secret --from-literal PASSWORD=1234 --dry-run=c
 kubectl expose deploy web --name web-lb --type=LoadBalancer --port 80 --target-port 80
 ```
 
+## node 제어
+
+```sh
+# node에 pod 스케줄링 중지
+kubectl cordon <node-name>
+# node에 스케줄링된 pod를 다른 node로 이동 후 cordon
+kubectl drain <node-name> --ignore-daemonsets --force
+
+# node에 pod 스케줄링 재개
+kubectl uncordon <node-name>
+```
+
 ## 오브젝트 삭제 (delete)
 
 ```sh
@@ -272,6 +284,12 @@ kubectl rollout history deploy web
 
 ```sh
 kubectl rollout undo deploy web --to-revision=1
+```
+
+## busybox로 명령어 실행
+
+```sh
+kubectl run test --image busybox -it --rm -- sh
 ```
 
 ## 자주 사용하는 vim 단축키
