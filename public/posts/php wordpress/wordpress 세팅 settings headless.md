@@ -1,7 +1,9 @@
 # wordpress headless settings
 
 > [reference doc](https://developer.wordpress.org/rest-api/reference/)
+>
 >> http://localhost:8080/?rest_route=/wp/v2/posts 로 접근 가능
+
 ## install
 
 ```sh
@@ -81,8 +83,13 @@ max_execution_time = 600
 ## plugins
 
 ```txt
-Advanced Custom Fields
 Enable CORS
+
+Advanced Custom Fields
+
+Amazon S3, DigitalOcean 스페이스 및 Google 클라우드 스토리지용 WP 오프로드 미디어 라이트
+
+GA Google Analytics – Connect Google Analytics to WordPress
 
 WordPress REST API Authentication
 JWT Authentication for WP REST API
