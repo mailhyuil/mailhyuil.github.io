@@ -289,6 +289,15 @@ yy
 # 2줄 복사
 2yy
 
+# 뒤로가기
+u
+
+# 앞으로가기
+ctrl + r
+
+# 명령모드로 전환 후 insert 모드로 바로 전환
+ctrl + o -> 명령
+
 # mac os에서 붙여넣기
 ctrl + v
 
@@ -299,11 +308,20 @@ shift + insert
 ## 자주 사용하는 linux cmd
 
 ```sh
+# output을 잘라서 보기
+cut -d ' ' -f 1
+
 # output grep
 | grep -i -v <제외할 단어> <찾을 단어>
 
-# output을 잘라서 보기
-cut -d ' ' -f 1
+# output grep 검색 조건
+| grep -e <찾을 단어> -e <찾을 단어>
+
+# output을 file로
+| grep 'file not found' > /path/to/file
+
+# text를 file로
+echo 'pv001' > /path/to/file
 
 # 파일 생성
 cat > deployment.yaml
