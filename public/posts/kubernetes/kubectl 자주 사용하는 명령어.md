@@ -142,6 +142,15 @@ kubectl get pod -l version=v1
 
 # 특정 label column으로 조회
 kubectl get pod web --label-columns app.env
+
+# label 넣기
+kubectl label pod web version=v1
+
+# label 변경
+kubectl label pod web version=v2 --overwrite
+
+# label 삭제 (끝에 - 붙이면 삭제)
+kubectl label pod web version-
 ```
 
 ## 생성된 오브젝트 selector로 보기
