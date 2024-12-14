@@ -3,6 +3,8 @@
 ## ~/.kube (local)
 
 > kubectl은 `~/.kube/config`를 읽어서 API Server로 요청한다.
+>
+> > RBAC 관련
 
 ```txt
 cache      config     http-cache
@@ -10,13 +12,19 @@ cache      config     http-cache
 
 ## /etc/kubernetes (master node)
 
-> static pod path = 마스터 노드:/etc/kubernetes/manifests (파일만 생성하면 kubelet이 자동으로 실행)
+> static pod path = /etc/kubernetes/manifests (파일만 생성하면 kubelet이 자동으로 실행)
 >
-> > kubelet path = 워커 노드:/var/lib/kubelet
+> > etcd 관련
 
 ```txt
 addons      controller-manager.conf  manifests
 admin.conf  kubelet.conf             scheduler.conf
+```
+
+## /var/lib/kubelet (worker node)
+
+```txt
+
 ```
 
 ## config
@@ -258,32 +266,28 @@ kubectl top nodes my-node
 kubectl scale deploy web --replicas=3
 ```
 
-## rolling update 실행 (set image)
+## rolling update
 
 ```sh
-# image 변경
-kubectl set image deploy web web=nginx:v2 --record
+# rolling update (또는 그냥 edit으로 변경해도 된다)
+kubectl set image deployment <deploy_name> <container_name>=nginx:1.17 --record
 
-# image 여러개 변경
-kubectl set image deploy web web-container=nginx:v2,db-container=postgres:v2 --record
-```
+# rolling update (multi container)
+kubectl set image deployment <deploy_name> <container_name>=nginx:1.17,<container_name>=postgres:9.6 --record
 
-## rolling update 상태 확인 (rollout status)
+# 현재 상태를 annotate (CHANGE-CAUSE) // 또는 --record 옵션 사용하면 자동으로 변경 사유 기록
+kubectl annotate deployment <deploy_name> kubernetes.io/change-cause="Rolling update to version 1.17"
 
-```sh
-kubectl rollout status deploy web
-```
+# 상태 확인
+kubectl rollout status deployment <deploy_name>
 
-## rolling update 이력 확인 (rollout history)
+# 특정 revision 조회
+kubectl rollout history deployment <deploy_name>
+kubectl rollout history deployment <deploy_name> --revision=1
 
-```sh
-kubectl rollout history deploy web
-```
-
-## rolling update 롤백 (rollout undo)
-
-```sh
-kubectl rollout undo deploy web --to-revision=1
+# rollback
+kubectl rollout undo deployment <deploy_name> # 이전 버전으로 롤백
+kubectl rollout undo deployment <deploy_name> --to-revision=1 # 특정 버전으로 롤백
 ```
 
 ## busybox로 명령어 실행
@@ -345,4 +349,7 @@ echo 'pv001' > /path/to/file
 cat > deployment.yaml
 ...
 ctrl + d
+
+# os 확인
+cat /etc/os-release
 ```
