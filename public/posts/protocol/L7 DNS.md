@@ -12,7 +12,8 @@
 
 ```sh
 절대 도메인 (FQDN) : admin.mailhyuil.com # Fully Qualified Domain Name
-최상위 도메인 (1차 도메인, 루트 도메인) : com
-하위 도메인 (2차 도메인, 1차 도메인의 서브 도메인) : mailhyuil
-최하위 도메인 (3차 도메인, hostname, 2차 도메인의 서브 도메인) : admin
+루트 도메인 : mailhyuil.com
+최상위 도메인 (1차 도메인) : com
+하위 도메인 (2차 도메인, 도메인 네임, 1차 도메인의 서브 도메인) : mailhyuil
+최하위 도메인 (3차 도메인, 호스트 네임, 2차 도메인의 서브 도메인) : admin
 ```
