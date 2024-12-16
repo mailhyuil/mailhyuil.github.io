@@ -15,37 +15,35 @@
 ```sh
 # 키 생성
 openssl genrsa -out <인증서이름>.key 2048
+
 # csr 요청 파일 생성
 openssl req -new -key <인증서이름>.key -out <인증서이름>.csr -subj "/CN=<인증서이름>"
+
+# csr file content를 base64로 인코딩 (certificate-signing-request.yaml 파일의 request에 붙여넣기)
+cat <인증서이름>.csr | base64 | tr -d "\n"
 ```
 
 # CSR 생성
 
 ```sh
-cat > <인증서이름>.yaml
+cat > certificate-signing-request.yaml
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
 metadata:
   name: <유저이름>
 spec:
-  request: <인증서 base64 인코딩>
+  request: <csr base64 인코딩>
   signerName: kubernetes.io/kube-apiserver-client
   expirationSeconds: 86400  # one day
   usages:
   - client auth
-```
 
-## CSR 요청 파일을 base64로 인코딩
-
-> output을 위의 파일의 request에 붙여넣기
-
-```sh
-cat <인증서 이름>.csr | base64 | tr -d "\n"
 ```
 
 ## 생성
 
 ```sh
+# 요청
 kubectl apply -f <인증서이름>.yaml
 
 # 요청을 승인
