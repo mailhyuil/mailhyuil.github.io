@@ -22,6 +22,12 @@ npm i @nextcss/color-tools
 # cookie
 npm i ngx-cookie-service
 
+# gsap
+npm i gsap
+
+# locomotive-scroll
+npm i locomotive-scroll
+
 # object to formdata
 npm i object-to-formdata
 
