@@ -8,7 +8,7 @@
 > >
 > > > ~/.kube/config 파일에 사용자 정보가 저장되어 있음
 > > >
-> > > > set-crerdentials, get-users
+> > > > set-credentials, get-users
 
 # 인증서 키 생성
 
