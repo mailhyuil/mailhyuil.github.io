@@ -6,21 +6,42 @@
 # angular material
 npm i @angular/material
 
-# timepicker component
-npm i ngx-material-timepicker
+# swiper
+npm i swiper
+
+# icon
+npm i -D @iconify/json
+npm i -D @iconify/tailwind
+
+# tailwindcss plugins
+npm install -D @tailwindcss/typography
+
+# color tools
+npm i @nextcss/color-tools
 
 # cookie
 npm i ngx-cookie-service
 
-# table/grid
-npm i @tanstack/angular-table
+# gsap
+npm i gsap
+
+# locomotive-scroll
+npm i locomotive-scroll
+
+# object to formdata
+npm i object-to-formdata
+
+# file-saver
+npm i file-saver
+
+###################################
+
+# timepicker component
+npm i ngx-material-timepicker
 
 # chart
 npm i ng2-charts
 npm i chart.js
-
-# swiper
-npm i swiper
 
 # tiptap
 npm i ngx-tiptap
@@ -35,21 +56,8 @@ npm i tiptap-extension-font-size
 # google analytics
 npm i angulartics2
 
-# color tools
-npm i @nextcss/color-tools
-
-# object to formdata
-npm i object-to-formdata
-
-# file-saver
-npm i file-saver
-
-# icon
-npm i -D @iconify/json
-npm i -D @iconify/tailwind
-
-# tailwindcss plugins
-npm install -D @tailwindcss/typography
+# table/grid
+npm i @tanstack/angular-table
 ```
 
 ## app.config.ts
