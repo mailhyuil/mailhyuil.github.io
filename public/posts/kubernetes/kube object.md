@@ -1,4 +1,4 @@
-# kubernetes object (workload)
+# kubernetes object
 
 > 쿠버네티스로 애플리케이션을 배포하고 운영하기 위한 리소스들
 >
