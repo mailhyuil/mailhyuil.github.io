@@ -25,6 +25,20 @@ snapshot save <backup-file-location>
 ps -ef | grep kube | grep trusted-ca-file
 ps -ef | grep kube | grep cert-file
 ps -ef | grep kube | grep key-file
+
+# example
+## backup
+ETCDCTL_API=3 etcdctl \
+--endpoints=https://127.0.0.1:2379 \
+--cacert=/etc/kubernetes/pki/etcd/ca.crt \
+--cert=/etc/kubernetes/pki/etcd/server.crt \
+--key=/etc/kubernetes/pki/etcd/server.key \
+snapshot save /opt/snapshot-pre-boot.db
+
+## restore
+ETCDCTL_API=3 etcdctl \
+--data-dir /var/lib/etcd-from-backup \
+snapshot restore /opt/snapshot-pre-boot.db
 ```
 
 ## Restore (snapshot restore)

@@ -1,4 +1,4 @@
-# kubernetes object (workload)
+# kubernetes object
 
 > 쿠버네티스로 애플리케이션을 배포하고 운영하기 위한 리소스들
 >
@@ -10,7 +10,7 @@
 > > > >
 > > > > > 쿠버네티스 control plane은 이 status를 사용자가 의도한 상태와 일치시키기 위해 끊임없이 / 능동적으로 관리
 
-## Pod
+## Pod (Workload)
 
 > 어떤 애플리케이션을
 
