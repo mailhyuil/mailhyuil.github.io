@@ -1,6 +1,8 @@
-# linux cmd route
+# linux network route
 
-> 라우팅 테이블을 수동으로 조작하는 명령어
+> 라우팅 테이블(route table)을 보여주거나 수정하는 명령어
+>
+> > Destination, Gateway, Netmask, Interface, Metric, Next Hop
 
 ```sh
 route add <Destination_Ip> <Network_Gateway> # Network에 속한 컴퓨터가 Destination으로 메세지를 보낼 수 있게된다.

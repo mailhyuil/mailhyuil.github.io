@@ -1,4 +1,4 @@
-# linux package firewall firewalld (redhat 계열)
+# linux network firewall firewalld (redhat 계열)
 
 ## install
 

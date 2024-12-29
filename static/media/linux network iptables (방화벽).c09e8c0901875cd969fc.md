@@ -1,6 +1,12 @@
-# linux iptables
+# linux network iptables
 
 > 방화벽, 패킷 필터링, NAT, 포트 포워딩, 패킷 로깅 등을 설정할 수 있는 리눅스의 패키지
+>
+> > iptable은 리눅스 커널에서 네트워크 패킷을 필터링하고 NAT(Network Address Translation)를 수행하는 데 사용되는 리눅스 커널 모듈이다.
+> >
+> > > 방화벽과 포트포워딩, 로드밸런싱 역할을 수행할 수 있다.
+> > >
+> > > > ingress, egress, port forwarding, NAT, packet filtering, packet logging, etc.
 
 ## install
 

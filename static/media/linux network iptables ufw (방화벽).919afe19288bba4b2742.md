@@ -1,4 +1,4 @@
-# linux 방화벽
+# linux network iptables ufw 방화벽
 
 ## install
 
