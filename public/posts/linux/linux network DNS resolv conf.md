@@ -14,6 +14,9 @@
 nameserver 168.126.63.1
 nameserver 168.126.63.2
 
+# search를 사용할 경우 web으로 접근 시 web, web.mycompany.com을 전부 검색한다.
+search mycompany.com prod.mycompany.com
+
 # google dns를 추가하고 싶다면
 nameserver 8.8.8.8
 ```
