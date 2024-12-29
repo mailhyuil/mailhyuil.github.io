@@ -1,9 +1,13 @@
-# kubernetes CNI
+# kubernetes CNI (Container Network Interface)
 
-> Container Network Interface
+> container networking 구현 방법은 각 시스템 (network namespace, docker, kubernetes, rkt, mesos 등) 마다 다르다.
 >
-> > 컨테이너끼리 통신을 할 수 있게 해주는 플러그인을 만들기 위한 표준
-> >
+> 하지만 구현 방법은 대체적으로 비슷하다.
+>
+> 따라서 하나의 프로그램(plugin)을 만들어 이 과정을 자동화하고자 한다.
+>
+> 이 프로그램이 어떻게 개발되어야 하는지 정의된 것이 CNI (Container Network Interface) 이다.
+>
 > > CNI가 있어야 coreDNS 등이 동작 가능하다.
 > >
 > > kubelet이 실행시켜준다.
