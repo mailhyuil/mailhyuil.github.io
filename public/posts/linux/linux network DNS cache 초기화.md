@@ -2,16 +2,16 @@
 
 ## window
 
-```
+```sh
 ipconfig/flushdns
 ```
 
 ## linux
 
-```
+```sh
 rndc flush
-또는
+# 또는
 ndc flush
-또는
+# 또는
 /etc/init.d/nscd restart
 ```
