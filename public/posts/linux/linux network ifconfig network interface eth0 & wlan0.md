@@ -1,4 +1,4 @@
-# linux base network interface eth0
+# linux network interface eth0
 
 > 네트워크 인터페이스란 NIC를 의미한다.
 >
