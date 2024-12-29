@@ -8,6 +8,8 @@ brew install iproute2mac
 
 ## usage
 
+> 명령어에서 dev는 device를 의미한다.
+
 ```sh
 # network interface
 ip link # show network interfaces
