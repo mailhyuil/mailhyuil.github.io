@@ -19,7 +19,9 @@ root 3817
 
 ```sh
 ip netns add <namespace>
-ip netns list
 ip netns delete <namespace>
+ip netns list
+
 ip netns exec <namespace> <command> # namespace에서 실행할 명령어 e.g. ip netns exec <namespace> bash
+ip -n <namespace> <command> # 위와 동일한 명령어
 ```
