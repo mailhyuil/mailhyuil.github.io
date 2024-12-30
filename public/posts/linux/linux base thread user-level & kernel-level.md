@@ -5,8 +5,6 @@
 > os에 의해 관리되는 thread
 >
 > > context switch가 느리다
-> >
-> > >
 
 ## user-level thread (user thread)
 
