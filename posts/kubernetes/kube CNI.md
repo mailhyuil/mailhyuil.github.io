@@ -8,14 +8,12 @@
 >
 > 이 프로그램이 어떻게 개발되어야 하는지 정의된 것이 CNI (Container Network Interface) 이다.
 >
-> > CNI가 있어야 coreDNS 등이 동작 가능하다.
-> >
-> > kubelet이 실행시켜준다.
-> >
-> > > 쿠버네티스 자체 CNI 플러그인 : kubenet
-> > >
-> > > kubenet 기능이 부족하기에 3rd-party 플러그인을 사용한다.
-> > >
-> > > 3rd-party 플러그인 : Flannel, Calico, Weavenet, NSX ...
-> > >
-> > > 3rd-party 플러그인은 다양한 NetworkPolicy, 트래픽 제어 등의 기능을 제공한다.
+> > cni plugin이 실행되면 daemonset이 실행되며 각 노드를 담당하는 에이전트 pod가 실행된다.
+
+## 설치된 cni plugin의 바이너리 파일 (--cni-bin-dir)
+
+> /opt/cni/bin/ cni plugin이 사용하는 바이너리가 저장된 경로
+
+## 현재 설치된 cni plugin 확인 (--cni-conf-dir)
+
+> /etc/cni/net.d/ 에 설치된 cni plugin의 설정 파일을 확인하여 현재 설치된 cni plugin을 확인할 수 있다.
