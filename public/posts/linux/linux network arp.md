@@ -1,6 +1,6 @@
 # linux network arp
 
-> arp table을 조작하는 커맨드
+> arp table을 조작하는 패키지
 
 ```sh
 arp -a # arp table 확인
