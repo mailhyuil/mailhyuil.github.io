@@ -1,4 +1,4 @@
-# linux network ip virtual interface (veth pair)
+# linux network ip virtual interface (veth pair, pipe, virtual cable)
 
 ## usage
 
