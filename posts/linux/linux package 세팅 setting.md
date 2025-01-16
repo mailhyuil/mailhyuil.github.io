@@ -5,9 +5,13 @@ apt update -y
 
 # 보안
 apt install apt-transport-https -y # apt가 https로 패키지를 다운로드
+
 apt install ca-certificates -y # tls 인증서가 포함되어 있어 ssl/tls 연결을 통해 다운로드
+
 apt install gnupg -y # gpg 암호화
-apt install fail2ban -y # 방화벽
+
+apt install fail2ban -y # 실패한 로그인 시도를 감지하고 시스템을 보호
+systemctl enable fail2ban --now
 
 # 네트워킹
 apt install curl -y # url 요청
