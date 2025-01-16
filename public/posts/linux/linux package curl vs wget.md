@@ -16,6 +16,10 @@
 >
 > > 간단하지만 빠르다
 
+```sh
+wget -q -O - http://example.com
+```
+
 ## curl
 
 > curl은 wget보다 최신 기술
@@ -29,3 +33,7 @@
 > MIT 라이센스
 >
 > > 조금 더 복잡한 컨텐츠를 다운로드 할 때 유용
+
+```sh
+curl http://example.com
+```
