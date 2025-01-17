@@ -68,7 +68,7 @@ NX_FILE_SERVER_URL=https://files.lepisode.team
 NX_FILE_SERVER_TOKEN=73532F8CBC421AD7B7EE43A2DE1C7
 NX_DISCORD_URL=https://discord.com/api/webhooks/1042266869769441341/GKK0-TI8jlw1k9aZ-G6pZHN4gddCigwmmzk-1hUyBXd0fCgbyB-MI2kdz8u-XO4hmo5A
 
-DATABASE_URL="postgresql://postgres:88782314p*@59.3.87.92:5432/wings-v2?schema=public"
+DATABASE_URL="postgresql://postgres:password@59.3.87.92:5432/wings-v2?schema=public"
 
 # JWT KEY
 JWT_SECRET_KEY=5BTENutJCTpGO2aHfDDs2u0KKKKpKV8s
@@ -98,7 +98,7 @@ function getClientEnvironment() {
   const NX_APP = /^NX_/i;
 
   const raw = Object.keys(process.env)
-    .filter((key) => NX_APP.test(key))
+    .filter(key => NX_APP.test(key))
     .reduce((env, key) => {
       env[key] = process.env[key];
       return env;
