@@ -18,7 +18,7 @@ NODE_ENV=development
 
 SERVER_PORT=4200
 
-DATABASE_URL="postgresql://postgres:88782314p*@59.3.87.92:5432/avirtual?schema=public"
+DATABASE_URL="postgresql://postgres:password@59.3.87.92:5432/avirtual?schema=public"
 
 JWT_SECRET_KEY=5BTENutJCTpGO2aHfDDs2u0KKKKpKV8s
 JWT_PUBLIC_KEY=Xv26XN6L86kGOvHMS2rfV2k9HsLVEEEp
