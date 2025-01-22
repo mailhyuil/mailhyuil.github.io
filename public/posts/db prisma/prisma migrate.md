@@ -36,7 +36,7 @@ npx dotenv -e apps/server/.env.production -- \
 npx prisma migrate diff \
 --from-migrations prisma/migrations \
 --to-schema-datasource prisma/schema.prisma \
---shadow-database-url postgres://lepisode:88782314p*@59.3.87.92:5432/my-shadow-db?schema=public \
+--shadow-database-url postgres://username:password*@59.3.87.92:5432/my-shadow-db?schema=public \
 --script prisma/migrations/init/migration.sql
 ```
 

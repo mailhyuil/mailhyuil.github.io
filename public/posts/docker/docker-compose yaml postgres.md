@@ -15,8 +15,8 @@ services:
     cpus: 0.8
     mem_limit: 2048m
     environment:
-      POSTGRES_USER: lepisode
-      POSTGRES_PASSWORD: 88782314p*
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
       POSTGRES_DB: lcrs
     logging:
       driver: "json-file"
