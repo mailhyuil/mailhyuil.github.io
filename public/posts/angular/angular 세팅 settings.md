@@ -53,6 +53,13 @@ npm i tiptap-extension-resize-image
 npm i @tiptap/extension-link
 npm i tiptap-extension-font-size
 
+# quill
+npm i quill
+npm i ngx-quill
+npm i quill-image-resizor
+npm i quill-mention
+npm i highlight.js
+
 # google analytics
 npm i angulartics2
 
