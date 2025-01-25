@@ -3,41 +3,56 @@
 ## pagination.dto.ts
 
 ```ts
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
+import { Type } from "class-transformer";
+import { IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+
 export class PageInfoDTO {
   @ApiProperty({ description: "현재 페이지" })
+  @IsNumber()
   pageIndex: number;
   @ApiProperty({ description: "페이지 크기" })
+  @IsNumber()
   pageSize: number;
   @ApiProperty({ description: "현재 페이지 아이템 개수" })
-  pageItemsCount: number;
+  @IsNumber()
+  itemsOnPageCount: number;
   @ApiProperty({ description: "총 페이지" })
+  @IsNumber()
   totalPageCount: number;
   @ApiProperty({ description: "전체 아이템 개수" })
+  @IsNumber()
   totalItemsCount: number;
 }
 
-export class PaginationDTO<T> {
+export class PaginationResponseDTO<T> {
   @ApiProperty({ type: Object, isArray: true })
   items: T[];
   @ApiProperty({ type: PageInfoDTO })
+  @Type(() => PageInfoDTO)
   pageInfo: PageInfoDTO;
 }
 
-export class PaginationOptionDTO {
-  @ApiProperty({ description: "페이지 번호", required: false, nullable: true })
+export class PaginationOptionsDTO {
+  @ApiProperty({ description: "페이지 번호" })
+  @IsNotEmpty()
+  @IsNumber()
+  pageIndex: number;
+  @ApiProperty({ description: "페이지 크기" })
+  @IsNotEmpty()
+  @IsNumber()
+  pageSize: number;
+  @ApiProperty({ description: "정렬 기준" })
+  @IsNotEmpty()
+  @IsString()
+  orderBy: string;
+  @ApiProperty({ description: "정렬 방향", enum: ["asc", "desc"] })
+  @IsNotEmpty()
+  @IsEnum(["asc", "desc"])
+  align: "asc" | "desc";
+  @ApiPropertyOptional({ description: "검색어" })
   @IsOptional()
-  pageIndex?: number;
-  @ApiProperty({ description: "페이지 크기", required: false, nullable: true })
-  @IsOptional()
-  pageSize?: number;
-  @ApiProperty({ description: "정렬 기준", required: false, nullable: true })
-  @IsOptional()
-  orderBy?: string;
-  @ApiProperty({ description: "정렬 방향", required: false, nullable: true })
-  @IsOptional()
-  align?: "asc" | "desc";
-  @ApiProperty({ description: "검색어", required: false, nullable: true })
-  @IsOptional()
+  @IsString()
   query?: string;
 }
 ```
@@ -46,8 +61,8 @@ export class PaginationOptionDTO {
 
 ```ts
 async search(
-  options: PaginationOptionDTO
-): Promise<PaginationDTO<ExampleDTO>> {
+  options: PaginationOptionsDTO
+): Promise<PaginationResponseDTO<ExampleDTO>> {
   const { items, count } = await this.prisma.$transaction(async (tx) => {
     const where: Prisma.ExampleWhereInput = {
         title: {
@@ -93,8 +108,8 @@ async search(
 @ApiOperation({
   summary: 'JobPosting 검색',
 })
-@ApiOkResponse({ type: PaginationDTO<ExampleDTO> })
-async search(@Query() query: PaginationOptionDTO) {
+@ApiOkResponse({ type: PaginationResponseDTO<ExampleDTO> })
+async search(@Query() query: PaginationOptionsDTO) {
   return await this.jobPostingService.search(query);
 }
 ```
