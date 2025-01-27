@@ -1,165 +1,5 @@
 # nestjs error handling
 
-## BusinessException
-
-> 기본으로 발생할 수 있는 에러들은 catch해서 BusinessException으로 보내주기
->
-> > BusinessException은 ERROR 객체를 보낸다
-
-```ts
-import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
-import { Request, Response } from "express";
-import { ERROR } from "../error";
-import { BusinessException } from "../exception";
-
-@Catch(BusinessException)
-export class BusinessExceptionFilter implements ExceptionFilter {
-  private readonly logger = new Logger(BusinessExceptionFilter.name);
-  catch(error: BusinessException, host: ArgumentsHost) {
-    const ctx = host.switchToHttp();
-    const res = ctx.getResponse<Response>();
-    const req = ctx.getRequest<Request>();
-    const statusCode = error.getStatus();
-    const response = error.getResponse() as string | ERROR;
-    const message = error.message;
-    const cause = error.cause;
-    const stack = error.stack;
-
-    const errorResponse = {
-      statusCode,
-      message,
-      path: req.url,
-      timestamp: new Date().toISOString(),
-      error: response,
-    };
-
-    res.status(statusCode).json(errorResponse);
-
-    this.logger.error(
-      `
-MESSAGE: ${errorResponse.message}
-TIMESTAMP: ${errorResponse.timestamp}
-METHOD: ${req.method}
-PATH: ${errorResponse.path}
-ERROR: ${JSON.stringify(errorResponse.error)}
-STACK: ${stack}
-CAUSE: ${cause}
-`,
-    );
-  }
-}
-```
-
-## 잡지 못한 HttpException
-
-> BusinessException으로 정의되지 않은 에러들
->
-> > response에 ERROR 객체가 아닌 string이 들어있다.
-> >
-> > > code: "-1"
-
-```ts
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from "@nestjs/common";
-import { Request, Response } from "express";
-import { ERROR } from "../error";
-
-@Catch(HttpException)
-export class HttpExceptionFilter implements ExceptionFilter {
-  private readonly logger = new Logger(HttpExceptionFilter.name);
-  catch(error: HttpException, host: ArgumentsHost) {
-    const ctx = host.switchToHttp();
-    const res = ctx.getResponse<Response>();
-    const req = ctx.getRequest<Request>();
-    const statusCode = error.getStatus();
-    const response = error.getResponse() as string | ERROR;
-    const message = error.message;
-    const cause = error.cause;
-    const stack = error.stack;
-
-    const errorResponse = {
-      statusCode,
-      message,
-      path: req.url,
-      timestamp: new Date().toISOString(),
-      error: {
-        code: "-1",
-        message: response,
-      } as ERROR,
-    };
-
-    res.status(statusCode).json(errorResponse);
-
-    this.logger.error(
-      `
-MESSAGE: ${errorResponse.message}
-TIMESTAMP: ${errorResponse.timestamp}
-METHOD: ${req.method}
-PATH: ${errorResponse.path}
-ERROR: ${JSON.stringify(errorResponse.error)}
-STACK: ${stack}
-CAUSE: ${cause}
-`,
-    );
-  }
-}
-```
-
-## 잡지 못한 PrismaException
-
-> BusinessException으로 잡지 못한 Prisma Error는 409 Conflict에러로 보내주기
->
-> > code: "-2"
-
-```ts
-import { ArgumentsHost, Catch, HttpStatus, Logger } from "@nestjs/common";
-import { BaseExceptionFilter } from "@nestjs/core";
-import { Prisma } from "@prisma/client";
-import { Request, Response } from "express";
-import { ERROR } from "../error";
-
-@Catch(Prisma.PrismaClientKnownRequestError)
-export class PrismaErrorFilter extends BaseExceptionFilter {
-  private readonly logger = new Logger(PrismaErrorFilter.name);
-  catch(error: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
-    const ctx = host.switchToHttp();
-    const res = ctx.getResponse<Response>();
-    const req = ctx.getRequest<Request>();
-
-    const { name, clientVersion, message, ...data } = error;
-
-    const errorResponse = {
-      statusCode: HttpStatus.CONFLICT,
-      message: "Prisma 에러가 발생했습니다.",
-      path: req.url,
-      timestamp: new Date().toISOString(),
-      error: {
-        code: "-2",
-        message,
-        data,
-      } as ERROR,
-    };
-
-    res.status(HttpStatus.CONFLICT).json(errorResponse);
-
-    this.logger.error(
-      `
-MESSAGE: ${errorResponse.message}
-TIMESTAMP: ${errorResponse.timestamp}
-METHOD: ${req.method}
-PATH: ${errorResponse.path}
-ERROR: ${JSON.stringify(errorResponse.error)}
-`,
-    );
-  }
-}
-```
-
-## ValidationException
-
-> 유효성 검사에서 실패한 에러
->
-> > code: "-3"
-
 ## error.ts
 
 ```ts
@@ -225,6 +65,169 @@ export class UserNotFoundException extends BusinessException {
   constructor(data?: any, cause?: any) {
     const response = createError(ERROR.USER_NOT_FOUND, data);
     super(response, HttpStatus.NOT_FOUND, cause);
+  }
+}
+```
+
+## BusinessException
+
+> 기본으로 발생할 수 있는 에러들은 catch해서 BusinessException으로 보내주기
+>
+> > BusinessException은 ERROR 객체를 보낸다
+
+```ts
+import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
+import { Prisma } from "@prisma/client";
+import { Request, Response } from "express";
+import { PrismaError } from "prisma-error-enum";
+import { ERROR } from "../error";
+import { BusinessException } from "../exception";
+
+@Catch(BusinessException)
+export class BusinessExceptionFilter implements ExceptionFilter {
+  private readonly logger = new Logger(BusinessExceptionFilter.name);
+  catch(error: BusinessException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const res = ctx.getResponse<Response>();
+    const req = ctx.getRequest<Request>();
+    const errorStatusCode = error.getStatus();
+    const errorMessage = error.message;
+    const errorStack = error.stack;
+
+    const { code, message, cause } = error.getResponse() as ERROR;
+
+    const clientError = { code, message };
+
+    const clientErrorResponse = {
+      statusCode: errorStatusCode,
+      path: req.url,
+      timestamp: new Date().toISOString(),
+      message: errorMessage,
+      error: {
+        ...ERROR.BUSINESS_ERROR,
+        ...clientError,
+      },
+    };
+
+    if (cause instanceof Prisma.PrismaClientKnownRequestError) {
+      if (cause.code === PrismaError.UniqueConstraintViolation) {
+        clientErrorResponse.message = `중복된 데이터가 존재합니다. [${cause.meta.target}]`;
+      }
+    }
+
+    res.status(errorStatusCode).json(clientErrorResponse);
+
+    this.logger.error(`
+MESSAGE: ${clientErrorResponse.message}
+TIMESTAMP: ${clientErrorResponse.timestamp}
+METHOD: ${req.method}
+PATH: ${clientErrorResponse.path}
+ERROR: ${JSON.stringify(clientErrorResponse.error)}
+ERROR STACK: ${errorStack}
+CAUSE: ${JSON.stringify(cause)}
+CAUSE STACK: ${cause}
+`);
+  }
+}
+```
+
+## 잡지 못한 HttpException
+
+> BusinessException으로 정의되지 않은 에러들
+>
+> > response에 ERROR 객체가 아닌 string이 들어있다.
+> >
+> > > code: "-1"
+
+```ts
+import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from "@nestjs/common";
+import { Request, Response } from "express";
+import { ERROR } from "../error";
+
+@Catch(HttpException)
+export class HttpExceptionFilter implements ExceptionFilter {
+  private readonly logger = new Logger(HttpExceptionFilter.name);
+  catch(error: HttpException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const res = ctx.getResponse<Response>();
+    const req = ctx.getRequest<Request>();
+    const statusCode = error.getStatus();
+
+    const response = error.getResponse() as string;
+    const message = error.message;
+    const cause = error.cause;
+    const stack = error.stack;
+
+    const clientErrorResponse = {
+      statusCode,
+      message,
+      path: req.url,
+      timestamp: new Date().toISOString(),
+      error: {
+        ...ERROR.HTTP_ERROR,
+        message: response,
+      } as ERROR,
+    };
+
+    res.status(statusCode).json(clientErrorResponse);
+
+    this.logger.error(`
+MESSAGE: ${clientErrorResponse.message}
+TIMESTAMP: ${clientErrorResponse.timestamp}
+METHOD: ${req.method}
+PATH: ${clientErrorResponse.path}
+ERROR: ${JSON.stringify(clientErrorResponse.error)}
+STACK: ${stack}
+CAUSE: ${cause}
+`);
+  }
+}
+```
+
+## ValidationException
+
+> 유효성 검사에서 실패한 에러
+>
+> > code: "-3"
+
+```ts
+import { ValidationException } from "@/server/pipes/global-validation.pipe";
+import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
+import { Request, Response } from "express";
+import { ERROR } from "../error";
+
+@Catch(ValidationException)
+export class ValidationExceptionFilter implements ExceptionFilter {
+  private readonly logger = new Logger(ValidationExceptionFilter.name);
+  catch(error: ValidationException, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const res = ctx.getResponse<Response>();
+    const req = ctx.getRequest<Request>();
+    const statusCode = error.getStatus();
+    const response = error.getResponse() as ERROR;
+    const message = error.message;
+    const cause = error.cause;
+    const stack = error.stack;
+
+    const clientErrorResponse = {
+      statusCode,
+      message,
+      path: req.url,
+      timestamp: new Date().toISOString(),
+      error: response,
+    };
+
+    res.status(statusCode).json(clientErrorResponse);
+
+    this.logger.error(`
+MESSAGE: ${clientErrorResponse.message}
+TIMESTAMP: ${clientErrorResponse.timestamp}
+METHOD: ${req.method}
+PATH: ${clientErrorResponse.path}
+ERROR: ${JSON.stringify(clientErrorResponse.error)}
+STACK: ${stack}
+CAUSE: ${cause}
+`);
   }
 }
 ```
