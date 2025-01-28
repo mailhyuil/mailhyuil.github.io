@@ -57,8 +57,8 @@ Quill.register("modules/imageResizor", ImageResizor);
   hostDirectives: [ValueAccessorDirective],
 })
 export default class EditorComponent {
-  modules: QuillModules = {};
   value = "";
+  modules: QuillModules = {};
   placeholder = input<string>("글을 작성해주세요.");
   constructor(public valueAccessor: ValueAccessorDirective<string>) {
     this.modules = {
@@ -68,7 +68,7 @@ export default class EditorComponent {
     valueAccessor.value.subscribe(v => (this.value = v));
   }
   setValue(event: any) {
-    const newValue = event.target.value;
+    const newValue = event;
     this.value = newValue;
     this.valueAccessor.writeValue(this.value);
     this.valueAccessor.valueChange(this.value);
