@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.18cb8878.js",
+    "main.js": "/static/js/main.0f812205.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.d1056a0ba67619b43aaf.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.72e9303eb54f93926fd8.md",
@@ -132,6 +132,7 @@
     "static/media/nest base global.md": "/static/media/nest base global.42792301c8bbf7754ec7.md",
     "static/media/go http3 quic-go.md": "/static/media/go http3 quic-go.acc8b9627ca1ba872181.md",
     "static/media/x Blackboard Pattern.md": "/static/media/x Blackboard Pattern.79e80543a977df3c82c3.md",
+    "static/media/L7 http headers Cache-Control.md": "/static/media/L7 http headers Cache-Control.142d336b9814c207ebc3.md",
     "static/media/nest advanced microservice.md": "/static/media/nest advanced microservice.0f1243bdf50e328ebdb0.md",
     "static/media/db 분산 시스템 CAP 정리.md": "/static/media/db 분산 시스템 CAP 정리.fc6b8d0838428aa0d3df.md",
     "static/media/nest advanced websocket.md": "/static/media/nest advanced websocket.e87970fa05e99bb0ba9d.md",
@@ -439,7 +440,7 @@
     "static/media/aws EC2.md": "/static/media/aws EC2.51a66c17f18e11c5f1d0.md",
     "static/media/c++ base keyword const & mutable & static & explicit.md": "/static/media/c++ base keyword const & mutable & static & explicit.83a474c3cfbf5d82b3a5.md",
     "static/media/스토리지 종류 (Object, Block, File).md": "/static/media/스토리지 종류 (Object, Block, File).8ae0b84f5fc91ae4fdaf.md",
-    "static/media/nest cache-control.md": "/static/media/nest cache-control.71fb9339e8dd677a1046.md",
+    "static/media/nest cache-control.md": "/static/media/nest cache-control.5675db5e4ba788483ca8.md",
     "static/media/typescript tsconfig compilerOptions paths.md": "/static/media/typescript tsconfig compilerOptions paths.dc76c3a34ee3fd461627.md",
     "static/media/x DI reflect-metadata 사용.md": "/static/media/x DI reflect-metadata 사용.2e688918da976c1115ea.md",
     "static/media/postgres config postgresql.md": "/static/media/postgres config postgresql.99ee0ed6a1e430a4eed1.md",
@@ -457,6 +458,7 @@
     "static/media/nx webpack angular.md": "/static/media/nx webpack angular.1f5b781e3b1d259fa9b8.md",
     "static/media/angular httpClient HttpRequest reportProgress (upload).md": "/static/media/angular httpClient HttpRequest reportProgress (upload).27b421a18cd2f7610259.md",
     "static/media/nest standalone.md": "/static/media/nest standalone.b4fa236b3e78d2f9fd92.md",
+    "static/media/cache browser cache Cache-Control.md": "/static/media/cache browser cache Cache-Control.079f220c8e3e4e8f0e10.md",
     "static/media/nest base provider.md": "/static/media/nest base provider.ee22ad7e99b768ff9b78.md",
     "static/media/linux base user & group.md": "/static/media/linux base user & group.9390d8a65a5df735bbd4.md",
     "static/media/input 대용량 파일 업로드 tus-js-client.md": "/static/media/input 대용량 파일 업로드 tus-js-client.071965600a9e5ad1eb37.md",
@@ -537,7 +539,6 @@
     "static/media/testing nestjs interceptor.md": "/static/media/testing nestjs interceptor.893ee7318000d0272b03.md",
     "static/media/linux kernel connection establishment.md": "/static/media/linux kernel connection establishment.aacf19499f69b6c1959b.md",
     "static/media/lazy vs idle.md": "/static/media/lazy vs idle.32481febcea30ef9e534.md",
-    "static/media/cache browser cache Cache-Control.md": "/static/media/cache browser cache Cache-Control.3ef79b5ffccb02666c0f.md",
     "static/media/angular video.js.md": "/static/media/angular video.js.31ec04f3cfa7bd2def21.md",
     "static/media/prisma 다중 데이터베이스 multiple database.md": "/static/media/prisma 다중 데이터베이스 multiple database.7ca7fe1420f8e50f3aa7.md",
     "static/media/animation gsap example inner scrolling.md": "/static/media/animation gsap example inner scrolling.51044bcd562f3697eec7.md",
@@ -2416,6 +2417,7 @@
     "static/media/testing jest timer.md": "/static/media/testing jest timer.eb520d322e214c61af46.md",
     "static/media/typescript tsconfig watchOptions.md": "/static/media/typescript tsconfig watchOptions.5d0a6ee99b3e189ad0a2.md",
     "static/media/webapi EventSource.md": "/static/media/webapi EventSource.0187558e807285d02bdb.md",
+    "static/media/브라우저 cache.md": "/static/media/브라우저 cache.5f9e0fd731d64f5290e3.md",
     "static/media/Docker image ubuntu.md": "/static/media/Docker image ubuntu.bfa01632efa5f6334d99.md",
     "static/media/angular ngIf.md": "/static/media/angular ngIf.7af97d8cf78b3e41d859.md",
     "static/media/db index ESR Rule.md": "/static/media/db index ESR Rule.3ea3be6eaa9311611808.md",
@@ -2712,7 +2714,6 @@
     "static/media/php magic constants.md": "/static/media/php magic constants.51ee469b76be17b17f30.md",
     "static/media/tailwindcss prettier.md": "/static/media/tailwindcss prettier.d733d66ac4daf80c330b.md",
     "static/media/testing base 블랙박스 테스트 vs 화이트박스 테스트 copy.md": "/static/media/testing base 블랙박스 테스트 vs 화이트박스 테스트 copy.9c1bd6fa063ab38ea41d.md",
-    "static/media/브라우저 캐시.md": "/static/media/브라우저 캐시.289b434d79b5707ede20.md",
     "static/media/CDN.md": "/static/media/CDN.c9566e70f0374fbaaa97.md",
     "static/media/c++ base 문법 range for.md": "/static/media/c++ base 문법 range for.a50b36031a9f46268a43.md",
     "static/media/flutter Future.md": "/static/media/flutter Future.f1c729719614c14d2a17.md",
@@ -3130,7 +3131,6 @@
     "static/media/nuxt enter submit.md": "/static/media/nuxt enter submit.5a07344f07998d67dc9c.md",
     "static/media/prisma json.md": "/static/media/prisma json.64054888a0390d8cb249.md",
     "static/media/끝자리 0으로 만들기.md": "/static/media/끝자리 0으로 만들기.ca2f5fa9c450b744fab7.md",
-    "static/media/브라우저 cache.md": "/static/media/브라우저 cache.03b794276bbf813fb94f.md",
     "static/media/close 메소드.md": "/static/media/close 메소드.3b2ed3a56a694b0987f4.md",
     "static/media/linux network ip route.md": "/static/media/linux network ip route.a7fd66963d8a922aceb1.md",
     "static/media/compile base stages transformer.md": "/static/media/compile base stages transformer.381cf4eb3c606f4c8ae5.md",
@@ -3643,7 +3643,7 @@
     "static/media/nginx base worker_process.md": "/static/media/nginx base worker_process.f004a7178629a65a13ff.md",
     "static/media/rxjs join combineLatestAll.md": "/static/media/rxjs join combineLatestAll.5f6129cecbb8d7b2a9e0.md",
     "static/media/rxjs transformation window.md": "/static/media/rxjs transformation window.0204d770e75a7611980d.md",
-    "static/media/브라우저 BFCache.md": "/static/media/브라우저 BFCache.6c6ec0f93bd707e60daa.md",
+    "static/media/브라우저 cache BFCache.md": "/static/media/브라우저 cache BFCache.6c6ec0f93bd707e60daa.md",
     "static/media/electron Failed to load resource.md": "/static/media/electron Failed to load resource.817a836167135bdf88a9.md",
     "static/media/graphql base schema.md": "/static/media/graphql base schema.4f7e4828a3f4dc3cd4a3.md",
     "static/media/nx electron make.md": "/static/media/nx electron make.1cae0c667afec0634e12.md",
@@ -4268,10 +4268,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.18cb8878.js.map": "/static/js/main.18cb8878.js.map"
+    "main.0f812205.js.map": "/static/js/main.0f812205.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.18cb8878.js"
+    "static/js/main.0f812205.js"
   ]
 }

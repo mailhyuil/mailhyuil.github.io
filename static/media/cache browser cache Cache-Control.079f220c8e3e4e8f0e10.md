@@ -5,6 +5,8 @@
 > > 응답헤더에 Cache-Control을 넣어서 캐시를 제어한다.
 > >
 > > > 클라이언트 - 프록시 - 서버 구조에서는 요청헤더로도 가능
+> > >
+> > > > Cache-Control외에도 Etag, Last-Modified, Expires, Pragma, Vary 등의 헤더가 있다면 브라우저는 캐시를 사용한다.
 
 ```sh
 max-age # 받은 시간부터 유효시간 (정확한 시간을 지정하려면 Expires헤더 사용)
