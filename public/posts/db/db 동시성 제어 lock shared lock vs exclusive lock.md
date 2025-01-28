@@ -1,5 +1,11 @@
 # db transaction lock shared lock vs exclusive lock
 
+> 주의
+>
+> > lock이 걸려있어도 insert는 가능하다. (lock은 기존 데이터들에게만 걸리기 때문에 새로 추가되는 값에는 의미가 없기 때문이다)
+> >
+> > exclusive lock이 걸려있어도 insert되는 데이터가 기존 데이터와 관련이 없다면 insert는 가능하다.
+
 ## Shared Lock (공유 락, S Lock, Read Lock)
 
 > 게임을 예로 들면 여러 플레이어가 동시에 사용할 수 있는 방어 기술이다.
@@ -13,11 +19,15 @@
 ```sql
 -- transaction 1
 BEGIN;
-SELECT * FROM table_name LOCK FOR SHARE;
+SELECT * FROM table_name FOR SHARE;
 COMMIT;
 -- transaction 2
 BEGIN;
-SELECT * FROM table_name LOCK FOR SHARE;
+SELECT * FROM table_name FOR SHARE; -- 가능
+COMMIT;
+-- transaction 3
+BEGIN;
+UPDATE users SET name='test' where name='sb'; -- transaction 1이 commit되기 전까지 대기
 COMMIT;
 ```
 
@@ -37,7 +47,11 @@ BEGIN;
 SELECT * FROM table_name FOR UPDATE;
 COMMIT;
 -- transaction 2
-BEGIN; -- transaction 1이 commit되기 전까지 대기
-SELECT * FROM table_name FOR UPDATE;
+BEGIN;
+SELECT * FROM table_name FOR UPDATE; -- transaction 1이 commit되기 전까지 대기
+COMMIT;
+-- transaction 3
+BEGIN;
+UPDATE users SET name='test' where name='sb'; -- transaction 1이 commit되기 전까지 대기
 COMMIT;
 ```
