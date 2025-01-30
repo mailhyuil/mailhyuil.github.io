@@ -28,9 +28,11 @@ export class SegmentGroupComponent implements AfterViewInit {
     valueAccessor.value.subscribe(v => {
       if (v != null) {
         this.value.set(v);
-        const segments = this.segments();
-        segments.forEach(segment => {
-          segment.selectedValue$.next(v);
+        setTimeout(() => {
+          const segments = this.segments();
+          segments.forEach(segment => {
+            segment.selectedValue$.next(v);
+          });
         });
       }
     });
