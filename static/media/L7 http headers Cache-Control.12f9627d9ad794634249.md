@@ -8,24 +8,31 @@
 
 ```sh
 max-age # 받은 시간부터 유효시간 (정확한 시간을 지정하려면 Expires헤더 사용)
-no-store # 아무것도 캐싱하지 않는다
-no-cache # max-age를 0으로 설정한다 (브라우저에 요청을 일단 보내고 서버에서 304코드를 보내면 캐시를 사용한다)
-# 서버에서 ETag(Entity Tag), If-None-Match Last-Modified, If-Modified-Since 등으로 변경됐는지를 확인후 변경이 안됐다면 304 Not Modified 를 보내는 로직을 작성
+s-maxage # 프록시 서버에만 적용되는 max-age
 
-must-revalidate
-# 반드시 오리진 서버에서 검증을 받도록 한다. (프록시 서버의 캐시를 사용하는 것을 차단한다.)
-# 오리진 서버 접근 실패 시 즉시 504 Gateway Timeout 발생시킨다.
-# 금융정보같은 중간 캐시로 인해 문제가 발생할 수 있는 경우에는 반드시 must-revalidate를 사용한다.
+# 오리진 서버의 검증을 받고 값이 바뀌지 않았다면 1년 저장되는 프록시 서버 캐시를 사용한다.
+Cache-Control: s-maxage=31536000, max-age=0
+
+no-store # 절대로 아무것도 캐싱하지 않는다
+no-cache # max-age를 0으로 설정한다 (브라우저에 요청을 일단 보내고 서버에서 304코드를 보내면 캐시를 사용한다)
+must-revalidate # 반드시 오리진 서버에서 검증을 받도록 한다. (프록시 서버의 캐시를 사용하는 것을 차단한다.)
+                # 오리진 서버 접근 실패 시 즉시 504 Gateway Timeout 발생시킨다.
+                # 금융정보같은 중간 캐시로 인해 문제가 발생할 수 있는 경우에는 반드시 must-revalidate를 사용한다.
 
 public # 공유 캐시(또는 중개 서버)에 저장해도 된다는 뜻
 private # 마지막 사용자 환경에만 저장하라는 뜻 (브라우저)
 
-min-refresh
-immutable
-
 # usage
 # 브라우저에만 10초동안 캐시하고 서버에 etag 검증을 받도록 한다.
 Cache-Control: public, max-age=10, must-revalidate
+
+###### 그 외 ######
+min-refresh
+immutable
+stale-while-revalidate
+stale-if-error
+no-transform
+only-if-cached
 ```
 
 ## no-cache vs must-revalidate
