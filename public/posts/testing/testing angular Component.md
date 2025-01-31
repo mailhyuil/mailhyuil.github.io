@@ -1,36 +1,38 @@
 # testing angular Component
 
 ```ts
-describe("SomeComponent", () => {
-  it("#clicked() should toggle #isOn", () => {
-    const component = new SomeComponent();
-    expect(component.isOn).withContext("off at first").toBe(false);
+import { ComponentFixture, ComponentFixtureAutoDetect, TestBed, waitForAsync } from "@angular/core/testing";
+import { ExampleComponent } from "./example.component";
 
-    component.clicked();
-    expect(component.isOn).withContext("on after click").toBe(true);
+describe("ExampleComponent", () => {
+  let component: ExampleComponent;
+  let fixture: ComponentFixture<ExampleComponent>;
 
-    component.clicked();
-    expect(component.isOn).withContext("off after second click").toBe(false);
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ExampleComponent],
+      providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }], // fixture.detectChanges(); 을 자동으로 해주는 옵션
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ExampleComponent);
+    component = fixture.componentInstance;
   });
 
-  it('#clicked() should set #message to "is on"', () => {
-    const component = new SomeComponent();
-    expect(component.message)
-      .withContext("off at first")
-      .toMatch(/is off/i);
-
-    component.clicked();
-    expect(component.message).withContext("on after clicked").toMatch(/is on/i);
+  it("should create", () => {
+    expect(component).toBeDefined();
   });
 
-  it("raises the selected event when clicked", () => {
-    const component = new SomeComponent();
-    const data: Data = { id: 42, name: "Test" };
-    component.data = data;
+  it("should set 'test' in value signal", () => {
+    component.setValue("test");
+    expect(component.value()).toEqual("test");
+  });
 
-    /// @Output() selected = new EventEmitter<Data>();
-    component.selected.pipe(first()).subscribe((selectedData: Data) => expect(selectedData).toBe(data));
-    component.click();
+  it("should display updated value in input after detectChanges", () => {
+    component.setValue("test");
+    const value = fixture.nativeElement.querySelector("input").value;
+    expect(value).toEqual("test");
   });
 });
 ```

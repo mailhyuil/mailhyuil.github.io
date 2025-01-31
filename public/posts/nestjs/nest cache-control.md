@@ -13,7 +13,7 @@ import { map } from "rxjs/operators";
 export class CacheControlInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
-      map((data) => {
+      map(data => {
         const response = context.switchToHttp().getResponse();
         // no-store: 캐시로 절대 저장하지 않는다.
         // no-cache: 캐시를 사용하기 전 서버에서 검증
@@ -22,7 +22,7 @@ export class CacheControlInterceptor implements NestInterceptor {
         response.header("cache-control", "private, no-cache");
         // Return the modified response
         return data;
-      })
+      }),
     );
   }
 }

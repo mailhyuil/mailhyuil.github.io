@@ -10,8 +10,13 @@ npm install --save @nestjs/serve-static
 
 ```ts
 ServeStaticModule.forRoot({
-    rootPath: join(__dirname, "..", "..", "..", "uploads"),
+    rootPath: process.env.LOCAL_STORAGE_UPLOAD_DIR,
     serveRoot: "/api/v1/uploads",
+    serveStaticOptions: {
+        cacheControl: true,
+        maxAge: 31536000,
+        immutable: true,
+    },
 }),
 ```
 
