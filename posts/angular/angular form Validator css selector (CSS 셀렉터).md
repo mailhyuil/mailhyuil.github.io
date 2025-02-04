@@ -37,33 +37,33 @@
 ## global-form.css
 
 ```css
-.ng-valid[required],
-.ng-valid.required {
-  border-left: 5px solid #42a948; /* green */
+/* 유효한 상태 */
+:host.ng-valid.ng-dirty {
+  fieldset {
+    outline-color: #4caf50;
+  }
+  label {
+    color: #4caf50;
+  }
 }
 
-.ng-invalid:not(form) {
-  border-left: 5px solid #a94442; /* red */
+/* 유효하지 않은 상태 */
+:host.ng-invalid.ng-dirty {
+  fieldset {
+    outline-color: #f44336;
+  }
+  label {
+    color: #f44336;
+  }
 }
 
-.alert div {
-  background-color: #fed3d3;
-  color: #820000;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-select {
-  width: 100%;
-  padding: 0.5rem;
+/* 유효하지 않은 상태 */
+:host.ng-invalid.ng-touched {
+  fieldset {
+    outline-color: #f44336;
+  }
+  label {
+    color: #f44336;
+  }
 }
 ```
