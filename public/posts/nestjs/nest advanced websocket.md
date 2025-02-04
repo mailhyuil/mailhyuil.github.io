@@ -29,7 +29,10 @@ import {
 } from "@nestjs/websockets";
 import { Server, Socket } from "socket.io";
 
-@WebSocketGateway()
+@WebSocketGateway({
+  path: "/ws", // default: /socket.io
+  namespace: "chat",
+})
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit {
   logger = new Logger(ChatGateway.name);
   @WebSocketServer()
@@ -82,9 +85,10 @@ export class ChatModule {}
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
 
 const config: SocketIoConfig = {
-  url: "ws://localhost:3000",
+  url: "ws://localhost:3000/chat", // 끝에 namespace를 붙여줘야함
   options: {
     transports: ["websocket"],
+    path: "/ws", // default: /socket.io
   },
 };
 
@@ -102,4 +106,20 @@ socket = inject(Socket);
 socket.emit("chat", "Hello World");
 socket.emit("chat", { message: "Hello World" }, data => console.log(data));
 socket.on("message", data => console.log(data));
+```
+
+## nginx
+
+```conf
+# ws
+location /ws/ {
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_buffering off;
+    gzip off;
+    proxy_pass http://127.0.0.1:10018;
+}
 ```

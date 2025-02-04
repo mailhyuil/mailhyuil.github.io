@@ -1,4 +1,5 @@
 # angular material theme custom
+> [custom theme](https://github.com/angular/components/blob/main/src/material/schematics/ng-generate/theme-color/README.md)
 
 ## generate theme
 
