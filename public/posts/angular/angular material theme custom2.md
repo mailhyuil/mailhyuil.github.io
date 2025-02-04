@@ -155,6 +155,7 @@ $tertiary-palette: map.merge(map.get($_palettes, tertiary), $_rest);
 ```scss
 @use "@angular/material" as mat;
 @use "./theme.scss" as my-theme; // location of generated file
+@include mat.core();
 
 html {
   @include mat.theme(
