@@ -112,12 +112,15 @@ module.exports = {
           ...toneMap("#f44336"),
         },
       },
-    },
-    fontFamily: {
-      sans: ["pretendardvariable", "sans-serif"],
-    },
-    container: {
-      center: true,
+      fontFamily: {
+        sans: ["pretendardvariable", "sans-serif"],
+      },
+      container: {
+        center: true,
+      },
+      height: {
+        inner: "calc(100vh - 4rem)",
+      },
     },
   },
   plugins: [addDynamicIconSelectors(), typography, innerOuterContainer],

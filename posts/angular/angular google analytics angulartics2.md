@@ -55,7 +55,7 @@ export class AppComponent {
     this.angulartics.startTracking(); // <- 추가
 
     this.router.events // <- page_referrer 이름을 위해서 추가
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         let title;
         let route = this.route.firstChild;
