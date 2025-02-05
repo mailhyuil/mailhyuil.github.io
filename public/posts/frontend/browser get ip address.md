@@ -1,4 +1,4 @@
-# angular get ip address
+# browser get ip address
 
 > 개인 정보 보호 관련 이슈로 브라우저가 클라이언트의 IP 주소를 직접 노출하지 않는다.
 >
