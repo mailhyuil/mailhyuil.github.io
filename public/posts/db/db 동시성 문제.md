@@ -133,7 +133,7 @@ await this.prisma.$transaction(
 >
 > > e.g. Double Booking Problem, 좌석 예약, 재고 관리 등
 > >
-> > > 해결: Serializable, 2PL (2 Phase Locking)
+> > > 해결: Serializable, 2PL(2 Phase Locking)(FOR UPDATE)
 
 ```ts
 const id = "1234";
@@ -143,7 +143,7 @@ await this.prisma.$transaction(
   async tx => {
     const count = await tx.employ.count({
       where: { shiftId, dayoff: true },
-    }); //* Serializable를 사용 시 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
+    }); //* Serializable를 사용 또는 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
 
     if (count >= 2) throw new Error("하루에 두명 이상 연차를 사용할 수 없습니다.");
 
