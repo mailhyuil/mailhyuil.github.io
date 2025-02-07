@@ -6,6 +6,7 @@
 
 ```html
 <video
+  class="will-change-auto"
   preload="metadata"
   oncanplay="this.play()"
   onloadedmetadata="this.muted = true"
