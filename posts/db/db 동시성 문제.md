@@ -4,6 +4,12 @@
 >
 > write transaction: dirty write, lost update, write skew
 
+## Dirty write (더티 라이트)
+
+> 커밋하지 않아도 데이터가 영구적으로 변경되는 현상
+>
+> > 모든 transaction은 이 현상을 방지하고 있다.
+
 ## Dirty Read (더티 리드)
 
 > 다른 트랜잭션이 커밋하지 않은 데이터가 읽을 수 있게되면 롤백되었을 때 데이터 불일치가 발생
@@ -24,12 +30,6 @@ await this.prisma.$transaction(async tx => {
   console.log(payment.amount); // it should be 2000 but the result is 3000
 });
 ```
-
-## Dirty write (더티 라이트)
-
-> 커밋하지 않아도 데이터가 영구적으로 변경되는 현상
->
-> > 모든 transaction은 이 현상을 방지하고 있다.
 
 ## Non-Repeatable Read (같은 데이터를 반복해서 읽기가 불가능) (반복적으로 읽은 데이터가 같은 데이터가 아닐 수 있다)
 
@@ -110,7 +110,7 @@ await this.prisma.$transaction(
 
 > 한 트랜잭션이 데이터베이스를 읽을 때 다른 트랜잭션이 커밋한 데이터가 나타나는 현상
 >
-> > non-repeatable-read와 비슷하지만, 다른 쿼리를 수행할 때 발생하는 것
+> > non-repeatable-read와 비슷하지만, 두개의 다른 쿼리를 수행할 때 발생하는 것 (e.g. A, B를 읽고 A+B를 계산하는 경우)
 > >
 > > > 해결: Repeatable Read, Serializable
 
@@ -118,7 +118,7 @@ await this.prisma.$transaction(
 await this.prisma.$transaction(
   async tx => {
     const count1 = await tx.user.count(); // 3
-    // 이 구간에서 다른 트랜잭션이 이름을 변경하고 커밋
+    // 이 구간에서 다른 트랜잭션이 user를 추가하고 커밋
     const count2 = await tx.user.count(); // 5
   },
   {
@@ -129,11 +129,11 @@ await this.prisma.$transaction(
 
 ## Write Skew (라이트 스큐)
 
-> 두개의 트랜잭션이 한정된 데이터를 동시에 성공적으로 업데이트하는 경우
+> 두개의 트랜잭션이 한정된 데이터를 "동시에 성공적으로 업데이트"하는 경우
 >
 > > e.g. Double Booking Problem, 좌석 예약, 재고 관리 등
 > >
-> > > 해결: Serializable, 2PL (2 Phase Locking)
+> > > 해결: Serializable, 2PL(2 Phase Locking)(FOR UPDATE)
 
 ```ts
 const id = "1234";
@@ -143,7 +143,7 @@ await this.prisma.$transaction(
   async tx => {
     const count = await tx.employ.count({
       where: { shiftId, dayoff: true },
-    }); //* Repeatable Read를 사용 시 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
+    }); //* Serializable를 사용 또는 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
 
     if (count >= 2) throw new Error("하루에 두명 이상 연차를 사용할 수 없습니다.");
 
@@ -163,3 +163,5 @@ await this.prisma.$transaction(
 ## Deadlock (데드락)
 
 > 동시성 충돌을 방지하기 위해서 Lock을 사용하는데 서로가 서로의 자원을 대기하게 되어 무한 대기 상태에 빠지는 현상
+>
+> > 해결: timeout, retry, deadlock detection
