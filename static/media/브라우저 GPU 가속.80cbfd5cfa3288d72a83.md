@@ -9,7 +9,7 @@
 
 ## composite layer로 만드는 방법
 
-```
+```txt
 3D 변형: translate3d, translateZ 등등
 will-change;
 
