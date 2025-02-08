@@ -1,5 +1,7 @@
 # font
 
+> woff, woff2를 사용하는 것이 좋다.
+
 ## TTF (True Type Font)
 
 > 일반 문서작업에서 사용

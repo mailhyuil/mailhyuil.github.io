@@ -1,4 +1,4 @@
-# video compress
+# image video compress
 
 ## jpg/png to webp
 
