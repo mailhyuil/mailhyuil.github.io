@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.51bb2343.js",
+    "main.js": "/static/js/main.3eb4a982.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -409,6 +409,7 @@
     "static/media/nginx LoadBalancing (API Gateway).md": "/static/media/nginx LoadBalancing (API Gateway).1558f471a5c2220b6070.md",
     "static/media/event 페이지 전환 이벤트.md": "/static/media/event 페이지 전환 이벤트.cf4d6d2bcddee61bdb1f.md",
     "static/media/nest base decorator Etag.md": "/static/media/nest base decorator Etag.24075cbb6d795e19a809.md",
+    "static/media/angular i18n ngx-translate.md": "/static/media/angular i18n ngx-translate.66d92e675405bf6a55e1.md",
     "static/media/nestia.md": "/static/media/nestia.4b78e17552a3cd44e595.md",
     "static/media/angular base directive click-outside.md": "/static/media/angular base directive click-outside.d90e3ee2dd184d2333d6.md",
     "static/media/kube object Deployment.md": "/static/media/kube object Deployment.89d577f1c0fc64eae90e.md",
@@ -4279,10 +4280,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.51bb2343.js.map": "/static/js/main.51bb2343.js.map"
+    "main.3eb4a982.js.map": "/static/js/main.3eb4a982.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.51bb2343.js"
+    "static/js/main.3eb4a982.js"
   ]
 }
