@@ -4,6 +4,6 @@
 >
 > > screen reader 에서 링크의 이름을 읽어주지 않는 문제
 
-```
+```html
 <button aria-label="Close" onclick="myDialog.close()"></button>
 ```
