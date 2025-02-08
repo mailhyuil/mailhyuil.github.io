@@ -1,11 +1,18 @@
 # resource hint
 
-## dns-prefetch
+## preload
 
-> dns를 미리 resolve 해놓는다.
+> 특정 리소스를 사전에 가져와 캐시에 저장하는 것뿐만 아니라
+>
+> > 해당 리소스가 사용되는 방식을 명시하여 최적의 처리를 유도
+> >
+> > > 현재 페이지 필요한 리소스를 사전에 가져오는데 적합한 기능
+> > >
+> > > > 초기 로딩 속도 개선
 
 ```html
-<link rel="dns-prefetch" href="//fonts.googleapis.com" /> <link rel="dns-prefetch" href="//cdn.domain.com" />
+<!-- as = script, style, font, audio, video, document, image, fetch  -->
+<link rel="preload" href="/js/some-script.js" as="script" />
 ```
 
 ## preconnect
@@ -32,17 +39,11 @@
 <link rel="prefetch" href="/js/some-script.js" />
 ```
 
-## preload
+## dns-prefetch
 
-> 특정 리소스를 사전에 가져와 캐시에 저장하는 것뿐만 아니라
->
-> > 해당 리소스가 사용되는 방식을 명시하여 최적의 처리를 유도
-> >
-> > > 현재 페이지 필요한 리소스를 사전에 가져오는데 적합한 기능
-> > >
-> > > > 초기 로딩 속도 개선
+> dns를 미리 resolve 해놓는다.
 
 ```html
-<!-- as = script, style, font, audio, video, document, image, fetch  -->
-<link rel="preload" href="/js/some-script.js" as="script" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//cdn.domain.com" />
 ```
