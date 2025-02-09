@@ -1,8 +1,10 @@
-# npm publish angular
+# npm library angular
 
 > root가 아닌 /projects/my-lib/package.json에서 라이브러리를 설정하고 빌드 후
 >
 > > dist/my-lib에서 npm publish를 실행한다.
+
+## setting
 
 ```sh
 npm i -g @angular/cli

@@ -14,17 +14,36 @@ npm config ls -l # 설정 확인
 
 ## package.json
 
-```js
+```json
 {
   "name": "@mailhyuil/test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.js", // commonjs
+  "module": "index.js", // esm
+  "types": "index.d.ts", // typescript
+  "files": [
+    "dist", // commonjs
+    "esm", // esm
+    "src" // src
+  ],
+  "exports": {
+    ".": {
+      "default": "./dist/index.js", // commonjs
+      "require": "./dist/index.js", // commonjs
+      "import": "./esm/index.js", // esm
+      "types": "./dist/index.d.ts" // typescript
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "version": "npm version patch",
+    "build:cjs": "nest build nestjs-libs --config nest-cli.cjs.json --path tsconfig.lib-cjs.json && tsc --emitDeclarationOnly --project tsconfig.lib-cjs.json",
+    "build:esm": "nest build nestjs-libs --config nest-cli.esm.json --path tsconfig.lib-esm.json && tsc --emitDeclarationOnly --project tsconfig.lib-esm.json",
+    "build": "pnpm run build:cjs && pnpm run build:esm",
+    "prepublish": "pnpm build"
   },
   "keywords": [],
-  "author": "",
+  "author": "mailhyuil",
   "license": "ISC",
   "dependencies": {
     "@mailhyuil/local": "file:local"

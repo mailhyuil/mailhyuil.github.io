@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-npm install @nestjs/terminus
+npm i @nestjs/terminus
 ```
 
 ## health.module.ts
@@ -34,13 +34,18 @@ export class HealthController {
   @Get()
   @HealthCheck()
   check() {
-    return this.healthCheckService.check([() => this.httpHealthIndicator.pingCheck("nestjs-docs", "https://docs.nestjs.com")]);
+    return this.healthCheckService.check([
+      () => this.httpHealthIndicator.pingCheck("nestjs-docs", "https://docs.nestjs.com"),
+    ]);
   }
 
   @Get()
   @HealthCheck()
   check() {
-    return this.health.check([() => this.http.responseCheck("my-external-service", "https://my-external-service.com", (res) => res.status === 204)]);
+    return this.health.check([
+      () =>
+        this.http.responseCheck("my-external-service", "https://my-external-service.com", res => res.status === 204),
+    ]);
   }
 }
 ```

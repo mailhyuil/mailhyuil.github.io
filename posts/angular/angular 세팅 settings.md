@@ -6,42 +6,54 @@
 # angular material
 npm i @angular/material
 
-# swiper
-npm i swiper
-
-# icon
+# tailwindcss plugins
+npm i -D @tailwindcss/typography
 npm i -D @iconify/json
 npm i -D @iconify/tailwind
 
-# tailwindcss plugins
-npm install -D @tailwindcss/typography
-
 # color tools
-npm i @nextcss/color-tools
+npm i -D @nextcss/color-tools
+
+################### optional ###########################
 
 # cookie
 npm i ngx-cookie-service
 
-# gsap
-npm i gsap
-
-# locomotive-scroll
-npm i locomotive-scroll
+# swiper
+npm i swiper
 
 # object to formdata
 npm i object-to-formdata
 
 # file-saver
-npm i file-saver
+npm i file-saver-es
+npm i -D @types/file-saver-es
 
-###################################
+# animation
+npm i gsap
+npm i locomotive-scroll
 
 # timepicker component
 npm i ngx-material-timepicker
 
 # chart
-npm i ng2-charts
 npm i chart.js
+npm i ng2-charts
+
+# quill editor
+npm i quill
+npm i ngx-quill
+npm i quill-image-resizor
+npm i quill-mention
+
+# google analytics
+npm i angulartics2
+
+# google map
+npm i @angular/google-maps
+
+# youtube
+npm i @angular/youtube-player
 
 # tiptap
 npm i ngx-tiptap
@@ -52,19 +64,6 @@ npm i @tiptap/extension-image
 npm i tiptap-extension-resize-image
 npm i @tiptap/extension-link
 npm i tiptap-extension-font-size
-
-# quill
-npm i quill
-npm i ngx-quill
-npm i quill-image-resizor
-npm i quill-mention
-npm i highlight.js
-
-# google analytics
-npm i angulartics2
-
-# table/grid
-npm i @tanstack/angular-table
 ```
 
 ## app.config.ts
@@ -95,6 +94,8 @@ export const appConfig: ApplicationConfig = {
   ],
 };
 ```
+
+## app.routes.ts / page.routes.ts
 
 ## tailwind.config.js
 

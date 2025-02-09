@@ -30,7 +30,7 @@
 // standalone 방식
 bootstrapApplication(AppComponent, {
   providers: [MyService],
-}).catch((err) => console.error(err));
+}).catch(err => console.error(err));
 ```
 
 ## ElementInjector 계층
@@ -55,4 +55,17 @@ bootstrapApplication(AppComponent, {
 @SkipSelf // 현 계층을 건너뛰고 부모 계층에서 탐색을 시작
 @Self // 현 계층에서만 탐색을 시작
 @Host // Host에서만 탐색 // Host란 현재 컴포넌트를 의미
+```
+
+## injector.get()
+
+> inject() 함수와 같은 역할
+>
+> > token의 인스턴스를 반환하거나 없으면 생성한다.
+
+```ts
+injector = inject(Injector);
+
+const { ModalService } = await import("@mailhyuil/ng-libs");
+const modalService = this.injector.get(ModalService);
 ```
