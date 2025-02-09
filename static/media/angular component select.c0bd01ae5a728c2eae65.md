@@ -76,8 +76,9 @@ export default class InputSelectComponent {
   isOpen = false;
   @Input() label?: string;
   @Input() placeholder?: string;
+
   constructor(public readonly valueAccessor: ValueAccessorDirective<string>) {
-    valueAccessor.value.subscribe((v) => (this.value = v));
+    valueAccessor.value.subscribe(v => (this.value = v));
   }
 
   ngAfterViewInit(): void {
@@ -87,23 +88,23 @@ export default class InputSelectComponent {
   }
 
   _init() {
-    this.items.forEach((item) => {
+    this.items.forEach(item => {
       if (!this.value) return;
       if (item.value === this.value) {
         this.getTextContent(item);
       }
       item.selectedValue$.next(this.value);
     });
-    this.items.forEach((item) => {
+    this.items.forEach(item => {
       item.select$
         .pipe(
-          tap((value) => {
-            this.items.forEach((item) => {
+          tap(value => {
+            this.items.forEach(item => {
               item.selectedValue$.next(value);
             });
-          })
+          }),
         )
-        .subscribe((value) => {
+        .subscribe(value => {
           this.getTextContent(item);
           this.select(value);
           this.isOpen = false;
@@ -131,11 +132,16 @@ export default class InputSelectComponent {
   }
   <div
     (click)="isOpen = !isOpen"
-    class="flex items-center justify-between w-full px-4 py-2 font-bold border outline-none cursor-pointer rounded-xl focus:ring-2 ring-primary">
+    class="flex items-center justify-between w-full px-4 py-2 font-bold border outline-none cursor-pointer rounded-xl focus:ring-2 ring-primary"
+  >
     @if(textContent){ {{ textContent }} } @else {
     <span class="text-gray-400">{{ placeholder }}</span>
     }
-    <lepi-icon [class.rotate-180]="isOpen" class="block transition-all duration-100 bg-gray-700 size-5" name="heroicons:chevron-down"></lepi-icon>
+    <lepi-icon
+      [class.rotate-180]="isOpen"
+      class="block transition-all duration-100 bg-gray-700 size-5"
+      name="heroicons:chevron-down"
+    ></lepi-icon>
   </div>
   @if(isOpen){
   <div class="absolute z-10 flex flex-col w-full gap-2 p-2 translate-y-full bg-white border -bottom-1 rounded-xl">

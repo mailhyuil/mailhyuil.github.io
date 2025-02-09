@@ -23,9 +23,9 @@ export class SegmentGroupComponent implements AfterViewInit {
   cursor = model<string | undefined>(undefined);
   loading = model<boolean>(false);
   data = model<unknown[]>([]);
-
-  constructor(public readonly valueAccessor: ValueAccessorDirective<string>) {
-    valueAccessor.value.subscribe(v => {
+  private readonly valueAccessor = model(ValueAccessorDirective<string>);
+  constructor() {
+    this.valueAccessor.value.subscribe(v => {
       if (v != null) {
         this.value.set(v);
         setTimeout(() => {

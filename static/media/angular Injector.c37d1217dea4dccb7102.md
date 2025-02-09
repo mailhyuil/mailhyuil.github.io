@@ -61,7 +61,7 @@ bootstrapApplication(AppComponent, {
 
 > inject() 함수와 같은 역할
 >
-> > token의 인스턴스를 반환하거나 없으면 생성한다.
+> > token의 인스턴스를 반환한다.
 
 ```ts
 injector = inject(Injector);
