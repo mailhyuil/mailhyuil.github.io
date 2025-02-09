@@ -56,8 +56,9 @@ export class PaginatorComponent {
     return pages;
   });
 
-  constructor(public valueAccessor: ValueAccessorDirective<number>) {
-    valueAccessor.value.subscribe((v) => (this.value = v));
+  private readonly valueAccessor = new ValueAccessorDirective<number>();
+  constructor() {
+    this.valueAccessor.value.subscribe(v => (this.value = v));
   }
 
   go(page: number) {
@@ -116,7 +117,7 @@ button {
     <lepi-icon name="mdi:chevron-left" class="block size-5 bg-neutral-700" />
   </button>
   @for (page of pages(); track page) {
-  <button [class.active]="pageIndex() === page" (click)="go(page)"> {{ page }} </button>
+  <button [class.active]="pageIndex() === page" (click)="go(page)">{{ page }}</button>
   }
   <button (click)="goNext()" [class.disabled]="!canGoNext()">
     <lepi-icon name="mdi:chevron-right" class="block size-5 bg-neutral-700" />
