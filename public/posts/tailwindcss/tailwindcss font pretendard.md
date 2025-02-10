@@ -7,12 +7,23 @@
 ## font.scss
 
 ```css
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.min.css");
 @font-face {
-  font-family: "PretendardVariable";
-  src: local("PretendardVariable"), url(/fonts/PretendardVariable.woff2) format("woff2");
+  font-family: "Pretendard Variable";
+  src: local("Pretendard Variable"), url(/fonts/PretendardVariable.woff2) format("woff2");
 }
+```
 
-* {
-  font-family: "PretendardVariable", sans-serif;
-}
+## tailwind.config.js
+
+```js
+fontFamily: {
+  sans: ["pretendard variable", "sans-serif"],
+},
+```
+
+## index.html
+
+```html
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
 ```

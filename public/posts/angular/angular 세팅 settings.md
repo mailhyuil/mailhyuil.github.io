@@ -95,6 +95,8 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
+## app.routes.ts / page.routes.ts
+
 ## tailwind.config.js
 
 ```js
