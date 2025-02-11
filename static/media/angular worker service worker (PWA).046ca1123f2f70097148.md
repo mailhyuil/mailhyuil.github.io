@@ -6,6 +6,7 @@
 ng add @angular/pwa
 ng build --prod
 
+# 테스트용 http-server 설치
 npm i -g http-server
 http-server -p 8080 -c-1 dist/<project-name> -c-1 = disable caching
 ```
@@ -13,7 +14,7 @@ http-server -p 8080 -c-1 dist/<project-name> -c-1 = disable caching
 ## main.ts
 
 ```ts
-provideServiceWorker;
+provideServiceWorker();
 ```
 
 ## Service Worker
