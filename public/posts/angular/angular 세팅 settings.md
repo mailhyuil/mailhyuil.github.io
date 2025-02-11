@@ -35,6 +35,7 @@ npm i -D @types/file-saver-es
 # animation
 npm i gsap
 npm i locomotive-scroll
+npm i angular-animations
 
 # timepicker component
 npm i ngx-material-timepicker

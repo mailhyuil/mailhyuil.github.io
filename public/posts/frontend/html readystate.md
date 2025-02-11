@@ -1,10 +1,16 @@
-# html document readystate
+# html readystate
 
-> document의 로딩 상태를 구독할 수 있는 속성
+> 로딩 상태를 구독할 수 있는 속성
+>
+> > document, window, iframe, script, image, video, audio 등에 존재한다.
+> >
+> > document의 readyState는 DOMContentLoaded로 대체할 수 있다.
 >
 > > 이 속성이 변경될 때 readyStatechange에서 이벤트가 발생된다.
 > >
-> > > DOMContentLoaded의 대안으로 사용된다.
+> > > DomContentLoaded 이벤트가 등록되기 전 이미 DOM이 완성되어 이벤트가 발생했다면 이 이벤트는 발생하지 않는다
+> > >
+> > > 이때는 readyState를 사용하는게 좋다.
 
 ## state
 

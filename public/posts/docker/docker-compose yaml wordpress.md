@@ -33,3 +33,12 @@ services:
 volumes:
   db_data: {}
 ```
+
+## wp-config.php
+
+> 추가
+
+```php
+define('FS_METHOD', 'direct');
+define('WP_TEMP_DIR', '/apps/woori-policy/wordpress/wp-content/upgrade');
+```
