@@ -8,12 +8,12 @@
 >
 > > html 파일만 관련이 있다.
 > >
-> > > 이미지, CSS, JS 등의 리소스는 로드되지 않았어도 실행된다.
+> > > HTML이 완전히 파싱되었고, defer 속성이 있는 JavaScript가 실행되었다는 것을 의미한다.
+> > >
+> > > > initial bundle이 전부 로드되어야 한다.
+> > > >
+> > > > > DomContentLoaded가 발생했다는것은 Above the fold가 완성되었다는 것을 의미한다.
 
 ## load
 
-> 모든 리소스(initial bundle)(css, images, script..)가 로드된 후에 발생하는 이벤트
->
-> > 리소스가 많을 경우 성능 저하
-> >
-> > > defer 옵션, lazy loading, multiple entry point 등을 사용하여 initial bundle size를 줄이는 것이 중요하다.
+> 모든 리소스가 로드된 후에 발생하는 이벤트
