@@ -14,6 +14,9 @@ npm i -D @iconify/tailwind
 # color tools
 npm i -D @nextcss/color-tools
 
+# quilcklink preload strategy
+npm i ngx-quicklink
+
 ################### optional ###########################
 
 # cookie
@@ -32,6 +35,7 @@ npm i -D @types/file-saver-es
 # animation
 npm i gsap
 npm i locomotive-scroll
+npm i angular-animations
 
 # timepicker component
 npm i ngx-material-timepicker
@@ -70,21 +74,22 @@ npm i tiptap-extension-font-size
 
 ```ts
 import { ApplicationConfig, importProvidersFrom, APP_INITIALIZER } from "@angular/core";
-import { PreloadAllModules, provideRouter, withPreloading } from "@angular/router";
+import { provideRouter, withPreloading } from "@angular/router";
 import { ApiModule } from "@/api";
 import { appRoutes } from "./app.routes";
+import { QuicklinkModule, QuicklinkStrategy } from "ngx-quicklink";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(
       appRoutes,
-      withPreloading(PreloadAllModules),
+      withPreloading(QuicklinkModule),
       withInMemoryScrolling({
         scrollPositionRestoration: "top",
       }),
     ),
     provideHttpClient(withInterceptors([HttpInterceptor])),
-    importProvidersFrom([ApiModule, BrowserAnimationsModule]),
+    importProvidersFrom([ApiModule, BrowserAnimationsModule, QuicklinkModule]),
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {
       provide: APP_INITIALIZER,
