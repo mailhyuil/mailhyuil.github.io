@@ -13,32 +13,37 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   private storedRoutes = new Map<string, DetachedRouteHandle>();
 
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    // route가 화면에서 사라질 때 해당 route를 저장할지 여부를 결정
-    // detach가 true이면 store 메서드가 호출됨
+    // Whether the given route should detach for later reuse.
+    // 현재 라우트를 재사용하기 위해서 detach할지 여부를 결정
+    // true 시 store 호출
     return !!route.data["reuse"];
   }
 
   store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle | null) {
     if (handle) {
-      // detach 시 호출 route url을 key로 하여 저장
+      // shouldDetach true 시 호출
+      // route url을 key로 하여 저장하는 코드를 구현
       this.storedRoutes.set(this.getRouteUrl(route), handle);
     }
   }
 
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
     return (
-      // route를 화면에 다시 그릴 때 저장된 route를 사용할지 여부를 결정
+      // Returns false, meaning the route (and its subtree) is never reattached
+      // true 시 retrieve 호출 (store에서 저장한 route를 반환하여 다시 사용하기 위해서)
       !!route.data["reuse"] && !!this.storedRoutes.get(this.getRouteUrl(route))
     );
   }
 
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
     // shouldAttach가 true이면 호출
-    // 저장된 route를 반환
+    // store에서 저장한 route를 반환하는 코드를 구현 사용하지 않을 시 null을 반환
     return this.storedRoutes.get(this.getRouteUrl(route)) || null;
   }
 
   shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+    // Determines if a route should be reused.
+    // This strategy returns true when the future route config and current route config are identical.
     // route를 재사용할지 여부를 결정
     return future.routeConfig === curr.routeConfig && future.data["reuse"];
   }
