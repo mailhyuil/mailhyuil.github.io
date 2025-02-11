@@ -11,7 +11,9 @@
 })
 export class LinkClickTracker {
   constructor(element: ElementRef) {
-    element.nativeElement.addEventListener("click", (e: MouseEvent) => (lastClick = e), true);
+    fromEvent<MouseEvent>(element.nativeElement, "click")
+      .pipe(takeUntilDestroyed())
+      .subscribe((e: MouseEvent) => (lastClick = e));
   }
 }
 ```
@@ -33,7 +35,11 @@ import { LinkClickTracker } from "./link-click-tracker.directive";
       <li>a</li>
       <li>list!</li>
     </ol>
-    <p>Ok, that's enough fun, you can go back to <a routerLink="/">page 1</a>.</p>
+    <p>
+      Ok, that's enough fun, you can go back to
+      <a routerLink="/">page 1</a>
+      .
+    </p>
   `,
 })
 export class Page2 {}
