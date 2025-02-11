@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.025754d1.js",
+    "main.js": "/static/js/main.06680dd8.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -1096,10 +1096,10 @@
     "static/media/angular JIT.md": "/static/media/angular JIT.7f2aac76aa6d19106c1f.md",
     "static/media/chatgpt api.md": "/static/media/chatgpt api.ece2045bdb50a1f6ad21.md",
     "static/media/firebase auth.md": "/static/media/firebase auth.812508e78e9284a4d75c.md",
-    "static/media/task yield.md": "/static/media/task yield.5038add8ed73c72ab6c3.md",
     "static/media/lodash base 지연 평가 lazy evaluation.md": "/static/media/lodash base 지연 평가 lazy evaluation.13259de23bbb519118c0.md",
     "static/media/html iframe.md": "/static/media/html iframe.b37c28df69caa0e810d7.md",
     "static/media/postgres config WAL.md": "/static/media/postgres config WAL.d3979a9e89406d91ab2f.md",
+    "static/media/브라우저 Main Thread long task split (yield).md": "/static/media/브라우저 Main Thread long task split (yield).274b50812447ec4b91a9.md",
     "static/media/cafe24 components breadcrumb.md": "/static/media/cafe24 components breadcrumb.d8a31f09187471fb97b0.md",
     "static/media/flutter Router GoRouter.md": "/static/media/flutter Router GoRouter.a15e7c1203b7bf45917c.md",
     "static/media/nodejs streaming webRTC.md": "/static/media/nodejs streaming webRTC.ceb27d757fed1ca36c61.md",
@@ -3352,6 +3352,7 @@
     "static/media/kube base 네트워킹 가능한 이미지.md": "/static/media/kube base 네트워킹 가능한 이미지.9daea546b92a789b48de.md",
     "static/media/nodejs module crypto uuid.md": "/static/media/nodejs module crypto uuid.f8b8a025bf0bf92de6f2.md",
     "static/media/redis type DateTime.md": "/static/media/redis type DateTime.5d0655d3cd37d7c6274c.md",
+    "static/media/브라우저 Main Tread WebWorker 웹워커.md": "/static/media/브라우저 Main Tread WebWorker 웹워커.5a4192cfa163b08fac7a.md",
     "static/media/c++ base compiler.md": "/static/media/c++ base compiler.5d4125ee377336d1c6f6.md",
     "static/media/kube Helm rollback.md": "/static/media/kube Helm rollback.5043bf519af393d639cd.md",
     "static/media/nest static assets 동적으로 파일 생성.md": "/static/media/nest static assets 동적으로 파일 생성.1b8cf5740c093aa15624.md",
@@ -3415,7 +3416,6 @@
     "static/media/nuxt route query 바꾸기.md": "/static/media/nuxt route query 바꾸기.db2b81d946609a1d7916.md",
     "static/media/nuxt withDefault.md": "/static/media/nuxt withDefault.c666036da12f6b8d88db.md",
     "static/media/tailwindcss text-gradient.md": "/static/media/tailwindcss text-gradient.13fa0fe704cc4408f6d5.md",
-    "static/media/task WebWorker 웹워커.md": "/static/media/task WebWorker 웹워커.3e26fb247eaa55c557ee.md",
     "static/media/algorithm in-place vs not in-place.md": "/static/media/algorithm in-place vs not in-place.6f0d64ddf85a680b42f5.md",
     "static/media/c++ header STL container initializer_list.md": "/static/media/c++ header STL container initializer_list.a2c8b54ccded315ec5a0.md",
     "static/media/hacking tools aircrack-ng.md": "/static/media/hacking tools aircrack-ng.f9467074d6096df00af8.md",
@@ -4293,10 +4293,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.025754d1.js.map": "/static/js/main.025754d1.js.map"
+    "main.06680dd8.js.map": "/static/js/main.06680dd8.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.025754d1.js"
+    "static/js/main.06680dd8.js"
   ]
 }
