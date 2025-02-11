@@ -131,13 +131,22 @@ export class GreetingComponent {
         withCredentials: false,
       });
     }
-    this.eventSource.onmessage = (e: MessageEvent<string>) => {
-      if (e.data === "keep-alive") return;
-      this.content.update(prev => prev + e.data);
-    };
-    this.eventSource.onerror = e => {
-      console.log(e);
-    };
+    fromEvent(this.eventSource, "open")
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => {
+        console.log("connected");
+      });
+    fromEvent(this.eventSource, "error")
+      .pipe(takeUntilDestroyed())
+      .subscribe(error => {
+        console.error(error);
+      });
+    fromEvent<MessageEvent<string>>(this.eventSource, "message")
+      .pipe(takeUntilDestroyed())
+      .subscribe(e => {
+        if (e.data === "keep-alive") return;
+        this.content.update(prev => prev + e.data);
+      });
   }
 
   onClick() {

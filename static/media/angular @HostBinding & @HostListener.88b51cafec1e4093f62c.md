@@ -32,6 +32,8 @@ class App {
 ## @HostListener('click', [$event])
 
 > event 구독
+>
+> > 자동으로 구독 해제됨
 
 ```ts
 @Directive({ selector: "button[counting]" })
