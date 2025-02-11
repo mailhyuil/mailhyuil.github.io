@@ -1,6 +1,6 @@
-# html readystate
+# html document readystate
 
-> 도큐먼트의 로딩 상태를 구독할 수 있는 속성
+> document의 로딩 상태를 구독할 수 있는 속성
 >
 > > 이 속성이 변경될 때 readyStatechange에서 이벤트가 발생된다.
 > >
