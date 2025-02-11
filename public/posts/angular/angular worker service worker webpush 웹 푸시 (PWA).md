@@ -19,7 +19,8 @@
 ```sh
 ng add @angular/pwa
 
-npm install -g web-push
+# web-push 설치
+npm install -D web-push
 # vapid public key, vapid private key 생성
 npx web-push generate-vapid-keys
 ```
@@ -36,7 +37,7 @@ npx web-push generate-vapid-keys
 /// 이 코드는 WorkerGlobalScope에서 동작하는 코드입니다.
 importScripts("ngsw-worker.js");
 
-self.addEventListener("push", (e) => {
+self.addEventListener("push", e => {
   const { title, body, ...data } = e.data.json();
 
   if (!title || !body) {
@@ -46,7 +47,7 @@ self.addEventListener("push", (e) => {
   self.registration.showNotification(title, { body, data });
 });
 
-self.addEventListener("notificationclick", (e) => {
+self.addEventListener("notificationclick", e => {
   const url = e.notification?.data?.url;
 
   if (!url) {
@@ -111,7 +112,11 @@ export class WindowService {
 
 ```ts
 export class NotificationComponent {
-  constructor(private readonly swPush: SwPush, private readonly httpClient: HttpClient, protected readonly windowService: WindowService) {}
+  constructor(
+    private readonly swPush: SwPush,
+    private readonly httpClient: HttpClient,
+    protected readonly windowService: WindowService,
+  ) {}
 
   async onClick() {
     // 브라우저가 지원하지 않으면 종료
@@ -136,7 +141,11 @@ import * as webPush from "web-push";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  webPush.setVapidDetails("mailto:<관리용 이메일 주소 기입>", process.env.VAPID_PUBLIC_KEY, process.env.VAPID_PRIVATE_KEY);
+  webPush.setVapidDetails(
+    "mailto:<관리용 이메일 주소 기입>",
+    process.env.VAPID_PUBLIC_KEY,
+    process.env.VAPID_PRIVATE_KEY,
+  );
 
   await app.listen(3000);
 }
