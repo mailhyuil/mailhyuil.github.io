@@ -1,4 +1,4 @@
-# js Generator (Iterator)
+# js Generator
 
 > Iterator를 생성하는 함수
 >

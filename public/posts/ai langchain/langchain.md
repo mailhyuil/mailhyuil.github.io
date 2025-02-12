@@ -22,7 +22,10 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class GptService {
-  connections = new Map<string, Subject<MessageEvent<string>>>();
+  connections = new Map<
+    string,
+    Subject<MessageEvent<{ chunk: string } | 'keep-alive'>>
+  >();
   model = new ChatOpenAI({
     model: 'gpt-4o-mini',
     apiKey: process.env['OPENAI_API_KEY'], // 환경변수에서 API 키 로드
@@ -30,7 +33,10 @@ export class GptService {
 
   create(id: string) {
     if (!this.connections.has(id)) {
-      this.connections.set(id, new Subject<MessageEvent<string>>());
+      this.connections.set(
+        id,
+        new Subject<MessageEvent<{ chunk: string } | 'keep-alive'>>(),
+      );
     }
     const subject$ = this.connections.get(id);
 
@@ -40,19 +46,10 @@ export class GptService {
     this.connections.delete(id);
   }
 
-  async test(data: { id: string; message: string }) {
-    const { id, message } = data;
-    const subject$ = this.create(id);
-
-    subject$.next({
-      data: `received message : ${message} [id: ${id}]`,
-    } as MessageEvent<string>);
-  }
-
   async message(data: { id: string; message: string }) {
     const { id, message } = data;
     const messages = [
-      new SystemMessage('Translate the following from English into Italian'),
+      new SystemMessage('Translate the following from English into Korean'),
       new HumanMessage(message),
     ];
 
@@ -62,7 +59,9 @@ export class GptService {
     const chunks = [];
     for await (const chunk of stream) {
       chunks.push(chunk);
-      subject$.next({ data: chunk.content.toString() } as MessageEvent<string>);
+      subject$.next({
+        data: { chunk: chunk.content.toString() },
+      } as MessageEvent<{ chunk: string }>);
     }
     // store the chunks in the database
   }
@@ -75,7 +74,7 @@ export class GptService {
     ]);
 
     const promptValue = await promptTemplate.invoke({
-      language: 'italian',
+      language: 'korean',
       message,
     });
 
@@ -84,7 +83,11 @@ export class GptService {
     const chunks = [];
     for await (const chunk of stream) {
       chunks.push(chunk);
-      subject$.next({ data: chunk.content.toString() } as MessageEvent<string>);
+      subject$.next({
+        data: { chunk: chunk.content.toString() },
+      } as MessageEvent<{
+        chunk: string;
+      }>);
     }
     // store the chunks in the database
   }
@@ -105,11 +108,6 @@ import { GptService } from './gpt.service';
 export class GptController {
   constructor(private readonly gptService: GptService) {}
 
-  @Post('test')
-  async test(@Body() body: { id: string; message: string }) {
-    await this.gptService.test(body);
-  }
-
   @Post('message')
   async message(@Body() body: { id: string; message: string }) {
     await this.gptService.message(body);
@@ -129,7 +127,7 @@ export class GptController {
 
     // keep-alive
     const subscription = interval(1000 * 60 * 30).subscribe(() => {
-      subject$.next({ data: 'keep-alive' } as MessageEvent<string>);
+      subject$.next({ data: 'keep-alive' } as MessageEvent<'keep-alive'>);
     });
     res.on('close', () => {
       this.gptService.deleteConnection(id);
@@ -179,9 +177,10 @@ export class GreetingComponent {
       });
     fromEvent<MessageEvent<string>>(this.eventSource, "message")
       .pipe(takeUntilDestroyed())
-      .subscribe(e => {
-        if (e.data === "keep-alive") return;
-        this.content.update(prev => prev + e.data);
+      .subscribe(({ data }) => {
+        if (data === "keep-alive") return;
+        const { chunk } = JSON.parse(data);
+        this.content.update(prev => prev + chunk);
       });
   }
 
