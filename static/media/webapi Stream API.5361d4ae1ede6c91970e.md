@@ -1,6 +1,12 @@
 # Stream
 
-> ReadableStream, WritableStream, TransformStream, ByteLengthQueuingStrategy, CountQueuingStrategy
+> ReadableStream
+
+## polyfill
+
+```sh
+npm i web-streams-polyfill
+```
 
 ## ReadableStream
 

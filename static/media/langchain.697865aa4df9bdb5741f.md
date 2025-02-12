@@ -22,14 +22,35 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class GptService {
+  connections = new Map<string, Subject<MessageEvent<string>>>();
   model = new ChatOpenAI({
     model: 'gpt-4o-mini',
     apiKey: process.env['OPENAI_API_KEY'], // 환경변수에서 API 키 로드
   });
-  message$ = new Subject<string>();
-  template$ = new Subject<string>();
 
-  async message(message: string) {
+  create(id: string) {
+    if (!this.connections.has(id)) {
+      this.connections.set(id, new Subject<MessageEvent<string>>());
+    }
+    const subject$ = this.connections.get(id);
+
+    return subject$;
+  }
+  deleteConnection(id: string) {
+    this.connections.delete(id);
+  }
+
+  async test(data: { id: string; message: string }) {
+    const { id, message } = data;
+    const subject$ = this.create(id);
+
+    subject$.next({
+      data: `received message : ${message} [id: ${id}]`,
+    } as MessageEvent<string>);
+  }
+
+  async message(data: { id: string; message: string }) {
+    const { id, message } = data;
     const messages = [
       new SystemMessage('Translate the following from English into Italian'),
       new HumanMessage(message),
@@ -37,14 +58,17 @@ export class GptService {
 
     const stream = await this.model.stream(messages);
 
+    const subject$ = this.create(id);
     const chunks = [];
     for await (const chunk of stream) {
       chunks.push(chunk);
-      this.message$.next(chunk.content.toString());
+      subject$.next({ data: chunk.content.toString() } as MessageEvent<string>);
     }
+    // store the chunks in the database
   }
 
-  async template(message: string) {
+  async template(data: { id: string; message: string }) {
+    const { id, message } = data;
     const promptTemplate = ChatPromptTemplate.fromMessages([
       ['system', 'Translate the following from English into {language}'],
       ['user', '{message}'],
@@ -56,12 +80,13 @@ export class GptService {
     });
 
     const stream = await this.model.stream(promptValue);
-
+    const subject$ = this.create(id);
     const chunks = [];
     for await (const chunk of stream) {
       chunks.push(chunk);
-      this.message$.next(chunk.content.toString());
+      subject$.next({ data: chunk.content.toString() } as MessageEvent<string>);
     }
+    // store the chunks in the database
   }
 }
 ```
@@ -69,9 +94,10 @@ export class GptService {
 ## gpt.controller.ts
 
 ```js
-import { Body, Controller, Post, Sse } from '@nestjs/common';
+import { Body, Controller, Param, Post, Res, Sse } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { of, switchMap } from 'rxjs';
+import { Response } from 'express';
+import { interval } from 'rxjs';
 import { GptService } from './gpt.service';
 
 @ApiTags('Gpt')
@@ -79,30 +105,38 @@ import { GptService } from './gpt.service';
 export class GptController {
   constructor(private readonly gptService: GptService) {}
 
-  @Post('message')
-  async message(@Body('message') message: string) {
-    await this.gptService.message(message);
+  @Post('test')
+  async test(@Body() body: { id: string; message: string }) {
+    await this.gptService.test(body);
   }
-  @Sse('message')
-  async messageResult() {
-    return this.gptService.message$.asObservable().pipe(
-      switchMap((data) => {
-        return of({ data } as MessageEvent);
-      }),
-    );
+
+  @Post('message')
+  async message(@Body() body: { id: string; message: string }) {
+    await this.gptService.message(body);
   }
 
   @Post('template')
-  async template(@Body('message') message: string) {
-    await this.gptService.template(message);
+  async template(@Body() body: { id: string; message: string }) {
+    await this.gptService.template(body);
   }
-  @Sse('template')
-  async templateResult() {
-    return this.gptService.template$.asObservable().pipe(
-      switchMap((data) => {
-        return of({ data } as MessageEvent);
-      }),
-    );
+
+  @Sse(':id')
+  async connect(
+    @Param('id') id: string,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const subject$ = this.gptService.create(id);
+
+    // keep-alive
+    const subscription = interval(1000 * 60 * 30).subscribe(() => {
+      subject$.next({ data: 'keep-alive' } as MessageEvent<string>);
+    });
+    res.on('close', () => {
+      this.gptService.deleteConnection(id);
+      subject$.complete();
+      subscription.unsubscribe();
+    });
+    return subject$.asObservable();
   }
 }
 ```
@@ -112,6 +146,8 @@ export class GptController {
 ```ts
 import { HttpClient } from "@angular/common/http";
 import { Component, inject, signal } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { fromEvent } from "rxjs";
 
 @Component({
   selector: "app-greeting",
