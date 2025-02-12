@@ -3,6 +3,8 @@
 > directory를 바로 옮김 폴더 생성 안해도 됨
 >
 > > nginx scp 시 권한이 있는 디렉토리에 복사해라 (e.g. /home/ubuntu)
+> >
+> > > 파일의 용량이 큰 경우 압축을 하거나 rsync를 사용하는 것이 좋다. (rsync는 압축 옵션이 있음)
 
 ## install
 
