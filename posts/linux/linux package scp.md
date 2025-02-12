@@ -16,12 +16,20 @@ apt install openssh-server -y
 apt install openssh-client -y
 ```
 
+## options
+
+```sh
+-i : 인증키를 사용하여 접속
+-r : 하위 디렉토리까지 복사
+-v : 상세 정보 출력 (verbose)
+-l : 전송 속도 제한 / 대역폭 제한
+```
+
 ## usage
 
 ```sh
-scp [옵션] [파일명] [remote_user]@[remote_ip]:[저장할 위치]
-# scp testfile2 root@192.168.159.129:/tmp/testclient
-# scp -i ./scripts/test.pem -r .output ${{ env.SSH_USER }}@${{ env.SSH_HOST }}:${{ env.DEPLOY_PATH }}
-
-# 여러 파일을 포함하고 있는 "디렉터리"를 원격지로 보낼 때 -r (recursive) 옵션
+# 업로드
+scp -i ./key.pem -r ./dir user@remote:/apps
+# 다운로드
+scp -i ./key.pem -r user@remote:/apps ./
 ```
