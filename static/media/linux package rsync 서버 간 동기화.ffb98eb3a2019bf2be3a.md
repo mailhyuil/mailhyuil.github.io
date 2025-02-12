@@ -27,7 +27,7 @@ timeout 300                    # 타임아웃 시간 설정
 3. rsync 명령어 실행
 
 ```sh
-rsync  -avz   소스서버아이피::source    /var/www/omeka2
+rsync -avz source_server_ip::source /var/www/omeka2
 ```
 
 ## crontab
@@ -37,11 +37,11 @@ rsync  -avz   소스서버아이피::source    /var/www/omeka2
 > > crontab -e
 
 ```sh
-15 2 30 7 *    rsync -avz  /AAA/files  /BBB      # 7월 30일 2시 15분에  rsync 실행
+15 2 30 7 *    rsync -avz /AAA/files /BBB      # 7월 30일 2시 15분에  rsync 실행
 
-15 2 * * 1     rsync -avz  /AAA/files  /BBB      #  매주 첫날 2시 15분에 rsync 실행
+15 2 * * 1     rsync -avz /AAA/files /BBB      #  매주 첫날 2시 15분에 rsync 실행
 
-0 1 *  * *     rsync -avz  /AAA/files  /BBB      # 매일 1시 정각에 rsync 실행
+0 1 *  * *     rsync -avz /AAA/files /BBB      # 매일 1시 정각에 rsync 실행
 
-0-59/1 * * * * rsync -avz  소스서버아이피::source    /var/www/omeka2   # 1분마다 rsync 실행
+0-59/1 * * * * rsync -avz source_server_ip::source /var/www/omeka2   # 1분마다 rsync 실행
 ```
