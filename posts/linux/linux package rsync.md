@@ -14,13 +14,22 @@
 apt install rsync -y
 ```
 
-## usage
+## options
 
 ```sh
 -a : archive 모드로 타임스탬프, 심볼릭링크, 퍼미션, 그룹, 소유자, 장치 등의 파일 보존
 -v : 상세 정보 출력
 -r : 하위 디렉토리까지 복사
 -z : 데이터를 압축해서 전송. 단 destination에서는 압축이 해제되어 들어감.
+-e : ssh 연결을 위한 옵션
+--progress : 전송 진행 상황을 보여줌
+```
 
-rsync -avz <source_dir> <destination_dir>
+## usage
+
+```sh
+# 파일 압축 후 업로드
+rsync -az --progress -e "ssh -i key.pem" ./dir user@remote_server:/dir
+# 파일 압축 후 다운로드
+rsync -az --progress -e "ssh -i key.pem" user@remote_server:/dir ./
 ```
