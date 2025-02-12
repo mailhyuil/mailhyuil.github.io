@@ -34,14 +34,18 @@ export class SseController {
   @Sse(":id")
   async connect(@Param("id") id: string, @Res({ passthrough: true }) res: Response) {
     const subject$ = this.sseService.create(id);
+
+    // keep-alive
     const subscription = interval(1000 * 60 * 30).subscribe(() => {
-      subject$.next({ data: "keep-alive" } as MessageEvent<string>);
+      subject$.next({ data: "keep-alive" } as MessageEvent<"keep-alive">);
     });
+
     res.on("close", () => {
       this.sseService.deleteConnection(id);
       subject$.complete();
       subscription.unsubscribe();
     });
+
     return subject$.asObservable();
   }
 }
@@ -50,18 +54,16 @@ export class SseController {
 ## service
 
 ```ts
-import { HumanMessage, SystemMessage } from "@langchain/core/messages";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
-import { ChatOpenAI } from "@langchain/openai";
 import { Injectable } from "@nestjs/common";
 import { Subject } from "rxjs";
 
 @Injectable()
 export class SseService {
-  connections = new Map<string, Subject<MessageEvent<string>>>();
+  connections = new Map<string, Subject<MessageEvent<{ chunk: string } | "keep-alive">>>();
+
   create(id: string) {
     if (!this.connections.has(id)) {
-      this.connections.set(id, new Subject<MessageEvent<string>>());
+      this.connections.set(id, new Subject<MessageEvent<{ chunk: string } | "keep-alive">>());
     }
     const subject$ = this.connections.get(id);
 
@@ -73,9 +75,11 @@ export class SseService {
 
   async message(data: { id: string; message: string }) {
     const { id, message } = data;
-    const subject$ = this.create(id);
 
-    subject$.next({ data: `received message : ${message}` } as MessageEvent<string>);
+    const subject$ = this.create(id);
+    subject$.next({
+      data: { chunk: `received message : ${message}` },
+    } as MessageEvent<{ chunk: string }>);
   }
 }
 ```
@@ -85,6 +89,8 @@ export class SseService {
 ```ts
 import { HttpClient } from "@angular/common/http";
 import { Component, inject, signal } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { fromEvent } from "rxjs";
 
 @Component({
   selector: "app-greeting",
@@ -116,9 +122,10 @@ export class GreetingComponent {
       });
     fromEvent<MessageEvent<string>>(this.eventSource, "message")
       .pipe(takeUntilDestroyed())
-      .subscribe(e => {
-        if (e.data === "keep-alive") return;
-        this.content.update(prev => prev + e.data);
+      .subscribe(({ data }) => {
+        if (data === "keep-alive") return;
+        const { chunk } = JSON.parse(data);
+        this.content.update(prev => prev + chunk);
       });
   }
 
