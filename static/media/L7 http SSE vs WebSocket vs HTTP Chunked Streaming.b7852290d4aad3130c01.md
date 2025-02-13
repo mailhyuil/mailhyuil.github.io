@@ -1,4 +1,4 @@
-# http Websocket vs SSE
+# http SSE vs WebSocket vs HTTP Chunked Streaming
 
 > 속도는 똑같음
 >
@@ -15,9 +15,25 @@
 > > 채팅, 게임처럼 클라이언트에서 서버로 보내는 데이터도 빠르게 처리해야 하는 경우에 사용
 > >
 > > 클라이언트에서 서버로 보내는 데이터가 느린 경우 결국 총 속도가 느려진다.
+> >
+> > > L7 프로토콜이지만 L4 에 의존한다.
 
 ## Server-Sent Events (SSE)
 
 > 단뱡향 (서버 -> 클라이언트) 통신을 지원하는 프로토콜
 >
 > > chatgpt처럼 클라이언트에서 서버로 보내는 데이터의 속도가 크게 상관 없는 경우에 사용
+> >
+> > > text-based protocol(text/event-stream)
+> > >
+> > > > 재연결 등의 기능을 기본으로 지원하기에 구현이 간단하다.
+
+## HTTP Chunked Streaming
+
+> 단뱡향 (서버 -> 클라이언트) 통신을 지원하는 프로토콜
+>
+> > SSE 대신 사용할 수 있지만 json, text, binary data를 전부 처리할 수 있다.
+> >
+> > > 재연결등의 기능을 직접구현해야만 한다.
+> > >
+> > > > 표준 http를 사용하는 것이기 때문에 SSE보다 호환성이 좋을 수 있다.
