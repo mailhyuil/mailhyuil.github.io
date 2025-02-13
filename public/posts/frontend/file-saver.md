@@ -7,12 +7,15 @@
 ```sh
 npm i file-saver
 npm i -D @types/file-saver
+
+npm i file-saver-es
+npm i -D @types/file-saver-es
 ```
 
 ## usage
 
 ```js
-import { saveAs } from 'file-saver';
+import { saveAs } from 'file-saver-es';
 
 saveAs(url, 'pdf-export.pdf');
 saveAs(blob as Blob, 'pdf-export.pdf');
