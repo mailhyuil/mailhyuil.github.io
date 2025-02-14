@@ -1,12 +1,12 @@
-# langchain ChatHistory
+# langchain Chat History
 
-> chat history를 사용할 수록 API 사용 토큰 수가 늘어나기에 최적화를 해야한다.
+> Chat History를 사용할 수록 API 사용 토큰 수가 늘어나기에 최적화를 해야한다.
 >
 > > 대화 이력 제한: 이전 메시지 중 중요한 것만 유지하고 오래된 내용은 제거.
 > >
 > > 요약(Summarization) 활용: 대화가 길어지면 요약을 생성해 대화 이력의 길이를 줄이기.
 > >
-> > 필요할 때만 Chat History 포함: 모든 API 호출에서 대화 이력을 포함하는 것이 아니라, 문맥이 필요한 경우에만 활용.
+> > 필요한 Chat History만 포함: 모든 API 호출에서 대화 이력을 포함하는 것이 아니라, 문맥이 필요한 경우에만 활용.
 
 ## 프로세스
 
