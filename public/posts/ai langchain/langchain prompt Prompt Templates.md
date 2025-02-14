@@ -3,6 +3,8 @@
 > 일반 message 함수를 사용하면 데이터들을 전부 string으로 변환해서 사용해야한다.
 >
 > > Prompt Templates를 사용하면 데이터를 더 쉽게 배열로 넣을 수 있다.
+> >
+> > > roles : system, user(human), assistant(ai)
 
 ```ts
 import { ChatPromptTemplate } from "@langchain/core/prompts";

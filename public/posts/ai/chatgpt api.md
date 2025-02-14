@@ -1,38 +1,11 @@
 # chatgpt api
 
-## install
+1. OpenAI API에 로그인
+2. Billing을 등록
+3. Limits 페이지에 들어가서 사용할 모델을 Model usage에서 선택
+4. API key를 발급받아서 사용
+   > 만약 새로 Model usage를 추가했다면, API key를 다시 발급받아야함
 
-```sh
-npm install openai
-```
+## 토큰
 
-## OPENAI_API_KEY
-
-> OPENAI_API_KEY 환경변수에 api-key를 설정해야함
-
-```js
-export OPENAI_API_KEY='your-api-key-here'
-```
-
-## usage
-
-```ts
-import OpenAI from "openai";
-
-const openai = new OpenAI();
-
-async function main() {
-  const completion = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "system", content: "You are a helpful assistant." }],
-    temperature: 0, /// 창의성이 필요하면 0.7 정도로 설정, 0일 경우 항상 같은 답을 반환할 확률이 높음
-    n: 1, /// 몇개의 결과를 받을지
-    max_tokens: 100, /// 최대 토큰 수
-    stop: ["\n", "."], /// 중지할 문자열
-  });
-
-  console.log(completion.choices[0]); /// n의 값에 따라 completion.choices[0 ~ n]의 길이의 값을 반환
-}
-
-main();
-```
+> 토큰(Token) 수는 유저가 요청한 글(입력)과 AI의 응답(출력) 모두 포함한 길이입니다.

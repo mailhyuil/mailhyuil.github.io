@@ -1,10 +1,12 @@
 # langchain Embedding Models
 
-> 텍스트나 이미지를 벡터 공간에 표현하는 모델입니다.
+> 텍스트나 이미지를 벡터 공간에 표현하는 벡터로 변환해주는 모델
 >
 > > 이를 통해 유사한 데이터를 수치적으로 비교할 수 있습니다.
 > >
 > > > embed 된 데이터를 vector store에 저장하여 유사한 데이터를 검색할 수 있습니다.
+> > >
+> > > > embedding model 역시 비용을 지불해야하는 서비스이다.
 
 ## install
 
@@ -17,9 +19,9 @@ npm i @langchain/core
 
 ```ts
 import { OpenAIEmbeddings } from "@langchain/openai";
-
 const embeddings = new OpenAIEmbeddings();
-const res = await embeddings.embedQuery("Hello world");
+
+const embeddedText = await embeddings.embedQuery("Hello world");
 /*
 [
    -0.004845875,   0.004899438,  -0.016358767,  -0.024475135, -0.017341806,
@@ -30,7 +32,7 @@ const res = await embeddings.embedQuery("Hello world");
   ... 1511 more items
 ]
 */
-const documentRes = await embeddings.embedDocuments(["Hello world", "Bye bye"]);
+const embeddedDocs = await embeddings.embedDocuments(["Hello world", "Bye bye"]);
 /*
 [
   [

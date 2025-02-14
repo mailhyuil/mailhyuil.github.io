@@ -58,17 +58,24 @@ import { Injectable } from "@nestjs/common";
 import { Subject } from "rxjs";
 
 @Injectable()
-export class SseService {
-  connections = new Map<string, Subject<MessageEvent<{ chunk: string } | "keep-alive">>>();
+export class SseService implements OnModuleDestroy {
+  connections = new Map<string, Subject<MessageEvent<{ chunk: string } | "keep-alive" | "end">>>();
+
+  onModuleDestroy() {
+    for (const subject$ of this.connections.values()) {
+      subject$.complete();
+    }
+  }
 
   create(id: string) {
     if (!this.connections.has(id)) {
-      this.connections.set(id, new Subject<MessageEvent<{ chunk: string } | "keep-alive">>());
+      this.connections.set(id, new Subject<MessageEvent<{ chunk: string } | "keep-alive" | "end">>());
     }
     const subject$ = this.connections.get(id);
 
     return subject$;
   }
+
   deleteConnection(id: string) {
     this.connections.delete(id);
   }
@@ -77,9 +84,12 @@ export class SseService {
     const { id, message } = data;
 
     const subject$ = this.create(id);
+
     subject$.next({
       data: { chunk: `received message : ${message}` },
     } as MessageEvent<{ chunk: string }>);
+
+    subject$.next({ data: "end" } as MessageEvent<"end">);
   }
 }
 ```
@@ -124,6 +134,10 @@ export class GreetingComponent {
       .pipe(takeUntilDestroyed())
       .subscribe(({ data }) => {
         if (data === "keep-alive") return;
+        if (data === "end") {
+          // end 처리
+          return;
+        }
         const { chunk } = JSON.parse(data);
         this.content.update(prev => prev + chunk);
       });
