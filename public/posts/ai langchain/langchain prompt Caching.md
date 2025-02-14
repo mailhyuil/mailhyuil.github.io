@@ -1,5 +1,7 @@
 # langchain Caching
 
+> 같은 요청에 대한 응답을 캐싱하여 불필요한 요청을 줄이고, 빠른 응답을 제공합니다.
+
 ## install
 
 ```sh
