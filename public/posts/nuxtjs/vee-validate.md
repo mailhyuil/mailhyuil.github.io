@@ -12,8 +12,8 @@
 > >
 > > > 하나의 인풋 내에서 유효성을 검사할 때 사용
 
-```
-const { errorMessage, value } = useField(toRef(props, 'name'), yup.string().required().min(8));
+```ts
+const { errorMessage, value } = useField(toRef(props, "name"), yup.string().required().min(8));
 ```
 
 ## useForm
@@ -61,7 +61,7 @@ const schema = computed(() => {
 
 > values: body라고 하면 values가 const body = ref()안에 자동으로 담긴다.
 
-```
+```ts
 name="username"
 v-model="body.visitTime"
 ```
@@ -149,15 +149,9 @@ import { Form, Field, useForm, useField, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 
 const schema = yup.object({
-  email: yup
-    .string()
-    .required("이메일을 입력해주세요")
-    .email("형식이 맞지 않습니다"),
+  email: yup.string().required("이메일을 입력해주세요").email("형식이 맞지 않습니다"),
   name: yup.string().required("이름을 입력해주세요"),
-  password: yup
-    .string()
-    .required("비밀번호를 입력해주세요")
-    .min(8, "8자리 이상 입력해주세요"),
+  password: yup.string().required("비밀번호를 입력해주세요").min(8, "8자리 이상 입력해주세요"),
 });
 
 useForm({
@@ -169,22 +163,22 @@ useForm({
     <h1 class="text-red-500">FormTest</h1>
     <Form :validation-schema="schema" class="flex flex-col">
       <Field
-        class="px-4 my-4 border-2 rounded shadow-lg text-slate-500 font-bold text-3xl
-            hover:ring ring-blue-300 linear duration-200"
-        name="email" />
+        class="px-4 my-4 text-3xl font-bold duration-200 border-2 rounded shadow-lg text-slate-500 hover:ring ring-blue-300 linear"
+        name="email"
+      />
       <ErrorMessage name="email" />
       <Field
-        class="px-4 my-4 border-2 rounded shadow-lg text-slate-500 font-bold text-3xl
-            hover:ring ring-blue-300 linear duration-200"
-        name="name" />
+        class="px-4 my-4 text-3xl font-bold duration-200 border-2 rounded shadow-lg text-slate-500 hover:ring ring-blue-300 linear"
+        name="name"
+      />
       <ErrorMessage name="name" />
       <Field
-        class="px-4 my-4 border-2 rounded shadow-lg text-slate-500 font-bold text-3xl
-            hover:ring ring-blue-300 linear duration-200"
+        class="px-4 my-4 text-3xl font-bold duration-200 border-2 rounded shadow-lg text-slate-500 hover:ring ring-blue-300 linear"
         name="password"
-        type="password" />
+        type="password"
+      />
       <ErrorMessage name="password" />
-      <button class="bg-blue-500 p-4 rounded">Submit</button>
+      <button class="p-4 bg-blue-500 rounded">Submit</button>
     </Form>
   </div>
 </template>
