@@ -1,4 +1,4 @@
-# event DOMContentLoaded (init library)
+# event DOMContentLoaded
 
 > DOM Tree가 완성되었을 때 발생하는 이벤트 (HTML의 parsing이 끝나고 deferred script와 type="module" script가 다운로드 완료 후 실행된 이후에 발생)
 >

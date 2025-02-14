@@ -16,7 +16,7 @@
 > > > >
 > > > > > defer script는 외부 js 파일에만 유효하다. src가 반드시 있어야한다.
 > > > > >
-> > > > > > defer가 실행되기전 페이지가 화면에 출력된다. 따라서 defer를 스크립트가 영향을 주는 view에는 loading spinner 등을 사용해야한다.
+> > > > > > defer가 실행되기 전 페이지가 화면에 출력된다. 따라서 defer를 스크립트가 영향을 주는 view에는 loading spinner 등을 사용해야한다.
 
 ## async
 
