@@ -13,8 +13,8 @@
 ```txt
 1. 이전 대화 history를 embedding (vector화 시켜서 용량을 줄임)
 2. vector stores에 저장
-3. 다음 답변을 할 때 Retriever가 vector stores에서 history와 관련된 문서를 검색 (빠르게 검색 가능)
-4. RAG를 수행하여 답변 (vector화 된 history는 토큰의 수가 작기에 API 사용률이 줄어듬)
+3. 다음 답변을 할 때 Retriever가 vector stores에서 관련된 history만 검색 (빠르게 검색 가능)
+4. RAG를 수행하여 답변 (필요한 history만 사용했기에 API 비용이 절감됨)
 ```
 
 ```ts
