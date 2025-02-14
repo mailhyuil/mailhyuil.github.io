@@ -19,11 +19,7 @@ const onInput = (event: Event) => {
 </script>
 <template>
   <div>
-    <input
-      class="border w-full rounded-lg"
-      name="title"
-      @input="onInput($event)"
-      :value="values.title" />
+    <input class="w-full border rounded-lg" name="title" @input="onInput($event)" :value="values.title" />
     <button @click="resetForm()">hi</button>
   </div>
 </template>

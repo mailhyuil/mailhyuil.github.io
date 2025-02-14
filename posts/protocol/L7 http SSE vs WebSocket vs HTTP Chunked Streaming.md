@@ -26,7 +26,9 @@
 > >
 > > > text-based protocol(text/event-stream)
 > > >
-> > > > 재연결 등의 기능을 기본으로 지원하기에 구현이 간단하다.
+> > > (이미지 같은 데이터는 base64로 인코딩 하거나 url을 보내는 방식을 사용)
+> > >
+> > > > 재연결(Last-Event-ID) 등의 기능을 기본으로 지원하기에 구현이 간단하다.
 
 ## HTTP Chunked Streaming
 
