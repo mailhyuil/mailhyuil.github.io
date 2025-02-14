@@ -8,6 +8,15 @@
 > >
 > > 필요할 때만 Chat History 포함: 모든 API 호출에서 대화 이력을 포함하는 것이 아니라, 문맥이 필요한 경우에만 활용.
 
+## 프로세스
+
+```txt
+1. 이전 대화 history를 embedding (vector화 시켜서 용량을 줄임)
+2. vector stores에 저장
+3. 다음 답변을 할 때 Retriever가 vector stores에서 history와 관련된 문서를 검색 (빠르게 검색 가능)
+4. RAG를 수행하여 답변 (vector화 된 history는 토큰의 수가 작기에 API 사용률이 줄어듬)
+```
+
 ```ts
 import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
