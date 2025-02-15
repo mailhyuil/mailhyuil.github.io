@@ -1,5 +1,7 @@
 # langchain Document Loader
 
+> Image PDF에서 Text를 추출하기 위해서 OCR PDF로 변환하는 과정이 필요하다.
+
 ## install
 
 ```sh

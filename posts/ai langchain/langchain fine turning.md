@@ -1,12 +1,12 @@
-# chatgpt fine tuning
+# langchain fine turning
 
-> 미세조정이라는 의미
+## fine tuning
+
+> openai 의 fine tune dashboard 를 통해 수행할 수 있다.
 >
-> > 모델의 파라미터(가중치..)를 미세하게 조정하는 행위
-> >
-> > > 기존에 학습되어져 있는 모델을 기반으로 아키텍쳐를 새로운 목적(나의 이미지 데이터에 맞게)변형하고 이미 학습된 모델 Weights로 부터 학습을 업데이트하는 방법
+> > jsonl 파일을 사용한다. (json object가 한줄에 하나씩 있는 포멧)
 
-## dataset
+### jsonl example
 
 ```json
 {"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "What's the capital of France?"}, {"role": "assistant", "content": "Paris, as if everyone doesn't know that already."}]}
@@ -14,4 +14,15 @@
 {"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
-## fine tuning
+## use
+
+```ts
+import { ChatOpenAI } from "@langchain/openai";
+
+const fineTunedLlm = new ChatOpenAI({
+  temperature: 0.9,
+  model: "ft:gpt-3.5-turbo-0613:{ORG_NAME}::{MODEL_ID}",
+});
+
+await fineTunedLlm.invoke("Hi there!");
+```
