@@ -37,7 +37,7 @@ export class SseController {
 
     // keep-alive
     const subscription = interval(1000 * 60 * 30).subscribe(() => {
-      subject$.next({ data: "keep-alive" } as MessageEvent<"keep-alive">);
+      subject$.next({ type: "keep-alive", data: "keep-alive" } as MessageEvent);
     });
 
     res.on("close", () => {
@@ -59,7 +59,7 @@ import { Subject } from "rxjs";
 
 @Injectable()
 export class SseService implements OnModuleDestroy {
-  connections = new Map<string, Subject<MessageEvent<{ chunk: string } | "keep-alive" | "end">>>();
+  connections = new Map<string, Subject<MessageEvent<{ chunk: string }>>>();
 
   onModuleDestroy() {
     for (const subject$ of this.connections.values()) {
@@ -69,7 +69,7 @@ export class SseService implements OnModuleDestroy {
 
   create(id: string) {
     if (!this.connections.has(id)) {
-      this.connections.set(id, new Subject<MessageEvent<{ chunk: string } | "keep-alive" | "end">>());
+      this.connections.set(id, new Subject<MessageEvent<{ chunk: string }>>());
     }
     const subject$ = this.connections.get(id);
 
@@ -89,7 +89,7 @@ export class SseService implements OnModuleDestroy {
       data: { chunk: `received message : ${message}` },
     } as MessageEvent<{ chunk: string }>);
 
-    subject$.next({ data: "end" } as MessageEvent<"end">);
+    subject$.next({ type: "end", data: "end" } as MessageEvent);
   }
 }
 ```
@@ -133,13 +133,13 @@ export class GreetingComponent {
     fromEvent<MessageEvent<string>>(this.eventSource, "message")
       .pipe(takeUntilDestroyed())
       .subscribe(({ data }) => {
-        if (data === "keep-alive") return;
-        if (data === "end") {
-          // end 처리
-          return;
-        }
         const { chunk } = JSON.parse(data);
         this.content.update(prev => prev + chunk);
+      });
+    fromEvent<MessageEvent<string>>(this.eventSource, "end")
+      .pipe(takeUntilDestroyed())
+      .subscribe(({ data }) => {
+        // end 처리
       });
   }
 
