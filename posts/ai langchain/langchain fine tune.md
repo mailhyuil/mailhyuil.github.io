@@ -1,6 +1,6 @@
-# langchain fine turning
+# langchain fine tune
 
-## fine tuning
+## fine tune
 
 > openai 의 fine tune dashboard 를 통해 수행할 수 있다.
 >
