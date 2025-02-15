@@ -6,9 +6,9 @@
 >
 > > invoke: 입력을 받아 체인을 호출
 > >
-> > batch: 여러 입력을 받아 체인을 호출
-> >
 > > stream: 응답 청크를 스트림으로 출력
+> >
+> > batch: 여러 입력을 받아 체인을 호출 (입력의 갯수만큼 답변을 반환)
 
 ```ts
 import { RunnableLambda } from "@langchain/core/runnables";
