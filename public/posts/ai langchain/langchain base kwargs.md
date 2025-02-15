@@ -1,7 +1,3 @@
 # langchain base kwargs
 
-> langchain에서 사용하는 기본 인자들을 정리합니다.
-
-```txt
-
-```
+> 추가 옵션을 제공하는 매개변수

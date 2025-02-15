@@ -1,6 +1,8 @@
 # RunnableParallel
 
 > 여러 Runnable을 병렬 실행
+>
+> > Promise.all, forkJoin과 비슷
 
 ```ts
 import { RunnableLambda, RunnableParallel } from "@langchain/core/runnables";
