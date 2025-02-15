@@ -1,8 +1,8 @@
-# langchain Output Parsers
+# langchain Output Parsers StringOutputParser
 
 > 최종적으로 생성된 AiMessage를 pipeline내에서 변환해주는 기능
-
-## StringOutputParser
+>
+> > content.toString()을 대신해줌
 
 ```ts
 const chain = ChatPromptTemplate.fromMessages([
