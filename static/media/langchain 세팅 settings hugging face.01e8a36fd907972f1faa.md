@@ -6,6 +6,7 @@
 npm i @langchain/community
 npm i @langchain/core
 npm i @huggingface/inference@2
+npm i @xenova/transformers
 ```
 
 ## usage
