@@ -9,7 +9,7 @@
 > > > 텍스트 생성 능력은 없음
 
 ```txt
-문서 검색 & 임베딩 서비스
+# 문서 검색 & 임베딩 서비스
 BERT (Bidirectional Encoder Representations from Transformers)
 RoBERTa
 SBERT (Sentence-BERT) → 검색 & 벡터 DB와 결합
