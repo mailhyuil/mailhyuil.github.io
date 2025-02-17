@@ -5,7 +5,7 @@
 ```js
 const chain = ChatPromptTemplate.fromMessages([
   ["system", "너는 고양이 박사야"],
-  new MessagesPlaceholder("chat_history"),
+  new MessagesPlaceholder("chat_history"), // or ['placeholder', 'chat_history']
   ["user", "고양이는 또 무엇을 좋아해?"],
 ]);
 await chain.invoke({

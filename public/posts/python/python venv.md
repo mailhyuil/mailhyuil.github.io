@@ -7,8 +7,10 @@
 ```sh
 python -m venv .venv
 
-# activate venv
+# activate venv (mac)
 source .venv/bin/activate
+# activate venv (window) powershell에서 실행해야한다.
+.venv\Scripts\activate
 
 # deactivate venv
 deactivate
