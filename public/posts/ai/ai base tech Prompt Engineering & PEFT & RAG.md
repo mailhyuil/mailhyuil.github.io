@@ -18,11 +18,13 @@ Self-consistency	여러 답변을 생성 후, 가장 일관성 있는 답을 선
 ReAct (Reasoning + Acting)	AI가 답을 생성하면서 검색 같은 액션을 수행하게 만듦
 ```
 
-## PEFT (Prompt Engineering for Few-Shot Text Classification)
+## PEFT (Parameter-Efficient Fine-Tuning)
 
 > 파인튜닝 방식
 >
 > > 모델의 파라미터(가중치..)를 미세하게 조정하여 특정 작업에 맞게 학습
+> >
+> > > LoRA 기법
 
 ## RAG (Retrieval Augmented Generation)
 

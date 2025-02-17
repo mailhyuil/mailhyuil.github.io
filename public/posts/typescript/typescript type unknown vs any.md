@@ -1,10 +1,10 @@
 # typescript type unknown vs any
 
-> 무엇이든 할당이 가능
+> any는 마치 javascript와 같이 제약 없이 무엇이든 할당이 가능
 >
-> > any와 unknown을 제외한 다른 타입에 할당 불가능
+> > unknown은 타입이 무엇인지 모르니까 타입체크를 반드시 해야하는 타입이다 (타입 체크 강제 유도)
 > >
-> > any는 모든 타입에 할당 가능
+> > unknown을 사용하면 타입을 체크해야하는 제약이 늘어나지만 훨씬 안전하게 개발 가능
 
 ## unknown
 

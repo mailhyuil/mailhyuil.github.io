@@ -1,4 +1,6 @@
-# ai base prompt few shot
+# ai base prompt few shot vs zero shot vs one shot
+
+## Few-Shot Prompting
 
 > 인공지능 학습에서 샷(Shot)은 예시(Example)를 뜻합니다. 따라서 퓨샷(Few-Shot)은 몇가지 예시(Few examples)를 뜻합니다.
 >
@@ -16,3 +18,13 @@
 ### 번역할 문장
 영어: "I am learning Few-Shot prompting"
 ```
+
+## Zero-Shot Prompting
+
+> 추가적인 학습 없이 새로운 데이터에 대한 예측을 수행
+>
+> > 많은 양의 라벨링 된 데이터를 사용해야함
+
+## One-Shot Prompting
+
+> 한정된 양의 데이터로 새로운 데이터에 대한 예측을 수행
