@@ -3,6 +3,13 @@
 ## install
 
 ```sh
+python -m venv .venv
+
+# activate venv (mac)
+source .venv/bin/activate
+# activate venv (window) powershell에서 실행해야한다.
+.venv\Scripts\activate
+
 pip install grpcio grpcio-tools
 
 # proto 파일을 python 파일로 변환

@@ -1,9 +1,5 @@
-# create-nx-workspace
-
-## usage
+# nx pnpm
 
 ```sh
-npm i -g create-nx-workspace
-
 create-nx-workspace <app-name> --preset=apps --pm=pnpm
 ```

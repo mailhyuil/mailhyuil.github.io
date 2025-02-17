@@ -5,5 +5,5 @@
 ```sh
 npm i -g create-nx-workspace
 
-create-nx-workspace <workspace-name> --preset=apps
+create-nx-workspace <app-name> --preset=apps --pm=pnpm
 ```
