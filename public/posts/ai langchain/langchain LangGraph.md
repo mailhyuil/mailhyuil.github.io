@@ -15,7 +15,10 @@
 ## install
 
 ```sh
-npm i @langchain/core @langchain/langgraph @langchain/openai
+npm i @langchain/core
+npm i @langchain/langgraph
+
+npm i @langchain/openai
 ```
 
 ## createReactAgent
@@ -56,7 +59,7 @@ const agentNextState = await agent.invoke(
 console.log(agentNextState.messages[agentNextState.messages.length - 1].content);
 ```
 
-## customizing the agent
+## custom agent
 
 ```ts
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
