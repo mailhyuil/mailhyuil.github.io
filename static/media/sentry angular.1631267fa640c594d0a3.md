@@ -35,7 +35,7 @@ Sentry.init({
 });
 
 enableProdMode(); // production mode로 설정해야 sentry가 정상적으로 동작함
-bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));
 ```
 
 ## app.config.ts

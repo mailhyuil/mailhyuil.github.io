@@ -6,7 +6,7 @@
 
 > POST 요청으로 create 시에는 id가 자동으로 생성된다.
 
-```sh
+```json
 POST
 https://localhost:9200/cats/_doc
 {
@@ -19,7 +19,7 @@ https://localhost:9200/cats/_doc
 
 > data의 일부만 수정 시(PATCH)에는 POST 명령어 뒤에 \_doc이 들어갈 자리에 \_update를 붙여야 한다.
 
-```sh
+```json
 POST
 https://localhost:9200/cats/_update/1
 {
@@ -35,7 +35,7 @@ https://localhost:9200/cats/_update/1
 >
 > > 같은 id로 도큐먼트를 생성하면 update가 된다.
 
-```sh
+```json
 PUT
 https://localhost:9200/cats/_doc/1
 {
@@ -46,14 +46,14 @@ https://localhost:9200/cats/_doc/1
 
 ## read
 
-```sh
+```json
 GET
 https://localhost:9200/cats/_doc/1
 ```
 
 ## delete
 
-```sh
+```json
 # deleteById
 DELETE
 https://localhost:9200/cats/_doc/1

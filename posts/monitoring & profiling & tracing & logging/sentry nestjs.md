@@ -43,10 +43,10 @@ import * as Sentry from "@sentry/minimal";
 export class SentryInterceptor implements NestInterceptor {
   intercept(_: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
-      catchError((error) => {
+      catchError(error => {
         Sentry.captureException(error);
         return null;
-      })
+      }),
     );
   }
 }
