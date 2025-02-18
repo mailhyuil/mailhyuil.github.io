@@ -70,7 +70,6 @@ const model = new ChatOpenAI({
 // 계속할지 말지 결정하는 함수 정의
 function shouldContinue({ messages }: typeof MessagesAnnotation.State) {
   const lastMessage = messages[messages.length - 1] as AIMessage;
-
   // 도구 호출이 있으면 "tools" 노드로 라우팅
   if (lastMessage.tool_calls?.length) {
     return "tools";
@@ -103,15 +102,19 @@ const app = workflow.compile();
 ```ts
 // 첫번째 사용자 메시지를 실행 첫번째 노드로 이동
 const finalState = await app.invoke({
-  messages: [new HumanMessage("what is the weather in sf")],
+  messages: [new HumanMessage("Hi, My name is John")],
 });
+
 console.log(finalState.messages[finalState.messages.length - 1].content);
+// Hi, John!
 
 // 다음 사용자 메시지가 오면 이전 상태를 기억해두고 있다가 그 다음 노드로 이동
 const nextState = await app.invoke({
   // Including the messages from the previous run gives the LLM context.
   // This way it knows we're asking about the weather in NY
-  messages: [...finalState.messages, new HumanMessage("what about ny")],
+  messages: [...finalState.messages, new HumanMessage("Goodbye")],
 });
+
 console.log(nextState.messages[nextState.messages.length - 1].content);
+// Goodbye, John!
 ```
