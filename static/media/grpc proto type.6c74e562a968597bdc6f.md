@@ -58,6 +58,7 @@ enum PhoneType {
 > 향후 사용하지 않을 필드나, 삭제된 필드를 예약하는 역할
 
 ```txt
+reserved 2, 15, 9 to 11, 40 to max;
 reserved "email", "tel"
 ```
 
