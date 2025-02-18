@@ -31,6 +31,18 @@ message Person {
 message Person
 ```
 
+## optional
+
+```txt
+optional string name = 1;
+```
+
+## map
+
+```txt
+map<string, string> phone_number = 1;
+```
+
 ## enum (열거형)
 
 ```txt
