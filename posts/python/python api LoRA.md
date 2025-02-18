@@ -3,7 +3,7 @@
 ## install
 
 ```sh
-pip install torch transformers peft datasets accelerate bitsandbytes
+poetry add torch transformers peft datasets accelerate bitsandbytes
 ```
 
 ## generate dataset
