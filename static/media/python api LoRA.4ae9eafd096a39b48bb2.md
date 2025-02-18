@@ -3,7 +3,9 @@
 ## install
 
 ```sh
-poetry add torch transformers peft datasets accelerate bitsandbytes
+poetry add torch # meta에서 개발한 딥러닝 프레임워크 (pytorch)
+poetry add bitsandbytes # nvidia에서 개발한 8-bit 및 4-bit 양자화(Quantization)로 모델을 경량화할 때 사용하는 라이브러리
+poetry add transformers peft datasets accelerate # hugging face api를 사용하기 위한 라이브러리
 ```
 
 ## generate dataset
