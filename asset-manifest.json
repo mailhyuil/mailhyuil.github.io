@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.243ca664.js",
+    "main.js": "/static/js/main.18924d31.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -1929,6 +1929,7 @@
     "static/media/angular SSR root path가 SSR이 적용 안될 때.md": "/static/media/angular SSR root path가 SSR이 적용 안될 때.2b6a461d9e2101a6c649.md",
     "static/media/c++ base class virtual pure virtual (abstract).md": "/static/media/c++ base class virtual pure virtual (abstract).5f2f7260584b347355ad.md",
     "static/media/prisma create vs createMany.md": "/static/media/prisma create vs createMany.7f42c9ffb769ccb7359c.md",
+    "static/media/ai base Human-in-the-loop (HITL).md": "/static/media/ai base Human-in-the-loop (HITL).20dc6cfe5ba10188c456.md",
     "static/media/animation locomotive-scroll.md": "/static/media/animation locomotive-scroll.97af0ccace9c9582854a.md",
     "static/media/animation gsap Observer.md": "/static/media/animation gsap Observer.f8963fcbee0a91a4e85a.md",
     "static/media/Behavioral Chain of Responsibility (CoR) example express.md": "/static/media/Behavioral Chain of Responsibility (CoR) example express.e4450ced9f46e23b51d5.md",
@@ -4399,10 +4400,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.243ca664.js.map": "/static/js/main.243ca664.js.map"
+    "main.18924d31.js.map": "/static/js/main.18924d31.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.243ca664.js"
+    "static/js/main.18924d31.js"
   ]
 }
