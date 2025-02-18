@@ -4,9 +4,11 @@
 
 > 하나의 키로 암호화, 복호화
 >
+> 하나의 키만 생성하니까 쉽게 생성할 수 있음 (sign이 불필요)
+>
 > > 하나의 키를 시크릿키(Secret Key), 대칭키(Symmetric Key), 세션키(Session Key : 세션 동안 데이터를 안전하게 암호화하고 복호화하는 데 사용), 쉐어드키(Shared Key), 단용키 라고 부른다.
 > >
-> > > uuid, openssl, gpg.. 으로 생성
+> > > openssl, gpg, uuid,.. 으로 생성
 > > >
 > > > > 대칭키는 비대칭키보다 빠르다 그래서 (TLS에 사용됨)
 
@@ -21,7 +23,7 @@ openssl rand -base64 32
 # gpg
 gpg --gen-key --symmetric
 
-# uuid pacakge
+# uuid package
 uuid()
 ```
 

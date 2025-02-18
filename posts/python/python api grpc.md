@@ -5,7 +5,7 @@
 ```sh
 poetry add grpcio grpcio-tools hupper
 
-python -m grpc_tools.protoc -Iproto --python_out=. --grpc_python_out=. proto/message.proto
+grpc_tools.protoc -Iproto --python_out=. --grpc_python_out=. proto/message.proto
 
 # 실행
 hupper -m main

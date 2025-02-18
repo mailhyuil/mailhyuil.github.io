@@ -1,7 +1,0 @@
-# openssl libreSSL
-
-## install
-
-```sh
-
-```
