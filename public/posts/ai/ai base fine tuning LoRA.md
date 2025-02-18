@@ -1,119 +1,89 @@
-# chatgpt fine tuning LoRA (Lightweight Optimized ReLU Activation) (경량 파인튜닝)
-
-> 모델의 일부 가중치만 업데이트
+# python api LoRA
 
 ## install
 
 ```sh
-pip install torch transformers peft datasets accelerate bitsandbytes
+poetry add torch # meta에서 개발한 딥러닝 프레임워크 (pytorch)
+poetry add bitsandbytes # nvidia에서 개발한 8-bit 및 4-bit 양자화(Quantization)로 모델을 경량화할 때 사용하는 라이브러리
+poetry add transformers peft datasets accelerate # hugging face api를 사용하기 위한 라이브러리
+
+poetry add torch bitsandbytes transformers peft datasets accelerate
 ```
 
-## generate dataset
-
-> Hugging Face Datasets 라이브러리를 이용
+## fine tuning
 
 ```py
+import torch
+from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
 from datasets import load_dataset
+from peft import LoraConfig, get_peft_model, TaskType
 
-# 예제 데이터셋 로드 (QA 데이터)
-dataset = load_dataset("squad", split="train[:100]")
+# ✅ 1. IMDB 데이터셋 로드
+dataset = load_dataset("imdb")
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
-# 학습 데이터 전처리
 def preprocess_function(examples):
-    return tokenizer(examples["context"], truncation=True, padding="max_length", max_length=512)
+    return tokenizer(examples["text"], padding="max_length", truncation=True)
 
 tokenized_datasets = dataset.map(preprocess_function, batched=True)
-```
+tokenized_datasets = tokenized_datasets.remove_columns(["text"])
+tokenized_datasets.set_format("torch")
 
-## load model
+train_dataset = tokenized_datasets["train"].shuffle(seed=42).select(range(2000))  # 데이터 일부만 사용 (빠른 테스트)
+test_dataset = tokenized_datasets["test"].shuffle(seed=42).select(range(500))
 
-```py
-from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+# ✅ 2. 사전 훈련된 모델 로드 (BERT)
+base_model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=2)
 
-# 학습할 모델 선택 (예: Llama2)
-MODEL_NAME = "meta-llama/Llama-2-7b-hf"
-
-# 모델과 토크나이저 로드
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME,
-    torch_dtype=torch.float16,
-    device_map="auto"
-)
-
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-
-```
-
-## adapt model
-
-```py
-from peft import LoraConfig, get_peft_model
-
-# LoRA 설정
+# ✅ 3. LoRA 설정 (적용할 레이어 및 랭크 설정)
 lora_config = LoraConfig(
-    r=8,  # 랭크 크기 (값이 클수록 더 많은 가중치 업데이트)
-    lora_alpha=16,  # LoRA scaling factor
-    target_modules=["q_proj", "v_proj"],  # 적용할 모델의 레이어 지정 (예: Attention 부분)
+    task_type=TaskType.SEQ_CLS,  # 시퀀스 분류
+    inference_mode=False,
+    r=8,  # Low-rank 차원 (값이 작을수록 적은 파라미터 업데이트)
+    lora_alpha=16,  # 스케일링 계수
     lora_dropout=0.1,  # 드롭아웃 적용
-    bias="none"
+    target_modules=["query", "value"],  # LoRA 적용할 Transformer 모듈 (Q, V)
 )
 
-# 모델에 LoRA 적용
-model = get_peft_model(model, lora_config)
-model.print_trainable_parameters()  # 학습 가능한 파라미터 수 확인
-```
+# ✅ 4. LoRA 적용
+lora_model = get_peft_model(base_model, lora_config)
+lora_model.print_trainable_parameters()  # 훈련 가능한 파라미터 개수 확인
 
-## train model
-
-```py
-from transformers import TrainingArguments, Trainer
-
-# 학습 설정
+# ✅ 5. 훈련 설정
 training_args = TrainingArguments(
-    output_dir="./lora_model",  # 모델 저장 폴더
-    num_train_epochs=3,  # 학습 횟수
-    per_device_train_batch_size=4,  # 배치 크기
-    save_strategy="epoch",  # 매 Epoch마다 저장
+    output_dir="./lora_imdb",  # 저장할 디렉토리
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    num_train_epochs=3,
     logging_dir="./logs",
-    logging_steps=10,
+    logging_steps=50,
+    save_total_limit=1,
+    load_best_model_at_end=True,
+    fp16=True,  # GPU 가속
     report_to="none"
 )
 
-# Trainer 생성
 trainer = Trainer(
-    model=model,
+    model=lora_model,
     args=training_args,
-    train_dataset=tokenized_datasets
+    train_dataset=train_dataset,
+    eval_dataset=test_dataset,
+    tokenizer=tokenizer,
 )
 
-# 모델 학습 실행
+# ✅ 6. 모델 훈련 (LoRA 적용된 모델 학습)
 trainer.train()
-```
 
-## 가중치 저장 (.safetensors)
+# ✅ 7. 평가
+trainer.evaluate()
 
-```py
-from peft import PeftModel
+# ✅ 8. LoRA 모델 & 토크나이저 저장
+save_directory = "./lora_imdb_saved"
 
-# 원본 모델과 LoRA 가중치를 결합하여 저장
-model = PeftModel.from_pretrained(model, "./lora_model")
-model.save_pretrained("./lora_model_safetensors", safe_serialization=True)
-```
+trainer.save_model(save_directory)  # 모델 저장
+tokenizer.save_pretrained(save_directory)  # 토크나이저 저장
 
-## 사용
-
-```py
-from peft import PeftModel
-
-# 기존 모델에 LoRA 가중치 적용
-model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.float16)
-model = PeftModel.from_pretrained(model, "./lora_model_safetensors")
-
-# 테스트 수행
-input_text = "오늘 날씨가 어떤가요?"
-inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
-outputs = model.generate(**inputs)
-
-print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+print(f"LoRA 모델이 '{save_directory}'에 저장되었습니다.")
 ```
