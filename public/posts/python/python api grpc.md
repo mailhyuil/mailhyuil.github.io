@@ -3,16 +3,8 @@
 ## install
 
 ```sh
-python -m venv .venv
+poetry add grpcio grpcio-tools hupper
 
-# activate venv (mac)
-source .venv/bin/activate
-# activate venv (window) powershell에서 실행해야한다.
-.venv\Scripts\activate
-
-pip install grpcio grpcio-tools hupper
-
-# proto 파일을 python 파일로 변환
 python -m grpc_tools.protoc -Iproto --python_out=. --grpc_python_out=. proto/message.proto
 
 # 실행

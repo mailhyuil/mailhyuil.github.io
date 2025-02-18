@@ -5,10 +5,10 @@
 ## install
 
 ```sh
-pip install fastapi
-pip install uvicorn
-pip install grpcio-tools
-pip install hupper
+poetry add fastapi
+poetry add uvicorn
+poetry add grpcio-tools
+poetry add hupper
 ```
 
 ## example.proto
