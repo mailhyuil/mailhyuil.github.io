@@ -45,11 +45,33 @@ only-if-cached
 
 ## Cache-Control (client)
 
-> client request header에서 cache-control을 사용할 경우 브라우저나 중간 캐시(proxy)에서 저장된 캐시를 사용하지 않고, 항상 서버로 요청을 보내 유효성을 확인하도록 지시합니다.
+> client request header에서 cache-control을 사용하면 중간서버, 오리진서버의 캐시 사용 동작을 지시할 수 있다.
+>
+> > 서버가 cache-control에 대한 동작을 지원해야 한다.
 
 ```js
+// no-cache
+// 브라우저나 중간 캐시(proxy)에서 저장된 캐시를 사용하지 않고, 항상 서버로 요청을 보내 유효성을 확인하도록 지시합니다.
 const res = await fetch(url, {
   cache: "no-cache",
+});
+
+// s-maxage
+// 프록시 서버에만 적용되는 max-age
+const res = await fetch(url, {
+  cache: "s-maxage=60",
+});
+
+// stale-while-revalidate
+// 60초간 캐시를 사용하고, 30초간 서버에 요청을 보내어 캐시를 업데이트한다.
+const res = await fetch(url, {
+  cache: "s-maxage=60, stale-while-revalidate=30",
+});
+
+// stale-if-error
+// 서버에 접근 실패 시 60초간 캐시를 사용한다.
+const res = await fetch(url, {
+  cache: "s-maxage=60, stale-if-error=60",
 });
 ```
 
