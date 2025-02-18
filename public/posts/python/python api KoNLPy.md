@@ -20,19 +20,14 @@ Mecab: 메카브. 일본어용 형태소 분석기를 한국어를 사용할 수
 # java --version (1.7+)
 apt install g++ openjdk-7-jdk
 
-# Python 3.x
 apt install python3-dev
-pip3 install konlpy
-
-# Python 2.x
-apt install python-dev
-pip install konlpy
+poetry add konlpy
 
 # No JVM shared library file (libjvm.so) found. Try setting up the JAVA_HOME environment variable properly.
 # 위와 같은 오류 발생 시
 # sudo apt install default-jdk 입력 후 아래 코드 입력
 apt install python3-dev
-pip3 install konlpy
+poetry add konlpy
 ```
 
 ## Hannanum
