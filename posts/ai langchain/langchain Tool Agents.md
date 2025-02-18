@@ -2,7 +2,7 @@
 
 > llm은 스스로 action을 수행할 수 없다.
 >
-> > Agent는 reasoning engine으로, 어떤 action을 수행할지 결정하고, 그 action을 수행한다.
+> > 에이전트란 사용자의 상태에 따라서 스스로 추론(Reasoning)하고 결정하여 그에 맞는 액션(Acting, Tool Calling)을 취해서 결과를 관찰하고(Observation) 다시 추론
 > >
 > > > 현재는 langgraph를 사용하는게 좋다.
 

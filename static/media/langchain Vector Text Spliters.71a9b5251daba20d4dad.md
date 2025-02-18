@@ -4,7 +4,9 @@
 >
 > > 각 Splitter는 특정한 규칙을 통해 텍스트를 나누어준다.
 > >
-> > > Vector Store에는 긴 텍스트를 저장하는 것보다 짧은 텍스트를 저장하는게 좋다.
+> > > 작은 청크: 단어 단위로 저장 시 이점이 있는 서비스, 문맥이 필요없는 서비스 (추천, 검색 등)
+> > >
+> > > 큰 청크: 문장 단위로 저장 시 이점이 있는 서비스, 문맥이 필요한 서비스 (히스토리 등)
 
 ## options
 
@@ -21,7 +23,7 @@ keepSeparator: boolean
 > \n\n을 기준으로 텍스트를 나눠주는 클래스
 
 ```ts
-import { CharacterTextSplitter } from "langchain/textSplitters";
+import { CharacterTextSplitter } from "langchain/textsplitters";
 
 const splitter = new CharacterTextSplitter({
   chunkSize: 100,
