@@ -17,9 +17,9 @@ poetry install
 poetry add <package>
 
 # venv
-poetry env activate
-poetry env deactivate
-poetry env info
+poetry env activate # 밑에 명려어가 나옴 그걸 그대로 다시 실행시켜주기
+poetry env info # 밑에 Executable: <path>를 복사해서 vscode Python: Select Interpreter에 넣어 설정
+deactivate # venv 종료
 
 # run outside of env
 poetry run <command>
