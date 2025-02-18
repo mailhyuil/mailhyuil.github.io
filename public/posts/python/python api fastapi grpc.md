@@ -1,83 +1,73 @@
-# python fastapi grpc
+# python api fastapi grpc
+
+> fastapi 앱 내에 grpc 서버를 포함한 것
 
 ## install
 
 ```sh
-python -m venv .venv
-
-# activate venv (mac)
-source .venv/bin/activate
-# activate venv (window) powershell에서 실행해야한다.
-.venv\Scripts\activate
-
-# 설치
-pip install grpc-fastapi fastapi uvicorn
-python -m pip install grpc-fastapi fastapi uvicorn
-
-# 실행
-uvicorn main:app --reload
+pip install fastapi
+pip install uvicorn
+pip install grpcio-tools
+pip install hupper
 ```
 
-## /proto/my_service.proto
+## example.proto
 
 ```proto
 syntax = "proto3";
 
-package myservice;
+package example;
 
-// gRPC 서비스 정의
-service MyService {
-  rpc GetWords (MyRequest) returns (MyResponse);
+service ExampleService {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
 }
 
-// 요청 메시지
-message MyRequest {
-  string text = 1;
+message HelloRequest {
+  string name = 1;
 }
 
-// 응답 메시지 (배열 반환)
-message MyResponse {
-  repeated string words = 1;
+message HelloResponse {
+  string message = 1;
 }
 ```
 
-## 코드생성
+## generate proto
 
 ```sh
-python -m grpc_tools.protoc \
-    --proto_path=proto \
-    --python_out=generated \
-    --grpc_python_out=generated \
-    proto/my_service.proto
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. example.proto
 ```
 
-## app.py
+## main.py
 
 ```py
+from concurrent import futures
+import grpc
 from fastapi import FastAPI
-from grpc_fastapi.reflector import ServiceReflector
-import generated.my_service_pb2_grpc as pb2_grpc
-import subprocess
+import example_pb2
+import example_pb2_grpc
 
 app = FastAPI()
 
-# gRPC 서버 실행 (백그라운드)
-grpc_process = subprocess.Popen(["python", "service.py"])
+class ExampleService(example_pb2_grpc.ExampleServiceServicer):
+    def SayHello(self, request, context):
+        return example_pb2.HelloResponse(message=f"Hello, {request.name}!")
 
-# FastAPI + gRPC 통합
-reflector = ServiceReflector(app, services=[pb2_grpc])
+def serve():
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    example_pb2_grpc.add_ExampleServiceServicer_to_server(ExampleService(), server)
+    server.add_insecure_port('[::]:50051')
+    server.start()
+    server.wait_for_termination()
 
-@app.get("/")
-async def root():
-    return {"message": "Hello, FastAPI + gRPC!"}
+if __name__ == "__main__":
+    serve()
+```
 
-@app.get("/grpc/{text}")
-async def call_grpc(text: str):
-    import grpc
-    import generated.my_service_pb2 as pb2
+## run
 
-    channel = grpc.insecure_channel("localhost:50051")
-    stub = pb2_grpc.MyServiceStub(channel)
-    response = stub.GetWords(pb2.MyRequest(text=text))
-    return {"grpc_response": list(response.words)}
+```sh
+# fastapi 서버 실행
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+# grpc 서버 실행
+hupper -m main
 ```
