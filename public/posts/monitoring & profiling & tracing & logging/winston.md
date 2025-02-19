@@ -13,6 +13,19 @@ npm i winston
 npm i winston-daily-rotate-file
 ```
 
+## transports
+
+```sh
+# build-in transports
+winston.transports.Console; # 개발용
+winston.transports.File; # 운영용
+winston.transports.Http;
+winston.transports.Stream;
+
+# winston-daily-rotate-file
+winstonDaily
+```
+
 ## usage
 
 ```js
@@ -23,10 +36,28 @@ const logger = winston.createLogger({
   format: winston.format.json(),
   defaultMeta: { service: "user-service" },
   transports: [
-    // error 레벨의 로그를 저장할 파일 설정
-    new winston.transports.File({ filename: "error.log", level: "error" }),
     // info 레벨의 로그를 저장할 파일 설정
     new winston.transports.File({ filename: "combined.log" }),
+    // error 레벨의 로그를 저장할 파일 설정
+    new winston.transports.File({ filename: "error.log", level: "error" }),
+    // info 레벨의 로그를 저장할 파일 설정 (winston-daily-rotate-file 사용 시)
+    // new winstonDaily({
+    //   level: "info",
+    //   datePattern: "YYYY-MM-DD",
+    //   dirname: logDir,
+    //   filename: `%DATE%.log`,
+    //   maxFiles: 30, // 30일치 로그 파일 저장
+    //   zippedArchive: true,
+    // }),
+    // error 레벨 로그를 저장할 파일 설정 (winston-daily-rotate-file 사용 시)
+    // new winstonDaily({
+    //   level: "error",
+    //   datePattern: "YYYY-MM-DD",
+    //   dirname: logDir + "/error", // error.log 파일은 /logs/error 하위에 저장
+    //   filename: `%DATE%.error.log`,
+    //   maxFiles: 30,
+    //   zippedArchive: true,
+    // }),
   ],
 });
 
@@ -35,7 +66,7 @@ if (process.env.NODE_ENV !== "production") {
   logger.add(
     new winston.transports.Console({
       format: winston.format.simple(),
-    })
+    }),
   );
 }
 
