@@ -7,6 +7,8 @@
 ## async I/O
 
 > Task Queue에 있는 작업들은 백그라운드의 멀티 스레드를 사용하여 I/O 작업을 할 수 있다.
+>
+> > event loop
 
 ## parallel-threading
 
@@ -14,4 +16,4 @@
 >
 > > 따라서 CPU bound 작업을 Parallel Threading을 사용해서 각 멀티 코어에서 병렬로 처리할 수 있다.
 > >
-> > > nodejs worker_threads 사용
+> > > nodejs의 worker_threads
