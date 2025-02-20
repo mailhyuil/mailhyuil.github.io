@@ -1,6 +1,6 @@
 # angular control-flow prettier
 
-> prettier 3.1.1
+> "prettier": "3.3.3"
 
 ## .prettierrc
 

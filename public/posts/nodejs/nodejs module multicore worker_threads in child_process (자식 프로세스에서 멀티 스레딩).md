@@ -22,6 +22,8 @@ child.send({ num: 100 });
 
 ## child.js
 
+### single worker
+
 ```js
 const { Worker } = require("worker_threads");
 
@@ -42,6 +44,46 @@ process.on("message", message => {
     });
   }
 });
+```
+
+### multi workers
+
+```js
+const { Worker } = require("worker_threads");
+
+// 부모 프로세스로부터 메시지 받기
+process.on("message", async message => {
+  const { num } = message;
+  if (num) {
+    const worker1Promise = calculate("./worker.js", 0, num / 2);
+    const worker2Promise = calculate("./worker.js", num / 2, num);
+    const result = await Promise.all([worker1Promise, worker2Promise]);
+    const sum = result.reduce((acc, cur) => acc + cur.result, 0);
+    process.send(sum);
+  }
+});
+
+function calculate(workerPath, start, end) {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(workerPath, {
+      workerData: {
+        start,
+        end,
+      },
+    });
+    const handleError = error => {
+      console.error(error);
+      reject(error);
+    };
+    worker.addListener("error", handleError);
+    const handlerMessage = data => {
+      resolve(data); // 부모 프로세스로 결과 전송
+      worker.removeListener("message", handlerMessage);
+      worker.removeListener("error", handleError);
+    };
+    worker.addListener("message", handlerMessage);
+  });
+}
 ```
 
 ## worker.js
