@@ -5,6 +5,9 @@
 ```txt
 winston
 pino
+log4js
+log4j
+logback
 ...
 ```
 
@@ -35,12 +38,14 @@ opentelmetry-collector
 
 ## log storage
 
+> log를 저장하고 query를 통한 검색 등을 수행하는 역할
+
 ```txt
 elasticsearch
-influxdb
-cassandra
 loki
 prometheus
+influxdb
+cassandra
 ...
 ```
 

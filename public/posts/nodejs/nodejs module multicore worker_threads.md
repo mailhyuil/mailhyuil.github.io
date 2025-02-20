@@ -45,7 +45,7 @@ const main = async () => {
   }
 };
 
-const work = async (id) => {
+const work = async id => {
   return new Promise((resolve, reject) => {
     const start = Date.now();
     // worker 생성
@@ -53,12 +53,12 @@ const work = async (id) => {
       workerData: { id },
     });
     // worker에서 parentPort.postMessage로 보낸 메시지를 받음
-    worker.once("message", (message) => {
+    worker.once("message", message => {
       console.log(`threadId : [${worker.threadId}] duration : ${Date.now() - start}ms`);
       resolve(message);
     });
 
-    worker.once("error", (error) => {
+    worker.once("error", error => {
       reject(error);
     });
   });
@@ -89,12 +89,12 @@ if (isMainThread) {
   console.time("start");
   const worker = new Worker(__filename); // worker 생성
 
-  worker.on("message", (message) => {
+  worker.on("message", message => {
     console.log("from worker", message);
     console.timeEnd("start");
   });
-  worker.on("error", (message) => console.error(message));
-  worker.on("exit", (message) => console.log("worker exit", message));
+  worker.on("error", message => console.error(message));
+  worker.on("exit", message => console.log("worker exit", message));
 
   console.log("i'm main");
   let count = 0;
@@ -114,10 +114,4 @@ if (isMainThread) {
 
   parentPort.postMessage(count);
 }
-```
-
-## shared memory
-
-```ts
-
 ```
