@@ -43,6 +43,7 @@ process.on("message", message => {
       process.send(data); // 부모 프로세스로 결과 전송
     });
   }
+  process.exit(0);
 });
 ```
 
@@ -61,6 +62,7 @@ process.on("message", async message => {
     const sum = result.reduce((acc, cur) => acc + cur.result, 0);
     process.send(sum);
   }
+  process.exit(0);
 });
 
 function calculate(workerPath, start, end) {
@@ -81,6 +83,7 @@ function calculate(workerPath, start, end) {
       worker.removeListener("message", handlerMessage);
       worker.removeListener("error", handleError);
     };
+    // message 이벤트 사용 시 값을 복사하여 전달 (SharedArrayBuffer를 사용하여 성능을 향상시킬 수 있음)
     worker.addListener("message", handlerMessage);
   });
 }
