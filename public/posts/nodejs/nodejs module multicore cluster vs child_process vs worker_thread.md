@@ -2,9 +2,9 @@
 
 > worker_threads, child_process는 둘 다 멀티 코어를 활용할 수 있다.
 >
-> > 차이점은 worker_threads는 multi-threading으로 메모리가 공유가 가능하고
+> > 차이점은 worker_threads는 parallel multithreading으로 메모리가 공유가 가능하고
 > >
-> > child_process는 멀티 프로세싱으로 메모리 공유가 불가능하다.
+> > child_process는 multiprocessing으로 메모리 공유가 불가능하다.
 > >
 > > > worker(cpu-bound) -> worker_threads
 > > >
@@ -17,8 +17,6 @@
 > 멀티코어를 사용한 병렬 쓰레딩으로 작업을 수행
 >
 > > "ArrayBuffer", "SharedArrayBuffer" 를 사용하여 메모리를 공유할 수 있음
-> >
-> > 메모리를 공유할 수 있다는 게 핵심!
 
 ```txt
 # cpu-bound 작업에 worker_threads를 사용하는 이유
@@ -29,9 +27,7 @@
 
 ## child_process
 
-> 백그라운드 작업, 하나의 프로세스를 여러개의 "자식 프로세스"로 나눌 때 사용
->
-> background tasks or to split a single process into multiple
+> 하나의 프로세스를 여러개의 "자식 프로세스"로 나눌 때 사용
 >
 > > 메모리를 분리하여 완전히 독립적으로 수행하는 프로세스를 생성하는게 핵심 (exec를 사용하여 외부 프로그램을 실행할 수 있다.)
 > >
@@ -49,7 +45,7 @@
 > > >
 > > > > 포트를 공유하며 여러개의 프로세스를 사용하여 병렬 처리를 하기 위해서 사용 (pm2)
 
-```text
+```txt
 cluster.fork is implemented on top of child_process.fork.
 The extra stuff that cluster.fork brings is that, it will enable you to listen on a shared port.
 If you don't want it, just use child_process.fork.
