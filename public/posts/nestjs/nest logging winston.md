@@ -16,6 +16,8 @@ npm i nest-winston
 
 # 로깅한 정보들을 날짜 별로 로그 파일을 생성해주고 일정 시간이 지나면 삭제 및 압축을 해주는 기능
 npm i winston-daily-rotate-file
+
+npm i winston nest-winston winston-daily-rotate-file
 ```
 
 ## winston.config.ts
@@ -103,7 +105,7 @@ export { stream, winstonLogger };
 ## main.ts
 
 ```ts
-import { winstonLogger } from "./winston.config";
+import { winstonLogger, stream } from "./winston.config";
 
 const app = await NestFactory.create(AppModule, {
   logger: winstonLogger,
