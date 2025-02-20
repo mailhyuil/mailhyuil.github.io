@@ -1,12 +1,8 @@
 # docker log
 
-## STDOUT / STDERR
-
-> 표준 출력 / 표준 오류
+> docker는 STDOUT/STDERR(console)에 찍힌 로그를 파일로 저장한다.
 >
-> > logging driver로 내보냄
-> >
-> > > 다양한 logging driver가 있다 보통 json-file을 사용
+> > production에서는 --log-driver=none으로 설정하고 별도의 로그 시스템을 사용하는 것이 좋다.
 
 ## 로그 확인
 

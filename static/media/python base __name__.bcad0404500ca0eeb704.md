@@ -6,8 +6,11 @@
 > >
 > > 다른 파일에서 import한 경우 (\_\_name\_\_ == 해당 파일의 이름)
 
+## 다른 파일에서 import하는 경우 실행 방지
+
+> node.js의 `require.main === module` 또는 isMainThread와 비슷한 역할
+
 ```py
-# 다른 파일에서 import하는 경우 실행 방지
 if __name__ == '__main__':
     app.run()
 ```

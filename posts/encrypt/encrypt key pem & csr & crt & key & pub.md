@@ -1,4 +1,4 @@
-# key & crt & pem & csr & signed key
+# pem & key & pub & crt & csr
 
 ## pem (Privacy Enhanced Mail)
 
