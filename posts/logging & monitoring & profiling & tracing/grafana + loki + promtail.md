@@ -1,14 +1,4 @@
-# loki
-
-> log 수집 및 분석을 위한 오픈소스 플랫폼
->
-> > prometheus는 metric을 수집하고, loki는 log를 수집한다.
-> >
-> > > winston을 사용해서 /var/log에 로그를 저장하고 promtail을 사용해서 loki로 전송한다.
-> > >
-> > > > 수집한 데이터는 grafana를 통해서 볼 수 있다.
-> > > >
-> > > > > docker-compose.yaml 실행 -> grafana에 접속 후 loki datasource 추가
+# grafana + loki + promtail
 
 ## docker-compose.yml
 
@@ -34,8 +24,6 @@ services:
   grafana:
     environment:
       - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_FEATURE_TOGGLES_ENABLE=alertingSimplifiedRouting,alertingQueryAndExpressionsStepMode
     entrypoint:
       - sh

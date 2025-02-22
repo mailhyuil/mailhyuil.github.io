@@ -1,29 +1,6 @@
-# loki
-
-> log 수집 및 분석을 위한 오픈소스 플랫폼
->
-> > prometheus는 metric을 수집하고, loki는 log를 수집한다.
-> >
-> > > winston을 사용해서 /var/log에 로그를 저장하고 promtail을 사용해서 loki로 전송한다.
-> > >
-> > > > 수집한 데이터는 grafana를 통해서 볼 수 있다.
-> > > >
-> > > > > docker-compose.yaml 실행 -> grafana에 접속 후 loki datasource 추가
-
-## copy config
-
-```sh
-docker create --name dummy grafana/loki:latest &&
-docker cp dummy:/loki ./loki/data &&
-docker cp dummy:/etc/loki ./loki/config &&
-docker rm -f dummy
-
-# chmod 777 ./loki/data
-```
+# grafana + loki + promtail
 
 ## docker-compose.yml
-
-> default port: 3100
 
 ```yaml
 services:
@@ -32,9 +9,6 @@ services:
     ports:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
-    volumes:
-      - ./loki/data:/loki
-      - ./loki/config:/etc/loki
     networks:
       - loki
 
@@ -73,10 +47,6 @@ services:
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
-    volumes:
-      - ./grafana/config:/etc/grafana
-      - ./grafana/data:/var/lib/grafana
-      - ./grafana/logs:/var/log/grafana
     networks:
       - loki
 networks:

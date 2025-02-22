@@ -1,11 +1,18 @@
-# grafana
+# grafana grafana-image-renderer
 
-> default port: 3000
+> email, slack 등에 alert를 보낼 때, 그래프를 이미지로 변환해서 보낼 수 있게 해주는 plugin
 
-## docker-compose.yml
+## docker-compose.yaml
 
 ```yaml
 services:
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    expose:
+      - "3100"
+    networks:
+      - loki
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
@@ -16,11 +23,7 @@ services:
       GF_RENDERING_CALLBACK_URL: http://grafana:3000/
       GF_LOG_FILTERS: rendering:debug
     networks:
-      - grafana
-    volumes:
-      - ./grafana/config:/etc/grafana
-      - ./grafana/data:/var/lib/grafana
-      - ./grafana/logs:/var/log/grafana
+      - loki
   renderer:
     image: grafana/grafana-image-renderer:latest
     container_name: grafana-image-renderer
@@ -29,7 +32,8 @@ services:
     environment:
       ENABLE_METRICS: "true"
     networks:
-      - grafana
+      - loki
 networks:
-  grafana:
+  loki:
+    external: true
 ```
