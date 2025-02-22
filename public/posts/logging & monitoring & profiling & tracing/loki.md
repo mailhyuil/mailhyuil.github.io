@@ -10,7 +10,20 @@
 > > > >
 > > > > > docker-compose.yaml 실행 -> grafana에 접속 후 loki datasource 추가
 
+## copy config
+
+```sh
+docker create --name dummy grafana/loki:latest &&
+docker cp dummy:/loki ./loki/data &&
+docker cp dummy:/etc/loki ./loki/config &&
+docker rm -f dummy
+
+# chmod 777 ./loki/data
+```
+
 ## docker-compose.yml
+
+> default port: 3100
 
 ```yaml
 services:
@@ -19,6 +32,9 @@ services:
     ports:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ./loki/data:/loki
+      - ./loki/config:/etc/loki
     networks:
       - loki
 
@@ -34,8 +50,6 @@ services:
   grafana:
     environment:
       - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_FEATURE_TOGGLES_ENABLE=alertingSimplifiedRouting,alertingQueryAndExpressionsStepMode
     entrypoint:
       - sh
@@ -59,6 +73,10 @@ services:
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
+    volumes:
+      - ./grafana/config:/etc/grafana
+      - ./grafana/data:/var/lib/grafana
+      - ./grafana/logs:/var/log/grafana
     networks:
       - loki
 networks:
