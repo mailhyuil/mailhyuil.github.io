@@ -2,7 +2,7 @@
 
 > 미리 유효성 검사를 해주는 연산자
 >
-> > 기존에 if(typeof === 'object')로 검사를 해주었던 부분을 satisfies로 대체할 수 있음
+> > 기존에 if (typeof === 'type_name')로 검사를 해주었던 부분을 satisfies로 대체할 수 있음
 
 ```ts
 type MyState = StateName | StateCordinates;
