@@ -1,10 +1,18 @@
 # db base snapshot
 
-> 업데이트가 가능한 모든 엔티티는 스냅샷 테이블을 가져야 한다.
+> 악성유저등의 이유로 데이터를 저장해야하는 경우가 있을 수 있다. 이때 스냅샷 테이블을 사용하면 이전 데이터를 저장할 수 있다.
+>
+> > 유저가 update, delete할 수 있는 데이터에 대해서 스냅샷 테이블을 생성한다.
+> >
+> > > 유저가 update, delete 시 현재 데이터를 스냅샷 테이블에 저장한다.
+> > >
+> > > > soft delete를 대신할 수 있다.
 
 ```prisma
 model Post {
     id    String      @id @default(cuid())
+    title String
+    content String
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
     comments Comment[]
@@ -16,7 +24,7 @@ model PostSnapshot {
     id    String      @id @default(cuid())
     title String
     content String
-    createdAt DateTime @default(now()) @map("created_at")
+    createdAt DateTime @map("created_at")
     postId String
     post Post @relation(fields: [postId], references: [id])
     attachments AttachmentSnapshot[]
@@ -25,6 +33,7 @@ model PostSnapshot {
 
 model Comment {
     id    String      @id @default(cuid())
+    content String
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
     postId String
@@ -45,6 +54,9 @@ model CommentSnapshot {
 
 model Attachment {
     id    String      @id @default(cuid())
+    name  String
+    url   String
+    extension String?
     createdAt DateTime @default(now()) @map("created_at")
     snapshots AttachmentSnapshot[]
     @@map("attachments")
@@ -64,44 +76,6 @@ model AttachmentSnapshot {
 }
 ```
 
-## controller
-
-```ts
-import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
-import { CreatePostDto } from "./post.dto";
-import { PostService } from "./post.service";
-
-@Controller({ path: "posts", version: "1" })
-export class PostController {
-  constructor(private readonly postService: PostService) {}
-
-  @Get()
-  async findAll() {
-    return await this.postService.findAll();
-  }
-
-  @Get(":id")
-  async findById(@Param("id") id: string) {
-    return await this.postService.findById(id);
-  }
-
-  @Post()
-  async create(@Body() body: CreatePostDto) {
-    return await this.postService.create(body);
-  }
-
-  @Post(":id")
-  async put(@Param("id") id: string, @Body() body: CreatePostDto) {
-    return await this.postService.create(body, id);
-  }
-
-  @Delete(":id")
-  async remove(@Param("id") id: string) {
-    await this.postService.remove(id);
-  }
-}
-```
-
 ## service
 
 ```ts
@@ -112,121 +86,27 @@ import { CreatePostDto, PostDto, UpdatePostDto } from "./post.dto";
 
 @Injectable()
 export class PostService {
-  constructor(private readonly prismaService: PrismaService) {}
-  async findAll() {
-    const found = await this.prismaService.post.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
-      select: {
-        snapshots: {
-          take: 1,
-          orderBy: {
-            createdAt: "desc",
-          },
-          select: {
-            postId: true,
-            title: true,
-            content: true,
-            createdAt: true,
-            attachments: {
-              select: {
-                id: true,
-                url: true,
-              },
-            },
-          },
-        },
-      },
-    });
-
-    return plainToInstance(
-      PostDto,
-      found.map((post) => post.snapshots[0])
-    );
-  }
-  async findById(id: string) {
-    const [found] = await this.prismaService.post
-      .findUniqueOrThrow({
+  constructor(private readonly prisma: PrismaService) {}
+  // update 시
+  async update(id: string, data: UpdatePostDto) {
+    const updated = await this.prisma.$transaction(async tx => {
+      // snapshot table에 저장
+      const found = await tx.post.findUnique({
         where: { id },
-      })
-      .snapshots({
-        take: 1,
-        orderBy: {
-          createdAt: "desc",
-        },
-        select: {
-          postId: true,
-          title: true,
-          content: true,
-          createdAt: true,
-          attachments: {
-            select: {
-              id: true,
-              url: true,
-            },
-          },
+      });
+      if (!found) {
+        throw new Error("not found");
+      }
+      await tx.postSnapshot.create({
+        data: {
+          postId: found.id,
+          ...found,
         },
       });
-    return plainToInstance(PostDto, found);
-  }
-
-  async create(data: CreatePostDto, id?: string) {
-    const created = await this.prismaService.postSnapshot.create({
-      data: {
-        ...data,
-        post: {
-          create: id ? undefined : {},
-          connect: id ? { id } : undefined,
-        },
-      },
-    });
-    return plainToInstance(PostDto, created);
-  }
-
-  // patch update 시
-  async update(id: string, data: UpdatePostDto) {
-    const updated = await this.prismaService.$transaction(async (tx) => {
-      const [found] = await tx.post
-        .findUniqueOrThrow({
-          where: { id },
-        })
-        .snapshots({
-          take: 1,
-          orderBy: {
-            createdAt: "desc",
-          },
-          select: {
-            title: true,
-            content: true,
-            attachments: {
-              select: {
-                id: true,
-              },
-            },
-          },
-        });
-      const updated = await this.prismaService.postSnapshot.create({
-        data: {
-          title: found.title,
-          content: found.content,
-          ...data,
-          post: {
-            connect: { id },
-          },
-        },
-        select: {
-          postId: true,
-          title: true,
-          content: true,
-          createdAt: true,
-          attachments: {
-            select: {
-              id: true,
-              url: true,
-            },
-          },
-        },
+      // update
+      const updated = await tx.post.update({
+        where: { id },
+        data,
       });
       return updated;
     });
@@ -234,8 +114,24 @@ export class PostService {
   }
 
   async remove(id: string) {
-    await this.prismaService.post.delete({
-      where: { id },
+    await this.prisma.$transaction(async tx => {
+      // snapshot table에 저장
+      const found = await tx.post.findUnique({
+        where: { id },
+      });
+      if (!found) {
+        throw new Error("not found");
+      }
+      await tx.postSnapshot.create({
+        data: {
+          postId: found.id,
+          ...found,
+        },
+      });
+      // delete
+      await tx.post.delete({
+        where: { id },
+      });
     });
   }
 }
