@@ -1,33 +1,19 @@
-# html iframe
+# html iframe (inline frame)
 
-> inline frame의 약자
+> 다른 HTML 페이지를 현재 페이지에 포함시키는 중첩된 브라우저
 >
-> object와 같은 기능
->
-> > 다른 HTML 페이지를 현재 페이지에 포함시키는 중첩된 브라우저
+> > 나의 서버, 서비스에서 제공하는 기능 UI(결제, map, video..)를 클라이언트에 제공할 때 사용 (Widget 패턴)
 > >
-> > > 페이지에 다른 페이지를 불러와서 삽입 할 수 있다.
-> > >
-> > > > iframe은 권장되지 않으면 ajax로 컨테이너를 업데이트 하는 것이 좋다.
+> > mobile app내의 webview와 같은 역할을 한다.
+> >
+> > > 속도를 향상하기 위해 메인 콘텐츠가 완전히 로딩된 이후에 JavaScript로 iframe의 src 특성을 설정하는 편이 좋습니다.
 
 ## usage
 
 ```html
-<iframe src="주소" width="너비" height="높이" frameborder="테두리" scrolling="스크롤바" name="이름" sandbox="보안"></iframe>
-```
-
-## sandbox
-
-> iframe은 보안을 위해 iframe에서 form, script, plugin을 사용하지 못하도록 제한이 걸려있다.
->
-> > 특수한 경우에 이를 허용하기 위해서 sandbox 속성을 사용한다.
-
-```html
-<!-- 
-allow-forms 
-allow-scripts 
-allow-same-origin 
-...
- -->
-<iframe sandbox="allow-script" src="주소"></iframe>
+<iframe src="주소" width="너비" height="높이" sandbox allowfullscreen>
+  <p>
+    <a href="/ko/docs/Glossary">iframes을 지원하지 않는 브라우저용 링크</a>
+  </p>
+</iframe>
 ```
