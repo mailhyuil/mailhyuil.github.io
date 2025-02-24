@@ -33,5 +33,9 @@ http://localhost:3000/api/v1/uploads/파일위치
 > > helmet의 crossOriginResourcePolicy를 사용하여 해결
 
 ```ts
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  }),
+);
 ```
