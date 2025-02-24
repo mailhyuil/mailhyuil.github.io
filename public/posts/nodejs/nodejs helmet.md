@@ -10,7 +10,7 @@
 > >
 > > > Helmet의 CSP 기본설정은 ‘self’ (i.e. 자신의 웹사이트에 존재하는 리소스들만을 허용하기 때문이다.)
 
-```js
+```ts
 /** Security */
 app.use(
   helmet({
@@ -33,6 +33,18 @@ app.use(
         "base-uri": ["/", "http:"],
       },
     },
-  })
+  }),
+);
+```
+
+## CORP (cross-origin-resource-policy)
+
+> 웹사이트의 리소스(이미지, 폰트, JavaScript 등)가 다른 도메인에서 불러와지는 것을 허용할지 여부를 결정
+
+```ts
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  }),
 );
 ```
