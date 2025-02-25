@@ -152,9 +152,7 @@ async function bootstrap() {
       stream: winstonStream,
       skip: function (req, res) {
         if (NODE_ENV !== "none") {
-          return res.statusCode >= 400; // (info만 로그) (에러를 pipe에서 처리 시 로깅하지 않음 (두번 찍힘))
-          return res.statusCode < 400; // (error만 로그) (에러를 pipe에서 처리 안할 경우)
-          return true; // info 로그를 하지 않음
+          return res.statusCode < 400; // 400 에러 이상만 로깅
         } else {
           return false;
         }
@@ -215,9 +213,12 @@ import { HttpExceptionFilter } from "./filters/http-exception.filter";
       {
         ttl: 1000, // 1 seconds
         limit: 100, // 100 requests
-        skipIf: () => {
-          // load testing 시에는 rate limit을 건너뛰기 위해 true를 반환
-          return process.env.NODE_ENV !== "production";
+        skipIf(context) {
+          const req: Request = context.switchToHttp().getRequest();
+          const token = req.headers["x-test-token"];
+          if (token === "test") {
+            return true;
+          }
         },
       },
     ]),

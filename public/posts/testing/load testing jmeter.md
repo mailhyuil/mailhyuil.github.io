@@ -3,6 +3,8 @@
 > jmeter 에서 다운로드
 >
 > > /bin/jmeter.bat 실행
+> >
+> > > 423 Too Many Request 에러를 피하기 위해서 서버에서 Throttling을 꺼주거나 test용 token등의 방법을 사용해야함
 
 ## workflow
 

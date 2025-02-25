@@ -5,6 +5,10 @@
 > > 따라서 스트림 데이터를 transport로 흘려보내서 데이터를 전송할 수 있다.
 > >
 > > > built-in transport: Console, File, Http, Stream
+> > >
+> > > > log는 상위 레벨의 로그를 포함한다. (e.g. info 로그에는 error, warn 로그가 포함된다.)
+> > > >
+> > > > 보관 정책이 다른 경우 로그를 분리해서 저장할 수 있다.
 
 ## install
 
@@ -41,23 +45,23 @@ const logger = winston.createLogger({
     // error 레벨의 로그를 저장할 파일 설정
     new winston.transports.File({ filename: "error.log", level: "error" }),
     // info 레벨의 로그를 저장할 파일 설정 (winston-daily-rotate-file 사용 시)
-    // new winstonDaily({
-    //   level: "info",
-    //   datePattern: "YYYY-MM-DD",
-    //   dirname: logDir,
-    //   filename: `%DATE%.log`,
-    //   maxFiles: 30, // 30일치 로그 파일 저장
-    //   zippedArchive: true,
-    // }),
+    new winstonDaily({
+      level: "info",
+      datePattern: "YYYY-MM-DD",
+      dirname: logDir,
+      filename: `%DATE%.log`,
+      maxFiles: 30, // 30일치 로그 파일 저장
+      zippedArchive: true,
+    }),
     // error 레벨 로그를 저장할 파일 설정 (winston-daily-rotate-file 사용 시)
-    // new winstonDaily({
-    //   level: "error",
-    //   datePattern: "YYYY-MM-DD",
-    //   dirname: logDir + "/error", // error.log 파일은 /logs/error 하위에 저장
-    //   filename: `%DATE%.error.log`,
-    //   maxFiles: 30,
-    //   zippedArchive: true,
-    // }),
+    new winstonDaily({
+      level: "error",
+      datePattern: "YYYY-MM-DD",
+      dirname: logDir + "/error", // error.log 파일은 /logs/error 하위에 저장
+      filename: `%DATE%.error.log`,
+      maxFiles: 30,
+      zippedArchive: true,
+    }),
   ],
 });
 
