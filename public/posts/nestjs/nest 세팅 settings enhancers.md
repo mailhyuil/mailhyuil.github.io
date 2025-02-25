@@ -28,36 +28,37 @@ export class BusinessExceptionFilter implements ExceptionFilter {
 
     const { code, message, cause } = error.getResponse() as ERROR;
 
-    const clientError = { code, message };
-
-    const clientErrorResponse = {
+    const clientResponse = {
       statusCode: errorStatusCode,
       path: req.url,
       timestamp: new Date().toISOString(),
       message: errorMessage,
       error: {
         ...ERROR.BUSINESS_ERROR,
-        ...clientError,
-      },
+        code,
+        message,
+      } satisfies ERROR,
     };
 
     if (cause instanceof Prisma.PrismaClientKnownRequestError) {
       if (cause.code === PrismaError.UniqueConstraintViolation) {
-        clientErrorResponse.message = `중복된 데이터가 존재합니다. [${cause.meta.target}]`;
+        clientResponse.message = `중복된 데이터가 존재합니다. [${cause.meta.target}]`;
       }
     }
 
-    res.status(errorStatusCode).json(clientErrorResponse);
+    res.status(errorStatusCode).json(clientResponse);
 
     this.logger.error(`
-MESSAGE: ${clientErrorResponse.message}
-TIMESTAMP: ${clientErrorResponse.timestamp}
-METHOD: ${req.method}
-PATH: ${clientErrorResponse.path}
-ERROR: ${JSON.stringify(clientErrorResponse.error)}
-ERROR STACK: ${errorStack}
-CAUSE: ${JSON.stringify(cause)}
-CAUSE STACK: ${cause}
+CLIENT_IP=${req.ip}
+USER_AGENT=${req.headers["user-agent"]}
+METHOD=${req.method}
+PATH=${req.path}
+STATUS_CODE=${errorStatusCode}
+MESSAGE=${clientResponse.message}
+TIMESTAMP=${clientResponse.timestamp}
+ERROR=${JSON.stringify(clientResponse.error)}
+ERROR_STACK=${errorStack}
+CAUSE=${JSON.stringify(cause)}
 `);
   }
 }
@@ -86,13 +87,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const statusCode = error.getStatus();
 
     const response = error.getResponse() as string;
-    const message = error.message;
+    const errorMessage = error.message;
+    const errorStack = error.stack;
     const cause = error.cause;
-    const stack = error.stack;
 
-    const clientErrorResponse = {
+    const clientResponse = {
       statusCode,
-      message,
+      message: errorMessage,
       path: req.url,
       timestamp: new Date().toISOString(),
       error: {
@@ -101,7 +102,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       } as ERROR,
     };
 
-    res.status(statusCode).json(clientErrorResponse);
+    res.status(statusCode).json(clientResponse);
 
     if (
       res.statusCode === 401 || // Unauthorized
@@ -111,24 +112,30 @@ export class HttpExceptionFilter implements ExceptionFilter {
     ) {
       //? 보안 관련 로그 = warn
       this.logger.warn(`
-MESSAGE: ${clientErrorResponse.message}
-TIMESTAMP: ${clientErrorResponse.timestamp}
-METHOD: ${req.method}
-PATH: ${clientErrorResponse.path}
-ERROR: ${JSON.stringify(clientErrorResponse.error)}
-STACK: ${stack}
-CAUSE: ${cause}
+CLIENT_IP=${req.ip}
+USER_AGENT=${req.headers["user-agent"]}
+METHOD=${req.method}
+PATH=${req.path}
+STATUS_CODE=${clientResponse.statusCode}
+MESSAGE=${clientResponse.message}
+TIMESTAMP=${clientResponse.timestamp}
+ERROR=${JSON.stringify(clientResponse.error)}
+ERROR_STACK=${errorStack}
+CAUSE=${cause}
 `);
     } else if (res.statusCode >= 400 && res.statusCode !== 404) {
       //? 나머지 에러 = error
       this.logger.error(`
-MESSAGE: ${clientErrorResponse.message}
-TIMESTAMP: ${clientErrorResponse.timestamp}
-METHOD: ${req.method}
-PATH: ${clientErrorResponse.path}
-ERROR: ${JSON.stringify(clientErrorResponse.error)}
-STACK: ${stack}
-CAUSE: ${cause}
+CLIENT_IP=${req.ip}
+USER_AGENT=${req.headers["user-agent"]}
+METHOD=${req.method}
+PATH=${req.path}
+STATUS_CODE=${clientResponse.statusCode}
+MESSAGE=${clientResponse.message}
+TIMESTAMP=${clientResponse.timestamp}
+ERROR=${JSON.stringify(clientResponse.error)}
+ERROR_STACK=${errorStack}
+CAUSE=${cause}
 `);
     }
   }
@@ -158,28 +165,31 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     const req = ctx.getRequest<Request>();
     const statusCode = error.getStatus();
     const response = error.getResponse() as ERROR;
-    const message = error.message;
+    const errorMessage = error.message;
+    const errorStack = error.stack;
     const cause = error.cause;
-    const stack = error.stack;
 
-    const clientErrorResponse = {
+    const clientResponse = {
       statusCode,
-      message,
+      message: errorMessage,
       path: req.url,
       timestamp: new Date().toISOString(),
       error: response,
     };
 
-    res.status(statusCode).json(clientErrorResponse);
+    res.status(statusCode).json(clientResponse);
 
     this.logger.log(`
-MESSAGE: ${clientErrorResponse.message}
-TIMESTAMP: ${clientErrorResponse.timestamp}
-METHOD: ${req.method}
-PATH: ${clientErrorResponse.path}
-ERROR: ${JSON.stringify(clientErrorResponse.error)}
-STACK: ${stack}
-CAUSE: ${cause}
+CLIENT_IP=${req.ip}
+USER_AGENT=${req.headers["user-agent"]}
+METHOD=${req.method}
+PATH=${req.path}
+STATUS_CODE=${clientResponse.statusCode}
+MESSAGE=${clientResponse.message}
+TIMESTAMP=${clientResponse.timestamp}
+ERROR=${JSON.stringify(clientResponse.error)}
+ERROR_STACK=${errorStack}
+CAUSE=${cause}
 `);
   }
 }
@@ -254,7 +264,6 @@ if (process.env.NODE_ENV !== "none") {
       }),
     ],
   });
-
   winstonStream = {
     write: (message: string) => {
       winstonLogger.log(message);
@@ -274,13 +283,11 @@ if (process.env.NODE_ENV !== "none") {
       }),
     ],
   });
-
   winstonStream = {
     write: (message: string) => {
       winstonLogger.log(message);
     },
   };
 }
-
 export { winstonLogger, winstonStream };
 ```
