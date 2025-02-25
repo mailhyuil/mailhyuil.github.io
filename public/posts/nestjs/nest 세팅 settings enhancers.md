@@ -9,6 +9,12 @@ import { Request, Response } from "express";
 import { PrismaError } from "prisma-error-enum";
 import { BusinessException, ERROR } from "../errors";
 
+/**
+ * @export
+ * @class BusinessExceptionFilter
+ * @implements {ExceptionFilter}
+ * @description BusinessException을 처리하는 ExceptionFilter
+ */
 @Catch(BusinessException)
 export class BusinessExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(BusinessExceptionFilter.name);
@@ -64,6 +70,12 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from "@n
 import { Request, Response } from "express";
 import { ERROR } from "../errors";
 
+/**
+ * @export
+ * @class HttpExceptionFilter
+ * @implements {ExceptionFilter}
+ * @description BusinessExceptionFilter, ValidationExceptionFilter에서 잡지 않은 예외를 처리하는 ExceptionFilter
+ */
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(HttpExceptionFilter.name);
@@ -91,7 +103,14 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
     res.status(statusCode).json(clientErrorResponse);
 
-    this.logger.error(`
+    if (
+      res.statusCode === 401 || // Unauthorized
+      res.statusCode === 403 || // Forbidden
+      res.statusCode === 498 || // Invalid Token
+      res.statusCode === 429 // Too Many Requests
+    ) {
+      //? 보안 관련 로그 = warn
+      this.logger.warn(`
 MESSAGE: ${clientErrorResponse.message}
 TIMESTAMP: ${clientErrorResponse.timestamp}
 METHOD: ${req.method}
@@ -100,6 +119,18 @@ ERROR: ${JSON.stringify(clientErrorResponse.error)}
 STACK: ${stack}
 CAUSE: ${cause}
 `);
+    } else if (res.statusCode >= 400 && res.statusCode !== 404) {
+      //? 나머지 에러 = error
+      this.logger.error(`
+MESSAGE: ${clientErrorResponse.message}
+TIMESTAMP: ${clientErrorResponse.timestamp}
+METHOD: ${req.method}
+PATH: ${clientErrorResponse.path}
+ERROR: ${JSON.stringify(clientErrorResponse.error)}
+STACK: ${stack}
+CAUSE: ${cause}
+`);
+    }
   }
 }
 ```
@@ -112,6 +143,12 @@ import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
 import { Request, Response } from "express";
 import { ERROR } from "../errors";
 
+/**
+ * @export
+ * @class ValidationExceptionFilter
+ * @implements {ExceptionFilter}
+ * @description 409 validation exception을 처리하는 ExceptionFilter
+ */
 @Catch(ValidationException)
 export class ValidationExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(ValidationExceptionFilter.name);
@@ -135,7 +172,7 @@ export class ValidationExceptionFilter implements ExceptionFilter {
 
     res.status(statusCode).json(clientErrorResponse);
 
-    this.logger.error(`
+    this.logger.log(`
 MESSAGE: ${clientErrorResponse.message}
 TIMESTAMP: ${clientErrorResponse.timestamp}
 METHOD: ${req.method}
@@ -187,107 +224,62 @@ export class ValidationException extends HttpException {
 }
 ```
 
-## winston.logger.dev.ts
+## winston.logger.ts
 
 ```ts
+import { LoggerService } from "@nestjs/common";
+import type { StreamOptions } from "morgan";
 import { utilities, WinstonModule } from "nest-winston";
-import winston from "winston";
-const { combine } = winston.format;
-
-const developmentTransports = () => [
-  new winston.transports.Console({
-    level: "silly", // 모든 단계를 로그
-    format: combine(
-      utilities.format.nestLike("APP", {
-        prettyPrint: true, // nest에서 제공하는 옵션. 로그 가독성을 높여줌
-        colors: true, // 로그에 색깔을 넣어서 출력
-      }),
-    ),
-  }),
-];
-
-const winstonDevLogger = WinstonModule.createLogger({
-  transports: developmentTransports(),
-});
-
-const winstonDevStream = {
-  write: (message: string) => {
-    winstonDevLogger.log(message);
-  },
-};
-
-export { winstonDevLogger, winstonDevStream };
-```
-
-## winston.logger.prod.ts
-
-```ts
-import { WinstonModule } from "nest-winston";
 import process from "process";
 import winston from "winston";
 import winstonDaily from "winston-daily-rotate-file";
 const { combine, timestamp, json } = winston.format;
 
-const infoDir = process.env.INFO_LOG_DIR;
-const errorDir = process.env.ERROR_LOG_DIR;
-const warnDir = process.env.WARN_LOG_DIR;
-
-const winstonProdLogger = WinstonModule.createLogger({
-  format: combine(timestamp(), json()),
-  transports: [
-    new winstonDaily({
-      level: "info",
-      datePattern: "YYYY-MM-DD",
-      dirname: infoDir,
-      filename: `%DATE%.info.log`,
-      maxFiles: 30,
-      zippedArchive: true,
-    }),
-    new winstonDaily({
-      level: "error",
-      datePattern: "YYYY-MM-DD",
-      dirname: errorDir,
-      filename: `%DATE%.error.log`,
-      maxFiles: 30,
-      zippedArchive: true,
-    }),
-    new winstonDaily({
-      level: "warn",
-      datePattern: "YYYY-MM-DD",
-      dirname: warnDir,
-      filename: `%DATE%.warn.log`,
-      maxFiles: 30,
-      zippedArchive: true,
-    }),
-  ],
-});
-
-const winstonProdStream = {
-  write: (message: string) => {
-    winstonProdLogger.log(message);
-  },
-};
-
-export { winstonProdLogger, winstonProdStream };
-```
-
-## winston.logger.ts
-
-```ts
-import { LoggerService } from "@nestjs/common";
-import morgan from "morgan";
-import { winstonDevLogger, winstonDevStream } from "./winston.logger.dev";
-import { winstonProdLogger, winstonProdStream } from "./winston.logger.prod";
-
 let winstonLogger: LoggerService;
-let winstonStream: morgan.StreamOptions;
+let winstonStream: StreamOptions;
 
 if (process.env.NODE_ENV !== "none") {
-  winstonLogger = winstonProdLogger;
-  winstonStream = winstonProdStream;
+  const dir = process.env.LOG_DIR;
+
+  winstonLogger = WinstonModule.createLogger({
+    format: combine(timestamp(), json()),
+    transports: [
+      new winstonDaily({
+        level: "info",
+        datePattern: "YYYY-MM-DD",
+        dirname: dir,
+        filename: `%DATE%.seo-dev.log`,
+        maxFiles: 30,
+        zippedArchive: true,
+      }),
+    ],
+  });
+
+  winstonStream = {
+    write: (message: string) => {
+      winstonLogger.log(message);
+    },
+  };
 } else {
-  winstonLogger = winstonDevLogger;
-  winstonStream = winstonDevStream;
+  winstonLogger = WinstonModule.createLogger({
+    transports: [
+      new winston.transports.Console({
+        level: "silly", // 모든 단계를 로그
+        format: combine(
+          utilities.format.nestLike("APP", {
+            prettyPrint: true, // nest에서 제공하는 옵션. 로그 가독성을 높여줌
+            colors: true, // 로그에 색깔을 넣어서 출력
+          }),
+        ),
+      }),
+    ],
+  });
+
+  winstonStream = {
+    write: (message: string) => {
+      winstonLogger.log(message);
+    },
+  };
 }
 
 export { winstonLogger, winstonStream };
