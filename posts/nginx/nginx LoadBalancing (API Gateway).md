@@ -5,22 +5,22 @@
 > > proxy_pass을 upstream으로 설정
 
 ```conf
-upstream my_server {
+upstream backend {
     # 부하 분산 규칙 지정
     random; # random
 
-    server ip_address:4200 weight=1; # 파라미터를 줄 수 있다
-    server ip_address:4201;
+    server localhost:8080 weight=1; # 파라미터를 줄 수 있다
+    server localhost:8081;
 }
 server {
-    listen       80;
-    listen  [::]:80;
     server_name  localhost;
-        location / {
-            root   /usr/share/nginx/html;
-            index  index.html index.htm;
-            proxy_pass http://my_server;
-        }
+
+    listen       80; # e.g. listen 8080;
+    listen  [::]:80;
+
+    location / {
+        proxy_pass http://backend;
+    }
 }
 ```
 

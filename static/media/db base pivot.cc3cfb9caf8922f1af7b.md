@@ -4,7 +4,7 @@
 
 ```SQL
 SELECT sc_stnum,
-   SUM(IF(sc_sbcode = 'SB001', sc_score, 0)) as 국어,
+    SUM(IF(sc_sbcode = 'SB001', sc_score, 0)) as 국어,
     SUM(IF(sc_sbcode = 'SB002', sc_score, 0)) as 데이터베이스,
     SUM(IF(sc_sbcode = 'SB003', sc_score, 0)) as 미술,
     SUM(IF(sc_sbcode = 'SB004', sc_score, 0)) as 소프트웨어공학,

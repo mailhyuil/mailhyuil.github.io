@@ -3,9 +3,11 @@
 ## install
 
 ```sh
-npm i postgres
 npm i drizzle-orm
 npm i -D drizzle-kit
+
+npm i pg
+npm i -D @types/pg
 ```
 
 ## schema.ts
