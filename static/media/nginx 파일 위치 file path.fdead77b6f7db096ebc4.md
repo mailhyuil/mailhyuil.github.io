@@ -1,5 +1,7 @@
 # nginx config 위치
 
+## nginx config
+
 ```sh
 # (main config)
 /etc/nginx/nginx.conf
@@ -7,13 +9,13 @@
 /etc/nginx/conf.d/default.conf
 ```
 
-## nginx html 위치
+## nginx html
 
 ```sh
 /usr/share/nginx/html
 ```
 
-## nginx log 위치
+## nginx log
 
 ```sh
 /var/log/nginx/access.log

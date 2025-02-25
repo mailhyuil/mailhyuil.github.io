@@ -2,6 +2,12 @@
 
 ![apache & nginx](img/apache&nginx.png)
 
+## install
+
+```sh
+docker run --name nginx -d -p 80:80 -v $(pwd)/nginx:/etc/nginx nginx
+```
+
 ## default.conf
 
 ```conf

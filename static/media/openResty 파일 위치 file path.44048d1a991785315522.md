@@ -1,4 +1,4 @@
-# nginx config 위치
+# OpenResty 파일 경로 file path
 
 ## nginx config
 
@@ -9,15 +9,14 @@
 /etc/nginx/conf.d/default.conf
 ```
 
-## nginx html
+## openresty config
 
 ```sh
-/usr/share/nginx/html
+/usr/local/openresty
 ```
 
-## nginx log
+## openresty var
 
 ```sh
-/var/log/nginx/access.log
-/var/log/nginx/error.log
+/var/run/openresty
 ```
