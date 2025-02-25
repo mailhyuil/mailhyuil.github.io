@@ -7,7 +7,15 @@
 ## docker
 
 ```sh
-docker run --name openresty -d -p 9000:8080 bitnami/openresty:latest
+# config
+docker create --name dummy openresty/openresty:alpine &&
+docker cp dummy:/etc/nginx $(pwd)/nginx &&
+docker cp dummy:/usr/local/openresty $(pwd)/openresty &&
+docker cp dummy:/var/run/openresty $(pwd)/var &&
+docker rm -f dummy
+
+# run
+docker run --name openresty -d -v $(pwd)/nginx:/etc/nginx -v $(pwd)/openresty:/usr/local/openresty -v $(pwd)/var:/var/run/openresty -p 80:80 openresty/openresty:alpine
 ```
 
 ## config
@@ -24,42 +32,4 @@ server {
         }
     }
 }
-```
-
-## lua script
-
-> luaJIT을 사용하여 처리
->
-> > /usr/local/openresty/nginx/scripts/hi.lua
-> >
-> > > scripts 디렉토리를 생성해서 lua 파일 생성
-> > >
-> > > > nginx의 변수를 lua에서 사용 가능
-> > > >
-> > > > > content_by_lua_block, content_by_lua, content_by_lua_file, access_by_lua_block, access_by_lua
-
-```lua
--- JSON을 다루는 라이브러리를 로드합니다.
-local cjson = require("cjson")
-
--- Defines an initial status for the request.
-ngx.status = ngx.HTTP_OK
-
--- Serves the JSON content, using the cjson module to encode the Lua
--- object as a JSON one.
-ngx.say(cjson.encode(
-    {
-        name = "world",
-        message = "Hello, ",
-        punctuation = "!"
-    }
-))
-
--- Exits with the success status.
-return ngx.exit(ngx.HTTP_OK)
-
--- nginx의 변수를 lua에서 사용 가능
-local page = ngx.var.arg_page
-local authorization = ngx.var.http_authorization
-local host = ngx.var.host
 ```
