@@ -47,37 +47,6 @@ import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 export class AppModule {}
 ```
 
-## nginx
-
-```conf
-location /api/v1/ {
-    proxy_set_header  X-Forwarded-For $remote_addr;
-    proxy_pass http://server:3000;
-}
-```
-
-## main.ts
-
-```ts
-app.set("trust proxy", true);
-```
-
-## proxy guard
-
-> proxy 서버를 사용할 경우 proxy ip가 아닌 origin ip를 추출하여 사용
->
-> > 반드시 request header에 `X-Forwarded-For`를 사용하여 origin ip를 추출해야 함
-
-```ts
-@Injectable()
-export class ThrottlerBehindProxyGuard extends ThrottlerGuard {
-  protected getTracker(req: Record<string, any>): Promise<string> {
-    const originIp = req.ips.length ? req.ips[0] : req.ip;
-    return originIp; // individualize IP extraction to meet your own needs
-  }
-}
-```
-
 ## @Throttle & @SkipThrottle
 
 ```ts
