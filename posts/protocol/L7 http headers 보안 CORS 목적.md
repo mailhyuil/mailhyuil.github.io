@@ -17,3 +17,4 @@ Without CORS, any site could send a request to your banking site requesting to t
 1. Origin 뿐만 아니라 Host 헤더도 검증한다.
 2. Referer 헤더 검증
 3. WAF(Web Application Firewall)를 사용하여 CORS 우회를 막는다.
+4. Bot Management
