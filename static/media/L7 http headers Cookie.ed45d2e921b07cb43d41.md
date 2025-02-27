@@ -43,8 +43,8 @@ Set-Cookie: max-age=3600; Domain=example.com; Path=/; Secure; HttpOnly; SameSite
 
 ```sh
 Strict : 크로스 도메인 요청에 쿠키를 전송하지 않음
-None : 크로스 도메인 요청에도 쿠키를 전송 / 사용하려면 반드시 해당 쿠키는 secure 쿠키여야한다.
 Lax : 대체적으로 서드 파티 쿠키는 전송되지 않지만 예외적인 요청에는 전송
+None : 크로스 도메인 요청에도 쿠키를 전송 / 사용하려면 반드시 해당 쿠키는 secure 쿠키여야한다.
 ```
 
 ## Domain

@@ -1,5 +1,9 @@
 # puppeteer
 
+> puppeteer보다 playwright가 더 지원하는 기능이 많다
+>
+> > puppeteer는 더 이상 업데이트 되지 않는다
+
 ## install
 
 ```sh
@@ -35,7 +39,7 @@ const getQuotes = async () => {
   // Get page data
   const quotes = await page.evaluate(() => {
     const quoteList = document.querySelectorAll(".quote");
-    return Array.from(quoteList).map((quote) => {
+    return Array.from(quoteList).map(quote => {
       const text = quote.querySelector(".text").innerText;
       const author = quote.querySelector(".author").innerText;
       return { text, author };

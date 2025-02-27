@@ -3,7 +3,7 @@
 > page.evaluate 내에서는 안됨
 
 ```js
-page.goto("", {
+await page.goto("https://example.com", {
   waitUntil: "domcontentloaded",
 });
 ```
