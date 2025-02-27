@@ -1,6 +1,6 @@
 # http Access-Control-Allow-Credentials (withCredentials)
 
-> Access-Control-Allow-Credentials: true를 설정하면 다른 Origin에서도 브라우저가 자동으로 쿠키를 포함한 요청을 전송함.
+> Access-Control-Allow-Credentials: true를 설정하면 다른 Origin에서도 브라우저 보안상 막아놓은 기능을 허용할 수 있다.
 >
 > > 서버에서 withCredentials: true로 설정할 경우 서버에서 받아드릴 origin의 값을 정확히 명시해야한다. (\* 불가능)
 > >
@@ -9,6 +9,15 @@
 > > > > Access-Control-Allow-Credentials: true를 설정 시 보안 위험이 높아진다. (XSS, CSRF 등)
 > > > >
 > > > > 브라우저가 자동으로 쿠키를 포함한 요청을 전송하기 때문에, 쿠키를 탈취하는 공격이 가능해진다.
+
+## 다른 Origin의 요청에서 브라우저가 막아놓은 기능들
+
+```txt
+1. 쿠키를 자동으로 전송 불가
+2. 브라우저 저장소 접근 불가 (localStorage, sessionStorage, cookie, indexedDB)
+3. 자동으로 Authorization 헤더 추가 불가
+4. TLS 클라이언트 인증서 전송 불가
+```
 
 ## Access-Control-Allow-Credentials 사용
 
