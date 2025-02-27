@@ -28,4 +28,10 @@ DNS-01 방식으로 인증을 받음.
 
 --manual
 수동으로 인증을 진행
+
+--force-renewal
+만료되지 않은 인증서도 강제로 갱신.
+
+--rsa-key-size
+RSA 키 크기를 지정. (default: 2048)
 ```
