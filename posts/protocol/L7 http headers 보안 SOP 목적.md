@@ -17,11 +17,11 @@ This is because browsers don't send cookies from one domain to another domain.
 
 ## SOP가 의미가 없어지는 경우
 
-1. cookie SameSite=None; Secure;
-   > 다른 도메인에서도 쿠키를 전송할 수 있게 된다.
-2. Access-Control-Allow-Origin: \* + Access-Control-Allow-Credentials: true 설정
+1. Access-Control-Allow-Credentials: true
+   > 다른 Origin에서도 브라우저가 자동으로 쿠키를 전송할 수 있게 된다.
+2. Access-Control-Allow-Origin: \*
    > 모든 Origin으로부터 요청을 허용 (SOP 무효화)
    >
-   > > Credentials에도 접근할 수 있게 된다.
-   > >
-   > > > 따라서 이 조합은 보안상 금지되어 있다.
+   > > 따라서 Access-Control-Allow-Credentials: true + Access-Control-Allow-Origin: \* 조합은 보안상 금지되어 있다.
+3. cookie SameSite=None; Secure;
+   > 다른 도메인에서도 쿠키를 전송할 수 있게 된다.
