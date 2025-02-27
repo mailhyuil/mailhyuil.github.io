@@ -1,4 +1,4 @@
-# nginx CORS bypass proxy
+# nginx SOP bypass proxy
 
 ```conf
 server {
@@ -11,10 +11,10 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
 
-        # 서버 용 CORS 우회 설정
+        # 서버 용 SOP 우회 설정
         proxy_set_header Origin localhost:3000;
 
-        # 브라우저 용 CORS 우회 설정
+        # 브라우저 용 SOP 우회 설정
         add_header Access-Control-Allow-Origin *;
         add_header Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE";
         add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With";
