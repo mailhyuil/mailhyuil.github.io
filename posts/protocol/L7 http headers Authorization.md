@@ -11,6 +11,8 @@
 > > > 사용자 ID와 비밀번호는 위와 같이 콜론으로 구분합니다.
 > > >
 > > > > Base64로 인코딩한 정보는 쉽게 디코딩이 가능해서 Basic 인증은 반드시 HTTPS/TLS와 함께 사용해야 합니다.
+> > > >
+> > > > > Basic 인증 후 응답으로 WWW-Authenticate 헤더를 보내면 브라우저는 메모리에 credentials를 저장하고 자동으로 Authorization 헤더를 추가합니다.
 
 ```sh
 Authorization: Basic <BASE64_USERNAME>:<BASE64_PASSWORD>
