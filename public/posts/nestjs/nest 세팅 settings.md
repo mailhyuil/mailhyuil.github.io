@@ -167,7 +167,8 @@ async function bootstrap() {
   /** Security */
   app.use(helmet());
   /** CORS */
-  /** 다른 Origin으로 부터의 요청이 있는 경우에 사용 */
+  /** 다른 브라우저 클라이언트 Origin으로 부터의 요청이 있는 경우에 사용 */
+  /** 서버 to 서버는 필요없음 */
   app.enableCors();
   /** Trust Proxy */
   app.set("trust proxy", true);
