@@ -1,13 +1,9 @@
 # puppeteer evaluateHandle
 
-> element를 리턴시킬 때 사용
+> elementHandle을 반환하는 evaluate
 
 ```ts
-const body = page.evaluateHandle(() => {
+const bodyHandle = page.evaluateHandle(() => {
   return document.querySelector(body);
 });
-
-const bodyText = await page.evaluate((body) => {
-  return body.innerText;
-}, body);
 ```

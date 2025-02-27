@@ -1,25 +1,21 @@
-# puppeteer
-
-> puppeteer보다 playwright가 더 지원하는 기능이 많다
->
-> > puppeteer는 더 이상 업데이트 되지 않는다
+# playwright
 
 ## install
 
 ```sh
-npm i puppeteer
+npm i playwright
 ```
 
 ## usage
 
-```js
-import puppeteer from "puppeteer";
+```ts
+import { chromium } from "playwright";
 
 const getQuotes = async () => {
-  // Start a Puppeteer session with:
+  // Start a Playwright session with:
   // - headless : 브라우저 여부
   // - defaultViewport : 웹페이지 width / height 크기 null === full screen
-  const browser = await puppeteer.launch({
+  const browser = await chromium.launch({
     headless: false,
     defaultViewport: null,
   });
@@ -37,13 +33,10 @@ const getQuotes = async () => {
   await page.click(".pager > .next > a");
 
   // Get page data
-  const quotes = await page.evaluate(() => {
-    const quoteList = document.querySelectorAll(".quote");
-    return Array.from(quoteList).map(quote => {
-      const text = quote.querySelector(".text").innerText;
-      const author = quote.querySelector(".author").innerText;
-      return { text, author };
-    });
+  const quotes = page.locator(".quote").map(quote => {
+    const text = quote.locator(".text").innerText();
+    const author = quote.locator(".author").innerText();
+    return { text, author };
   });
 
   // Display the quotes
@@ -52,7 +45,4 @@ const getQuotes = async () => {
   // Close the browser
   await browser.close();
 };
-
-// Start the scraping
-getQuotes();
 ```

@@ -19,6 +19,18 @@
     "secure": false // https를 사용하는 경우 true 설정 개발에서는 보통 http를 사용하므로 false
   }
 }
+// or
+{
+  "/api": {
+    "target": "https://seo-dev.dep.team",
+    "secure": true,
+    "changeOrigin": true,
+    "headers": {
+      "Host": "seo-dev.dep.team"
+    },
+    "logLevel": "debug"
+  }
+}
 ```
 
 ## project.json / angular.json

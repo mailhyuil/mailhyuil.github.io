@@ -1,5 +1,13 @@
 # puppeteer goto waitUntil
 
+## domcontentloaded
+
+> domcontentloaded 이벤트가 발생할 때까지 기다린다.
+
+## load
+
+> load 이벤트가 발생할 때까지 기다린다.
+
 ## networkidle0
 
 > 네트워크 활동이 500ms 이상 없을때 트리거된다.

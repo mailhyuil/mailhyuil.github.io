@@ -1,22 +1,24 @@
 # puppeteer evaluate (document 사용)
 
-> evaluate는 chrome devtools에서 돌아가기 때문에 document를 사용가능
+> 값을 반환하는 evaluate 함수
 >
-> > 같은 이유로 data, type, function들은 evaluate함수 내로 넘겨줘야 사용 가능
+> > evaluate는 브라우저 내부에서 실행되는 함수이기 때문에 dom에 접근 가능하다.
 > >
-> > > 두번째 인자로 넘기기
+> > > node 코드 공간과 분리되어 있기 때문에 data, type, function들은 evaluate함수 두번째 인자로 넘겨줘야 사용 가능하다.
+> > >
+> > > > 하나의 evaluate에서 하나의 element만 최소한으로 작업하는게 가독성이 좋다.
 
 ```ts
-const browser = await puppeteer.launch({
-  headless: true,
-  defaultViewport: null,
+const pHandle = await page.$("p");
+
+const text = await page.evaluate(p => {
+  const text = p.innerText.trim();
+  return text;
+}, pHandle);
+// or
+
+const text = await pHandle.evaluate(p => {
+  const text = p.innerText.trim();
+  return text;
 });
-
-const page = await browser.newPage();
-
-const data = "hi";
-
-page.evaluate((data) => {
-  document.querySelector(".button");
-}, data); // data 넘기기
 ```
