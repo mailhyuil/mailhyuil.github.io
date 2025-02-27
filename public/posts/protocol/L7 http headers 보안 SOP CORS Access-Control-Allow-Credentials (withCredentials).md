@@ -2,14 +2,10 @@
 
 > Access-Control-Allow-Credentials: true를 설정하면 다른 Origin에서도 브라우저가 자동으로 쿠키를 포함한 요청을 전송함.
 >
-> > 대부분의 ajax, cors 라이브러리의 기본값이다. (httpClient나 app.enableCors()의 기본값)
+> > 서버에서 withCredentials: true로 설정할 경우 서버에서 받아드릴 origin의 값을 정확히 명시해야한다. (\* 불가능)
 > >
-> > 해제 (withCredentials: false)
+> > 클라이언트 역시 withCredentials: true로 설정해야한다.
 > >
-> > > true로 설정할 경우 서버에서 받아드릴 origin의 값을 정확히 명시해야한다. (\* 불가능) (headers, methods는 \* 가능)
-> > >
-> > > 클라이언트 역시 withCredentials: true로 설정해야한다.
-> > >
 > > > > Access-Control-Allow-Credentials: true를 설정 시 보안 위험이 높아진다. (XSS, CSRF 등)
 > > > >
 > > > > 브라우저가 자동으로 쿠키를 포함한 요청을 전송하기 때문에, 쿠키를 탈취하는 공격이 가능해진다.
