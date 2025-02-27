@@ -1,6 +1,6 @@
 # angular proxy
 
-> backend cors 설정에서 localhost:4200을 허용하고 싶지 않은 경우
+> backend sop 설정에서 localhost:4200을 허용하고 싶지 않은 경우
 >
 > > proxy를 통해서 backend와 같은 도메인, 포트로 요청을 보내면 된다.
 

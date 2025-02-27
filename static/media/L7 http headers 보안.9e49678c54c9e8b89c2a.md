@@ -2,6 +2,16 @@
 
 > 여러가지 보안 정책 헤더가 존재하고 이 헤더들을 지원하는 브라우저는 이 헤더들을 사용하여 보안을 강화할 수 있다.
 
+## Same-Origin Policy (SOP)
+
+> 웹 페이지에서 다른 출처의 리소스를 불러오는 것을 제한하여, XSS 및 CSRF 공격을 방지하는 보안 정책
+>
+> > 다른 출처의 리소스를 불러오는 것을 제한하여, 민감한 정보가 외부로 유출되는 것을 방지
+> >
+> > > 1차 방어선의 역할이며 proxy 서버를 통해 언제든지 우회할 수 있다.
+> > >
+> > > > CORS를 통해 다른 Origin을 허용할 수 있다.
+
 ## Content-Security-Policy (CSP)
 
 > A powerful allow-list of what can happen on your page which mitigates many attacks
