@@ -24,6 +24,7 @@ server {
     listen                [::]:443 ssl;
     ssl_certificate       /etc/letsencrypt/live/example.com/fullchain.pem;
     ssl_certificate_key   /etc/letsencrypt/live/example.com/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
 
     # ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # by default
     # ssl_ciphers         HIGH:!aNULL:!MD5; # by default

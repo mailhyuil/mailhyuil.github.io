@@ -45,6 +45,10 @@ server {
     ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
+    # (optional) enable OCSP stapling
+    ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
+    ssl_stapling on;
+    ssl_stapling_verify on;
 
     location = / {
         try_files '' @ssr;

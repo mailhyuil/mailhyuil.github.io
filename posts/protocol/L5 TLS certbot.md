@@ -32,6 +32,7 @@ server {
     server_name historytour.co.kr www.historytour.co.kr;
     ssl_certificate /etc/letsencrypt/live/historytour.co.kr/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/historytour.co.kr/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/historytour.co.kr/chain.pem;
 
     include /etc/letsencrypt/options-ssl-nginx.conf;
 

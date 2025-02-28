@@ -14,8 +14,8 @@
 
 ```yaml
 services:
-  reverseproxy:
-    container_name: reverse-proxy-nginx
+  nginx:
+    container_name: nginx
     image: owasp/modsecurity-crs:nginx-alpine
     ports:
       - "80:80"
@@ -28,11 +28,9 @@ services:
     environment:
       - PROXY=1
     networks:
-      reverse-proxy:
-        aliases:
-          - reverse-proxy-nginx
+      nginx:
 networks:
-  reverse-proxy:
+  nginx:
 ```
 
 ## proxy.conf

@@ -17,9 +17,16 @@ server {
     listen [::]:443 ssl;
     server_name example.com;
 
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_certificate /etc/nginx/ssl/test.crt;
     ssl_certificate_key /etc/nginx/ssl/test.key;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+
+    ssl_trusted_certificate /etc/nginx/ssl/ca-bundle.pem;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    resolver 8.8.8.8 8.8.4.4 valid=300s;
+    resolver_timeout 5s;
 
     client_max_body_size 1G;
 
