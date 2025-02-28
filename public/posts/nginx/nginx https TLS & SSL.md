@@ -29,7 +29,11 @@ server {
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_certificate /etc/nginx/ssl/ssl_certificate.pem;
     ssl_certificate_key /etc/nginx/ssl/ssl_certificate_key.pem;
-    ssl_password_file /etc/nginx/ssl/ssl_password_file.pass;
+
+    # (optional) enable OCSP stapling
+    ssl_trusted_certificate /etc/nginx/ssl/ssl_trusted_certificate.pem;
+    ssl_stapling on;
+    ssl_stapling_verify on;
 
     location / {
         root /usr/share/nginx/html;

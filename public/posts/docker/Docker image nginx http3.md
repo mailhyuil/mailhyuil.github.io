@@ -20,8 +20,10 @@ server {
     server_name localhost;  # customize to match your domain
 
     # you need to mount these files when running this container
-    ssl_certificate     /etc/nginx/ssl/localhost.crt;
-    ssl_certificate_key /etc/nginx/ssl/localhost.key;
+    ssl_certificate     /etc/nginx/ssl/crt.pem;
+    ssl_certificate_key /etc/nginx/ssl/private.pem;
+    # (optional) enable OCSP stapling
+    ssl_trusted_certificate /etc/nginx/ssl/ca-bundle.pem;
 
     # TLSv1.3 is required for QUIC.
     ssl_protocols TLSv1.2 TLSv1.3;
