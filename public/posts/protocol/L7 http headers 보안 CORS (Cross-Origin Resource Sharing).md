@@ -1,8 +1,10 @@
 # http CORS (Cross-Origin Resource Sharing) 교차 출처 리소스 공유
 
-> javascript의 ajax api는 cors가 기본 설정
+> 브라우저는 SOP로 인해 다른 Origin의 리소스에 ajax 요청을 보낼 수 없다.
 >
-> > 반면 클라이언트의 코드 레벨이 아닌 하부 시스템에 의해 네트워크 요청이 만들어지는 경우(link, script, img, audio 등…)는 no-cors이 기본 설정
+> > 다만 정적 리소스 (document, image, script, style, iframe, font, audio, video)에 대해서는 cors를 통해 요청을 보낼 수 있다.
+> >
+> > 정적 리소스를 차단하기 위해서는 CORP 헤더를 사용한다.
 
 ## 브라우저의 동작
 

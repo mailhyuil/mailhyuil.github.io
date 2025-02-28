@@ -35,7 +35,7 @@ http://localhost:3000/api/v1/uploads/파일위치
 ```ts
 app.use(
   helmet({
-    crossOriginResourcePolicy: { policy: "cross-origin" },
+    crossOriginResourcePolicy: { policy: NODE_ENV === "production" ? "same-origin" : "cross-origin" },
   }),
 );
 ```

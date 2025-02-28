@@ -37,9 +37,25 @@ app.use(
 );
 ```
 
+### default CSP
+
+```txt
+default-src 'self';
+base-uri 'self';
+font-src 'self' https: data:;
+form-action 'self';
+frame-ancestors 'self';
+img-src 'self' data:;
+object-src 'none';
+script-src 'self';
+script-src-attr 'none';
+style-src 'self' https: 'unsafe-inline';
+upgrade-insecure-requests
+```
+
 ## CORP (cross-origin-resource-policy)
 
-> 웹사이트의 리소스(이미지, 폰트, JavaScript 등)가 다른 도메인에서 불러와지는 것을 허용할지 여부를 결정
+> 서버의 정적 리소스(이미지, 폰트, JavaScript 등)를 다른 도메인의 브라우저에서 불러오는 것을 허용할지 여부를 결정
 
 ```ts
 app.use(

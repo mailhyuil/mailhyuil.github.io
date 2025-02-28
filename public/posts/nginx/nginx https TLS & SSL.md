@@ -6,7 +6,7 @@
 
 ```sh
 mkdir /root/ssl/ && cd /root/ssl
-openssl req -x509 -days 365 -nodes -newkey rsa:2048 -keyout ssl.key -out ssl.crt
+openssl req -x509 -days 365 -nodes -newkey rsa:4096 -keyout ssl.key -out ssl.crt
 ```
 
 ### nginx default.conf

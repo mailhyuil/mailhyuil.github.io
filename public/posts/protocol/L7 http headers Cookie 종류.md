@@ -20,9 +20,11 @@
 
 ## Third-party Cookie
 
-> 다른 도메인의 페이지에서도 쿠키를 전송하는 것
+> 다른 도메인의 페이지에서 설정한 쿠키를 의미
 >
-> > 현재 방문한 페이지 이외의 도메인의 쿠키를 의미한다.
+> > https://www.example.com에서 https://tracking.com으로 요청을 보냄
+> >
+> > tracking.com에서 Response로 쿠키를 설정하면 이 쿠키는 Third-party Cookie이다.
 
 ## Secure Cookie
 
