@@ -42,6 +42,8 @@ Set-Cookie: max-age=3600; Domain=example.com; Path=/; Secure; HttpOnly; SameSite
 > 다른 도메인의 요청에도 쿠키를 전송 할지 말지 결정하는 옵션
 >
 > > Strict = csrf 공격 방지
+> >
+> > 그러나 Oauth 처럼 Redirect를 사용하는 경우에는 도메인이 달라지면 세션이 끊겨버리기에 Lax나 None을 사용하는 수 밖에 없다.
 
 ```sh
 Strict : 크로스 도메인 요청에 쿠키를 전송하지 않음
