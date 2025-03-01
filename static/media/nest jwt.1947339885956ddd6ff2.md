@@ -4,6 +4,16 @@
 >
 > > [randomkeygen](https://randomkeygen.com/)
 
+## jwt의 목적
+
+> jwt의 핵심은 상태를 클라이언트가 가지고 있다는 것이다.
+>
+> > database에서 유저의 정보를 가져오지 않아도 되기 때문에 (session 방식) 서버의 부하를 줄일 수 있다.
+> >
+> > > 따라서 user의 정보는 데이터베이스에서 조회하지말고 verify된 payload에서 가져와야한다.
+> > >
+> > > > refresh token 조회, blacklist 조회도 rdbs가 아닌 메모리 db에서 조회하면 더 부하를 줄일 수 있다.
+
 ## jwt 구조
 
 > secret을 사용하면 마지막 verify signature 부분만 바뀐다.
