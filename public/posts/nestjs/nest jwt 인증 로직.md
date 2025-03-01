@@ -89,9 +89,9 @@ export class AuthController {
   @ApiNoContentResponse()
   async login(@Body() body: LoginDTO, @Res({ passthrough: true }) res: Response) {
     const { idToken, refreshToken } = await this.authService.login(body);
-    res.cookie("loggedIn", true, loggedInOptions);
-    res.cookie("idToken", idToken, idTokenOptions);
-    res.cookie("refreshToken", refreshToken, refreshTokenOptions);
+    res.cookie("logged-in", true, loggedInOptions);
+    res.cookie("id-token", idToken, idTokenOptions);
+    res.cookie("refresh-token", refreshToken, refreshTokenOptions);
   }
 
   @Get("logout")
@@ -100,9 +100,9 @@ export class AuthController {
   })
   @ApiNoContentResponse()
   async logout(@Res({ passthrough: true }) res: Response) {
-    res.clearCookie("loggedIn");
-    res.clearCookie("idToken");
-    res.clearCookie("refreshToken");
+    res.clearCookie("logged-in");
+    res.clearCookie("id-token");
+    res.clearCookie("refresh-token");
   }
 
   @Get("refresh")
@@ -111,11 +111,11 @@ export class AuthController {
   })
   @ApiNoContentResponse()
   async getIdTokenByRefreshToken(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
-    const refreshToken = req.cookies["refreshToken"];
+    const refreshToken = req.cookies["refresh-token"];
     const { idToken } = await this.authService.getIdTokenByRefreshToken(refreshToken).catch(err => {
       throw new UnauthorizedException(err.message);
     });
-    res.cookie("idToken", idToken, idTokenOptions);
+    res.cookie("id-token", idToken, idTokenOptions);
   }
 }
 ```
@@ -338,16 +338,16 @@ export class AuthGuard implements CanActivate {
     const req: Request = context.switchToHttp().getRequest();
     const res: Response = context.switchToHttp().getResponse();
     const cookies = req.cookies;
-    const idToken = cookies["idToken"];
+    const idToken = cookies["id-token"];
 
     if (!idToken) throw new UnauthorizedException();
 
     const user = await this.authService.getUserByIdToken(idToken).catch(async err => {
       if (err instanceof JsonWebTokenError) {
         //? 토큰이 임의로 변조된 경우
-        res.clearCookie("loggedIn");
-        res.clearCookie("idToken");
-        res.clearCookie("refreshToken");
+        res.clearCookie("logged-in");
+        res.clearCookie("id-token");
+        res.clearCookie("refresh-token");
         throw new InvalidTokenException();
       } else if (err instanceof TokenExpiredError) {
         throw new InvalidTokenException();
@@ -376,9 +376,13 @@ export const GetUser = createParamDecorator((data: UserRecord, ctx: ExecutionCon
 });
 ```
 
-## access-token.guard.ts
+## id-token.guard.ts
 
 ```ts
+/*
+https://docs.nestjs.com/guards#guards
+*/
+
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from "@nestjs/common";
 import { Request } from "express";
 import { Observable } from "rxjs";
@@ -388,7 +392,7 @@ const blacklist = [];
 export class IdTokenGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const req: Request = context.switchToHttp().getRequest();
-    const idToken = req.cookies["idToken"];
+    const idToken = req.cookies["id-token"];
     if (blacklist.includes(idToken)) {
       throw new UnauthorizedException("Blocked IdToken");
     }
