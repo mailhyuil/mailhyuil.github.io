@@ -22,10 +22,7 @@ export class AuthenticationDTO {
   readonly createdAt: Date;
   @ApiProperty({ type: "Date" })
   readonly updatedAt: Date;
-  @ApiPropertyOptional()
-  readonly idToken?: string;
-  @ApiPropertyOptional()
-  readonly refreshToken?: string;
+
   @ApiProperty({
     type: () => UserDTO,
   })
@@ -57,8 +54,8 @@ export type IdTokenPayload = {
   id: string;
   roles: string[];
   status: UserStatus;
-  provider: Provider;
 };
+
 export type RefreshTokenPayload = {
   id: string;
 };
@@ -110,10 +107,11 @@ export class AuthController {
   @ApiNoContentResponse()
   async getIdTokenByRefreshToken(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
     const refreshToken = req.cookies["refresh-token"];
-    const { idToken } = await this.authService.getIdTokenByRefreshToken(refreshToken).catch(err => {
+    const { idToken, newRefreshToken } = await this.authService.getIdTokenByRefreshToken(refreshToken).catch(err => {
       throw new UnauthorizedException(err.message);
     });
     res.cookie("id-token", idToken, idTokenOptions);
+    res.cookie("refresh-token", newRefreshToken, refreshTokenOptions);
   }
 }
 ```
@@ -122,7 +120,8 @@ export class AuthController {
 
 ```ts
 import { InvalidTokenException, UserNotFoundException } from "@/server/errors/exception";
-import { Inject, Injectable, Logger, UnauthorizedException } from "@nestjs/common";
+import { Cache, CACHE_MANAGER } from "@nestjs/cache-manager";
+import { Inject, Injectable, Logger, OnModuleInit, UnauthorizedException } from "@nestjs/common";
 import { JsonWebTokenError, JwtService, TokenExpiredError } from "@nestjs/jwt";
 import { PrismaService } from "apps/server/src/prisma/prisma.service";
 import bcrypt from "bcryptjs";
@@ -130,8 +129,11 @@ import { plainToInstance } from "class-transformer";
 import { PrismaError } from "prisma-error-enum";
 import { IdTokenPayload, LoginDTO, LoginResponseDTO, RefreshTokenPayload } from "./auth.dto";
 import { IdTokenService, RefreshTokenService } from "./token/token.token";
+
+const JWT_REFRESH_TOKEN_EXPIRES_IN = 2592000000; /* 30 days in milliseconds */
+
 @Injectable()
-export class AuthService {
+export class AuthService implements OnModuleInit {
   private readonly logger = new Logger(AuthService.name);
   constructor(
     private readonly prisma: PrismaService,
@@ -139,7 +141,48 @@ export class AuthService {
     private readonly idTokenService: JwtService,
     @Inject(RefreshTokenService)
     private readonly refreshTokenService: JwtService,
+    @Inject(CACHE_MANAGER) private readonly cache: Cache,
   ) {}
+
+  onModuleInit() {
+    this.initAdmin();
+  }
+
+  async initAdmin() {
+    const username = process.env.ADMIN_USERNAME;
+    if (!username) {
+      throw new Error("ADMIN_USERNAME 환경변수가 정의되지 않았습니다.");
+    }
+    const password = process.env.ADMIN_PASSWORD;
+    if (!password) {
+      throw new Error("ADMIN_PASSWORD 환경변수가 정의되지 않았습니다.");
+    }
+    const found = await this.prisma.user.findFirst({
+      where: {
+        roles: {
+          has: "ADMIN",
+        },
+      },
+    });
+    if (!found) {
+      await this.prisma.user.create({
+        data: {
+          username,
+          password: bcrypt.hashSync(password),
+          name: "admin",
+          birthDate: new Date(),
+          roles: ["ADMIN"],
+          tel: "010-0000-0000",
+          authentications: {
+            create: {
+              provider: "LOCAL",
+            },
+          },
+        },
+      });
+      this.logger.log("Admin 계정 생성 완료");
+    }
+  }
 
   async login(data: LoginDTO) {
     const { username, password } = data;
@@ -155,11 +198,6 @@ export class AuthService {
             password: true,
             roles: true,
             status: true,
-            authentications: {
-              where: {
-                provider: "LOCAL",
-              },
-            },
           },
         })
         .catch(error => {
@@ -177,7 +215,6 @@ export class AuthService {
         id: found.id,
         roles: found.roles,
         status: found.status,
-        provider: found.authentications[0].provider,
       };
       const refreshTokenPayload: RefreshTokenPayload = {
         id: found.id,
@@ -185,18 +222,8 @@ export class AuthService {
       const idToken = this.idTokenService.sign(idTokenPayload);
       const refreshToken = this.refreshTokenService.sign(refreshTokenPayload);
 
-      //? save refreshToken
-      await tx.authentication.update({
-        where: {
-          provider_userId: {
-            provider: "LOCAL",
-            userId: found.id,
-          },
-        },
-        data: {
-          refreshToken: bcrypt.hashSync(refreshToken),
-        },
-      });
+      // ? set refreshToken
+      this.cache.set(`refreshToken:${found.id}`, refreshToken, JWT_REFRESH_TOKEN_EXPIRES_IN);
 
       return {
         idToken,
@@ -209,8 +236,8 @@ export class AuthService {
   async getIdTokenByRefreshToken(refreshToken: string) {
     if (!refreshToken) throw new InvalidTokenException();
 
-    // ! refreshToken 검증
-    let payload;
+    // ? refreshToken 검증
+    let payload: IdTokenPayload;
     try {
       payload = this.refreshTokenService.verify(refreshToken);
     } catch (error) {
@@ -224,7 +251,32 @@ export class AuthService {
         throw new InvalidTokenException();
       }
     }
-    // ! payload.id로 유저 조회
+
+    // ? get userRefreshToken
+    const userRefreshToken = await this.cache.get<string>(`refreshToken:${payload.id}`);
+
+    if (!userRefreshToken) throw new InvalidTokenException();
+
+    // ! userRefreshToken 검증
+    let userPayload: RefreshTokenPayload;
+    try {
+      userPayload = this.refreshTokenService.verify(userRefreshToken);
+    } catch (error) {
+      this.cache.del(`refreshToken:${payload.id}`);
+      if (error instanceof JsonWebTokenError) {
+        //? 토큰이 임의로 변조된 경우
+        throw new InvalidTokenException();
+      } else if (error instanceof TokenExpiredError) {
+        //? 토큰의 유효기간이 만료된 경우
+        throw new InvalidTokenException();
+      } else {
+        throw new InvalidTokenException();
+      }
+    }
+
+    if (userPayload.id !== payload.id) throw new InvalidTokenException();
+
+    // ? payload.id로 유저 조회
     const user = await this.prisma.user
       .findUniqueOrThrow({
         where: { id: payload.id },
@@ -232,36 +284,30 @@ export class AuthService {
           id: true,
           roles: true,
           status: true,
-          authentications: {
-            where: {
-              provider: "LOCAL",
-            },
-            select: {
-              refreshToken: true,
-              provider: true,
-            },
-          },
         },
       })
       .catch(() => {
         throw new InvalidTokenException();
       });
 
-    const userRefreshToken = user.authentications[0].refreshToken;
+    const refreshTokenPayload: RefreshTokenPayload = {
+      id: user.id,
+    };
 
-    if (!userRefreshToken) throw new InvalidTokenException();
+    const newRefreshToken = this.refreshTokenService.sign(refreshTokenPayload);
 
-    if (!bcrypt.compareSync(refreshToken, userRefreshToken)) throw new InvalidTokenException();
+    // ? refreshToken rotation
+    this.cache.set(`refreshToken:${user.id}`, newRefreshToken, JWT_REFRESH_TOKEN_EXPIRES_IN);
 
     const idTokenPayload: IdTokenPayload = {
       id: user.id,
       roles: user.roles,
       status: user.status,
-      provider: user.authentications[0].provider,
     };
 
     const idToken = this.idTokenService.sign(idTokenPayload);
-    return { idToken };
+
+    return { idToken, newRefreshToken };
   }
 
   async getUserByIdToken(idToken: string): Promise<IdTokenPayload> {
@@ -289,20 +335,19 @@ export class AuthGuard implements CanActivate {
     const res: Response = context.switchToHttp().getResponse();
     const cookies = req.cookies;
     const idToken = cookies["id-token"];
-
     if (!idToken) throw new UnauthorizedException();
 
-    const user = await this.authService.getUserByIdToken(idToken).catch(async err => {
-      if (err instanceof JsonWebTokenError) {
-        //? 토큰이 임의로 변조된 경우
+    const user = await this.authService.getUserByIdToken(idToken).catch(async error => {
+      if (error instanceof JsonWebTokenError) {
+        // ? 토큰이 임의로 변조된 경우
         res.clearCookie("logged-in");
         res.clearCookie("id-token");
         res.clearCookie("refresh-token");
         throw new InvalidTokenException();
-      } else if (err instanceof TokenExpiredError) {
+      } else if (error instanceof TokenExpiredError) {
         throw new InvalidTokenException();
       } else {
-        throw err;
+        throw error;
       }
     });
 
@@ -329,10 +374,6 @@ export const GetUser = createParamDecorator((data: UserRecord, ctx: ExecutionCon
 ## id-token.guard.ts
 
 ```ts
-/*
-https://docs.nestjs.com/guards#guards
-*/
-
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from "@nestjs/common";
 import { Request } from "express";
 import { Observable } from "rxjs";

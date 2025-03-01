@@ -21,7 +21,6 @@ server {
     ssl_certificate /etc/nginx/ssl/test.crt;
     ssl_certificate_key /etc/nginx/ssl/test.key;
 
-
     ssl_trusted_certificate /etc/nginx/ssl/ca-bundle.pem;
     ssl_stapling on;
     ssl_stapling_verify on;
