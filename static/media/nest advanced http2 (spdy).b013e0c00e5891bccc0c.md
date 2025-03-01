@@ -18,45 +18,47 @@ openssl req -x509 -newkey rsa:4096 -nodes -sha256 -keyout private.pem -out crt.p
 ## main.ts
 
 ```ts
-import { Logger } from "@nestjs/common";
-import { NestFactory } from "@nestjs/core";
-import { ExpressAdapter } from "@nestjs/platform-express";
 import express, { Express } from "express";
-import spdy, { ServerOptions } from "spdy";
-import { AppModule } from "./app/app.module";
+import { ServerOptions, createServer } from "spdy";
 
 async function bootstrap() {
   const expressApp: Express = express();
-
-  const spdyOpts: ServerOptions = {
-    key: process.env["TLS_KEY"],
-    cert: process.env["TLS_CERT"],
-  };
-
   const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp));
 
+  /** Config */
+  /*   ....  */
   app.enableCors();
 
+  /** Init */
   await app.init();
-
+  /** Create HTTP Server */
+  const spdyOpts: ServerOptions = {
+    key: fs.readFileSync(process.env["PRIVATE_KEY_PATH"], "utf8"),
+    cert: fs.readFileSync(process.env["CERTIFICATE_PATH"], "utf8"),
+  };
+  const http2Server = createServer(spdyOpts, expressApp);
   /** Port */
   const port = process.env.SERVER_PORT || 3000;
-  await spdy.createServer(spdyOpts, expressApp).listen(port);
-  Logger.log(`🚀 Application is running on: https://localhost:${port}`);
+  /** Server Listen */
+  http2Server.listen(port);
+  Logger.log(`🚀 Application is running on: http://localhost:${port}`);
+  /** Shutdown */
+  const shutdownProvider = app.get(HttpShutdownProvider);
+  shutdownProvider.addHttpServer(http2Server);
 }
 
 bootstrap();
 ```
 
-## http-shutdown-observer.ts
+## http-shutdown.provider.ts
 
-> nestjs는 임의로 생성한 http server를 닫는 기능을 제공하지 않는다.
+> nestjs는 임의로 생성한 http server를 닫는 기능을 제공하지 않기 때문에 OnApplicationShutdown을 사용하여 직접 구현해야 한다.
 >
-> > 따라서, 직접 구현해야 한다.
+> > 생성 후 App Module의 Provider에 등록
 
 ```ts
 @Injectable()
-export class HttpShutdownObserver implements OnApplicationShutdown {
+export class HttpShutdownProvider implements OnApplicationShutdown {
   private httpServers: http.Server[] = [];
 
   public addHttpServer(server: http.Server): void {
