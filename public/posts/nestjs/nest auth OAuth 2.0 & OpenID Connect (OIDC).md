@@ -13,6 +13,10 @@
 > > 즉 Oauth 2.0의 accessToken은 사용자의 state를 가지고 있지 않다.
 > >
 > > > 사용 토큰 : accessToken, refreshToken
+> > >
+> > > > 만약 accessToken으로 사용자 profile을 가져와 값 db에 저장하고 매번 그 값을 비교해 인증을 수행한다면
+> > > >
+> > > > 다른 비슷한 로직의 서비스에서 사용자가 자신의 profile을 사용해서 인증을 수행할 수 있다. (id는 항상 같기 때문에)
 
 ## OpenID Connect
 
@@ -23,3 +27,5 @@
 > > oidc의 idToken은 사용자의 state를 가지고 있다. (따라서 jwt와 같은 stateless 방식의 인증이 가능하다.)
 > >
 > > > 사용 토큰 : idToken, accessToken, refreshToken
+> > >
+> > > > OAuth2에서 scope에 openid를 추가하면 accessToken과 함께 idToken을 받을 수 있다.
