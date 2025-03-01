@@ -23,7 +23,7 @@ export class AuthenticationDTO {
   @ApiProperty({ type: "Date" })
   readonly updatedAt: Date;
   @ApiPropertyOptional()
-  readonly accessToken?: string;
+  readonly idToken?: string;
   @ApiPropertyOptional()
   readonly refreshToken?: string;
   @ApiProperty({
@@ -48,12 +48,12 @@ export class LoginDTO {
 
 export class LoginResponseDTO {
   @ApiProperty()
-  readonly accessToken: string;
+  readonly idToken: string;
   @ApiProperty()
   readonly refreshToken: string;
 }
 
-export type AccessTokenPayload = {
+export type IdTokenPayload = {
   id: string;
   name: string;
   tel: string;
@@ -74,7 +74,7 @@ import { ApiBody, ApiNoContentResponse, ApiOperation, ApiTags } from "@nestjs/sw
 import { type Request, type Response } from "express";
 import { LoginDTO } from "./auth.dto";
 import { AuthService } from "./auth.service";
-import { accessTokenOptions, loggedInOptions, refreshTokenOptions } from "./token/token-cookie-options";
+import { idTokenOptions, loggedInOptions, refreshTokenOptions } from "./token/token-cookie-options";
 
 @ApiTags("Auth")
 @Controller({ path: "auth", version: "1" })
@@ -88,9 +88,9 @@ export class AuthController {
   @ApiBody({ type: LoginDTO })
   @ApiNoContentResponse()
   async login(@Body() body: LoginDTO, @Res({ passthrough: true }) res: Response) {
-    const { accessToken, refreshToken } = await this.authService.login(body);
+    const { idToken, refreshToken } = await this.authService.login(body);
     res.cookie("loggedIn", true, loggedInOptions);
-    res.cookie("accessToken", accessToken, accessTokenOptions);
+    res.cookie("idToken", idToken, idTokenOptions);
     res.cookie("refreshToken", refreshToken, refreshTokenOptions);
   }
 
@@ -101,7 +101,7 @@ export class AuthController {
   @ApiNoContentResponse()
   async logout(@Res({ passthrough: true }) res: Response) {
     res.clearCookie("loggedIn");
-    res.clearCookie("accessToken");
+    res.clearCookie("idToken");
     res.clearCookie("refreshToken");
   }
 
@@ -110,12 +110,12 @@ export class AuthController {
     summary: "토큰 재발급",
   })
   @ApiNoContentResponse()
-  async getAccessTokenByRefreshToken(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
+  async getIdTokenByRefreshToken(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
     const refreshToken = req.cookies["refreshToken"];
-    const { accessToken } = await this.authService.getAccessTokenByRefreshToken(refreshToken).catch(err => {
+    const { idToken } = await this.authService.getIdTokenByRefreshToken(refreshToken).catch(err => {
       throw new UnauthorizedException(err.message);
     });
-    res.cookie("accessToken", accessToken, accessTokenOptions);
+    res.cookie("idToken", idToken, idTokenOptions);
   }
 }
 ```
@@ -130,15 +130,15 @@ import { PrismaService } from "apps/server/src/prisma/prisma.service";
 import bcrypt from "bcryptjs";
 import { plainToInstance } from "class-transformer";
 import { PrismaError } from "prisma-error-enum";
-import { AccessTokenPayload, LoginDTO, LoginResponseDTO, RefreshTokenPayload } from "./auth.dto";
-import { AccessTokenService, RefreshTokenService } from "./token/token.token";
+import { IdTokenPayload, LoginDTO, LoginResponseDTO, RefreshTokenPayload } from "./auth.dto";
+import { IdTokenService, RefreshTokenService } from "./token/token.token";
 @Injectable()
 export class AuthService implements OnModuleInit {
   private readonly logger = new Logger(AuthService.name);
   constructor(
     private readonly prisma: PrismaService,
-    @Inject(AccessTokenService)
-    private readonly accessTokenService: JwtService,
+    @Inject(IdTokenService)
+    private readonly idTokenService: JwtService,
     @Inject(RefreshTokenService)
     private readonly refreshTokenService: JwtService,
   ) {}
@@ -217,7 +217,7 @@ export class AuthService implements OnModuleInit {
         throw new UnauthorizedException("사용자 정보를 다시 확인해주세요.");
       }
 
-      const accessTokenPayload: AccessTokenPayload = {
+      const idTokenPayload: IdTokenPayload = {
         id: found.id,
         name: found.name,
         tel: found.tel,
@@ -228,7 +228,7 @@ export class AuthService implements OnModuleInit {
       const refreshTokenPayload: RefreshTokenPayload = {
         id: found.id,
       };
-      const accessToken = this.accessTokenService.sign(accessTokenPayload);
+      const idToken = this.idTokenService.sign(idTokenPayload);
       const refreshToken = this.refreshTokenService.sign(refreshTokenPayload);
 
       //? save refreshToken
@@ -245,14 +245,14 @@ export class AuthService implements OnModuleInit {
       });
 
       return {
-        accessToken,
+        idToken,
         refreshToken,
       };
     });
     return plainToInstance(LoginResponseDTO, res);
   }
 
-  async getAccessTokenByRefreshToken(refreshToken: string) {
+  async getIdTokenByRefreshToken(refreshToken: string) {
     if (!refreshToken) throw new InvalidTokenException();
 
     // ! refreshToken 검증
@@ -301,7 +301,7 @@ export class AuthService implements OnModuleInit {
 
     if (!bcrypt.compareSync(refreshToken, userRefreshToken)) throw new InvalidTokenException();
 
-    const accessTokenPayload: AccessTokenPayload = {
+    const idTokenPayload: IdTokenPayload = {
       id: user.id,
       name: user.name,
       tel: user.tel,
@@ -310,12 +310,12 @@ export class AuthService implements OnModuleInit {
       provider: user.authentications[0].provider,
     };
 
-    const accessToken = this.accessTokenService.sign(accessTokenPayload);
-    return { accessToken };
+    const idToken = this.idTokenService.sign(idTokenPayload);
+    return { idToken };
   }
 
-  async getUserByAccessToken(accessToken: string): Promise<AccessTokenPayload> {
-    return this.accessTokenService.verify(accessToken);
+  async getUserByIdToken(idToken: string): Promise<IdTokenPayload> {
+    return this.idTokenService.verify(idToken);
   }
 }
 ```
@@ -338,15 +338,15 @@ export class AuthGuard implements CanActivate {
     const req: Request = context.switchToHttp().getRequest();
     const res: Response = context.switchToHttp().getResponse();
     const cookies = req.cookies;
-    const accessToken = cookies["accessToken"];
+    const idToken = cookies["idToken"];
 
-    if (!accessToken) throw new UnauthorizedException();
+    if (!idToken) throw new UnauthorizedException();
 
-    const user = await this.authService.getUserByAccessToken(accessToken).catch(async err => {
+    const user = await this.authService.getUserByIdToken(idToken).catch(async err => {
       if (err instanceof JsonWebTokenError) {
         //? 토큰이 임의로 변조된 경우
         res.clearCookie("loggedIn");
-        res.clearCookie("accessToken");
+        res.clearCookie("idToken");
         res.clearCookie("refreshToken");
         throw new InvalidTokenException();
       } else if (err instanceof TokenExpiredError) {
@@ -364,6 +364,18 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
+## get-user.decorator.ts
+
+```ts
+import { createParamDecorator, ExecutionContext } from "@nestjs/common";
+import { IdTokenPayload } from "../auth.dto";
+type UserRecord = keyof IdTokenPayload;
+export const GetUser = createParamDecorator((data: UserRecord, ctx: ExecutionContext) => {
+  const req = ctx.switchToHttp().getRequest();
+  return data ? req.user?.[data] : req.user;
+});
+```
+
 ## access-token.guard.ts
 
 ```ts
@@ -373,12 +385,12 @@ import { Observable } from "rxjs";
 
 const blacklist = [];
 @Injectable()
-export class AccessTokenGuard implements CanActivate {
+export class IdTokenGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const req: Request = context.switchToHttp().getRequest();
-    const accessToken = req.cookies["accessToken"];
-    if (blacklist.includes(accessToken)) {
-      throw new UnauthorizedException("Blocked AccessToken");
+    const idToken = req.cookies["idToken"];
+    if (blacklist.includes(idToken)) {
+      throw new UnauthorizedException("Blocked IdToken");
     }
     return true;
   }
