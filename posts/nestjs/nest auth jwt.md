@@ -3,6 +3,10 @@
 > [jwt.io](https://jwt.io/)
 >
 > > [randomkeygen](https://randomkeygen.com/)
+> >
+> > > jwt의 payload는 단순 base64로 인코딩되어 있기 때문에 민감한 정보를 넣으면 안된다.
+> > >
+> > > > 그러나 signature는 secret을 사용하기 때문에 검증 가능하다.
 
 ## jwt의 목적
 

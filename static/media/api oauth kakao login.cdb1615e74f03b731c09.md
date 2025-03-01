@@ -5,7 +5,7 @@
 ```ts
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { environment } from "../../../../../environment";
+import { environment } from "../../environment";
 declare const Kakao: any;
 
 @Component({
@@ -19,6 +19,7 @@ export default class LoginComponent {
   loginWithKakao() {
     Kakao.Auth.authorize({
       redirectUri: environment.KAKAO_REDIRECT_URI,
+      scope: "account_email,gender,openid", // opendid 반드시 추가 (인증을 위한 토큰을 받기 위함)
     });
   }
 }
@@ -56,7 +57,7 @@ export default class LoginRedirectComponent implements OnInit {
       this.authApi
         .loginByKakao(code)
         .pipe(switchMap(() => this.authApi.getAuth()))
-        .subscribe((auth) => {
+        .subscribe(auth => {
           if (auth) {
             this.store.setAuth(auth);
             this.router.navigate(["/"], {
@@ -90,10 +91,10 @@ export class AuthService {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
           },
-        }
+        },
       )
       .pipe(
-        map((response) => ({
+        map(response => ({
           accessToken: response.data.access_token,
           refreshToken: response.data.refresh_token,
         })),
@@ -107,11 +108,11 @@ export class AuthService {
             },
           });
         }),
-        map((response) => response.data),
-        catchError((e) => {
+        map(response => response.data),
+        catchError(e => {
           console.error(e);
           throw new UnauthorizedException("인증에 실패하였습니다.");
-        })
+        }),
       );
 
     const kakaoProfile = await lastValueFrom(kakaoRequest$);

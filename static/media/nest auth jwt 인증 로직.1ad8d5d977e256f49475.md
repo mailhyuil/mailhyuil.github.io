@@ -55,8 +55,6 @@ export class LoginResponseDTO {
 
 export type IdTokenPayload = {
   id: string;
-  name: string;
-  tel: string;
   roles: string[];
   status: UserStatus;
   provider: Provider;
@@ -124,7 +122,7 @@ export class AuthController {
 
 ```ts
 import { InvalidTokenException, UserNotFoundException } from "@/server/errors/exception";
-import { Inject, Injectable, Logger, OnModuleInit, UnauthorizedException } from "@nestjs/common";
+import { Inject, Injectable, Logger, UnauthorizedException } from "@nestjs/common";
 import { JsonWebTokenError, JwtService, TokenExpiredError } from "@nestjs/jwt";
 import { PrismaService } from "apps/server/src/prisma/prisma.service";
 import bcrypt from "bcryptjs";
@@ -133,7 +131,7 @@ import { PrismaError } from "prisma-error-enum";
 import { IdTokenPayload, LoginDTO, LoginResponseDTO, RefreshTokenPayload } from "./auth.dto";
 import { IdTokenService, RefreshTokenService } from "./token/token.token";
 @Injectable()
-export class AuthService implements OnModuleInit {
+export class AuthService {
   private readonly logger = new Logger(AuthService.name);
   constructor(
     private readonly prisma: PrismaService,
@@ -142,46 +140,6 @@ export class AuthService implements OnModuleInit {
     @Inject(RefreshTokenService)
     private readonly refreshTokenService: JwtService,
   ) {}
-
-  onModuleInit() {
-    this.initAdmin();
-  }
-
-  async initAdmin() {
-    const username = process.env.ADMIN_USERNAME;
-    if (!username) {
-      throw new Error("ADMIN_USERNAME 환경변수가 정의되지 않았습니다.");
-    }
-    const password = process.env.ADMIN_PASSWORD;
-    if (!password) {
-      throw new Error("ADMIN_PASSWORD 환경변수가 정의되지 않았습니다.");
-    }
-    const found = await this.prisma.user.findFirst({
-      where: {
-        roles: {
-          has: "ADMIN",
-        },
-      },
-    });
-    if (!found) {
-      await this.prisma.user.create({
-        data: {
-          username,
-          password: bcrypt.hashSync(password),
-          name: "admin",
-          birthDate: new Date(),
-          roles: ["ADMIN"],
-          tel: "010-0000-0000",
-          authentications: {
-            create: {
-              provider: "LOCAL",
-            },
-          },
-        },
-      });
-      this.logger.log("Admin 계정 생성 완료");
-    }
-  }
 
   async login(data: LoginDTO) {
     const { username, password } = data;
@@ -195,8 +153,6 @@ export class AuthService implements OnModuleInit {
           select: {
             id: true,
             password: true,
-            name: true,
-            tel: true,
             roles: true,
             status: true,
             authentications: {
@@ -219,8 +175,6 @@ export class AuthService implements OnModuleInit {
 
       const idTokenPayload: IdTokenPayload = {
         id: found.id,
-        name: found.name,
-        tel: found.tel,
         roles: found.roles,
         status: found.status,
         provider: found.authentications[0].provider,
@@ -276,8 +230,6 @@ export class AuthService implements OnModuleInit {
         where: { id: payload.id },
         select: {
           id: true,
-          name: true,
-          tel: true,
           roles: true,
           status: true,
           authentications: {
@@ -303,8 +255,6 @@ export class AuthService implements OnModuleInit {
 
     const idTokenPayload: IdTokenPayload = {
       id: user.id,
-      name: user.name,
-      tel: user.tel,
       roles: user.roles,
       status: user.status,
       provider: user.authentications[0].provider,
