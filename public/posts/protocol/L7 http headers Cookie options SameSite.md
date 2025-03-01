@@ -23,7 +23,8 @@ Lax (Laxative:느슨한) : 대체적으로 서드 파티 쿠키는 전송되지 
                        - window.location.replace() 등으로 페이지를 이동하는 경우
 
                        # 쿠키를 보내지 않는 상황
-                       - 대부분의 script를 이용한 자동화된 요청 (e.g. form.submit(), XMLHttpRequest, a.click(), window.open())
+                       - 대부분의 script를 이용한 자동화된 요청
+                       (e.g. form.submit(), XMLHttpRequest, a.click(), window.open())
                        - Get 요청이 아닌 경우 (e.g. Post, Put, Delete)
 
 None : 크로스 도메인 요청에도 쿠키를 전송, 사용하려면 반드시 해당 쿠키는 Secure 쿠키여야한다.
