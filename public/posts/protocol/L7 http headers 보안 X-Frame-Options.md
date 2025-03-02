@@ -1,4 +1,4 @@
-# html iframe X-Frame-Options
+# http headers 보안 X-Frame-Options
 
 > iframe을 이용한 공격을 방지하기 위한 HTTP 헤더 (Clickjacking)
 >

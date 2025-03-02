@@ -4,7 +4,7 @@
 >
 > > 교차 사이트 스크립팅(XSS)과 데이터 주입 공격을 비롯한 특정 유형의 공격을 탐지하고 완화하는 데 도움이 되는 추가 보안 계층
 > >
-> > > frame-ancestors로 X-Frame-Options와 같은 기능을 수행
+> > > frame-ancestors 'none'으로 X-Frame-Options: DENY와 같은 기능을 수행
 
 ```html
 <!-- 지시어 -->
