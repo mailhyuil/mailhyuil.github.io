@@ -44,9 +44,10 @@ export class AppModule {}
 ### app.controller.ts
 
 ```ts
-@Controller()
-export class AppController {
-  constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}
+@Injectable()
+export class UserService {
+  constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache, private readonly prisma: PrismaService) {}
+
   async findAll(): string {
     await this.cache.set("key", "value");
     const value = await this.cache.get("key");
