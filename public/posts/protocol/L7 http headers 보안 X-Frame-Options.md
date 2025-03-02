@@ -1,5 +1,7 @@
 # http headers 보안 X-Frame-Options
 
+> 내 웹사이트를 다른 웹사이트가 iframe으로 사용할 수 없게 하는 옵션
+>
 > iframe을 이용한 공격을 방지하기 위한 HTTP 헤더 (Clickjacking)
 >
 > > CSP(Content-Security-Policy)의 frame-ancestors 정책과 같은 기능
