@@ -1,6 +1,8 @@
-# nest signedCookie
+# nest signed cookie
 
-> 쿠키의 값이 노출되면 안되는 경우 사용
+> 시크릿을 사용해서 시그니처를 생성한 쿠키
+>
+> > 클라이언트에서 쿠키의 값은 볼 수 있지만 서버에서 이 쿠키가 modified 되었는지 확인할 수 있다.
 
 ## install
 

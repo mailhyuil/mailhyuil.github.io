@@ -6,7 +6,7 @@
 >
 > username:password는 절대로 store에 저장하면 안됨
 >
-> > base64로 인코딩된 사용자 ID, 비밀번호 쌍을 인증 정보(credentials) 값으로 사용합니다.
+> > username:password는 HTTP 헤더에 포함하여 전송되는데 이때 특수문자가 포함되면 문제가 생길 수 있기 때문에 base64로 인코딩된 사용자 ID, 비밀번호 쌍을 인증 정보(credentials) 값으로 사용합니다.
 > >
 > > > 사용자 ID와 비밀번호는 위와 같이 콜론으로 구분합니다.
 > > >
