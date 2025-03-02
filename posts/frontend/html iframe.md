@@ -17,3 +17,11 @@
   </p>
 </iframe>
 ```
+
+## host 사이트의 리소스에 접근
+
+> sandbox 속성을 통해서 접근을 차단할 수 있다.
+
+```js
+document.top; // host의 document 객체
+```

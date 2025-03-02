@@ -1,8 +1,14 @@
-# angular proxy
+# angular CORS proxy
 
-> backend sop 설정에서 localhost:4200을 허용하고 싶지 않은 경우
+> backend와 origin이 달라서 SOP로 인해 막힐 때 (CORS 우회 방법)
 >
-> > proxy를 통해서 backend와 같은 도메인, 포트로 요청을 보내면 된다.
+> 설정에서 localhost:4200을 허용하고 싶지 않은 경우
+>
+> > 클라이언트는 요청을 프록시 서버로 보내고 프록시 서버가 다시 서버로 요청을 보냄
+> >
+> > 서버는 응답을 항상 보내기 때문에 프록시 서버가 받을 수 있다.
+> >
+> > 프록시 서버는 클라이언트와 같은 origin이므로 프록시가 다시 응답을 건네주면 SOP를 우회할 수 있다.
 
 ## /src/proxy.conf.json
 

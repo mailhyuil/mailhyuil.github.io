@@ -20,7 +20,7 @@ server {
         proxy_cache_valid 200 302 1m; # 200, 302 응답을 1분간 캐시한다.
         proxy_cache_lock on; # 캐시 파일을 생성할 때까지 다른 요청을 대기시킨다.
         proxy_ignore_headers X-Accel-Expires Expires Cache-Control; # 캐시 헤더를 무시한다.
-        add_header X-CACHE-STATUS $upstream_cache_status; # 커스텀 헤더를 정의
+        add_header X-CACHE $upstream_cache_status; # 커스텀 헤더를 정의
 
         proxy_pass http://localhost:9090;
     }
