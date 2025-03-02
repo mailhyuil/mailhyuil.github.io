@@ -26,23 +26,26 @@ server {
 
 ## 부하 분산 규칙
 
-```
+```txt
 round-robin(디폴트) - 그냥 돌아가면서 분배한다.
-
-hash - 해시한 값으로 분배한다 쓰려면 hash <키> 형태로 쓴다. (e.g. hash $remote_addr <- 이는 ip_hash와 같다.)
-
-ip_hash - 아이피로 해싱해서 분배한다.
 
 random - 그냥 랜덤으로 분배한다.
 
 least_conn - 연결수가 가장 적은 서버를 선택해서 분배, 근데 가중치를 고려함
 
-least_time - 연결수가 가자 적으면서 평균 응답시간이 가장 적은 쪽을 선택해서분배
+least_time - 연결수가 가자 적으면서 평균 응답시간이 가장 적은 쪽을 선택해서 분배
+
+# hash와 ip_hash는 sticky session을 구현할때 사용한다.
+hash - 해시한 값으로 분배한다 쓰려면 hash <키> 형태로 쓴다. (e.g. hash $remote_addr <- 이는 ip_hash와 같다.)
+
+ip_hash - 아이피로 해싱해서 분배한다.
+
+sticky - 쿠키로 분배한다. (3rd-party 모듈 또는 NGINX Plus 예시)
 ```
 
 ## parameter
 
-```
+```txt
 weight - 가중치를 둬서 더많이 가게 한다.
 
 max_conns - 최대 연결 한계를 정한다
