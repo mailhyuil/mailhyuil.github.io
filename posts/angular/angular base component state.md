@@ -14,15 +14,15 @@ export class BaseComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.httpClient.get("http://localhost:3000/api/v1/users").subscribe(
-      (data) => {
+      data => {
         this.data = data;
         this.loading = false;
       },
-      (error) => {
+      error => {
         this.error = "데이터를 가져오는데 실패했습니다.";
         this.loading = false;
         console.error(error);
-      }
+      },
     );
   }
 }
@@ -31,21 +31,11 @@ export class BaseComponent implements OnInit {
 ## base.component.html
 
 ```html
-<ng-container *ngIf="!isLoading && !error && data"> {{data | json}} </ng-container>
+<ng-container *ngIf="!isLoading && !error && data">{{data | json}}</ng-container>
 <ng-container *ngIf="loading">
   <p>로딩중...</p>
 </ng-container>
 <ng-container *ngIf="error">
   <p>{{ error }}</p>
 </ng-container>
-```
-
-## angular 17
-
-```html
-@defer (on viewport) {
-<comment-list />
-} @loading { Loading… } @error { Loading failed :( } @placeholder {
-<img src="comments-placeholder.png" />
-}
 ```

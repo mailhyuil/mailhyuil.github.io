@@ -35,24 +35,23 @@ import { AppController } from "./app.controller";
     }),
   ],
   controllers: [AppController],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheInterceptor,
+    },
+  ],
 })
 export class AppModule {}
 ```
 
-### app.controller.ts
+### usage
 
 ```ts
-import { CACHE_MANAGER } from "@nestjs/cache-manager";
-import { Cache } from "cache-manager";
+constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}
 
-@Controller()
-export class AppController {
-  constructor(@Inject(CACHE_MANAGER) private readonly cache: Cache) {}
-  async findAll(): string {
-    await this.cache.set("key", "value");
-    const value = await this.cache.get("key");
-    await this.cache.del("key");
-    await this.cache.reset();
-  }
-}
+@UseInterceptors(CacheInterceptor)
+
+@CacheTTL(5)
+@CacheKey("key")
 ```

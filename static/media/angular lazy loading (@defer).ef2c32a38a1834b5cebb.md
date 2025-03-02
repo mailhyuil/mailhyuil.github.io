@@ -31,10 +31,17 @@
 > > > 매개변수에는 defer 된 컴포넌트는 사용할 수 없다.
 
 ```html
+<!-- 이 greeting element는 defer면 안됨 -->
 <div #greeting>Hello!</div>
 @defer (on viewport(greeting)) {
 <greetings-cmp />
 }
+
+<div #wrapper>
+  @defer (on viewport(wrapper)) {
+  <greetings-cmp />
+  }
+</div>
 ```
 
 ### @defer (on immediate)
