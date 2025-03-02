@@ -1,8 +1,10 @@
 # angular CSP Nonce
 
-> ngCspNonce를 사용하여 모든 script, style에 nonce를 추가한다.
+> unsafe-inline, unsafe-eval을 사용하면 XSS 공격에 취약하기 때문에 이를 방지하기 위해서 nonce를 사용하여 보안을 강화한다.
 >
-> > CSP_NONCE에 Nonce 값을 입력하면 자동으로 angular가 CSP에 nonce를 추가한다.
+> > ngCspNonce에 nonce 이름을 추가한다.
+> >
+> > > CSP_NONCE에 Nonce 값을 입력하면 자동으로 angular가 CSP에 nonce를 추가한다.
 
 ## nonce.generator.ts
 
