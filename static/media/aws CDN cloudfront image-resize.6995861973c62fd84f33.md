@@ -1,14 +1,10 @@
 # aws cloudfront image-resize
 
-> s3에 original, images directory를 생성
+> cloudfront에 요청일 올 때 이미지를 리사이징하는 방식
 >
-> > server 또는 presigned URL에서 original로 이미지를 업로드
-> >
-> > > viewer(client)가 images로 접근하면 cloudfront에서 original 이미지를 resize하여 images로 전달
-> > >
-> > > resize된 이미지가 이미 있다면 resize 생략
-> > >
-> > > resize 된 이미지는 expire time을 설정
+> 요청일 한번이라도 와야 resize를 하는 것이므로 처음 요청일 때는 시간이 걸림
+>
+> > upload 시 리사이징을 하기 위해서는 s3의 event notification을 사용해야 함
 
 ## image-resize lambda function
 
