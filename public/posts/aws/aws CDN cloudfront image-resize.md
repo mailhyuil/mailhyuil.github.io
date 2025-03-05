@@ -1,8 +1,8 @@
 # aws cloudfront image-resize
 
-> cloudfront에 요청일 올 때 이미지를 리사이징하는 방식
+> cloudfront에 요청이 올 때 이미지를 리사이징하는 방식
 >
-> 요청일 한번이라도 와야 resize를 하는 것이므로 처음 요청일 때는 시간이 걸림
+> 요청이 한번이라도 와야 resize를 하는 것이므로 처음 요청일 때는 시간이 걸림
 >
 > > upload 시 리사이징을 하기 위해서는 s3의 event notification을 사용해야 함
 
