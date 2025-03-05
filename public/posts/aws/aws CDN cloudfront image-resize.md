@@ -9,6 +9,8 @@
 > > > resize된 이미지가 이미 있다면 resize 생략
 > > >
 > > > resize 된 이미지는 expire time을 설정
+> > >
+> > > > lambda 함수를 Viewer Response와 연결하여 들어온 이미지가 없다면 resizing 후 저장 후 전달
 
 ## image-resize lambda function
 

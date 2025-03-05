@@ -6,10 +6,16 @@
 > >
 > > > 서버로부터 받은 upload_url을 이용하여 클라이언트에서 파일을 업로드
 
-# resumable uploads
+## install
+
+```sh
+npm i tus-js-client
+```
+
+## resumable uploads
 
 ```ts
-export class UploadComponent {
+export class UploadService {
   upload(uploadUrl: string, file: File) {
     // Create a new tus upload
     const upload = new tus.Upload(file, {
