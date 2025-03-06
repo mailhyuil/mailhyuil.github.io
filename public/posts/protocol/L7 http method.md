@@ -10,14 +10,16 @@
 
 ## DELETE : 리소스 삭제
 
-## html form tag
+## OPTIONS : 서버가 지원하는 HTTP 설정을 확인하기 위한 메소드
 
-> html form tag는 GET, POST만 지원
+> Preflight 요청
 
-### html form tag에서 PUT, PATCH, DELETE 사용하기
+## HEAD : GET과 동일하지만, body를 제외한 헤더 정보만 반환
 
-```html
-<form action="/hi" method="POST">
-  <input type="hidden" name="_method" value="PUT" />
-</form>
-```
+> 리소스의 존재 여부 확인
+>
+> 콘텐츠 크기 확인
+>
+> 캐싱 관련 정보 확인 (Expires, Cache-Control, ETag, Last-Modified)
+>
+> 서버 상태 확인
