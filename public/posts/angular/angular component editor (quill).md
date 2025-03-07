@@ -9,26 +9,21 @@ npm i quill-image-resizor
 npm i quill-mention
 ```
 
-## app.config.ts
+## interface
 
 ```ts
-import { provideQuillConfig } from "ngx-quill";
+import { InjectionToken } from "@angular/core";
+import { Observable } from "rxjs";
 
-provideQuillConfig({
-    customOptions: [
-    {
-        import: "formats/font",
-        whitelist: [
-        "mirza",
-        "roboto",
-        "aref",
-        "serif",
-        "sansserif",
-        "monospace",
-        ],
-    },
-    ],
-}),
+export interface EditorImageUploadResponse {
+  url: string;
+}
+
+export interface IEditorImageService {
+  upload(file: File): Observable<EditorImageUploadResponse>;
+}
+
+export const EDITOR_IMAGE_SERVICE = new InjectionToken<IEditorImageService>("EDITOR_IMAGE_SERVICE");
 ```
 
 ## editor.component.ts
@@ -39,14 +34,14 @@ import { AbstractControl, FormsModule, NgControl } from "@angular/forms";
 
 import { ErrorMessageComponent, ValueAccessorDirective } from "@mailhyuil/ng-libs";
 import { LabelComponent } from "@mailhyuil/ng-libs/admin";
-import { QuillEditorComponent, QuillModules } from "ngx-quill";
+import { CustomOption, QuillEditorComponent, QuillModules } from "ngx-quill";
 import Quill from "quill";
 import ImageResizor from "quill-image-resizor";
+import Toolbar from "quill/modules/toolbar";
 import { EDITOR_IMAGE_SERVICE } from "../../public-api";
 
 ImageResizor.Quill = Quill;
 Quill.register("modules/imageResizor", ImageResizor);
-
 @Component({
   selector: "mh-editor",
   templateUrl: "./editor.component.html",
@@ -66,13 +61,21 @@ export class EditorComponent implements OnInit {
   });
   hints = input<string[]>([]);
   uploadImageChange = output<string>();
-  imageService = inject(EDITOR_IMAGE_SERVICE);
+  deleteImageChange = output<string>();
+  imageService = inject(EDITOR_IMAGE_SERVICE, {
+    optional: true,
+  });
   ngControl = inject(NgControl, {
     optional: true,
     self: true,
   });
   control?: AbstractControl;
-
+  customOptions = input<CustomOption[]>([
+    {
+      import: "formats/font",
+      whitelist: ["mirza", "roboto", "aref", "serif", "sansserif", "monospace"],
+    },
+  ]);
   private readonly valueAccessor = inject(ValueAccessorDirective<string>);
   constructor() {
     this.modules = {
@@ -86,15 +89,36 @@ export class EditorComponent implements OnInit {
     this.control = this.ngControl?.control || undefined;
   }
 
-  setValue(event: any) {
+  private findImageUrls(content?: string) {
+    if (!content) return [];
+    const urls = content.match(/<img[^>]*src="([^"]*)"[^>]*>/g);
+    if (!urls) return [];
+    return urls.map(url => url.match(/src="([^"]*)"/)?.[1]).filter((url): url is string => !!url);
+  }
+
+  private findDeleteImageUrl(oldContent: string, newContent: string) {
+    const oldUrls = this.findImageUrls(oldContent);
+    const newUrls = this.findImageUrls(newContent);
+    const urls = oldUrls?.filter(url => !newUrls?.includes(url));
+    const found = urls[0];
+    return found ? found : undefined;
+  }
+
+  setValue(event: string) {
+    const found = this.findDeleteImageUrl(this.value(), event);
+    if (found) {
+      this.deleteImageChange.emit(found);
+    }
     this.valueAccessor.writeValue(event);
     this.valueAccessor.valueChange(event);
   }
 
   onEditorCreated(editor: Quill) {
     this.editor = editor;
-    const toolbar: any = this.editor.getModule("toolbar");
-    toolbar.addHandler("image", this.imageHandler.bind(this));
+    const toolbar = this.editor.getModule("toolbar");
+    if (toolbar instanceof Toolbar) {
+      toolbar.addHandler("image", this.imageHandler.bind(this));
+    }
   }
 
   imageHandler() {
@@ -104,9 +128,17 @@ export class EditorComponent implements OnInit {
     input.click();
 
     input.onchange = async () => {
+      if (!this.imageService)
+        throw new Error(`EDITOR_IMAGE_SERVICE 가 app.config.ts에 등록되지 않았습니다.
+  {
+        provide: EDITOR_IMAGE_SERVICE,
+        useClass: ImageService,
+  }
+  `);
+
       if (!this.editor) throw new Error("editor is not defined");
 
-      const file: any = input.files ? input.files[0] : null;
+      const file = input.files ? input.files[0] : null;
       if (!file) return;
 
       const range = this.editor.getSelection();
@@ -120,6 +152,7 @@ export class EditorComponent implements OnInit {
       });
     };
   }
+
   handleBlur() {
     this.valueAccessor.touchedChange(true);
   }
