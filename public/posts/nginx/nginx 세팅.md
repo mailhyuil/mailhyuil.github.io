@@ -72,7 +72,7 @@ server {
     ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
     ssl_stapling on;
     ssl_stapling_verify on;
-    resolver 8.8.8.8 1.1.1.1;
+    resolver 8.8.8.8 1.1.1.1; # 네임서버의 주소 (호스팅 업체의)
 
     location = / {
         try_files '' @ssr;
