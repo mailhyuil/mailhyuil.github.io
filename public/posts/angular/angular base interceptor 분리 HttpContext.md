@@ -21,10 +21,12 @@ export function ApiInterceptorFn(req: HttpRequest<unknown>, next: HttpHandlerFn)
 
   const errorHandler = inject(GlobalErrorHandler);
   return next(apiReq).pipe(
-    catchError((error) => {
-      errorHandler.handleError(error);
-      return EMPTY;
-    })
+    catchError(error => {
+      if (error instanceof HttpErrorResponse) {
+        errorHandler.handleError(error);
+      }
+      throw error;
+    }),
   );
 }
 ```

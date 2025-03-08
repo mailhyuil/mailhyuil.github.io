@@ -1,5 +1,56 @@
 # nest main.ts 세팅 enhancers
 
+## error.ts
+
+```ts
+export type ErrorInfo = {
+  code: string;
+  message: string;
+  details?: any;
+};
+export type ErrorResponse = {
+  errorInfo: ErrorInfo;
+  cause: Error;
+};
+export namespace ErrorInfo {
+  export const USER_NOT_FOUND: ErrorInfo = {
+    code: "0100",
+    message: `유저를 찾지 못했습니다.`,
+  };
+}
+export const createErrorResponse = (errorInfo: ErrorInfo, cause: Error): ErrorResponse => ({
+  errorInfo,
+  cause,
+});
+```
+
+## exception.ts
+
+```ts
+export class InvalidTokenException extends HttpException {
+  constructor() {
+    super("유효하지 않은 토큰입니다.", 498);
+  }
+}
+export class BusinessException extends HttpException {
+  constructor(errorResponse: ErrorResponse, status: HttpStatus) {
+    super(errorResponse, status);
+  }
+}
+export class UserNotFoundException extends HttpException {
+  constructor(cause: Error) {
+    const response = createErrorResponse(ErrorInfo.USER_NOT_FOUND, cause);
+    super(response, HttpStatus.NOT_FOUND);
+  }
+}
+export class UserAlreadyExistsException extends BusinessException {
+  constructor(cause: Error) {
+    const response = createErrorResponse(ErrorInfo.USER_ALREADY_EXISTS, cause);
+    super(response, HttpStatus.CONFLICT);
+  }
+}
+```
+
 ## business-exception.filter.ts
 
 ```ts
@@ -7,7 +58,7 @@ import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import { Request, Response } from "express";
 import { PrismaError } from "prisma-error-enum";
-import { BusinessException, ERROR } from "../errors";
+import { BusinessException, ErrorInfo, ErrorResponse } from "../errors";
 
 /**
  * @export
@@ -26,7 +77,7 @@ export class BusinessExceptionFilter implements ExceptionFilter {
     const errorMessage = error.message;
     const errorStack = error.stack;
 
-    const { code, message, cause } = error.getResponse() as ERROR;
+    const { errorInfo, cause } = error.getResponse() as ErrorResponse;
 
     const clientResponse = {
       statusCode: errorStatusCode,
@@ -34,10 +85,9 @@ export class BusinessExceptionFilter implements ExceptionFilter {
       timestamp: new Date().toISOString(),
       message: errorMessage,
       error: {
-        ...ERROR.BUSINESS_ERROR,
-        code,
-        message,
-      } satisfies ERROR,
+        ...ErrorInfo.BUSINESS_ERROR,
+        ...errorInfo,
+      } satisfies ErrorInfo,
     };
 
     if (cause instanceof Prisma.PrismaClientKnownRequestError) {
@@ -58,7 +108,7 @@ MESSAGE=${clientResponse.message}
 TIMESTAMP=${clientResponse.timestamp}
 ERROR=${JSON.stringify(clientResponse.error)}
 ERROR_STACK=${errorStack}
-CAUSE=${JSON.stringify(cause)}
+CAUSE=${cause}
 `);
   }
 }
@@ -69,7 +119,7 @@ CAUSE=${JSON.stringify(cause)}
 ```ts
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from "@nestjs/common";
 import { Request, Response } from "express";
-import { ERROR } from "../errors";
+import { ErrorInfo, ErrorResponse } from "../errors";
 
 /**
  * @export
@@ -86,10 +136,10 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const req = ctx.getRequest<Request>();
     const statusCode = error.getStatus();
 
-    const response = error.getResponse() as string;
+    const { errorInfo, cause } = error.getResponse() as ErrorResponse;
     const errorMessage = error.message;
     const errorStack = error.stack;
-    const cause = error.cause;
+    // const cause = error.cause;
 
     const clientResponse = {
       statusCode,
@@ -97,9 +147,9 @@ export class HttpExceptionFilter implements ExceptionFilter {
       path: req.url,
       timestamp: new Date().toISOString(),
       error: {
-        ...ERROR.HTTP_ERROR,
-        message: response,
-      } as ERROR,
+        ...ErrorInfo.HTTP_ERROR,
+        ...errorInfo,
+      } as ErrorInfo,
     };
 
     res.status(statusCode).json(clientResponse);
@@ -148,7 +198,7 @@ CAUSE=${cause}
 import { ValidationException } from "@/server/pipes/global-validation.pipe";
 import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
 import { Request, Response } from "express";
-import { ERROR } from "../errors";
+import { ErrorResponse } from "../errors";
 
 /**
  * @export
@@ -164,17 +214,16 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     const res = ctx.getResponse<Response>();
     const req = ctx.getRequest<Request>();
     const statusCode = error.getStatus();
-    const response = error.getResponse() as ERROR;
+    const { errorInfo, cause } = error.getResponse() as ErrorResponse;
     const errorMessage = error.message;
     const errorStack = error.stack;
-    const cause = error.cause;
 
     const clientResponse = {
       statusCode,
       message: errorMessage,
       path: req.url,
       timestamp: new Date().toISOString(),
-      error: response,
+      error: errorInfo,
     };
 
     res.status(statusCode).json(clientResponse);
@@ -199,7 +248,7 @@ CAUSE=${cause}
 
 ```ts
 import { HttpException, HttpStatus, ValidationPipe } from "@nestjs/common";
-import { ERROR } from "../errors";
+import { ErrorInfo, ErrorResponse } from "../errors";
 
 export const GlobalValidationPipe = new ValidationPipe({
   transformOptions: {
@@ -210,26 +259,33 @@ export const GlobalValidationPipe = new ValidationPipe({
   enableDebugMessages: true,
   exceptionFactory: errors => {
     const properties: string[] = [];
-    const cause = errors
+    const details = errors
       .flatMap(error => (error.children?.length ? error.children : error))
       .map(error => {
         const { property, constraints, value } = error;
         const constraintValues = Object.values(constraints);
         properties.push(property);
-        return { [property]: value, constraints: constraintValues };
+        return {
+          field: property,
+          value,
+          messages: constraintValues,
+        };
       });
 
     return new ValidationException({
-      ...ERROR.VALIDATION_ERROR,
-      message: `유효성 검사에 실패했습니다. [${properties.join(", ")}]`,
-      cause,
+      errorInfo: {
+        ...ErrorInfo.VALIDATION_ERROR,
+        message: `유효성 검사에 실패했습니다.`,
+        details,
+      },
+      cause: new HttpException("유효성 검사에 실패했습니다.", HttpStatus.BAD_REQUEST),
     });
   },
 });
 
 export class ValidationException extends HttpException {
-  constructor(error: ERROR) {
-    super(error, HttpStatus.BAD_REQUEST);
+  constructor(errorResponse: ErrorResponse) {
+    super(errorResponse, HttpStatus.BAD_REQUEST);
   }
 }
 ```

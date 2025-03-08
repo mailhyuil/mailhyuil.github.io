@@ -8,12 +8,12 @@
 
 ```ts
 return next(apiReq).pipe(
-  catchError((error) => {
+  catchError(error => {
     if (error instanceof HttpErrorResponse) {
       httpErrorHandler.handleError(error);
     }
     throw error;
-  })
+  }),
 );
 ```
 
@@ -71,7 +71,12 @@ export class HttpErrorHandler implements ErrorHandler {
       return;
     }
 
-    throw new UserFriendlyError(ErrorMessage[response.error.code] || response.message || "알 수 없는 오류가 발생했습니다.");
+    throw new UserFriendlyError(
+      ErrorMessage[response.error.code] ||
+        response.error.message ||
+        response.message ||
+        "알 수 없는 오류가 발생했습니다.",
+    );
   }
 
   private async handleInvalidToken() {
@@ -79,7 +84,7 @@ export class HttpErrorHandler implements ErrorHandler {
     this.authApi
       .getAccessTokenByRefreshToken()
       .pipe(switchMap(() => this.userApi.me()))
-      .subscribe((user) => {
+      .subscribe(user => {
         if (user) {
           this.authStore.setAuth(user);
         }

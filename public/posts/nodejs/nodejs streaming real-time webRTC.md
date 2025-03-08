@@ -5,25 +5,37 @@
 > > peer to peer(p2p) 방식으로 실시간 통신을 가능하게 해주는 기술 (클라이언트들 끼리 통신)
 > >
 > > > UDP를 기반으로 실시간 통신을 가능하게 해준다.
+> > >
+> > > > nodejs로는 초기 정보(ice candidate, sdp 등)를 교환하는 역할을 하는 signaling server를 구현
 
-## 개념
+## SDP (Session Description Protocol)
 
-```txt
-ICE (Interactive Connectivity Establishment)
+- peerConnection.localDescription
+- 미디어 세션을 설명하는 프로토콜
+- 미디어 유형, 포트, 코덱, 해상도 등의 정보를 포함
+- WebRTC에서는 SDP를 통해 미디어 정보를 교환
+
+## ICE (Interactive Connectivity Establishment)
+
 - "WebRTC 연결을 설정하는 전체 과정"을 담당하는 프로토콜
 - P2P 연결을 위한 최적의 네트워크 경로를 탐색
+- ice-candidate란 네트워크 정보(ip, port)를 교환하는 것 (직접교환, STUN을 통한 교환, TURN을 통한 교환)
 
-STUN (Session Traversal Utilities for NAT)
-- "NAT 뒤에 있는 클라이언트의 공용 IP 주소를 찾아주는 서버"
+## STUN (Session Traversal Utilities for NAT)
+
+- NAT 뒤에 있는 클라이언트의 공용 IP 주소를 찾아서 반환해주는 서버
 - NAT 환경에서 공용 IP를 찾아 P2P 연결을 가능하게 해줌
+- [Peer A - 사설 IP] → (STUN 서버) → [Peer B - 사설 IP]
+- 무료 서비스가 많다 (직접 구축할 수도 있음)
+- google STUN 서버: stun:stun.l.google.com:19302
+- twilio STUN 서버: stun:global.stun.twilio.com
 
-TURN (Traversal Using Relays around NAT)
-- "P2P 연결이 불가능할 때, 중계 서버를 통해 데이터를 전달하는 방식"
+## TURN (Traversal Using Relays around NAT)
+
+- 방화벽으로 인해 P2P 연결이 불가능할 때 사용하는 서버
 - P2P 연결이 불가능할 때, TURN 서버를 통해 데이터를 전달
-
-P2P 연결이 가능 -> STUN 서버만 사용 직접 연결
-P2P 연결이 불가능 -> TURN 서버를 사용해 데이터를 중계
-```
+- [Peer A] → (TURN 서버 중계) → [Peer B]
+- twilio, xirsys 등을 사용 (대부분 유료)
 
 ## install
 

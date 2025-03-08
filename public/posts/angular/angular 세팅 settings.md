@@ -74,10 +74,11 @@ npm i tiptap-extension-font-size
 
 ```ts
 import { ApplicationConfig, importProvidersFrom, APP_INITIALIZER } from "@angular/core";
-import { provideRouter, withPreloading } from "@angular/router";
+import { provideRouter, withPreloading, withComponentInputBinding, withInMemoryScrolling } from "@angular/router";
 import { ApiModule } from "@/api";
 import { appRoutes } from "./app.routes";
 import { QuicklinkModule, QuicklinkStrategy } from "ngx-quicklink";
+import { provideAnimations } from "@angular/platform-browser/animations";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -87,9 +88,11 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({
         scrollPositionRestoration: "top",
       }),
+      withComponentInputBinding(),
     ),
     provideHttpClient(withInterceptors([HttpInterceptor])),
-    importProvidersFrom([ApiModule, BrowserAnimationsModule, QuicklinkModule]),
+    provideAnimations(),
+    importProvidersFrom([ApiModule, QuicklinkModule]),
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
     {
       provide: APP_INITIALIZER,
