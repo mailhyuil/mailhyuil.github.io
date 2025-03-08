@@ -15,3 +15,13 @@ chmod +x openvpn-install.sh
 openvpn-install.sh
 # vpn access key가 생성됨
 ```
+
+## scenario
+
+```txt
+1. 서버에 openvpn 설치
+2. vpn access key 생성
+3. 내 컴퓨터에 openvpn client 설치
+4. 서버에서 발급한 .ovpn 설정 파일과 키 설정
+5. 접속 (보안 터널링 및 VPN 통신)
+```

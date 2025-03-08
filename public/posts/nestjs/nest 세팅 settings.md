@@ -163,11 +163,12 @@ async function bootstrap() {
   /** Cookie Parser */
   app.use(cookieParser());
   /** Compression */
-  app.use(compression());
+  /** *주의* 성능 면에서 nestjs보다 nginx같은 reverse proxy에서 압축하는 편이 효율적입니다. */
+  // app.use(compression());
   /** Security */
   app.use(helmet());
   /** CORS */
-  /** 다른 브라우저 클라이언트 Origin으로 부터의 요청이 있는 경우에 사용 */
+  /** *주의* 다른 브라우저 클라이언트 Origin으로 부터의 요청이 있는 경우에 사용 */
   /** 서버 to 서버는 필요없음 */
   app.enableCors();
   /** Trust Proxy */

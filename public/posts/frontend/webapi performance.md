@@ -1,5 +1,7 @@
 # performance
 
-## performance.now()
+```js
+const performance = window.performance;
 
-> returns a high resolution timestamp in milliseconds.
+console.log(performance.now());
+```
