@@ -12,20 +12,27 @@ server {
 }
 
 server {
-    # HTTP/3 (QUIC) 및 HTTP/2 활성화
-    listen 443 ssl http2;
-    listen 443 quic reuseport;
+    server_name example.com;
+
+    # http2 활성화
+    http2 on;
+    listen 443 ssl;
+
+    # http3 활성화
+    http3 on; # http3 지원을 활성화
+    listen 443 quic reuseport;  # UDP listener for QUIC+HTTP/3
+    quic_gso on; # GSO를 활성화합니다
+    quic_retry on; # 주소 확인 허용
 
     # TLS 1.3 필수
     ssl_protocols TLSv1.2 TLSv1.3;
-
     ssl_certificate     /etc/nginx/ssl/example.com.crt;
     ssl_certificate_key /etc/nginx/ssl/example.com.key;
 
-    # QUIC을 사용할 수 있도록 브라우저에 알림
-    add_header Alt-Svc 'h3=":443"; ma=86400';
-
     location / {
+        # QUIC을 사용할 수 있도록 브라우저에 알림
+        add_header Alt-Svc 'h3=":443"; ma=86400';
+
         root html;
         index index.html;
     }
