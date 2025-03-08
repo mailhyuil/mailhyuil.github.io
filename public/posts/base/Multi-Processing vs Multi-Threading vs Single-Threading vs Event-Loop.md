@@ -1,5 +1,7 @@
 # Multi-Processing vs Multi-Threading vs Single-Threading vs Event-Loop
 
+> 각 프로그램의 특징과 cpu 작업량을 파악하여 적절한 갯수의 프로세스나 스레드를 생성하여 최적화해야한다.
+
 ## Multi-Processing
 
 > 하나의 프로세스가 여러 개의 자식 프로세스를 생성하는 것 (nginx, postgresql)
