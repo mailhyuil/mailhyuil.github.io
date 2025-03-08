@@ -1,7 +1,5 @@
 # nginx
 
-![apache & nginx](img/apache&nginx.png)
-
 ## install
 
 ```sh
@@ -12,6 +10,21 @@ nginx -V 2>&1 | grep brotli
 nginx -V 2>&1 | grep --with-http_v2_module
 nginx -V 2>&1 | grep --with-http_v3_module
 ...
+```
+
+## 시스템 확인
+
+```sh
+# core 수 확인
+nproc
+# or
+grep -c ^processor /proc/cpuinfo
+
+# worker_processes 설정
+worker_processes auto;  # CPU 코어 개수만큼 자동 설정
+worker_processes 4;  # 4개의 worker process 생성
+# 서버에 띄운 프로세스의 수에 맞춰서 조절
+# (e.g. nestjs 1, postgres 1 가 한 서버에 있다면 2로 설정)
 ```
 
 ## default.conf

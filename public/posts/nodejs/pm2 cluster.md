@@ -2,9 +2,13 @@
 
 > core 수만큼 프로세스를 생성하여 cpu 사용량을 최적화
 >
-> > 만약 session 인증을 사용한다면 sticky session을 사용해야 한다.
+> > session 인증 사용 시
 > >
-> > 혹은 jwt를 사용해서 앱을 stateless하게 만들어야 한다.
+> > 세션을 중앙 저장소에 저장해야 한다. (redis)
+> >
+> > 또는 sticky session 사용
+> >
+> > 또는 jwt를 사용해서 앱을 stateless하게 만들어야 한다.
 
 ```sh
 pm2 start dist/main.js -i [프로세스 수]
