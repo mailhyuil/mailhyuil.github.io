@@ -1,8 +1,16 @@
 # docker-compose cluster
 
-> app을 여러개 실행하여 병렬로 cpu 사용률을 높이기
+> core 수만큼 프로세스를 생성하여 cpu 사용량을 최적화
 >
-> > pm2의 cluster mode와 같은 효과
+> pm2의 cluster mode와 같은 효과
+>
+> > session 인증 사용 시
+> >
+> > 세션을 중앙 저장소에 저장해야 한다. (redis)
+> >
+> > 또는 sticky session 사용
+> >
+> > 또는 jwt를 사용해서 앱을 stateless하게 만들어야 한다.
 
 ```yaml
 services:

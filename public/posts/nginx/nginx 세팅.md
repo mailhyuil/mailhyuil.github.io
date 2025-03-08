@@ -1,24 +1,47 @@
 # nginx
 
-![apache & nginx](img/apache&nginx.png)
-
 ## install
 
 ```sh
 docker run --name nginx -d -p 80:80 -v $(pwd)/nginx:/etc/nginx nginx
+
+# module 확인
+nginx -V 2>&1 | grep brotli
+nginx -V 2>&1 | grep --with-http_v2_module
+nginx -V 2>&1 | grep --with-http_v3_module
+...
+```
+
+## 시스템 확인
+
+```sh
+# core 수 확인
+nproc
+# or
+grep -c ^processor /proc/cpuinfo
+
+# worker_processes 설정
+worker_processes auto;  # CPU 코어 개수만큼 자동 설정
+worker_processes 4;  # 4개의 worker process 생성
+# 서버에 띄운 프로세스의 수에 맞춰서 조절
+# (e.g. nestjs 1, postgres 1 가 한 서버에 있다면 2로 설정)
 ```
 
 ## default.conf
 
 ```conf
-gzip on;
-gzip_disable "MSIE [1-6]\.(?!.*SV1)";
-gzip_vary on;
-gzip_comp_level 7;
-gzip_proxied any;
-gzip_types text/plain text/css text/javascript image/svg+xml image/x-icon application/javascript application/x-javascript text/xml application/xml application/xml+rss application/json;
+client_max_body_size 500M;
 
-client_max_body_size 1G;
+# gzip
+gzip on;
+gzip_disable "MSIE [1-6]\.(?!.*SV1)";  # IE6 이하 비활성화
+gzip_vary on;  # 캐싱 최적화 (Vary: Accept-Encoding)
+gzip_comp_level 5;  # 압축률과 속도의 균형
+gzip_proxied expired no-cache no-store private auth;  # 프록시 요청 조건부 허용
+gzip_types text/plain text/css text/javascript application/javascript application/json application/xml application/xml+rss image/svg+xml;
+
+# brotli
+# brotli_static on;
 
 server {
     server_name example.com;
