@@ -3,11 +3,17 @@
 > url로 요청을 날려서 font를 font-family 이름으로 지정해줌
 >
 > > 문제는 이 폰트를 사용하는 페이지에 들어갔을 때 불러오기 때문에 font가 로드되지 않는 문제가 발생할 수 있다
+> >
+> > > local은 사용자 디바이스에 있는 폰트를 찾아서 사용 (빠름)
+> > >
+> > > url은 remote에서 폰트를 찾아서 사용 (느림)
+> > >
+> > > > 콤마(,)로 구분해서 여러 개의 폰트를 지정할 수 있다
 
 ```css
 @font-face {
   font-family: "PretendardVariable";
-  src: local("PretendardVariable"), url(/assets/fonts/PretendardVariable.woff2) format("woff2");
+  src: local("PretendardVariable"), url(/assets/fonts/PretendardVariable.woff2) format("woff2-variations");
 }
 ```
 

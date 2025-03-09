@@ -3,26 +3,18 @@
 ## angular.json
 
 ```json
-// angular.json
-  "styles": [
-    {
-      "input": "src/pre_styles.scss",
-      "inject": false
-    },
-    {
-      "input": "src/late_styles.scss", // <- we will use it later.
-      "inject": false
-    }
-  ]
+"styles": [
+  "apps/client/src/styles.scss",
+  {
+    "input": "apps/client/src/themes/font.scss",
+    "inject": true,
+    "bundleName": "font"
+  }
+]
 ```
 
 ## index.html
 
 ```html
-<!-- index.html -->
-<head>
-  ...
-  <link rel="preload" href="pre_styles.css" as="style" />
-  <link rel="stylesheet" href="pre_styles.css" />
-</head>
+<link rel="preload" href="font.css" />
 ```

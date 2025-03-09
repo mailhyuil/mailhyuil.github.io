@@ -40,10 +40,8 @@ npm i -D @nextcss/color-tools
 ```css
 @font-face {
   font-family: "PretendardVariable";
-  src: local("PretendardVariable"), url(/font/PretendardVariable.woff2) format("woff2");
+  src: local("PretendardVariable"), url(/font/PretendardVariable.woff2) format("woff2-variations");
 }
-
-@import url("https://use.typekit.net/vpt5ift.css");
 ```
 
 ## project.json
@@ -61,7 +59,11 @@ npm i -D @nextcss/color-tools
 ## index.html
 
 ```html
-<link rel="preload" href="font.css" as="style" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.min.css"
+/>
 ```
 
 ## tailwind.config.js
