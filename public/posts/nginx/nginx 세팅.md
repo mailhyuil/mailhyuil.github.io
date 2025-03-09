@@ -59,10 +59,17 @@ server {
 
 server {
     server_name example.com;
-
+    # http2 활성화
     http2 on;
     listen 443 ssl;
-    listen [::]:443 ssl;
+
+    # http3 활성화
+    http3 on; # http3 지원을 활성화
+    listen 443 quic reuseport;  # UDP listener for QUIC+HTTP/3
+    quic_gso on; # GSO를 활성화합니다
+    quic_retry on; # 주소 확인 허용
+    # QUIC을 사용할 수 있도록 브라우저에 알림 (작동하지 않으면 http 블록이나 location 블록에 추가)
+    add_header Alt-Svc 'h3=":443"; ma=86400';
 
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
@@ -72,7 +79,7 @@ server {
     ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
     ssl_stapling on;
     ssl_stapling_verify on;
-    resolver 8.8.8.8 1.1.1.1;
+    resolver 8.8.8.8 1.1.1.1; # 네임서버의 주소 (호스팅 업체의)
 
     location = / {
         try_files '' @ssr;
@@ -85,6 +92,8 @@ server {
     }
 
     location /admin {
+
+
         alias /app/admin;
         index index.html index.htm;
         try_files $uri $uri/ /admin/index.html =404;
