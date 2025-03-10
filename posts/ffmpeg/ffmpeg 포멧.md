@@ -3,11 +3,18 @@
 ## video format
 
 ```sh
+WebM
+# WebM은 Google에서 개발한 오픈 웹용 비디오 포맷으로 VP8 또는 VP9 비디오 코덱과 Opus 오디오 코덱을 사용합니다. 일부 브라우저에서는 WebM을 지원하며, VP9 코덱을 지원하는 브라우저에서 뛰어난 품질과 압축률을 제공합니다.
+
 MP4 (MPEG-4 Part 14)
 # MP4는 가장 보편적으로 사용되는 비디오 컨테이너 포맷 중 하나입니다. H.264(AVC) 및 H.265(HEVC) 코덱과 함께 사용되며, 대부분의 브라우저에서 지원됩니다.
 
-WebM
-# WebM은 Google에서 개발한 오픈 웹용 비디오 포맷으로 VP8 또는 VP9 비디오 코덱과 Opus 오디오 코덱을 사용합니다. 일부 브라우저에서는 WebM을 지원하며, VP9 코덱을 지원하는 브라우저에서 뛰어난 품질과 압축률을 제공합니다.
+TS(MPEG-TS) & M3U8 # HLS (HTTP Live Streaming)
+# TS 파일은 비디오와 오디오가 합쳐진 작은 파일 단위 스트리밍
+
+M4S(MPD) # MPEG-DASH (Dynamic Adaptive Streaming over HTTP)
+# m4s 파일은 Video와 Audio 파일을 각각 별도의 스트리밍으로 파일을 내려보냅니다.
+# 초기 파일에 Audio와 Video 파일 디코딩 track 정보를 포함하고 있습니다. (init.m4s)
 ```
 
 ## audio format
