@@ -1,5 +1,7 @@
 # testing base given-when-then
 
+> test 작성 패턴
+
 ```js
 describe("given-when-then", () => {
   it("1 + 1은 2", () => {
