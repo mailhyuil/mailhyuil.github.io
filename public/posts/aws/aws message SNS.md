@@ -1,1 +1,1 @@
-# aws message SNS
+# aws message SNS (Simple Notification Service)
