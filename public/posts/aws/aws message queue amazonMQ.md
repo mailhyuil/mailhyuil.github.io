@@ -9,8 +9,8 @@
 1. rabbitMQ 엔진 선택
 2. amqplib 설치
 
-```
-npm install amqplib
+```sh
+npm i amqplib
 ```
 
 ### 메세지 보내기
