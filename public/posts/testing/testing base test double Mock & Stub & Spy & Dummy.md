@@ -1,4 +1,6 @@
-# testing mock vs stub vs dummy vs spy
+# testing test double Mock & Stub & Spy & Dummy
+
+> test double이란 실제 객체를 대신해서 테스트할 때 사용하는 대체 객체
 
 ## Mock
 
