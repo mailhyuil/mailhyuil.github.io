@@ -1,8 +1,8 @@
 # aws 세팅 settings
 
 1. root 계정 생성
-2. region 선택
-3. VPC 생성
+2. budget 생성
+3. region 선택
 4. IAM 사용자 생성
 5. Policy 생성 (AdministratorAccess를 부여하면 모든 권한을 부여받는다.)
 6. credentials 생성 (콘솔에서 오른쪽 상단 사용자 이름 클릭 -> 내 보안 자격 증명 (Security credentials) -> 액세스 키 만들기)
