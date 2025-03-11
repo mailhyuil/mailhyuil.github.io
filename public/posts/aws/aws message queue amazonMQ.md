@@ -1,4 +1,4 @@
-# aws amazonMQ
+# aws message queue amazonMQ
 
 > 아마존 클라우드의 관리형 메시지 브로커 서비스
 >
@@ -58,12 +58,12 @@ amqp.connect("amqp://localhost", (error0, connection) => {
 
     channel.consume(
       queue,
-      (msg) => {
+      msg => {
         console.log(" [x] Received %s", msg.content.toString());
       },
       {
         noAck: true,
-      }
+      },
     );
   });
 });
