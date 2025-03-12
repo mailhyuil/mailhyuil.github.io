@@ -57,5 +57,7 @@ const text = await page.$eval("p", p => {
 > > > 체이닝 가능
 
 ```ts
-const p = page.locator("p").textContent();
+const p = await page.locator("p").textContent();
+
+const images = await page.locator("img").all();
 ```

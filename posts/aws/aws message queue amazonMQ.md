@@ -1,4 +1,4 @@
-# aws message queue amazonMQ
+# aws message queue AmazonMQ
 
 > 아마존 클라우드의 관리형 메시지 브로커 서비스
 >
@@ -9,8 +9,8 @@
 1. rabbitMQ 엔진 선택
 2. amqplib 설치
 
-```
-npm install amqplib
+```sh
+npm i amqplib
 ```
 
 ### 메세지 보내기
