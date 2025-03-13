@@ -1,5 +1,9 @@
 # postgres replication
 
+> primary(master)에서는 쓰기를 담당
+>
+> > replica(standby)에서는 읽기를 담당
+
 ## postgres_primary & postgres_replica -> pg_hba.conf
 
 > 실제 사용할 때는 readonly user를 생성해서 사용하는 것이 좋음

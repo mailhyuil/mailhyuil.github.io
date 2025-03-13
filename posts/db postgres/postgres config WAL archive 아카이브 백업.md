@@ -20,12 +20,9 @@
 
 ```conf
 wal_level= replica
-
 archive_mode = on
-
 archive_command = 'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/server/archivedir/%f'  # Unix
-
-archive_timeout = 1
+archive_timeout = 1 # 1초마다 강제로 WAL 파일을 archive_command로 보냄 (0이면 16MB 채워지면 보냄)
 ```
 
 ## pg_basebackup
@@ -35,7 +32,15 @@ archive_timeout = 1
 > > 000000010000000000000002 밑의 파일은 지워도 된다.
 
 ```sh
-pg_basebackup -D /mnt/server/backupdir -c fast -X none
+pg_basebackup -D /backup/base -Ft -z -X fetch -P -v
+# -D : 백업파일이 저장될 디렉토리
+# -Ft : tar 형식으로 백업
+# -z : gzip으로 압축
+# -X none : WAL 파일을 복사하지 않음
+# -X fetch : WAL을 백업이 끝난 후, 백업이 시작된 시점의 WAL만 가져옴
+# -X stream : WAL을 백업 중 스트리밍(실시간)으로 받아서 함께 저장
+# -P : 진행률 표시
+# -v : 자세한 정보 표시
 ```
 
 ## restore
