@@ -3,6 +3,8 @@
 > Command Query Responsibility Segregation
 >
 > > 읽기와 쓰기를 분리하는 패턴
+> >
+> > > 읽기 db와 쓰기 db가 나누어져 있을 때 사용
 
 ## 용어
 
