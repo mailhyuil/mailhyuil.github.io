@@ -8,7 +8,7 @@
 > > >
 > > > > 특별한 설정이 없다면 WAL 파일이 꽉 차면 가장 오래된 WAL 파일부터 덮어쓴다. (재사용)
 
-## CDC (Change Data Capture)
+## CDC (Change Data Capture)에 사용되는 WAL
 
 > 데이터베이스의 변경 사항을 실시간으로 캡처하여 다른 시스템에 전달하는 기술
 >
