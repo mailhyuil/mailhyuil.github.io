@@ -1,5 +1,9 @@
 # node-redlock
 
+> 분산 시스템에서 여러개의 쓰기 db를 사용 시에는 동시성 충돌을 방지하기 위해서 분산락을 사용
+>
+> > 이때 redis를 사용하여 application level에서 구현할 수 있다.
+
 ## install
 
 ```sh
@@ -35,7 +39,7 @@ const redlock = new Redlock([clientA, clientB, clientC], {
 });
 
 /* usage 1 */
-await redlock.using([senderId, recipientId], 5000, async (signal) => {
+await redlock.using([senderId, recipientId], 5000, async signal => {
   // Do something...
   await something();
 
