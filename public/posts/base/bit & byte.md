@@ -10,7 +10,7 @@
 > > > >
 > > > > > 1 byte는 16진수로 표현할 수 있다. (0x00 ~ 0xff) 0x00은 0, 0xff는 255이다.
 
-```
+```txt
 # Why do we use bytes instead of bits?
 
 Computers do process all data as bits, but they prefer to process bits in byte-sized groupings. Or to put it another way: a byte is how much a computer likes to "bite" at once. The byte is also the smallest addressable unit of memory in most modern computers.
