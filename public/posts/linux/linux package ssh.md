@@ -17,7 +17,7 @@ ssh-keygen -t rsa -m pem
 
 ## 순서
 
-```
+```markdown
 0. openssh-server, openssh-client 설치
 1. ssh-keygen -t rsa -m pem // local, remote 둘 다
 2. local의 key.pub (public key) 파일의 내용을 remote의 ~/.ssh/authorized_key 파일에 추가

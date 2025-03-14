@@ -1,1 +1,1 @@
-# 람다 layer
+# Lambda layer

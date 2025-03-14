@@ -17,5 +17,44 @@ apt install fail2ban -y
 ## usage
 
 ```sh
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+# /etc/fail2ban/jail.local 수정
+
 systemctl enable fail2ban --now
+
+# 차단된 ip 확인
+fail2ban-client status
+# sshd에서 차단된 ip 확인
+fail2ban-client status sshd
+
+# 차단 해제
+sudo fail2ban-client set sshd unbanip <IP주소>
+```
+
+## ssh
+
+```ini
+[sshd]
+enabled = true
+port = 22
+filter = sshd
+logpath = /var/log/auth.log   # Ubuntu/Debian
+# logpath = /var/log/secure    # CentOS/RHEL
+maxretry = 5  # 5회 실패 시 차단
+bantime = 600 # 10분 차단 (초 단위)
+findtime = 300 # 5분 동안 maxretry 이상 실패 시 차단
+```
+
+## http, https
+
+> 404 페이지 반복 요청 시 차단 가능
+
+```ini
+[nginx]
+enabled  = true
+port     = http,https
+logpath  = /var/log/nginx/access.log
+maxretry = 5
+bantime  = 3600
 ```
