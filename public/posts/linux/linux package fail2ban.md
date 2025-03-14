@@ -7,6 +7,8 @@
 > > ssh 서비스에 대해 fail2ban을 설정하면 비정상적인 ssh 접속을 차단할 수 있고
 > >
 > > nginx 웹 서버에 대해 fail2ban을 설정하면 비정상적인 로그인 시도 등을 차단할 수 있다.
+> >
+> > > 설치 시 기본으로 well-known application에 대한 설정이 되어있음 (sshd, apache, nginx, ...)
 
 ## install
 
@@ -32,7 +34,7 @@ fail2ban-client status sshd
 sudo fail2ban-client set sshd unbanip <IP주소>
 ```
 
-## ssh
+## sshd
 
 ```ini
 [sshd]
@@ -44,17 +46,4 @@ logpath = /var/log/auth.log   # Ubuntu/Debian
 maxretry = 5  # 5회 실패 시 차단
 bantime = 600 # 10분 차단 (초 단위)
 findtime = 300 # 5분 동안 maxretry 이상 실패 시 차단
-```
-
-## http, https
-
-> 404 페이지 반복 요청 시 차단 가능
-
-```ini
-[nginx]
-enabled  = true
-port     = http,https
-logpath  = /var/log/nginx/access.log
-maxretry = 5
-bantime  = 3600
 ```
