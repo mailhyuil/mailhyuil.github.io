@@ -4,6 +4,6 @@
 
 ```txt
 Basically Available
-Soft state
-Eventually consistent
+Soft State
+Eventually Consistent
 ```

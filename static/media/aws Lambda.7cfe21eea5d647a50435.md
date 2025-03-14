@@ -23,7 +23,7 @@ s3, dynamoDB, api gateway, sqs ...
 ```ts
 import dayjs from "dayjs";
 
-export const handler = async (event) => {
+export const handler = async event => {
   const currentDate = dayjs().format("YYYY-MM-DD");
 
   const response = {
@@ -40,7 +40,7 @@ export const handler = async (event) => {
 ## 람다함수를 처리한 뒤 리디렉션
 
 ```ts
-export const handler = async (event) => {
+export const handler = async event => {
   // logic..
   const response = {
     statusCode: 302, // 302 리디렉션 코드
