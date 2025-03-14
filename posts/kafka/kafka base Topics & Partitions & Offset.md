@@ -1,6 +1,6 @@
-# kafka topic & partition & offset
+# kafka Topics & Partitions & Offset
 
-## topic
+## Topic
 
 > kafka의 데이터 저장 단위
 >
@@ -10,9 +10,9 @@
 > > >
 > > > > consumer group 내의 consumer가 topic내의 partition들을 담당해서 읽음
 
-## partition
+## Partition
 
-> topic을 여러개의 partition으로 나누어 저장
+> Topic을 여러개의 partition으로 나누어 저장
 >
 > > exmaple: 1 topic, 100 partitions
 > >
@@ -20,7 +20,7 @@
 > >
 > > consumer group 내의 consumer가 하나 혹은 여러개의 partition을 읽는다.
 
-## offset (partition offset)
+## Offset (partition offset)
 
 > 0부터 시작하는 숫자로 partition 내에서 데이터의 위치를 나타냄
 >
