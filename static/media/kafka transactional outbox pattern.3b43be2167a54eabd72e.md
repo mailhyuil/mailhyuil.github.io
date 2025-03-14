@@ -1,1 +1,0 @@
-# kafka transactional outbox pattern
