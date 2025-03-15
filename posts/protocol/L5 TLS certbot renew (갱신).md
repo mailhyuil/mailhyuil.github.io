@@ -1,17 +1,19 @@
 # certbot renew (갱신)
 
-> renew 후 nginx를 restart 해야한다!
+> renew 후 nginx를 reload 해야한다!
 
 ## 갱신
 
 ```sh
-# certbot 잘 돌아가는지 확인 80번이 사용중이라면 nginx를 끄고 시도
+# 테스트
 certbot renew --dry-run
-systemctl stop nginx
-
 # 갱신
 certbot renew
-systemctl enable nginx --now
+
+# nginx reload
+nginx -s reload
+# docker
+docker exec nginx nginx -s reload
 ```
 
 ## 자동 갱신 cronjob
@@ -23,9 +25,9 @@ systemctl enable nginx --now
 ```sh
 #!/bin/sh
 sudo -i
-systemctl stop nginx
 certbot renew > /var/log/letsencrypt/letsencrypt-renew.log
-systemctl enable nginx --now
+nginx -s reload
+# docker exec nginx nginx -s reload
 ```
 
 ### cron

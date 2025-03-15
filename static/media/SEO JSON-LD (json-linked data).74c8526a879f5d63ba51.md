@@ -1,5 +1,9 @@
 # SEO JSON-LD (json-linked data)
 
+> 구조화된 데이터를 제공하는 방법
+>
+> > (json-ld generator)[https://www.google.com/webmasters/markup-helper]
+
 ```html
 <script type="application/ld+json">
   {
