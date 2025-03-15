@@ -19,9 +19,9 @@ services:
   kafka1:
     image: bitnami/kafka:latest
     networks:
-      - kafka-cluster
+      - kafka
     ports:
-      - "9094:9094"
+      - "10000:9094"
     environment:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_NODE_ID=1
@@ -37,9 +37,9 @@ services:
   kafka2:
     image: bitnami/kafka:latest
     networks:
-      - kafka-cluster
+      - kafka
     ports:
-      - "9095:9095"
+      - "10001:9094"
     environment:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_PROCESS_ROLES=controller,broker
@@ -47,17 +47,17 @@ services:
       - KAFKA_CFG_NODE_ID=2
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@kafka1:9093,2@kafka2:9093,3@kafka3:9093
       - KAFKA_KRAFT_CLUSTER_ID=abcdefghijklmnopqrstuv
-      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9095
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka2:9092,EXTERNAL://localhost:9095
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka2:9092,EXTERNAL://localhost:9094
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
     volumes:
       - ./kafka/kafka2/kafka:/bitnami/kafka
   kafka3:
     image: bitnami/kafka:latest
     networks:
-      - kafka-cluster
+      - kafka
     ports:
-      - "9096:9096"
+      - "10002:9094"
     environment:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_PROCESS_ROLES=controller,broker
@@ -65,12 +65,11 @@ services:
       - KAFKA_CFG_NODE_ID=3
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@kafka1:9093,2@kafka2:9093,3@kafka3:9093
       - KAFKA_KRAFT_CLUSTER_ID=abcdefghijklmnopqrstuv
-      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9096
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka3:9092,EXTERNAL://localhost:9096
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka3:9092,EXTERNAL://localhost:9094
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
     volumes:
       - ./kafka/kafka3/kafka:/bitnami/kafka
-
   kafka-ui:
     container_name: kafka-ui
     image: provectuslabs/kafka-ui:latest
@@ -79,7 +78,7 @@ services:
       - kafka2
       - kafka3
     networks:
-      - kafka-cluster
+      - kafka
     ports:
       - "8080:8080"
     environment:
@@ -89,7 +88,7 @@ services:
   postgres:
     image: postgres
     networks:
-      - kafka-cluster
+      - kafka
     restart: always
     ports:
       - "5432:5432"
@@ -109,7 +108,7 @@ services:
     ports:
       - "8083:8083"
     networks:
-      - kafka-cluster
+      - kafka
     environment:
       - BOOTSTRAP_SERVERS=kafka1:9092,kafka2:9092,kafka3:9092
       - GROUP_ID=1
@@ -118,7 +117,7 @@ services:
       - STATUS_STORAGE_TOPIC=my_source_connect_statuses
 
 networks:
-  kafka-cluster:
+  kafka:
     driver: bridge
 ```
 
