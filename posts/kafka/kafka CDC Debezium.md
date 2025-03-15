@@ -189,14 +189,14 @@ volumes:
     "database.port": "5432",
     "database.user": "postgres",
     "database.password": "postgres",
-    "database.dbname": "postgres",
+    "database.dbname": "mydb",
     "database.server.name": "postgres_server",
     "plugin.name": "pgoutput",
     "slot.name": "debezium_slot",
     "publication.autocreate.mode": "filtered",
     "database.history.kafka.bootstrap.servers": "kafka00:9092,kafka01:9092,kafka02:9092",
-    "database.history.kafka.topic": "schema-changes.postgres",
-    "table.include.list": "public.your_table_name",
+    "database.history.kafka.topic": "schema-changes.mydb",
+    "table.include.list": "public.products,public.orders",
     "slot.drop.on.stop": "false",
     "heartbeat.interval.ms": "10000",
     "schema.include.list": "public",
@@ -216,4 +216,12 @@ curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" 
 curl -X PUT http://localhost:8083/connectors/postgres-connector/pause
 # delete
 curl -X DELETE http://localhost:8083/connectors/postgres-connector
+```
+
+## 사용
+
+```txt
+바라보고 있는 database의 table에 변경이 발생하면 wal을 읽어서 kafka로 전달
+
+topic-name : postgres_server.public.products
 ```
