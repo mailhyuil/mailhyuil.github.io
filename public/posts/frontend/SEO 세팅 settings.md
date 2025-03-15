@@ -47,6 +47,8 @@
    > url에 id 뿐만 아니라 slug를 사용하여 검색엔진에 노출되도록 한다.
 9. 주기적인 콘텐츠 업데이트
    > published date는 time tag로 감싸서 사용한다.
+10. json-ld, schema.org 사용
+    > 구조화된 데이터를 제공한다.
 
 ```html
 <p><time datetime="2021-09-01" pubdate>2021년 9월 1일</time></p>
