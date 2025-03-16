@@ -1,5 +1,9 @@
 # kafka 세팅 settings
 
+> bitnami/kafka: kafka만 포함된 이미지
+>
+> > confluentinc/cp-kafka: kafka와 confluentinc의 다양한 플러그인이 설치된 이미지 (e.g. Rest Proxy, Schema Registry, Connect 등)
+
 ## docker-compose.yaml
 
 > window 환경에서 memory 부족으로 멈춰버리는 이슈가 발생했습니다.
