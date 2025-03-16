@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.d2b74fd0.js",
+    "main.js": "/static/js/main.924267dd.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -1134,6 +1134,7 @@
     "static/media/data 실생활 예시.md": "/static/media/data 실생활 예시.bb8d40f9fcbce97b12b7.md",
     "static/media/terraform 상태저장소(backend).md": "/static/media/terraform 상태저장소(backend).9fcffe91e1ae4f2cc155.md",
     "static/media/L7 http RestAPI me 분리.md": "/static/media/L7 http RestAPI me 분리.3ec4e79805abe7b8ffee.md",
+    "static/media/mongodb Journal (WAL).md": "/static/media/mongodb Journal (WAL).dde2acd67d1868f8a8a0.md",
     "static/media/db index B Tree.md": "/static/media/db index B Tree.93245e4e27921f5aea71.md",
     "static/media/html iframe X-Frame-Options.md": "/static/media/html iframe X-Frame-Options.4bb261e7ebd03c618a91.md",
     "static/media/유저 인터렉션 감지.md": "/static/media/유저 인터렉션 감지.ae22afaf102fac472447.md",
@@ -3825,6 +3826,7 @@
     "static/media/linux package manager apt 설치된 패키지 확인.md": "/static/media/linux package manager apt 설치된 패키지 확인.f420dd34f27cce43f268.md",
     "static/media/nuxt useCookie.md": "/static/media/nuxt useCookie.1d3d61fde0f98c007527.md",
     "static/media/pnpm dlx & pnpx.md": "/static/media/pnpm dlx & pnpx.31c9281cd5606c71e05e.md",
+    "static/media/postgres replication pglogical (Multi-Master).md": "/static/media/postgres replication pglogical (Multi-Master).06498802b77a6a051655.md",
     "static/media/x algorithm 스케쥴링.md": "/static/media/x algorithm 스케쥴링.4b10b80837ea09195a94.md",
     "static/media/ionic routing ion-router-link.md": "/static/media/ionic routing ion-router-link.28c2e512972ae87e99fb.md",
     "static/media/linux package ssh pipelining (ENDSSH).md": "/static/media/linux package ssh pipelining (ENDSSH).7b9b2a90356c0fb098b6.md",
@@ -4627,10 +4629,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.d2b74fd0.js.map": "/static/js/main.d2b74fd0.js.map"
+    "main.924267dd.js.map": "/static/js/main.924267dd.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.d2b74fd0.js"
+    "static/js/main.924267dd.js"
   ]
 }
