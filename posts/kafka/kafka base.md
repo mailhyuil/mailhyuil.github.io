@@ -1,8 +1,8 @@
 # kafka
 
-> 이벤트 브로커
+> 카프카는 이벤트 브로커로써 메시지 브로커(rabbitmq, bullmq, sqs...) 역할도 수행하지만 Consumer가 특정 시점부터 이벤트를 다시 읽어갈 수 있다. (이벤트 소싱)
 >
-> > 이벤트 브로커는 메시지 브로커(rabbitmq, bullmq, sqs...) 역할도 수행하지만 consumer가 특정 시점부터 이벤트를 다시 읽어갈 수 있다. (이벤트 소싱)
+> > 기본으로 Kafka Client와 TCP 프로토콜로 통신을 하며, RestProxy를 통해서 HTTP로도 통신이 가능하다.
 
 ## 사용 시나리오
 
