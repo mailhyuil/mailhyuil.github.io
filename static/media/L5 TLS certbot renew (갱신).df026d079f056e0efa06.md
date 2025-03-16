@@ -9,6 +9,7 @@
 certbot renew --dry-run
 # 갱신
 certbot renew
+# certbot renew --cert-name dep.team
 
 # nginx reload
 nginx -s reload

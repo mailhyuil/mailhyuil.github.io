@@ -1,4 +1,4 @@
-# postgres WAL 아카이브
+# postgres WAL 아카이브 backup
 
 > WAL 파일을 재사용하지 않고 보관
 >
@@ -19,7 +19,6 @@
 > > 또한 성공한 경우 0, 아닌경우 0 이 아니게 반환되도록 해야
 
 ```conf
-wal_level= replica
 archive_mode = on
 archive_command = 'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/server/archivedir/%f'  # Unix
 archive_timeout = 1 # 1초마다 강제로 WAL 파일을 archive_command로 보냄 (0이면 16MB 채워지면 보냄)
@@ -41,38 +40,4 @@ pg_basebackup -D /backup/base -Ft -z -X fetch -P -v
 # -X stream : WAL을 백업 중 스트리밍(실시간)으로 받아서 함께 저장
 # -P : 진행률 표시
 # -v : 자세한 정보 표시
-```
-
-## restore
-
-> postgres 중지
->
-> data 경로의 파일들을 다른 곳으로 이동시키고 전부 삭제
->
-> pg_basebackup 파일을 data경로로 복사(pg_wal 제외)
->
-> data경로에 recovery.signal 파일 생성
->
-> recovery.signal 파일은 postgres가 복구모드로 실행되도록 알려줌
->
-> (특정 시점으로 복구를 원하면 이 파일에 recovery_target_time을 설정)
->
-> 서버를 실행하면 복구모드로 실행된다
->
-> 복구가 완료되면 recovery.signal이 사라짐
-
-```conf
-restore_command = 'cp /mnt/server/archivedir/%f %p'
-
-# 특정 시점으로 복구 시
-restore_target_time = '2021-04-05 00:21:28'
-```
-
-## 복구가 완료되었다면 복구모드를 해제해야 한다.
-
-```sql
--- 복구모드 확인
-SELECT pg_is_in_recovery();
--- 복구모드에서 승격
-SELECT pg_promote();
 ```

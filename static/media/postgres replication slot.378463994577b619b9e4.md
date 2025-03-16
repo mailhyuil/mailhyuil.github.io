@@ -13,9 +13,14 @@
 ## wal_level
 
 ```txt
-minimal: 가장 적은 정보만 기록 (default)
-replica: Streaming Replication을 위해 필요한 정보까지 포함
+minimal: 가장 적은 정보만 기록
+- CHECKPOINT 시 변경된 블록 정보만 기록
+
+replica: Streaming Replication을 위해 필요한 정보까지 포함 (default)
+- 모든 변경된 데이터 블록 기록 + MVCC 정보 포함
+
 logical: Debezium 같은 외부 도구에게 전송 가능한 정보까지 포함
+- replica 수준 + 논리적 변경 정보 (INSERT/UPDATE/DELETE 포함)
 ```
 
 ## max_replication_slots
