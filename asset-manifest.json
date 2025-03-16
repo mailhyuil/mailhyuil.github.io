@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.ca547a68.js",
+    "main.js": "/static/js/main.491cfc0b.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -3203,6 +3203,7 @@
     "static/media/docker-compose yaml redis.md": "/static/media/docker-compose yaml redis.fa58dfea8a74b5ddeb3a.md",
     "static/media/kafka base listeners.md": "/static/media/kafka base listeners.5bf0c634e7503d5a84c0.md",
     "static/media/yaml anchors.md": "/static/media/yaml anchors.493aca72021908b7f4cb.md",
+    "static/media/FFI (Foreign Function Interface).md": "/static/media/FFI (Foreign Function Interface).20497571b47f95e94f1b.md",
     "static/media/flutter Interactive Forge2d.md": "/static/media/flutter Interactive Forge2d.280e303016ae56b2bdc8.md",
     "static/media/js Promise resolve 주의사항.md": "/static/media/js Promise resolve 주의사항.5a6123b72b583e630b85.md",
     "static/media/postgres transaction set isolation level.md": "/static/media/postgres transaction set isolation level.4a47bd0ec8443f875adf.md",
@@ -4634,10 +4635,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.ca547a68.js.map": "/static/js/main.ca547a68.js.map"
+    "main.491cfc0b.js.map": "/static/js/main.491cfc0b.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.ca547a68.js"
+    "static/js/main.491cfc0b.js"
   ]
 }
