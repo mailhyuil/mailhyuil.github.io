@@ -1,9 +1,25 @@
 # nest schedule
 
+> cronjob은 포트가 필요 없으니 standalone으로 구성하는게 좋다.
+
 ## install
 
 ```sh
 npm i @nestjs/schedule
+```
+
+## main.ts
+
+> standalone
+
+```ts
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+
+async function bootstrap() {
+  const app = await NestFactory.createApplicationContext(AppModule);
+}
+bootstrap();
 ```
 
 ## module

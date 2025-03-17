@@ -1,8 +1,12 @@
 # nest advanced message queue
 
-> > concurrency: 동시에 처리할 수 있는 job의 개수
-> >
+> concurrency: 동시에 처리할 수 있는 job의 개수 (동시처리)
+>
 > > concurrency가 1이면 transcode job은 한번에 하나만 처리한다.
+> >
+> > concurrency가 n개일 경우 n개의 job을 동시에 처리한다. (io bound 작업에서 유용)
+> >
+> > > 병렬처리를 하기 위해서는 worker_threads를 사용하거나 cluster를 통해서 앱을 여러개 띄워야 한다.
 
 ## batch.controller.ts
 
@@ -12,7 +16,6 @@
 import { InjectQueue } from "@nestjs/bull";
 import { Controller, Post } from "@nestjs/common";
 import { Queue } from "bull";
-import CPU_CORES from "CPU_CORES";
 
 @Controller("batch")
 export class BatchController {
@@ -20,13 +23,10 @@ export class BatchController {
 
   @Post("process")
   async process() {
-    const data = Array.from({ length: 1000 }, (_, i) => i);
-    for (let i = 0; i < CPU_CORES; i++) {
-      const chunk = data.slice(i * 100, (i + 1) * 100);
-      await this.batchQueue.add({
-        data: chunk,
-      });
-    }
+    await this.batchQueue.add({ data: 1000 });
+    await this.batchQueue.add({ data: 1000 });
+    await this.batchQueue.add({ data: 1000 });
+    /// 3개의 job을 큐에 추가
   }
 }
 ```
@@ -43,11 +43,12 @@ import CPU_CORES from "CPU_CORES";
 export class BatchProcessor {
   private readonly logger = new Logger(BatchProcessor.name);
   @Process({
-    concurrency: CPU_CORES,
+    concurrency: 2, // 동시에 2개의 job을 큐에서 가져와서 처리할 수 있다. (병렬처리가 아니다!)
   })
   process(job: Job) {
+    const data = job.data;
     this.logger.debug("start processing...");
-    this.logger.debug(job.data);
+    this.logger.debug(data);
     this.logger.debug("processing completed");
   }
 }
