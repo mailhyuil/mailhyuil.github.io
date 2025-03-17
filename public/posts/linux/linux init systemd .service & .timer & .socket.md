@@ -13,7 +13,8 @@ Description=My Node.js App
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/node /path/to/app.js
+ExecStart=/usr/bin/node /path/to/app.js # node app.js 실행
+# ExecStart=/usr/bin/docker run --rm -p 8080:8080 myapp # 도커 컨테이너 실행
 Restart=always
 User=www-data
 Group=www-data
