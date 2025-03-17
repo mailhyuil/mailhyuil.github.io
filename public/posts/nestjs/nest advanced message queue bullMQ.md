@@ -69,7 +69,11 @@ export class AudioModule {}
 
 ## audio.processor.ts
 
-> @Process에 반드시 name을 지정해야한다.
+> @Process에 반드시 name을 지정해도 되고 안하면 그냥 add
+>
+> > concurrency: 동시에 처리할 수 있는 job의 개수
+> >
+> > concurrency가 1이면 transcode job은 한번에 하나만 처리한다.
 
 ```ts
 import { Process, Processor } from "@nestjs/bull";
@@ -114,6 +118,8 @@ export class AudioProcessor {
 
 ## audio.controller.ts
 
+> > multi worker로 빠르게 처리하고 싶다면 data를 나눠서 여러개의 add를 사용 process의 concurrency도 높여야 한다.
+
 ```ts
 import { InjectQueue } from "@nestjs/bull";
 import { Controller, Post } from "@nestjs/common";
@@ -135,7 +141,7 @@ export class AudioController {
         backoff: 60000,
         delay: 1000,
         priority: 1,
-      }
+      },
     );
   }
 }
