@@ -1,4 +1,4 @@
-# nest main.ts 세팅
+# nest 세팅
 
 ## install
 
@@ -129,7 +129,6 @@ npm i multer-s3
 import { INestApplication } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import compression from "compression";
 import cookieParser from "cookie-parser";
 import { writeFile } from "fs";
 import helmet from "helmet";
