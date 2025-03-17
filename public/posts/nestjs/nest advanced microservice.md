@@ -16,23 +16,17 @@ npm i @nestjs/microservices
 
 ## main config
 
-> 어떤 툴을 사용해서 통신할건지 설정
->
-> > 기본 옵션 host, port, retryAttempts, retryDelay
-> >
-> > > 각 통신 툴마다 나머지 옵션값은 다르다
-> > >
-> > > > Hybrid 방식을 통해 HTTP 서버와 Microservice를 동시에 사용할 수 있다.
+> Hybrid 방식을 통해 HTTP 서버와 Microservice를 동시에 사용할 수 있다.
 
 ```ts
-// single
+// standalone (http 서버 없이 사용할 수 있음)
 const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
   transport: Transport.TCP,
   options: {},
 });
 await app.listen();
 
-// hybrid
+// hybrid (main에서도 http 서버를 사용할 수 있음 / 모듈에 설정하는 것과 같은 효과)
 const app = await NestFactory.create(AppModule);
 
 app.connectMicroservice<MicroserviceOptions>({
@@ -45,6 +39,10 @@ await app.listen(3000);
 ```
 
 ### module config
+
+> http 서버와 함께 사용할 수 있음
+>
+> > main에 hybrid 방식으로 설정하는 것과 같은 효과
 
 ```ts
 import { Module } from "@nestjs/common";
