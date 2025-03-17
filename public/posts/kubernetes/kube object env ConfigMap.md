@@ -7,7 +7,10 @@
 ## config 생성
 
 ```sh
+kubectl create configmap my-config --from-env-file=.env
+
 kubectl create configmap my-config --from-literal=BASE_URL=http://localhost:8080 --dry-run=client -o yaml > my-config.yaml
+
 kubectl describe configmap my-config
 ```
 

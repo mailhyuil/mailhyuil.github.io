@@ -8,7 +8,10 @@
 
 ```sh
 # generic type : key-value
+kubectl create secret generic my-secret --from-env-file=.env
+
 kubectl create secret generic my-secret --from-literal=PASSWORD=1234 --dry-run=client -o yaml > my-secret.yaml
+
 kubectl describe secret my-secret
 ```
 
