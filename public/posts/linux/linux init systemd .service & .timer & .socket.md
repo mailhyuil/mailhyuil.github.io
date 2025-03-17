@@ -1,5 +1,7 @@
 # linux systemd & systemctl .service & .timer & .socket
 
+> /etc/systemd/system/에 있는 파일들에 대한 설명
+
 ## .service
 
 > 어플리케이션을 실행하는 방법을 정의하는 파일
