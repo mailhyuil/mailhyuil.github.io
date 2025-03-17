@@ -1,4 +1,4 @@
-# linux cmd service
+# linux cmd initd
 
 > 간단하게 서비스를 관리할 수 있는 명령어
 >

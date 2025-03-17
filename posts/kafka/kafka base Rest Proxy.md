@@ -5,6 +5,8 @@
 > > confluentinc에서 제공하는 Rest API 용 프록시 서버로 confluentinc의 kafka에는 기본으로 포함되어 있다.
 > >
 > > > 포함이 되어있지 않을 시에는 별도로 설치
+> > >
+> > > > 또는 그냥 Nestjs로 구현해도 된다.
 
 ## docker-compose.yaml
 
