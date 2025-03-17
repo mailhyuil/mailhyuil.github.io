@@ -3,6 +3,8 @@
 ## install
 
 ```sh
+npm i @nestjs/microservices
+
 npm i ioredis
 
 # redis 설치

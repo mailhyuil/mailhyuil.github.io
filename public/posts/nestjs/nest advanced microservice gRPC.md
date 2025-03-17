@@ -3,7 +3,9 @@
 ## install
 
 ```sh
-npm i @grpc/grpc-js @grpc/proto-loader
+npm i @nestjs/microservices
+npm i @grpc/grpc-js
+npm i @grpc/proto-loader
 ```
 
 ## main.ts
