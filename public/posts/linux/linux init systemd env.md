@@ -1,4 +1,4 @@
-# linux systemd & systemctl
+# linux systemd & systemctl env
 
 ## /etc/systemd/system/app.service
 
