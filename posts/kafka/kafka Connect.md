@@ -1,9 +1,7 @@
-# kafka Connector
+# kafka Connect
 
-> Kafka Connect 프레임워크에서 사용하는 플러그인
+> Kafka와 외부 시스템(데이터베이스, 파일, 클라우드 서비스 등)을 쉽게 연결할 수 있도록 도와주는 프레임워크
 >
-> > 외부 시스템과 Kafka 간의 데이터를 자동으로 연동하는 역할
-> >
 > > Kafka를 직접 프로그래밍하지 않고도, DB, 클라우드, 파일 시스템 등과 쉽게 연결할 수 있도록 도와준다.
 
 ## Source Connector

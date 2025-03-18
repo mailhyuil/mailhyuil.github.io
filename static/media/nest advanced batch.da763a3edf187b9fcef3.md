@@ -100,7 +100,7 @@ import QueryStream from "pg-query-stream";
 @Processor("batch")
 export class BatchProcessor implements OnModuleDestroy {
   private readonly logger = new Logger(BatchProcessor.name);
-  private pgPool: Pool;
+  private readonly pgPool: Pool;
 
   constructor() {
     this.pgPool = new Pool({
@@ -204,7 +204,7 @@ import { pool, Pool, Promise } from "workerpool";
 @Processor("batch")
 export class BatchProcessor implements OnModuleDestroy {
   private readonly logger = new Logger(BatchProcessor.name);
-  private workerPool: Pool;
+  private readonly workerPool: Pool;
 
   constructor() {
     this.workerPool = pool();
