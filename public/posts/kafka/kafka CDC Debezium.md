@@ -225,3 +225,29 @@ curl -X DELETE http://localhost:8083/connectors/postgres-connector
 
 topic-name : postgres_server.public.products
 ```
+
+## nestjs
+
+```ts
+import { Controller } from "@nestjs/common";
+import { Client, ClientKafka, EventPattern } from "@nestjs/microservices";
+import { kafkaConfig } from "./kafka.config";
+
+@Controller()
+export class AppController {
+  @Client(kafkaConfig)
+  client: ClientKafka;
+
+  onModuleInit() {
+    const requestPatterns = ["postgres_server.public.orders"];
+    requestPatterns.forEach(pattern => {
+      this.client.subscribeToResponseOf(pattern);
+    });
+  }
+
+  @EventPattern("postgres_server.public.orders")
+  async transformOrders(payload: any) {
+    console.log(payload);
+  }
+}
+```

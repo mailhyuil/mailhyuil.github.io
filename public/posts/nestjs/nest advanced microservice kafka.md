@@ -21,8 +21,7 @@ export const kafkaConfig: KafkaOptions = {
       brokers: ["127.0.0.1:9092"],
     },
     consumer: {
-      groupId: "1",
-      allowAutoTopicCreation: true,
+      groupId: "myapp-consumer",
     },
   },
 };
