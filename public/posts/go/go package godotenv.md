@@ -9,8 +9,8 @@ go get github.com/joho/godotenv
 ## .env
 
 ```sh
-S3_BUCKET=Y
-SECRET_KEY=X
+PORT=3000
+SECRET_KEY=XXXXX
 ```
 
 ## usage
@@ -26,12 +26,14 @@ import (
 )
 
 func main() {
+
   err := godotenv.Load()
+
   if err != nil {
     log.Fatal("Error loading .env file")
   }
 
-  s3Bucket := os.Getenv("S3_BUCKET")
+  port := os.Getenv("PORT")
   secretKey := os.Getenv("SECRET_KEY")
 }
 ```
