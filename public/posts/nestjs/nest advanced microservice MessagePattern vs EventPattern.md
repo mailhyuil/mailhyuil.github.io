@@ -1,41 +1,5 @@
 # nest microservice MessagePattern vs EventPattern
 
-## @MessagePattern
-
-> 요청-응답 방식
->
-> > 요청을 받으면 응답을 반환해야함
-> >
-> > > client.send()를 대신 사용해도 된다.
-
-```ts
-import { Controller } from "@nestjs/common";
-import { MessagePattern } from "@nestjs/microservices";
-
-@Controller()
-export class MathController {
-  @Client(config) client: ClientProxy;
-
-  @MessagePattern({ cmd: "sum" })
-  sendSomeMessage(data: number[]): number {
-    return (data || []).reduce((a, b) => a + b);
-  }
-
-  @MessagePattern('time.us.*')
-  getSomeMessage(@Payload() data: number[], @Ctx() context: NatsContext) {
-    console.log(`Subject: ${context.getSubject()}`); // (e.g. "time.us.east")
-    return new Date().toLocaleTimeString(...);
-  }
-
-  @Get()
-  sendSomeOtherMessage(data: number[]): number {
-    this.client.send({ cmd: "sum" }, data).subscribe(result => {
-      console.log(result);
-    });
-  }
-}
-```
-
 ## @EventPattern
 
 > 이벤트 방식
@@ -44,35 +8,67 @@ export class MathController {
 > >
 > > > 비동기 처리에 사용
 > > >
-> > > > client.emit()을 대신 사용해도 된다.
-> > > >
-> > > > > client.subscribeToResponseOf()을 통해 이벤트를 구독해야함
+> > > > client.emit()와 사용
 
 ```ts
 import { Controller, Get, OnModuleInit } from "@nestjs/common";
-import { Client, ClientKafka, EventPattern } from "@nestjs/microservices";
+import { Client, ClientKafka, EventPattern, Payload } from "@nestjs/microservices";
 import { kafkaConfig } from "./kafka.config";
 
 @Controller()
-export class AppController implements OnModuleInit {
+export class AppController {
   @Client(kafkaConfig) client: ClientKafka;
 
+  @Get()
+  emitData(): string {
+    this.client.emit<string>("event", { data: "Hello!" });
+  }
+
+  @EventPattern("event")
+  getData(@Payload("data") payload: any) {
+    console.log(payload); // Hello!
+  }
+}
+```
+
+## @MessagePattern
+
+> Request-Reply 패턴 사용 시
+>
+> > 프로듀서가 요청을 보낸 후 reply 토픽을 구독하고 있으면 컨슈머가 topic을 처리후 비동기 적으로 reply 토픽에 응답을 반환
+> >
+> > > client.send()와 사용
+> > >
+> > > > client.subscribeToResponseOf()을 통해 reply topic을 구독해야함
+
+```ts
+import { Controller } from "@nestjs/common";
+import { MessagePattern, Payload } from "@nestjs/microservices";
+
+@Controller()
+export class MathController implements OnModuleInit {
+  @Client(config) client: ClientProxy;
+
   onModuleInit() {
-    const requestPatterns = ["entity-created"];
+    const requestPatterns = ["message"];
     requestPatterns.forEach(pattern => {
+      // reply topic을 구독
+      // 구독 하지 않을 시 The client consumer did not subscribe to the corresponding reply topic 에러 발생
       this.client.subscribeToResponseOf(pattern);
     });
   }
 
   @Get()
-  emitSomeEvent(): string {
-    // fire event to kafka
-    this.client.emit<string>("entity-created", "some entity " + new Date());
+  sendMessage(): number {
+    this.client.send("message", { data: "Hello!" }).subscribe(reply => {
+      console.log(reply); // Nice to meet you!
+    });
   }
 
-  @EventPattern("entity-created")
-  async handleEntityCreatedEvent(payload: any) {
-    console.log(JSON.stringify(payload) + " created");
+  @MessagePattern("message")
+  getMessageAndReply(@Payload("data") payload: any): string {
+    console.log(payload); // Hello!
+    return "Nice to meet you!";
   }
 }
 ```
