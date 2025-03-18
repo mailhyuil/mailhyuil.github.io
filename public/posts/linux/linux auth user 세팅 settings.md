@@ -18,8 +18,10 @@
 ```sh
 # 그룹 생성
 groupadd <groupname>
+
 # 그룹에 사용자 추가 (e.g. usermod -aG docker <username>)
 usermod -aG <groupname> <username>
+
 # 그룹에게 특정파일 권한 추가 (e.g. chown :docker <filename>)
 chown :<groupname> <filename>
 ```
@@ -35,6 +37,7 @@ useradd -u 1500 <username> # -u uid를 1500로 설정
 
 # 사용자 비밀번호 설정
 passwd <username>
+
 # 사용자에게 권한 특정파일 추가
 chown <username> <filename>
 ```
@@ -44,6 +47,7 @@ chown <username> <filename>
 ```sh
 # docker container 내부에 사용자 추가
 docker run -it --user <username> <image>
+
 # docker container 내부에 그룹 추가
 docker run -it --group-add <groupname> <image>
 ```
