@@ -1,16 +1,18 @@
 # nest advanced message queue
 
-> redis 기반의 가벼운 메세지 큐
+> bullmq는 새로운 프로세스를 생성해주지 않는다. (메인 프로세스와 분리되지 않는다.)
 >
-> > 요청은 처리될 때까지 큐에서 대기하기 때문에 서버가 다운되어도 메세지가 유실되지 않는다.
+> 따라서 독립된 앱으로 실행시켜야 한다.
+>
+> > redis 기반의 가벼운 메세지 큐
 > >
-> > > 서버 부하가 많은 작업의 경우 MQ에 저장해두고 한번에 처리할 수 있는 양만큼만 가져와서 처리한다.
+> > > 요청은 처리될 때까지 큐에서 대기하기 때문에 서버가 다운되어도 메세지가 유실되지 않는다.
 > > >
-> > > > @Process는 별도의 worker로 실행된다.
+> > > > 서버 부하가 많은 작업의 경우 MQ에 저장해두고 한번에 처리할 수 있는 양만큼만 가져와서 처리한다.
 > > > >
-> > > > > redis서버가 다운된 상태에서는 메세지가 in-memory에 저장된다. (메세지를 processor가 처리하지 않는다)
+> > > > > @Processor()로 Consumer(process)를 생성하여 그 프로세스에서 작업을 처리한다. (메인 프로세스와 분리)
 > > > > >
-> > > > > > redis서버가 다시 가동되면 in-memory에 저장된 메세지를 처리한다.
+> > > > > @Process()안에서 concurrency를 설정할 수 있다. (동시에 처리할 수 있는 job의 개수)
 
 ## install
 
@@ -69,7 +71,11 @@ export class AudioModule {}
 
 ## audio.processor.ts
 
-> @Process에 반드시 name을 지정해야한다.
+> @Process에 반드시 name을 지정해도 되고 안하면 그냥 add
+>
+> > concurrency: 동시에 처리할 수 있는 job의 개수
+> >
+> > concurrency가 1이면 transcode job은 한번에 하나만 처리한다.
 
 ```ts
 import { Process, Processor } from "@nestjs/bull";
@@ -93,26 +99,25 @@ export class AudioProcessor {
   @OnQueueCompleted()
   onCompleted(job: Job, result: any) {
     this.logger.debug("onCompleted");
-    this.logger.debug(job.data);
     this.logger.debug(result);
   }
 
   @OnQueueActive()
   onActive(job: Job) {
     this.logger.debug("onActive");
-    this.logger.debug(job.data);
   }
 
   @OnQueueFailed()
   onFailed(job: Job, err: Error) {
     this.logger.debug("onFailed");
-    this.logger.debug(job.data);
     this.logger.debug(err);
   }
 }
 ```
 
 ## audio.controller.ts
+
+> > multi worker로 빠르게 처리하고 싶다면 data를 나눠서 여러개의 add를 사용 process의 concurrency도 높여야 한다.
 
 ```ts
 import { InjectQueue } from "@nestjs/bull";
@@ -135,7 +140,7 @@ export class AudioController {
         backoff: 60000,
         delay: 1000,
         priority: 1,
-      }
+      },
     );
   }
 }

@@ -21,8 +21,7 @@ export const kafkaConfig: KafkaOptions = {
       brokers: ["127.0.0.1:9092"],
     },
     consumer: {
-      groupId: "1",
-      allowAutoTopicCreation: true,
+      groupId: "myapp-consumer",
     },
   },
 };
@@ -50,35 +49,51 @@ bootstrap();
 ## controller
 
 ```ts
-import { Controller, Get, OnModuleInit } from "@nestjs/common";
-import { Client, ClientKafka, EventPattern } from "@nestjs/microservices";
-import { AppService } from "./app.service";
+import { Controller, Get } from "@nestjs/common";
+import { Client, ClientKafka, Ctx, EventPattern, KafkaContext, MessagePattern, Payload } from "@nestjs/microservices";
 import { kafkaConfig } from "./kafka.config";
 
 @Controller()
-export class AppController implements OnModuleInit {
+export class AppController {
   @Client(kafkaConfig)
   client: ClientKafka;
-  constructor(private readonly appService: AppService) {}
 
   onModuleInit() {
-    const requestPatterns = ["entity-created"];
+    const requestPatterns = ["message"];
     requestPatterns.forEach(pattern => {
+      // reply 토픽 구독
       this.client.subscribeToResponseOf(pattern);
     });
   }
 
-  @Get()
-  getHello(): string {
-    // fire event to kafka
-    // this.client.emit<string>('entity-created', 'some entity ' + new Date());
-    return this.appService.getHello();
+  @Get("event")
+  emitData() {
+    this.client.emit<string>("event", { data: "hello world" }).subscribe(reply => {
+      console.log("reply", reply);
+    });
   }
 
-  @EventPattern("entity-created")
-  async handleEntityCreated(payload: any) {
-    console.log(JSON.stringify(payload) + " created");
-    //console.log(payload.value + ' created');
+  @EventPattern("event")
+  getEvent(@Payload("data") payload: any, @Ctx() context: KafkaContext) {
+    console.log(payload);
+  }
+
+  @EventPattern("postgres_server.public.users")
+  databaseChange(@Payload() payload: any, @Ctx() context: KafkaContext) {
+    console.log(payload);
+  }
+
+  @Get("message")
+  sendData() {
+    this.client.send<string>("message", { data: "hello world" }).subscribe(reply => {
+      console.log("reply", reply);
+    });
+  }
+
+  @MessagePattern("message")
+  getData(@Payload("data") payload: any, @Ctx() context: KafkaContext) {
+    console.log(payload);
+    return { data: "nice to meet you" };
   }
 }
 ```
