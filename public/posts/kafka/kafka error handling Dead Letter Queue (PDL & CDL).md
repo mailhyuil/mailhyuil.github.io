@@ -1,7 +1,20 @@
-# kafka error handling Dead Letter Queue (PDL & CDL)
+# kafka error handling Dead Letter Queue (PDLQ & CDLQ)
 
 > 실패한 메세지를 저장하는 queue
 
-## Producer Dead Letter Queue (PDL)
+## Producer Dead Letter Queue (PDLQ)
 
-## Consumer Dead Letter Queue (CDL)
+```ts
+this.client.emit("event", { data: "hello world" }).subscribe({
+  error: err => {
+    console.error("Error sending message:", err);
+    this.client.emit("event.dlq", { data: "hello world" });
+  },
+});
+```
+
+## Consumer Dead Letter Queue (CDLQ)
+
+```ts
+
+```

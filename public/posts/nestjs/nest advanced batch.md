@@ -117,42 +117,60 @@ export class BatchProcessor implements OnModuleDestroy {
     this.pgPool.end();
   }
 
+  async queryAsStream(
+    query: QueryStream,
+    callback: (...args: any[]) => void,
+    error: (err: Error) => void,
+    complete: () => void,
+  ) {
+    this.pgPool.connect((err, client, done) => {
+      if (!client) {
+        throw new Error("DB Connection Error");
+      }
+
+      if (err) {
+        throw err;
+      }
+
+      const stream = client.query(query);
+
+      stream.once("error", err => {
+        done(); // ✅ DB 연결 반환
+        error(err);
+        stream.removeAllListeners(); // ✅ 스트림 리스너 제거
+      });
+
+      stream.on("data", callback);
+
+      stream.once("end", () => {
+        done(); // ✅ DB 연결 반환
+        complete();
+        stream.removeAllListeners(); // ✅ 스트림 리스너 제거
+      });
+    });
+  }
+
   @Process({ concurrency: 1 })
   async handleCron(job: Job) {
     return new Promise<number>((resolve, reject) => {
-      this.pgPool.connect((err, client, done) => {
-        if (!client) {
-          reject(new Error("DB Connection Error"));
-          return;
-        }
-        if (err) {
-          reject(err);
-          return;
-        }
-        const query = new QueryStream("SELECT * FROM generate_series(0, $1) num", [job.data.count]);
-        const stream = client.query(query);
-
-        stream.on("error", err => {
-          done(); // ✅ DB 연결 반환
-          reject(err);
-        });
-
-        // 데이터 스트리밍 및 Worker에 전달
-        let sum = 0;
-        stream.on("data", async ({ num }) => {
+      const query = new QueryStream("SELECT * FROM generate_series(0, $1) num", [job.data.count]);
+      let sum = 0;
+      this.queryAsStream(
+        query,
+        ({ num }) => {
           try {
             sum += num;
           } catch (error) {
             this.logger.error(`Worker failed: ${error}`);
             reject(error);
           }
-        });
-
-        stream.on("end", () => {
-          done(); // ✅ DB 연결 반환
+        },
+        err => reject(err),
+        () => {
+          this.logger.debug("Stream completed");
           resolve(sum);
-        });
-      });
+        },
+      );
     });
   }
 
@@ -204,8 +222,8 @@ export class BatchProcessor implements OnModuleDestroy {
     const chunkSize = 100;
     let sum = 0;
     const promises: Promise<number, Error>[] = [];
-    for (let i = 0; i <= count; i += chunkSize) {
-      const end = Math.min(i + chunkSize, count + 1);
+    for (let start = 0; start < count; start += chunkSize) {
+      const end = Math.min(i + chunkSize, count);
       const promise = this.workerPool
         .exec(
           (start, end) => {
@@ -215,7 +233,7 @@ export class BatchProcessor implements OnModuleDestroy {
             }
             return sum;
           },
-          [i, end],
+          [start, end],
         )
         .catch(err => {
           this.logger.error(err);
