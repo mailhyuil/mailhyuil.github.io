@@ -16,3 +16,11 @@
 ## IP를 Domain에 매핑
 
 > A레코드에 ip 넣어주기
+
+## Alias 레코드
+
+> CNAME과 비슷하지만 루트 도메인(Apex domain)을 매핑할 수 있다. (ex. example.com)
+>
+> > EC2를 제외한 AWS 리소스의 DNS 이름만 사용 가능하다.
+> >
+> > > 쿼리 비용이 발생하지 않는다.

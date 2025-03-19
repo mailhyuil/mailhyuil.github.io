@@ -5,12 +5,13 @@
 ## rustup
 
 ```sh
+# 버전 확인
 rustup --version
 
-#최신버전으로 업데이트
+# 최신버전으로 업데이트
 rustup update
 
-#삭제
+# 삭제
 rustup self uninstall
 
 # 로컬에 저장된 러스트 documentation을 읽는 법
