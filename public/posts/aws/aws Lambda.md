@@ -6,7 +6,7 @@
 
 > lambda function을 실행시키는 트리거가 될 서비스를 정하기
 
-```
+```txt
 s3, dynamoDB, api gateway, sqs ...
 ```
 
