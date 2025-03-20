@@ -8,7 +8,7 @@
 > > >
 > > > > 윈도우에서 파일의 확장자를 보고 어떤 프로그램으로 열지 결정하는 것처럼 Content-Type을 보고 어떻게 처리할지 결정하게 할 수 있다.
 
-```
+```txt
 Content-Type
 Content-Transfer-Encoding
 Content-Disposition
