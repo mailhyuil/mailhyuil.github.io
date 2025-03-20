@@ -1,6 +1,8 @@
 # go GOMAXPROCS
 
 > 최대 CPU 코어 수를 제한
+>
+> > 환경변수에 설정하거나 `runtime.GOMAXPROCS()` 함수로 설정
 
 ```go
 package main

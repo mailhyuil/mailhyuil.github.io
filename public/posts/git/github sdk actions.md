@@ -1,5 +1,7 @@
 # github sdk
 
+> github actions를 다루는 client library
+
 ## install
 
 ```sh
@@ -10,10 +12,10 @@ npm i @actions/glob
 npm i @actions/http-client
 npm i @actions/io
 npm i @actions/tool-cache
-npm i @actions/github
 npm i @actions/artifact
 npm i @actions/cache
 npm i @actions/attest
+npm i @actions/github # octokit
 ```
 
 # usage
