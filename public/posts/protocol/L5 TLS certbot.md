@@ -1,5 +1,7 @@
 # certbot (letsencrypt)
 
+> TLS 키 + 인증서를 발급해주는 서비스
+
 ## install
 
 ```sh
