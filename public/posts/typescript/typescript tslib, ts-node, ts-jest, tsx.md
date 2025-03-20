@@ -1,8 +1,10 @@
 # typescript tslib, ts-patch, ts-node, ts-jest
 
-## ts-node
+## ts-node / tsx
 
 > TypeScript 파일을 컴파일 하지 않고 바로 실행할 수 있는 Node 실행기
+>
+> > tsx 를 사용해라!
 
 ### ts-node 설정
 
