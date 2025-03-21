@@ -1,33 +1,50 @@
 # Side Effect (부수효과 & 부작용)
 
-> 하나의 코드를 수정하면 다른 코드에 영향을 미치는 현상
+> 함수 내에서 외부의 레퍼런스, 상태 등을 변경하는 것
 >
-> > 사이드 이펙트는 코드의 유지보수를 어렵게 만들며, 코드의 예측 가능성을 떨어뜨린다.
+> 함수의 실행이 함수 외부의 상태에 영향을 주는 행위
+>
+> > "무분별한 사이드 이펙트"는 코드의 유지보수를 어렵게 만들며, 코드의 예측 가능성을 떨어뜨린다.
 > >
-> > 사이드 이펙트가 많으면 하나의 코드를 수정할 때마다 다른 코드를 수정해야 하는 경우가 발생할 수 있다.
-> >
-> > > e.g. 데이터베이스 스키마를 변경 시 코드 수정이 필요한 경우
+> > > side effect 분리 방법: 함수형 프로그래밍, Event
+> > >
+> > > Event는 Side Effect를 Trigger하는 역할로 볼 수 있다. (Event -> Effect)
 
 ## example
 
-### as-is
-
 ```ts
-await this.prisma.attachment.deleteMany({
-  where: {
-    noticeId: null,
-    profileId: null,
-    // ..other relations // relations가 추가될 때마다 수정이 필요
-  },
-});
+function payment() {
+  pay();
+  updateDB(); // side effect
+  alert("결제가 완료되었습니다."); // side effect
+  sendEmail(); // side effect
+  sendSMS(); // side effect
+}
 ```
 
-### to-be
+## 함수형 프로그래밍에서의 사이드 이펙트
+
+> 함수형 프로그래밍은 함수 내에서의 사이드 이펙트를 없애고 사이드 이펙트를 밖에서 처리하도록 유도한다.
 
 ```ts
-await this.prisma.attachment.deleteMany({
-  where: {
-    deleted: true, // deleted 필드를 사용하여 삭제 여부를 판단 // relations가 추가되어도 수정이 필요 없음
-  },
+const sideEffects = payment();
+// [
+//   { type: "updateDB", payload: order },
+//   { type: "sendEmail", payload: order.email },
+//   { type: "sendSMS", payload: order.tel },
+// ];
+
+sideEffects.forEach(event => {
+  switch (event.type) {
+    case "updateDB":
+      updateDB(event.payload);
+      break;
+    case "sendEmail":
+      sendEmail(event.payload);
+      break;
+    case "sendSMS":
+      sendSMS(event.payload);
+      break;
+  }
 });
 ```

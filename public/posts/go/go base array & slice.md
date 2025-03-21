@@ -1,5 +1,9 @@
 # go base array & slice
 
+> array: [num]type{}
+>
+> slice(list): []type{}
+
 ```go
 package main
 

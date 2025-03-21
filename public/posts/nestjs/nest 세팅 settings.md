@@ -286,7 +286,21 @@ export async function initOpenApi(app?: INestApplication, port?: number | string
   const swaggerConfig = new DocumentBuilder()
     .setTitle("API")
     .addServer(`http://localhost:${port}`)
-    .addCookieAuth()
+    .setVersion("1.0")
+    .addCookieAuth("id-token", {
+      type: "apiKey",
+      in: "cookie",
+      description: "JWT Id Token",
+      name: "Id Token",
+      bearerFormat: "JWT",
+    })
+    .addCookieAuth("refresh-token", {
+      type: "apiKey",
+      in: "cookie",
+      description: "JWT Refresh Token",
+      name: "Refresh Token",
+      bearerFormat: "JWT",
+    })
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);

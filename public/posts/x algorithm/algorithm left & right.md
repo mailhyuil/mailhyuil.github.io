@@ -6,7 +6,7 @@
 > >
 > > > left와 right 배열의 크기는 같거나 1차이만
 
-```
+```txt
 left > right : left와 right가 엇갈리지 않았을 때
 left >= right
 

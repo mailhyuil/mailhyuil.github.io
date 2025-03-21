@@ -1,15 +1,19 @@
 # go base map
 
-> 기본으로 value, ok를 리턴한다.
+> map[key]value{} 형태로 사용한다.
+>
+> > 접근 시 기본으로 value, ok를 리턴한다.
 
 ```go
 package main
 
 func main(){
+
   hyuilMap := map[string]string{
     "name": "hyuil",
     "age": "30",
   }
+
   for key, value := range hyuilMap {
     println(key, value)
   }
