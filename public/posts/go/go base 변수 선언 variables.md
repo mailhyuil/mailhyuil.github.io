@@ -1,4 +1,4 @@
-# go 변수
+# go 변수 선언
 
 ```go
 const name = "hyuil"
