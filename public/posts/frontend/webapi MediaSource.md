@@ -1,6 +1,8 @@
 # MediaSource
 
-> HTMLMediaELement가 MediaSource를 사용
+> video, audio 태그의 src에 직접 url을 넣는 대신 더 세밀한 제어를 위한 방법
+>
+> HTMLMediaElement가 MediaSource를 사용
 >
 > > MediaSource는 SourceBuffer를 소유하고 사용한다.
 > >
@@ -25,7 +27,7 @@ this.mediaSource.addEventListener("sourceopen", () => {
         Range: `bytes=${this.start}-${this.end}`,
       },
     })
-    .subscribe((arrayBuffer) => {
+    .subscribe(arrayBuffer => {
       sourceBuffer.addEventListener("updateend", () => {
         // arrayBuffer add가 끝나면 endOfStream을 호출시켜 비디오 실행 준비 완료
         this.mediaSource.endOfStream();
