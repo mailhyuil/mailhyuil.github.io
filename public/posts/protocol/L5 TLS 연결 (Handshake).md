@@ -2,6 +2,12 @@
 
 > TCP 핸드쉐이크가 끝난 후 시작된다.
 
+## Session Key
+
+```txt
+ClientRandom + ServerRandom + Pre-Master Secret = Session Key
+```
+
 ## RSA Key Exchange 방식 (TLS 1.0 ~ 1.2)
 
 ```md
@@ -16,14 +22,15 @@
    - 추가 설정이 없을 경우
 4. Client Key Exchange
    - 서버가 보낸 인증서를 인증서 발행 기관을 통해 검증
-   - Pre-Master Secret 생성
-   - Public Key + Random 값으로 Pre-Master Secret 암호화하여 서버로 전송
+   - Pre-Master Secret 생성 (새로운 Random 값)
+   - Pre-Master Secret 을 Public Key로 암호화해서 서버에 전송
 5. Change Cipher Spec, Finished
 
 - Client 준비 완료 메시지 전송
 
 5. Change Cipher Spec, Finished
-   - 받은 Pre-Master Secret을 Private Key로 복호화
+   - 서버는 받은 Pre-Master Secret을 Private Key로 복호화
+   - 클라이언트, 서버가 ClientRandom + ServerRandom + Pre-Master Secret으로 세션키 생성
    - Server 준비 완료 메시지 전송
 6. 세션키로 암호화 통신
 ```

@@ -1,4 +1,4 @@
-# TCP
+# TCP (Transmission Control Protocol)
 
 ## 신뢰성 있는 통신
 

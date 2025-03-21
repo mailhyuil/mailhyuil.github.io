@@ -6,13 +6,17 @@
 
 ## 특징
 
-```sh
+```md
 1. header와 body를 압축
-2. multiplexing (단일 TCP 연결로 여러 요청을 동시에 처리)
+2. multiplexing
+   (단일 TCP 연결로 여러 요청을 동시에 처리)
+   (text가 아닌 binary frame 형식으로 전송)
+   (HTTP 수준의 HOL Blocking 문제 해결)
 3. server push (사용하지 않는다)
 4. secure by default
 5. CPU 사용량이 높다.
-6. 헤드 오브 라인 블로킹 문제가 있다. (http3로 해결)
+6. 여전히 TCP 수준의 HOL Blocking 문제가 있다.
+   (http3로 해결)
 ```
 
 ## 동작
