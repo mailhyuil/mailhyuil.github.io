@@ -7,7 +7,7 @@ make() // slice, map, channel을 생성할 때 사용
 new() // struct를 생성할 때 사용 (pointer로 리턴)
 
 append(slice, elements...) // slice에 원소를 추가할 때 사용
-copy(targetSlice, originSlice) // slice를 복사할 때 사용
+copy(targetSlice, originSlice) // slice를 복사할 때 사용 (깊은 복사)
 len(slice) // slice의 길이 리턴
 cap(slice) // slice의 뒤에 더 넣을 수 있는 공간을 리턴
 
