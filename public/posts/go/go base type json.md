@@ -12,16 +12,15 @@ type UpdateUser struct {
 }
 ```
 
-## Stringify & Parse
+## Marshal & Unmarshal (Stringify & Parse)
 
 ```go
 user := UpdateUser{FirstName: "휴일"}
 
-// struct를 jsonbytes로 변환
-jsonBytes, _ := json.Marshal(user)
-// jsonbytes를 string으로 변환
-jsonStr := string(jsonBytes) // {"first_name":"휴일"}
-fmt.Println(jsonStr)
+jsonBytes, _ := json.Marshal(user) // struct를 jsonbytes로 변환 (go에서 모든 io는 byte array로 변환됨, 네트워크 전송도 빠르고, 디스크에 쓰기도 빠르고 압축도 빠름)
+jsonStr := string(jsonBytes) // jsonbytes를 string으로 변환
+
+fmt.Println(jsonStr) // {"first_name":"휴일"}
 
 // json string을 struct로 변환
 

@@ -11,19 +11,19 @@ package user
 
 import "fmt"
 
-type user struct {
+type User struct {
 	name string
 	age  int
 }
 
-func NewUser(name string, age int) *user {
-	return &user{
+func NewUser(name string, age int) *User {
+	return &User{
 		name,
 		age,
 	}
 }
 
-func (user user) PrintInfo() {
+func (user User) PrintInfo() {
 	fmt.Println(user.name, user.age)
 }
 ```
