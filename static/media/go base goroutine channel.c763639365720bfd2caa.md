@@ -10,14 +10,15 @@
 
 ```go
 // channel 생성
-ch := make(chan bool)
+ch := make(chan string)
 // send only channel 생성
-ch := make(chan<- bool)
+ch := make(chan<- string)
 
 // 함수에서 channel로 값을 전달 (send)
-ch <- true
+ch <- "hello"
+
 // main에서 channel로 값을 받아 처리 (receive)
-<-ch
+msg := <- ch
 ```
 
 ## usage
@@ -41,7 +42,8 @@ func main(){
     }
 
 	for range people {
-		fmt.Println(<-ch)
+        msg := <- ch
+		fmt.Println(msg)
 	}
 }
 

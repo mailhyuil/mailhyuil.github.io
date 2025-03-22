@@ -1,28 +1,19 @@
-# linux make
+# go package Makefile
 
-> 스크립트 자동화 도구 (package.json의 scripts와 유사)
->
-> > 과거에 소프트웨어를 빌드하는데 사용되는 빌드 도구
-> >
-> > makefile을 통해 빌드 과정을 기술
-> >
-> > make를 사용하여 Makefile을 읽어서 빌드 과정을 자동으로 수행
-> >
-> > > 특히 C 및 C++ 프로그램을 컴파일하고 라이브러리를 빌드하는 데 많이 활용
+> script 자동화 도구 (package.json의 scripts와 유사)
 
-## 설치
+## install
 
 ```sh
 apt install make -y
 
-make <command>
+make start:local
 ```
 
 ## Makefile
 
 ```Makefile
-project_name = my_project
-
+project_name = myapp
 image_name = gofiber:latest
 
 help: ## This help dialog.

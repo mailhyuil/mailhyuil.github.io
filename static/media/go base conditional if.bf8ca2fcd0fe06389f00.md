@@ -18,4 +18,8 @@ if err := doSomething(); err != nil {
     // 에러 처리
     fmt.Println("에러 발생:", err)
 }
+if errs := doSomethings(); len(errs) > 0 && errs[0] != nil {
+    // 에러 처리
+    fmt.Println("에러 발생:", errs)
+}
 ```

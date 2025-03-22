@@ -8,7 +8,7 @@
 func riskyOperation() {
     defer func() {
         if err := recover(); err != nil {
-            fmt.Println("Recovered from:", err)
+            fmt.Println("Recovered from:", err) // Recovered from: 이거 터짐
         }
     }()
     panic("이거 터짐") // 💥

@@ -7,9 +7,19 @@
 ## command
 
 ```sh
+# 기본 os로 진입
+wsl
+# 특정 os로 진입
+wsl -d Ubuntu
+
+# 다시 시작
 wsl --shutdown
 
+# 설치된 리눅스 확인
 wsl --list --verbose
+
+# 기본 리눅스 설정
+wsl --set-default Ubuntu
 ```
 
 ## ~/.wslconfig

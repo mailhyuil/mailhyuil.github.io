@@ -21,6 +21,14 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/gofiber/fiber/v2/middleware/compress"
+	"github.com/gofiber/fiber/v2/middleware/helmet"
+	"github.com/gofiber/fiber/v2/middleware/limiter"
+	"github.com/gofiber/fiber/v2/middleware/etag"
+	"github.com/gofiber/fiber/v2/middleware/cache"
+
 	"github.com/joho/godotenv"
 )
 
@@ -32,8 +40,25 @@ func main() {
 	}
 
     app := fiber.New()
+
+	/** Recover Settings */
+	/** - Recover middleware handles panics and sends a 500 response */
+	/** - It also logs the error to the console */
+	app.Use(recover.New())
 	/** CORS Settings */
 	app.Use(cors.New())
+	/** Logger */
+	app.Use(logger.New())
+	/** helmet */
+	app.Use(helmet.New())
+	/** Compress */
+	app.Use(compress.New())
+	/** Rate Limiter */
+	app.Use(limiter.New())
+	/** Etag */
+	app.Use(etag.New())
+	/** Cache */
+	app.Use(cache.New())
 	/** Json Guard */
 	app.Use(func (c *fiber.Ctx) error {
         if c.Is("json") {
@@ -53,6 +78,6 @@ func main() {
 		port = ":3000"
 	}
 
-    log.Fatal(app.Listen(port ))
+    log.Fatal(app.Listen(port))
 }
 ```

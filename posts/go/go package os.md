@@ -1,5 +1,7 @@
 # go package os
 
+> 파일, 디렉토리, 권한, 프로세스, 환경변수 등을 다루는 패키지
+
 ```go
 package main
 import (
