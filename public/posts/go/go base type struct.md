@@ -6,7 +6,7 @@
 > >
 > > > > 함수는 struct 내부가 아닌 외부에서 receiver로 사용한다.
 
-## /user/user.go
+## /dto/user.go
 
 ```go
 package user
@@ -50,7 +50,7 @@ package main
 
 import (
   "fmt"
-  "example.com/user"
+  user "example.com/dto"
   )
 
 func main(){

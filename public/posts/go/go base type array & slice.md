@@ -21,5 +21,4 @@ func main(){
   newSlice := append(slice, "june")
   fmt.Println(newSlice)
 }
-
 ```

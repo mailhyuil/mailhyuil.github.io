@@ -11,7 +11,7 @@ func main(){
 
   hyuilMap := map[string]string{
     "name": "hyuil",
-    "age": "30",
+    "age": "3",
   }
 
   for key, value := range hyuilMap {
@@ -20,5 +20,14 @@ func main(){
 
   value, ok := hyuilMap["name"]
   println(value, ok) // 값이 없으면 ok는 false
+
+  hyuilMap["name"] = "hyuil2" // 값 변경
+  hyuilMap["name2"] = "hyuil3" // 값 추가
+
+  delete(hyuilMap, "name") // 값 삭제
+
+  println(hyuilMap["name"]) // 값이 없으면 "" 리턴
+
+  println(len(hyuilMap)) // 길이
 }
 ```

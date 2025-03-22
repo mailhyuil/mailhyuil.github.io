@@ -1,4 +1,4 @@
-# go package time
+# go time
 
 ```go
 time.Now() // 현재 시간을 반환한다.
