@@ -37,6 +37,16 @@ for i := 0; i < 5; i++ {
 }
 ```
 
+## while 문 처럼 사용
+
+```go
+ok := scanner.Scan() // bol
+for ok {
+    fmt.Println(scanner.Text())
+    ok = scanner.Scan()
+}
+```
+
 ## 함수로 사용
 
 ```go
