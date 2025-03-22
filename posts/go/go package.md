@@ -7,7 +7,7 @@
 ```sh
 go mod init <module name>
 go get <package name>
-
 go run <package name>
+go tidy
 go build
 ```
