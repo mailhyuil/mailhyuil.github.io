@@ -6,7 +6,7 @@ apt update -y
 # 보안
 apt install apt-transport-https -y # apt가 https로 패키지를 다운로드
 
-apt install ca-certificates -y # tls 인증서가 포함되어 있어 ssl/tls 연결을 통해 다운로드
+apt install ca-certificates -y # 인증된 CA 모음, 서버가 보낸 인증서가 신뢰성있는지 여기서 확인함 (curl, wget등 사용 시 필요)
 
 apt install gnupg -y # gpg 암호화
 

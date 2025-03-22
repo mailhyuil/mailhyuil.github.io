@@ -23,7 +23,6 @@ jsonStr := string(jsonBytes) // jsonbytes를 string으로 변환
 fmt.Println(jsonStr) // {"first_name":"휴일"}
 
 // json string을 struct로 변환
-
 var user2 UpdateUser
 err := json.Unmarshal([]byte(jsonStr), &user2)
 
