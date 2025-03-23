@@ -7,7 +7,7 @@
 ```sh
 apt install make -y
 
-make start:local
+make run-local
 ```
 
 ## Makefile

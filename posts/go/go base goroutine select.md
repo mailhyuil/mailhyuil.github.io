@@ -30,7 +30,7 @@ case <-time.After(2 * time.Second):
 }
 ```
 
-## for select 문
+## for-select 문
 
 > 지속적으로 채널을 모니터링하는 경우
 
