@@ -12,6 +12,6 @@ func main(){
 
 	dictionary["third"] = "3rd"
 
-	fmt.Println(dictionary)
+	money := Money(1000)
 }
 ```

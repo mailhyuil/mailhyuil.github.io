@@ -22,7 +22,7 @@ switch age {
 ```go
 k := 2
 
-switch k{
+switch k {
 	case 1:
 		fmt.Println("k: 1")
 	case 2:

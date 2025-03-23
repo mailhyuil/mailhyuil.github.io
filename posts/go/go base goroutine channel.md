@@ -22,6 +22,9 @@ msg := <- ch
 
 // channel을 닫을 때 (for range, ok check 시 필요)
 close(ch)
+
+// channel의 길이 확인
+len(ch)
 ```
 
 ## usage
