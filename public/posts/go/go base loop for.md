@@ -57,3 +57,17 @@ func addAll(numbers ...int) (total int){
     return
 }
 ```
+
+## for-select 문
+
+```go
+for {
+    select {
+    case msg := <-ch:
+        fmt.Println("받음:", msg)
+    case <-done:
+        fmt.Println("끝!")
+        return
+    }
+}
+```
