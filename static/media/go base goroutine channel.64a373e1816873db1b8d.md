@@ -12,7 +12,7 @@
 // channel 생성
 ch := make(chan string)
 // send only channel 생성
-ch := make(chan<- string)
+ch := make(chan <- string)
 
 // 함수에서 channel로 값을 전달 (send)
 ch <- "hello"
@@ -47,7 +47,7 @@ func main(){
 	}
 }
 
-func isHot(person string, ch chan<- string){
+func isHot(person string, ch chan <- string){
     time.Sleep(2 * time.Second)
     ch <- person + " is hot"
 }

@@ -1,6 +1,6 @@
 # go package fmt
 
-> 문자열을 형식화하고 출력하는 패키지
+> 문자열을 형식화하여 출력, 반환하는 패키지
 
 ```go
 fmt.Println("Hello, World!") // Hello, World!
