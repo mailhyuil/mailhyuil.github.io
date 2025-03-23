@@ -36,6 +36,8 @@ Lock() / Unlock() → 쓰기 시 단독 점유
 ## Once
 
 > 함수가 한번만 호출되도록 보장
+>
+> > 초기화, 싱글톤 패턴 등에서 유용
 
 ```go
 var once sync.Once
