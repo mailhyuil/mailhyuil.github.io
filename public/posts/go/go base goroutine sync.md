@@ -37,18 +37,100 @@ Lock() / Unlock() → 쓰기 시 단독 점유
 
 > 함수가 한번만 호출되도록 보장
 
+```go
+var once sync.Once
+var instance *Config
+
+func GetConfig() *Config {
+	once.Do(func() {
+		instance = loadConfig()
+	})
+	return instance
+}
+```
+
 ## WaitGroup
 
 > 여러 고루틴이 끝날 때까지 대기
+
+```go
+for i := 0; i < 5; i++ {
+	wg.Add(1) // 🔥 고루틴 실행 전에 반드시 호출
+	go func(i int) {
+		defer wg.Done() // 🔥 defer로 고루틴 종료 시 반드시 호출
+		fmt.Println(i)
+	}(i) // 👈 루프 변수 캡쳐도 방지!
+}
+wg.Wait()
+
+```
 
 ## Cond
 
 > 조건 변수
 
+```go
+var mu sync.Mutex
+var cond = sync.NewCond(&mu)
+var ready = false
+
+func worker() {
+	mu.Lock()
+	for !ready {
+		cond.Wait() // 조건 만족 전까지 블록
+	}
+	fmt.Println("작업 시작!")
+	mu.Unlock()
+}
+
+func main() {
+	go worker()
+
+	time.Sleep(1 * time.Second)
+	mu.Lock()
+	ready = true
+	cond.Signal() // 하나 깨움 (Broadcast()는 모두 깨움)
+	mu.Unlock()
+}
+```
+
 ## Map
 
 > 동시성 안전한 맵
 
+```go
+var m sync.Map
+
+func main() {
+	m.Store("name", "hyuil")
+	m.Store("age", 99)
+
+	val, ok := m.Load("name")
+	if ok {
+		fmt.Println(val)
+	}
+
+	m.Range(func(k, v any) bool {
+		fmt.Printf("%v: %v\n", k, v)
+		return true
+	})
+}
+```
+
 ## Pool
 
 > 동시성 안전한 메모리 풀
+
+```go
+var bufPool = sync.Pool{
+	New: func() any {
+		return new(bytes.Buffer)
+	},
+}
+
+func handler() {
+	buf := bufPool.Get().(*bytes.Buffer) // 꺼냄
+	buf.Reset()
+	defer bufPool.Put(buf) // 반환
+}
+```

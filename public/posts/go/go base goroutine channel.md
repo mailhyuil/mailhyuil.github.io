@@ -19,6 +19,9 @@ ch <- "hello"
 
 // main에서 channel로 값을 받아 처리 (receive)
 msg := <- ch
+
+// channel을 닫을 때 (for range, ok check 시 필요)
+close(ch)
 ```
 
 ## usage

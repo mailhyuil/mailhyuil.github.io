@@ -5,6 +5,8 @@
 > > 함수가 return 되거나 panic 나도 실행됨
 > >
 > > > 여러 개 쓸 수 있음 → 쌓이는 순서대로 역순으로 실행됨 (LIFO)
+> > >
+> > > > try catch의 finally 용도로 사용
 
 ```go
 func main() {
