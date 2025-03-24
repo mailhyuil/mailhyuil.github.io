@@ -1,6 +1,6 @@
 # nodejs event-loop epoll & kqueue & IOCP
 
-> 각 운영체제의 네이티브 비동기 I/O 이벤트 감시 인터페이스 (linux=epoll, macOS=kqueue, windows=IOCP)
+> 각 운영체제의 네이티브 I/O Event Notification Interface (linux=epoll, macOS=kqueue, windows=IOCP)를 추상화한 구현체
 >
 > socket, pipe, tty, timer, signal, async handle 등과 같은 비동기 I/O 이벤트를 감시한다.
 >
