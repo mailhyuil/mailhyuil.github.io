@@ -1,6 +1,8 @@
-# event loop
+# nodejs event-loop
 
-> 이벤트 루프의 각 반복을 "틱(tick)"이라고 합니다.
+> main thread에서 비동기 작업을 가져와 처리하는 매커니즘
+>
+> > 이벤트 루프의 각 반복을 "틱(tick)"이라고 합니다.
 
 ## 이벤트 루프
 
