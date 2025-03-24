@@ -9,8 +9,8 @@ npm i @nestjs/platform-fastify
 # env
 npm i dotenv
 # encryption
-npm i bcryptjs
-npm i -D @types/bcryptjs
+npm i bcrypt
+npm i -D @types/bcrypt
 # security
 npm i @fastify/helmet
 # response compression

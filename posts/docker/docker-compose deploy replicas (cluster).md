@@ -12,6 +12,8 @@
 > >
 > > 또는 jwt를 사용해서 앱을 stateless하게 만들어야 한다.
 
+## docker-compose.yml
+
 ```yaml
 services:
   nestjs:
@@ -21,4 +23,11 @@ services:
       replicas: 4 # 4개의 컨테이너 실행 (Cluster 효과)
     ports:
       - "3000:3000"
+```
+
+## command
+
+```sh
+# docker-compose up --scale {container-name}={num} -d
+docker-compose up --scale nginx=3 -d
 ```

@@ -6,11 +6,9 @@
 > >
 > > > 각 코어에서 thread를 생성해서 작업 가능
 > > >
-> > > > nodejs background thread가 아닌 javascript thread를 말하는 것!
-> > > >
 > > > > > javascript thread를 멀티코어에서 실행하는 것 (nodejs 앱은 하나)
 > > > > >
-> > > > > user-level thread가 아닌 kernel-level thread를 사용하는 것
+> > > > > 새로운 thread를 생성해서 그 위에 v8 엔진을 올려서 실행하는 것
 
 ## import
 

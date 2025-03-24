@@ -1,4 +1,4 @@
-# nodejs event-loop background-thread (libuv thread pool)
+# nodejs event-loop libuv thread pool (worker thread / background thread)
 
 > nodejs는 대부분의 cpu 작업을 main thread 수행하지만 몇가지 작업은 background thread에서 수행한다.
 >
@@ -7,6 +7,10 @@
 > > libuv thread pool로 구현되어있다. (libuv는 c로 작성된 nodejs의 event-loop + 비동기 I/O 라이브러리)
 > >
 > > 기본 4개의 스레드가 생성된다.
+> >
+> > > 만약 background thread를 사용하는 조건이 충족되지 않는다면 main thread에서 처리된다. (e.g. bcryptjs)
+> > >
+> > > 패키지 사용 시 문서를 확인하거나 코드를 보고 uv_queue_work()를 호출하는지를 확인하는게 좋다.
 
 ## background thread의 역할
 

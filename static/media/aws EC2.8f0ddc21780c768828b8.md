@@ -1,5 +1,9 @@
 ## EC2
 
+> aws의 가상 서버
+>
+> > ECS(EC2), EKS, RDS, ElastiCache등 다양한 서비스는 내부적으로 EC2를 사용한다.
+
 1. 서비스 -> EC2
 2. 인스턴스 시작하기 (ubuntu)
 3. .ppk key 생성 인스턴스에 연결 # puttyGen 다운로드 .pem키를 .ppk로 변환

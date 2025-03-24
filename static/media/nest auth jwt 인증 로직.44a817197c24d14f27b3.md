@@ -124,7 +124,7 @@ import { Cache, CACHE_MANAGER } from "@nestjs/cache-manager";
 import { Inject, Injectable, Logger, OnModuleInit, UnauthorizedException } from "@nestjs/common";
 import { JsonWebTokenError, JwtService, TokenExpiredError } from "@nestjs/jwt";
 import { PrismaService } from "apps/server/src/prisma/prisma.service";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import { plainToInstance } from "class-transformer";
 import { PrismaError } from "prisma-error-enum";
 import { IdTokenPayload, LoginDTO, LoginResponseDTO, RefreshTokenPayload } from "./auth.dto";
@@ -168,7 +168,7 @@ export class AuthService implements OnModuleInit {
       await this.prisma.user.create({
         data: {
           username,
-          password: bcrypt.hashSync(password),
+          password: await bcrypt.hash(password, 10),
           name: "admin",
           birthDate: new Date(),
           roles: ["ADMIN"],
@@ -207,7 +207,7 @@ export class AuthService implements OnModuleInit {
           throw error;
         });
 
-      if (!bcrypt.compareSync(password, found.password)) {
+      if (!(await bcrypt.compare(password, found.password))) {
         throw new UnauthorizedException("사용자 정보를 다시 확인해주세요.");
       }
 

@@ -12,6 +12,9 @@
 
 ```sh
 pm2 start dist/main.js -i [프로세스 수]
+
+pm2 scale <app> +3
+pm2 scale <app> -3
 ```
 
 ## ecosystem.config.js
@@ -22,8 +25,14 @@ pm2 start dist/main.js -i [프로세스 수]
 module.exports = {
   apps: [
     {
-      script: "app.js",
-      instances: "max",
+      name: "app",
+      script: "build/app.js",
+      exec_mode: "cluster", // cluster 모드
+      instances: "8", // number or "max"
+      autorestart: true,
+      watch: false,
+      max_memory_restart: "512M", // 메모리 초과 시 재시작
+      vizion: false, // git commit hash
     },
   ],
 };
