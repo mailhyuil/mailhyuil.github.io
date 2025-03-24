@@ -124,7 +124,7 @@ import { Cache, CACHE_MANAGER } from "@nestjs/cache-manager";
 import { Inject, Injectable, Logger, OnModuleInit, UnauthorizedException } from "@nestjs/common";
 import { JsonWebTokenError, JwtService, TokenExpiredError } from "@nestjs/jwt";
 import { PrismaService } from "apps/server/src/prisma/prisma.service";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import { plainToInstance } from "class-transformer";
 import { PrismaError } from "prisma-error-enum";
 import { IdTokenPayload, LoginDTO, LoginResponseDTO, RefreshTokenPayload } from "./auth.dto";
