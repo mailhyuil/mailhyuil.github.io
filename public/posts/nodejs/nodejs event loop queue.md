@@ -1,15 +1,27 @@
 # nodejs event-loop queue
 
-> microtask가 먼저 실행된다
+> queue에는 완료된 콜백 함수들이 libuv에 의해 등록되어진다.
+
+### next tick queue
+
+> 단 한개만 존재
 >
-> > queue에는 콜백 함수들이 들어간다.
+> > process.nextTick으로 등록된 콜백 함수
+> >
+> > > 각 phase 시작 전에 이 next tick queue를 전부 비운다.
 
 ### microtask queue
 
-> promise / async/await / nextTick / queueMicrotask
+> 단 한개만 존재
 >
-> > network io는 여기 promise에
+> > promise / async/await function / queueMicrotask
+> >
+> > > 각 phase 시작 전에 이 microtask queue를 전부 비운다.
 
-### macrotask queue (task queue)
+### macrotask queue
 
-> setTimeout / setInterval / setImmediate
+> 각 phase마다 전용 macrotask queue가 존재한다.
+>
+> > setTimeout / setInterval / setImmediate (timer)
+> >
+> > epoll task, background thread task (poll)
