@@ -26,9 +26,9 @@ Java threads are "user" threads, but under the hood, the Java Virtual Machine is
 
 > 하나의 프로세스 내에 하나의 스레드만 사용하는 것 (nodejs, nginx)
 >
-> > 하나의 스레드가 cpu 작업을 하고 나머지 스레드는 백그라운드에서 event-loop를 통해 비동기 작업을 처리한다.
+> > 하나의 스레드가 cpu 작업을 하고 나머지 스레드는 백그라운드에서 event-loop를 통해 io 작업을 처리한다.
 > >
-> > > 보통 event-loop를 사용한다.
+> > > 보통 event-loop를 통해 io 작업을 비동기로 처리
 > > >
 > > > > 여러개의 core를 사용하고 싶다면 cluster mode를 사용해야한다.
 
@@ -44,7 +44,7 @@ Java threads are "user" threads, but under the hood, the Java Virtual Machine is
 
 ### netty
 
-> java에서 사용하는 event-loop 라이브러리
+> java nio에서 사용하는 event-loop 라이브러리
 
 ### mio
 
