@@ -168,7 +168,7 @@ export class AuthService implements OnModuleInit {
       await this.prisma.user.create({
         data: {
           username,
-          password: bcrypt.hashSync(password),
+          password: await bcrypt.hash(password, 10),
           name: "admin",
           birthDate: new Date(),
           roles: ["ADMIN"],
@@ -207,7 +207,7 @@ export class AuthService implements OnModuleInit {
           throw error;
         });
 
-      if (!bcrypt.compareSync(password, found.password)) {
+      if (!(await bcrypt.compare(password, found.password))) {
         throw new UnauthorizedException("사용자 정보를 다시 확인해주세요.");
       }
 
