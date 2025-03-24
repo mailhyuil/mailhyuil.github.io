@@ -10,10 +10,10 @@
 
 ## background thread의 역할
 
-1. fs I/O (블로킹 I/O) (system call)
-2. crypto 암호화 작업 (cpu-bound)
-3. zlib 압축 (cpu-bound)
-4. dns lookup (네트워크 요청 + 동기 시스템 콜)
+1. crypto 암호화 작업 (cpu-bound)
+2. zlib 압축 (cpu-bound)
+3. fs I/O (블로킹 I/O) (system call read(), write())
+4. dns lookup (네트워크 요청전에 system call getaddrinfo() 사용)
 
 ## 블로킹 IO vs 논블로킹 IO
 
