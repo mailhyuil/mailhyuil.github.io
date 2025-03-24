@@ -19,5 +19,5 @@
 ```sh
 # user mode(terminal)에서 cp 명령어 사용
 cp input.txt output.txt
-# syscall.. 을 통해서 copy
+# 내부적으로 syscall.. 을 통해서 copy 후 결과값 반환
 ```
