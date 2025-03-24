@@ -27,21 +27,51 @@ case msg := <-ch:
     fmt.Println("받은 값:", msg)
 case <-time.After(2 * time.Second):
     fmt.Println("타임아웃!")
+    return
 }
 ```
 
-## for-select 문
+## done channel pattern
 
 > 지속적으로 채널을 모니터링하는 경우
+>
+> > for 내부에서 조건을 사용해 break을 걸어줘야 함
+> >
+> > > done 채널을 사용해 struct{}를 보내면 종료됨
+> > >
+> > > struct를 사용하는 이유는 struct{}는 크기가 0임, 아무것도 없다고 판단함
 
 ```go
-for {
-    select {
-    case msg := <-ch:
-        fmt.Println("받음:", msg)
-    case <-done:
-        fmt.Println("끝!")
-        return
-    }
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ch := make(chan string) // 메시지 채널
+	done := make(chan struct{}) // 종료 신호 채널
+
+	// 메시지를 보내는 goroutine
+	go func() {
+		for i := 1; i <= 5; i++ {
+			ch <- fmt.Sprintf("메시지 %d", i)
+			time.Sleep(500 * time.Millisecond)
+		}
+		// 메시지 다 보냈으면 done에 신호 보냄
+		done <- struct{}{}
+	}()
+
+	// 메시지를 받는 쪽
+	for {
+		select {
+		case msg := <-ch:
+			fmt.Println("값을 받음:", msg)
+		case <-done:
+			fmt.Println("더 이상 값이 없을 때까지 대기")
+			return
+		}
+	}
 }
 ```

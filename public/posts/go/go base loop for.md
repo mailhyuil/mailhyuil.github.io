@@ -47,18 +47,7 @@ for ok {
 }
 ```
 
-## 함수로 사용
-
-```go
-func addAll(numbers ...int) (total int){
-    for _, number := range numbers {
-        total += number
-    }
-    return
-}
-```
-
-## for-select 문
+## while-break 문 처럼 사용
 
 ```go
 for {
@@ -69,5 +58,16 @@ for {
         fmt.Println("끝!")
         return
     }
+}
+```
+
+## 함수로 사용
+
+```go
+func addAll(numbers ...int) (total int){
+    for _, number := range numbers {
+        total += number
+    }
+    return
 }
 ```
