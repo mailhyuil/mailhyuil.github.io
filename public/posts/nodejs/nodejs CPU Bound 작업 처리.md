@@ -14,30 +14,42 @@
 >
 > > bcrypt 라이브러리 (native addon) 사용
 
-## 🗜️ 압축 및 변환
+## 🗜️ 압축 / 해제
 
-> 파일 압축/해제(zip, gzip), 이미지 리사이징, 포맷 변환
+> 파일 압축/해제(zip, gzip),
 >
-> > sharp 라이브러리 (native addon) 사용
-> >
 > > zlib (libuv thread pool) 사용
 
-## 🗃️ 대용량 파일 처리
+## 📊 데이터 변환 (Parsing)
 
-> 엑셀(Excel), PDF 생성·변환, CSV 파일 파싱
-
-## 📈 데이터 분석 및 계산
-
-> 통계 계산, 정렬, 통계 처리, 머신러닝 연산
+> JSON, XML, HTML 파싱, CSV 변환
 >
-> > worker_threads 사용
+> > fast-json-stringify 사용
+> >
+> > fast-xml-parser 사용
+
+## 🗃️ 파일 생성
+
+> 엑셀(Excel), PDF 생성·변환
+>
+> > puppeteer (HTML to PDF) native addon 사용
 
 ## 🔍 검색 및 필터링 작업
 
 > 복잡한 문자열 처리(정규표현식), 자연어 처리(NLP), 텍스트 분석
+>
+> > re2 (native addon) 사용 (정규표현식)
 
 ## 📸 미디어 처리
 
 > 동영상 인코딩(FFmpeg 등), 이미지 처리
 >
 > > sharp 라이브러리 (native addon) 사용
+> >
+> > ffmpeg (native addon) 사용
+
+## 📈 데이터 분석 및 계산
+
+> 통계 계산, 정렬, 통계 처리, 머신러닝 연산
+>
+> > worker_threads 사용
