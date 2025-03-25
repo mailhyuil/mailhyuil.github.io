@@ -14,8 +14,8 @@
 
 ## background thread의 역할
 
-1. crypto 암호화 작업 (cpu-bound)
-2. zlib 압축 (cpu-bound)
+1. crypto module (pbkdf2, randomBytes, randomFill, sign with callback, verify with callback)
+2. zlib module
 3. fs I/O (블로킹 I/O) (system call read(), write())
 4. dns lookup (블로킹 I/O) (네트워크 요청전에 system call getaddrinfo() 사용)
 

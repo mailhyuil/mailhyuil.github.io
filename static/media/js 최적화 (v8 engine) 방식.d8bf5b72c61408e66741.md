@@ -1,12 +1,26 @@
 # js v8 최적화
 
-## Inlining (인라이닝)
+> 객체의 속성 초기화 순서를 일관되게 유지하기
+>
+> 작은 함수를 사용하고 인라이닝을 용이하게 하기
+>
+> 동적 속성 대신 정적 속성 사용하기 (e.g. 다양한 타입이 있는 배열 사용 금지)
+>
+> 다형적(polymorphic)연산 보다는 단형적(monomorphic)연산을 사용한다
+>
+> > 단형적 연산 : hidden class 가 항상 같다.
+>
+> > 다형적 연산 : 그렇지 않고 값이 변한다.
+
+## Inlining Hot Code (인라이닝)
 
 > 함수 호출의 오버헤드를 줄이기 위해 사용하는 최적화
 >
 > > 함수 호출을 함수의 본문으로 직접 대체
 > >
-> > > 적용 여부는 v8엔진이 판단한다. (작고, 자주 호출되는 함수에 대해 적용)
+> > > 적용 여부는 v8엔진이 판단한다. (작고, 자주 호출되는 함수에 대해 적용) (hot code)
+> > >
+> > > hot code 함수에 try/catch를 사용하면 인라이닝이 되지 않는다.
 
 ```js
 function add(a, b) {
@@ -42,6 +56,7 @@ function Point(x, y) {
   this.x = x;
   this.y = y;
 }
+
 // 같은 생성자를 사용하면 같은 히든 클래스를 공유한다.
 var p1 = new Point(1, 2);
 var p2 = new Point(3, 4);
@@ -69,7 +84,8 @@ function findArea(shape) {
 let rectangle1 = { width: 10, height: 5 };
 let rectangle2 = { width: 5, height: 3 };
 
-console.log(findArea(rectangle1)); // 첫 번째 호출
-// 엔진은 rectangle2가 rectangle1과 같은 히든 클래스(즉, 같은 속성 레이아웃)를 가진다는 것을 감지하고, 첫 번째 호출에서 캐싱된 결과를 사용해 빠르게 계산을 수행합니다.
-console.log(findArea(rectangle2)); // 두 번째 호출
+console.log(findArea(rectangle1));
+// 엔진은 rectangle2가 rectangle1과 같은 히든 클래스(즉, 같은 속성 레이아웃)를 가진다는 것을 감지하고,
+// 첫 번째 호출에서 캐싱된 결과를 사용해 빠르게 계산을 수행합니다.
+console.log(findArea(rectangle2));
 ```
