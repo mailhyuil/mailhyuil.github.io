@@ -6,5 +6,4 @@
 
 ```sh
 pnpm approve-builds
-pnpm approve-builds -a
 ```
