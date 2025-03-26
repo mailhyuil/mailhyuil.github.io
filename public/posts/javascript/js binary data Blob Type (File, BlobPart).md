@@ -1,6 +1,8 @@
 # js Blob
 
-> Blob은 immutable하다 (쓰기 작업이 필요하지 않다면 Blob을 사용해라)
+> 브라우저 환경에서 사용하는 객체
+>
+> > Blob은 immutable하다 (쓰기 작업이 필요하지 않다면 Blob을 사용해라)
 
 ## File
 
@@ -19,31 +21,3 @@
 > > BlobPart는 다른 Blob 객체거나, USVString이거나, ArrayBuffer여야 한다.
 > >
 > > > 주로 어지간한 파일을 우리가 코드 상에서 만들 때는 데이터를 ArrayBuffer로 만들어 Blob에 넣어주는 편이다.
-
-## Blob to String
-
-```js
-const blob = new Blob(["hello, world"], { type: "text/plain" });
-
-const reader = new FileReader();
-
-// readAsText가 호출되면 발생하는 이벤트
-reader.onload = (event: any) => {
-  this.stream.set(event.target.result);
-};
-
-// 파일 읽기
-reader.readAsText(blob);
-```
-
-## Blob to Stream
-
-```js
-blob
-  .stream()
-  .getReader()
-  .read()
-  .then((result) => {
-    console.log(result);
-  });
-```
