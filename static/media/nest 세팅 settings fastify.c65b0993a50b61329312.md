@@ -1,70 +1,84 @@
 # nest fastify 세팅
 
+> 대부분의 라이브러리는 잘 동작하지만
+>
+> > 예외적으로 main.ts에서 미들웨어로 추가하는 라이브러리들은 fastify 전용 패키지를 사용해야한다. (helmet, csrf, multipart, compress, cookie, session 등)
+> >
+> > fastify 전용 미들웨어는 express보다 더 최적화되어 빠르다.
+> >
+> > > jwt는 @nestjs/jwt를 사용해도 되지만 더 빠르게 처리하기 위해서 @fastify/jwt를 사용할 수 있음
+
 ## install
 
 ```bash
 ################ 필수 패키지 #####################
 
+# fastify
 npm i @nestjs/platform-fastify
-# env
-npm i dotenv
-# encryption
-npm i bcrypt
-npm i -D @types/bcrypt
+
 # security
 npm i @fastify/helmet
 # response compression
-npm i compression
-npm i -D @types/compression
+npm i @fastify/compress
+# cookie
+npm i @fastify/cookie
+# file upload
+npm i @fastify/multipart
+# jwt
+npm i @fastify/jwt
+
+# env
+npm i dotenv
+
+# encryption
+npm i bcrypt
+npm i -D @types/bcrypt
+
 # validation
 npm i class-validator
 npm i class-transformer
 npm i nestjs-form-data
-# logging
-npm i morgan
-npm i -D @types/morgan
-npm i winston
-npm i nest-winston
-npm i winston-daily-rotate-file
+
 # testing
 npm i -D @nestjs/testing
 npm i -D supertest
 npm i -D @types/supertest
-# jwt
-npm i @nestjs/jwt
-# cookie
-npm i @fastify/cookie
+
 # openapi
 npm i @nestjs/swagger
 npm i ng-openapi-gen
 npm i @apidevtools/json-schema-ref-parser
+
 # date
 npm i dayjs
+
 # http
 npm i axios
 npm i @nestjs/axios
-# lodash
-npm i lodash
-npm i -D @types/lodash
+
 # rate limit
 npm i @nestjs/throttler
+
 # server cache
 npm i @nestjs/cache-manager
 npm i cache-manager
+
 # prisma
 npm i @prisma/client
 npm i -D prisma
 npm i prisma-error-enum
+
 # event
 npm i @nestjs/event-emitter
+
 # schedule
 npm i @nestjs/schedule
-# file upload
-npm i -D @types/multer
+
 # nestjs-cls
 npm i nestjs-cls
 npm i @nestjs-cls/transactional
 npm i @nestjs-cls/transactional-adapter-prisma
+
 # AOP
 npm i @toss/nestjs-aop
 
@@ -114,7 +128,7 @@ npm i @aws-sdk/client-s3
 npm i multer-s3
 
 # CSRF
-# npm i csurf
+# npm i @fastify/csrf-protection
 
 # config
 # npm i @nestjs/config
@@ -127,28 +141,26 @@ npm i multer-s3
 ```ts
 import { INestApplication } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import fastifyCookie from "@fastify/cookie";
-import helmet from "@fastify/helmet";
-import { writeFile } from "fs";
-import { join } from "path";
 import { AppModule } from "./app/app.module";
-import { winstonLogger, winstonStream } from "./logger/winston.logger";
 import { FastifyAdapter, NestFastifyApplication } from "@nestjs/platform-fastify";
-import FastifyMultipart from "@fastify/multipart";
+import cookie from "@fastify/cookie";
+import jwt from "@fastify/jwt";
+import helmet from "@fastify/helmet";
+import multipart from "@fastify/multipart";
 
 const NODE_ENV = process.env.NODE_ENV;
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), {
-    logger: winstonLogger,
-  });
-  /** HTTP Logging */
+  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
 
-  /** Multipart */
-  await app.register(FastifyMultipart);
   /** Cookie Parser */
-  await app.register(fastifyCookie);
+  await app.register(cookie);
+  /** File Upload */
+  await app.register(multipart);
+  /** JWT */
+  await app.register(jwt, {
+    secret: process.env.JWT_SECRET,
+  });
   /** Security */
   await app.register(helmet);
   /** Trust Proxy */
