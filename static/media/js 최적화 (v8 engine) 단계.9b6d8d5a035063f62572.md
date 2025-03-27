@@ -4,11 +4,13 @@
 
 1. Parsing -> AST 생성
    > 자바스크립트 코드를 파싱해서 AST(구문 트리)로 변환함
-2. ByteCode 생성 -> Interpreter(Ignition) 실행
+2. Ignition Compiler -> ByteCode 생성 -> Ignition Interpreter ByteCode를 실행
 
-   > AST 기반으로 바이트코드 생성 → 인터프리터가 실행함
+   > AST 기반으로 Ignition Compiler가 바이트코드 생성 → Ignition Interpreter가 실행함
    >
-   > > 바이트코드는 CPU가 이해할 수 있는 머신코드로 변환하기 전의 중간 코드
+   > > 바이트코드는 인터프리터(가상머신)이 이해할 수 있는 중간 코드
+   > >
+   > > CPU가 이해할 수 있는 코드(Native code)로 변환하기 전의 중간 코드
 
 3. Profiling
    > Ignition이 코드를 실행하면서 최적화 기준 (조건, 통계, hotness threshold (약 수천번) 등)을 수집함
