@@ -1,61 +1,52 @@
 # nodejs event-loop process.nextTick
 
-> main thread에서 무거운 작업을 하면 이벤트 루프를 block하게 된다
+> nextTickQueue will be processed after the current operation is completed, regardless of the current phase of the event loop.
 >
-> > 이때 nextTick을 사용하여 무거운 작업을 나눠서 실행하여 block을 피할 수 있다
+> event loop 단계와 상관없이 현재 작업이 완료된 후에 nextTickQueue가 처리된다
+>
+> > API 개발 시 event handler를 할당하는 함수를 반드시 비동기로 호출할 수 있게 보장한다.
 > >
-> > > bcryptjs 같은 main thread만 사용하는 패키지들을 이런 방법으로 block을 피한다
-> > >
-> > > > 또는 go의 defer와 비슷한 기능을 구현할 수 있다
-> > > >
-> > > > 작업 정리 후 에러
-> > > >
-> > > > 메소드 실행 후 후처리
+> > 또한 현재 실행된 함수의 호출 스택이 비워진 후에 실행되기 때문에, 콜백 함수가 현재 실행되는 함수의 결과를 참조할 수 있다. (defer로 사용 가능)
 
-## main thread blocking 방지
-
-```js
-function heavyTask() {
-  let i = 0;
-  const inner = () => {
-    if (i >= 1_000_000_000) return console.log("done");
-    for (let j = 0; j < 100_000; j++) {
-      i++;
-    }
-    process.nextTick(inner); // 👈 다음 tick에서 이어서 (setImmediate, setTimeout으로도 구현가능)
-  };
-  inner();
-}
-
-heavyTask();
-console.log("next work");
-```
-
-## defer
+## bad
 
 ```ts
-function doSomething(cb) {
-  cb(); // 콜백에서 에러가 발생하거나, 콜백이 비동기일 경우 후처리를 못함
-  process.nextTick(() => {
-    console.log("✅ callback 이후 후처리");
-  });
+// WARNING!  DO NOT USE!  BAD UNSAFE HAZARD!
+function maybeSync(arg, cb) {
+  if (arg) {
+    cb();
+    return;
+  }
+
+  fs.stat("file", cb);
 }
-```
 
-```js
-process.nextTick(() => {
-  // 모든 작업, 리소스 정리를 마친 후에 실행
-  throw new Error("🔥");
+const maybeTrue = Math.random() > 0.5;
+
+// 비동기로 처리될 수도 있고 동기로 처리될 수도 있다, 예측할 수 없음
+maybeSync(maybeTrue, () => {
+  foo();
 });
+
+bar();
 ```
 
-## 브라우저에서 구현 (bcryptjs)
+## good
 
 ```js
-var nextTick =
-  typeof process !== "undefined" && process && typeof process.nextTick === "function"
-    ? typeof setImmediate === "function"
-      ? setImmediate
-      : process.nextTick
-    : setTimeout;
+function definitelyAsync(arg, cb) {
+  if (arg) {
+    process.nextTick(cb);
+    return;
+  }
+
+  fs.stat("file", cb);
+}
+
+// 항상 비동기로 처리됨
+definitelyAsync(true, () => {
+  foo();
+});
+
+bar(); // will now allways be called before foo()
 ```

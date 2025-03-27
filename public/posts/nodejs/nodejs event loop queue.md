@@ -22,6 +22,12 @@
 
 > 각 phase마다 전용 macrotask queue가 존재한다.
 >
-> > setTimeout / setInterval / setImmediate (timer)
+> > setTimeout / setInterval (timer)
+> >
+> > TCP, fs, dns 등에서 발생한 에러 콜백 (pending callbacks)
 > >
 > > epoll task, background thread task (poll)
+> >
+> > setImmediate (check)
+> >
+> > on('close') (close callbacks)

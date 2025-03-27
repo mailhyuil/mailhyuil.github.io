@@ -1,4 +1,10 @@
-# node worker_threads SharedArrayBuffer
+# node worker_threads SharedArrayBuffer & Atomics
+
+> SharedArrayBuffer와 Atomics API를 사용하면 여러 스레드간 안전하게 데이터를 공유할 수 있습니다.
+>
+> > postMessage를 사용시 데이터를 복사해서 전달하게 되어 오버헤드가 발생
+> >
+> > SharedArrayBuffer를 사용하면 데이터를 복사하지 않고 공유할 수 있음
 
 ## main.js
 

@@ -1,14 +1,22 @@
-# js TypedArray & DataView
+# ArrayBuffer ArrayBufferView
 
-> ArrayBuffer를 읽기, 쓰기 위해서는 TypedArray 또는 DataView를 사용해야 한다.
+> ArrayBuffer는 브라우저와 Node.js 모두에서 사용할 수 있는 원시 바이너리 데이터 버퍼 (Buffer는 Nodejs에서만 사용 가능)
+>
+> > ArrayBuffer에 접근하기 위한 객체를 통해서 접근
+> >
+> > > ArrayBufferView는 ArrayBuffer에 접근하기 위한 인터페이스
 
 ## TypedArray
 
-> UnitArray 8 16 32 // Uint8ClampedArray (Unsigned Int)
+> 고정된 타입의 ArrayBuffer를 생성할 수 있는 View
 >
-> > IntArray 8 16 32 (Signed Int)
+> e.g. Uint8Array, Uint16Array, Uint32Array, Int8Array, Int16Array, Int32Array, Float32Array, Float64Array
+>
+> > for reading and writing raw binary data in memory buffers.
 > >
-> > > FloatArray 8 16 32 (Float)
+> > > 바이트 정렬은 시스템 엔디안을 따라감 (주로 little-endian)
+> > >
+> > > > 성능 빠름, WebGL 같은 데서 많이 씀
 
 ```js
 const buf = new ArrayBuffer(4); /// 4 bytes
@@ -28,6 +36,12 @@ console.log(unit16); // Uint16Array(2) [ 257, 0 ]
 
 ## DataView
 
+> 정확한 바이트 오프셋으로 데이터 읽고 쓸 수 있음
+>
+> > 엔디안을 지정할 수 있음
+> >
+> > > 파일 파싱, 네트워크 통신 등에 유용
+
 ```js
 const buf = new ArrayBuffer(4); // 4 bytes
 
@@ -39,21 +53,4 @@ new DataView(buf).setInt16(0, 127, true); // little endian.
 // 결과적으로 [0111 1111 / 0000 0000 / 0000 0000 / 0000 0000]
 // 8비트로 쪼개서 4조각을 내서 출력해보면 다음과 같다.
 console.log(new Uint8Array(buf)); // [127, 0, 0, 0]
-```
-
-## String to ArrayBuffer
-
-```js
-function ab2str(buf) {
-  return String.fromCharCode.apply(null, new Uint16Array(buf));
-}
-
-function str2ab(str) {
-  var buf = new ArrayBuffer(str.length * 2); // 2 bytes for each char
-  var bufView = new Uint16Array(buf);
-  for (var i = 0, strLen = str.length; i < strLen; i++) {
-    bufView[i] = str.charCodeAt(i);
-  }
-  return buf;
-}
 ```

@@ -43,9 +43,6 @@ npm i dayjs
 # http
 npm i axios
 npm i @nestjs/axios
-# lodash
-npm i lodash
-npm i -D @types/lodash
 # rate limit
 npm i @nestjs/throttler
 # server cache
@@ -128,15 +125,12 @@ npm i multer-s3
 ```ts
 import { INestApplication } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import cookieParser from "cookie-parser";
-import { writeFile } from "fs";
-import helmet from "helmet";
-import morgan from "morgan";
-import { join } from "path";
 import { AppModule } from "./app/app.module";
 import { winstonLogger, winstonStream } from "./logger/winston.logger";
 import { NestExpressApplication } from "@nestjs/platform-express";
+import cookieParser from "cookie-parser";
+import helmet from "helmet";
+import morgan from "morgan";
 
 const NODE_ENV = process.env.NODE_ENV;
 
