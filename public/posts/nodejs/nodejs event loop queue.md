@@ -2,7 +2,7 @@
 
 > queue에는 완료된 콜백 함수들이 libuv에 의해 등록되어진다.
 
-### next tick queue
+### nextTick queue
 
 > 단 한개만 존재
 >

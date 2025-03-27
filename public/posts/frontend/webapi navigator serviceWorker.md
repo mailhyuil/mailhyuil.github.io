@@ -4,18 +4,18 @@
 
 ```js
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/serviceworker.js");
+  navigator.serviceWorker.register("/service-worker.js");
 }
 ```
 
-## serviceworker.js
+## service-worker.js
 
 ```js
 // This code executes in its own worker or thread
-self.addEventListener("install", (event) => {
+self.addEventListener("install", event => {
   console.log("Service worker installed");
 });
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", event => {
   console.log("Service worker activated");
 });
 ```
