@@ -14,7 +14,7 @@
 
 > 단 한개만 존재
 >
-> > promise.then() / async/await function / queueMicrotask
+> > promise.then(), catch(), finally() / async/await function / queueMicrotask
 > >
 > > > 각 phase 시작 전에 이 microtask queue를 전부 비운다.
 
