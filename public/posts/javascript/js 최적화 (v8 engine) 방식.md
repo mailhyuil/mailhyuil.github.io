@@ -10,7 +10,7 @@
 > > >
 > > > ignition이 hot code를 찾고 turbofan이 최적화를 진행한다.
 
-## Hidden Class & Inline Caching (인라인 캐싱) (IC)
+## Hidden Class (Shape, Map) & Inline Caching (IC)
 
 > 객체의 구조를 기억해두고 빠르게 접근하기 위해 사용하는 최적화
 >
@@ -39,7 +39,7 @@ console.log(findArea(rectangle1));
 console.log(findArea(rectangle2));
 ```
 
-## Function Inlining (함수 인라이닝)
+## Function Inlining
 
 > 함수 호출의 오버헤드를 줄이기 위해 사용하는 최적화
 >

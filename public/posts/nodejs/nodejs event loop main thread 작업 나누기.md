@@ -16,7 +16,7 @@ function heavyTask() {
     for (let j = 0; j < 100_000; j++) {
       i++;
     }
-    setImmediate(inner); // 👈 다음 tick에서 이어서 (setTimeout으로도 구현가능)
+    setImmediate(inner); // 👈 다음 tick에서 이어서 (setTimeout으로도 구현가능) (Promise.resolve().then(), queueMicrotask로도 구현가능)
   };
   inner();
 }
