@@ -1,0 +1,10 @@
+# linux package iperf3 (Internet Protocol Performance)
+
+> > 네트워크 성능 확인 (e.g. bandwidth, jitter, packet loss)을 위한 도구
+
+## install
+
+```sh
+yum install iperf3
+apt install iperf3
+```

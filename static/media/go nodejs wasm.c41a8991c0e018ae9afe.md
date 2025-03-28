@@ -16,7 +16,10 @@ func main() {}
 ## build
 
 ```sh
-tinygo build -o add.wasm -target wasi add.go
+# nodejs 용
+GOOS=wasip1 GOARCH=wasm tinygo build -o add.wasm main.go
+# browser 용
+GOOS=js GOARCH=wasm tinygo build -o add.wasm main.go
 # add.wasm 생성됨
 # nodejs 프로젝트로 복사
 ```

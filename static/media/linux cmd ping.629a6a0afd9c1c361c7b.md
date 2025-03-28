@@ -1,6 +1,6 @@
 # ping
 
-> ping은 ALL ICMP 프로토콜을 사용한다.
+> ping은 ICMP 프로토콜을 사용한다.
 >
 > > traceroute의 단순화된 버전
 > >
