@@ -6,4 +6,4 @@
 > >
 > > > jvm은 warmup 전후의 성능 차이가 많이 나서 warmup을 하지만
 > > >
-> > > nodejs는 sparkplug의 중간단계 JIT 컴파일러가 있어서 warmup을 하는 문화가 잘 없다.
+> > > nodejs는 sparkplug, maglev 중간단계 JIT 컴파일러가 있어서 warmup을 하는 문화가 잘 없다.
