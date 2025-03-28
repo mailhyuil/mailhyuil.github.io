@@ -22,11 +22,17 @@
 
 ## 📊 데이터 변환 (Parsing)
 
-> JSON, XML, HTML 파싱, CSV 변환
+> JSON, XML, HTML 파싱, CSV 변환, Transform
 >
 > > fast-json-stringify 사용
 > >
 > > fast-xml-parser 사용
+
+## 데이터 검증
+
+> Validation, Schema, Type Checking
+>
+> > typia 사용
 
 ## 🗃️ 파일 생성
 

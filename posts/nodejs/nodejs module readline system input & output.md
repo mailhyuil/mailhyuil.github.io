@@ -12,7 +12,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.on("line", (line) => {
+rl.on("line", line => {
   console.log("hello !", line);
   rl.close();
 }).on("close", () => {

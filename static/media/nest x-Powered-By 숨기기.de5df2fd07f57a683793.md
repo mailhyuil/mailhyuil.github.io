@@ -9,3 +9,7 @@ app.disable("x-powered-by");
 ```
 
 ## helmet 사용
+
+```ts
+app.use(helmet());
+```
