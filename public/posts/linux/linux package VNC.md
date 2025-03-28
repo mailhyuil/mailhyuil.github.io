@@ -1,4 +1,4 @@
-# VNC
+# VNC (Virtual Network Computing)
 
 > 원격 데스크톱 접속 프로그램
 

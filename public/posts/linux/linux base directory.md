@@ -1,6 +1,6 @@
 # linux directory
 
-```
+```txt
 bin
 sbin
 lib
