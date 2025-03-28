@@ -9,6 +9,8 @@
 > This class creates stores that stay coherent through asynchronous operations.
 
 ```js
+import { AsyncLocalStorage } from "async_hooks";
+
 const als = new AsyncLocalStorage();
 const store = { value: 42 };
 

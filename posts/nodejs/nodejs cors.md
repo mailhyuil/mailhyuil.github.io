@@ -15,16 +15,9 @@
 > > > > > Options 응답은 chrome Network Other탭에 있음
 
 ```txt
+Access-Control-Allow-Origin // 허용된 도메인
 Access-Control-Request-Method // 허용된 메소드
 Access-Control-Request-Headers // 허용된 헤더
-Origin
 Access-Control-Request-Credentials
+Access-Control-Max-Age // preflight 결과를 저장할 기간
 ```
-
-## Access-Control-Max-Age
-
-> 클라이언트에서 Preflight 의 요청 결과를 저장할 기간을 지정
-
-## 오류
-
-> 인터셉터에서 Authorization을 넣는지 확인해라
