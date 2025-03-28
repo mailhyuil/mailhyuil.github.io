@@ -1,7 +1,7 @@
 # c++ make cmake
 
-> cc 프로젝트를 여러 플랫폼에서 배포하기 위한 빌드파일을 생성하는 도구
->
-> > CMake 를 통해서 빌드 파일을 생성하면 빌드 프로그램을 통해서 프로젝트를 빌드 하는 것입니다.
-> >
-> > 예를 들어서 make 를 사용한다면 CMake 를 통해서 Makefile 을 생성할 것
+> c 프로젝트를 빌드하기 위한 Makefile을 생성해주는 프로그램
+
+```txt
+cmake -> Makefile 생성 -> make로 Makefile 실행
+```
