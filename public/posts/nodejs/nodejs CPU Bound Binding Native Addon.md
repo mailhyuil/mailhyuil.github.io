@@ -11,12 +11,24 @@
 > > > > 라이브러리를 다운로드받고 별도의 build과정을 거친다. (pnpm approve-builds)
 > > > >
 > > > > 일부 패키지는 미리 빌드된 바이너리를 제공한다. (prebuilds)
+> > > >
+> > > > > 최종적으로 .node(c/c++로 작성된 바이너리) 파일을 사용한다.
+
+## install
+
+```sh
+npm i node-gyp
+npm i napi-rs
+npm i neon
+```
 
 ## NAN (Native Abstractions for Node.js)
 
-> if you want something mature and very backwards-compatible
+> Legacy
 >
-> > 최초의 native addon library이기 때문에 오래된 버전의 nodejs와 호환된다.
+> > if you want something mature and very backwards-compatible
+> >
+> > > 최초의 native addon library이기 때문에 오래된 버전의 nodejs와 호환된다.
 
 ## node-addon-api
 

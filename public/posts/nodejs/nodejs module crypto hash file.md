@@ -4,6 +4,7 @@
 
 ```ts
 import crypto from "crypto";
+
 export function hashFile(file: Express.Multer.File) {
   const fileBuffer = file.buffer;
 
