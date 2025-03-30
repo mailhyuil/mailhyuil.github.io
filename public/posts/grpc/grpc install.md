@@ -5,6 +5,8 @@
 ```sh
 # Protocol Buffers 툴킷 설치 (protoc)
 brew install protobuf
+winget install protobuf
+apt install protobuf-compiler -y
 
 # go gen plugin 설치
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest

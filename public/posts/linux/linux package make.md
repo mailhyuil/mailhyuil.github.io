@@ -18,52 +18,40 @@ apt install make -y
 make <command>
 ```
 
-## Makefile
+## Makefile 빌드 자동화로 사용하기
 
 ```Makefile
-project_name = my_project
+output.o: main.c foo.h bar.h
+	gcc -c main.c
+```
 
-image_name = gofiber:latest
+## Makefile 스크립트 자동화 도구로 사용하기
 
-help: ## This help dialog.
-	@grep -F -h "##" $(MAKEFILE_LIST) | grep -F -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+```Makefile
+.PHONY: clean test security build run
 
-run-local: ## Run the app locally
-	go run app.go
+APP_NAME = fiber-go-boilerplate
+BUILD_DIR = ./build
+MIGRATIONS_FOLDER = ./platform/migrations
+DB_NAME = fiber_go_api
+DB_USER = dev
+DB_PASS = dev
+DATABASE_URL = postgres://$(DB_USER):$(DB_PASS)@localhost/$(DB_NAME)?sslmode=disable
 
-requirements: ## Generate go.mod & go.sum files
-	go mod tidy
+clean:
+	rm -rf $(BUILD_DIR)/*
+	rm -rf *.out
 
-clean-packages: ## Clean packages
-	go clean -modcache
+security:
+	gosec -quiet ./...
 
-up: ## Run the project in a local container
-	make up-silent
-	make shell
+test: security
+	go test -v -timeout 30s -coverprofile=cover.out -cover ./...
+	go tool cover -func=cover.out
 
-build: ## Generate docker image
-	docker build -t $(image_name) .
+build: swag clean
+	CGO_ENABLED=0 go build -ldflags="-w -s" -o $(BUILD_DIR)/$(APP_NAME) main.go
 
-build-no-cache: ## Generate docker image with no cache
-	docker build --no-cache -t $(image_name) .
-
-up-silent: ## Run local container in background
-	make delete-container-if-exist
-	docker run -d -p 3000:3000 --name $(project_name) $(image_name) ./app
-
-up-silent-prefork: ## Run local container in background with prefork
-	make delete-container-if-exist
-	docker run -d -p 3000:3000 --name $(project_name) $(image_name) ./app -prod
-
-delete-container-if-exist: ## Delete container if it exists
-	docker stop $(project_name) || true && docker rm $(project_name) || true
-
-shell: ## Run interactive shell in the container
-	docker exec -it $(project_name) /bin/sh
-
-stop: ## Stop the container
-	docker stop $(project_name)
-
-start: ## Start the container
-	docker start $(project_name)
+run: build
+	$(BUILD_DIR)/$(APP_NAME)
 ```

@@ -11,13 +11,11 @@ list_1:
   - apple
   - banana
   - orange
-
 list_2: [apple, banana, orange]
 
 object_1:
   time: "12:34:11"
   date: "2019-04-30"
-
 object_2: { time: "12:34:11", date: "2019-04-30" }
 
 object_list:
@@ -27,27 +25,35 @@ object_list:
     direction: right
 
 # String
+# 줄바꿈 유지
 comment_line_break: |
   Hello my name is wook.
   Im developer.
-
+# 줄바꿈을 공백으로 대체 (한줄)
 comment_single_line: >
   Hello world
   my first yml syntax.
 
 # Null
-null: ~
-null_2: Null
+val: ~
+val: null
+val: Null
+val:
 
 # Bollean
-A: True
-B: False
+val: True
+val: true
+val: False
+val: false
 
 # Variable
 my_value: &my_value value1 # 변수 선언
+val: *my_value # 변수 사용
 
-var: *my_value # 변수 사용
-
-env: $MY_ENV # 환경 변수 사용
+my_list: &my_list # 리스트 변수 선언
+  - value1
+  - value2
+val:
+  <<: *my_list # 리스트 변수 사용
 ... # 문서의 끝
 ```
