@@ -3,8 +3,8 @@
 ## install
 
 ```sh
-npm i grpc-web
 npm i protoc
+npm i grpc-web
 npm i protoc-gen-grpc-web
 
 protoc -I=$DIR echo.proto \
