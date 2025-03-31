@@ -14,6 +14,8 @@
 -trimpath	경로 정보 제거 (보안, 캐시 무결성용) # 바이너리 안에 GOPATH, 소스 경로 안 남음
 ```
 
+## usage
+
 ```sh
 # -ldflags 옵션으로 디버그 정보 제거 등 성능 튜닝 가능
 go build -ldflags="-s -w" -o app
@@ -22,4 +24,24 @@ go build -ldflags="-s -w" -o app
 # -m 옵션으로 escape analysis 결과 확인
 # -m=2 옵션으로 escape analysis 결과를 더 자세히 확인
 go build -gcflags="-m main.go"
+```
+
+## 개발용 빌드
+
+> 최적화 하지 않고 빠르게 빌드
+>
+> > 디버그 정보 포함
+
+```sh
+go build
+```
+
+## 배포용 빌드
+
+> 최적화 및 디버그 정보 제거
+
+```sh
+go build -ldflags "-s -w" -trimpath -o myapp
+
+upx myapp
 ```
