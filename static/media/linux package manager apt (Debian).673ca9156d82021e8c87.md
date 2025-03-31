@@ -1,6 +1,6 @@
 # linux apt
 
-> 우분투에서 패키지를 설치
+> 데비안 계열(debian, ubuntu..)의 패키지 매니저
 
 ```sh
 apt update

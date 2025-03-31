@@ -28,4 +28,10 @@ bun dev
 
 # 테스트
 bun test
+
+# 설정
+bun setup
+
+# 글로벌 명령어
+bunx
 ```
