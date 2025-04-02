@@ -23,3 +23,16 @@ const UserSchema = z.object({
 
 export class UserDto extends createZodDto(UserSchema) {}
 ```
+
+## GlobalValidationPipe
+
+> app.module.ts에 등록
+
+```ts
+import { createZodValidationPipe } from "nestjs-zod";
+
+const GlobalValidationPipe = createZodValidationPipe({
+  // provide custom validation exception factory
+  createValidationException: (error: ZodError) => new BadRequestException("Ooops"),
+});
+```
