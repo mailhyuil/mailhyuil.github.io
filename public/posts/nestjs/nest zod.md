@@ -11,12 +11,15 @@ npm i zod
 ```ts
 import { z } from "zod";
 
-const UserSchema = z.object({
+// create schema
+const User = z.object({
   username: z.string(),
 });
 
-UserSchema.parse({ username: "Ludwig" });
+// create type
+type User = z.infer<typeof User>;
 
-type User = z.infer<typeof UserSchema>;
-// { username: string }
+// validate
+const form = { username: "Ludwig" };
+User.parse(form);
 ```
