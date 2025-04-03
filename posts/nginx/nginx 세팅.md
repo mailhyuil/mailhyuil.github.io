@@ -43,6 +43,11 @@ gzip_types text/plain text/css text/javascript application/javascript applicatio
 # brotli
 # brotli_static on;
 
+# rate limiting: 초당 10개의 요청만 허용
+limit_req_zone $binary_remote_addr zone=req_limit_per_ip:10m rate=10r/s;
+# slow rate limiting: 초당 5개의 요청만 허용
+limit_req_zone $binary_remote_addr zone=req_limit_api_slow:10m rate=5r/s;
+
 server {
     server_name example.com;
 
@@ -86,13 +91,17 @@ server {
     }
 
     location / {
+        # rate limiting
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+
         root /app/client/browser;
         index index.html index.htm;
         try_files $uri $uri/ @ssr;
     }
 
     location /admin {
-
+        # rate limiting
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
 
         alias /app/admin;
         index index.html index.htm;
@@ -100,6 +109,9 @@ server {
     }
 
     location /api/v1/ {
+        # slow rate limiting
+        limit_req zone=req_limit_api_slow burst=10 nodelay;
+
         proxy_pass http://server:3000;
     }
 

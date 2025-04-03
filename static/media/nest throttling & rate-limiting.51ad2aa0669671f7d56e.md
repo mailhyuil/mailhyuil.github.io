@@ -1,5 +1,11 @@
 # nest throttling & rate-limiting
 
+> 토큰, 파라미터, 바디, 로직 등을 사용하여 rate limiting을 구현하기 위해서는 nestjs 레벨에서 구현해야한다.
+>
+> > 성능 또는 DDOS를 막기 위해서는 nginx 레벨에서 구현하는 것을 권장한다.
+> >
+> > (요청이 이미 nestjs로 들어왔기 때문에 서버의 부하가 생긴다.)
+
 ## install
 
 ```sh
