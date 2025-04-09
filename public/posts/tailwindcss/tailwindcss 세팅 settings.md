@@ -5,7 +5,7 @@
 ```sh
 npm i -D @tailwindcss/typography
 npm i -D @iconify/json
-npm i -D @iconify/tailwindcss
+npm i -D @iconify/tailwind
 npm i -D @nextcss/color-tools
 ```
 

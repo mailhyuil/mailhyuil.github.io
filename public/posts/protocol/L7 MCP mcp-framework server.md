@@ -1,4 +1,4 @@
-# MCP nodejs
+# MCP mcp-framework server
 
 ## install
 
