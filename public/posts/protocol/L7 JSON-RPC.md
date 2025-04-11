@@ -1,6 +1,6 @@
 # base JSON-RPC
 
-> JSON-RPC 2.0 표준 명세
+> JSON-RPC 2.0 message format / RPC protocol
 >
 > > json을 사용한 stateless, light-weight remote procedure call 프로토콜
 > >

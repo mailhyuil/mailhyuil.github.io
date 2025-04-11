@@ -1,4 +1,4 @@
-# base JSON-RPC MCP Init
+# base MCP init
 
 ## 3 way handshake
 
