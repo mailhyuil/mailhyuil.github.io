@@ -1,6 +1,7 @@
 # Lambda layer Image Resize
 
 1. Lambda 생성
+   > memory 512MB, timeout 5s
 2. Trigger 생성 (S3) (S3에서 Event로 등록하는 방법도 있다, 둘 중 한가지 방법만 사용해야한다.)
 3. layer 생성 (sharp.. 라이브러리를 zip으로 압축해서 업로드)
    > sharp는 os에 의존적이기 때문에 주의
