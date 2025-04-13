@@ -1,5 +1,7 @@
 # eslint comment
 
+> vscode의 전구 버튼을 누르면 자동 추가 가능
+
 ```ts
 // 이 줄의 eslint 에러 무시
 // eslint-disable-next-line
