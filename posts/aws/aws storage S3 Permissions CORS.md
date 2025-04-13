@@ -4,8 +4,8 @@
 [
   {
     "AllowedHeaders": ["*"],
-    "AllowedMethods": ["*"],
-    "AllowedOrigins": ["https://example.com"],
+    "AllowedMethods": ["GET", "PUT", "POST", "DELETE"],
+    "AllowedOrigins": ["*"],
     "ExposeHeaders": []
   }
 ]
