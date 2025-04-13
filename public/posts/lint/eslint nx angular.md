@@ -3,8 +3,8 @@
 ## eslint.config.js
 
 ```js
-const nx = require("@nx/eslint-plugin");
 const baseConfig = require("../../eslint.config.js");
+const nx = require("@nx/eslint-plugin");
 const rxjsAngular = require("eslint-plugin-rxjs-angular");
 const rxjs = require("eslint-plugin-rxjs");
 const tseslintParser = require("@typescript-eslint/parser");
@@ -13,8 +13,14 @@ const angularEslintPlugin = require("@angular-eslint/eslint-plugin");
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
   ...baseConfig,
-  ...nx.configs["flat/angular"],
-  ...nx.configs["flat/angular-template"],
+  // {
+  //   ignores: ["**/dist", "**/out", "**/build", "**/node_modules"],
+  // },
+  // ...nx.configs["flat/base"], // @nx/base
+  // ...nx.configs["flat/typescript"], // @typescript-eslint
+
+  ...nx.configs["flat/angular"], // @angular-eslint
+  ...nx.configs["flat/angular-template"], // @angular-eslint/template
   {
     files: ["**/*.component.ts"],
     languageOptions: {
@@ -28,22 +34,20 @@ module.exports = [
     plugins: {
       "rxjs-angular": rxjsAngular,
       rxjs: rxjs,
-      "@angular-eslint": angularEslintPlugin,
     },
     rules: {
+      "@typescript-eslint/no-duplicate-enum-values": "off",
+      "@angular-eslint/prefer-signals": "error",
       "rxjs-angular/prefer-async-pipe": "warn",
       "rxjs-angular/prefer-takeuntil": "warn",
       "rxjs-angular/prefer-composition": "warn",
-      "@typescript-eslint/no-duplicate-enum-values": "off",
-      "@angular-eslint/prefer-signals": "error",
     },
   },
   {
     files: ["*.component.html"],
-    extends: ["plugin:@angular-eslint/template/recommended", "plugin:prettier/recommended"],
     rules: {
       "@angular-eslint/template/prefer-control-flow": "warn",
-      "prettier/prettier": ["error", { overrides: [{ options: { parser: "angular" } }] }],
+      "prettier/prettier": ["error", { overrides: [{ options: { parser: "angular" } }] }], // prettier가 앵귤러 템플릿을 포맷할 때 angular parser를 사용하도록 설정
     },
   },
 ];

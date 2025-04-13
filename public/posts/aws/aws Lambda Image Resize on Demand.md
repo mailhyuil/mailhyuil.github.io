@@ -1,4 +1,4 @@
-# Lambda layer Image Resize
+# Lambda layer Image Resize on Demand
 
 1. Lambda 생성
 2. Trigger 생성 (S3) (S3에서 Event로 등록하는 방법도 있다, 둘 중 한가지 방법만 사용해야한다.)
