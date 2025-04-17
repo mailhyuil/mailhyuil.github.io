@@ -1,11 +1,26 @@
 # Lambda layer Image Resize on Demand
 
 1. S3 버킷 생성
-   > filename/original
+   > original bucket (original 이미지를 담을 버킷) (block all public access)
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "AllowLambdaAccessOnly",
+         "Effect": "Allow",
+         "Principal": {
+           "AWS": "arn:aws:iam::xxxxxxxxxxxx:role/service-role/image-resize-role-xxxxxxxx"
+         },
+         "Action": ["s3:GetObject", "s3:PutObject"],
+         "Resource": "arn:aws:s3:::dep-team-bucket-seoul-original/*"
+       }
+     ]
+   }
+   ```
+   > transformed bucket (변환된 이미지를 담을 버킷) (public access all)
    >
-   > filename/format=auto,width=100,quality=80
-   >
-   > > 이런식으로 저장됨
+   > > filename/format=auto,width=100,quality=80 이런식으로 저장됨
 2. Lambda 생성
    > Funtion URL 생성 (Auth None)
    >
@@ -19,10 +34,10 @@ import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3
 import Sharp from "sharp";
 
 const s3Client = new S3Client();
-const S3_ORIGINAL_IMAGE_BUCKET = "dep-team-bucket-seoul";
+const S3_ORIGINAL_IMAGE_BUCKET = "dep-team-bucket-seoul-original";
 const S3_TRANSFORMED_IMAGE_BUCKET = "dep-team-bucket-seoul";
 const TRANSFORMED_IMAGE_CACHE_TTL = 31536000;
-const MAX_IMAGE_SIZE = parseInt(2_097_152); // 2MB
+const MAX_IMAGE_SIZE = 2_097_152; // 2MB
 
 export const handler = async event => {
   // Validate if this is a GET request
@@ -34,8 +49,8 @@ export const handler = async event => {
   var operationsPrefix = imagePathArray.pop();
   // get the original image path images/rio/1.jpg
   imagePathArray.shift();
-  var imagePath = imagePathArray.join("/");
-  var originalImagePath = imagePath + "/original";
+  var originalImagePath = imagePathArray.join("/");
+
   var startTime = performance.now();
   // Downloading original image
   let originalImageBody;
@@ -120,7 +135,7 @@ export const handler = async event => {
       const putImageCommand = new PutObjectCommand({
         Body: transformedImage,
         Bucket: S3_TRANSFORMED_IMAGE_BUCKET,
-        Key: imagePath + "/" + operationsPrefix,
+        Key: originalImagePath + "/" + operationsPrefix,
         ContentType: contentType,
         CacheControl: TRANSFORMED_IMAGE_CACHE_TTL,
       });
