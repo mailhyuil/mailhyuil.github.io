@@ -5,7 +5,7 @@
 ## install
 
 ```sh
-npm i @sentry/angular-ivy
+npm i @sentry/angular
 ```
 
 ## main.ts
@@ -13,25 +13,20 @@ npm i @sentry/angular-ivy
 ```ts
 import { enableProdMode } from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
-import * as Sentry from "@sentry/angular-ivy";
-import AppComponent from "./app/app.component";
+import { AppComponent } from "./app/app.component";
 import { appConfig } from "./app/app.config";
+import * as Sentry from "@sentry/angular";
 
 Sentry.init({
-  dsn: "https://070dd918c72af996f9b21afac4c44f75@o4506312991506432.ingest.sentry.io/4506312993800192",
-  integrations: [
-    new Sentry.BrowserTracing({
-      // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
-      tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
-      routingInstrumentation: Sentry.routingInstrumentation,
-    }),
-    new Sentry.Replay(),
-  ],
-  // Performance Monitoring
-  tracesSampleRate: 1.0, // Capture 100% of the transactions
-  // Session Replay
-  replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
-  replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
+  dsn: "",
+  sendDefaultPii: true,
+  integrations: [Sentry.browserTracingIntegration()],
+  tracesSampleRate: 1.0,
+  tracePropagationTargets: ["localhost", /^https:\/\/dep\.team\/api/],
+});
+// lazy load integration
+Sentry.lazyLoadIntegration("httpClientIntegration").then(httpClientIntegration => {
+  Sentry.addIntegration(httpClientIntegration());
 });
 
 enableProdMode(); // production mode로 설정해야 sentry가 정상적으로 동작함
@@ -40,28 +35,76 @@ bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));
 
 ## app.config.ts
 
+> 전역 ErrorHandler에 등록해주거나 GlobalErrorHandler가 이미 있다면 그 안에서 처리
+
 ```ts
-import { APP_INITIALIZER, ApplicationConfig, ErrorHandler } from "@angular/core";
+import { ApplicationConfig, ErrorHandler, inject, provideAppInitializer } from "@angular/core";
 import { Router } from "@angular/router";
-import * as Sentry from "@sentry/angular-ivy";
+
+import * as Sentry from "@sentry/angular";
+
 export const appConfig: ApplicationConfig = {
   providers: [
+    // ...
     {
       provide: ErrorHandler,
-      useValue: Sentry.createErrorHandler({
-        showDialog: true,
-      }),
-    },
-    {
-      provide: Sentry.TraceService,
-      deps: [Router],
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: () => () => {},
-      deps: [Sentry.TraceService],
-      multi: true,
+      useValue: Sentry.createErrorHandler(),
     },
   ],
 };
+```
+
+```ts
+import { isPlatformBrowser } from "@angular/common";
+import { ErrorHandler, inject, Injectable, Injector, PLATFORM_ID } from "@angular/core";
+import type { ModalService } from "@mailhyuil/ng-libs/modal";
+import type { ToastService } from "@mailhyuil/ng-libs/toast";
+import * as Sentry from "@sentry/angular";
+import { UserFriendlyError } from "./user-friendly.error";
+@Injectable({
+  providedIn: "root",
+})
+export class FinalErrorHandler implements ErrorHandler {
+  injector = inject(Injector);
+  toastService?: ToastService;
+  modalService?: ModalService;
+  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  sentryErrorHandler = Sentry.createErrorHandler();
+  constructor() {
+    if (this.isBrowser) {
+      window.addEventListener("error", e => {
+        this.handleError(e.error);
+        e.preventDefault();
+      });
+      window.addEventListener("unhandledrejection", async e => {
+        this.handleError(e.reason);
+        e.preventDefault();
+      });
+    }
+  }
+
+  async handleError(error: Error): Promise<void> {
+    const { ToastService } = await import("@mailhyuil/ng-libs/toast");
+    const { ModalComponent, ModalService } = await import("@mailhyuil/ng-libs/modal");
+    if (!this.toastService) this.toastService = this.injector.get(ToastService);
+    if (!this.modalService) this.modalService = this.injector.get(ModalService);
+    if (error instanceof UserFriendlyError) {
+      const message = error.message;
+      if (message.includes("\n") || message.length > 25) {
+        this.modalService.create({
+          component: ModalComponent,
+          componentProps: {
+            title: "🚨 알림",
+            content: message,
+            format: "text",
+          },
+        });
+      } else {
+        this.toastService.openDanger(error.message);
+      }
+    }
+    console.error(error);
+    this.sentryErrorHandler.handleError(error);
+  }
+}
 ```

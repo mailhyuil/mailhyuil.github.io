@@ -8,8 +8,20 @@
 > > >
 > > > > set을 사용하게 되면 메모리를 많이 사용, HyperLogLog는 언제든지 12KB로 고정된다.
 
+## redis-cli
+
 ```sh
 PFADD key element
-
 PFCOUNT key
+```
+
+## nodejs
+
+```ts
+async increaseViewCount(id: string, req: Request) {
+    const cacheKey = `resource:view:${id}`;
+    const ip = req.ip;
+    if (!ip) return;
+    await this.redis.pfAdd(cacheKey, ip);
+}
 ```
