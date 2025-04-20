@@ -49,9 +49,10 @@ npm i @nestjs/throttler
 npm i @nestjs/cache-manager
 npm i cache-manager
 # prisma
-npm i @prisma/client
 npm i -D prisma
+npm i @prisma/client
 npm i prisma-error-enum
+npm i prisma-extension-soft-delete
 # event
 npm i @nestjs/event-emitter
 # schedule

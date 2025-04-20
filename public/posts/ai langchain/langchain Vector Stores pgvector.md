@@ -11,20 +11,16 @@ npm i @langchain/community @langchain/openai @langchain/core pg uuid
 ```sh
 services:
   db:
-    image: pgvector/pgvector:pg17
+    hostname: 127.0.0.1
+    image: pgvector/pgvector:pg16
     container_name: pgvector
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: myvector
     ports:
-      - "5555:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-      - ./postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql
-
-volumes:
-  pgdata:
+      - 5555:5432
+    restart: always
+    environment:
+      - POSTGRES_DB=myvector
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
 ```
 
 ## VectorStore

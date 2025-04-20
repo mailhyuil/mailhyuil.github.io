@@ -49,11 +49,17 @@ model Post {
     snapshots   PostSnapshot[]
 
     // 무한 스크롤 페이지네이션
-    @@unique([createdAt(sort: Desc), id])
+    @@index([createdAt(sort: Desc), id])
+
+    // createdAt 기준으로 정렬하여 조회하는 경우가 많은 경우
+    @@index([createdAt(sort: Desc)])
 
     // 소프트 삭제된 레코드를 필터링하는 일이 많은 경우
     // 예를 들어, WHERE deletedAt IS NULL과 같은 쿼리가 자주 발생할 경우
     @@index([deletedAt])
+
+    // deletedAt 기준으로 정렬하여 조회하는 경우가 많은 경우
+    @@index([deletedAt, createdAt(sort: Desc)])
 
     // title 검색로 검색하는 기능이 있는 경우
     @@index([title])
