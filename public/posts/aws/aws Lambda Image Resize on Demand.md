@@ -24,7 +24,7 @@
 2. Lambda 생성
    > Funtion URL 생성 (Auth None)
    >
-   > > memory 512MB, timeout 5s
+   > > memory 512MB, timeout 5s ~ 10s
 
 ```js
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -34,8 +34,8 @@ import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3
 import Sharp from "sharp";
 
 const s3Client = new S3Client();
-const S3_ORIGINAL_IMAGE_BUCKET = "dep-team-bucket-seoul-original";
-const S3_TRANSFORMED_IMAGE_BUCKET = "dep-team-bucket-seoul";
+const S3_ORIGINAL_IMAGE_BUCKET = "image-original";
+const S3_TRANSFORMED_IMAGE_BUCKET = "image-resized";
 const TRANSFORMED_IMAGE_CACHE_TTL = 31536000;
 const MAX_IMAGE_SIZE = 2_097_152; // 2MB
 
