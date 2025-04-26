@@ -1,10 +1,8 @@
 # prisma schema
 
-> name Type @... 형식
+> native database type을 사용하려면 @db.type을 사용
 >
-> > native database type을 사용하려면 @db.type을 사용
-> >
-> > > 배열은 [] nullable은 ?으로
+> > 배열은 [] nullable은 ?으로
 
 [schema]('https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference')
 

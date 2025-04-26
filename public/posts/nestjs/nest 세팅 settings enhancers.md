@@ -8,45 +8,47 @@ export type ErrorInfo = {
   message: string;
   details?: any;
 };
+
 export type ErrorResponse = {
   errorInfo: ErrorInfo;
   cause: Error;
 };
+
 export namespace ErrorInfo {
-  export const USER_NOT_FOUND: ErrorInfo = {
-    code: "0100",
-    message: `유저를 찾지 못했습니다.`,
+  export const UserFindFailed: ErrorInfo = {
+    code: "1000",
+    message: `유저 조회에 실패했습니다.`,
+  };
+  export const UserCreateFailed: ErrorInfo = {
+    code: "1001",
+    message: `유저 생성에 실패했습니다.`,
+  };
+  export const UserUpdateFailed: ErrorInfo = {
+    code: "1002",
+    message: `유저 수정에 실패했습니다.`,
+  };
+  export const UserDeleteFailed: ErrorInfo = {
+    code: "1003",
+    message: `유저 삭제에 실패했습니다.`,
   };
 }
-export const createErrorResponse = (errorInfo: ErrorInfo, cause: Error): ErrorResponse => ({
-  errorInfo,
-  cause,
-});
 ```
 
 ## exception.ts
 
 ```ts
+import { HttpException, HttpStatus } from "@nestjs/common";
+import { ErrorInfo } from "./error";
+
 export class InvalidTokenException extends HttpException {
   constructor() {
     super("유효하지 않은 토큰입니다.", 498);
   }
 }
+
 export class BusinessException extends HttpException {
-  constructor(errorResponse: ErrorResponse, status: HttpStatus) {
-    super(errorResponse, status);
-  }
-}
-export class UserNotFoundException extends HttpException {
-  constructor(cause: Error) {
-    const response = createErrorResponse(ErrorInfo.USER_NOT_FOUND, cause);
-    super(response, HttpStatus.NOT_FOUND);
-  }
-}
-export class UserAlreadyExistsException extends BusinessException {
-  constructor(cause: Error) {
-    const response = createErrorResponse(ErrorInfo.USER_ALREADY_EXISTS, cause);
-    super(response, HttpStatus.CONFLICT);
+  constructor(errorInfo: ErrorInfo, cause: Error, status: HttpStatus = HttpStatus.CONFLICT) {
+    super({ errorInfo, cause }, status);
   }
 }
 ```
@@ -58,7 +60,7 @@ import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import { Request, Response } from "express";
 import { PrismaError } from "prisma-error-enum";
-import { BusinessException, ErrorInfo, ErrorResponse } from "../errors";
+import { BusinessException, ErrorResponse } from "../errors";
 
 /**
  * @export
@@ -79,17 +81,14 @@ export class BusinessExceptionFilter implements ExceptionFilter {
 
     const { errorInfo, cause } = error.getResponse() as ErrorResponse;
 
-    const message = errorInfo?.message ?? errorMessage;
+    const message = errorInfo?.message ?? errorMessage ?? "알 수 없는 오류가 발생했습니다.";
 
     const clientResponse = {
       statusCode: errorStatusCode,
       path: req.url,
       timestamp: new Date().toISOString(),
       message,
-      error: {
-        ...ErrorInfo.BUSINESS_ERROR,
-        ...errorInfo,
-      } satisfies ErrorInfo,
+      error: errorInfo,
     };
 
     if (cause instanceof Prisma.PrismaClientKnownRequestError) {
@@ -121,7 +120,6 @@ CAUSE=${cause}
 ```ts
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Logger } from "@nestjs/common";
 import { Request, Response } from "express";
-import { ErrorInfo, ErrorResponse } from "../errors";
 
 /**
  * @export
@@ -137,23 +135,14 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const res = ctx.getResponse<Response>();
     const req = ctx.getRequest<Request>();
     const statusCode = error.getStatus();
-
-    const { errorInfo, cause } = error.getResponse() as ErrorResponse;
-    const errorMessage = error.message;
+    const message = error.message;
     const errorStack = error.stack;
-    // const cause = error.cause;
-
-    const message = errorInfo?.message ?? errorMessage;
 
     const clientResponse = {
       statusCode,
       message,
       path: req.url,
       timestamp: new Date().toISOString(),
-      error: {
-        ...ErrorInfo.HTTP_ERROR,
-        ...errorInfo,
-      } as ErrorInfo,
     };
 
     res.status(statusCode).json(clientResponse);
@@ -173,9 +162,7 @@ PATH=${req.path}
 STATUS_CODE=${clientResponse.statusCode}
 MESSAGE=${clientResponse.message}
 TIMESTAMP=${clientResponse.timestamp}
-ERROR=${JSON.stringify(clientResponse.error)}
 ERROR_STACK=${errorStack}
-CAUSE=${cause}
 `);
     } else if (res.statusCode >= 400 && res.statusCode !== 404) {
       //? 나머지 에러 = error
@@ -187,9 +174,7 @@ PATH=${req.path}
 STATUS_CODE=${clientResponse.statusCode}
 MESSAGE=${clientResponse.message}
 TIMESTAMP=${clientResponse.timestamp}
-ERROR=${JSON.stringify(clientResponse.error)}
 ERROR_STACK=${errorStack}
-CAUSE=${cause}
 `);
     }
   }
@@ -268,7 +253,9 @@ export const GlobalValidationPipe = new ValidationPipe({
     const details = errors
       .flatMap(error => (error.children?.length ? error.children : error))
       .map(error => {
+        console.log(error);
         const { property, constraints, value } = error;
+        if (!constraints) return;
         const constraintValues = Object.values(constraints);
         properties.push(property);
         return {
@@ -280,7 +267,7 @@ export const GlobalValidationPipe = new ValidationPipe({
 
     return new ValidationException({
       errorInfo: {
-        ...ErrorInfo.VALIDATION_ERROR,
+        ...ErrorInfo.ValidationError,
         message: `유효성 검사에 실패했습니다.`,
         details,
       },

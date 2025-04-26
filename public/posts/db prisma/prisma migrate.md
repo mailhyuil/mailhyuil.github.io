@@ -23,7 +23,7 @@
 > > > local에서 dev를 사용하고, ci/cd에서 deploy를 사용해 마이그레이션 파일을 적용하자
 
 ```sh
-prisma migrate dev
+prisma migrate dev --schema ./prisma
 prisma migrate deploy
 ```
 
