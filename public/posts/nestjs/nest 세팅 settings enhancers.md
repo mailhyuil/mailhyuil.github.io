@@ -79,11 +79,13 @@ export class BusinessExceptionFilter implements ExceptionFilter {
 
     const { errorInfo, cause } = error.getResponse() as ErrorResponse;
 
+    const message = errorInfo?.message ?? errorMessage;
+
     const clientResponse = {
       statusCode: errorStatusCode,
       path: req.url,
       timestamp: new Date().toISOString(),
-      message: errorMessage,
+      message,
       error: {
         ...ErrorInfo.BUSINESS_ERROR,
         ...errorInfo,
@@ -92,7 +94,7 @@ export class BusinessExceptionFilter implements ExceptionFilter {
 
     if (cause instanceof Prisma.PrismaClientKnownRequestError) {
       if (cause.code === PrismaError.UniqueConstraintViolation) {
-        clientResponse.message = `중복된 데이터가 존재합니다. [${cause.meta.target}]`;
+        clientResponse.message = `중복된 데이터가 존재합니다. [${cause.meta?.target}]`;
       }
     }
 
@@ -141,9 +143,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const errorStack = error.stack;
     // const cause = error.cause;
 
+    const message = errorInfo?.message ?? errorMessage;
+
     const clientResponse = {
       statusCode,
-      message: errorMessage,
+      message,
       path: req.url,
       timestamp: new Date().toISOString(),
       error: {
@@ -218,9 +222,11 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     const errorMessage = error.message;
     const errorStack = error.stack;
 
+    const message = errorInfo?.message ?? errorMessage;
+
     const clientResponse = {
       statusCode,
-      message: errorMessage,
+      message,
       path: req.url,
       timestamp: new Date().toISOString(),
       error: errorInfo,
