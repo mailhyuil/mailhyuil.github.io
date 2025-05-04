@@ -47,8 +47,12 @@ export class InvalidTokenException extends HttpException {
 }
 
 export class BusinessException extends HttpException {
-  constructor(errorInfo: ErrorInfo, cause: Error, status: HttpStatus = HttpStatus.CONFLICT) {
-    super({ errorInfo, cause }, status);
+  constructor(errorInfo: ErrorInfo, cause?: Error | string, status: HttpStatus = HttpStatus.CONFLICT) {
+    const errorPayload: any = { errorInfo };
+    if (cause) {
+      errorPayload.cause = typeof cause === "string" ? new Error(cause) : cause;
+    }
+    super(errorPayload, status);
   }
 }
 ```

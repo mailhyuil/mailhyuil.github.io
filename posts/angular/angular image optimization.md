@@ -26,23 +26,18 @@ export class SomeComponent {}
 
 > nhn cloud Image Manager에서 small, medium, large 옵션을 생성해두었다.
 >
-> > width에 따라서 srcset을 자동으로 사용
+> > fill 사용 시 각 이미지에 대한 srcset이 들어간다.
 
 ```ts
 import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
 
 {
   provide: IMAGE_LOADER,
-  useValue: (config: ImageLoaderConfig) => {
-    // when small
-    if (!config.width) return config.src + `?medium`;
-    if (config.width <= 640) {
-      return config.src + `?small`;
+  useValue: ({ width, src }: ImageLoaderConfig) => {
+    if (!width || width > 3000) {
+      return `${src}?format=webp`;
     }
-    if (config.width <= 1080) {
-      return config.src + `?medium`;
-    }
-    return config.src + `?large`;
+    return `${src}?width=${width}&format=webp`;
   },
 },
 ```
