@@ -1,4 +1,4 @@
-# db backup & recovery
+# db backup scripts
 
 ## pg_dump_backup.sh
 
