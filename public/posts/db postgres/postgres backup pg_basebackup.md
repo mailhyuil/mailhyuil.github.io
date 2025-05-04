@@ -25,3 +25,15 @@
 
 pg_basebackup -D /mnt/server/backupdir -c fast -X none
 ```
+
+## docker
+
+```sh
+docker exec -it postgres bash -c '
+  export PGPASSWORD="password"
+  pg_basebackup \
+    -h localhost \
+    -U postgres \
+    -D /var/lib/postgresql/basebackup_dir/$(date +%Y%m%d_%H%M%S) \
+    -Ft -z -X fetch -P'
+```
