@@ -1,10 +1,12 @@
 # postgres pg_dump & pg_dumpall
 
-> pg_dump => pg_restore, psql로 복구
+> pg_dump는 논리적 백업 즉 데이터를 SQL문으로 변환하여 백업하는 방법이다.
 >
-> > pg_dump -Fc => pg_restore로 복구
+> > pg_dump => pg_restore, psql로 복구
 > >
-> > > pg_dumpall => psql로 복구
+> > > pg_dump -Fc => pg_restore로 복구
+> > >
+> > > > pg_dumpall => psql로 복구
 
 ```sh
 # -h : host // default : localhost
