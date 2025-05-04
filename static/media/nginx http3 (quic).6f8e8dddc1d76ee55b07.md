@@ -3,6 +3,8 @@
 > --with-http_v3_module 필요
 >
 > > TLS 1.3 필요
+> >
+> > > 443 UDP 포트를 열어야 한다. (AWS UDP 443 / docker run -p 443:443/udp)
 
 ```conf
 server {
