@@ -16,7 +16,11 @@ function Blog({ posts }) {
 // 이 함수는 빌드 시 실행된다.
 export async function getStaticProps() {
   // fetch 로직..
-  const res = await fetch("https://.../posts");
+  const res = await fetch("https://.../posts", {
+    next: {
+      revalidate: 10, // 10초마다 재검증 (ISR)
+    },
+  });
   const posts = await res.json();
 
   // return 하면 Blog 컴포넌트의 props로 전달된다.
