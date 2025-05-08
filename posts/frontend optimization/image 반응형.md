@@ -12,31 +12,29 @@
 > > >
 > > > > srcset, sizes를 사용하자
 
-## srcset
+## srcset & sizes (w 기반)
 
-> 브라우저에 제시할 이미지 목록과 크기 정의
+> 이미지의 intrinsic width를 기준으로 src를 선택한다.
 >
-> > src를 width pixel을 기준으로 src 선택
-
-```html
-<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="small.jpg" />
-```
-
-## sizes
-
-> 화면 크기 조건 정의
+> w에 image의 실제 width를 넣어줘야한다.
 >
-> > media query에 따라 이미지의 크기를 조절
+> > w 기반의 경우 반드시 sizes와 함께 사용해야 한다.
 > >
-> > > srcset과 함께 사용하면 sizes 정보를 읽어서 적절한 이미지를 선택한다.
+> > > 반응형 이미지에 사용
 
 ```html
 <img
+  srcset="
+    small.jpg 500w,   # 500w의 이미지
+    medium.jpg 1000w, # 1000w의 이미지
+    large.jpg 2000w   # 2000w의 이미지
+    "
   sizes="
-    (max-width:600px) 400px,
-    (max-width:1200px) 800px,
-    1400px,
-    " />
+    (max-width:600px) 400px, # 600px 이하일 때 400px (mobile)
+    (max-width:1200px) 800px, # 1200px 이하일 때 800px (tablet)
+    1400px, # 그 외의 경우 1400px (desktop)
+    "
+/>
 ```
 
 ## <picture>
