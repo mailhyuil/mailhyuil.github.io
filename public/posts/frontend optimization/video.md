@@ -9,17 +9,7 @@
 > > 비디오 리소스는 우선순위가 낮은 리소스이기 때문에 모바일 환경에서는 이미지를 사용하는게 권장된다.
 
 ```html
-<video
-  class="will-change-auto"
-  preload="metadata"
-  oncanplay="this.play()"
-  onloadedmetadata="this.muted = true"
-  poster="/img/hero_poster.webp"
-  playsinline
-  autoplay
-  loop
-  muted
->
+<video class="will-change-auto" preload="metadata" poster="/img/hero_poster.webp" loop autoplay playsinline muted>
   <source src="/videos/hero.webm" type="video/webm" />
   <!-- ios에서는 mp4를 사용해야 한다. -->
   <source src="/videos/hero.mp4" type="video/mp4" />
@@ -37,8 +27,11 @@
 ffmpeg -i hero.mp4 -r 0.1 -c:v libwebp hero_poster.webp
 ```
 
-### preload poster image
+### preload
 
-```html
-<link rel="preload" href="/img/hero_poster.webp" as="image" fetchpriority="high" />
+```txt
+preload: "none" | "metadata" | "auto"
+- none: 비디오를 로드하지 않음
+- metadata: 메타데이터만 로드 (비디오 길이, 해상도 등) 이후 재생버튼 등의 UI를 통해 로드
+- auto: 비디오를 즉시 로드 (브라우저가 판단)
 ```
