@@ -1,16 +1,4 @@
-# TTFB & TTI & FCP & LCP & CLS
-
-## LCP (largest contentful paint)
-
-> 처음으로 로드 시작보기 영역에서 볼 수 있는 최대값을 보고하는 시점
->
-> > 2.5초 이하를 목표
-
-## FCP (first contentful paint)
-
-> 사용자가 화면에서 최초 콘텐츠를 볼 수 있는 시간
-
-## CLS (cumulative layout shift)
+# TTFB & TTI
 
 ## TTFB (time to first byte)
 
