@@ -12,13 +12,25 @@ sudo -i
 sudo su
 ```
 
+## sudoer 추가
+
+```sh
+sudo visudo
+
+# 추가
+github-runner ALL=(ALL) NOPASSWD:ALL
+```
+
 ## sudo 막기 (/etc/sudoers 파일 수정)
 
 ```sh
+sudo visudo
+
+# 추가
 user1 ALL=(ALL) !ALL
 # or
 %group1 ALL=(ALL) !ALL
-#or
+# or
 user1, user2, user3 ALL=(ALL) !ALL
 ```
 

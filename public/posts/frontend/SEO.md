@@ -12,10 +12,8 @@
     name="description"
     content="전남 광주에 있는 하이브리드 앱 개발 전문 회사, 홈페이지, 반응형 웹, CMS, ERP 등 원하시는 모든 프로그램을 제작(개발)해드립니다."
   />
-  <meta
-    name="keywords"
-    content="광주,앱,하이브리드앱,웹,erp,cms,관리자페이지,프로그램,pc프로그램,어플리케이션,제작,홈페이지,웹페이지,웹사이트,개발자,개발,개발회사"
-  />
+  <!-- 더 이상 사용하지 않음 -->
+  <!-- <meta name="keywords" content=""/> -->
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
@@ -53,6 +51,10 @@
   <meta name="twitter:label2" content="Est. reading time" />
   <meta name="twitter:data2" content="5 minutes" />
 </head>
+<body>
+  <h1>my-page</h1>
+  <p>하이브리드 앱 개발 전문 회사, 홈페이지, 반응형 웹, CMS, ERP 등 원하시는 모든 프로그램을 제작해드립니다.</p>
+</body>
 ```
 
 ## open graph (og)

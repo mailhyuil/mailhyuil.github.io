@@ -6,9 +6,7 @@
 > >
 > > 즉 크롤링봇이 더 효율적이고 빠르게 웹사이트를 탐색할 수 있도록 돕는 역할
 > >
-> > > https://example.com/sitemap.xml에 위치시켜야한다.
-> > >
-> > > > google search console, bing webmaster tools, naver 서치어드바이저에 등록
+> > > google search console, bing webmaster tools, naver 서치어드바이저에 등록
 
 ## sitemap.xml
 
@@ -21,4 +19,12 @@
     <priority>0.7</priority>
     </url>
 </urlset>
+```
+
+## sitemap ping
+
+> 새로운 페이지가 추가되거나 기존 페이지가 변경되었을 때 검색엔진에 알림
+
+```sh
+curl "https://www.google.com/ping?sitemap=https://yourdomain.com/sitemap.xml"
 ```

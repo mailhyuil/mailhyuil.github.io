@@ -6,31 +6,30 @@
 npm i swiper
 ```
 
-## main.ts
-
-```ts
-import { register } from "swiper/element/bundle";
-
-register();
-bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));
-```
-
 ## swiper.directive.ts
 
 ```ts
-import { Directive, ElementRef, Input, afterNextRender } from "@angular/core";
-import { SwiperContainer } from "swiper/element";
-import { SwiperOptions } from "swiper/types";
+import { afterNextRender, Directive, ElementRef, input } from "@angular/core";
+import type { SwiperContainer } from "swiper/element";
+import type { SwiperOptions } from "swiper/types";
+
+let isSwiperRegistered = false;
 
 @Directive({
   selector: "[swiper]",
   standalone: true,
 })
 export class SwiperDirective {
-  @Input("options") options?: SwiperOptions;
+  options = input<SwiperOptions>();
+
   constructor(private element: ElementRef<SwiperContainer>) {
-    afterNextRender(() => {
-      Object.assign(this.element.nativeElement, this.options);
+    afterNextRender(async () => {
+      if (!isSwiperRegistered) {
+        const { register } = await import("swiper/element");
+        register();
+        isSwiperRegistered = true;
+      }
+      Object.assign(this.element.nativeElement, this.options());
       this.element.nativeElement.initialize();
     });
   }
@@ -59,8 +58,6 @@ export default class ImageSliderComponent {
   swiper?: Swiper;
   swiperOptions: SwiperOptions = {
     modules: [Autoplay],
-    autoplay: { delay: 5000, waitForTransition: false },
-    loop: true
     slidesPerView: 3,
     spaceBetween: 50,
     breakpoints: {
@@ -69,10 +66,15 @@ export default class ImageSliderComponent {
         spaceBetween: 50,
       },
     },
+    autoplay: { delay: 5000, waitForTransition: false },
+    loop: false,
+    observer: true,
+    observeParents: true,
+    updateOnWindowResize: true,
     navigation: true,
     pagination: { clickable: true },
     on: {
-      init: (swiper) => {
+      init: swiper => {
         this.swiper = swiper;
       },
     },
@@ -81,8 +83,6 @@ export default class ImageSliderComponent {
 ```
 
 ## component.html
-
-> 반드시 absolute로 설정!!
 
 ```html
 <swiper-container class="w-full" init="false" swiper [options]="swiperOptions">
