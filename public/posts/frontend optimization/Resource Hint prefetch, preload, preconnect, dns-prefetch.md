@@ -15,14 +15,6 @@
 <link rel="preload" href="/js/some-script.js" as="script" />
 ```
 
-## preconnect
-
-> 특정 도메인과 사전 연결을 맺도록 힌트
-
-```html
-<link rel="preconnect" href="//example.com"
-```
-
 ## prefetch
 
 > 특정 리소스를 사전에 가져와서 브라우저에 캐시한다
@@ -39,9 +31,23 @@
 <link rel="prefetch" href="/js/some-script.js" />
 ```
 
+## preconnect
+
+> DNS + TCP + TLS 핸드쉐이크를 미리 수행하여 연결을 미리 설정
+>
+> > 반드시 사용되는 외부 리소스에 설정
+> >
+> > > 사용하지 않는 외부 리소스에 설정하면 오히려 성능 저하
+
+```html
+<link rel="preconnect" href="//example.com"
+```
+
 ## dns-prefetch
 
-> dns를 미리 resolve 해놓는다.
+> DNS 조회를 미리 수행하여 DNS 캐시를 미리 설정
+>
+> > 사용할 수도 사용하지 않을 수도 있는 외부 리소스에 설정
 
 ```html
 <link rel="dns-prefetch" href="//fonts.googleapis.com" />

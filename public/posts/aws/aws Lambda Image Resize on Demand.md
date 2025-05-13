@@ -36,7 +36,7 @@ import Sharp from "sharp";
 const s3Client = new S3Client();
 const S3_ORIGINAL_IMAGE_BUCKET = "image-original";
 const S3_TRANSFORMED_IMAGE_BUCKET = "image-resized";
-const TRANSFORMED_IMAGE_CACHE_TTL = 31536000;
+const TRANSFORMED_IMAGE_CACHE_TTL = "public, max-age=31536000, immutable";
 const MAX_IMAGE_SIZE = 2_097_152; // 2MB
 
 export const handler = async event => {

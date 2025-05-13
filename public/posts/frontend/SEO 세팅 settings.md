@@ -1,10 +1,10 @@
 # SEO settings
 
-1. sitemap 생성 및 등록
-   > sitemap을 생성하고 구글 서치 콘솔에 등록한다.
+1. sitemap.xml 생성 및 등록
+   > sitemap.xml을 생성하고 구글 서치 콘솔, bing web master, 네이버 서치어드바이저에 등록한다.
 2. https 사용
-
-3. meta 설정
+3. www 같은 호스트네임을 사용한다면 non-www로 301 redirect 설정 또는 캐노니컬 링크
+4. meta 설정
    > description, keywords 등을 설정한다.
    >
    > open graph protocol을 사용하여 설정한다.
@@ -26,6 +26,9 @@
 ```
 
 7. 캐노니컬 link 설정
+   > querystring이 있는 URL은 캐노니컬을 사용하여 중복 페이지를 방지한다.
+   >
+   > id로 구분되는 페이지도 셀프 레퍼런셜 캐노니컬을 사용하여 중복 페이지를 방지한다.
 
 ```html
 <link rel="canonical" href="https://mailhyuil.com/search" />

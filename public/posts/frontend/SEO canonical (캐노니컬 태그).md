@@ -11,3 +11,13 @@ https://mailhyuil.com/search?q=mailhyuil
 
 <link rel="canonical" href="https://mailhyuil.com/search" />
 ```
+
+## Self-referential canonical
+
+> /products/:id 같은 URL은 사용자가 선택한 표준이 없는 중복 페이지로 인식된다
+>
+> > 이 경우 self-referential canonical을 사용하여 중복 페이지를 방지할 수 있다.
+
+```html
+<link rel="canonical" href="https://mailhyuil.com/products/101" />
+```
