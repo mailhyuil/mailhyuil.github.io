@@ -20,15 +20,3 @@ export default function Home() {
   );
 }
 ```
-
-## 동적 라우팅
-
-> 폴더 이름에 ()을 붙이면 skip
->
-> > 폴더 이름에 []를 붙이면 동적 라우팅
-
-```txt
-app/blog/[id].tsx
-
-app/(client)/posts/1
-```
