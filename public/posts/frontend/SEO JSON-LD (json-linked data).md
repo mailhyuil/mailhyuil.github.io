@@ -2,40 +2,42 @@
 
 > 구조화된 데이터를 제공하는 방법
 >
+> > 페이지의 특성에 따라 Product, FAQ, WebSite 등 다양한 JSON-LD를 제공 적당한 값들을 넣어주면 된다.
+>
 > > (json-ld generator)[https://www.google.com/webmasters/markup-helper]
 
-```html
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "ImageObject",
-    "author": "Jane Doe",
-    "contentLocation": "Puerto Vallarta, Mexico",
-    "contentUrl": "mexico-beach.jpg",
-    "datePublished": "2008-01-25",
-    "description": "I took this picture while on vacation last year.",
-    "name": "Beach in Mexico"
-  }
-</script>
+## install
+
+```sh
+npm i schema-dts
 ```
 
-## eg.1 Instagram
+## schema-dts
 
-```html
-<!--
-    @context: 스키마 정의 URL입니다. 여기서는 https://schema.org를 사용합니다.
-    @type: JSON-LD 유형으로, 개인이나 비즈니스 정보라면 Person 또는 Organization를 사용할 수 있습니다.
-    name: 이름이나 비즈니스 이름입니다.
-    url: 웹사이트 URL입니다.
-    sameAs: 소셜 미디어 또는 관련 링크를 나열하는 배열입니다. Instagram 프로필 링크를 포함합니다.
--->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Your Name or Business Name",
-    "url": "https://yourwebsite.com",
-    "sameAs": ["https://www.instagram.com/yourinstagramhandle/"]
-  }
-</script>
+```tsx
+import { WebSite, WithContext } from "schema-dts";
+
+const jsonLd: WithContext<WebSite> = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "휴일이의 렌트카",
+  image: "https://mailhyuil.co.kr/logo.svg",
+  description: "신차, 중고차 리스부터 장기렌트까지. 전문가의 맞춤 상담을 통해 최적의 차량을 추천해드립니다.",
+  url: "https://mailhyuil.co.kr",
+  sameAs: [
+    "https://www.facebook.com/mailhyuil",
+    "https://www.instagram.com/mailhyuil",
+    "https://www.youtube.com/@mailhyuil",
+  ],
+};
+
+export default async function Home() {
+  return (
+    <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Post />
+      <Faq />
+    </div>
+  );
+}
 ```
