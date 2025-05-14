@@ -6,7 +6,7 @@
 > >
 > > 즉 크롤링봇이 더 효율적이고 빠르게 웹사이트를 탐색할 수 있도록 돕는 역할
 > >
-> > > google search console, bing webmaster tools, naver 서치어드바이저에 등록
+> > > 구글 서치 콘솔, 빙 웹마스터, 네이버 서치어드바이저, 다음 검색등록 에 등록
 
 ## sitemap.xml
 
