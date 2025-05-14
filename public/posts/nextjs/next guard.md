@@ -1,8 +1,8 @@
 # next guard auth-guard
 
-> next에는 guard가 없기 때문에 component를 생성하여 렌더링을 할지 말지를 결정하는 방식으로 guard를 구현할 수 있다.
+> react에서는 컴포넌트로 감싸는 방식으로 decorator를 구현할 수 있다.
 
-## auth-guard.component.tsx
+## AuthGuard.tsx
 
 ```tsx
 import { useRouter } from "next/router";

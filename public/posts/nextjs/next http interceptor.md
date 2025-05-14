@@ -1,33 +1,37 @@
 # next middleware api-interceptor
 
-> nextjs에는 interceptor가 없기 때문에 middleware를 사용하여 요청과 응답을 가로채거나
->
-> > client-side app에서는 axios의 interceptor같은 기능으로 대체할 수 있다.
+> 앱 실행 시 fetch를 monkey-patch하여 모든 요청에 대해 interceptor를 적용할 수 있다.
 
 ```ts
-// Add a request interceptor
-axios.interceptors.request.use(
-  function (config) {
-    // Do something before request is sent
-    return config;
-  },
-  function (error) {
-    // Do something with request error
-    return Promise.reject(error);
-  },
-);
+// 예: globalFetchInterceptor.ts (앱 초기 진입 시 실행되게)
 
-// Add a response interceptor
-axios.interceptors.response.use(
-  function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
+const originalFetch = window.fetch;
+
+window.fetch = async (input, init) => {
+  // 🔍 요청 가로채기
+  const token = localStorage.getItem("accessToken");
+  const modifiedInit = {
+    ...init,
+    headers: {
+      ...(init?.headers || {}),
+      Authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+
+  try {
+    const response = await originalFetch(input, modifiedInit);
+
+    // ✅ 응답 가로채기
+    if (response.status === 401) {
+      console.warn("토큰 만료 또는 인증 오류");
+      // 예: refresh token 시도, 로그아웃 등
+    }
+
     return response;
-  },
-  function (error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    return Promise.reject(error);
-  },
-);
+  } catch (error) {
+    // ❌ 에러 처리
+    console.error("Fetch error intercepted:", error);
+    throw error;
+  }
+};
 ```
