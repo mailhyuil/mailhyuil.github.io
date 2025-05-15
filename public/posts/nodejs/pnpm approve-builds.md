@@ -7,3 +7,29 @@
 ```sh
 pnpm approve-builds
 ```
+
+## onlyBuiltDependencies
+
+> package.json 또는 pnpm-workspace.yaml에 `onlyBuiltDependencies`가 설정되어 있는 경우 요구를 하지 않음
+
+```json
+{
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@nestjs/core",
+      "@parcel/watcher",
+      "@prisma/client",
+      "@prisma/engines",
+      "@swc/core",
+      "bcrypt",
+      "esbuild",
+      "lmdb",
+      "msgpackr-extract",
+      "nx",
+      "prisma",
+      "sharp",
+      "unrs-resolver"
+    ]
+  }
+}
+```
