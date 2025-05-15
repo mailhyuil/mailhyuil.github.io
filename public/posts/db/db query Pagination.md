@@ -1,4 +1,4 @@
-# pagination
+# db query Pagination
 
 ## 오프셋 기반
 
