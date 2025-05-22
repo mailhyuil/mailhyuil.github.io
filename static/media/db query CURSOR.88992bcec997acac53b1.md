@@ -1,4 +1,4 @@
-# db base cursor
+# db query CURSOR
 
 > 대용량 데이터를 한번에 가져오지 않고, 일정량씩 가져오는 방법
 >

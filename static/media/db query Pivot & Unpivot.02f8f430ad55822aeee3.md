@@ -1,5 +1,0 @@
-# Pivot & Unpivot
-
-## Pivot
-
-## Unpivot
