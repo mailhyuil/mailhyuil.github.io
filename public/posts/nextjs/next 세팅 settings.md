@@ -7,29 +7,18 @@
 npm i @tanstack/react-query
 npm i zustand
 
-# nextui components
-npm i -D nextui
-npx nextui --add
+# class conditional
+npm i clsx
 
 # form
 npm i zod
 npm i react-hook-form
 
-# grid/table
-npm i @tanstack/react-table
+# UI
+npm i primereact
 
-# animation
-npm i framer-motion
-npm i @floating-ui/react
-
-# swiper
-npm i swiper
-
-# object to formdata
-npm i object-to-formdata
-
-# file-saver
-npm i file-saver
+# json-ld
+npm i schema-dts
 
 # color tools
 npm i @nextcss/color-tools
@@ -37,6 +26,22 @@ npm i @nextcss/color-tools
 # icon
 npm i -D @iconify/json
 npm i -D @iconify/tailwind
+
+##########################
+######## optional ########
+##########################
+# Intersection Observer
+npm i react-intersection-observer
+
+# third-party script (e.g. Google Analytics)
+npm i @next/third-parties
+
+# animation
+npm i framer-motion
+npm i @floating-ui/react
+
+# bundle analyzer
+npm i -D @next/bundle-analyzer
 
 # lint
 npm i -D eslint-plugin-react
