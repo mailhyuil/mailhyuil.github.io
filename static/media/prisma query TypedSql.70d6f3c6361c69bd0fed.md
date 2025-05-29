@@ -1,5 +1,7 @@
 # prisma query TypedSql
 
+> GROUP BY & HAVING, 여러번 JOIN, 윈도우 함수, 집계 함수, CTE 쿼리, WITH RECURSIVE, Set Operations, Subquery 사용 시에는 TypedSql을 사용하자.
+
 ## /prisma/sql/getUsersWithPosts.sql
 
 ```sql
