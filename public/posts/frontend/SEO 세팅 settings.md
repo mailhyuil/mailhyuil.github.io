@@ -37,16 +37,6 @@
 
 7. semantic tag 사용
 
-   > image alt
-   >
-   > h1, h2, h3 tag 사용
-   >
-   > time tag 사용
-   >
-   > strong tag 사용
-   >
-   > 등등
-
 8. slug 사용
    > url에 id 뿐만 아니라 slug를 사용하여 검색엔진에 노출되도록 한다.
 
