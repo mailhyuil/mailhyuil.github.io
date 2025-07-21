@@ -18,12 +18,13 @@ git reflog
 ## commit 되돌리기
 
 ```sh
-git reset HEAD~ # 가장 최신 커밋 취소
-git reset HEAD~n # n개의 최신 커밋 취소
+# default: --mixed
+git reset HEAD~ # 가장 최신 commit + add 취소 (staging area)
+git reset HEAD~n # n개의 가장 최신 commit + add 취소 (staging area)
+git reset --mixed HEAD@{1} # commit 취소 + add 취소 (staging area) + working directory는 변경하지 않음
 
-git reset --hard HEAD@{1} # staging area와 현재 작업 중인 working directory도 해당 커밋의 모습과 동일하게 변합니다.
-git reset --mixed HEAD@{1} # staging area도 해당 커밋의 모습과 동일하게 변합니다.
-git reset --soft HEAD@{1} # 현재 작업 중인 working directory와 staging area는 아무런 영향을 받지 않습니다.
+git reset --soft HEAD@{1} # commit 취소 + add 유지 (staging area) + working directory는 변경하지 않음
+git reset --hard HEAD@{1} # commit 취소 + add 취소 (staging area) + working directory를 해당 커밋으로 변경
 
 git revert HEAD # 특정 커밋의 내용을 되돌리는 새로운 커밋을 만듭니다.
 ```
