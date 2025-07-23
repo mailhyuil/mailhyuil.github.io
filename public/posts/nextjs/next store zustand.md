@@ -12,23 +12,22 @@ npm i zustand
 import { create } from "zustand";
 
 const useStore = create(set => ({
-  bears: 0,
-  increasePopulation: () => set(state => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-  updateBears: newBears => set({ bears: newBears }),
+  value: 0,
+  increaseValue: () => set(state => ({ value: state.value + 1 })),
+  updateValue: newValue => set({ value: newValue }),
+  resetValue: () => set({ value: 0 }),
 }));
 ```
 
-## components
+## usage
 
 ```tsx
-function BearCounter() {
-  const bears = useStore(state => state.bears); // 값을 반환
-  return <h1>{bears} around here...</h1>;
-}
+export function Page() {
+  const value = useStore(state => state.value); // 값 반환
+  const increaseValue = useStore(state => state.increaseValue); // 함수 반환
+  const updateValue = useStore(state => state.updateValue); // 함수 반환
+  const resetValue = useStore(state => state.resetValue); // 함수 반환
 
-function Controls() {
-  const increasePopulation = useStore(state => state.increasePopulation); // 함수 반환
-  return <button onClick={increasePopulation}>one up</button>;
+  return <h1>{value}</h1>;
 }
 ```
