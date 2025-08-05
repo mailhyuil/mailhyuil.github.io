@@ -23,10 +23,6 @@ admin.conf  kubelet.conf             scheduler.conf
 
 ## /var/lib/kubelet (worker node)
 
-```txt
-
-```
-
 ## config
 
 ```sh
