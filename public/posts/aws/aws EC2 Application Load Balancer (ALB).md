@@ -1,4 +1,4 @@
-## EC2 Security Group
+## EC2 Application Load Balancer (ALB)
 
 > Nginx의 로드 밸런싱 기능을 수행하는 AWS 서비스
 >
