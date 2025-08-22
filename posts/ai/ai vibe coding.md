@@ -9,5 +9,5 @@ Github Copilot
 Cursor
 Codex
 Claude Code
-Gemini CLI ()
+Gemini CLI
 ```
