@@ -5,9 +5,10 @@
 ## tools
 
 ```txt
-Github Copilot
+Vscode + Github Copilot
+Vscode + Cline
 Cursor
-Codex
 Claude Code
+Codex
 Gemini CLI
 ```
