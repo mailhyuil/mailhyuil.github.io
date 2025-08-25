@@ -2,10 +2,11 @@
 
 - https://superclaude.org/
 
-## install
+## command
 
 ```sh
-git clone https://github.com/NomenAK/SuperClaude.git
-cd SuperClaude
-./install.sh
+--seq : sequential thinking
+--persona-<name> : set the persona for the conversation
+--ultrathink : enable ultra thinking mode
+--plan : create a plan for the conversation
 ```
