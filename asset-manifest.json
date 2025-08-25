@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.e500bfd1.js",
+    "main.js": "/static/js/main.bfa41867.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -838,6 +838,7 @@
     "static/media/nodejs event loop process.nextTick().md": "/static/media/nodejs event loop process.nextTick().1463ae0e20c7d7f5dd04.md",
     "static/media/L5 TLS certbot 인증방식 DNS-01 wildcard 사용하기.md": "/static/media/L5 TLS certbot 인증방식 DNS-01 wildcard 사용하기.c5dba40fc7a913c0e9db.md",
     "static/media/c++ base pointer call by value & call by reference.md": "/static/media/c++ base pointer call by value & call by reference.345ed1606a264cc805ef.md",
+    "static/media/claude code.md": "/static/media/claude code.b5a0697955b2dd6fd175.md",
     "static/media/nginx CSP.md": "/static/media/nginx CSP.aa684cd5457c0e523eff.md",
     "static/media/algorithm 배열 보간탐색.md": "/static/media/algorithm 배열 보간탐색.e8cebff1d4dd5b7830a7.md",
     "static/media/논리.md": "/static/media/논리.91389b2c714febe027c8.md",
@@ -1577,7 +1578,6 @@
     "static/media/linux auth user sudo.md": "/static/media/linux auth user sudo.b646bb7a651188f9bc5a.md",
     "static/media/prisma relation inheritance 상속.md": "/static/media/prisma relation inheritance 상속.1c3c2422178d25761d76.md",
     "static/media/testing jest ts-jest.md": "/static/media/testing jest ts-jest.a6b9fb8f8c955cfdc8b5.md",
-    "static/media/claude code.md": "/static/media/claude code.91e9ef45f6e1f9c8d773.md",
     "static/media/js array reduce.md": "/static/media/js array reduce.1232776944bf90bb9f0b.md",
     "static/media/rxjs transformation connect.md": "/static/media/rxjs transformation connect.d8b171134ba6b1c85016.md",
     "static/media/L7 MCP auth.md": "/static/media/L7 MCP auth.fc311b61d95562a41db3.md",
@@ -3228,6 +3228,7 @@
     "static/media/css progress bar.md": "/static/media/css progress bar.24c19291fbf302213db5.md",
     "static/media/kafka Streams ksqlDB.md": "/static/media/kafka Streams ksqlDB.a858f2aa9ca66280b1ef.md",
     "static/media/lodash creation negate.md": "/static/media/lodash creation negate.1b4ffaaca8c096040705.md",
+    "static/media/MCP List.md": "/static/media/MCP List.0e935a1ebc65f0b3ecc0.md",
     "static/media/aws vpc.md": "/static/media/aws vpc.847127569e6316b51e4f.md",
     "static/media/css 사용자 정의 속성.md": "/static/media/css 사용자 정의 속성.19901fbfa89cf6b86da9.md",
     "static/media/html to image.md": "/static/media/html to image.4c000db83cdf8d2d0a74.md",
@@ -4965,10 +4966,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.e500bfd1.js.map": "/static/js/main.e500bfd1.js.map"
+    "main.bfa41867.js.map": "/static/js/main.bfa41867.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.e500bfd1.js"
+    "static/js/main.bfa41867.js"
   ]
 }

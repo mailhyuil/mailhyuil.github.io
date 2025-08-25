@@ -8,6 +8,26 @@ pnpm i -g @anthropic-ai/claude-code
 
 # 실행
 claude
+# 오토모드로 실행 (퍼미션을 요구하지 않음)
+claude --dangerously-skip-permissions
+# mcp 추가
+claude mcp add <mcp_name>
+claude mcp remove <mcp_name>
+claude mcp list
+```
+
+## 명령어
+
+```txt
+/init : CLAUDE.md 파일 생성 (프로젝트 요약)
+/ide : 사용중인 IDE에 연동
+/model : AI model 설정
+/resume : 이전 대화 내역
+/mcp : mcp 리스트 출력
+
+@dir_name (폴더이름)
+@file_name (파일이름)
+@extension (확장자)
 ```
 
 ## Pro 플랜 사용
