@@ -43,3 +43,19 @@ claude mcp list
 /agents : subagent를 자연어로 설정
 /output-style : output style을 자연어로 설정
 ```
+
+## .mcp.json
+
+> mcp를 공유
+
+```json
+{
+  "mcpServers": {
+    "shared-server": {
+      "command": "/path/to/server",
+      "args": [],
+      "env": {}
+    }
+  }
+}
+```
