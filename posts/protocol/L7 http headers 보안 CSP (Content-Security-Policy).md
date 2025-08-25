@@ -1,10 +1,10 @@
 # http headers 보안 Content-Security-Policy (CSP)
 
-> iframe 사용 시 브라우저에게 보안 정책을 설정하는 방법
+> 웹 전체 리소스 로딩/실행 정책을 제어하는 보안 헤더
 >
 > > 교차 사이트 스크립팅(XSS)과 데이터 주입 공격을 비롯한 특정 유형의 공격을 탐지하고 완화하는 데 도움이 되는 추가 보안 계층
 > >
-> > > frame-ancestors 'none'으로 X-Frame-Options: DENY와 같은 기능을 수행
+> > > frame-ancestors 'none'으로 X-Frame-Options: DENY와 같은 기능을 수행 (iframe)
 
 ```html
 <!-- 지시어 -->

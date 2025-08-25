@@ -6,7 +6,7 @@
 > >
 > > 작업이 완료되면 그 즉시 각 phase의 queue에 등록
 > >
-> > > phase는 단순히 각 queue에 등록된 콜백을 main thread로 가져오는 역할만 수행함
+> > > event-loop는 단순히 각 queue에 등록된 콜백을 main thread로 가져오는 역할만 수행함
 > > >
 > > > > phase의 queue가 비어있다면 phase는 skip된다.
 
