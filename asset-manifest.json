@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.88df1bbd.js",
+    "main.js": "/static/js/main.df1d94e6.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -1256,7 +1256,7 @@
     "static/media/flutter feature Webview Platform-Specific Features.md": "/static/media/flutter feature Webview Platform-Specific Features.0f23fa505aed0e17c1f6.md",
     "static/media/nest DI.md": "/static/media/nest DI.7aa91edf20f210afe1bf.md",
     "static/media/nest auth jwt jwks (JSON Web Key Set).md": "/static/media/nest auth jwt jwks (JSON Web Key Set).f3d47faa4e2b7c6cf22a.md",
-    "static/media/python pip poetry.md": "/static/media/python pip poetry.6ced2c0fee09dedc2eac.md",
+    "static/media/python package manager poetry.md": "/static/media/python package manager poetry.6ced2c0fee09dedc2eac.md",
     "static/media/prisma lock 비관적 락 row lock share lock.md": "/static/media/prisma lock 비관적 락 row lock share lock.4195de1e91a7693ec773.md",
     "static/media/prisma relation one to many update.md": "/static/media/prisma relation one to many update.f9fc602dda763046bcb2.md",
     "static/media/webapi history.md": "/static/media/webapi history.500f07556379c37df74b.md",
@@ -2415,7 +2415,7 @@
     "static/media/nest cache-manager wrap.md": "/static/media/nest cache-manager wrap.6b53a7d602a364691307.md",
     "static/media/js context 실행컨텍스트.md": "/static/media/js context 실행컨텍스트.ed6780e150d7abb590b4.md",
     "static/media/Linker & Linking.md": "/static/media/Linker & Linking.ebc0753a6f6c32a8effa.md",
-    "static/media/python pip legacy venv.md": "/static/media/python pip legacy venv.646c8e3c9a2855a96bfd.md",
+    "static/media/python package manager pip legacy venv.md": "/static/media/python package manager pip legacy venv.646c8e3c9a2855a96bfd.md",
     "static/media/redis base cli.md": "/static/media/redis base cli.4471469c4fcdcc38ab85.md",
     "static/media/브라우저 Layer.md": "/static/media/브라우저 Layer.014673a24fa3ec26aebd.md",
     "static/media/angular 17 viewTransition.md": "/static/media/angular 17 viewTransition.90e665aeb922ff03df4d.md",
@@ -2973,7 +2973,7 @@
     "static/media/flutter Animation Package flutter_animate.md": "/static/media/flutter Animation Package flutter_animate.06e27c715c0848b26a0a.md",
     "static/media/js array every.md": "/static/media/js array every.d70f3ce1ac870cd57bfc.md",
     "static/media/nodejs module multicore child_process execa.md": "/static/media/nodejs module multicore child_process execa.009d546c4f91bf9f7f6b.md",
-    "static/media/python pip.md": "/static/media/python pip.29adda31a904ab04e800.md",
+    "static/media/python package manager pip.md": "/static/media/python package manager pip.29adda31a904ab04e800.md",
     "static/media/testing jest timer.md": "/static/media/testing jest timer.e0a3afec165124c24290.md",
     "static/media/typescript tsconfig watchOptions.md": "/static/media/typescript tsconfig watchOptions.9007d6ac0cefe6382b95.md",
     "static/media/L7 http headers Accept-Encoding.md": "/static/media/L7 http headers Accept-Encoding.afd92248b827987715bc.md",
@@ -3563,6 +3563,7 @@
     "static/media/bundle webpack plugin built-in IgnorePlugin.md": "/static/media/bundle webpack plugin built-in IgnorePlugin.8b99af632240aba2f5f9.md",
     "static/media/go base type optional.md": "/static/media/go base type optional.d5c6d9823e1e1de03471.md",
     "static/media/hugging face cli.md": "/static/media/hugging face cli.5e278b26f7e14329f801.md",
+    "static/media/python package manager uv.md": "/static/media/python package manager uv.174af06a30cf3c06c20e.md",
     "static/media/angular ngModel standalone.md": "/static/media/angular ngModel standalone.67045e5c58842edff72b.md",
     "static/media/api oauth kakao logout.md": "/static/media/api oauth kakao logout.87a2312a905b4636dd4b.md",
     "static/media/html image layout shift 방지.md": "/static/media/html image layout shift 방지.f997fa899127e1773e5c.md",
@@ -3800,7 +3801,7 @@
     "static/media/망분리.md": "/static/media/망분리.22cdf915cdd3dd7e59ab.md",
     "static/media/평균값 백분율.md": "/static/media/평균값 백분율.eac0f21c243828c9060b.md",
     "static/media/nhn Image Manager.md": "/static/media/nhn Image Manager.b3cb6503fdf4f25e6848.md",
-    "static/media/python pip legacy requirements.txt (freeze).md": "/static/media/python pip legacy requirements.txt (freeze).7b02bbfba701880f229b.md",
+    "static/media/python package manager pip legacy requirements.txt (freeze).md": "/static/media/python package manager pip legacy requirements.txt (freeze).7b02bbfba701880f229b.md",
     "static/media/vee-validate yup.md": "/static/media/vee-validate yup.e91cadffa6a8d316f2d0.md",
     "static/media/L2 WOL (Wake-on LAN).md": "/static/media/L2 WOL (Wake-on LAN).c66c43ea3b665ccf43a8.md",
     "static/media/aws CDN cloudfront geographic restrictions.md": "/static/media/aws CDN cloudfront geographic restrictions.069e457641278234289e.md",
@@ -4973,10 +4974,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.88df1bbd.js.map": "/static/js/main.88df1bbd.js.map"
+    "main.df1d94e6.js.map": "/static/js/main.df1d94e6.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.88df1bbd.js"
+    "static/js/main.df1d94e6.js"
   ]
 }
