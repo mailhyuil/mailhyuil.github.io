@@ -1,6 +1,8 @@
-# bridge
+# Bridge pattern
 
-> 관련된 클래스들의 집합을
+> 하나의 객체의 속성을 클래스 이름으로 표현하면 그 조합이 기하급수적으로 늘어나 관리가 어려워진다. (RedCircle, BlueSquare, GreenCircle...)
+>
+> 속성 클래스를 Has-A 관계로 연결하는 것을 브리지 패턴이라고 한다. (Shape with color property)
 >
 > > 추상화(set과 get을 가진 클래스) 및
 > >
