@@ -1,6 +1,6 @@
-# abstract abstract factory
+# Abstract factory pattern
 
-> 관련된 객체 집합을 생성하는 인터페이스를 제공하여 구체적인 클래스를 지정하지 않고도 객체를 생성하는 패턴
+> 관련된 객체집합(Product Family)을 일관성 있게 묶어서 한번에 생성하는 인터페이스를 제공하여 구현
 
 ```ts
 interface Factory {
