@@ -10,9 +10,3 @@ if (isSummer(date)) {
   charge = winterCharge(quantity); // quantity * summerRate;
 }
 ```
-
-2. Consolidate Conditional Expression
-
-```ts
-
-```
