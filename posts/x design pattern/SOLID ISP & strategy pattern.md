@@ -1,7 +1,7 @@
 # SOLID ISP & Strategy Pattern
 
 - ISP (Interface Segregation Principle)
-- Strategy Pattern을 사용하여 사용하지 않는 클래스를 가지고 있지 않도록 디자인
+- Strategy Pattern을 사용하여 사용하지 않는 메소드를 가지고 있지 않도록 디자인
 
 ```ts
 interface IMP3Function {

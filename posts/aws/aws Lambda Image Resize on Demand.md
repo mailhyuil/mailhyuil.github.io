@@ -1,7 +1,9 @@
 # Lambda layer Image Resize on Demand
 
 1. S3 버킷 생성
-   > original bucket (original 이미지를 담을 버킷) (block all public access)
+
+   - original bucket (original 이미지를 담을 버킷) (block all public access) (cors 설정 필요)
+
    ```json
    {
      "Version": "2012-10-17",
@@ -13,14 +15,29 @@
            "AWS": "arn:aws:iam::xxxxxxxxxxxx:role/service-role/image-resize-role-xxxxxxxx"
          },
          "Action": ["s3:GetObject", "s3:PutObject"],
-         "Resource": "arn:aws:s3:::dep-team-bucket-seoul-original/*"
+         "Resource": "arn:aws:s3:::hyuil-images-original/*"
        }
      ]
    }
    ```
-   > transformed bucket (변환된 이미지를 담을 버킷) (public access all)
-   >
-   > > filename/format=auto,width=100,quality=80 이런식으로 저장됨
+
+   - transformed (image-resized) bucket (변환된 이미지를 담을 버킷) (public access all) (cors 설정 필요)
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "AllowAllExceptResourcesFolder",
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "s3:*",
+         "Resource": ["arn:aws:s3:::hyuil-images-resized", "arn:aws:s3:::hyuil-images-resized/*"]
+       }
+     ]
+   }
+   ```
+
 2. Lambda 생성
    > Funtion URL 생성 (Auth None)
    >
@@ -272,5 +289,9 @@ function handler(event) {
 }
 ```
 
-4. Cloudfront에 S3, Lambda Origin 추가 후 Origin Group으로 묶기
+4. Cloudfront에 S3_Image_Resized_Bucket, Lambda_Function_URL Origin 추가 후 Origin Group으로 묶기
+
+- image-resized-bucket: 1순위
+- lambda-function-url: 2순위
+
 5. /path에 Origin Group 추가

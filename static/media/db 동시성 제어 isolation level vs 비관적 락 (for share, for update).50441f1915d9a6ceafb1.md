@@ -1,6 +1,6 @@
 # db 동시성 제어 isolation level vs 비관적 락 (for share, for update)
 
-## Isolation Level
+## 격리수준 (Isolation Level)
 
 > 전역적인 데이터 정합성을 보장할 때 필요
 >
@@ -10,7 +10,7 @@
 > > >
 > > > (트랜잭션 간 간섭을 줄이면서도 동시 읽기 성능을 최대한 유지할 수 있다.)
 
-## 비관적 락
+## 비관적 락 (Pessimistic Locking)
 
 > 동시성 충돌을 방지
 >

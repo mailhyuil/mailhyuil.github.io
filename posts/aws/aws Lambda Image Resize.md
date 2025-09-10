@@ -7,10 +7,10 @@
    > sharp는 os에 의존적이기 때문에 주의
 
 ```sh
-npm i --arch=x64 --platform=linux sharp # wsl에서 실행
+npm install --cpu=x64 --os=linux sharp
 
 mkdir nodejs
-cp -r node_modules nodejs
+cp -r node_modules nodejs # nodejs/node_modules 구조
 zip -r nodejs nodejs
 ```
 

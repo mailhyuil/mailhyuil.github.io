@@ -1,14 +1,13 @@
-# db transaction isolation 동시성 문제
+# db Transaction Isolation 동시성 문제
 
-> read transaction: dirty read, non-repeatable read, phantom read, read skew
->
-> write transaction: dirty write, lost update, write skew
+- Read Transaction: dirty read, non-repeatable read, phantom read, read skew
+- Write Transaction: dirty write, lost update, write skew
 
 ## Dirty write (더티 라이트)
 
 > 커밋하지 않아도 데이터가 영구적으로 변경되는 현상
 >
-> > 모든 transaction은 이 현상을 방지하고 있다.
+> > 모든 RDBMS의 transaction은 이 현상을 방지하고 있다.
 
 ## Dirty Read (더티 리드)
 
