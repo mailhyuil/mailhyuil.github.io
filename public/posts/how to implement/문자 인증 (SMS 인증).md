@@ -41,11 +41,20 @@ export class SmsController {
 ## service
 
 ```ts
-import { BusinessException, ErrorInfo } from "@/server/errors";
 import { RedisKey } from "@/server/redis/redis.key";
 import { REDIS_CLIENT, RedisClient } from "@/server/redis/redis.provider";
 import { HttpService } from "@nestjs/axios";
-import { Inject, Injectable, Logger } from "@nestjs/common";
+import {
+  BadRequestException,
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+  Logger,
+  ServiceUnavailableException,
+  UnauthorizedException,
+} from "@nestjs/common";
+import { plainToInstance } from "class-transformer";
+import { VerifyResponseDTO } from "./sms.dto";
 
 @Injectable()
 export class SmsService {
@@ -55,28 +64,52 @@ export class SmsService {
 
   async sendVerificationCode(tel: string): Promise<void> {
     const code = Math.floor(100000 + Math.random() * 900000);
-    const message = `SMS 인증
-인증 코드: [${code}]
+    const message = `원파트너스 문의 SMS 인증
+인증번호: [${code}]
 `;
-    await Promise.all([
-      this.send([tel], message),
-      this.redis.set(RedisKey.smsCode(tel), code, {
-        EX: 1000 * 5 * 60, // 5 minutes
-      }),
-    ]);
+
+    try {
+      // 1. Redis에 먼저 저장 (빠르고 실패 확률 낮음)
+      await this.redis.set(RedisKey.smsCode(tel), code, {
+        EX: 5 * 60, // 5 minutes
+      });
+
+      // 2. SMS 발송 (실패 확률 높음)
+      await this.send([tel], message);
+
+      this.logger.debug(`SMS verification code sent to ${tel}`);
+    } catch (error) {
+      // SMS 발송 실패 시 Redis에서 코드 삭제
+      try {
+        await this.redis.del(RedisKey.smsCode(tel));
+      } catch {
+        this.logger.warn(`Failed to cleanup verification code for ${tel}`);
+      }
+      this.logger.error(`Failed to send verification code to ${tel}:`, error);
+    }
   }
 
-  async verifyCode(tel: string, code: string): Promise<void> {
-    const storedCode = await this.redis.get(RedisKey.smsCode(tel));
-    if (storedCode !== code) {
-      throw new BusinessException(ErrorInfo.InvalidVerificationCode);
+  async verifyCode(tel: string, code: string) {
+    try {
+      const storedCode = await this.redis.get(RedisKey.smsCode(tel));
+      if (storedCode !== code) {
+        return plainToInstance(VerifyResponseDTO, { success: false });
+      }
+    } catch (error) {
+      throw new ServiceUnavailableException("인증번호 확인 중 오류가 발생했습니다.");
     }
-    await Promise.all([
-      this.redis.del(RedisKey.smsCode(tel)),
-      this.redis.set(RedisKey.smsVerified(tel), "true", {
-        EX: 1000 * 5 * 60, // 5 minutes
-      }),
-    ]);
+
+    try {
+      await Promise.all([
+        this.redis.del(RedisKey.smsCode(tel)),
+        this.redis.set(RedisKey.smsVerified(tel), "true", {
+          EX: 5 * 60, // 5 minutes
+        }),
+      ]);
+    } catch (error) {
+      throw new ServiceUnavailableException("인증번호 확인 중 오류가 발생했습니다.");
+    }
+    return plainToInstance(VerifyResponseDTO, { success: true });
   }
 
   async isVerified(tel: string): Promise<boolean> {
@@ -90,45 +123,49 @@ export class SmsService {
   }
 
   private async send(tels: string[], message: string): Promise<void> {
+    if (tels.length > 1000) {
+      throw new BadRequestException("한번에 1,000건 이상의 전화번호에 문자를 전송할 수 없습니다.");
+    }
+
     const apiEndpoint = process.env.NHN_SMS_API_URL;
     const apiKey = process.env.NHN_SMS_API_KEY;
     const secretKey = process.env.NHN_SMS_API_SECRET;
 
-    return new Promise<void>((resolve, reject) => {
-      if (tels.length > 1000) {
-        reject("한번에 1,000건 이상의 전화번호에 문자를 전송할 수 없습니다.");
-      }
-      const body = {
-        body: message,
-        sendNo: "01012345678",
-        recipientList: tels.map(item => ({
-          recipientNo: item,
-          countryCode: "82",
-        })),
-      };
+    const body = {
+      body: message,
+      sendNo: "15552571",
+      recipientList: tels.map(tel => ({
+        recipientNo: tel,
+        countryCode: "82",
+      })),
+    };
 
-      this.http
-        .post(`${apiEndpoint}/appKeys/${apiKey}/sender/sms`, body, {
-          headers: {
-            "Content-Type": "application/json;charset=UTF-8",
-            "X-Secret-Key": secretKey,
-          },
-        })
-        .subscribe({
-          next: ({ data, request }) => {
-            if (!data.header.isSuccessful) {
-              this.logger.error(data.header.resultMessage);
-              reject("문자 발송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
-            } else {
-              resolve();
-            }
-          },
-          error(error) {
-            this.logger.error(error);
-            reject("문자 발송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
-          },
-        });
-    });
+    try {
+      const response = await this.http.axiosRef.post(`${apiEndpoint}/sms/v3.0/appKeys/${apiKey}/sender/sms`, body, {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          "X-Secret-Key": secretKey,
+        },
+      });
+
+      if (!response.data.header.isSuccessful) {
+        this.logger.error("SMS API Error:", response.data.header.resultMessage);
+        throw new InternalServerErrorException("문자 발송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+      }
+
+      this.logger.debug(`SMS sent successfully to ${tels.length} recipients`);
+    } catch (error) {
+      this.logger.error("SMS send failed:", error);
+
+      if (error.response?.status === 429) {
+        throw new BadRequestException("SMS 발송 한도가 초과되었습니다.");
+      }
+      if (error.response?.status === 401) {
+        throw new UnauthorizedException("SMS 서비스 인증에 실패했습니다.");
+      }
+
+      throw new InternalServerErrorException("문자 발송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+    }
   }
 }
 ```
