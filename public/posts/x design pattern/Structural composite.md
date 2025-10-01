@@ -39,7 +39,7 @@ class Composite implements Component {
 
   operation(): void {
     console.log("Composite operation");
-    this.children.forEach((child) => {
+    this.children.forEach(child => {
       child.operation();
     });
   }
@@ -132,7 +132,7 @@ class Computer extends Device {
   }
 
   removeComponent(component: Device): void {
-    this.components = this.components.filter((c) => c !== component);
+    this.components = this.components.filter(c => c !== component);
   }
 
   getPrice(): number {

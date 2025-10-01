@@ -5,7 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-FRAME-OPTIONS" content="DENY" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="MailHyuil Blog" />
+
+    <!-- SEO 메타 태그 -->
+    <meta
+      name="description"
+      content="풀스택 개발자 MailHyuil의 기술 블로그. JavaScript, TypeScript, React, Node.js, AWS 등 웹 개발 경험과 인사이트를 공유합니다."
+    />
+    <meta
+      name="keywords"
+      content="개발자, 풀스택, JavaScript, TypeScript, React, Node.js, AWS, 웹개발, 프론트엔드, 백엔드"
+    />
+    <meta name="author" content="MailHyuil" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="ko" />
+
+    <!-- Open Graph (소셜미디어 공유) -->
+    <meta property="og:title" content="MailHyuil Tech Blog" />
+    <meta property="og:description" content="풀스택 개발자의 기술 블로그. 웹 개발 경험과 인사이트를 공유합니다." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com" />
+    <meta property="og:image" content="https://your-domain.com/img/og-image.jpg" />
+    <meta property="og:site_name" content="MailHyuil Blog" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MailHyuil Tech Blog" />
+    <meta name="twitter:description" content="풀스택 개발자의 기술 블로그" />
+    <meta name="twitter:image" content="https://your-domain.com/img/twitter-image.jpg" />
+
+    <!-- 구조화된 데이터 (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "MailHyuil Tech Blog",
+        "description": "풀스택 개발자의 기술 블로그",
+        "url": "https://your-domain.com",
+        "author": {
+          "@type": "Person",
+          "name": "MailHyuil"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "MailHyuil"
+        },
+        "inLanguage": "ko"
+      }
+    </script>
+
+    <!-- 기존 링크들 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,8 +62,19 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,900&display=swap"
     />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
+
+    <!-- 파비콘 및 아이콘 -->
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
-    <title>MailHyuil</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+
+    <!-- 사이트맵 및 RSS -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="MailHyuil Blog RSS" href="/rss.xml" />
+
+    <title>MailHyuil Tech Blog - 풀스택 개발자의 기술 레시피</title>
+
     <style>
       ::selection {
         background-color: rgb(236 72 153);

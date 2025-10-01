@@ -24,11 +24,14 @@ claude mcp list
 /ide : 사용중인 IDE에 연동
 /model : AI model 설정
 /resume : 이전 대화 내역
+/permissions : 퍼미션 설정
 /mcp : mcp 리스트 출력
 
 @dir_name (폴더이름)
 @file_name (파일이름)
 @extension (확장자)
+
+#Text : claude.md에 추가할 내용
 ```
 
 ## 디렉토리 (.claude)
@@ -39,4 +42,20 @@ claude mcp list
 
 /agents : subagent를 자연어로 설정
 /output-style : output style을 자연어로 설정
+```
+
+## .mcp.json
+
+> mcp를 공유
+
+```json
+{
+  "mcpServers": {
+    "shared-server": {
+      "command": "/path/to/server",
+      "args": [],
+      "env": {}
+    }
+  }
+}
 ```
