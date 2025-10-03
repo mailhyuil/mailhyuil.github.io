@@ -12,63 +12,16 @@
 ```json
 {
   "name": "My Dev Container",
-  "dockerFile": "Dockerfile",
-  "context": "..",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
   },
-  "extensions": ["ms-python.python", "esbenp.prettier-vscode"]
+  "postCreateCommand": "pip install -r requirements.txt",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "esbenp.prettier-vscode"]
+    }
+  },
+  "remoteUser": "root"
 }
-```
-
-## .devcontainer/Dockerfile
-
-```dockerfile
-# Use the official Python image from the Docker Hub
-FROM python:3.9
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the requirements file
-COPY requirements.txt .
-
-# Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code
-COPY . .
-
-# Command to run the application
-CMD ["python", "app.py"]
-```
-
-## .devcontainer/docker-compose.yml
-
-```yaml
-# .devcontainer/docker-compose.yml
-version: "3.9"
-services:
-  app:
-    build: .
-    volumes:
-      - ..:/workspace:cached
-    command: npm run dev
-    depends_on:
-      - db
-      - redis
-  db:
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: onepartners
-    ports:
-      - "5434:5432"
-  redis:
-    image: redis:latest
-    restart: always
-    ports:
-      - "6379:6379"
 ```
