@@ -1,6 +1,8 @@
 # aws message queue SQS ElasticMQ
 
 > AWS SQS와 호환되는 오픈 소스 메시지 큐 서버
+>
+> > SQS를 위한 테스트/개발 전용
 
 ## docker-compose.yaml
 
