@@ -16,7 +16,7 @@
 
 ## registerAsync & forRootAsync & forFeatureAsync
 
-> 위와 같지만 nestjs의 DI를 config를 위해 사용할 때
+> 위와 같지만 nestjs의 configService를 주입받아 config를 가져올 때
 >
 > > useFactory를 사용할 때
 

@@ -6,6 +6,7 @@
 
 ```sh
 npm i @ssut/nestjs-sqs
+npm i @aws-sdk/client-sqs
 ```
 
 ## module
@@ -14,8 +15,18 @@ npm i @ssut/nestjs-sqs
 @Module({
   imports: [
     SqsModule.register({
-      consumers: [],
-      producers: [],
+      consumers: [
+        {
+          name: "batch",
+          queueUrl: `http://localhost:9324/queue/${queueName}`,
+        },
+      ],
+      producers: [
+        {
+          name: "batch",
+          queueUrl: `http://localhost:9324/queue/${queueName}`,
+        },
+      ],
     }),
   ],
 })
