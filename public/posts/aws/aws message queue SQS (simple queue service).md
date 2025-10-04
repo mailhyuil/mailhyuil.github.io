@@ -1,6 +1,8 @@
 # aws message queue SQS (Simple Queue Service)
 
 > aws 메시지 큐 서비스
+>
+> > Delay는 최대 15분까지 가능
 
 ## Standard
 
