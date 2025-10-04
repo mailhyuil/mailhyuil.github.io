@@ -15,17 +15,24 @@ export class SomeComponent {
     email: this.fb.control(""),
   });
   data = resource({
-    request: () => ({ id: this.id() }),
-    loader: ({ request, abortSignal }) => {
-      const res = fetch(`https://api.example.com/users/${request.id}`, {
+    params: () => ({ id: this.id() }),
+    loader: ({ params, abortSignal, previous }) => {
+      const res = fetch(`https://api.example.com/users/${params.id}`, {
         signal: abortSignal,
       });
       const data = res.json();
       this.form.patchValue(data);
       return Promise.resolve(data);
     },
+    defaultValue: { name: "", email: "" },
   });
 }
+```
+
+## some.component.html
+
+```html
+{{ data.value().name }}
 ```
 
 ## user.service.ts
