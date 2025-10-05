@@ -6,7 +6,7 @@
 
 ## ts
 
-```sh
+```txt
 host: { ngSkipHydration: "true"; }
 ```
 
