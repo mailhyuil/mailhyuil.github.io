@@ -18,6 +18,12 @@ services:
       - "./elasticmq.conf:/opt/elasticmq.conf"
 ```
 
+## queue 생성
+
+```sh
+curl -X POST "http://localhost:9324/?Action=CreateQueue&QueueName=my-queue"
+```
+
 ## elasticmq.conf
 
 ```hocon
