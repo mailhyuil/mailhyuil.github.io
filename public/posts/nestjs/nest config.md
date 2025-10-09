@@ -1,22 +1,20 @@
 # nestjs config
 
-> ConfigService, ConfigModule 사용
+> process.env를 사용하는 것보다 Type-safe, Remote Config, Validation 등의 기능을 제공
 >
-> > .env 읽어서 설정
+> > 간단한 설정값은 process.env로 사용해도 무방하다.
+> >
+> > 서비스/컨트롤러 등 비즈니스 로직에서 사용되는 갑승ㄴ ConfigService를 사용하자.
 
 ## install
 
 ```sh
 npm i @nestjs/config
 npm i dotenv
-npm i dotenv-cli
+npm i -D dotenv-cli
 ```
 
-## EnvironmentModule
-
-> ConfigService, ConfigModule 사용
->
-> > envFilePath는 dist 폴더의 밖!!! (루트패스)
+## DatabaseModule
 
 ```ts
 const envFilePath = path.join(__dirname, "../../../", `.env.${process.env.NODE_ENV}`);
@@ -25,45 +23,44 @@ const envFilePath = path.join(__dirname, "../../../", `.env.${process.env.NODE_E
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath,
       isGlobal: true,
+      envFilePath: `.env.${process.env.NODE_ENV}`,
+      // envFilePath: [".env.development.database", ".env.development.aws"],
+      // ignoreEnvFile: true, // if you don't need to load .env file
     }),
   ],
-  providers: [EnvironmentService],
+  providers: [DatabaseService],
 })
-export class EnvironmentModule implements OnModuleInit {
+export class DatabaseModule {
   constructor(private readonly configService: ConfigService) {}
-
-  onModuleInit() {
-    const envFile = readFileSync(envFilePath, {});
-    if (!envFile) {
-      throw new Error("ENV FILE NOT FOUND!");
-    }
-  }
 }
 ```
 
-## AppModule
+## custom configuration files
+
+### config/configuration.ts
 
 ```ts
-imports: [
-  EnvironmentModule,
-],
+export default () => ({
+  port: parseInt(process.env.PORT, 10) || 3000,
+  database: {
+    host: process.env.DATABASE_HOST,
+    port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
+  },
+});
 ```
 
-## main.ts
+### app.modules.ts
 
 ```ts
-const configService = app.get<ConfigService>(ConfigService);
-const port = configService.get<number>("SERVER_PORT");
-```
+import configuration from "./config/configuration";
 
-## .env 파일
-
-> root 에 위치
->
-> > nest가 dist밖의 패스(루트)를 읽게 해서 실행시킨다
-
-```
-"dev": "dotenv -e .env -- nest start --watch",
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      load: [configuration],
+    }),
+  ],
+})
+export class AppModule {}
 ```
