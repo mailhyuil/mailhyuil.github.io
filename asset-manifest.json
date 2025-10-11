@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.332c32bf.css",
-    "main.js": "/static/js/main.0bd5b5eb.js",
+    "main.js": "/static/js/main.2b0f16e8.js",
     "static/media/hyuil.webp": "/static/media/hyuil.972eb805e795af3be802.webp",
     "static/media/cafe24 module product_detail.md": "/static/media/cafe24 module product_detail.80ff77e174cde3568cc9.md",
     "static/media/postgres pgpool2 config.md": "/static/media/postgres pgpool2 config.afcc3e8781651649ba75.md",
@@ -20,6 +20,7 @@
     "static/media/cafe24 module product_addproduct (상품추가).md": "/static/media/cafe24 module product_addproduct (상품추가).11c1a450d41593a0228d.md",
     "static/media/kafka Connect Debezium.md": "/static/media/kafka Connect Debezium.d5ebad67bcdd58a71c51.md",
     "static/media/nest advanced batch.md": "/static/media/nest advanced batch.889f3abcad8837b3f5e6.md",
+    "static/media/aws Amazon Q Developer.md": "/static/media/aws Amazon Q Developer.57304957de9371c5f648.md",
     "static/media/kubectl 자주 사용하는 명령어.md": "/static/media/kubectl 자주 사용하는 명령어.c984bf385f12ce7bd76a.md",
     "static/media/Spring MVC + JPA.md": "/static/media/Spring MVC + JPA.801a09a8772a7426b0da.md",
     "static/media/nest error handling.md": "/static/media/nest error handling.14d09bee08668e59dfa7.md",
@@ -1428,6 +1429,7 @@
     "static/media/yarn berry.md": "/static/media/yarn berry.31389e16a8ecc648154e.md",
     "static/media/flutter.md": "/static/media/flutter.1e5bd30436b021ccde11.md",
     "static/media/nest base interceptor ForbiddenResourceInterceptor.md": "/static/media/nest base interceptor ForbiddenResourceInterceptor.6ae16d8ad6094b7ce09e.md",
+    "static/media/MCP Server List.md": "/static/media/MCP Server List.e2cf4e340417c420099e.md",
     "static/media/go base func built-in.md": "/static/media/go base func built-in.727ca5e991b489d838f5.md",
     "static/media/html iframe sandbox.md": "/static/media/html iframe sandbox.c6ca4e5c78bf99373f4a.md",
     "static/media/testing jest config js.md": "/static/media/testing jest config js.57919637d8296ac03f88.md",
@@ -3229,7 +3231,6 @@
     "static/media/assert.md": "/static/media/assert.7ef50fb560006bd501f4.md",
     "static/media/flutter Container vs SizedBox.md": "/static/media/flutter Container vs SizedBox.80b870026ed8bb317dca.md",
     "static/media/nx base install.md": "/static/media/nx base install.dcc42161d9cef2aa72bb.md",
-    "static/media/MCP List.md": "/static/media/MCP List.5104ebd685399bb69ebe.md",
     "static/media/db base optimizer execution plans 실행 계획.md": "/static/media/db base optimizer execution plans 실행 계획.6f7b4e7515e041cfab2c.md",
     "static/media/vscode debug.md": "/static/media/vscode debug.0b3f9ad43d0b0e6059cc.md",
     "static/media/Bitcoin.md": "/static/media/Bitcoin.04da37fd6ffd7d98d3d5.md",
@@ -5004,10 +5005,10 @@
     "static/media/수수료.md": "/static/media/수수료.31d6cfe0d16ae931b73c.md",
     "static/media/웹 성능 측정 도구.md": "/static/media/웹 성능 측정 도구.31d6cfe0d16ae931b73c.md",
     "main.332c32bf.css.map": "/static/css/main.332c32bf.css.map",
-    "main.0bd5b5eb.js.map": "/static/js/main.0bd5b5eb.js.map"
+    "main.2b0f16e8.js.map": "/static/js/main.2b0f16e8.js.map"
   },
   "entrypoints": [
     "static/css/main.332c32bf.css",
-    "static/js/main.0bd5b5eb.js"
+    "static/js/main.2b0f16e8.js"
   ]
 }
