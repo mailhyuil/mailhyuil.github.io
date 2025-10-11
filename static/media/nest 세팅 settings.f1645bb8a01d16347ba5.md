@@ -170,7 +170,10 @@ async function bootstrap() {
   /** Global Prefix */
   app.setGlobalPrefix("api");
   /** Versioning */
-  app.enableVersioning();
+  app.enableVersioning({
+    type: VersioningType.URI,
+    defaultVersion: "1", // global fallback version 설정
+  });
   /** Port */
   const port = process.env.SERVER_PORT || 3000;
   /** OpenAPI */
