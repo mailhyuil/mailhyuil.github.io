@@ -1,0 +1,13 @@
+# postgres transaction begin
+
+```sql
+BEGIN;
+-- same as
+BEGIN TRANSACTION;
+
+-- with isolation level
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+-- same as
+BEGIN;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+```

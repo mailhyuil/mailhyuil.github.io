@@ -1,0 +1,10 @@
+{
+  "label": "CI/CD ArgoCD",
+  "position": 11,
+  "link": {
+    "type": "generated-index",
+    "description": "ArgoCD continuous deployment, GitOps, and Kubernetes deployment automation."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

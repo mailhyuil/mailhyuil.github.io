@@ -1,0 +1,10 @@
+{
+  "label": "AWS",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Amazon Web Services documentation including EC2, S3, Lambda, and other cloud services."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

@@ -1,0 +1,10 @@
+{
+  "label": "Flutter & Dart",
+  "position": 28,
+  "link": {
+    "type": "generated-index",
+    "description": "Flutter mobile app development, Dart programming language, and cross-platform development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

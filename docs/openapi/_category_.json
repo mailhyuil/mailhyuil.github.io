@@ -1,0 +1,10 @@
+{
+  "label": "OpenAPI",
+  "position": 47,
+  "link": {
+    "type": "generated-index",
+    "description": "OpenAPI specification, Swagger, API documentation, and REST API design."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

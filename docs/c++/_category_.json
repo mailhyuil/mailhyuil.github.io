@@ -1,0 +1,10 @@
+{
+  "label": "C++",
+  "position": 9,
+  "link": {
+    "type": "generated-index",
+    "description": "C++ programming language features, STL, memory management, and advanced concepts."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

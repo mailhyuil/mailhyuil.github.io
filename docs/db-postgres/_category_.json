@@ -1,0 +1,10 @@
+{
+  "label": "DB PostgreSQL",
+  "position": 19,
+  "link": {
+    "type": "generated-index",
+    "description": "PostgreSQL database administration, advanced features, and performance tuning."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

@@ -1,0 +1,10 @@
+{
+  "label": "YAML",
+  "position": 70,
+  "link": {
+    "type": "generated-index",
+    "description": "YAML syntax, configuration files, and data serialization."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

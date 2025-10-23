@@ -1,0 +1,10 @@
+{
+  "label": "Lint",
+  "position": 36,
+  "link": {
+    "type": "generated-index",
+    "description": "Code linting, ESLint, Prettier, code quality, and style enforcement tools."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

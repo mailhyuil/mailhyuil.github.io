@@ -1,0 +1,10 @@
+{
+  "label": "Redis",
+  "position": 54,
+  "link": {
+    "type": "generated-index",
+    "description": "Redis in-memory database, caching, pub/sub, and data structures."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

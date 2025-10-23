@@ -1,0 +1,10 @@
+{
+  "label": "Java",
+  "position": 32,
+  "link": {
+    "type": "generated-index",
+    "description": "Java programming language, JVM, Spring framework, and enterprise development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

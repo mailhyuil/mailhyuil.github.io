@@ -1,0 +1,10 @@
+{
+  "label": "Debug",
+  "position": 21,
+  "link": {
+    "type": "generated-index",
+    "description": "Debugging tools, techniques, and troubleshooting methodologies."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

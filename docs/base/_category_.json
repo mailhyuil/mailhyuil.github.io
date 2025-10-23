@@ -1,0 +1,10 @@
+{
+  "label": "Base",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Fundamental programming concepts, terminology, and core development knowledge."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

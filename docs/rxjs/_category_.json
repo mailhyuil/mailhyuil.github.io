@@ -1,0 +1,10 @@
+{
+  "label": "RxJS",
+  "position": 57,
+  "link": {
+    "type": "generated-index",
+    "description": "RxJS reactive programming, observables, operators, and asynchronous data streams."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

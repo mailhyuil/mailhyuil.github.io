@@ -1,0 +1,10 @@
+{
+  "label": "Git",
+  "position": 71,
+  "link": {
+    "type": "generated-index",
+    "description": "Git version control system, branching, merging, and collaborative development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

@@ -1,0 +1,10 @@
+{
+  "label": "Rust",
+  "position": 56,
+  "link": {
+    "type": "generated-index",
+    "description": "Rust programming language, memory safety, systems programming, and performance."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

@@ -1,0 +1,10 @@
+{
+  "label": "Hardware",
+  "position": 76,
+  "link": {
+    "type": "generated-index",
+    "description": "Hardware programming, embedded systems, IoT, and low-level development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

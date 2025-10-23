@@ -1,0 +1,10 @@
+{
+  "label": "Go",
+  "position": 72,
+  "link": {
+    "type": "generated-index",
+    "description": "Go programming language, goroutines, channels, and systems programming."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

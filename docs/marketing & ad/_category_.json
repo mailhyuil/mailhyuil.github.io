@@ -1,0 +1,10 @@
+{
+  "label": "Marketing & Ads",
+  "position": 41,
+  "link": {
+    "type": "generated-index",
+    "description": "Digital marketing, advertising platforms, analytics, and promotion strategies."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

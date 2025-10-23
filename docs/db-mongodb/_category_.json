@@ -1,0 +1,10 @@
+{
+  "label": "DB MongoDB",
+  "position": 18,
+  "link": {
+    "type": "generated-index",
+    "description": "MongoDB NoSQL database, aggregation pipelines, and document-based operations."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

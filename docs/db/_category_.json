@@ -1,0 +1,10 @@
+{
+  "label": "Database",
+  "position": 16,
+  "link": {
+    "type": "generated-index",
+    "description": "Database concepts, SQL, NoSQL, indexing, optimization, and database management."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

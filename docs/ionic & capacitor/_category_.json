@@ -1,0 +1,10 @@
+{
+  "label": "Ionic & Capacitor",
+  "position": 31,
+  "link": {
+    "type": "generated-index",
+    "description": "Ionic framework and Capacitor for hybrid mobile app development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

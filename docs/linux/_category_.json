@@ -1,0 +1,10 @@
+{
+  "label": "Linux",
+  "position": 37,
+  "link": {
+    "type": "generated-index",
+    "description": "Linux system administration, commands, shell scripting, and server management."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

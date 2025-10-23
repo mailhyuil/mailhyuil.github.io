@@ -1,0 +1,10 @@
+{
+  "label": "Interactive",
+  "position": 68,
+  "link": {
+    "type": "generated-index",
+    "description": "Interactive programming, animations, games, and user interactions."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

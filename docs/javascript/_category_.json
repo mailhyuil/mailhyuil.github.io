@@ -1,0 +1,10 @@
+{
+  "label": "JavaScript",
+  "position": 33,
+  "link": {
+    "type": "generated-index",
+    "description": "JavaScript language features, ES6+, DOM manipulation, and modern JS development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

@@ -1,0 +1,10 @@
+{
+  "label": "FFmpeg",
+  "position": 26,
+  "link": {
+    "type": "generated-index",
+    "description": "FFmpeg video/audio processing, encoding, streaming, and multimedia manipulation."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

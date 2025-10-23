@@ -1,0 +1,10 @@
+{
+  "label": "PHP WordPress",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+    "description": "WordPress development, themes, plugins, and content management."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

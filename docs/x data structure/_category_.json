@@ -1,0 +1,10 @@
+{
+  "label": "Data Structures",
+  "position": 66,
+  "link": {
+    "type": "generated-index",
+    "description": "Data structures, arrays, trees, graphs, and algorithmic foundations."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

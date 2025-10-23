@@ -1,0 +1,10 @@
+{
+  "label": "Kubernetes",
+  "position": 35,
+  "link": {
+    "type": "generated-index",
+    "description": "Kubernetes container orchestration, pods, services, and cluster management."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

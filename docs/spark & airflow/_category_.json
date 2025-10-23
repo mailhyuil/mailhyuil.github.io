@@ -1,0 +1,10 @@
+{
+  "label": "Spark & Airflow",
+  "position": 58,
+  "link": {
+    "type": "generated-index",
+    "description": "Apache Spark data processing and Apache Airflow workflow orchestration."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

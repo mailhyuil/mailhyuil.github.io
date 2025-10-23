@@ -1,0 +1,10 @@
+{
+  "label": "Algorithms",
+  "position": 65,
+  "link": {
+    "type": "generated-index",
+    "description": "Computer algorithms, data structures, and computational problem solving."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

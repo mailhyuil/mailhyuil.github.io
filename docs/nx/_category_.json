@@ -1,0 +1,10 @@
+{
+  "label": "Nx",
+  "position": 46,
+  "link": {
+    "type": "generated-index",
+    "description": "Nx monorepo tools, workspace management, and enterprise development workflows."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

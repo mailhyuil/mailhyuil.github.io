@@ -1,0 +1,10 @@
+{
+  "label": "DB Prisma",
+  "position": 20,
+  "link": {
+    "type": "generated-index",
+    "description": "Prisma ORM, database schema management, and type-safe database operations."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

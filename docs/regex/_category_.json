@@ -1,0 +1,10 @@
+{
+  "label": "Regex",
+  "position": 55,
+  "link": {
+    "type": "generated-index",
+    "description": "Regular expressions, pattern matching, and text processing."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

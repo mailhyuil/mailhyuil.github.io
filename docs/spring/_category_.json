@@ -1,0 +1,10 @@
+{
+  "label": "Spring",
+  "position": 59,
+  "link": {
+    "type": "generated-index",
+    "description": "Spring framework, Spring Boot, dependency injection, and Java enterprise development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

@@ -1,0 +1,10 @@
+{
+  "label": "GraphQL",
+  "position": 73,
+  "link": {
+    "type": "generated-index",
+    "description": "GraphQL query language, schema design, and API development."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

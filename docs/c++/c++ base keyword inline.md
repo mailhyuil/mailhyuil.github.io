@@ -1,0 +1,1 @@
+# c++ base keyword inline

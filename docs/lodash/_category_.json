@@ -1,0 +1,10 @@
+{
+  "label": "Lodash",
+  "position": 38,
+  "link": {
+    "type": "generated-index",
+    "description": "Lodash utility library, functional programming helpers, and data manipulation."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

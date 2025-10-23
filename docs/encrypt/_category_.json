@@ -1,0 +1,10 @@
+{
+  "label": "Encryption",
+  "position": 24,
+  "link": {
+    "type": "generated-index",
+    "description": "Cryptography, encryption algorithms, security protocols, and data protection."
+  },
+  "collapsed": true,
+  "collapsible": true
+}

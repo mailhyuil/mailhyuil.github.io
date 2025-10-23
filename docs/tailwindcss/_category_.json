@@ -1,0 +1,10 @@
+{
+  "label": "TailwindCSS",
+  "position": 60,
+  "link": {
+    "type": "generated-index",
+    "description": "TailwindCSS utility-first CSS framework and responsive design."
+  },
+  "collapsed": true,
+  "collapsible": true
+}
