@@ -1,5 +1,0 @@
-# postgres query HAVING
-
-```sql
-
-```

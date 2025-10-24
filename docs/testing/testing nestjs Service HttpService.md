@@ -1,5 +1,0 @@
-# testing nestjs HttpService
-
-```ts
-
-```

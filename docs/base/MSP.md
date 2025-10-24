@@ -1,3 +1,0 @@
-# MSP
-
-> Managed Service Provider

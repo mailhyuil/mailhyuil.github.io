@@ -1,5 +1,0 @@
-# openapi Nested $ref
-
-```yaml
-
-```

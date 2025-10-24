@@ -1,5 +1,0 @@
-# react hook useContext
-
-```tsx
-
-```

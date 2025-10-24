@@ -1,3 +1,0 @@
-# mongodb
-
-## document === json object

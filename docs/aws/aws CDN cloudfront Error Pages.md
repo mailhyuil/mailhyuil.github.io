@@ -1,1 +1,0 @@
-# aws cloudfront Error Pages

@@ -1,5 +1,0 @@
-# rxjs throttle
-
-```js
-
-```

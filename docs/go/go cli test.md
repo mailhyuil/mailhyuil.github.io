@@ -1,5 +1,0 @@
-# go cli test
-
-```sh
-
-```

@@ -1,5 +1,0 @@
-# c++ header stdexcept
-
-```cpp
-
-```

@@ -1,1 +1,0 @@
-# db objects MATERIALIZED VIEW

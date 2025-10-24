@@ -1,1 +1,0 @@
-# redis base snapshot

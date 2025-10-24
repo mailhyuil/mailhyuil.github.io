@@ -1,1 +1,0 @@
-# kube manifest elasticsearch & kibana
