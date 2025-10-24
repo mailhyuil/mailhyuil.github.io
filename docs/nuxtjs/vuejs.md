@@ -16,9 +16,9 @@ npm init vue@latest
 
 ### v-text
 
-> {{}} 로 사용
+> `{{}}` 로 사용
 
-```
+```html
 <span>Message: {{ msg }}</span>
 ```
 
@@ -26,8 +26,11 @@ npm init vue@latest
 
 > v-html Built-in Directives 사용
 
-```
-<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+```html
+<p>
+  Using v-html directive:
+  <span v-html="rawHtml"></span>
+</p>
 ```
 
 ### v-bind
@@ -36,9 +39,10 @@ npm init vue@latest
 >
 > > class에 바인딩하면 동적으로 class를 이용한 style 변경 가능
 
-```
+```html
 <div v-bind:id="dynamicId"></div>
-<div :id="dynamicId"></div> <!-- shorthand -->
+<div :id="dynamicId"></div>
+<!-- shorthand -->
 ```
 
 ### v-show
@@ -47,29 +51,19 @@ npm init vue@latest
 
 ### v-if / v-else / v-else-if
 
-```vue
-<div v-if="type === 'A'">
-  A
-</div>
-<div v-else-if="type === 'B'">
-  B
-</div>
-<div v-else-if="type === 'C'">
-  C
-</div>
-<div v-else>
-  Not A/B/C
-</div>
+```html
+<div v-if="type === 'A'">A</div>
+<div v-else-if="type === 'B'">B</div>
+<div v-else-if="type === 'C'">C</div>
+<div v-else>Not A/B/C</div>
 ```
 
 ### v-for
 
 > forEach와 같음
 
-```vue
-<div v-for="item in items">
-  {{ item.text }}
-</div>
+```html
+<div v-for="item in items">{{ item.text }}</div>
 
 <div v-for="(item, index) in items"></div>
 <div v-for="(value, key) in object"></div>
@@ -78,7 +72,7 @@ npm init vue@latest
 
 > v-for 안에서 map도 사용 가능
 
-```
+```txt
 v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
 ```
 
@@ -92,9 +86,11 @@ v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
 
 > target만 click 이벤트를 받는다
 
-```
-<div @click.self=""> <- 이 요소만 click 이벤트
-  <div></div> <- 이 요소는 click 이벤트 받지 않음
+```html
+<div @click.self="">
+  <- 이 요소만 click 이벤트
+  <div></div>
+  <- 이 요소는 click 이벤트 받지 않음
 </div>
 ```
 
@@ -112,33 +108,27 @@ v-for="(hey, index) of heys.map((hey) => `${hey}!!`)"
 > > > > >
 > > > > > > update:modelValue 혹은 update:변수명 emits으로 업데이트 할 수 있다.
 
-```
+```html
 <input v-model="searchText" />
 
 // 위의 코드와 밑의 코드는 같다
 
-<input
-  :value="searchText"
-  @input="searchText = $event.target.value"
-/>
+<input :value="searchText" @input="searchText = $event.target.value" />
 
 // 컴포넌트일 시
 
-<CustomInput
-  :modelValue="searchText"
-  @update:modelValue="newValue => searchText = newValue"
-/>
+<CustomInput :modelValue="searchText" @update:modelValue="newValue => searchText = newValue" />
 ```
 
-```
+```ts
 const props = defineProps<{
-  modelValue:string
-}>()
-const emits = defineEmits(['update:modelValue']);
-emits('update:modelValue', '안녕') // 따옴표 모양이 같아야한다 "" 안됨
+  modelValue: string;
+}>();
+const emits = defineEmits(["update:modelValue"]);
+emits("update:modelValue", "안녕"); // 따옴표 모양이 같아야한다 "" 안됨
 ```
 
-```
+```txt
 v-model="" === modelValue
 update:modelValue
 
@@ -156,26 +146,30 @@ update:title
 
 #### Name.vue
 
-```
+```html
 <template>
-    <button class="p-2 bg-red-500">
-        <slot />
-    </button>
-    <button class="p-2 bg-blue-500">
-        <slot name="slotName" />
-    </button>
+  <button class="p-2 bg-red-500">
+    <slot />
+  </button>
+  <button class="p-2 bg-blue-500">
+    <slot name="slotName" />
+  </button>
 </template>
 ```
 
 #### other.vue
 
-```
+```html
 <Name>
   <template>
-//  "이름이 없는 <slot/>으로 들어갑니다."
+    // "이름이 없는
+    <slot />
+    으로 들어갑니다."
   </template>
   <template #slotName>
-//  "<slot name="slotName"/>으로 들어갑니다."
+    // "
+    <slot name="slotName" />
+    으로 들어갑니다."
   </template>
 </Name>
 ```

@@ -1,6 +1,6 @@
 # prisma client api
 
-[client api]('https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#datasources')
+[client api](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#datasources)
 
 ## crud
 

@@ -4,7 +4,7 @@
 >
 > > 배열은 [] nullable은 ?으로
 
-[schema]('https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference')
+[schema](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference)
 
 ## scalar types
 

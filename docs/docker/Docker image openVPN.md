@@ -38,4 +38,4 @@ push "route 192.168.1.0 255.255.255.0"
 
 ## 클라이언트에 ovpn key 파일 복사
 
-> vpn 컨테이너의 {USER_NAME}.ovpn -> C:\Program Files\OpenVPN\config
+> vpn 컨테이너의 `{USER_NAME}.ovpn -> C:\Program Files\OpenVPN\config`

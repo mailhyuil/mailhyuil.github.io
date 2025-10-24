@@ -16,10 +16,10 @@
 
 > : 0개 이상의 디렉토리와 파일 매칭 (matches all files / directories)
 
-## {a, b, c}
+## \{a, b, c\}
 
 > : 중괄호 안의 문자열 중 하나와 매칭 (matches a character range or a specific set of characters)
 
-```
+```txt
 {**/\*.html,**/\*.js} : html, js 파일 매칭
 ```

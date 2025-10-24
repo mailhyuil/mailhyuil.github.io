@@ -8,7 +8,7 @@
 
 ## sprite-generator
 
-[sprite-generator]('https://www.toptal.com/developers/css/sprite-generator')
+[sprite-generator](https://www.toptal.com/developers/css/sprite-generator)
 
 ## css 속성
 

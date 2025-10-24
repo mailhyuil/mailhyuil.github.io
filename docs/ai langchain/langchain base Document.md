@@ -6,7 +6,7 @@
 > >
 > > metadata는 추가 정보를 담고 있습니다.
 > >
-> > > import type { Document } from '@langchain/core/documents';
+> > > `import type { Document } from '@langchain/core/documents';`
 
 ## Document
 

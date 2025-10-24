@@ -14,7 +14,7 @@
 > >
 > > > 'agent', 'tools', '\_\_start\_\_', '\_\_end\_\_' 등의 값을 사용해서 특정 노드로 이동
 > > >
-> > > import {START, END} from "@langchain/langgraph";
+> > > `import {START, END} from "@langchain/langgraph";`
 
 ## addConditionalEdges
 

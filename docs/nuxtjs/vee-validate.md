@@ -22,7 +22,7 @@ const { errorMessage, value } = useField(toRef(props, "name"), yup.string().requ
 >
 > > 여러 인풋을 한번에 유효성 검사할 때 사용
 > >
-> > > validationSchema가 필요 useForm option으로 schema를 넣는다. useForm({validationSchema})
+> > > validationSchema가 필요 useForm option으로 schema를 넣는다. useForm(\{validationSchema\})
 > > >
 > > > > values, handleSubmit, meta, errors, validate, setValues, isSubmitting .. 리턴
 > > > >

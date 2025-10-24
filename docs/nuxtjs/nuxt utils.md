@@ -24,6 +24,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
 ## navigateTo()
 
-> /notice/[id].vue
+> `/notice/[id].vue`
 >
-> > /notice/${id}로 navigating
+> > `/notice/${id}`로 navigating

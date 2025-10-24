@@ -23,7 +23,7 @@ docker logs -f -t [container]
 
 ## 호스트 운영체제의 로그 저장 경로
 
-> cat /var/lib/docker/containers/${CONTAINER_ID}/${CONTAINER_ID}-json.log
+> `cat /var/lib/docker/containers/${CONTAINER_ID}/${CONTAINER_ID}-json.log`
 
 ## 로그 용량 제한
 

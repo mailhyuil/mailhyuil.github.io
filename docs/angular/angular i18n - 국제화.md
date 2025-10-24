@@ -12,7 +12,7 @@ ng add @angular/localize
 >
 > > ng extract-i18n 로 messages.xlf 파일 생성
 > >
-> > > messages.{locale}.xlf
+> > > `messages.{locale}.xlf`
 
 ```sh
 ng extract-i18n [project-name]
@@ -52,9 +52,9 @@ ng extract-i18n [project-name]
 
 ### html
 
-```
-<p i18n="{i18n_metadata}"> {string_to_translate} </p>
-<p i18n> Hello, World! </p>
+```html
+<p i18n="{i18n_metadata}">{string_to_translate}</p>
+<p i18n>Hello, World!</p>
 ```
 
 ### ts

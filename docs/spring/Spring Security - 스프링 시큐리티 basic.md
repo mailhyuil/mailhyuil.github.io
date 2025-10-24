@@ -40,7 +40,7 @@
 >
 > > 암호의 접두사를 기준으로 passwordEncoder 구현을 위임
 > >
-> > > {noop}, {bcrypt}
+> > > \{noop\}, \{bcrypt\}
 
 ## KeyGenerator
 

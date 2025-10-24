@@ -21,10 +21,11 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "github/mailhyuil", // Usually your GitHub org/user name.
-  projectName: "my-blog", // Usually your repo name.
-
-  onBrokenLinks: "throw",
+  organizationName: "mailhyuil", // Usually your GitHub org/user name.
+  projectName: "mailhyuil.github.io", // Usually your repo name.
+  deploymentBranch: "gh-pages",
+  onBrokenLinks: "warn",
+  trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -63,8 +64,8 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
+    metadata: [{ name: "algolia-site-verification", content: "073099A31C38A096" }],
     algolia: {
       // The application ID provided by Algolia
       appId: "APFE520P0M",

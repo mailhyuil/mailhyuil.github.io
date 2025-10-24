@@ -1,6 +1,6 @@
 # prisma client api where
 
-> Prisma.[Name]WhereInput
+> `Prisma.[Name]WhereInput`
 
 ## usage
 
@@ -51,7 +51,7 @@ NOT
 
 > findMany를 사용할 때 필터링
 
-```
+```txt
 some // 최소한 하나
 every // 모든
 none // 하나도 아닌
@@ -76,7 +76,7 @@ where:{
 
 > 배열 사용
 
-```
+```txt
 OR: [
   {
     title: {
@@ -98,7 +98,7 @@ OR: [
 
 ## model query option
 
-```
+```txt
 select // 리턴값중에 필드를 골라내서 리턴시킬 수 있다
 include // 리턴값중에 관계를 골라내서 리턴시킬 수 있다.
 where
@@ -111,23 +111,23 @@ orderBy
 
 ## aggregate (집계함수)
 
-```
+```ts
 export type UserAggregateArgs = {
-  where?: UserWhereInput
-  orderBy?: XOR<Enumerable<UserOrderByInput>, UserOrderByInput>
-  cursor?: UserWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Enumerable<UserDistinctFieldEnum>
-  _count?: true | UserCountAggregateInputType
-  _avg?: UserAvgAggregateInputType
-  _sum?: UserSumAggregateInputType
-  _min?: UserMinAggregateInputType
-  _max?: UserMaxAggregateInputType
-}
+  where?: UserWhereInput;
+  orderBy?: XOR<Enumerable<UserOrderByInput>, UserOrderByInput>;
+  cursor?: UserWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Enumerable<UserDistinctFieldEnum>;
+  _count?: true | UserCountAggregateInputType;
+  _avg?: UserAvgAggregateInputType;
+  _sum?: UserSumAggregateInputType;
+  _min?: UserMinAggregateInputType;
+  _max?: UserMaxAggregateInputType;
+};
 ```
 
-```
+```txt
 const aggregations = await prisma.user.aggregate({
   _avg: {
     age: true,
@@ -143,7 +143,7 @@ console.log('Average age:' + aggregations._avg.age)
 >
 > > by 사용
 
-```
+```ts
 const groupUsers = await prisma.user.groupBy({
   by: ['country'],
   _sum: {

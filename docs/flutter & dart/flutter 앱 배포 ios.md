@@ -16,7 +16,7 @@
 
 ## Certificates, Identifiers & Profiles
 
-> ['link']('https://developer.apple.com/account/resources/certificates/list')
+> [certificates list](https://developer.apple.com/account/resources/certificates/list)
 >
 > > 전부 등록 필요! 몇개는 xcode에서 자동으로 등록해줌
 > >

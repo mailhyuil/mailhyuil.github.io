@@ -1,6 +1,6 @@
 # full calendar
 
-[fullcalendar]('https://fullcalendar.io/')
+[fullcalendar](https://fullcalendar.io/)
 
 ## install
 

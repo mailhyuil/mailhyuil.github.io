@@ -12,7 +12,7 @@
 
 > 도커의 볼륨 관리 기능을 사용
 >
-> > 기본으로 /var/lib/docker/volumes/${volume-name}/\_data에 데이터가 저장된다.
+> > 기본으로 `/var/lib/docker/volumes/${volume-name}/_data`에 데이터가 저장된다.
 
 ```bash
 docker volume create --name my-volume

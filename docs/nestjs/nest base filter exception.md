@@ -1,6 +1,6 @@
 # nest Exception filters
 
-> nestjs의 에러 스키마는 기본으로 {statusCode, message, error}로 구성되어있다.
+> nestjs의 에러 스키마는 기본으로 \{statusCode, message, error\}로 구성되어있다.
 >
 > > 만약 스키마를 변경하고 싶거나 (timestamp..), 로깅같은 작업을 추가하고 싶다면 Exception filters를 사용하면 된다.
 
