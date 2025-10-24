@@ -1,4 +1,4 @@
-# chain of responsibility (책임 연쇄 패턴)
+# Behavioral Chain of Responsibility - CoR
 
 > spring, nestjs의 interceptor, filter, guard, pipe 등도 CoR 패턴으로 구현한 것이다.
 >

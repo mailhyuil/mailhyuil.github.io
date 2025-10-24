@@ -1,4 +1,4 @@
-# openapi Nested $ref
+# openapi $ref nested $ref
 
 ```yaml
 

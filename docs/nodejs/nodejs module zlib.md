@@ -1,4 +1,4 @@
-# node zlib
+# nodejs module zlib
 
 > .gz로 압축
 >

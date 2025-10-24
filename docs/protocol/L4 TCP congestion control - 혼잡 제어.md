@@ -1,4 +1,4 @@
-# L4 TCP congestion control
+# L4 TCP congestion control - 혼잡 제어
 
 > 송신측의 속도가 네트워크의 처리 속도보다 빠르면 문제가 발생 (네트워크가 포화되면 패킷이 손실됨)
 >

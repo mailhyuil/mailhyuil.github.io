@@ -1,4 +1,4 @@
-# next routing
+# next component Script
 
 > script를 추가
 

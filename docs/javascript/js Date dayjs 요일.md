@@ -1,4 +1,4 @@
-# dayjs 요일
+# js Date dayjs 요일
 
 > ddd 사용
 

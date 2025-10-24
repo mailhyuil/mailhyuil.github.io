@@ -1,4 +1,4 @@
-# addEventListener vs on
+# event addEventListener vs on
 
 > > addEventListener는 event를 누적한다. 여러 이벤트를 추가하더라도 누적되어 모든 이벤트가 동작
 

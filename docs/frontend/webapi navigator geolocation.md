@@ -1,4 +1,4 @@
-# navigator.geolocation
+# webapi navigator geolocation
 
 > 사용자의 위치를 알 수 있는 API
 >

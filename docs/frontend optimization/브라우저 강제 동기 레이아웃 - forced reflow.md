@@ -1,4 +1,4 @@
-# 강제 동기 레이아웃 (레이아웃 스레싱)
+# 브라우저 강제 동기 레이아웃 - forced reflow
 
 > layout === reflow
 >

@@ -1,4 +1,4 @@
-# bundle esbuild typescript
+# compile esbuild backend
 
 ## install
 

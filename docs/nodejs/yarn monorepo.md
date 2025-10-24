@@ -1,4 +1,4 @@
-# MonoRepo
+# yarn monorepo
 
 ## root package
 

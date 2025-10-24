@@ -1,4 +1,4 @@
-# angular route loadComponent & loadChildren (lazy loading)
+# angular lazy loading - loadComponent & loadChildren
 
 > module, routes는 loadChildren을 사용하고 standalone component는 loadComponent를 사용한다.
 >

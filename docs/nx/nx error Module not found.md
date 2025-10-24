@@ -1,4 +1,4 @@
-# nx error Module not found: Error: Can't resolve
+# nx error Module not found
 
 > lib가 빌드에 포함되지 않을 시
 >

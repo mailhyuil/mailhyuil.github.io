@@ -1,4 +1,4 @@
-# nest rabbitMQ
+# nest advanced message queue rabbitMQ
 
 ## install
 

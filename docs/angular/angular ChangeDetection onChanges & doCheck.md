@@ -1,4 +1,4 @@
-# angular changeDetection onChanges & doCheck
+# angular ChangeDetection onChanges & doCheck
 
 > onChanges : @Input() 으로 받은 메모리 값이 변화할 때 호출
 >

@@ -1,4 +1,4 @@
-# prisma optimistic lock (낙관적 락)
+# prisma lock 낙관적 락
 
 > 애플리케이션 레벨에서 구현
 >

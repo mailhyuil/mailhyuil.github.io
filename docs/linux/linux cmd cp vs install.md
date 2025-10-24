@@ -1,4 +1,4 @@
-# linux cmd install
+# linux cmd cp vs install
 
 > cp와 비슷하지만 더 많은 기능을 제공
 >

@@ -1,4 +1,4 @@
-# webapi navigator online offline
+# webapi navigator onLog online offline
 
 ## online인 상태인지 확인
 

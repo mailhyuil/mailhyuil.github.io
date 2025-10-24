@@ -1,4 +1,4 @@
-# linux package setting
+# linux package 세팅 setting
 
 ```sh
 apt update -y

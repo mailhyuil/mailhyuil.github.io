@@ -1,4 +1,4 @@
-# CRT (Certificate)
+# L5 TLS certificate crt - Certificate
 
 > 인증서(digital certificate)는 "개인키 소유자의 공개키(public key)"에 "인증기관의 개인키"로 전자서명한 데이타
 >

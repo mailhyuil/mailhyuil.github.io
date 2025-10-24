@@ -1,4 +1,4 @@
-# nodejs streaming HLS (Http Live Streaming)
+# ffmpeg nodejs HLS - Http Live Streaming
 
 > HTTP 기반의 스트리밍 프로토콜
 >

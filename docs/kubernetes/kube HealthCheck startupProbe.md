@@ -1,1 +1,1 @@
-# startupProbe
+# kube HealthCheck startupProbe

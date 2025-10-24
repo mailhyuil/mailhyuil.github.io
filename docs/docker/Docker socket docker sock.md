@@ -1,4 +1,4 @@
-# Docker socket docker.sock
+# Docker socket docker sock
 
 > Unix 소켓 (IPC 소켓)을 사용하여 도커 데몬과 상호 작용을 할 수 있다.
 >

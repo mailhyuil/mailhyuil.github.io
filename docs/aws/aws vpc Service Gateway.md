@@ -1,4 +1,4 @@
-# Service Gateway
+# aws vpc Service Gateway
 
 > 내부망 내에 만들어지지 않은 리소스 (e.g. object storage, s3)
 >

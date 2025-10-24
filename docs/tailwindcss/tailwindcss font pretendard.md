@@ -1,4 +1,4 @@
-# pretendard + tailwindcss
+# tailwindcss font pretendard
 
 ## public/fonts/PretendardVariable.woff2
 

@@ -1,4 +1,4 @@
-# kafka Topic Replication Factor
+# kafka base Topic Replication Factor
 
 > 토픽 복제 팩터는 토픽의 복제본을 몇개를 유지할 것인지를 결정하는 설정이다.
 >

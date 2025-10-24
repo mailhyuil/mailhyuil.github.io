@@ -1,4 +1,4 @@
-# angular interceptor
+# angular base interceptor
 
 ## AppModule
 

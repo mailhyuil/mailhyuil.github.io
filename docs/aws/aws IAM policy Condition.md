@@ -1,4 +1,4 @@
-# aws policy condition
+# aws IAM policy Condition
 
 ```txt
 "Condition": {

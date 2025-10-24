@@ -1,4 +1,4 @@
-# go package context
+# go base goroutine context - TLS
 
 > js의 async local storage, java, cpp의 thread local storage와 비슷한 개념
 >

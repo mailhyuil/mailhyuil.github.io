@@ -1,4 +1,4 @@
-# singleton
+# Creational singleton
 
 > Creational Design Pattern
 >

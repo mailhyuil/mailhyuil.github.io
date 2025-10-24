@@ -1,4 +1,4 @@
-# progressbar
+# ui progressbar
 
 ```html
 <script lang="ts" setup>

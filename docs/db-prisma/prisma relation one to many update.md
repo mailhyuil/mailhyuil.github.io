@@ -1,4 +1,4 @@
-# prisma update relations
+# prisma relation one to many update
 
 ```js
 async update(id: string, data: UpdateBusDTO) {

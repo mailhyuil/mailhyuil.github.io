@@ -1,4 +1,4 @@
-# node xstate
+# nodejs xstate - state machine
 
 > state machine을 구현할 수 있는 라이브러리
 

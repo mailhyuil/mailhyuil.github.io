@@ -1,4 +1,4 @@
-# nginx location match
+# nginx base location match
 
 ```sh
 # prefix match

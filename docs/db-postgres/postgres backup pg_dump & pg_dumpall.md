@@ -1,4 +1,4 @@
-# postgres pg_dump & pg_dumpall
+# postgres backup pg_dump & pg_dumpall
 
 > pg_dump는 논리적 백업 즉 데이터를 SQL문으로 변환하여 백업하는 방법이다.
 >

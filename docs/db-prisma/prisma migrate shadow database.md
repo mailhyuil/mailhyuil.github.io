@@ -1,4 +1,4 @@
-# prisma shadow database
+# prisma migrate shadow database
 
 > dev 환경에서 사용되는 일시적인 데이터베이스
 >

@@ -1,4 +1,4 @@
-# flutter in_app_purchase
+# flutter feature in_app_purchase
 
 ## install
 

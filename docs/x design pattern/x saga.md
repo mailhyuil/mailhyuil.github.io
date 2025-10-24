@@ -1,4 +1,4 @@
-# saga
+# x saga
 
 > sharding과 같은 아키텍쳐에서는 트랜잭션 처리가 어렵다
 >

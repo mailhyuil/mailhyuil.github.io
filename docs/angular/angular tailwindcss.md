@@ -1,4 +1,4 @@
-# tailwindcss
+# angular tailwindcss
 
 ## install
 

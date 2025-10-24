@@ -1,4 +1,4 @@
-# Linux (리눅스)
+# linux base basic
 
 ## 리눅스 커널이란?
 

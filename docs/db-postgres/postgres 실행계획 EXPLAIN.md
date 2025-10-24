@@ -1,4 +1,4 @@
-# postgres EXPLAIN
+# postgres 실행계획 EXPLAIN
 
 > 쿼리의 실행 계획을 확인할 수 있다.
 >

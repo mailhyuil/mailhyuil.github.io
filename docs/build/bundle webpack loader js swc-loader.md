@@ -1,4 +1,4 @@
-# webpack loader swc-loader
+# bundle webpack loader js swc-loader
 
 ## install
 

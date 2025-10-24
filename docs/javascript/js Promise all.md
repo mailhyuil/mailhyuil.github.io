@@ -1,4 +1,4 @@
-# Promise.all()
+# js Promise all
 
 > Promise.all은 병렬처리 시켜주는 기능이 아니다
 >

@@ -1,4 +1,4 @@
-# kubernetes CNI (Container Network Interface)
+# kube CNI
 
 > container networking 구현 방법은 각 시스템 (network namespace, docker, kubernetes, rkt, mesos 등) 마다 다르다.
 >

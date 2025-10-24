@@ -1,4 +1,4 @@
-# ReplicaSet vs ReplicationController
+# kube object ReplicaSet vs ReplicationController
 
 > 비슷한 기능
 >

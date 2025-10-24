@@ -1,4 +1,4 @@
-# CommitLog
+# kafka base Commit Log
 
 > 추가만 가능하고 변경이 불가능한 자료 구조
 >

@@ -1,4 +1,4 @@
-# requestIdleCallback
+# webapi requestIdleCallback
 
 > 브라우저가 Idle 상태일 때 실행할 콜백을 등록하는 API
 >

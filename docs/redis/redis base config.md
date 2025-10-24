@@ -1,4 +1,4 @@
-# redis redis.conf
+# redis base config
 
 > redis.conf 파일이 없다면 기본 설정으로 실행됩니다.
 >

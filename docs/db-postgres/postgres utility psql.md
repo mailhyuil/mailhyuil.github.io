@@ -1,4 +1,4 @@
-# postgreSQL psql
+# postgres utility psql
 
 > postgresQL의 명령줄 인터페이스
 

@@ -1,4 +1,4 @@
-# react jsx
+# react base jsx & tsx
 
 ```jsx
 export default function Counter() {

@@ -1,4 +1,4 @@
-# nest file upload Image
+# nest file upload Image - aws s3
 
 ## prisma
 

@@ -1,1 +1,1 @@
-# postgres backup barman
+# postgres backup barmand

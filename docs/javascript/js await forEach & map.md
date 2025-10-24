@@ -1,4 +1,4 @@
-# js await forEach / map
+# js await forEach & map
 
 > forEach 내에서는 await를 블로킹하지 않는다.
 >

@@ -1,4 +1,4 @@
-# postgreSQL psql options
+# postgres utility psql options
 
 ```sh
 -c # sql 명령어 실행

@@ -1,4 +1,4 @@
-# nodejs debug
+# nodejs logger debug
 
 > debug용도의 로거
 >

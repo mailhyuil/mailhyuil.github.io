@@ -1,4 +1,4 @@
-# template method
+# Behavioral template method
 
 > 템플릿 메소드 : 공통된 역할을 수행하는 로직이 담긴 메소드
 >

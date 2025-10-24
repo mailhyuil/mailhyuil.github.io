@@ -1,4 +1,4 @@
-# nestjs datadog (nestjs-ddtrace)
+# Datadog nestjs - nestjs-ddtrace
 
 ## install
 

@@ -1,4 +1,4 @@
-# Angular
+# angular basic
 
 ## install
 

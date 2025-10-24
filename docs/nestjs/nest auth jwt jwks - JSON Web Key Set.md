@@ -1,4 +1,4 @@
-# nestjs jwks (JSON Web Key Set)
+# nest auth jwt jwks - JSON Web Key Set
 
 > OpenID Connect을 사용 시 공개키(kid)를 검증하는 방법
 >

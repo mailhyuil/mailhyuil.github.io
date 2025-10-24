@@ -1,4 +1,4 @@
-# js regex
+# js string regex
 
 ## 리터럴
 

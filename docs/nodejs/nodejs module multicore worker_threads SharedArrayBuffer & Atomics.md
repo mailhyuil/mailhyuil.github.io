@@ -1,4 +1,4 @@
-# node worker_threads SharedArrayBuffer & Atomics
+# nodejs module multicore worker_threads SharedArrayBuffer & Atomics
 
 > SharedArrayBuffer와 Atomics API를 사용하면 여러 스레드간 안전하게 데이터를 공유할 수 있습니다.
 >

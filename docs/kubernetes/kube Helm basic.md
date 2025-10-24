@@ -1,4 +1,4 @@
-# Helm
+# kube Helm basic
 
 > 수많은 yaml을 패키지(차트)로 묶어서 관리해주는 툴
 >

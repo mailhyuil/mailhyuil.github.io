@@ -1,4 +1,4 @@
-# prisma self relations
+# prisma relation self relations
 
 > 두개의 relation 필요
 

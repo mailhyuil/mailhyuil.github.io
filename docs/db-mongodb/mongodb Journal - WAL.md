@@ -1,4 +1,4 @@
-# mongodb Journal (WAL)
+# mongodb Journal - WAL
 
 > mongodb의 wal과 같은 기능
 >

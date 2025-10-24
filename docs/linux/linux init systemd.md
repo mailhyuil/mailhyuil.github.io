@@ -1,4 +1,4 @@
-# linux systemd & systemctl
+# linux init systemd
 
 > systemd : system daemon -> 운영 체제가 부팅될 때 필요한 프로세스를 시작하고 시스템 리소스를 초기화하는 역할
 >

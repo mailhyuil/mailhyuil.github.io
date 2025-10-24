@@ -1,4 +1,4 @@
-# linux su
+# linux auth user su
 
 > switch user
 

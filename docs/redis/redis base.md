@@ -1,4 +1,4 @@
-# redis
+# redis base
 
 > 기본 포트: 6379
 >

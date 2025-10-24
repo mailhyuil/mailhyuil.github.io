@@ -1,4 +1,4 @@
-# nest forbidden interceptor
+# nest base interceptor ForbiddenResourceInterceptor
 
 ```ts
 import { CallHandler, ExecutionContext, ForbiddenException, Injectable, NestInterceptor } from "@nestjs/common";

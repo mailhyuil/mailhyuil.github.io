@@ -1,4 +1,4 @@
-# base ActivePub protocol
+# base ActivePub
 
 > 탈중앙화된 소셜 미디어 프로토콜
 >

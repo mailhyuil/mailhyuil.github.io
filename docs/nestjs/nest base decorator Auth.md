@@ -1,4 +1,4 @@
-# Auth decorator
+# nest base decorator Auth
 
 ```ts
 import { applyDecorators } from "@nestjs/common";

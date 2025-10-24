@@ -1,4 +1,4 @@
-# tree shaking
+# bundle base tree shaking
 
 > 사용하지 않는 코드를 제거하는 방식
 >

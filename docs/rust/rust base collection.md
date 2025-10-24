@@ -1,4 +1,4 @@
-# 컬렉션
+# rust base collection
 
 > Vector, HashMap, String 등이 있다.
 

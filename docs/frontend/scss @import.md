@@ -1,4 +1,4 @@
-# scss
+# scss @import
 
 ## data type
 

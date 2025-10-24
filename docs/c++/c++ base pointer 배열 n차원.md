@@ -1,4 +1,4 @@
-# c++ pointer 배열 n차원
+# c++ base pointer 배열 n차원
 
 ```cpp
 #include <iostream>

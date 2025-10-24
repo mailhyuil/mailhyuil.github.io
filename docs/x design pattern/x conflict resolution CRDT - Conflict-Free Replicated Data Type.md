@@ -1,4 +1,4 @@
-# 동기화 CRDT (Conflict-Free Replicated Data Type)
+# x conflict resolution CRDT - Conflict-Free Replicated Data Type
 
 > 동시 편집시 동기화를 위한 기술
 >

@@ -1,4 +1,4 @@
-# angular breadcrumb
+# angular breadcrumbs xng-breadcrumb
 
 ## install
 

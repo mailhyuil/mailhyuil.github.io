@@ -1,4 +1,4 @@
-# scss 치환 (&)
+# scss 치환 - &
 
 ```scss
 /* SCSS */

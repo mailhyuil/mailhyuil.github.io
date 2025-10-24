@@ -1,4 +1,4 @@
-# go base struct private & public
+# go base type struct private & public
 
 > 프로퍼티의 앞글자를 대문자로 시작하면 public, 소문자로 시작하면 private이다.
 

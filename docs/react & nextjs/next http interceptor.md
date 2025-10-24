@@ -1,4 +1,4 @@
-# next middleware api-interceptor
+# next http interceptor
 
 > 앱 실행 시 fetch를 monkey-patch하여 모든 요청에 대해 interceptor를 적용할 수 있다.
 

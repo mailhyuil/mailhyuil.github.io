@@ -1,4 +1,4 @@
-# angular HMR
+# angular state management ngxs HMR
 
 ## install
 

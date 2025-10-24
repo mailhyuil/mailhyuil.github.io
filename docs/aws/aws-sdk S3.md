@@ -1,4 +1,4 @@
-# aws-sdk s3
+# aws-sdk S3
 
 ## install
 

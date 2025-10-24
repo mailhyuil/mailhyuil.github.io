@@ -1,4 +1,4 @@
-# nest OAuth 2.0 & OpenID Connect (OIDC) scenario
+# nest auth OAuth 2.0 & OpenID Connect - OIDC scenario
 
 1. 사용자가 OAuth 로그인 (scope에 openid를 추가)
 2. OAuth 서버는 사용자를 리다이렉트 시키며 accessToken과 함께 idToken을 발급

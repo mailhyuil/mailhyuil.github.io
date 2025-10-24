@@ -1,4 +1,4 @@
-# nuxt stores
+# nuxt stores - Pinia
 
 > state를 전역으로 관리할 수 있다.
 >

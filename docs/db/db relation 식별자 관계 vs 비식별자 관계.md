@@ -1,4 +1,4 @@
-# db 식별자 관계 vs 비식별자 관계
+# db relation 식별자 관계 vs 비식별자 관계
 
 ## 식별자 관계 (Identifying Relationship)
 

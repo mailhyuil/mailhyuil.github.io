@@ -1,4 +1,4 @@
-# webpack plugin image-minimizer-webpack-plugin
+# bundle webpack plugin compression image-minimizer-webpack-plugin
 
 ## install
 

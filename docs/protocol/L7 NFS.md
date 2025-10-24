@@ -1,4 +1,4 @@
-# NFS (Network File System)
+# L7 NFS
 
 > NAS와 같은 장치에서 사용하는 파일 공유 프로토콜
 >

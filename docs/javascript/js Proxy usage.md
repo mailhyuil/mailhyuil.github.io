@@ -1,4 +1,4 @@
-# js Proxy
+# js Proxy usage
 
 > 이미 있는 readonly 객체에 새로운 기능을 추가할 수 있음
 

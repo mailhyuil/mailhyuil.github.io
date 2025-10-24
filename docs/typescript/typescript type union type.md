@@ -1,4 +1,4 @@
-# typescript union type
+# typescript type union type
 
 > | & 사용
 >

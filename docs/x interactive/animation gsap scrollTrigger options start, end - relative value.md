@@ -1,4 +1,4 @@
-# gsap ScrollTrigger
+# animation gsap scrollTrigger options start, end - relative value
 
 > top, center, bottom, numeric, px, % 등을 사용할 수 있다.
 >

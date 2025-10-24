@@ -1,4 +1,4 @@
-# HTTP Method
+# L7 http method
 
 ## GET : 리소스 조회
 

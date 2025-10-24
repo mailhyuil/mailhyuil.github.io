@@ -1,4 +1,4 @@
-# nodejs stream
+# nodejs module stream
 
 > 10gb 파일을 메모리에 올려서 처리한다고 생각해보자, 엄청 비효율적 퍼포먼스 다운
 >

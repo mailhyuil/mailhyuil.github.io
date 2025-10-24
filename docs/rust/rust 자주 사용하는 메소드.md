@@ -1,4 +1,4 @@
-# 러스트 자주 사용하는 메소드
+# rust 자주 사용하는 메소드
 
 ```rust
 read_line(buffer)

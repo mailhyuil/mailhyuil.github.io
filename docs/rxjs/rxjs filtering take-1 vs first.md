@@ -1,4 +1,4 @@
-# rxjs take(1) vs first
+# rxjs filtering take-1 vs first
 
 > first는 마지막 값이 없으면 에러가 발생
 >

@@ -1,4 +1,4 @@
-# PG (Payment Gateway)
+# PG
 
 > Payment Gateway is a service that allows merchants to accept online payments. It is the equivalent of a physical point of sale terminal located in most retail outlets. Payment gateways encrypt sensitive information, such as credit card numbers, to ensure that information passes securely between the customer and the merchant.
 

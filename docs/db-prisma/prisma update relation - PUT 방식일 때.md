@@ -1,4 +1,4 @@
-# prisma update relation (PUT 방식일 때)
+# prisma update relation - PUT 방식일 때
 
 ```ts
 private async updateSomeRelation(

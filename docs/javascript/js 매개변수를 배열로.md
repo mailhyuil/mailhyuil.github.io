@@ -1,4 +1,4 @@
-# 매개변수 배열로
+# js 매개변수를 배열로
 
 ```ts
 function doSomething(str: string, ...args: any[]) {

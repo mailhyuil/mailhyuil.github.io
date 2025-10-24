@@ -1,4 +1,4 @@
-# c++ rvalue vs lvalue
+# c++ base pointer reference rvalue & lvalue
 
 > 모든 lvalue는 rvalue이지만 모든 rvalue가 lvalue는 아니다.
 

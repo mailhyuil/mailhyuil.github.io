@@ -1,4 +1,4 @@
-# DNS over HTTPS (HTTPS 우회)
+# L7 DNS DNS over HTTPS - HTTPS 우회
 
 > DNS over TLS와 마찬가지로 DNS 쿼리를 암호화하여 전송하는 프로토콜이다.
 >

@@ -1,4 +1,4 @@
-# webpack splitChunks cacheGroup
+# bundle webpack optimization splitChunks cacheGroup
 
 ## usage
 

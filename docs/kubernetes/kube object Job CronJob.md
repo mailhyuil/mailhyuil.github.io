@@ -1,4 +1,4 @@
-# kube object CronJob
+# kube object Job CronJob
 
 > 배치 작업을 실행하는 쿠버네티스 오브젝트
 >

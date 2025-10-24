@@ -1,4 +1,4 @@
-# IDFA & GAID & SKAN & Privacy Sandbox
+# 광고 추적 IDFA & GAID & SKAN & Privacy Sandbox
 
 ## IDFA (Identifier for Advertisers)
 

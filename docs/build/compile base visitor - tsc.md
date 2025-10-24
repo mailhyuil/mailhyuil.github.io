@@ -1,4 +1,4 @@
-# base visitor tsc
+# compile base visitor - tsc
 
 ### visitor 선언
 

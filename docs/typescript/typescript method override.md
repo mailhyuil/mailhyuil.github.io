@@ -1,4 +1,4 @@
-# typescript override
+# typescript method override
 
 > 오버라이드된 메소드는 부모 클래스의 메소드와 호환되어야 하며, 기존 동작을 파괴해서는 안 됩니다.
 >

@@ -1,4 +1,4 @@
-# promQL
+# prometheus promQL
 
 ```sh
 # INPUT  : metrics_name{label_1=value_1, label_2=value_2 ...}[timestamp]

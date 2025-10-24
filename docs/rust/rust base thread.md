@@ -1,4 +1,4 @@
-# rust thread
+# rust base thread
 
 > 기본적으로 main thread가 끝나면 다른 thread 작업도 끝난다.
 

@@ -1,4 +1,4 @@
-# logging format
+# base log format
 
 ## json
 

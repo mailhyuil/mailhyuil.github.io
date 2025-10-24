@@ -1,4 +1,4 @@
-# nest exception TooManyRequests
+# nest base filter exception TooManyRequestsException
 
 ```ts
 import { HttpException } from "@nestjs/common";

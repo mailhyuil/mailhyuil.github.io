@@ -1,4 +1,4 @@
-# rxjs startWith
+# rxjs join with startWith
 
 > startWith(data) : data 값을 먼저 emit함
 

@@ -1,4 +1,4 @@
-# jstat
+# 확률 & 통계 jstat
 
 ## install
 

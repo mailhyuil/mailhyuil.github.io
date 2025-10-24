@@ -1,4 +1,4 @@
-# unary function 이란
+# Unary function
 
 > 인자를 단 하나만 받는 함수를 말한다.
 

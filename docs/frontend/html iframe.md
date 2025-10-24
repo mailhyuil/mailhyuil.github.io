@@ -1,4 +1,4 @@
-# html iframe (inline frame)
+# html iframe
 
 > 다른 HTML 페이지를 현재 페이지에 포함시키는 중첩된 브라우저
 >

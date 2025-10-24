@@ -1,4 +1,4 @@
-# db 동시성 문제를 고려해야하는 상황
+# db 동시성 제어 Isolation level을 올려야하는 상황
 
 > 기본으로 Read Committed를 사용하고, 특정 상황에 따라 다른 Isolation level을 사용해야한다.
 >

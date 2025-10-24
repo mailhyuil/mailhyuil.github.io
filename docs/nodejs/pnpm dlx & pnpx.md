@@ -1,4 +1,4 @@
-# pnpx & pnpm dlx
+# pnpm dlx & pnpx
 
 > 둘 다 같은 것
 >

@@ -1,4 +1,4 @@
-# typescript strict 모드
+# typescript tsconfig compilerOptions strict mode
 
 > strict모드를 false로 하면 에러메시지만 나오고 작동을 잘 된다
 >

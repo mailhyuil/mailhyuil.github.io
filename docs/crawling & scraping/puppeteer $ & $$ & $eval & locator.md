@@ -1,4 +1,4 @@
-# puppeteer $ & $$
+# puppeteer $ & $$ & $eval & locator
 
 ## $
 

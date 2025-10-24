@@ -1,4 +1,4 @@
-# ai base prompt 프롬프트
+# ai base prompt
 
 ## 작업지침
 

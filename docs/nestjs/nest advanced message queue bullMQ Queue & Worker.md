@@ -1,4 +1,4 @@
-# nest bullMQ Queue & Worker
+# nest advanced message queue bullMQ Queue & Worker
 
 ## Queue
 

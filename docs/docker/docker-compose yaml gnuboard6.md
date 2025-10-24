@@ -1,4 +1,4 @@
-# docker-compose gnuboard6
+# docker-compose yaml gnuboard6
 
 > root에 data 디렉토리를 생성 후 진행
 

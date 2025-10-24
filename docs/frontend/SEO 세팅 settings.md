@@ -1,4 +1,4 @@
-# SEO settings
+# SEO 세팅 settings
 
 1. sitemap.xml 생성 및 등록
    > sitemap.xml을 생성하고 구글 서치 콘솔, 빙 웹마스터, 네이버 서치어드바이저, 다음 검색등록 에 등록

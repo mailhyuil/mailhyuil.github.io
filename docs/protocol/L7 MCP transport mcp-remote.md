@@ -1,4 +1,4 @@
-# MCP mcp-remote (stdio)
+# L7 MCP transport mcp-remote
 
 > stdio는 mcp 서버를 subprocess로 실행시켜서 사용하는 방법
 >

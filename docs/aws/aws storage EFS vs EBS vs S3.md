@@ -1,4 +1,4 @@
-# aws s3 vs efs vs ebs
+# aws storage EFS vs EBS vs S3
 
 ## s3 (Simple Storage Service)
 

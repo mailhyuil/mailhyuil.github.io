@@ -1,4 +1,4 @@
-# design pattern Function Object Pattern
+# x Function Object Pattern
 
 ```ts
 function defaultThrowError() {

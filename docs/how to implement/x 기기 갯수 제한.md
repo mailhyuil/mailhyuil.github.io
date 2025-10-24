@@ -1,4 +1,4 @@
-# 기기 갯수 제한
+# x 기기 갯수 제한
 
 > 세션, 쿠키, JWT, OPENID Connect, OAuth
 >

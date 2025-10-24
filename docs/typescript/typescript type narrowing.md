@@ -1,4 +1,4 @@
-# type narrowing
+# typescript type narrowing
 
 ## primitive type
 

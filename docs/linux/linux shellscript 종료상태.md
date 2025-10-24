@@ -1,4 +1,4 @@
-# linux shellscript $?
+# linux shellscript 종료상태
 
 > 가장 최근 명령어의 종료 상태
 >

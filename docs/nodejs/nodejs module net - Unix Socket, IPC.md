@@ -1,4 +1,4 @@
-# nodejs module net (Unix Socket, IPC)
+# nodejs module net - Unix Socket, IPC
 
 > Unix Socket 파일을 통해 IPC를 구현
 >

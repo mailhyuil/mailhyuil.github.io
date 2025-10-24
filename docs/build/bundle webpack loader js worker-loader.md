@@ -1,4 +1,4 @@
-# webpack loader worker-loader
+# bundle webpack loader js worker-loader
 
 > 웹워커 사용
 

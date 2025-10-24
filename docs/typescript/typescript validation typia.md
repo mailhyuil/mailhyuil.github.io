@@ -1,4 +1,4 @@
-# typia
+# typescript validation typia
 
 ## install
 

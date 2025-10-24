@@ -1,4 +1,4 @@
-# postgres B-Tree index
+# postgres index B-Tree
 
 > 기본 인덱스 타입
 >

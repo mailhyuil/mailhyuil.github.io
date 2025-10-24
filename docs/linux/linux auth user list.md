@@ -1,4 +1,4 @@
-# linux cmd user list
+# linux auth user list
 
 ```sh
 # 전체 사용자 정보 확인

@@ -1,4 +1,4 @@
-# nginx ip 차단 허용
+# nginx IP 차단 & 허용
 
 ```conf
 allow 192.168.1.1;

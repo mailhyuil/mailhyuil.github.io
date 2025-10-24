@@ -1,4 +1,4 @@
-# js 실행컨텍스트 arguments
+# js context 실행컨텍스트 arguments
 
 > 실행컨택스트의 Variable Object (VO / 변수객체)가 가지고 있는 정보
 >

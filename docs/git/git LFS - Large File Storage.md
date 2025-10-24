@@ -1,4 +1,4 @@
-# git LFS (Large File Storage)
+# git LFS - Large File Storage
 
 > 큰 파일들을 Git으로 관리할 때 사용하는 확장 기능
 >

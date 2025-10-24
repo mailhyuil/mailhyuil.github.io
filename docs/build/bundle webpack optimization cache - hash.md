@@ -1,4 +1,4 @@
-# webpack cache
+# bundle webpack optimization cache - hash
 
 > 개발시에 사용하는 기능
 >

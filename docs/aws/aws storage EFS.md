@@ -1,4 +1,4 @@
-# aws efs
+# aws storage EFS
 
 > 파일 스토리지 (NAS 와 동일한 서비스)
 >

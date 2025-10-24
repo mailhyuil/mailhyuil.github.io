@@ -1,4 +1,4 @@
-# error handling Throwing Exceptions vs Result Pattern
+# Error Handling Throwing Exceptions vs Result Pattern
 
 > 두가지를 혼용해서 사용하는게 좋다.
 

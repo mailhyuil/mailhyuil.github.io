@@ -1,4 +1,4 @@
-# certbot nginx
+# L5 TLS certbot 인증방식 HTTP-01 nginx config
 
 > certbot은 사용자가 -w 옵션으로 지정한 경로 내에 .well-known/acme-challenge/ 라는 숨겨진 디렉토리를 만들고, 그 안에 인증용 임시 파일을 생성합니다.
 >

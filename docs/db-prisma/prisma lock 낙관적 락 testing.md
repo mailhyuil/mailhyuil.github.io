@@ -1,4 +1,4 @@
-# prisma optimistic lock (낙관적 락) testing
+# prisma lock 낙관적 락 testing
 
 > 일반 쿼리와 트랜잭션 쿼리의 속도 차이 확인
 >

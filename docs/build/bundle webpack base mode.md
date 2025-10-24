@@ -1,4 +1,4 @@
-# webpack mode
+# bundle webpack base mode
 
 > development, production, none
 >

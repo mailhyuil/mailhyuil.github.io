@@ -1,4 +1,4 @@
-# SplitChunksPlugin
+# bundle webpack plugin built-in SplitChunksPlugin
 
 > built-in webpack plugin
 

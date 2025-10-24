@@ -1,4 +1,4 @@
-# useFileDialog
+# vueuse useFileDialog
 
 [link](https://vueuse.org/core/useFileDialog/)
 

@@ -1,4 +1,4 @@
-# postgres 세팅
+# postgres setting 세팅
 
 > pg_basebackup 무조건 한번 해두기
 >

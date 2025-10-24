@@ -1,4 +1,4 @@
-# babel plugin preset-env
+# compile babel preset-env
 
 > 최신의 Javascript를 당신의 타겟 환경을 자동으로 적용해준다.
 >

@@ -1,4 +1,4 @@
-# mutex vs distributed-lock
+# nodejs race condition mutex vs distributed-lock
 
 ## mutex (뮤텍스)
 

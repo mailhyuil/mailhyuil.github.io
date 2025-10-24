@@ -1,4 +1,4 @@
-# composite
+# Structural composite
 
 > 여러 개의 객체들로 구성된 복합 객체와 단일 객체를 클라이언트에서 구별없이 다루게 해주는 패턴
 >

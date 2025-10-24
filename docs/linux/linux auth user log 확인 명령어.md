@@ -1,4 +1,4 @@
-# linux cmd w & who & whoami & users & logname & id
+# linux auth user log 확인 명령어
 
 ## whoami
 

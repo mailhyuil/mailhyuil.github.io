@@ -1,4 +1,4 @@
-# typescript decorator descriptor
+# typescript descriptor
 
 > "프로퍼티"는 키와 값의 쌍이라고 생각할 수 있지만 사실 그 보다 더 유연한 기능을 가진 자료구조입니다.
 

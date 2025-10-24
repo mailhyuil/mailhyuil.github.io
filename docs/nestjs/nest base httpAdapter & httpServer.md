@@ -1,4 +1,4 @@
-# nest http adapter
+# nest base httpAdapter & httpServer
 
 > nestjs는 express, fastify 같은 underlying 라이브러리의 인스턴스를 직접 사용하지 않는다.
 >

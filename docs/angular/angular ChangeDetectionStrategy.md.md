@@ -1,4 +1,4 @@
-# angular ChangeDetectionStrategy
+# angular ChangeDetectionStrategy.md
 
 ## Default
 

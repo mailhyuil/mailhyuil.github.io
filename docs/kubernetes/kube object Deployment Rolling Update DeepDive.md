@@ -1,4 +1,4 @@
-# kube object Deployment Rolling Update
+# kube object Deployment Rolling Update DeepDive
 
 > Rolling update는 기본으로 지원된다
 >

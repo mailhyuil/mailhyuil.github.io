@@ -1,4 +1,4 @@
-# browserify
+# base browserify
 
 > nodejs 모듈을 브라우저에서 사용할 수 있도록 해주는 도구
 >

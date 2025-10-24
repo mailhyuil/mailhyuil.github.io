@@ -1,4 +1,4 @@
-# 함수
+# rust base function
 
 ## 리턴값이 없을 시
 

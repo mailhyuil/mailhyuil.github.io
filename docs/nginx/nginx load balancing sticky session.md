@@ -1,4 +1,4 @@
-# nginx load balancing
+# nginx load balancing sticky session
 
 ## ip_hash 방식
 

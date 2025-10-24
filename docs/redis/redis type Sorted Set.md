@@ -1,4 +1,4 @@
-# redis Sorted Set
+# redis type Sorted Set
 
 ```sh
 # add

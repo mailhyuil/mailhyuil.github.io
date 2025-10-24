@@ -1,4 +1,4 @@
-# js 문자열 검사
+# js string 문자 포함 검사
 
 ## string.includes()
 

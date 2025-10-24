@@ -1,4 +1,4 @@
-# flutter Dismissable
+# flutter feature Dismissible
 
 ## usage
 

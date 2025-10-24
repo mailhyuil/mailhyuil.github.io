@@ -1,4 +1,4 @@
-# js 값으로 키 찾기
+# js utils value값으로 key값 찾기
 
 ```js
 function getKeyByValue(object, value) {

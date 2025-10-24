@@ -1,4 +1,4 @@
-# grpc server streaming
+# grpc 통신 방식 server streaming
 
 ## proto
 

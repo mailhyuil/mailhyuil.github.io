@@ -1,4 +1,4 @@
-# nest CQRS
+# nest advanced cqrs
 
 ## install
 

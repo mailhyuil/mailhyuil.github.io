@@ -1,4 +1,4 @@
-# prisma 마이그레이션 파일
+# prisma migration 파일 수정
 
 ## 생성
 

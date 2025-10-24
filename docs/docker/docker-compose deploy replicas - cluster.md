@@ -1,4 +1,4 @@
-# docker-compose cluster
+# docker-compose deploy replicas - cluster
 
 > core 수만큼 프로세스를 생성하여 cpu 사용량을 최적화
 >

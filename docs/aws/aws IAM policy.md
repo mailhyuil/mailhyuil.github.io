@@ -1,4 +1,4 @@
-# aws policy
+# aws IAM policy
 
 > json 형식으로 작성되며, AWS 서비스에 대한 접근 권한을 설정하는데 사용된다.
 

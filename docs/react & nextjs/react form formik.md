@@ -1,4 +1,4 @@
-# react Form Formik
+# react form formik
 
 ## install
 

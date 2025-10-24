@@ -1,4 +1,4 @@
-# cafe24 module product-action
+# cafe24 components product-action
 
 ## html
 

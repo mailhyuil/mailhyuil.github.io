@@ -1,4 +1,4 @@
-# least-recently-used (LRU)
+# cache least-recently-used - LRU
 
 > 가장 오랫동안 사용되지 않은 데이터를 제거
 

@@ -1,4 +1,4 @@
-# gsap interpolate
+# animation gsap utils interpolate
 
 > 보간법
 >

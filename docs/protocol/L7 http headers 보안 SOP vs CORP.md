@@ -1,4 +1,4 @@
-# http headers 보안 CORS vs CORP
+# L7 http headers 보안 SOP vs CORP
 
 ## SOP (Same-Origin Policy) 동일 출처 정책
 

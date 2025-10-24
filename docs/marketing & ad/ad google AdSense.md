@@ -1,4 +1,4 @@
-# google AdSense
+# ad google AdSense
 
 ## prepare
 

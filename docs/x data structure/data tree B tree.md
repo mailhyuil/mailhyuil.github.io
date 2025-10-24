@@ -1,4 +1,4 @@
-# B Tree (Balanced Tree)
+# data tree B tree
 
 > B트리는 데이터를 정렬하여 탐색, 삽입, 삭제 및 순차 접근이 가능하도록 유지하는 트리형 자료구조
 >

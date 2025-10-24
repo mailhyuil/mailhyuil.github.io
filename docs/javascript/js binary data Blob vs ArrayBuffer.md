@@ -1,4 +1,4 @@
-# ArrayBuffer vs Blob
+# js binary data Blob vs ArrayBuffer
 
 ## Blob
 

@@ -1,4 +1,4 @@
-# flutter of()
+# flutter State of()
 
 > Inherited Widget으로 구현된 메소드
 >

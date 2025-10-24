@@ -1,4 +1,4 @@
-# Interrupt
+# linux base Interrupt 인터럽트
 
 > 프로세스 실행 중 우선순위가 높은 I/O나 예외 상황이 발생하여 처리가 필요한 경우 CPU에 신호를 보내는 것
 

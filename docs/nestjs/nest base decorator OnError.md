@@ -1,4 +1,4 @@
-# nestjs decorator OnError
+# nest base decorator OnError
 
 ```ts
 export function OnError(handler: (e: Error) => void) {

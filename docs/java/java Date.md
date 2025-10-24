@@ -1,4 +1,4 @@
-# Date
+# java Date
 
 ```java
 Date date = new Date(System.currentTimeMillis()); // 현재시각을 담고있는 date객체 생성

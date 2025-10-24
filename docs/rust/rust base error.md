@@ -1,4 +1,4 @@
-# 에러처리
+# rust base error
 
 > rust에는 예외가 없다
 >

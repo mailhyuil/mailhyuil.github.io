@@ -1,4 +1,4 @@
-# 압축 tar
+# linux cmd 압축 tar
 
 > 보통 tar.gz로 압축을 많이 함
 >

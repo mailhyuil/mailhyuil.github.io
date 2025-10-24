@@ -1,4 +1,4 @@
-# c++ base compiler copy elision 복사 생략
+# c++ base class 생성자 복사 생략 copy elision
 
 ```cpp
 User user(User("name", 20));

@@ -1,4 +1,4 @@
-# nodejs event loop timer
+# nodejs event loop libuv timer
 
 ## setTimeout
 

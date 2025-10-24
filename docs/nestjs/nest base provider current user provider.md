@@ -1,4 +1,4 @@
-# nest base provider currentUser provider
+# nest base provider current user provider
 
 ## module
 

@@ -1,4 +1,4 @@
-# 쿼리가 느릴 시만 로그 찍기
+# postgres config 쿼리가 느릴 시만 로그 찍기
 
 ## postgresql.conf
 

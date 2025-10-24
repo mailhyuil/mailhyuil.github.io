@@ -1,4 +1,4 @@
-# .dockerignore
+# Dockerfile .dockerignore
 
 > context 에 위치 eg) docker build . 에서 .에 위치
 >

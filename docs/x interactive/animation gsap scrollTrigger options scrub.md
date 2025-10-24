@@ -1,4 +1,4 @@
-# gsap ScrollTrigger options scrub
+# animation gsap scrollTrigger options scrub
 
 > 스크롤 정도에 따라서 애니메이션이 반응하게 한다
 >

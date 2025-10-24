@@ -1,4 +1,4 @@
-# angular ViewChild options
+# angular base component ViewChild options
 
 ## read
 

@@ -1,4 +1,4 @@
-# nest advanced message queue
+# nest advanced message queue bullMQ
 
 > bullmq는 새로운 프로세스를 생성해주지 않는다. (메인 프로세스와 분리되지 않는다.)
 >

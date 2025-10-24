@@ -1,4 +1,4 @@
-# next SSR
+# next base SSR
 
 > App Router 방식
 >

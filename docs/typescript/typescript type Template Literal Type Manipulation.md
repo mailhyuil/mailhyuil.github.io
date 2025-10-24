@@ -1,4 +1,4 @@
-# MappedType
+# typescript type Template Literal Type Manipulation
 
 ## UpperCase\<StringType>
 

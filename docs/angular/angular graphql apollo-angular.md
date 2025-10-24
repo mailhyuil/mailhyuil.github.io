@@ -1,4 +1,4 @@
-# angular graphql
+# angular graphql apollo-angular
 
 ## install
 

@@ -1,4 +1,4 @@
-# postgres read only user
+# postgres query DCL USER read-only
 
 ```sql
 -- read only role 생성

@@ -1,4 +1,4 @@
-# js isNaN()
+# js isNaN
 
 ```js
 if (!isNaN(value)) {

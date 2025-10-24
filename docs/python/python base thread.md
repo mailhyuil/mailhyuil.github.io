@@ -1,4 +1,4 @@
-# python 스레드
+# python base thread
 
 ```py
 from threading import Thread

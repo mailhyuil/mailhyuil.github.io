@@ -1,4 +1,4 @@
-# c++ base pointer literal
+# c++ base class 객체 생성 스택 & 힙
 
 > stack에 생성 시 함수가 종료되면 자동으로 메모리 해제된다.
 >

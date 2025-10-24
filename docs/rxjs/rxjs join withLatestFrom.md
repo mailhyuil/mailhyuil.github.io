@@ -1,4 +1,4 @@
-# rxjs withLatestFrom
+# rxjs join withLatestFrom
 
 ```js
 import { fromEvent, interval, withLatestFrom } from "rxjs";

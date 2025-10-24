@@ -1,4 +1,4 @@
-# tee
+# linux cmd tee
 
 > sudo 권한을 써도 Redirection 되는 순간 sudo 권한이 사라지고 사용자 권한으로 변경됨
 >

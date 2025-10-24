@@ -1,4 +1,4 @@
-# go type error
+# go base error handling error type
 
 > error는 built-in interface이다.
 

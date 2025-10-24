@@ -1,4 +1,4 @@
-# docker-postgreSQL
+# Docker image postgres
 
 ## run
 

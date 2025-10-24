@@ -1,4 +1,4 @@
-# c++ install
+# c++ base compiler install
 
 ## window
 

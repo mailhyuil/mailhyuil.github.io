@@ -1,4 +1,4 @@
-# nest-prometheus
+# prometheus nestjs-prometheus
 
 ## install
 

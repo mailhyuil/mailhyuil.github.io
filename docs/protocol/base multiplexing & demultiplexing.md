@@ -1,4 +1,4 @@
-# multiplexing & demultiplexing (다중화와 역다중화)
+# base multiplexing & demultiplexing
 
 ## multiplexing (다중화)
 

@@ -1,4 +1,4 @@
-# L5 ALPN (Application-Layer Protocol Negotiation)
+# L5 ALPN
 
 > TLS 핸드셰이크 과정에서 클라이언트와 서버가 사용할 프로토콜을 협상하는 과정을 말한다.
 >

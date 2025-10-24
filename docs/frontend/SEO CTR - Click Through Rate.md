@@ -1,4 +1,4 @@
-# SEO CTR (Click Through Rate) (클릭률)
+# SEO CTR - Click Through Rate
 
 > 페이지가 검색 엔진에 100번 노출되었을 때 클릭이 몇 번 되었는지를 나타내는 비율
 >

@@ -1,4 +1,4 @@
-# gsap scrollTrigger ScrollTrigger.create
+# animation gsap ScrollTrigger create
 
 > ScrollTrigger로 직접 구현하는 방법
 

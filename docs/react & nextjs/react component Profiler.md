@@ -1,1 +1,1 @@
-# next component Profiler
+# react component Profiler

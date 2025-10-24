@@ -1,4 +1,4 @@
-# nest-cli
+# nest cli
 
 > webpack을 래핑한 cli
 

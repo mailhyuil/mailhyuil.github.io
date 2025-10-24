@@ -1,4 +1,4 @@
-# Either Pattern
+# x Either Pattern
 
 > Result 패턴은 주로 오류 처리와 관련된 상황에서 사용됩니다.
 >

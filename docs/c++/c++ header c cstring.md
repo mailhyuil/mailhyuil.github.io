@@ -1,4 +1,4 @@
-# c++ header cstring
+# c++ header c cstring
 
 > c언어 문자열 관련 함수 제공
 

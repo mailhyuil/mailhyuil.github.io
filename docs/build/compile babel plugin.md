@@ -1,4 +1,4 @@
-# babel plugin
+# compile babel plugin
 
 ## .babelrc
 

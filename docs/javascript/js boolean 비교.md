@@ -1,4 +1,4 @@
-# boolean 비교
+# js boolean 비교
 
 ```js
 const a = true; // +true는 1

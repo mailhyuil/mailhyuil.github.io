@@ -1,4 +1,4 @@
-# ngrx
+# angular state management ngrx
 
 > State, Action, Reducer, Selector
 

@@ -1,4 +1,4 @@
-# RestApi
+# L7 http RestAPI me 분리
 
 > 자기 자신을 수정/삭제/조회하는 endpoint와
 >

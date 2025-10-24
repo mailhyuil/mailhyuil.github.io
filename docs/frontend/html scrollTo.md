@@ -1,4 +1,4 @@
-# html 요소 scrollTo
+# html scrollTo
 
 ```js
 const body = document.querySelector("#body");

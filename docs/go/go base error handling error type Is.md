@@ -1,4 +1,4 @@
-# go type error Is
+# go base error handling error type Is
 
 > instanceof와 같이 타입을 비교할 수 있다.
 

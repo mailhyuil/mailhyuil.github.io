@@ -1,4 +1,4 @@
-# go loop
+# go base loop for
 
 > go에는 for문과 for range문만 존재한다.
 >

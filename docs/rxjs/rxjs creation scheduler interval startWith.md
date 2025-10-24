@@ -1,4 +1,4 @@
-# rxjs interval startWith
+# rxjs creation scheduler interval startWith
 
 ```js
 import { interval, startWith } from "rxjs";

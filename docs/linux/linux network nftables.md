@@ -1,1 +1,1 @@
-# linux package nftables (Net Filter Table)
+# linux network nftables

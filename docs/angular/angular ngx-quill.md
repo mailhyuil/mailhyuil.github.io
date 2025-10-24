@@ -1,4 +1,4 @@
-# ngx-quill
+# angular ngx-quill
 
 ## install
 

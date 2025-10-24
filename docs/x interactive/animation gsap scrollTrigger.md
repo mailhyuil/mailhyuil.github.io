@@ -1,4 +1,4 @@
-# gsap ScrollTrigger
+# animation gsap scrollTrigger
 
 > ScrollTrigger를 사용하는 방법에는 gsap.to 방식, gsap.timeline 방식, ScrollTrigger.create 방식이 있다.
 

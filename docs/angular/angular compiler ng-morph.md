@@ -1,4 +1,4 @@
-# compile ng-morph
+# angular compiler ng-morph
 
 > ts-morph를 angular 용으로 추상화한 라이브러리
 >

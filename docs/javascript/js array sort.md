@@ -1,4 +1,4 @@
-# js sort
+# js array sort
 
 > 병합정렬 알고리즘과 같은 O(logN)
 >

@@ -1,4 +1,4 @@
-# one to one & one to zero or one
+# db relation one to one & one to zero or one
 
 ## one to one
 

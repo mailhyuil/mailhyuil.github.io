@@ -1,4 +1,4 @@
-# linux directory
+# linux base directory
 
 ```txt
 bin

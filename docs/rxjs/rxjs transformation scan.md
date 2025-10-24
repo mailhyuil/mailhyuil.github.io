@@ -1,4 +1,4 @@
-# rxjs scan
+# rxjs transformation scan
 
 > reduce와 동작이 같음
 >

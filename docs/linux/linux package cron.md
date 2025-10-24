@@ -1,4 +1,4 @@
-# linux cron
+# linux package cron
 
 ## install
 

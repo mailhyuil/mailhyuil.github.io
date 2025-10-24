@@ -1,4 +1,4 @@
-# webpack tree shaking
+# bundle webpack optimization tree shaking
 
 > esModule은 production 빌드 시 자동으로 적용됨
 >

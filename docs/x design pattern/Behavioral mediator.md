@@ -1,4 +1,4 @@
-# mediator pattern (중재자 패턴)
+# Behavioral mediator
 
 > 서로 상호작용하는 object들을 캡슐화함으로써 loose coupling을 유지하기 위해 사용한다.
 >

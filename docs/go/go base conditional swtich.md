@@ -1,4 +1,4 @@
-# go base switch
+# go base conditional swtich
 
 > go의 switch문은 기본적으로 break문을 가진 것처럼 작동한다.
 >

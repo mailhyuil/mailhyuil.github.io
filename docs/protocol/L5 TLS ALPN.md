@@ -1,4 +1,4 @@
-# TLS ALPN (Application-Layer Protocol Negotiation)
+# L5 TLS ALPN
 
 ## 기존 방식
 

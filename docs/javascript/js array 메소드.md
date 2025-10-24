@@ -1,4 +1,4 @@
-# Array functions
+# js array 메소드
 
 ## reduce
 

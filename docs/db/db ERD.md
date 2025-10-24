@@ -1,4 +1,4 @@
-# db ERD (Entity Relationship Diagram)
+# db ERD
 
 ```txt
 네모: 테이블(엔티티)

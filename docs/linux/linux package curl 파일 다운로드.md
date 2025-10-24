@@ -1,4 +1,4 @@
-# curl
+# linux package curl 파일 다운로드
 
 ```sh
 # 파일 다운로드

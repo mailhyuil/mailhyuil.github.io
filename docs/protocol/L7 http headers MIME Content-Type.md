@@ -1,4 +1,4 @@
-# http MIME Content-Type
+# L7 http headers MIME Content-Type
 
 ## application
 

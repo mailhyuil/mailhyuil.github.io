@@ -1,4 +1,4 @@
-# kubernetes Authorization Role & RoleBinding
+# kube Auth Role & RoleBinding
 
 > 순서 : namespace 생성 -> user or serviceaccount 생성 -> role 생성 -> rolebinding 생성
 >

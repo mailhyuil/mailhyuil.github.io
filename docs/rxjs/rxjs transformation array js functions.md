@@ -1,4 +1,4 @@
-# rxjs js array functions
+# rxjs transformation array js functions
 
 ```js
 concat;

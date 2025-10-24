@@ -1,4 +1,4 @@
-# db transaction lock Dead lock (데드 락) 방지
+# db 동시성 제어 lock deadlock 방지
 
 > 두개의 트랜잭션이 서로가 서로의 자원을 사용하려고 대기하고 있을 때 발생
 >

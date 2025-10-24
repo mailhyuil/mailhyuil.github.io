@@ -1,4 +1,4 @@
-# http headers 보안 Mixed Content
+# L7 http headers 보안 CSP Mixed Content
 
 > HTTPS를 사용하는 웹사이트 내에서 HTTP 리소스를 로드하는 것을 막는 정책
 >

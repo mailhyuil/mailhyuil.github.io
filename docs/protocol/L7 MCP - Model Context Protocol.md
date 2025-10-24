@@ -1,4 +1,4 @@
-# ai base MCP (Model Context Protocol)
+# L7 MCP - Model Context Protocol
 
 > OpenAI에서 제안한 "모델에게 문맥(Context)을 체계적으로 전달하는 표준" 을 만들기 위한 프로토콜 (JSON-RPC 2.0 기반)
 >

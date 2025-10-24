@@ -1,4 +1,4 @@
-# db partitioning
+# db 분산 시스템 partitioning
 
 > 1000만개의 row가 담긴 테이블을 파티셔닝하여 200만개, 300만개, 500만개로 나누어 저장
 >

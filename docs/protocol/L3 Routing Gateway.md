@@ -1,4 +1,4 @@
-# Routing Gateway
+# L3 Routing Gateway
 
 > 서로 다른 프로토콜, 통신 방식 또는 형식을 변환하거나 연결하는 데 사용됩니다.
 >

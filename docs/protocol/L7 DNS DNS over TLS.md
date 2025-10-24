@@ -1,4 +1,4 @@
-# DNS over TLS
+# L7 DNS DNS over TLS
 
 > DNS 쿼리를 TLS로 암호화하여 전송하는 프로토콜이다.
 >

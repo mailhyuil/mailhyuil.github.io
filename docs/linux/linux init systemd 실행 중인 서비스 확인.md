@@ -1,4 +1,4 @@
-# linux systemctl 실행 중인 서비스 확인
+# linux init systemd 실행 중인 서비스 확인
 
 ```sh
 systemctl list-units

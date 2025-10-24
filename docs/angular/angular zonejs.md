@@ -1,4 +1,4 @@
-# angular zone.js
+# angular zonejs
 
 > zonejs는 값을 변경하는 이벤트가 발생했을 때 angular가 변경을 감지하고 화면을 다시 그리는데 사용된다.
 

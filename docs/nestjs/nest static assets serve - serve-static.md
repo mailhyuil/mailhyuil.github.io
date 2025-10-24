@@ -1,4 +1,4 @@
-# nestjs static assets serve (serve-static)
+# nest static assets serve - serve-static
 
 ## install
 

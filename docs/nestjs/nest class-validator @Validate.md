@@ -1,4 +1,4 @@
-# class-validator @Validate
+# nest class-validator @Validate
 
 ## 함수로 생성
 

@@ -1,4 +1,4 @@
-# webpack CompressionWebpackPlugin
+# bundle webpack plugin compression-webpack-plugin
 
 > gzip으로 압축
 

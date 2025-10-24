@@ -1,4 +1,4 @@
-# linux net-tools
+# linux network net-tools
 
 ## install
 

@@ -1,4 +1,4 @@
-# wordpress headless settings
+# wordpress 세팅 settings headless
 
 > [reference doc](https://developer.wordpress.org/rest-api/reference/)
 >

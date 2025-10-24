@@ -1,4 +1,4 @@
-# cache 읽기 + 쓰기 전략
+# cache 쓰기 & 읽기 조합
 
 ## look-aside + write-around
 

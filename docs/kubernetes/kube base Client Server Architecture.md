@@ -1,4 +1,4 @@
-# kube Client Server Architecture
+# kube base Client Server Architecture
 
 > client deploy 또는 pod 생성
 >

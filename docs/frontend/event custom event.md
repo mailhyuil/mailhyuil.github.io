@@ -1,4 +1,4 @@
-# customEvent
+# event custom event
 
 > event 생성 객체로 생성
 >

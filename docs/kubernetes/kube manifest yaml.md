@@ -1,4 +1,4 @@
-# kubernetes yaml
+# kube manifest yaml
 
 ## 기본 구조
 

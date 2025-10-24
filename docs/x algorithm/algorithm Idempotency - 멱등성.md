@@ -1,4 +1,4 @@
-# algorithm Idempotency (멱등성)
+# algorithm Idempotency - 멱등성
 
 ## if문 사용
 

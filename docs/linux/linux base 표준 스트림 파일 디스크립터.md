@@ -1,4 +1,4 @@
-# 표준 스트림
+# linux base 표준 스트림 파일 디스크립터
 
 > stdin, stdout, stderr
 >

@@ -1,4 +1,4 @@
-# ssh pem 키 생성
+# linux package ssh pem 키 생성
 
 > 서버에서 진행
 

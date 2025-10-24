@@ -1,1 +1,1 @@
-# aws cloudfront Error Pages
+# aws CDN cloudfront Error Pages

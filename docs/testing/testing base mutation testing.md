@@ -1,4 +1,4 @@
-# testing mutation testing
+# testing base mutation testing
 
 > testing을 할 때 testing framework가 프로그램을 수정하면서 테스트하는 것
 >

@@ -1,4 +1,4 @@
-# go package sync
+# go base goroutine sync
 
 > Go에서 동시성(concurrency)을 안전하게 다룰 수 있게 해주는 기본적인 동기화 도구들을 제공
 >

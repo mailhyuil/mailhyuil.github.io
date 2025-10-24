@@ -1,4 +1,4 @@
-# js Generator Iterator 생성 & async interator 생성
+# js iterator generator interator 생성 & async interator 생성
 
 ## Iterator 생성
 

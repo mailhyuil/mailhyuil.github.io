@@ -1,4 +1,4 @@
-# testomg nestjs Auto Mocking
+# testing nestjs Auto Mocking
 
 > module에 의존성이 많은 경우에 자동으로 의존성을 mocking해준는 기능
 

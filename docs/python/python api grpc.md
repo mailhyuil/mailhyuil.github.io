@@ -1,4 +1,4 @@
-# python api grpc (grpcio)
+# python api grpc
 
 ## install
 

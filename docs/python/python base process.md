@@ -1,4 +1,4 @@
-# python 프로세스
+# python base process
 
 ```py
 from multiprocessing import Pool

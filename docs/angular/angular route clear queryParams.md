@@ -1,4 +1,4 @@
-# angular clear queryParams
+# angular route clear queryParams
 
 ```js
 this.router.navigate(["/test"], {

@@ -1,4 +1,4 @@
-# prisma transaction timeout.md
+# prisma transaction maxWait
 
 > The maximum amount of time Prisma Client will wait to acquire a transaction from the database.
 >

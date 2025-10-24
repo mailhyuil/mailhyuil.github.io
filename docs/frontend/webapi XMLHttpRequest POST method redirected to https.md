@@ -1,4 +1,4 @@
-# webapi XMLHttpRequest Post method redirected to https
+# webapi XMLHttpRequest POST method redirected to https
 
 > browser는 Post 메소드를 무조건 https로 리다이렉트 시켜서 보낸다.
 >

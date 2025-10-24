@@ -1,4 +1,4 @@
-# linux namespace & cgroup
+# linux base namespace & cgroup
 
 ## namespace
 

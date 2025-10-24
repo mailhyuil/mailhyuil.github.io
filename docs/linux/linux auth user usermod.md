@@ -1,4 +1,4 @@
-# linux cmd usermod
+# linux auth user usermod
 
 ```sh
 # -u uid를 1001로 변경

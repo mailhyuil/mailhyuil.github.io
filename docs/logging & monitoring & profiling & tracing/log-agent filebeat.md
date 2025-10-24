@@ -1,4 +1,4 @@
-# ELK beats filebeat
+# log-agent filebeat
 
 > 서버에서 로그 파일을 실시간으로 수집하고 Elasticsearch 또는 Logstash로 전송.
 >

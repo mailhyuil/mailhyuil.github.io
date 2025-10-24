@@ -1,4 +1,4 @@
-# animation split text (splitting)
+# animation split text - splitting
 
 > text를 글자 단위, 단어 단위, 줄 단위로 나누어 배열로 반환해주는 라이브러리
 

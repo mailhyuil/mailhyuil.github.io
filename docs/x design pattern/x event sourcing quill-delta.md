@@ -1,4 +1,4 @@
-# event sourcing quill-delta
+# x event sourcing quill-delta
 
 > quill-delta는 최종 값이 아닌 operation을 저장하는 방식으로 event sourcing을 구현한다.
 >

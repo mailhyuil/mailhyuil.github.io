@@ -1,4 +1,4 @@
-# CDN (Content Delivery Network)
+# CDN
 
 > CDN(콘텐츠 전송 네트워크)은 지리적으로 분산된 여러 개의 서버
 >

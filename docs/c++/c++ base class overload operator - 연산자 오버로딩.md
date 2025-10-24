@@ -1,4 +1,4 @@
-# c++ overload operator (연산자 오버로딩)
+# c++ base class overload operator - 연산자 오버로딩
 
 > 클래스나 구조체간의 연산을 사용자 정의로 정의하는 방법
 >

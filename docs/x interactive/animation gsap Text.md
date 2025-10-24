@@ -1,4 +1,4 @@
-# animation gsap TextPlugin
+# animation gsap Text
 
 ## setup
 

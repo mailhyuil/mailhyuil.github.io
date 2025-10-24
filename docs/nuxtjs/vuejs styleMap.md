@@ -1,4 +1,4 @@
-# vuejs style map
+# vuejs styleMap
 
 ```
 const styleMap = ref<{[key:string]:string}>({

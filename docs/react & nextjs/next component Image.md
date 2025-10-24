@@ -1,4 +1,4 @@
-# next Image
+# next component Image
 
 > 'next/image'
 >

@@ -1,4 +1,4 @@
-# linux base TTY TTYs PTS PTY
+# linux base TTY & PTS & PTY
 
 ## TTY (Teletypewriter)
 

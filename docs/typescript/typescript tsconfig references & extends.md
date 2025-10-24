@@ -1,4 +1,4 @@
-# typescript tsconfig.json 확장
+# typescript tsconfig references & extends
 
 ```json
 {

@@ -1,4 +1,4 @@
-# js import.meta
+# nodejs module system esm import.meta
 
 > 현재 모듈의 meta 데이터를 가지고 있는 import.meta 객체
 >

@@ -1,4 +1,4 @@
-# aws Auto Scaling Groups
+# aws EC2 Auto Scaling Groups
 
 > launch template : AMI(amazon machine image) 모든 설정이 완료된 이미지로 인스턴스를 즉시 생성할 수 있는 템플릿
 >

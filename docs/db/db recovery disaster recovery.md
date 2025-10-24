@@ -1,4 +1,4 @@
-# db disaster recovery
+# db recovery disaster recovery
 
 ## RPO & RTO
 

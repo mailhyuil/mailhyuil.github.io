@@ -1,4 +1,4 @@
-# get started
+# rust base install
 
 > Visual Studio Build Tools를 설치해야 빌드 가능
 

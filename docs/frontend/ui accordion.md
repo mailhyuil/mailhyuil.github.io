@@ -1,4 +1,4 @@
-# css accordion
+# ui accordion
 
 ## Accordion.vue
 

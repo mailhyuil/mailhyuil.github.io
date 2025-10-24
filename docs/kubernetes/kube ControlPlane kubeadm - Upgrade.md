@@ -1,4 +1,4 @@
-# kube base kubeadm (Upgrade)
+# kube ControlPlane kubeadm - Upgrade
 
 > kubernetes를 설치해주는 도구
 >

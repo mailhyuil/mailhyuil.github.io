@@ -1,4 +1,4 @@
-# aws email SES (simple-email-service)
+# aws email SES - simple email service
 
 ## sandbox 환경 (개발 환경)
 

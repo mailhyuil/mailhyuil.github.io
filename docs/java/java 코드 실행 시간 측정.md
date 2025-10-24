@@ -1,4 +1,4 @@
-# 코드 실행 시간 측정
+# java 코드 실행 시간 측정
 
 ```java
 long beforeTime = System.currentTimeMillis(); // 코드 실행 전 시간

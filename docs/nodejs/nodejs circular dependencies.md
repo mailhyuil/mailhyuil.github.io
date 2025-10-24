@@ -1,4 +1,4 @@
-# madge (circular dependencies)
+# nodejs circular dependencies
 
 ## install
 

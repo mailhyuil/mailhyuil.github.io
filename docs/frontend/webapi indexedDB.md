@@ -1,4 +1,4 @@
-# webAPI indexedDB
+# webapi indexedDB
 
 > 많은 양의 구조화된 데이터를 저장할 때 유용
 >

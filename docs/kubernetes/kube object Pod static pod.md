@@ -1,4 +1,4 @@
-# kubernetes object Pod static pod
+# kube object Pod static pod
 
 > API가 아닌 kubelet이 실행하는 pod
 >

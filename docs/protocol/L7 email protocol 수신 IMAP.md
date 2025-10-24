@@ -1,4 +1,4 @@
-# email IMAP (Internet Message Access Protocol)
+# L7 email protocol 수신 IMAP
 
 > 이메일을 받아서 서버에 저장하는 프로토콜
 >

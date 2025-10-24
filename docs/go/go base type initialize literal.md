@@ -1,4 +1,4 @@
-# go type initialize literal
+# go base type initialize literal
 
 > &Type{}로 리터럴 초기화를 할 수 있다.
 >

@@ -1,4 +1,4 @@
-# kubernetes resource
+# kube Auth Resource
 
 ## requests
 

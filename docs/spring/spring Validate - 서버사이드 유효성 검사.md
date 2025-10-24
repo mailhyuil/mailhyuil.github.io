@@ -1,4 +1,4 @@
-# Validate (서버사이드 유효성 검사)
+# spring Validate - 서버사이드 유효성 검사
 
 ```xml
 <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->

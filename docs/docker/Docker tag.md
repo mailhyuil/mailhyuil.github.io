@@ -1,4 +1,4 @@
-# docker image tag
+# Docker tag
 
 ```sh
 docker image tag <image_name or id> <image_name>:<tag>

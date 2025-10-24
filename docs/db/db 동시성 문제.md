@@ -1,4 +1,4 @@
-# db Transaction Isolation 동시성 문제
+# db 동시성 문제
 
 - Read Transaction: dirty read, non-repeatable read, phantom read, read skew
 - Write Transaction: dirty write, lost update, write skew

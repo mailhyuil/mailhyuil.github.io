@@ -1,4 +1,4 @@
-# linux make
+# linux package make
 
 > 스크립트 자동화 도구 (package.json의 scripts와 유사)
 >

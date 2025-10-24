@@ -1,4 +1,4 @@
-# go trace
+# go 최적화 cpu trace
 
 > goroutine 스케줄링, 블로킹, 시스템 콜, GC 타이밍까지 전부 트레이싱
 >

@@ -1,4 +1,4 @@
-# nest Redis Pub/Sub
+# nest advanced microservice Redis PubSub
 
 ## install
 

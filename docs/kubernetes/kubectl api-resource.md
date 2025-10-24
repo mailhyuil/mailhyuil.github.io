@@ -1,4 +1,4 @@
-# kubectl api-resources
+# kubectl api-resource
 
 > api-resources들은 각각 version을 가지고 있다.
 >

@@ -1,4 +1,4 @@
-# etcd snapshot (backup & restore)
+# kube ControlPlane etcd snapshot - backup & restore
 
 > trusted-ca-file, cert-file, key-file 인증서가 필요
 >

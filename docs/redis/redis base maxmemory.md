@@ -1,1 +1,1 @@
-# redis maxmemory
+# redis base maxmemory

@@ -1,4 +1,4 @@
-# HandlerInterceptor
+# spring HandlerInterceptor
 
 > DispatcherServlet이 컨트롤러를 호출하기 전과 후에 요청과 응답을 참조하거나 가공할 수 있는 일종의 필터
 >

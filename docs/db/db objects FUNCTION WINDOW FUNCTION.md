@@ -1,4 +1,4 @@
-# db objects WINDOW FUNCTION
+# db objects FUNCTION WINDOW FUNCTION
 
 ```sql
 ROW_NUMBER() -- select된 row에 순번을 매김

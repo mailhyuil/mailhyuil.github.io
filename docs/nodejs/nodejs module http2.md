@@ -1,4 +1,4 @@
-# node module http2
+# nodejs module http2
 
 ## http2
 

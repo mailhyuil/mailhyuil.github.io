@@ -1,4 +1,4 @@
-# class-transformer @Expose & @Exclude
+# nest class-transformer @Expose & @Exclude
 
 > 사용하지 않아도 됨
 >

@@ -1,4 +1,4 @@
-# 기본 명령어
+# linux cmd 기본 명령어
 
 ```
 sudo su

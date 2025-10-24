@@ -1,4 +1,4 @@
-# struct
+# rust base class struct - interface
 
 > 클래스와 비슷하다
 

@@ -1,4 +1,4 @@
-# python 함수
+# python base function
 
 ## 일반함수
 

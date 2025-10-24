@@ -1,4 +1,4 @@
-# redis pipeline batch
+# redis base pipeline batch
 
 > 여러 HASH 데이터를 한번에 조회하고 싶다면 pipeline을 사용
 >

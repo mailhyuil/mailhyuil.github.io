@@ -1,4 +1,4 @@
-# flutter 앱배포 android
+# flutter 앱 배포 android
 
 > google play store에 배포하기 위한 과정
 

@@ -1,4 +1,4 @@
-# python \_\_init\_\_
+# python base __init__ & self
 
 > \_\_init\_\_ === constructor
 >

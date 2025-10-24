@@ -1,4 +1,4 @@
-# nginx server_name
+# nginx directive server_name
 
 > 도메인과 블록을 매칭 시키는 역할
 

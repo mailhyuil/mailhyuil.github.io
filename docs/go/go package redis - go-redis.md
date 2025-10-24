@@ -1,4 +1,4 @@
-# go package go-redis
+# go package redis - go-redis
 
 ## install
 

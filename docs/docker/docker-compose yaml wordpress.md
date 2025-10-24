@@ -1,4 +1,4 @@
-# docker-compose wordpress
+# docker-compose yaml wordpress
 
 ```yaml
 services:

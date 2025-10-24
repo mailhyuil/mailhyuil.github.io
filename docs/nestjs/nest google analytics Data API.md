@@ -1,4 +1,4 @@
-# nestjs google analytics Data API
+# nest google analytics Data API
 
 [document](https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/runReport?hl=ko)
 

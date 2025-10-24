@@ -1,4 +1,4 @@
-# angular guard
+# angular base guard CanActivate
 
 > 인터페이스는 deprecated
 >

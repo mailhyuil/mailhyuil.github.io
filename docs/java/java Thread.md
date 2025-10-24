@@ -1,4 +1,4 @@
-# Thread
+# java Thread
 
 ## 싱글스레드
 

@@ -1,4 +1,4 @@
-# ai lightweight classifier (PLM)
+# ai base NLU lightweight classifier - PLM
 
 > classification 작업을 위해 사용하는 경량화 모델
 >

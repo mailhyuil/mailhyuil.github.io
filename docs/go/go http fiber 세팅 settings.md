@@ -1,4 +1,4 @@
-# go fiber
+# go http fiber 세팅 settings
 
 ## install
 

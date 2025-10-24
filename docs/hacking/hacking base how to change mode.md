@@ -1,4 +1,4 @@
-# how to change adapter mode
+# hacking base how to change mode
 
 > mode는 관리 모드와 모니터 모드로 나뉜다.
 >

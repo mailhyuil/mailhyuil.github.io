@@ -1,4 +1,4 @@
-# nodejs fs promise exists
+# nodejs module fs Promise exists
 
 > fs를 callback이 아닌 promise로 사용할 수 있다.
 

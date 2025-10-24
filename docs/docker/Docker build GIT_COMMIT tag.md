@@ -1,4 +1,4 @@
-# docker build GIT_COMMIT tag
+# Docker build GIT_COMMIT tag
 
 ## build
 

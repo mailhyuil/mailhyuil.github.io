@@ -1,4 +1,4 @@
-# nginx
+# nginx 세팅
 
 ## install
 

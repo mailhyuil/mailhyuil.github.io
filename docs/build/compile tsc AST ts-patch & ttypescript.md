@@ -1,4 +1,4 @@
-# tsc ttypescript (transformer typescript)
+# compile tsc AST ts-patch & ttypescript
 
 > typescript는 아직 tsconfig.json에서 custom transformers를 지원하지 않습니다.
 >

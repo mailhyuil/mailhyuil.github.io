@@ -1,4 +1,4 @@
-# chown
+# linux cmd chown
 
 > 소유자를 변경
 >

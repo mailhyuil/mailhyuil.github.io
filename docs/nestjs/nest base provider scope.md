@@ -1,4 +1,4 @@
-# nest provider scope
+# nest base provider scope
 
 ## Scope.DEFAULT
 

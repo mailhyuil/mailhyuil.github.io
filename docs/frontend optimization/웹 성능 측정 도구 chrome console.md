@@ -1,4 +1,4 @@
-# chrome console
+# 웹 성능 측정 도구 chrome console
 
 > console 을 통해서 디버깅
 

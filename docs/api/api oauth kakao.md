@@ -1,4 +1,4 @@
-# oauth-kakao
+# api oauth kakao
 
 1. 앱 생성
 2. 동의 항목 설정

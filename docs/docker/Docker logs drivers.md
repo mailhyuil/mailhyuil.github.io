@@ -1,4 +1,4 @@
-# docker logging drivers
+# Docker logs drivers
 
 ## json-file (default)
 

@@ -1,4 +1,4 @@
-# aws cloudfront image-resize
+# aws CDN cloudfront image-resize
 
 > cloudfront에 요청이 올 때 이미지를 리사이징하는 방식
 >

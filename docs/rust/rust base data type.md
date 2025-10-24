@@ -1,4 +1,4 @@
-# 데이터 타입
+# rust base data type
 
 > 모두 스택에 저장된다.
 

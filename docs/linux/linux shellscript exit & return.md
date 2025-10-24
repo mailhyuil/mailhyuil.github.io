@@ -1,4 +1,4 @@
-# linux shell script exit
+# linux shellscript exit & return
 
 > return 과 같다
 >

@@ -1,4 +1,4 @@
-# node mac address
+# nodejs mac address
 
 ## install
 

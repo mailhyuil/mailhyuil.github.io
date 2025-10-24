@@ -1,4 +1,4 @@
-# 핸들러 예외 리졸버
+# spring 핸들러 예외 리졸버
 
 ## AnnotationMethodHandlerExceptionResolver
 

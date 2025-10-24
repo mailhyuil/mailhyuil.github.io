@@ -1,4 +1,4 @@
-# Observer
+# rxjs base observer
 
 > Observable에게 전달받은 값의 consumer
 >

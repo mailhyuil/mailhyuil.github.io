@@ -1,4 +1,4 @@
-# eslint @rushstack
+# eslint config @rushstack
 
 > microsoft가 관리하는 eslint 설정
 

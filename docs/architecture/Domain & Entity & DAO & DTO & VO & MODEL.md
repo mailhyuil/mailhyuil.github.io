@@ -1,4 +1,4 @@
-# Domain Model & Entity & DTO & VO
+# Domain & Entity & DAO & DTO & VO & MODEL
 
 > 각 계층을 설계시에 그 계층에서 다룰 data format을 정의하는게 중요하다
 >

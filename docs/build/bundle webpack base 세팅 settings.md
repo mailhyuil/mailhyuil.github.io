@@ -1,4 +1,4 @@
-# Webpack (웹팩)
+# bundle webpack base 세팅 settings
 
 > 웹팩은 기본으로 브라우저 환경에서 동작하도록 번들링한다.
 >

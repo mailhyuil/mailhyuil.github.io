@@ -1,4 +1,4 @@
-# next base manifest.ts (PWA)
+# next base manifest.ts - PWA
 
 ## app/manifest.ts
 

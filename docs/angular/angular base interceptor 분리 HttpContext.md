@@ -1,4 +1,4 @@
-# angular interceptor 분리 HttpContext
+# angular base interceptor 분리 HttpContext
 
 ```ts
 export const APP_INIT = new HttpContextToken(() => false);

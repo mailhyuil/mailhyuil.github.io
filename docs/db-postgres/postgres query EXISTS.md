@@ -1,4 +1,4 @@
-# database exists (sub_query)
+# postgres query EXISTS
 
 > 서브 쿼리의 값이 존재하는지만 확인
 >

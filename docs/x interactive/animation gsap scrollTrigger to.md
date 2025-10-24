@@ -1,4 +1,4 @@
-# gsap scrollTrigger to
+# animation gsap scrollTrigger to
 
 > gsap.to로 구현하는 방법
 

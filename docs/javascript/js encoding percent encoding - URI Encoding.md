@@ -1,4 +1,4 @@
-# js encodeURI vs encodeURIComponent & decodeURI vs decodeURIComponent
+# js encoding percent encoding - URI Encoding
 
 ```sh
 # &?@=+를 제외

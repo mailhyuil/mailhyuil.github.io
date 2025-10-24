@@ -1,4 +1,4 @@
-# 배포
+# cloud 배포 순서
 
 1. .env 나누기 local, development, production NODE_ENV 지정
 2. .env SERVER 설정

@@ -1,4 +1,4 @@
-# c++ window MinGW & MSVC
+# c++ base compiler window MinGW & MSVC
 
 > Windows 환경에서 C++을 컴파일하기 위한 세트
 

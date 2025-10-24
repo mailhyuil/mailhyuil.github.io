@@ -1,4 +1,4 @@
-# mini-css-extract-plugin
+# bundle webpack plugin mini-css-extract-plugin
 
 ## install
 

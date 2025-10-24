@@ -1,4 +1,4 @@
-# npm library angular
+# npm 라이브러리 - library 배포 angular
 
 > root가 아닌 /projects/my-lib/package.json에서 라이브러리를 설정하고 빌드 후
 >

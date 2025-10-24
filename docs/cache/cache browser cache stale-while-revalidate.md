@@ -1,4 +1,4 @@
-# cache browser stale-while-revalidate
+# cache browser cache stale-while-revalidate
 
 > 캐시된 데이터를 사용하되, 원 서버에 검증을 받도록 한다.
 >

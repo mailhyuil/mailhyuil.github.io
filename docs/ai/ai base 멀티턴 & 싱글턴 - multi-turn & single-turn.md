@@ -1,4 +1,4 @@
-# ai base 멀티턴 & 싱글턴 (multi-turn & single-turn)
+# ai base 멀티턴 & 싱글턴 - multi-turn & single-turn
 
 ## 싱글턴
 

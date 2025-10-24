@@ -1,4 +1,4 @@
-# Git
+# git install
 
 ## git 설치
 

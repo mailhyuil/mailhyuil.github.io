@@ -1,4 +1,4 @@
-# webapi WorkerGlobalScope
+# webapi Web Worker WorkerGlobalScope
 
 > web worker를 동작시키는 스코프
 >

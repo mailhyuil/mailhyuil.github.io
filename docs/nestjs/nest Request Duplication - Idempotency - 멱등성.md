@@ -1,4 +1,4 @@
-# nest Idempotency (멱등성)
+# nest Request Duplication - Idempotency - 멱등성
 
 > 결제 요청이 동시에 두번 들어와버려서 결제가 두번 되는 경우를 방지하기 위한 방법
 >

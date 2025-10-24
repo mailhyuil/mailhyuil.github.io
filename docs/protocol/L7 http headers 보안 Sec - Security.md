@@ -1,4 +1,4 @@
-# http headers Sec (Security)
+# L7 http headers 보안 Sec - Security
 
 > Security(보안)의 약자로, 해당 헤더들이 보안이나 추적 방지(프라이버시), 혹은 안전한 자원 로딩 등을 위해 사용됨을 나타냅니다.
 >

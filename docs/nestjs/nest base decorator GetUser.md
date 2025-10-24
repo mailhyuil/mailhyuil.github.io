@@ -1,4 +1,4 @@
-# GetUser decorator
+# nest base decorator GetUser
 
 > Guard에서 user를 넣어주기
 

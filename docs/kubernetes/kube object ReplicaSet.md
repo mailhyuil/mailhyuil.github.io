@@ -1,4 +1,4 @@
-# kubernetes replicaSet
+# kube object ReplicaSet
 
 ## manifest.yaml
 

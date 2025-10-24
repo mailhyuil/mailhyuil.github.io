@@ -1,4 +1,4 @@
-# kubernetes Volume
+# kube Storage Volume
 
 > Volume이란?
 >

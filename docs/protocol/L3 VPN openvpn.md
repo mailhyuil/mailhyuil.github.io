@@ -1,4 +1,4 @@
-# VPN openvpn
+# L3 VPN openvpn
 
 > 오픈소스 VPN 서버
 >

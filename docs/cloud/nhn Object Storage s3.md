@@ -1,4 +1,4 @@
-# nhn object storage s3
+# nhn Object Storage s3
 
 ```sh
 # 판교 리전

@@ -1,4 +1,4 @@
-# postgres IF
+# postgres query IF
 
 ```sql
 IF (조건) THEN

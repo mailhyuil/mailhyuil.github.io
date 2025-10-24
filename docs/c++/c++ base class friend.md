@@ -1,4 +1,4 @@
-# c++ class friend
+# c++ base class friend
 
 > A 클래스 내부에서 "friend class B" 를 사용하면
 >

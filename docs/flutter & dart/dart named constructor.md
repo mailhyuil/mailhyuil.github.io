@@ -1,4 +1,4 @@
-# dart Named Constructor
+# dart named constructor
 
 > constructor에 이름을 붙여서 여러개의 constructor를 만들 수 있음
 

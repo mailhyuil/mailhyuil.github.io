@@ -1,4 +1,4 @@
-# design pattern Factory Method Pattern
+# Creational factory method
 
 > Factory Method = 객체를 생성하는 메소드
 >

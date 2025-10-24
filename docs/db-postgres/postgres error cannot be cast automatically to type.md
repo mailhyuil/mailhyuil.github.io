@@ -1,4 +1,4 @@
-# postgres column \\"\\" cannot be cast automatically to type \\"\\"
+# postgres error cannot be cast automatically to type
 
 > postgresql은 자동 형변환이 안된다.
 >

@@ -1,4 +1,4 @@
-# c++ generic template meta programming (메타 프로그래밍)
+# c++ base template TMP - template meta programming
 
 > 타입은 반드시 컴파일 타임에 확정되어야 하므로, 컴파일 타임에 모든 연산이 끝나게 됩니다.
 >

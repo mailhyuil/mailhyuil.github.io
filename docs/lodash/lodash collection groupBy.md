@@ -1,4 +1,4 @@
-# lodash groupBy
+# lodash collection groupBy
 
 ```js
 import { curryRight, flow, groupBy } from "lodash-es";

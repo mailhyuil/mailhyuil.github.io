@@ -1,4 +1,4 @@
-# git branch remove
+# git branch remove 삭제
 
 ```sh
 git branch -a # 모든 브랜치 목록 확인

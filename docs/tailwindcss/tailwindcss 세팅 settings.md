@@ -1,4 +1,4 @@
-# tailwindcss setting 세팅
+# tailwindcss 세팅 settings
 
 ## install
 

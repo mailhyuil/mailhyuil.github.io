@@ -1,4 +1,4 @@
-# grpc unary
+# grpc 통신 방식 unary
 
 ## proto
 

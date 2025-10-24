@@ -1,4 +1,4 @@
-# kubernetes deployment
+# kube object Deployment
 
 > 지원하는 기능
 >

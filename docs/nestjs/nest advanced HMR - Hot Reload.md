@@ -1,4 +1,4 @@
-# nest advanced HMR (Hot reload)
+# nest advanced HMR - Hot Reload
 
 > NestJS start: dev script는 watch를 이용해 기본적으로 hot reload
 >

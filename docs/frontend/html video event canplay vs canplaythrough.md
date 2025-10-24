@@ -1,4 +1,4 @@
-# video canplay vs canplaythrough
+# html video event canplay vs canplaythrough
 
 ## canplay
 

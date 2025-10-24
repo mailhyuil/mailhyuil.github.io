@@ -1,4 +1,4 @@
-# linux base user-mode vs kernel-mode
+# linux base user mode & kernel mode
 
 ## user mode
 

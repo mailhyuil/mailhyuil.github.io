@@ -1,4 +1,4 @@
-# nest advanced message queue
+# nest advanced message queue bullMQ concurrency
 
 > concurrency: 동시에 처리할 수 있는 job의 개수 (동시처리)
 >

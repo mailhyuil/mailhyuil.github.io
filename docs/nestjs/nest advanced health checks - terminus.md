@@ -1,4 +1,4 @@
-# nest health checks
+# nest advanced health checks - terminus
 
 ## install
 

@@ -1,4 +1,4 @@
-# aws message queue SQS (Simple Queue Service)
+# aws message queue SQS - simple queue service
 
 > aws 메시지 큐 서비스
 >

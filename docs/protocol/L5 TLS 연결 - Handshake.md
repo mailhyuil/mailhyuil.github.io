@@ -1,4 +1,4 @@
-# TLS 연결 (Handshake)
+# L5 TLS 연결 - Handshake
 
 > TCP 핸드쉐이크가 끝난 후 시작된다.
 

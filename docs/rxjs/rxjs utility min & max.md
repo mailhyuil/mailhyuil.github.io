@@ -1,4 +1,4 @@
-# rxjs min & max
+# rxjs utility min & max
 
 ```js
 const source$ = of(1, 2, 3);

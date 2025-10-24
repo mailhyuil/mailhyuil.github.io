@@ -1,4 +1,4 @@
-# angular viewTransition
+# angular 17 viewTransition
 
 > style.viewTransitionName이 같은 요소를 가지고 있으면 그 요소로 자연스럽게 애니메이션이 된다.
 

@@ -1,4 +1,4 @@
-# readinessProbe
+# kube HealthCheck readinessProbe
 
 > 건강하지 않은 컨테이너에게 트래픽이 가지 않도록 차단하는 것 (ready 된 상태인지 확인하는 것)
 >

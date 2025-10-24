@@ -1,4 +1,4 @@
-# node --env-file
+# nodejs --env-file
 
 > main.js보다 앞에 붙여야된다.
 

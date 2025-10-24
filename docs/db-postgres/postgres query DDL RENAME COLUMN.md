@@ -1,4 +1,4 @@
-# postgres rename column
+# postgres query DDL RENAME COLUMN
 
 ```sql
 ALTER TABLE "users"

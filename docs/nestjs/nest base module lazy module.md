@@ -1,4 +1,4 @@
-# nest LazyModule
+# nest base module lazy module
 
 > 모듈이 필요할 때만 로드
 

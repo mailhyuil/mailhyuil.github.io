@@ -1,4 +1,4 @@
-# postgres replication
+# postgres replication 간단하게 구현
 
 > primary(master)에서는 쓰기를 담당
 >

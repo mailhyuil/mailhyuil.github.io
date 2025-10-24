@@ -1,4 +1,4 @@
-# VPC cidr 세팅
+# cloud vpc cidr 세팅
 
 > cidr가 작을 수록 네트워크가 크다.
 

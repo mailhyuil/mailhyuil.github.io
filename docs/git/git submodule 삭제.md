@@ -1,4 +1,4 @@
-# git Submodule 삭제
+# git submodule 삭제
 
 1. 먼저 git submodule deinit -f 명령어를 통해서 해당 모듈을 deinit 해줍니다.
 

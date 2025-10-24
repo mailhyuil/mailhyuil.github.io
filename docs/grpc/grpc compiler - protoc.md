@@ -1,4 +1,4 @@
-# grpc install
+# grpc compiler - protoc
 
 > protoc compiler는 각 언어의 gen plugin을 통해서 grpc 코드를 생성해준다.
 

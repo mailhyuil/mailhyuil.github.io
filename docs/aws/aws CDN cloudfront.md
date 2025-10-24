@@ -1,4 +1,4 @@
-# aws cloudfront
+# aws CDN cloudfront
 
 > 생성 후 policy를 복사하여 s3 버킷에 붙여넣기
 >

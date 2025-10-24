@@ -1,4 +1,4 @@
-# rxjs expand
+# rxjs transformation expand
 
 > 재귀 호출을 위해서 사용
 >

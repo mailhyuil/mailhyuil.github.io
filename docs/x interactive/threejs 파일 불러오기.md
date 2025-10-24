@@ -1,4 +1,4 @@
-# threejs-파일 불러오기
+# threejs 파일 불러오기
 
 > gITF, GLB, GLTF, FBX, OBJ, COLLADA 파일 가능
 >

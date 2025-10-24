@@ -1,4 +1,4 @@
-# git WorkTree & Index
+# git worktree & index
 
 ## WorkTree (작업트리)
 

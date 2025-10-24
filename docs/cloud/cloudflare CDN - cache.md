@@ -1,4 +1,4 @@
-# cloudflare cdn (cache)
+# cloudflare CDN - cache
 
 > 정적 파일을 cloudflare에서 제공하는 엣지 서버에 캐싱하여 더 빠르게 전송
 

@@ -1,4 +1,4 @@
-# window navigator share
+# webapi navigator share
 
 > 공유하기 기능을 사용할 수 있게 해주는 API
 

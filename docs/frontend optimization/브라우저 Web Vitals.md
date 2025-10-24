@@ -1,4 +1,4 @@
-# Web Vitals
+# 브라우저 Web Vitals
 
 ## FCP (First Contentful Paint)
 

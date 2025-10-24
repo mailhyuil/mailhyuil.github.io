@@ -1,4 +1,4 @@
-# file 업로드 미리보기
+# angular file 미리보기
 
 > URL.createObjectURL(file)로 브라우저 메모리에 url 생성
 >

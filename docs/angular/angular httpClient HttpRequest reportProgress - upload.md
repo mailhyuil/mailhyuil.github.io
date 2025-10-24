@@ -1,4 +1,4 @@
-# httpClient HttpRequest upload progress
+# angular httpClient HttpRequest reportProgress - upload
 
 > HttpRequest 객체를 사용하여 upload progress를 구현할 수 있다.
 

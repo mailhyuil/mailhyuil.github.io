@@ -1,4 +1,4 @@
-# redis cluster
+# redis base cluster
 
 ## redis.conf
 

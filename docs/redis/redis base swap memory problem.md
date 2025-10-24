@@ -1,4 +1,4 @@
-# redis swap
+# redis base swap memory problem
 
 > redis는 in-memory기 때문에 빠르다
 >

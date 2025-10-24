@@ -1,4 +1,4 @@
-# aws SSE (Server Side Encryption)
+# aws SSE - Server Side Encryption
 
 ## SSE-Resource
 

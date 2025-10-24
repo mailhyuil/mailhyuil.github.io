@@ -1,4 +1,4 @@
-# compilation stages
+# compile base stages
 
 > tsc : 5 stages of compilation / babel : 3 stages of compilation
 >

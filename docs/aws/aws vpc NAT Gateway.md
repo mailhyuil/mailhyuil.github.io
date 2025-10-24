@@ -1,4 +1,4 @@
-# aws NAT Gateway
+# aws vpc NAT Gateway
 
 > 인터넷 게이트웨이는 양방향이다.
 >

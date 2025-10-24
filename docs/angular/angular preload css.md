@@ -1,4 +1,4 @@
-# angular preload
+# angular preload css
 
 ## angular.json
 

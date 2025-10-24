@@ -1,4 +1,4 @@
-# animation gsap position parameter
+# animation gsap base position parameter
 
 ```js
 // gsap.to( target, vars, **position** )

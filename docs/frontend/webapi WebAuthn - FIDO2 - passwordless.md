@@ -1,4 +1,4 @@
-# webapi WebAuthn (Web Authentication API) (FIDO2 = Fast IDentity Online)
+# webapi WebAuthn - FIDO2 - passwordless
 
 > password 없이 touch id, face id, security key 등을 이용한 로그인을 지원하는 웹 API
 

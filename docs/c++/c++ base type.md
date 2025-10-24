@@ -1,4 +1,4 @@
-# c++ type
+# c++ base type
 
 ```cpp
 /// 문자형 ///

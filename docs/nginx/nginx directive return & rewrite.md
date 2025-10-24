@@ -1,4 +1,4 @@
-# nginx return rewrite
+# nginx directive return & rewrite
 
 ## return (redirect)
 

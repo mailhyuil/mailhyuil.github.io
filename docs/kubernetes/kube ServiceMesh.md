@@ -1,4 +1,4 @@
-# kubernetes service mesh pattern
+# kube ServiceMesh
 
 > East-West Traffic(Pod to Pod)을 처리하기 위한 패턴
 >

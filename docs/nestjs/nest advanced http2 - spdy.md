@@ -1,4 +1,4 @@
-# nest advanced http2
+# nest advanced http2 - spdy
 
 > client와 nginx가 http2를 사용하고 있다면 nginx와 nestjs 사이에도 http2를 사용해야 멀티플렉싱의 이점을 누릴 수 있다.
 

@@ -1,4 +1,4 @@
-# nodejs module dgram (UDP)
+# nodejs module dgram - UDP
 
 > UDP 소켓을 다룰 수 있는 모듈
 >

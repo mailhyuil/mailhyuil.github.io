@@ -1,4 +1,4 @@
-# docker run options --privileged
+# Docker run options --privileged
 
 > privileged란 권한이 있는 사용자/그룹 (root in host(linux), postgres in postgres, etc.)을 의미한다.
 >

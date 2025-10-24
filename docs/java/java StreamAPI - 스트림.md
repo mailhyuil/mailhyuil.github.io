@@ -1,4 +1,4 @@
-# StreamAPI (스트림)
+# java StreamAPI - 스트림
 
 ## 함수형 인터페이스
 

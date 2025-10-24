@@ -1,4 +1,4 @@
-# rxjs custom operator (pipe)
+# rxjs transformation custom operator
 
 ```js
 import { pipe, filter, map } from "rxjs";

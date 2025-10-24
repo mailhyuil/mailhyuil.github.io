@@ -1,4 +1,4 @@
-# angular apexchart
+# angular chart apexchart
 
 > props는 constructor에서는 들어가지 않는다.
 

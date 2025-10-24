@@ -1,4 +1,4 @@
-# python pip poetry
+# python package manager poetry
 
 ## install
 

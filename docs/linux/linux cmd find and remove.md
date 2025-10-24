@@ -1,4 +1,4 @@
-# linux find and remove
+# linux cmd find and remove
 
 > 찾은 파일의 이름이 rm {}의 {}에 들어간다.
 >

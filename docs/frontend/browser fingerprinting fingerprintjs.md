@@ -1,4 +1,4 @@
-# browser fingerprinting with fingerprintjs
+# browser fingerprinting fingerprintjs
 
 ## install
 

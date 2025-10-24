@@ -1,4 +1,4 @@
-# nodejs child_process
+# nodejs module multicore child_process
 
 > 자식 프로세스를 생성하고 통신할 수 있는 모듈
 

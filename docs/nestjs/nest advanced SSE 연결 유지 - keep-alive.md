@@ -1,4 +1,4 @@
-# sse keep-alive
+# nest advanced SSE 연결 유지 - keep-alive
 
 ## server
 

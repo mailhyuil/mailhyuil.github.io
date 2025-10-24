@@ -1,4 +1,4 @@
-# nest middleware LoggingMiddleware
+# nest base middleware LoggingMiddleware
 
 ```ts
 @Injectable()

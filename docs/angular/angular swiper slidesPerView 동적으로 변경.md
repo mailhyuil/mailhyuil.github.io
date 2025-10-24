@@ -1,4 +1,4 @@
-# swiper slidesPerView 동적으로 변경
+# angular swiper slidesPerView 동적으로 변경
 
 > slidesPerView는 items.length >= slidesPerView \* 2 로 유지해야 loop 모드가 작동한다.
 >

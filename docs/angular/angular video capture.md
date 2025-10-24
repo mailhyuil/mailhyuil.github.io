@@ -1,4 +1,4 @@
-# video capture component
+# angular video capture
 
 > canvas를 사용해서 video를 캡쳐하여 썸네일을 만들어주는 컴포넌트
 

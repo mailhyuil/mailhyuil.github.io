@@ -1,4 +1,4 @@
-# angular base component accordion
+# angular component accrodion
 
 > max-height로 애니메이션을 주기
 >

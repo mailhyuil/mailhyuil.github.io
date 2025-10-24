@@ -1,4 +1,4 @@
-# nx-electron packaging option
+# nx electron packaging options
 
 ## .\apps\<electron-app-name>\src\app\options\maker.options.json
 

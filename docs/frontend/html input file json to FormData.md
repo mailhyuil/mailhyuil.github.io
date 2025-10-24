@@ -1,4 +1,4 @@
-# input file json to FormData
+# html input file json to FormData
 
 ```js
 export function jsonToFormData(jsonObject: any, parentKey?: any, carryFormData?: any) {

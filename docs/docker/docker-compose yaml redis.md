@@ -1,4 +1,4 @@
-# docker-compose redis
+# docker-compose yaml redis
 
 ```yaml
 services:

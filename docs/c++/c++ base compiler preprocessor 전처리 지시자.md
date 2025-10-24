@@ -1,4 +1,4 @@
-# c++ compiler preprocessor 전처리 지시자
+# c++ base compiler preprocessor 전처리 지시자
 
 ```cpp
 // 치환

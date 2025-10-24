@@ -1,4 +1,4 @@
-# RestAPI RESTless
+# L7 http RestAPI RESTless
 
 > RESTful 원칙을 지키지 않는 API (e.g. 원칙을 지키지 않은 HTTP API, GraphQL API, SOAP API 등)
 >

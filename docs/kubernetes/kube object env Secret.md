@@ -1,4 +1,4 @@
-# kubernetes Secret
+# kube object env Secret
 
 > 환경변수 or 볼륨으로 사용할 데이터를 저장하는 리소스
 >

@@ -1,4 +1,4 @@
-# aws amazon-linux
+# aws EC2 amazon-linux
 
 ## 패키지 관리자
 

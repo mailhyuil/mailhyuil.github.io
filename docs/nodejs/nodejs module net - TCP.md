@@ -1,4 +1,4 @@
-# nodejs module net (TCP)
+# nodejs module net - TCP
 
 > 소켓을 사용하여 TCP 계층의 서버와 클라이언트를 만들 수 있는 모듈
 >

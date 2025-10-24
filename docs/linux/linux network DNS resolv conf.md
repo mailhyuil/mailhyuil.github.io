@@ -1,4 +1,4 @@
-# linux DNS resolv.conf
+# linux network DNS resolv conf
 
 > 사용하고자 하는 네임서버를 지정하는 파일
 >

@@ -1,4 +1,4 @@
-# flutter kakao login
+# flutter Kakao SDK
 
 ## install
 

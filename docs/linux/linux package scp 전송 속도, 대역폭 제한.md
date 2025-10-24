@@ -1,4 +1,4 @@
-# linux package scp options -l
+# linux package scp 전송 속도, 대역폭 제한
 
 > 전송 속도 제한 / 대역폭 제한
 >

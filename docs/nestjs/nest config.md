@@ -1,4 +1,4 @@
-# nestjs config
+# nest config
 
 > process.env를 사용하는 것보다 Type-safe, Remote Config, Validation 등의 기능을 제공
 >

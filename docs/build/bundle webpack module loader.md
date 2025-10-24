@@ -1,4 +1,4 @@
-# webpack Loader
+# bundle webpack module loader
 
 > webpack은 js, json 파일만 읽을 수 있다
 >

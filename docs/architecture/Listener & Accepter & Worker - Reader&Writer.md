@@ -1,4 +1,4 @@
-# Listener & Accepter & Worker (Reader&Writer)
+# Listener & Accepter & Worker - Reader&Writer
 
 > 비즈니스 환경에 따라서 몇개의 listener, accepter, worker를 둘지를 결정해야 효과적인 서버 아키텍처를 구축할 수 있다.
 

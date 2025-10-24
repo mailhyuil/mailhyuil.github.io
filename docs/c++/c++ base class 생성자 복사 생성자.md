@@ -1,4 +1,4 @@
-# c++ base class 복사 생성자
+# c++ base class 생성자 복사 생성자
 
 > 같은 상태를 가진 객체를 생성하는 생성자
 > const T&를 사용

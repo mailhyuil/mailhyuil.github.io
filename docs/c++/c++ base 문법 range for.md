@@ -1,4 +1,4 @@
-# c++ range for
+# c++ base 문법 range for
 
 ```cpp
 for (int i : {1, 2, 3, 4, 5}) {

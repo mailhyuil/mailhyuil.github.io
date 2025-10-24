@@ -1,4 +1,4 @@
-# js sort() by string
+# js array sort by string
 
 ```js
 for (const group in groupedResult) {

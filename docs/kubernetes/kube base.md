@@ -1,4 +1,4 @@
-# kubernetes
+# kube base
 
 > 컨테이너들을 관리하기 위한 플랫폼
 >

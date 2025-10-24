@@ -1,4 +1,4 @@
-# promise delay
+# js delay
 
 ## void
 

@@ -1,4 +1,4 @@
-# http statusCode 0
+# L7 http Status Code 0
 
 > 서버가 꺼져있는 등의 이유로 response가 없을 때
 >

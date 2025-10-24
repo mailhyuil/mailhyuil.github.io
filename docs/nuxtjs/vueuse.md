@@ -1,4 +1,4 @@
-# @vueuse/core
+# vueuse
 
 > vue의 Composition Utilities 패키지
 >

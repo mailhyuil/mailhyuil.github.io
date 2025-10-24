@@ -1,4 +1,4 @@
-# c++ base pointer member 변수 pointer
+# c++ base pointer member 변수
 
 > 동적으로 메모리를 할당하기 위해서 string은 포인터로 선언한다.
 >

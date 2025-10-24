@@ -1,4 +1,4 @@
-# go base map
+# go base type map
 
 > map[key]value{} 형태로 사용한다.
 >

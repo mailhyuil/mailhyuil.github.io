@@ -1,4 +1,4 @@
-# go func Named Return Parameter
+# go base func Named Return Parameter
 
 > return type 명시 부분에 (name type) 형태로 작성하면
 >

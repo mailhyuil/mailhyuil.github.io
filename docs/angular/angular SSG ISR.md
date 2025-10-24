@@ -1,4 +1,4 @@
-# angular SSG ISR (Incremental Static Regeneration)
+# angular SSG ISR
 
 > SSG와 같지만 SSG는 빌드 시에 한번 ISR은 주기적으로 렌더링하여 캐싱
 

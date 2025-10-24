@@ -1,4 +1,4 @@
-# go package Reflect
+# go base type reflect
 
 > 런타임에 동적으로 타입이나 객체의 정보를 다루기 위한 기능
 >

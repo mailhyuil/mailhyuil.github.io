@@ -1,4 +1,4 @@
-# amazon-cloudwatch-agent
+# log-agent amazon-cloudwatch-agent
 
 ## install
 

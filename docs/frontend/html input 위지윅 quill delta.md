@@ -1,4 +1,4 @@
-# input 위지윅 quill delta
+# html input 위지윅 quill delta
 
 ## delta를 사용하는 이유
 

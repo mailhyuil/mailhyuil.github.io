@@ -1,4 +1,4 @@
-# Headless service
+# kube object Service Headless Service
 
 > 쿠버네티스 서비스 생성 시 .spec.clusterIP 필드 값을 None으로 설정하면 클러스터 IP가 없는 서비스를 만들 수 있습니다. 이런 서비스를 '헤드리스 서비스(Headless Service)'라고 합니다.
 >

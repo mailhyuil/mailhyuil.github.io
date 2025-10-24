@@ -1,4 +1,4 @@
-# flutter Route & Navigator
+# flutter Router v1
 
 > 초기에 쓰던 라우터 방식
 >

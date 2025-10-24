@@ -1,4 +1,4 @@
-# webpack externals
+# bundle webpack base externals & externalsPresets
 
 ## externals
 

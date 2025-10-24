@@ -1,4 +1,4 @@
-# go base conditional select
+# go base goroutine select
 
 > goroutine에서 주로 사용하는 분기문
 >

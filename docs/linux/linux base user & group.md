@@ -1,4 +1,4 @@
-# 유저관리
+# linux base user & group
 
 > > root, bin, daemon, adm 등의 자동 생성 계정을 시스템 계정이라 부른다.
 > >

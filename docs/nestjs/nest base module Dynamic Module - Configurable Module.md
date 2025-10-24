@@ -1,4 +1,4 @@
-# nestjs base Dynamic Module (Configurable Module)
+# nest base module Dynamic Module - Configurable Module
 
 > register: import 할때마다 다른 설정을 하고싶을 때
 >

@@ -1,4 +1,4 @@
-# typescript moduleResolution
+# typescript module resolution
 
 > module을 어떻게 resolve (해석, path 탐색, 참조)할지 지정한다.
 >

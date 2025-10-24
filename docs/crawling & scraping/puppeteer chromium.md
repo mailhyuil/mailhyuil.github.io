@@ -1,4 +1,4 @@
-# puppeteer install chrome
+# puppeteer chromium
 
 ## install
 

@@ -1,4 +1,4 @@
-# nodejs event-loop
+# nodejs event loop
 
 > 이벤트 루프는 각 queue에 등록된 콜백 함수를 main thread로 가져오는 역할
 >

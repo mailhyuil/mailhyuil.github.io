@@ -1,4 +1,4 @@
-# 숫자에 콤마
+# js number 숫자에 콤마
 
 ```js
 const res = 123124123.toLocaleString();

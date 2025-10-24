@@ -1,4 +1,4 @@
-# kubernetes yaml 파일 생성하기
+# kube manifest yaml 파일 생성하기
 
 ```sh
 # pod

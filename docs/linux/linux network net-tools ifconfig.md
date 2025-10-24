@@ -1,4 +1,4 @@
-# linux ifconfig
+# linux network net-tools ifconfig
 
 ## install
 

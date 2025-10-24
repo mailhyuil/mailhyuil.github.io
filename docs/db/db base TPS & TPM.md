@@ -1,4 +1,4 @@
-# db transaction TPS & TPM
+# db base TPS & TPM
 
 ## TPS(Transaction Per Second)
 

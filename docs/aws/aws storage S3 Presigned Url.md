@@ -1,4 +1,4 @@
-# aws s3 Presigned URL
+# aws storage S3 Presigned Url
 
 > 에러 발생 시 브라우저로 presigned url에 접근하면 에러 내용을 볼 수 있다.
 >

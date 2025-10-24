@@ -1,4 +1,4 @@
-# prisma type Get type
+# prisma infer type
 
 ```ts
 // GetPayload

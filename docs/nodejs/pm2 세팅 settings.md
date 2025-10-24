@@ -1,4 +1,4 @@
-# pm2 settings
+# pm2 세팅 settings
 
 ```js
 module.exports = {

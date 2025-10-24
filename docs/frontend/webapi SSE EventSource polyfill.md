@@ -1,4 +1,4 @@
-# event source polyfill
+# webapi SSE EventSource polyfill
 
 > event source에 header를 사용할 수 있게 해줌
 

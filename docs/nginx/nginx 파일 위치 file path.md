@@ -1,4 +1,4 @@
-# nginx config 위치
+# nginx 파일 위치 file path
 
 ## nginx config
 

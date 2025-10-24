@@ -1,4 +1,4 @@
-# js this
+# js context 실행컨텍스트 this
 
 > this란 현재 실행 컨텍스트 내의 thisValue를 가리킨다.
 >

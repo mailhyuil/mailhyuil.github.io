@@ -1,4 +1,4 @@
-# props & emits
+# angular props & emits
 
 ## props
 

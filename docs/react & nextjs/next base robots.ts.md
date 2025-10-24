@@ -1,4 +1,4 @@
-# next robots.txt
+# next base robots.ts
 
 ## app/robots.ts
 

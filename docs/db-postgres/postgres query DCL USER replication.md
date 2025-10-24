@@ -1,4 +1,4 @@
-# postgres replication user
+# postgres query DCL USER replication
 
 ```sql
 -- replication role 생성

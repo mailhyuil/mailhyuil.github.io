@@ -1,4 +1,4 @@
-# Actor & Reactor & Proactor & Active Object
+# x Actor & Reactor & Proactor & Active Object
 
 > 일반 object는 호출하는 동시에 바로 실행되지만, Actor, Reactor, Proactor는 호출 후 실행되는 방식이 다르다.
 

@@ -1,4 +1,4 @@
-# Promise sleep
+# js Promise sleep
 
 ```ts
 const sleep = (ms: number): Promise<void> => {

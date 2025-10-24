@@ -1,4 +1,4 @@
-# TLS DV & EV & OV (인증서 검증 등급/수준)
+# L5 TLS certificate DV & EV & OV - 인증서 검증 등급
 
 ## DV (Domain Validation)
 

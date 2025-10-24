@@ -1,4 +1,4 @@
-# nodejs module stream back pressure
+# nodejs module stream backpressure
 
 > Producer(생산자, read stream)이 데이터를 생산한는 속도를 Consumer(소비자, write stream)가 따라가지 못할 때 발
 >

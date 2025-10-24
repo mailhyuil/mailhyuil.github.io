@@ -1,4 +1,4 @@
-# c++ auto vs decltype
+# c++ base keyword auto vs decltype & declval()
 
 ## auto
 

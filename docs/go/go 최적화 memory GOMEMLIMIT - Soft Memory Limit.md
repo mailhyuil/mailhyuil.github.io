@@ -1,4 +1,4 @@
-# go memory soft memory limit (GOMEMLIMIT)
+# go 최적화 memory GOMEMLIMIT - Soft Memory Limit
 
 > process가 사용할 수 있는 메모리의 limit을 넘으면 OOM (Out Of Memory) 에러가 발생한다.
 >

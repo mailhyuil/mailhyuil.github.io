@@ -1,4 +1,4 @@
-# linux inode
+# linux base inode
 
 > 유닉스 계통 파일 시스템에서 사용하는 자료구조
 >

@@ -1,4 +1,4 @@
-# tailwindcss + nuxt
+# nuxt tailwindcss
 
 ## install
 

@@ -13,7 +13,7 @@ kubectl expose deployment <deployment-name> --name=my-lb --type=LoadBalancer --p
 > 서비스를 생성하면 자동으로 "대문자 스네이크 케이스"의 환경변수가 생성된다.
 
 ```sh
-# (e.g. test)
+# kube object Service expose
 # 확인 명령어 : kubectl exec <pod-name> -- env | grep TEST
 TEST_PORT
 TEST_PORT_80_TCP

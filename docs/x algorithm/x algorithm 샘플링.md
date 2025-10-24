@@ -1,4 +1,4 @@
-# Sampling
+# x algorithm 샘플링
 
 > 대상 집합에서 일부 요소를 선택하는 알고리즘
 

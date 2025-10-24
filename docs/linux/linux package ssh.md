@@ -1,4 +1,4 @@
-# ssh
+# linux package ssh
 
 > 22포트 사용
 

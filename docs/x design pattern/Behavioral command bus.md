@@ -1,4 +1,4 @@
-# command bus
+# Behavioral command bus
 
 > command를 handler에게 전달하는 역할을 하는 객체를 정의하여
 >

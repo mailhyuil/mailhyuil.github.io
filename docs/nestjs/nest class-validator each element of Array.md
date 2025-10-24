@@ -1,4 +1,4 @@
-# class-validator each element of Array
+# nest class-validator each element of Array
 
 ```ts
 @IsArray({ each:true })

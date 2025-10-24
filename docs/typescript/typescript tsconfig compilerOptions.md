@@ -1,4 +1,4 @@
-# typescript compilerOptions
+# typescript tsconfig compilerOptions
 
 ```json
 {

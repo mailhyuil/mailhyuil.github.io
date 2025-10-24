@@ -1,1 +1,1 @@
-# esbuild plugin
+# bundle esbuild plugin

@@ -1,4 +1,4 @@
-# TestBed createComponent vs compileComponents
+# testing angular TestBed createComponent vs compileComponent
 
 ## createComponent
 

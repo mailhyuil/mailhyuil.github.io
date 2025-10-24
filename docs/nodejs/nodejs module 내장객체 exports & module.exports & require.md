@@ -1,4 +1,4 @@
-# 내장객체 module.exports & exports & require
+# nodejs module 내장객체 exports & module.exports & require
 
 > module.exports === exports
 >

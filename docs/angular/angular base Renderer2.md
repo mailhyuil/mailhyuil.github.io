@@ -1,4 +1,4 @@
-# angular Renderer2
+# angular base Renderer2
 
 > DOM을 직접 조작하는 것보다 안전한 방식
 

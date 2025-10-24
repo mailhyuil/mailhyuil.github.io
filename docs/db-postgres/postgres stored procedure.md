@@ -1,4 +1,4 @@
-# Stored Procedure
+# postgres stored procedure
 
 > 재사용이 가능한 쿼리문의 집합
 >

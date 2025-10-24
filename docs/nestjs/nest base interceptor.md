@@ -1,4 +1,4 @@
-# nest interceptor
+# nest base interceptor
 
 > 요청과 응답을 가로채서 "변형"할 수 있는 컴포넌트
 >

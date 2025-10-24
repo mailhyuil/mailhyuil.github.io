@@ -1,4 +1,4 @@
-# typescript final class
+# typescript class final class
 
 > decorator를 이용하여 final class를 만들 수 있다.
 >

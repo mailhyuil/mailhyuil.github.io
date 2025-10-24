@@ -1,4 +1,4 @@
-# rxjs interval
+# rxjs creation scheduler interval
 
 ```ts
 import { interval, take } from "rxjs";

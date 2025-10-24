@@ -1,4 +1,4 @@
-# state pattern
+# Behavioral state
 
 > 상태 패턴은 객체의 **내부 상태**에 따라 행위를 변경해주는 패턴입니다.
 >

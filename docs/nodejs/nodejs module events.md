@@ -1,4 +1,4 @@
-# eventEmitter
+# nodejs module events
 
 > Nodejs의 비동기, 논블로킹 I/O 매커니즘을 처리하는 핵심적인 부분
 

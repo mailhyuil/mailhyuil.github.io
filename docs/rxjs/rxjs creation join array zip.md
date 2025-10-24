@@ -1,4 +1,4 @@
-# rxjs creation join zip
+# rxjs creation join array zip
 
 > 인덱스에 맞춰서 묶어준다
 >

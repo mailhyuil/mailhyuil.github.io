@@ -1,4 +1,4 @@
-# Class get set
+# typescript class get & set
 
 > class는 자바스크립트 코드로 트랜스파일링 되기 때문에 용량을 차지한다 (type & interface는 런타임 동안 객체를 인스턴스화한다)
 

@@ -1,4 +1,4 @@
-# elasticsearch + logstash + kibana (ELK) stack
+# elasticsearch + logstash + kibana
 
 ## docker-compose.yaml
 

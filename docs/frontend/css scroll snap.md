@@ -1,4 +1,4 @@
-# scroll snap
+# css scroll snap
 
 ## tailwindcss scroll snap
 

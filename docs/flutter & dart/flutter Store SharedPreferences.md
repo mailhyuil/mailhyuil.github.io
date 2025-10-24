@@ -1,4 +1,4 @@
-# flutter SharedPreferences
+# flutter Store SharedPreferences
 
 > 데이터를 로컬에 저장
 >

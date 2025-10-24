@@ -1,4 +1,4 @@
-# nuxt composables
+# nuxt compasables
 
 > use[Name]을 사용하여 전역으로 사용할 수 있는 메소드
 >

@@ -1,4 +1,4 @@
-# minibatch
+# algorithm minibatch
 
 > 데이터를 모아놨다가 한번에 처리하는 기법
 >

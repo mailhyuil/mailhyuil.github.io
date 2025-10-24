@@ -1,4 +1,4 @@
-# rxjs shareReplay cache
+# rxjs multicasting shareReplay - cache
 
 > 구독자들(컴포넌트에게) 서비스에서 Observable을 넘겨서 구독하게 하고 shareReplay를 사용하면 캐시된 데이터를 보내준다.
 >

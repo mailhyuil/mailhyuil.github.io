@@ -1,1 +1,1 @@
-# postgres GiST index (Generalized Search Tree)
+# postgres index GiST

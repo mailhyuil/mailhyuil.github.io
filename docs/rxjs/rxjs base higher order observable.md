@@ -1,4 +1,4 @@
-# rxjs higher order observable
+# rxjs base higher order observable
 
 > observable을 방출하는 observable
 >

@@ -1,4 +1,4 @@
-# linux base tcp/ip socket
+# linux network socket tcp ip socket
 
 > network 통신을 하기 위한 구조체
 >

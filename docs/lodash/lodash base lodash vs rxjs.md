@@ -1,4 +1,4 @@
-# lodash vs rxjs
+# lodash base lodash vs rxjs
 
 ## lodash
 

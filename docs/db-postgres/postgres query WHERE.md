@@ -1,4 +1,4 @@
-# postgres where
+# postgres query WHERE
 
 ## 비교연산자
 

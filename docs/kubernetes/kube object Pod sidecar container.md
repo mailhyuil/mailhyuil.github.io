@@ -1,4 +1,4 @@
-# kubernetes object Pod sidecar container pod
+# kube object Pod sidecar container
 
 > sidecar: 오토바이 옆에 달린 보조 좌석 // 오토바이가 없으면 움직일 수 없다.
 >

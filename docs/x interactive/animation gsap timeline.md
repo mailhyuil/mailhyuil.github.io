@@ -1,4 +1,4 @@
-# gsap timeline
+# animation gsap timeline
 
 > to / from / fromTo를 여러개 써서 delay를 건것 과 같다
 

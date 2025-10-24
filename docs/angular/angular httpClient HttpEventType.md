@@ -1,4 +1,4 @@
-# httpClient HttpEventType
+# angular httpClient HttpEventType
 
 > angular에서 제공하는 Response 객체
 

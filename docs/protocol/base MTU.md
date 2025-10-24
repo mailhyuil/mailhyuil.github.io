@@ -1,4 +1,4 @@
-# MTU (maximum transfer unit)
+# base MTU
 
 > 최대 전송 단위
 >

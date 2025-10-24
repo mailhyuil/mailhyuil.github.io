@@ -1,4 +1,4 @@
-# docker redis clear cache
+# Docker image redis clear cache
 
 ```sh
 docker exec -it container-name redis-cli FLUSHALL

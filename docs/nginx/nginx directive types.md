@@ -1,4 +1,4 @@
-# nginx base directive types
+# nginx directive types
 
 ```conf
 types {

@@ -1,4 +1,4 @@
-# nodejs module resolution main vs module
+# nodejs module module resolution main vs module
 
 > 둘 다 entrypoint를 지정하는 필드
 >

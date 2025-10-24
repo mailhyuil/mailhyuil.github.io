@@ -1,4 +1,4 @@
-# pm2 auto scaling
+# pm2 cluster auto scaling
 
 > cpu 사용량에 따라 pm2 클러스터의 인스턴스를 자동으로 조정하는 방법
 >

@@ -1,4 +1,4 @@
-# prometheus
+# prometheus base
 
 > 프로메테우스는 시스템, 프로세스의 매트릭스 데이터를 모니터링하는게 주된 목적
 >

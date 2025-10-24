@@ -1,4 +1,4 @@
-# Gradle (그레들)
+# spring Gradle - 그레들
 
 > Groovy 또는 Kotlin \*도메인 특화 언어(DSL)을 사용하여 작성
 >

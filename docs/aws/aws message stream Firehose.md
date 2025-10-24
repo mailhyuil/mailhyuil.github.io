@@ -1,1 +1,1 @@
-# aws message Firehose
+# aws message stream Firehose

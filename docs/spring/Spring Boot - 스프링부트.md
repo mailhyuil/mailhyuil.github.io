@@ -1,4 +1,4 @@
-# SpringBoot (스프링부트)
+# Spring Boot - 스프링부트
 
 > viewResolver는 자동으로 `templates 폴더` 안을 찾는다
 

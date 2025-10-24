@@ -1,4 +1,4 @@
-# nodejs vscode extension
+# vscode extension
 
 ## install
 

@@ -1,4 +1,4 @@
-# email SPF, DKIM, DMARC
+# L7 email 보안 SPF, DKIM, DMARC
 
 ## SPF (Sender Policy Framework)
 

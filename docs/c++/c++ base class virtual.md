@@ -1,4 +1,4 @@
-# c++ virtual
+# c++ base class virtual
 
 > 부모 클래스의 함수에 virtual을 붙이면
 >

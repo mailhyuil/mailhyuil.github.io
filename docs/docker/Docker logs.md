@@ -1,4 +1,4 @@
-# docker log
+# Docker logs
 
 > docker는 STDOUT/STDERR(console)에 찍힌 로그를 파일로 저장한다.
 >

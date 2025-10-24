@@ -1,4 +1,4 @@
-# CDC Outbox Pattern
+# x CDC Outbox Pattern
 
 > 데이터베이스와 메시지 큐의 트랜잭션 불일치 문제를 해결하기 위한 디자인 패턴
 >

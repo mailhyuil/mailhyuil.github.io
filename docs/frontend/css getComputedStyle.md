@@ -1,4 +1,4 @@
-# getComputedStyle
+# css getComputedStyle
 
 > element.style로는 인라인 스타일만 가져올 수 있다.
 >

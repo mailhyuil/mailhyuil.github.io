@@ -1,4 +1,4 @@
-# js swap
+# algorithm swap
 
 ## 기존 스타일
 

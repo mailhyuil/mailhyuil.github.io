@@ -1,4 +1,4 @@
-# app.locals & req.app.locals & res.locals
+# express app.locals & req.app.locals & res.locals
 
 > res.user, res.locals.user 뭘 쓰든 상관없다
 > 하지만 view engine을 사용할 때는 res.locals를 사용해야한다.

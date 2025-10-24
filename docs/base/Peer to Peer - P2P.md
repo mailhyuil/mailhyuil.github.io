@@ -1,4 +1,4 @@
-# Peer to Peer (P2P)
+# Peer to Peer - P2P
 
 > P2P는 클라이언트 컴퓨터끼리 직접적으로 통신하는 방식
 >

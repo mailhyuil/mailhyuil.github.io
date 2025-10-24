@@ -1,4 +1,4 @@
-# terser
+# bundle terser
 
 > terse : 간결한, 간단한, 짧은
 >

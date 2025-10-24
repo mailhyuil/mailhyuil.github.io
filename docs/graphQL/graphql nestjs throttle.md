@@ -1,4 +1,4 @@
-# nestjs graphql throttle
+# graphql nestjs throttle
 
 ## GqlThrottleGuard
 

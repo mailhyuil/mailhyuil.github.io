@@ -1,4 +1,4 @@
-# postgres WAL 아카이브 pg_basebackup
+# postgres backup pg_basebackup
 
 > pg_basebackup은 물리적 백업 방법으로 실제 디스크의 데이터 파일을 복사하여 백업하는 방법이다.
 >

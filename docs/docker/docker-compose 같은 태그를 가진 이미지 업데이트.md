@@ -1,4 +1,4 @@
-# docker-compose update image 태그가 같을 시
+# docker-compose 같은 태그를 가진 이미지 업데이트
 
 ```sh
 docker compose pull # image update

@@ -1,4 +1,4 @@
-# go func built-in
+# go base func built-in
 
 > built-in 함수들은 오버라이딩할 수 없음
 

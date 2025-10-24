@@ -1,4 +1,4 @@
-# typescript tsconfig compilerOptions index.d.ts
+# typescript tsconfig compilerOptions declaration - index.d.ts
 
 > index.d.ts를 생성
 >

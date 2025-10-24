@@ -1,4 +1,4 @@
-# event beforeunload & pagehide
+# event 페이지 beforeunload & pagehide
 
 > 브라우저가 닫히거나 페이지를 떠날 때 발생하는 이벤트
 

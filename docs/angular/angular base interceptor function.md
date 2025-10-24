@@ -1,4 +1,4 @@
-# angular interceptor function
+# angular base interceptor function
 
 ## 구현
 

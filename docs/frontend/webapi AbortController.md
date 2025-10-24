@@ -1,4 +1,4 @@
-# js AbortController
+# webapi AbortController
 
 > 비동기 작업을 중단시키는 controller
 >

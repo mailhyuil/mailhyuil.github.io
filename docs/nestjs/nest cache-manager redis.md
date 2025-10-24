@@ -1,4 +1,4 @@
-# nest cache redis
+# nest cache-manager redis
 
 > cache-manager는 기본으로 in-memory 캐시를 사용한다.
 >

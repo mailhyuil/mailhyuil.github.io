@@ -1,4 +1,4 @@
-# nest session properties
+# nest auth session properties
 
 ## Session.regenerate(callback)
 

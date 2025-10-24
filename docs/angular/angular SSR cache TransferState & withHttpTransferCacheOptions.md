@@ -1,4 +1,4 @@
-# angular SSR data caching
+# angular SSR cache TransferState & withHttpTransferCacheOptions
 
 > 서버에서 external api에 요청한 데이터를 클라이언트에서 다시 요청하지 않도록 하기 위해 캐싱
 >

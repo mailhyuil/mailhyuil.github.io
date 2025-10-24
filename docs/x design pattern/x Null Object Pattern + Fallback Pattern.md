@@ -1,4 +1,4 @@
-# Null Object Pattern + Fallback Pattern
+# x Null Object Pattern + Fallback Pattern
 
 > null object를 fallback으로 사용
 

@@ -1,4 +1,4 @@
-# hash-file.ts
+# nodejs module crypto hash file
 
 > 파일 무결성 용도로 md5가 많이 사용된다.
 

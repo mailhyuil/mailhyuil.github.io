@@ -1,4 +1,4 @@
-# DFS (Depth First Search)
+# algorithm 그래프순회 DFS - Depth First Search
 
 > '그래프 자료구조(리스트(2차원 배열))'에 대해서 '스택 자료구조'로 구현
 >

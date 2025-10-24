@@ -1,4 +1,4 @@
-# navigator.mediaDevices
+# webapi navigator mediaDevices
 
 > 사용자의 카메라, 마이크를 사용할 수 있는 API
 

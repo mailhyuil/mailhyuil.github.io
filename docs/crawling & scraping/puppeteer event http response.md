@@ -1,4 +1,4 @@
-# puppeteer http response
+# puppeteer event http response
 
 ```ts
 page.on("response", response => {

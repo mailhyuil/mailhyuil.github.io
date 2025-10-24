@@ -1,4 +1,4 @@
-# webpack splitChunks code splitting
+# bundle webpack optimization splitChunks - code splitting
 
 > splitChunks 방식과 entry에 dynamic import 방식을 사용하여 코드를 분리하는 방법
 

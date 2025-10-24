@@ -1,4 +1,4 @@
-# result pattern
+# x result pattern
 
 ```ts
 type Result<Error, Value> =

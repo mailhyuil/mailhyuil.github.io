@@ -1,4 +1,4 @@
-# docker save
+# Docker save
 
 ```sh
 docker save -o <name.tar> <image_name>

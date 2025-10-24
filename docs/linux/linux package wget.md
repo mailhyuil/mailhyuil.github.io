@@ -1,4 +1,4 @@
-# wget
+# linux package wget
 
 ## install
 

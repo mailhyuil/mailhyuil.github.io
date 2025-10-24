@@ -1,4 +1,4 @@
-# TLS n차 도메인에 적용
+# L5 TLS n차 도메인에 적용 - san & wildcard
 
 ## SAN 방식 (Subject Alternative Name)
 

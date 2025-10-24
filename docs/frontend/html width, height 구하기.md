@@ -1,4 +1,4 @@
-# width, height 구하기
+# html width, height 구하기
 
 ## browser
 

@@ -1,4 +1,4 @@
-# kubernetes object Pod multi container pod
+# kube object Pod multi container pod
 
 > 단순히 여러개의 containers를 띄우면 된다.
 

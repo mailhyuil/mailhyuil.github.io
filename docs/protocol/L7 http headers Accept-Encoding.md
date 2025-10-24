@@ -1,4 +1,4 @@
-# http MIME Accept-Encoding
+# L7 http headers Accept-Encoding
 
 > 브라우저가 자동으로 추가하는 헤더
 >

@@ -1,4 +1,4 @@
-# ScrollStore
+# angular state management ScrollStore
 
 ## scroll.store.ts
 

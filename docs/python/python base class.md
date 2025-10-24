@@ -1,4 +1,4 @@
-# python class
+# python base class
 
 > 첫번째 인자로 self를 넣어줘야함
 

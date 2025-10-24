@@ -1,4 +1,4 @@
-# chatgpt fine tuning
+# ai base fine tuning
 
 > 미세조정이라는 의미
 >

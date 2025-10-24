@@ -1,4 +1,4 @@
-# nest interceptor ExecutionTimeInterceptor
+# nest base interceptor ExecutionTimeInterceptor
 
 ## 구현
 

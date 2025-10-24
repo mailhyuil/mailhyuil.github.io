@@ -1,4 +1,4 @@
-# ng-content
+# angular ng-content
 
 ## html
 

@@ -1,4 +1,4 @@
-# Maven (메이븐)
+# spring Maven - 메이븐
 
 ```
 mvn update

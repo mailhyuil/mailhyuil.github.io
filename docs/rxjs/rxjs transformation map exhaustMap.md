@@ -1,4 +1,4 @@
-# rxjs map exhaustMap
+# rxjs transformation map exhaustMap
 
 > outer가 값을 방출하면 inner를 구독하고 구독 중 outer가 방출한 값을 무시합니다.
 >

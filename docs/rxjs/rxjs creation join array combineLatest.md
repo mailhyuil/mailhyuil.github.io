@@ -1,4 +1,4 @@
-# rxjs creation join combineLatest
+# rxjs creation join array combineLatest
 
 > 인덱스에 맞춰서 묶어준다
 >

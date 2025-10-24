@@ -1,4 +1,4 @@
-# Jenkins
+# cicd jenkins
 
 > 설치 후 로그인
 > 새로운 item -> Freestyle project -> GitHub project에 Project url 넣기

@@ -1,4 +1,4 @@
-# aws lambda
+# aws Lambda
 
 > you must also use S3 to host the files and API Gateway to expose the API over HTTP.
 

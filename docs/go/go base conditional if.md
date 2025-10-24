@@ -1,4 +1,4 @@
-# go base if
+# go base conditional if
 
 ```go
 if age < 16 {

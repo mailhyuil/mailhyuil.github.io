@@ -1,4 +1,4 @@
-# prisma distinct
+# prisma aggregate distinct
 
 > 중복값을 제거한 데이터 (distinct data)를 얻기 위해 사용
 >

@@ -1,4 +1,4 @@
-# while true break pattern
+# x while true break pattern
 
 > 블록안의 로직이 복잡할 경우 사용을 지양
 >

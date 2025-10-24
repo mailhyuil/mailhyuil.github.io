@@ -1,4 +1,4 @@
-# db 복합 PK
+# db primary key composite key - 복합 PK
 
 > 복합 PK는 두 개 이상의 컬럼을 PK로 사용하는 것을 말합니다.
 >

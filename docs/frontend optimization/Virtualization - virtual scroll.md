@@ -1,4 +1,4 @@
-# frontend Virtual Scroll
+# Virtualization - virtual scroll
 
 > 화면에 스크롤, 슬라이드 등으로 보여지는 요소가 많을 때
 >

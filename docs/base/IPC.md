@@ -1,4 +1,4 @@
-# IPC (Inter-Process Communication)
+# IPC
 
 > 프로세스 간에 데이터를 주고받는 기술
 

@@ -1,4 +1,4 @@
-# Handler (Controller)
+# spring Handler - Controller
 
 ## 스프링이 지원하는 Controller & HandlerAdapter 4가지
 

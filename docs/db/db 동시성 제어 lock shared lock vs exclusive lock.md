@@ -1,4 +1,4 @@
-# db transaction lock shared lock vs exclusive lock
+# db 동시성 제어 lock shared lock vs exclusive lock
 
 > 주의
 >

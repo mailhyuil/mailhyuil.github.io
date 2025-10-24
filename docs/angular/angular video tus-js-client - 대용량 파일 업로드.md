@@ -1,4 +1,4 @@
-# tus-js-client
+# angular video tus-js-client - 대용량 파일 업로드
 
 > resumable upload protocol를 구현한 라이브러리
 >

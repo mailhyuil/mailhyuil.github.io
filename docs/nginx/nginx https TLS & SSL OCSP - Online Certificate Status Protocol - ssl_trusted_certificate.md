@@ -13,7 +13,7 @@
 > > > > (해당 기능이 정상동작을 하기 위해서는 서버가 외부 인증기관과 직접 통신이 가능해야 합니다.)
 
 ```conf
-# (optional) enable OCSP stapling
+# nginx https TLS & SSL OCSP - Online Certificate Status Protocol - ssl_trusted_certificate
 ssl_trusted_certificate /etc/nginx/ssl/ssl_trusted_certificate.pem;
 ssl_stapling on;
 ssl_stapling_verify on;

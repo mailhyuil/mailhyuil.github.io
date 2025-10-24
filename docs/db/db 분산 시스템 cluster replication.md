@@ -1,4 +1,4 @@
-# db replication
+# db 분산 시스템 cluster replication
 
 > 데이터베이스 복제는 데이터베이스의 데이터를 여러 머신에 복사하는 프로세스
 >

@@ -1,4 +1,4 @@
-# nginx base zstd (zstandard)
+# nginx module zip zstd - zstandard
 
 > 구글에서 2013년에 발표된 압축 알고리즘
 >

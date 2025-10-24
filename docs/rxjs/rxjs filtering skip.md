@@ -1,4 +1,4 @@
-# rxjs skip
+# rxjs filtering skip
 
 > 지정된 수만큼 값을 건너뛰고 나머지 값을 방출합니다.
 

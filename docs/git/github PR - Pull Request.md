@@ -1,4 +1,4 @@
-# github PR (Pull Request)
+# github PR - Pull Request
 
 1. 브랜치 생성
 

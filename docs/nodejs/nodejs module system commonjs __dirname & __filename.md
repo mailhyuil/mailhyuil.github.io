@@ -1,4 +1,4 @@
-# nodejs module system commonjs \_\_dirname & \_\_filename
+# nodejs module system commonjs __dirname & __filename
 
 > commonjs 모듈 시스템에서 사용되는 특수한 변수
 >

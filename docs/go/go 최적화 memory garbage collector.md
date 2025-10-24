@@ -1,4 +1,4 @@
-# go memory garbage collector (GC)
+# go 최적화 memory garbage collector
 
 > Heap 메모리에서 사용하지 않는 객체를 제거하는 과정
 

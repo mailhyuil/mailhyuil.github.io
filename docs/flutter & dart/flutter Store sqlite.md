@@ -1,4 +1,4 @@
-# flutter sqlite
+# flutter Store sqlite
 
 > sqlite를 사용하기 위한 패키지
 >

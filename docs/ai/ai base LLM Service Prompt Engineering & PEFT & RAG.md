@@ -1,4 +1,4 @@
-# ai base Prompt Engineering & PEFT & RAG
+# ai base LLM Service Prompt Engineering & PEFT & RAG
 
 ## 프롬프트 엔지니어링
 

@@ -1,1 +1,1 @@
-# winston-loki
+# winston winston-loki

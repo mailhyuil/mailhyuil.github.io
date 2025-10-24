@@ -1,4 +1,4 @@
-# babel plugin preset-typescript
+# compile babel preset-typescript
 
 > tsc 대신 babel을 사용할 수 있게 해주는 플러그인
 >

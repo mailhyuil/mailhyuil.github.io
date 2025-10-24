@@ -1,4 +1,4 @@
-# http MIME (Multipurpose Internet Mail Extensions)
+# L7 http headers MIME
 
 > SMTP의 MIME을 일부 차용했다. (전부 사용하지 않는다, 또한 다른 방법으로 사용하는 것도 있다.)
 >

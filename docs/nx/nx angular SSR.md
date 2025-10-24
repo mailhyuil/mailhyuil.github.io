@@ -1,4 +1,4 @@
-# nx angular ssr
+# nx angular SSR
 
 ## generate
 

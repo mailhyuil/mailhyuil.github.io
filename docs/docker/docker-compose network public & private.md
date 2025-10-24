@@ -1,4 +1,4 @@
-# docker-compose public & private
+# docker-compose network public & private
 
 ```yaml
 version: "3.8"

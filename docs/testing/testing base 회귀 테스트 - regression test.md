@@ -1,4 +1,4 @@
-# testing base 회귀 테스트 (regression test)
+# testing base 회귀 테스트 - regression test
 
 > Regression 테스트는 코드 변경(버그 수정, 새 기능 추가, 리팩토링 등) 후에 기존에 잘 작동하던 기능들이 여전히 정상적으로 동작하는지 확인하는 테스트입니다.
 >

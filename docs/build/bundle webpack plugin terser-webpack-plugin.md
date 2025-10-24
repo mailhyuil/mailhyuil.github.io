@@ -1,4 +1,4 @@
-# webpack TerserWebpackPlugin
+# bundle webpack plugin terser-webpack-plugin
 
 > minify, uglify
 

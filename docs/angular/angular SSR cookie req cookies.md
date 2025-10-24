@@ -1,4 +1,4 @@
-# angular ssr req cookies
+# angular SSR cookie req cookies
 
 > cookie-parser를 사용해야 req.cookies로 접근 가능
 

@@ -1,4 +1,4 @@
-# hacking settings 세팅
+# hacking 세팅 settings
 
 ```sh
 # mac address 변경

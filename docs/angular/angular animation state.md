@@ -1,4 +1,4 @@
-# angular animations
+# angular animation state
 
 ## ts
 

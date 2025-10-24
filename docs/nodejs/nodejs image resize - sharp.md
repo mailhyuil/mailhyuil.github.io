@@ -1,4 +1,4 @@
-# sharp (이미지 리사이징)
+# nodejs image resize - sharp
 
 > 모바일이나 데스크톱 등등의 사이즈에 맞춰서 리사이징
 

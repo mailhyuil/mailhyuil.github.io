@@ -1,4 +1,4 @@
-# nestjs advanced multi-tenancy
+# nest advanced multi-tenancy
 
 > 애플리케이션의 단일 인스턴스가 여러 고객에게 서비스를 제공하는 아키텍처다.
 >

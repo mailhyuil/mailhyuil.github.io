@@ -1,4 +1,4 @@
-# eslint prettier
+# eslint config eslint-config-prettier
 
 ## install
 

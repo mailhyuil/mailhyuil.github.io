@@ -1,4 +1,4 @@
-# tcp connection
+# L4 TCP connection
 
 > connection을 수립해주는 주체는 커널이다.
 >

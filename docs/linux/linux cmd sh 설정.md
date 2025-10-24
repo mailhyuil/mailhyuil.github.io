@@ -1,4 +1,4 @@
-# linux sh 설정
+# linux cmd sh 설정
 
 > 쉘을 설정하는 방법
 >

@@ -1,4 +1,4 @@
-# JSTL
+# spring JSTL
 
 - forEach에서 변수 두개 사용하기
 

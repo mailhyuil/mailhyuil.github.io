@@ -1,4 +1,4 @@
-# kube Storage PersistentVolumeClaims (PVC)
+# kube Storage Volume object PersistentVolumeClaims
 
 > PersistentVolumeClaims : PersistentVolume요청
 >

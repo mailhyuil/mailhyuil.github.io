@@ -1,4 +1,4 @@
-# linux telnet
+# linux package telnet
 
 > 23번 포트 사용
 

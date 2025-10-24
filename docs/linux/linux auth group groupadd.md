@@ -1,4 +1,4 @@
-# linux cmd groupadd
+# linux auth group groupadd
 
 ```sh
 groupadd <groupname>

@@ -1,4 +1,4 @@
-# typescript abstract
+# typescript class abstract
 
 > abstract class는 인스턴스를 생성할 수 없다.
 >

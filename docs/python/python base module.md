@@ -1,4 +1,4 @@
-# python module & library
+# python base module
 
 ```py
 import 함수

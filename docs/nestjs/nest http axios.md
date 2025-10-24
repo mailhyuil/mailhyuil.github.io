@@ -1,4 +1,4 @@
-# @nestjs/axios
+# nest http axios
 
 ## install
 

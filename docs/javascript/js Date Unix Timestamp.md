@@ -1,4 +1,4 @@
-# js Date Unix Time
+# js Date Unix Timestamp
 
 ```js
 Date.now(); // 현재 시간을 Unix Timestamp로 반환

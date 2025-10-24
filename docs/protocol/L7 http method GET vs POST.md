@@ -1,4 +1,4 @@
-# HTTP GET vs POST
+# L7 http method GET vs POST
 
 > 무엇이 더 안전한가?
 >

@@ -1,4 +1,4 @@
-# 위지윅 에디터
+# html input 위지윅 에디터
 
 > wysiwyg
 >

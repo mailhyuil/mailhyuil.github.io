@@ -1,4 +1,4 @@
-# base metadata discovery (metadata scanning, metadata harvesting)
+# base Metadata Discovery
 
 > 어떤 정보가 존재하는지 확인하는 과정
 >

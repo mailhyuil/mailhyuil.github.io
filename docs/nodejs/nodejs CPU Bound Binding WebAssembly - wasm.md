@@ -1,4 +1,4 @@
-# nodejs WebAssembly (wasm)
+# nodejs CPU Bound Binding WebAssembly - wasm
 
 > native 코드를 브라우저나 nodejs에서 실행할 수 있도록 하는 포맷
 >

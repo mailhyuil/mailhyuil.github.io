@@ -1,4 +1,4 @@
-# nest graceful shutdown
+# nest graceful shutdown onApplicationShutdown
 
 ## main.ts
 

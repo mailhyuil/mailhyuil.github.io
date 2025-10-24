@@ -1,4 +1,4 @@
-# next base Server Component vs Client Component
+# next base SSR Server Component vs Client Component
 
 > 기본은 Server Component 'use server'로 동작
 >

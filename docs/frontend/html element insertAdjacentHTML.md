@@ -1,4 +1,4 @@
-# js insertAdjacentHTML
+# html element insertAdjacentHTML
 
 > HTML을 삽입하는 메소드
 >

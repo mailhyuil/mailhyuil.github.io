@@ -1,4 +1,4 @@
-# angular pipe safe url
+# angular base pipe safe-url
 
 > unsafe value used in a resource URL context 에 사용
 

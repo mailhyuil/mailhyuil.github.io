@@ -1,4 +1,4 @@
-# 마지막 child route 얻기
+# angular route ActivatedRoute 마지막 route 얻기
 
 ## 방법 1. route.firstChild 사용
 

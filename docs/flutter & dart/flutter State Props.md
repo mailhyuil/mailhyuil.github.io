@@ -1,4 +1,4 @@
-# flutter Props
+# flutter State Props
 
 > 생성자 매개변수로 전달
 

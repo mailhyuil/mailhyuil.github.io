@@ -1,4 +1,4 @@
-# rxjs operator combineLatestWith
+# rxjs join with combineLatestWith
 
 > combineLatest와 동작은 같지만 pipe안에서 사용할 수 있습니다.
 

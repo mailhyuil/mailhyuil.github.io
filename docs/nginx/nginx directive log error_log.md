@@ -1,4 +1,4 @@
-# nginx log
+# nginx directive log error_log
 
 ## 에러 로그 레벨
 

@@ -1,4 +1,4 @@
-# react redux
+# next store redux example
 
 > App `<->` Provider `<-` Store `<-` Reducer(State / Actions)
 

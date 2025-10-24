@@ -1,4 +1,4 @@
-# dart abstract class
+# dart class abstract
 
 ```dart
 abstract class Animal {

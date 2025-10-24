@@ -1,4 +1,4 @@
-# 이스케이프 시퀀스
+# c++ base escape squence
 
 ```sh
 \n # 개행

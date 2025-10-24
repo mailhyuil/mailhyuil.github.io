@@ -1,4 +1,4 @@
-# angular ErrorHandler GlobalErrorHandler
+# angular base ErrorHandler GlobalErrorHandler
 
 > Error 인스턴스만 잡는다.
 >

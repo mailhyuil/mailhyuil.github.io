@@ -1,4 +1,4 @@
-# typescript ambient module
+# typescript module ambient module
 
 > typescript는 같은 폴더 내에 있는 변수는 전역으로 사용이 가능하다.
 >

@@ -1,4 +1,4 @@
-# linux signal trap
+# linux shellscript trap 시그널 감지
 
 > 특정 시그널을 감지하고 그에 따라 특정 동작을 수행하도록 스크립트를 설정하는 데 사용
 

@@ -1,4 +1,4 @@
-# c++ class
+# c++ base class
 
 ```cpp
 #include <iostream>

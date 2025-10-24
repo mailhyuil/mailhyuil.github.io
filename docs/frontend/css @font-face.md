@@ -1,4 +1,4 @@
-# font-face
+# css @font-face
 
 > url로 요청을 날려서 font를 font-family 이름으로 지정해줌
 >

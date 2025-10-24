@@ -1,4 +1,4 @@
-# angular web worker
+# angular worker web worker
 
 ## generate
 

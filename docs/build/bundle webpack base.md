@@ -1,4 +1,4 @@
-# Webpack (웹팩)
+# bundle webpack base
 
 ## pack chain
 

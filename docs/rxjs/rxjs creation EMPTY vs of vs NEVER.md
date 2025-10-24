@@ -1,4 +1,4 @@
-# rxjs of() vs EMPTY vs NEVER
+# rxjs creation EMPTY vs of vs NEVER
 
 > EMPTY will not emit a new value across the "next" stream. Instead it instantly emits a complete event.
 >

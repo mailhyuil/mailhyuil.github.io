@@ -1,4 +1,4 @@
-# nodejs stream objectMode
+# nodejs module stream objectMode
 
 > 기본적으로 스트림은 버퍼(Buffer)와 문자열(String) 값을 기대합니다.
 >

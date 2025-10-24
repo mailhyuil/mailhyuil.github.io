@@ -1,4 +1,4 @@
-# js self
+# js context 실행컨텍스트 this vs self vs globalThis
 
 > 항상 전역객체를 가리키는 변수
 

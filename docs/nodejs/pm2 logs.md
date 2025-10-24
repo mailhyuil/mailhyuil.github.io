@@ -1,4 +1,4 @@
-# pm2 log
+# pm2 logs
 
 > ~/.pm2/logs
 >

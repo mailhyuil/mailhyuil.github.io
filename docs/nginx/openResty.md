@@ -1,4 +1,4 @@
-# OpenResty
+# openResty
 
 > lua script를 사용하여 nginx를 동적으로 처리하는 웹 서버
 >

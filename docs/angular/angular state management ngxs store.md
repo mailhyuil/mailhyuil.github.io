@@ -1,4 +1,4 @@
-# angular @ngxs/store
+# angular state management ngxs store
 
 > Action, Selector, State
 >

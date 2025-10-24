@@ -1,4 +1,4 @@
-# NodePort
+# kube object Service NodePort
 
 > ClusterIp 생성 + 외부에서 노드에 접속할 수 있도록 노드 IP의 PORT를 할당
 >

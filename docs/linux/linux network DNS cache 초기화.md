@@ -1,4 +1,4 @@
-# 내 컴퓨터의 DNS 캐쉬 초기화 방법 (DNS Flush)
+# linux network DNS cache 초기화
 
 ## window
 

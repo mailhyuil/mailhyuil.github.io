@@ -1,4 +1,4 @@
-# flyweight
+# Structural flyweight
 
 > 다른 성격을 가진 같은 객체가 여러개 필요 시 객체의 공통 부분만을 뽑아내어 객체를 공유하는 패턴
 >

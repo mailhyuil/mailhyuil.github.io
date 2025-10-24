@@ -1,4 +1,4 @@
-# 객체 리터럴에서 this
+# js 객체 리터럴 this
 
 ```ts
 const obj = {

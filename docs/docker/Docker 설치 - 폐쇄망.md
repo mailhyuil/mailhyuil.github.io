@@ -1,4 +1,4 @@
-# docker 설치 (폐쇄망)
+# Docker 설치 - 폐쇄망
 
 > downloadonly 시 rpm으로 다운로드 받음 (window의 exe와 같은 것)
 >

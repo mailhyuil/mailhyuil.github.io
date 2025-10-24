@@ -1,4 +1,4 @@
-# docker ip 지정
+# Docker ip
 
 > --ip로 지정
 

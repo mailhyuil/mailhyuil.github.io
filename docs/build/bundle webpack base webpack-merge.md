@@ -1,4 +1,4 @@
-# webpack-merge
+# bundle webpack base webpack-merge
 
 > webpack 설정 파일을 합치는 라이브러리
 

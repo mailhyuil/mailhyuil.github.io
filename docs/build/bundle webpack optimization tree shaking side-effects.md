@@ -1,4 +1,4 @@
-# webpack optimization side-effects
+# bundle webpack optimization tree shaking side-effects
 
 ```js
 import "some-module";

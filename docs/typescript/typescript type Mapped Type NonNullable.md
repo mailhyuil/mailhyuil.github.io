@@ -1,4 +1,4 @@
-# typescript NonNullable
+# typescript type Mapped Type NonNullable
 
 > Type으로 부터 null, undefined를 제거해주는 타입
 

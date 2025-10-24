@@ -1,4 +1,4 @@
-# go perf
+# go 최적화 cpu perf
 
 > linux 바이너리 파일을 분석하는 도구
 >

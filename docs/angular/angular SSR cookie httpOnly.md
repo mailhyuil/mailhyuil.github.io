@@ -1,4 +1,4 @@
-# angular ssr cookie httpOnly
+# angular SSR cookie httpOnly
 
 > cookie는 브라우저에서 사용하는 저장소이다
 >

@@ -1,4 +1,4 @@
-# how to change mac address
+# hacking base how to change mac address
 
 > 컴퓨터를 재시작하면 mac address가 초기화된다.
 

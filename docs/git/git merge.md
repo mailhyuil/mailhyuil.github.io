@@ -1,4 +1,4 @@
-# git merge & rebase
+# git merge
 
 > 브랜치들을 하나로 합치는 작업
 >

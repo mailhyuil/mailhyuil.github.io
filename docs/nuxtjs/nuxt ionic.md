@@ -1,4 +1,4 @@
-# nuxtjs/ionic
+# nuxt ionic
 
 ## install
 

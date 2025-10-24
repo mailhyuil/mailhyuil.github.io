@@ -1,4 +1,4 @@
-# go type primitive
+# go base type primitive
 
 ```go
 string

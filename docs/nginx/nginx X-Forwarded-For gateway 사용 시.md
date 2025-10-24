@@ -1,4 +1,4 @@
-# nginx x-forwarded-ip gateway 사용 시
+# nginx X-Forwarded-For gateway 사용 시
 
 ```conf
 # gateway

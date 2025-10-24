@@ -1,4 +1,4 @@
-# Web Application Firewall
+# WebFirewall - WAF
 
 > 일반적인 네트워크 방화벽 (Firewall)과는 달리 웹 애플리케이션 보안에 특화되어 개발된 솔루션입니다.
 >

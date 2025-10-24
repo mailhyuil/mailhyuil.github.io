@@ -1,4 +1,4 @@
-# deletedAt, blockedAt
+# nest deletedAt, blockedAt
 
 > 물리 삭제 (hard delete) : 삭제시 DB에서 삭제
 >

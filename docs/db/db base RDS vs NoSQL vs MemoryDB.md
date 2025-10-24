@@ -1,4 +1,4 @@
-# db base RDS vs NoSQL vs DynamoDB
+# db base RDS vs NoSQL vs MemoryDB
 
 ## RDS
 

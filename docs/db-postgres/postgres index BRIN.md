@@ -1,1 +1,1 @@
-# postgres BRIN index (Block Range INdex)
+# postgres index BRIN

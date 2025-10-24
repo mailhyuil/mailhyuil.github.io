@@ -1,4 +1,4 @@
-# details
+# html details
 
 > open 시 open attribute가 생김
 >

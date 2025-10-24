@@ -1,4 +1,4 @@
-# go benchstat
+# go 최적화 cpu benchstat
 
 > go test -bench 결과를 비교해서 속도 차이, 안정성 한눈에 보여줌
 >

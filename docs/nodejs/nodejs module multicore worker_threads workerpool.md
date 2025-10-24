@@ -1,4 +1,4 @@
-# node worker_threads
+# nodejs module multicore worker_threads workerpool
 
 > worker를 재사용 가능한 pool로 관리해주는 라이브러리
 >

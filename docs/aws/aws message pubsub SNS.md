@@ -1,4 +1,4 @@
-# aws message SNS (Simple Notification Service)
+# aws message pubsub SNS
 
 > pub/sub 메시지 서비스
 >

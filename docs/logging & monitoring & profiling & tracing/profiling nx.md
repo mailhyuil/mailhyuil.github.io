@@ -1,4 +1,4 @@
-# profiling nx serve inspect
+# profiling nx
 
 > build가 아니라 serve option임
 

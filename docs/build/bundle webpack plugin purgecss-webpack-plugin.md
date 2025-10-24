@@ -1,4 +1,4 @@
-# webpack plugin purgecss-webpack-plugin
+# bundle webpack plugin purgecss-webpack-plugin
 
 ## webpack.config.js
 

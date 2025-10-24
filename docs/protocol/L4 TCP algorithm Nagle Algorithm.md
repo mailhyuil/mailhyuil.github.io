@@ -1,4 +1,4 @@
-# Nagle Algorithm (네이글 알고리즘)
+# L4 TCP algorithm Nagle Algorithm
 
 > 세그먼트를 최대 크기가 될 때까지 모아서 한번에 보내는 client side의 알고리즘 (대역폭 효율성 높아짐, 성능 낮아짐)
 >

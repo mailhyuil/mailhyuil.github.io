@@ -1,4 +1,4 @@
-# db transaction lock 비관적 락 & 낙관적 락
+# db 동시성 제어 lock 비관적 락 & 낙관적 락
 
 ## optimistic lock (낙관적 락)
 

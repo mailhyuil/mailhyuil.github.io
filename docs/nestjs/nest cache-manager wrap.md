@@ -1,4 +1,4 @@
-# nest cache wrap
+# nest cache-manager wrap
 
 > 데이터를 반환하는 함수를 캐싱하는 방법
 >

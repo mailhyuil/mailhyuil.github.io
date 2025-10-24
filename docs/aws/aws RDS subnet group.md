@@ -1,4 +1,4 @@
-# rds subnet group
+# aws RDS subnet group
 
 > Amazon RDS가 필요에 따라 다른 가용 영역에 새로운 예비 복제본을 만들 수 있습니다.
 >

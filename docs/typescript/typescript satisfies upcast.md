@@ -1,4 +1,4 @@
-# typescript upcast
+# typescript satisfies upcast
 
 ```ts
 const upcast = <Interface>(implementation: Interface): Interface => {

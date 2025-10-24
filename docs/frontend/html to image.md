@@ -1,4 +1,4 @@
-# html-to-image
+# html to image
 
 ## install
 

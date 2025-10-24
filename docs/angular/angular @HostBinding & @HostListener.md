@@ -1,4 +1,4 @@
-# @HostBinding / @HostListening
+# angular @HostBinding & @HostListener
 
 > component를 감싸는 최상위 객체에 반영됨
 

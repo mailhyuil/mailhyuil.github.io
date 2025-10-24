@@ -1,4 +1,4 @@
-# prisma inheritance 상속
+# prisma relation inheritance 상속
 
 ```prisma
 model Item {

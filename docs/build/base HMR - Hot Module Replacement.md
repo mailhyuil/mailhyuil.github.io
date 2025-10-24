@@ -1,4 +1,4 @@
-# HMR (Hot Module Replacement)
+# base HMR - Hot Module Replacement
 
 > 핫 리로딩
 >

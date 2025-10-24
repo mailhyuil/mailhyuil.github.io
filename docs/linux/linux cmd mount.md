@@ -1,4 +1,4 @@
-# cmd mount
+# linux cmd mount
 
 > /media에 마운트
 

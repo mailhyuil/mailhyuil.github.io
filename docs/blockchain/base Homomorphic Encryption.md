@@ -1,4 +1,4 @@
-# Homomorpic Encryption (동형암호화)
+# base Homomorphic Encryption
 
 > blockchain network의 데이터는 암호화되어 있지 않기 때문에 민감한 정보를 저장하기에는 적합하지 않다.
 >

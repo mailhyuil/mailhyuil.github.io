@@ -1,4 +1,4 @@
-# deauthentication attack (연결 해제 공격)
+# hacking attack deauthentication attack - 연결 해제 공격
 
 > wireless 연결을 해제시키는 공격 방법
 >

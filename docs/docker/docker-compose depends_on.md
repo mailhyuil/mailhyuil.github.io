@@ -1,4 +1,4 @@
-# docker compose depends_on
+# docker-compose depends_on
 
 > 서비스간의 종속성 순서대로 서비스를 시작
 >

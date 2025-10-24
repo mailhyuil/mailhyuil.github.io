@@ -1,4 +1,4 @@
-# testing jest fn partial (부분만 mocking)
+# testing jest fn partial - 부분만 mocking
 
 ```js
 jest.mock("./some.service.ts", () => {

@@ -1,4 +1,4 @@
-# nest OAuth 2.0 & OpenID Connect (OIDC)
+# nest auth OAuth 2.0 & OpenID Connect - OIDC
 
 > OAuth 2.0은 Authorization Framework이며
 >

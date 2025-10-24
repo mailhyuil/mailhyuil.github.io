@@ -1,4 +1,4 @@
-# docker logs error only
+# Docker logs error only
 
 > 1은 stdout, 2는 stderr를 의미한다.
 >

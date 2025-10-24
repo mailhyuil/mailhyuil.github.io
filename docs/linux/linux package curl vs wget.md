@@ -1,4 +1,4 @@
-# linux curl vs wget
+# linux package curl vs wget
 
 > wget 과 curl 은 둘 다 웹 서버로부터 컨텐츠를 가져오는 Linux 커맨드입니다.
 

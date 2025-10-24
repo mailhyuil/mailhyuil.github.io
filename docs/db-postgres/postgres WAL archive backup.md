@@ -1,4 +1,4 @@
-# postgres WAL 아카이브 backup
+# postgres WAL archive backup
 
 > WAL 파일을 재사용하지 않고 보관
 >

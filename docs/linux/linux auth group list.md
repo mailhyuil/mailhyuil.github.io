@@ -1,4 +1,4 @@
-# linux cmd groupadd
+# linux auth group list
 
 ```sh
 cat /etc/group

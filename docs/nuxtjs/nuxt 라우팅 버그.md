@@ -1,4 +1,4 @@
-# nuxtjs 라우팅 버그
+# nuxt 라우팅 버그
 
 ```
 <NuxtPage :key="$route.fullPath" />

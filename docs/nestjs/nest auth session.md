@@ -1,4 +1,4 @@
-# nest session
+# nest auth session
 
 > session 인증 방식
 >

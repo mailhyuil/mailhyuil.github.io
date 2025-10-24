@@ -1,4 +1,4 @@
-# Accept Cookie
+# x Accept Cookie
 
 > 쿠키는 마케팅 용도로도 사용된다
 >

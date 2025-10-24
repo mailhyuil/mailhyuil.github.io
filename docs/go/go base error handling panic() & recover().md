@@ -1,4 +1,4 @@
-# go base panic() & recover()
+# go base error handling panic() & recover()
 
 > panic()은 프로그램을 강제로 종료시키는 함수이다. 주로 예외 상황에서 사용된다.
 >

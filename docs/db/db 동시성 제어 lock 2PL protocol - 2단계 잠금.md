@@ -1,4 +1,4 @@
-# db 동시성 제어 lock 2단계 잠금 (2PL)
+# db 동시성 제어 lock 2PL protocol - 2단계 잠금
 
 > lock을 먼저 수행하고 로직을 전부 처리 후 마지막으로 unlock을 하는 패턴
 >

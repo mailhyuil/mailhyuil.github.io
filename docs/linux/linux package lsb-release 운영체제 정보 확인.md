@@ -1,4 +1,4 @@
-# lsb-release
+# linux package lsb-release 운영체제 정보 확인
 
 > 운영체제 정보는 cat /etc/issue로 확인 가능
 >

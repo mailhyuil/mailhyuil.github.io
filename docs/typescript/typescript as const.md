@@ -1,4 +1,4 @@
-# as const
+# typescript as const
 
 > 타입 단언
 >

@@ -1,4 +1,4 @@
-# framer-motion
+# react animation framer-motion
 
 ## install
 

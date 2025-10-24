@@ -1,4 +1,4 @@
-# 이미지 업로드
+# aws storage S3 image uplaod 과정
 
 1. temp/image_name으로 업로드 (presigned url 사용)
 2. 서버에 요청해서 entity 생성

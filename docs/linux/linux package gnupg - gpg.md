@@ -1,4 +1,4 @@
-# linux base gpg (GNU Privacy Guard)
+# linux package gnupg - gpg
 
 > 개인 정보 및 파일을 암호화하고 디지털 서명을 생성하는 데 사용되는 오픈 소스 암호화 도구
 >

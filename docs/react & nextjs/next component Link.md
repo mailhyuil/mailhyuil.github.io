@@ -1,4 +1,4 @@
-# next routing
+# next component Link
 
 ## Link / useRouter()
 

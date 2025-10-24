@@ -1,4 +1,4 @@
-# nodejs testing jest-mock-extended
+# testing jest-mock-extended
 
 > jest.mock 함수와 비슷하지만 타입 안전성을 보장하고 mockDeep 같은 기능을 지원
 

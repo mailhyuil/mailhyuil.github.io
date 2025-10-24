@@ -1,4 +1,4 @@
-# js marquee, infinity slider, carousel
+# ui Marquee, Infinity slider
 
 > 캐로셀 슬라이더, 무한 슬라이더, 마퀴
 

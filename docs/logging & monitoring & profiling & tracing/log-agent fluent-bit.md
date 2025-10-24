@@ -1,4 +1,4 @@
-# EFK fluentbit
+# log-agent fluent-bit
 
 > fluentd보다 경량화된 log agent
 >

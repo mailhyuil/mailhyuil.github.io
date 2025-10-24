@@ -1,4 +1,4 @@
-# event emitter pattern
+# x event emitter pattern
 
 ## 구현
 

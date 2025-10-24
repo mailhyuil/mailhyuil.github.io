@@ -1,4 +1,4 @@
-# resource hint
+# Resource Hint prefetch, preload, preconnect, dns-prefetch
 
 ## preload
 

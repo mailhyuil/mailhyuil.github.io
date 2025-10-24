@@ -1,1 +1,1 @@
-# redis stream
+# redis base stream

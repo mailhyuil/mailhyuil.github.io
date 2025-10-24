@@ -1,4 +1,4 @@
-# nest prisma Generic Service
+# nest prisma Generic CrudService
 
 ## abstract
 

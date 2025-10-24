@@ -1,4 +1,4 @@
-# vscode 자동 타입추론 안될 때 (autocompletion & autosuggestion & intellisense)
+# vscode 자동 타입추론 안될 때 - autocompletion & autosuggestion & intellisense.md
 
 ```sh
 npm init

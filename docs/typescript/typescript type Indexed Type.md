@@ -1,4 +1,4 @@
-# typescript Indexed Type
+# typescript type Indexed Type
 
 > Index Access를 사용하여 Type을 가져올 수 있다.
 

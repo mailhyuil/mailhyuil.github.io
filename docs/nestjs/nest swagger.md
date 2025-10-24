@@ -1,4 +1,4 @@
-# nestjs swagger
+# nest swagger
 
 > SwaggerModule 사용
 >

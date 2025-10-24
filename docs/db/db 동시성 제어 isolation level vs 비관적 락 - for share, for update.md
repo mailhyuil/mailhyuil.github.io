@@ -1,4 +1,4 @@
-# db 동시성 제어 isolation level vs 비관적 락 (for share, for update)
+# db 동시성 제어 isolation level vs 비관적 락 - for share, for update
 
 ## 격리수준 (Isolation Level)
 

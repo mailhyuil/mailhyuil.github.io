@@ -1,4 +1,4 @@
-# TSL (Thread Local Storage)
+# Thread Local Storage
 
 > 스레드가 가지고 있는 로컬 저장소
 >

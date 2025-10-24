@@ -1,4 +1,4 @@
-# L5 TLS certbot 인증방식 HTTP-01 standalone
+# L5 TLS certbot 인증방식 HTTP-01 standalone - 웹서버가 아직 없을 시
 
 > 아직 웹서버가 없을 때 certbot이 임시 웹서버를 실행해서 인증을 받는 방법
 >

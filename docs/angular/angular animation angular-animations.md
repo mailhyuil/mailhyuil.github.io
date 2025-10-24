@@ -1,4 +1,4 @@
-# angular-animations
+# angular animation angular-animations
 
 > angular animations를 미리 구현해놓은 패키지
 

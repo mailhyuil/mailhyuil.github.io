@@ -1,4 +1,4 @@
-# 내장객체 global
+# nodejs module 내장객체 global
 
 > global === globalThis
 >

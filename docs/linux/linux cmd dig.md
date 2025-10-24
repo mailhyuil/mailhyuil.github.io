@@ -1,4 +1,4 @@
-# linux dig
+# linux cmd dig
 
 > domain information groper
 >

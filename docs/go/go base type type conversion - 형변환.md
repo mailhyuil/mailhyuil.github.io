@@ -1,4 +1,4 @@
-# go type type conversion (형변환)
+# go base type type conversion - 형변환
 
 ```go
 var a int = 42

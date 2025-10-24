@@ -1,4 +1,4 @@
-# c++ pointer
+# c++ base pointer
 
 > 주소값을 저장하는 변수
 >

@@ -1,4 +1,4 @@
-# http connection keep-alive
+# L7 http headers Connection keep-alive
 
 > 서버와 tcp 연결을 유지함으로써 성능을 향상시키는 방법
 >

@@ -1,4 +1,4 @@
-# linux signal
+# linux base signal
 
 > 시그널이란 프로세스에게 어떤 이벤트가 발생했음을 알리는 것이다.
 >

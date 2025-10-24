@@ -1,4 +1,4 @@
-# isJsonString
+# js utils isJsonString
 
 ```js
 function isJsonString(str) {

@@ -1,4 +1,4 @@
-# angular primeNg locale
+# angular primeNg locale - primelocale
 
 ## install
 

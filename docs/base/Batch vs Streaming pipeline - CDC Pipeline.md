@@ -1,4 +1,4 @@
-# Batch vs CDC Pipeline
+# Batch vs Streaming pipeline - CDC Pipeline
 
 > 리포트 생성등을 주기적으로 처리하기 위해서는 배치 작업을 수행한다.
 >

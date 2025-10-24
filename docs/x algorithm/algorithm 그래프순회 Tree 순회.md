@@ -1,4 +1,4 @@
-# tree traversal
+# algorithm 그래프순회 Tree 순회
 
 > 모든 원소를 빠뜨리거나 중복하지 않고 처리하는 연산
 >

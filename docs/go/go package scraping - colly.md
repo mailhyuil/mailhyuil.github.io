@@ -1,4 +1,4 @@
-# go package scraping (colly)
+# go package scraping - colly
 
 ## install
 

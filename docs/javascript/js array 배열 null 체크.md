@@ -1,4 +1,4 @@
-# js 배열 null 체크
+# js array 배열 null 체크
 
 > if(array)는 변수에 배열이 있는지 체크
 >

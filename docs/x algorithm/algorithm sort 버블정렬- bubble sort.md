@@ -1,4 +1,4 @@
-# bubble sort (버블 정렬)
+# algorithm sort 버블정렬- bubble sort
 
 ```js
 const arr = [3, 4, 3, 42, 34, 23, 4, 1, 35, 13, 1, 34];

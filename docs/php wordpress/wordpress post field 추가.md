@@ -1,4 +1,4 @@
-# wordpress field 추가
+# wordpress post field 추가
 
 ```php
 function notices_post_type(){

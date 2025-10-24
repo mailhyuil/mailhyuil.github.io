@@ -1,4 +1,4 @@
-# prometheus config
+# prometheus base config
 
 ## /etc/prometheus/prometheus.yml
 

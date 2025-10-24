@@ -1,4 +1,4 @@
-# rxjs observable iif
+# rxjs creation iif
 
 > 삼항 연산자 처럼 동작하는 연산자입니다.
 

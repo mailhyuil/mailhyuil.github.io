@@ -1,4 +1,4 @@
-# String
+# java String
 
 > String은 원시타입은 아니지만 원시타입으로 취급한다. = 특별한 객체이다.. 그렇기 때문에 null값을 허용
 >

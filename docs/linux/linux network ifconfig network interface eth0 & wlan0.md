@@ -1,4 +1,4 @@
-# linux network interface eth0
+# linux network ifconfig network interface eth0 & wlan0
 
 > 네트워크 인터페이스란 NIC를 의미한다.
 >

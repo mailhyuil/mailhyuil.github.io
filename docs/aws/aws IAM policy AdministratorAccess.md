@@ -1,4 +1,4 @@
-# aws policy AdministratorAccess
+# aws IAM policy AdministratorAccess
 
 > 미리 정의된(predefined) AWS 정책 중 하나로, 모든 AWS 서비스 및 리소스에 대한 완전한 액세스 권한을 부여한다.
 >

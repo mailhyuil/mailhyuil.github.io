@@ -1,4 +1,4 @@
-# google analytics Google Global Site Tag (gtag.js)
+# api google analytics gtag
 
 > 이벤트를 관리하기 위한 라이브러리로 google tag manager, analytics.js, gtag.js가 있다.
 >

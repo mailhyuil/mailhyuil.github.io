@@ -1,4 +1,4 @@
-# nest schedule
+# nest advanced schedule - cronjob
 
 > cronjob은 포트가 필요 없으니 standalone으로 구성하는게 좋다.
 

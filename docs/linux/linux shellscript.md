@@ -1,4 +1,4 @@
-# shell script
+# linux shellscript
 
 > 단일 명령으로 하지 못하는 일을 처리하는 스크립트
 >

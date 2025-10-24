@@ -1,4 +1,4 @@
-# nest decorators
+# nest base decorator built-in
 
 > 데코레이터란 metadata를 추가한다!
 >

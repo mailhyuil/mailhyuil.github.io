@@ -1,4 +1,4 @@
-# kafka base Producer Acknowledgements (acks)
+# kafka base Producer Acknowledgements
 
 > producer가 메세지를 보내고 나서 broker로부터 ack를 받는 방식을 설정하는 옵션
 >

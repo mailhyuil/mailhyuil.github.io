@@ -1,4 +1,4 @@
-# controller
+# nest controller
 
 > Get(), Post(), Delete(), Patch(), Put() 데코레이터를 사용하여 매핑
 >

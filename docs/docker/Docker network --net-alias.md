@@ -5,7 +5,7 @@
 ```sh
 docker network create my-network
 
-# 컨테이너를 생성하고 my-network에 연결 및 --net-alias로 그룹화
+# Docker network --net-alias
 docker run --name container1 -d --network my-network -p 80:80 --net-alias network wbitt/network-multitool
 docker run --name container2 -d --network my-network -p 81:80 --net-alias network wbitt/network-multitool
 

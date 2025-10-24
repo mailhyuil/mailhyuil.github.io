@@ -1,4 +1,4 @@
-# 유저 인증 (Authentication)
+# kube Auth User & Group
 
 > client 유저가 kubernetes API 서버에 접근할 때 인증
 >

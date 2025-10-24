@@ -1,4 +1,4 @@
-# class-validator decorators
+# nest class-validator decorators
 
 ```js
 // array

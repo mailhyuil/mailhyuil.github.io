@@ -1,4 +1,4 @@
-# angular component more-button (cursor pagination)
+# angular component more-button - cursor pagination
 
 ## ts
 

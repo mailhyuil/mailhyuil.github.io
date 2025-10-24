@@ -1,4 +1,4 @@
-# angular base directive LinkClickTracker
+# angular base directive html element
 
 > selector에 html element이름을 지정하면 해당 html element에 해당 로직이 추가된다.
 

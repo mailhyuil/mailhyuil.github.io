@@ -1,4 +1,4 @@
-# MCP postgres
+# L7 MCP postgres
 
 ## install
 

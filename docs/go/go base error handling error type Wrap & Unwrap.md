@@ -1,4 +1,4 @@
-# go type error wrapping
+# go base error handling error type Wrap & Unwrap
 
 > 에러를 다른 에러로 감싸는 방법
 >

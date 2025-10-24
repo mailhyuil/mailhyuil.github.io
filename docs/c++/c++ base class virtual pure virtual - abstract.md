@@ -1,4 +1,4 @@
-# c++ class pure virtual
+# c++ base class virtual pure virtual - abstract
 
 > virtual 함수를 구현하지 않고 = 0 을 붙여줌으로써 순수 가상 함수로 만든다.
 

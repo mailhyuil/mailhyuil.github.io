@@ -1,4 +1,4 @@
-# testing automock
+# testing nestjs automock lib
 
 ## install
 

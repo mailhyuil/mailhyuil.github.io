@@ -1,4 +1,4 @@
-# c++ -> indirection operator (간접 참조 연산자)
+# c++ base indirection operator 간접 참조 연산자
 
 > . 는 클래스에 직접 접근하지만 -> 는 pointer를 사용하여 접근
 >

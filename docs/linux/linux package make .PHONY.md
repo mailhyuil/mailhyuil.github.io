@@ -1,4 +1,4 @@
-# linux make .PHONY
+# linux package make .PHONY
 
 > `make <command>` 시 command 이름과 같은 파일이 존재하면 실행하지 않음
 >

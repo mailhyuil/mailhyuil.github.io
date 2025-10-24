@@ -1,4 +1,4 @@
-# Hot Standby vs Warm Standby vs Cold Standby
+# db cluster hot standby vs warm standby vs cold standby
 
 > 일반적인 경우, Hot - Warm - Cold 순으로 Failover 소요시간이 짧다.
 

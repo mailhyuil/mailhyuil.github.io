@@ -1,4 +1,4 @@
-# linux cut
+# linux cmd cut
 
 > cut out selected portions of each line of a file
 

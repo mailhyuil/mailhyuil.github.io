@@ -1,4 +1,4 @@
-# postgres failover (장애 극복)
+# postgres replication failover
 
 > 컴퓨터 서버, 시스템, 네트워크 등에서 이상이 생겼을 때 예비 시스템으로 자동전환되는 기능
 >

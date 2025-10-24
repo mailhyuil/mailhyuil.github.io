@@ -1,4 +1,4 @@
-# http Access-Control-Allow-Credentials (withCredentials)
+# L7 http headers 보안 SOP CORS Access-Control-Allow-Credentials - withCredentials
 
 > Access-Control-Allow-Credentials: true를 설정하면 다른 Origin에서도 브라우저 보안상 막아놓은 기능을 허용할 수 있다.
 >

@@ -1,4 +1,4 @@
-# git merge rebase squash
+# git merge squash
 
 > 많은 커밋들이 그대로 메인 브랜치에 병합되어 불필요한 Working In Progress 와 같은 커밋들이 섞여있다면 전체 히스토리를 파악하기가 힘들어질
 >

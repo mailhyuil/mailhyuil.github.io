@@ -1,4 +1,4 @@
-# linux cmd groups
+# linux auth group groups
 
 > 사용자가 속한 그룹을 보여준다.
 

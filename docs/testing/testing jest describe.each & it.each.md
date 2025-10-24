@@ -1,4 +1,4 @@
-# jest describe.each & it.each
+# testing jest describe.each & it.each
 
 > 여러 값을 반복적으로 테스트할 때 사용
 

@@ -1,4 +1,4 @@
-# tailwindcss before: after:
+# tailwindcss before after
 
 > 요소의 앞(before) 뒤(after)에 content를 추가
 

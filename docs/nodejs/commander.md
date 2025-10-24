@@ -5,7 +5,7 @@
 ```sh
 npm i -D commander
 
-# exec
+# commander
 node <filename>.js <args>
 ts-node <filename>.ts <args>
 ```

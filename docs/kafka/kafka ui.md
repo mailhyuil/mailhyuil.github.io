@@ -1,4 +1,4 @@
-# kafka-ui
+# kafka ui
 
 ## install
 

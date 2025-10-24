@@ -1,4 +1,4 @@
-# angular form group
+# angular component segment
 
 ## segment-group.component.ts
 

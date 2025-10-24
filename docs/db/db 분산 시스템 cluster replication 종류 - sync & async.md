@@ -1,4 +1,4 @@
-# 복제 종류
+# db 분산 시스템 cluster replication 종류 - sync & async
 
 ## Synchronous Replication (동기 복제)
 

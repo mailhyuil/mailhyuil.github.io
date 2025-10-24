@@ -1,4 +1,4 @@
-# linux diff
+# linux cmd diff
 
 > 파일간의 차이점을 비교하는 명령어
 

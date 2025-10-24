@@ -1,4 +1,4 @@
-# http mock
+# testing http node-mock-http
 
 > request, response mock을 만들어준다.
 

@@ -1,4 +1,4 @@
-# linux thread mapping model (multi core)
+# linux base thread mapping model - multi core
 
 > 유저 스레드는 multi core를 활용할 수 없기에 multi core를 활용하기 위해서는 kernel thread와 매핑해야한다.
 

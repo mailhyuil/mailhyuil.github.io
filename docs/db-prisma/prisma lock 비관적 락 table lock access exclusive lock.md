@@ -1,4 +1,4 @@
-# prisma table lock access exclusive lock
+# prisma lock 비관적 락 table lock access exclusive lock
 
 > table lock을 사용하기 위해서는 `LOCK TABLE <table_name> IN <lock_mode>`를 사용해야 한다.
 >

@@ -1,4 +1,4 @@
-# postgreSQL 중앙값
+# postgres function percentile - 중앙값
 
 ```sql
 -- 중앙값을 계산 --

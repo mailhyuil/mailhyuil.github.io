@@ -1,4 +1,4 @@
-# kube object Pod nodeName & nodeSelector
+# kube object Node nodeName & nodeSelector
 
 ## nodeName 사용
 

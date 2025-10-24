@@ -1,4 +1,4 @@
-# 스마트 포인터
+# rust base pointer smart pointer
 
 > 참조자(&) = 포인터
 >

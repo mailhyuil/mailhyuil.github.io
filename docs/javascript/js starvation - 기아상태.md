@@ -1,4 +1,4 @@
-# js starvation
+# js starvation - 기아상태
 
 > task의 우선순위가 낮아서 실행을 하지 못하는 상태
 

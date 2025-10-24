@@ -1,4 +1,4 @@
-# Long Polling vs Short Polling
+# Long polling vs Short polling
 
 ## Short Polling
 

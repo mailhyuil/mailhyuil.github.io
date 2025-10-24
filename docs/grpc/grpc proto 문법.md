@@ -1,4 +1,4 @@
-# grpc proto
+# grpc proto 문법
 
 > = 1은 (태그넘버)는 각 필드를 식별하고 직렬화(Serialization)할 때 사용됨.
 

@@ -1,4 +1,4 @@
-# kubernetes 우분투 설치
+# kube base 설치 - ubuntu
 
 ```sh
 #!/bin/bash

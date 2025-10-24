@@ -1,4 +1,4 @@
-# linux package fuser
+# linux package fuser & lsof
 
 > 특정 파일이나 디렉토리를 사용하고 있는 사용자, 프로세스를 확인할 수 있음
 >

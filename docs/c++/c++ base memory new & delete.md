@@ -1,4 +1,4 @@
-# c++ memory new & delete
+# c++ base memory new & delete
 
 > c++에 도입된 동적할당과 해제
 >

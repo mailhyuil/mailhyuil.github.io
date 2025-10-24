@@ -1,4 +1,4 @@
-# TLS certificate CA Bundle, Trust Store
+# L5 TLS certificate CA Bundle, Trust Store - whitelist
 
 > 신뢰하는 인증기관의 인증서 목록을 포함하는 파일
 >

@@ -1,4 +1,4 @@
-# nest GlobalValidationPipe
+# nest base pipe GlobalValidationPipe
 
 ## global-validation.pipe.ts
 

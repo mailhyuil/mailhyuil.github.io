@@ -1,4 +1,4 @@
-# flutter debug banner 지우기
+# flutter debug banner
 
 ```dart
 MaterialApp(

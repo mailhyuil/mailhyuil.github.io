@@ -1,4 +1,4 @@
-# go fiber
+# go http fiber
 
 ## install
 

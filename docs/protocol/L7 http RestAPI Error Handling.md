@@ -1,4 +1,4 @@
-# RestAPI Error Handling
+# L7 http RestAPI Error Handling
 
 > Api에서 에러가 발생 시 어떻게 클라이언트에게 전달할 것인지를 설계
 >

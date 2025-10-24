@@ -1,4 +1,4 @@
-# Dockerfile spring-boot
+# Dockerfile spring boot
 
 > open-jdk로 빌드 jar파일 실행
 >

@@ -1,4 +1,4 @@
-# prisma prisma-where-required
+# prisma generator prisma-where-required
 
 > @where-required로 어노테이션된 필드를 where절에 쓰지 않을 시 에러가 나게 강제한다.
 

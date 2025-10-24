@@ -1,4 +1,4 @@
-# ELK Elasticsearch vs Vector stores
+# elasticsearch vs vector stores
 
 > "스타벅스 콜드브루"를 검색하면,
 >

@@ -1,4 +1,4 @@
-# pm2 save (auto restart)
+# pm2 auto restart on system boot - save & startup & resurrect
 
 > pm2 로 프로그램을 실행 시킨 후, pm2 save 명령어를 실행
 >

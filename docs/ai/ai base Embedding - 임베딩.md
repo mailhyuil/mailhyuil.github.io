@@ -1,4 +1,4 @@
-# chatgpt embedding
+# ai base Embedding - 임베딩
 
 > embedding = 사람이 쓰는 자연어를 기계가 이해할 수 있는 숫자의 나열인 벡터로 바꾼 결과 혹은 그 과정 전체를 의미
 >

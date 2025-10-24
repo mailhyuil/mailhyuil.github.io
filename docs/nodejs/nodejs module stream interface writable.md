@@ -1,4 +1,4 @@
-# nodejs stream Writable Stream
+# nodejs module stream interface writable
 
 ```js
 const ws = fs.createWriteStream("file_path");

@@ -1,4 +1,4 @@
-# kafka error handling Dead Letter Queue (PDLQ & CDLQ)
+# kafka error handling Dead Letter Queue - PDL & CDL
 
 > 실패한 메세지를 저장하는 queue
 

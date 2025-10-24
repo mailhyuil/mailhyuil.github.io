@@ -1,4 +1,4 @@
-# nodejs module system esm import.meta.resolve()
+# nodejs module system esm import.meta.resolve
 
 > 모듈 파일의 절대경로를 반환하는 함수
 

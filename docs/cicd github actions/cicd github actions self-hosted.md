@@ -1,4 +1,4 @@
-# github actions self-hosted
+# cicd github actions self-hosted
 
 1. Self-hosted Runner로 등록하고자 하는 기기에서 폴더 생성
 

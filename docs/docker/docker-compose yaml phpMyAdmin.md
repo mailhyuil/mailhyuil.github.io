@@ -1,4 +1,4 @@
-# docker-compose phpMyAdmin
+# docker-compose yaml phpMyAdmin
 
 ```yaml
 services:

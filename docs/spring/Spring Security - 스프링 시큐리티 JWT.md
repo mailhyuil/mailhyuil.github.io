@@ -1,4 +1,4 @@
-# JWT
+# Spring Security - 스프링 시큐리티 JWT
 
 > jwt: json web token
 > claim: 속성 정보

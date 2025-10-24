@@ -1,4 +1,4 @@
-# nest third-party cookie (tracking)
+# nest cookie third-party cookie - tracking
 
 ## browser script
 

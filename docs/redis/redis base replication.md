@@ -1,1 +1,1 @@
-# redis replication
+# redis base replication

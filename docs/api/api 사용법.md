@@ -1,4 +1,4 @@
-# API 사용법
+# api 사용법
 
 1. API 객체를 Load
    > script를 삽입하는 방식

@@ -1,4 +1,4 @@
-# next searchParams
+# next searchParams + history
 
 ```tsx
 export function Page() {

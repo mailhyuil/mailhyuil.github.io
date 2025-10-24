@@ -1,4 +1,4 @@
-# Resources
+# spring Resources
 
 ## servlet-context.xml
 

@@ -1,4 +1,4 @@
-# js yaml
+# js yaml - js-yaml
 
 > yaml을 js object로 변환
 

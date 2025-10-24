@@ -1,4 +1,4 @@
-# base resolve & resolving
+# Resolve
 
 > 관련 용어: resolve, resolver, resolving, resolution
 

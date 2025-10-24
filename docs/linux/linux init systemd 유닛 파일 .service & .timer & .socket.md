@@ -1,4 +1,4 @@
-# linux systemd & systemctl .service & .timer & .socket
+# linux init systemd 유닛 파일 .service & .timer & .socket
 
 > /etc/systemd/system/에 있는 파일들에 대한 설명
 

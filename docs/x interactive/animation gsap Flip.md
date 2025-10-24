@@ -1,4 +1,4 @@
-# animation gsap Filp
+# animation gsap Flip
 
 ## setup
 

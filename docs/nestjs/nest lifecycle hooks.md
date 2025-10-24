@@ -1,4 +1,4 @@
-# nest hooks
+# nest lifecycle hooks
 
 > @Injectable() 에서 사용할 수 있음
 >

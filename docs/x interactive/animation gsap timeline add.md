@@ -1,4 +1,4 @@
-# gsap timeline add
+# animation gsap timeline add
 
 > scrub: true 설정이 있으면 작동하지 않는다.
 

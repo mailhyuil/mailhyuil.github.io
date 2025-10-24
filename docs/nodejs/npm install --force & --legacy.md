@@ -1,4 +1,4 @@
-# npm --force & --legacy
+# npm install --force & --legacy
 
 > peerDependency 가 맞지 않아서 생기는 문제를 해결
 >

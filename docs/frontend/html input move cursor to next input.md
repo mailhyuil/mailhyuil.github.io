@@ -1,4 +1,4 @@
-# input move cursor to next input
+# html input move cursor to next input
 
 ```js
 const yearInput = document.getElementById("year");

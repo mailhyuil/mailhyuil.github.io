@@ -1,4 +1,4 @@
-# Stable diffusion
+# stable diffusion
 
 ## prompt
 

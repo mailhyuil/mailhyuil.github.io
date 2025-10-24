@@ -1,4 +1,4 @@
-# nestjs axios error handling
+# nest http axios error handling
 
 ```ts
 import { catchError } from "rxjs/operators";

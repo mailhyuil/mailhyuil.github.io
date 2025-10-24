@@ -1,4 +1,4 @@
-# http headers 보안 Nonce
+# L7 http headers 보안 CSP Nonce
 
 > Nonce는 한번만 사용되는 임의의 값을 의미하며 매 요청마다 새로운 값을 생성해야한다.
 >

@@ -1,4 +1,4 @@
-# angular immutable.js
+# angular immutablejs
 
 > js에서 "불변객체"를 만들기 위해서 사용한다.
 >

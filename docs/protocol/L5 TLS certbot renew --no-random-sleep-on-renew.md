@@ -1,4 +1,4 @@
-# certbot --no-random-sleep-on-renew
+# L5 TLS certbot renew --no-random-sleep-on-renew
 
 > certbot renew는 실행될 때 최대 1시간까지 랜덤한 지연 시간을 가짐.
 >

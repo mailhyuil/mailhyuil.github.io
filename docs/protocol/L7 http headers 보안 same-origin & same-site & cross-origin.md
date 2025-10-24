@@ -1,4 +1,4 @@
-# http headers 보안 same-origin & same-site & cross-origin
+# L7 http headers 보안 same-origin & same-site & cross-origin
 
 ## same-origin
 

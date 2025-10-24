@@ -1,4 +1,4 @@
-# postgres query planner
+# postgres 실행계획 query planner
 
 > SQL 쿼리를 실행 가능한 최적의 방식으로 변환해주는 엔진
 >

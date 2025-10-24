@@ -1,4 +1,4 @@
-# typescript tsconfig esModuleInterop
+# typescript tsconfig compilerOptions esModuleInterop
 
 > false 시 TypeScript는 CommonJS, AMD, UMD 모듈도 ES6 모듈과 유사하게 처리한다.
 >

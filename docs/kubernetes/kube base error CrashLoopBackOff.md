@@ -1,4 +1,4 @@
-# kubectl error CrashLoopBackOff
+# kube base error CrashLoopBackOff
 
 > command 를 실행하지않음면 오류난다.
 >

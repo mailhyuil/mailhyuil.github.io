@@ -1,4 +1,4 @@
-# nodejs validation zod
+# nest zod
 
 ## install
 

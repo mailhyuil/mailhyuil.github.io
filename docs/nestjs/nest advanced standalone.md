@@ -1,4 +1,4 @@
-# nestjs standalone
+# nest advanced standalone
 
 ```ts
 async function bootstrap() {

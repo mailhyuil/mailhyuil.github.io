@@ -1,4 +1,4 @@
-# angular strategy pattern
+# Behavioral strategy - angular Injector 사용
 
 ## test.service.ts
 

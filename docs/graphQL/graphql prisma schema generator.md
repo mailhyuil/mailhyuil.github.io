@@ -1,4 +1,4 @@
-# nest graphQL schema
+# graphql prisma schema generator
 
 > prisma schema를 이용하여 graphql schema를 생성한다.
 

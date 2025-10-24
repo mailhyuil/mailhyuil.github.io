@@ -1,4 +1,4 @@
-# cafe24 module product_setproduct (세트상품)
+# cafe24 module product_setproduct - 세트상품
 
 ```html
 <div module="product_setproduct">

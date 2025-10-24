@@ -1,4 +1,4 @@
-# openssl
+# encrypt openssl 비대칭키 생성
 
 ## 즉시 키와 인증서 생성하기 (self-signed)
 

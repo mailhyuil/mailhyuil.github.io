@@ -1,4 +1,4 @@
-# js promise anti pattern
+# js Promise anti pattern
 
 > deferred antipattern
 >

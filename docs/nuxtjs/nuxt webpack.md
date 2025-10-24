@@ -1,4 +1,4 @@
-# nuxtjs webpack
+# nuxt webpack
 
 ## nuxt.config.ts
 

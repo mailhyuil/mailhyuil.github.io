@@ -1,4 +1,4 @@
-# webpack loader postcss-loader
+# bundle webpack loader css postcss-loader
 
 ## install
 

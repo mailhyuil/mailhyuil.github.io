@@ -1,4 +1,4 @@
-# GetUser decorator
+# nest base decorator createParamDecorator
 
 > createParamDecorator로 생성
 

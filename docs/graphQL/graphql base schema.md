@@ -1,4 +1,4 @@
-# graphql schema
+# graphql base schema
 
 ```gql
 type Character {

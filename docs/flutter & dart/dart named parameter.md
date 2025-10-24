@@ -1,4 +1,4 @@
-# dart Named Parameter
+# dart named parameter
 
 > 파라미터에 {}를 붙이면 named parameter로 전달할 수 있음
 

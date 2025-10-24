@@ -1,4 +1,4 @@
-# angular tanstack angular-table
+# angular table tanstack angular-table
 
 ## install
 

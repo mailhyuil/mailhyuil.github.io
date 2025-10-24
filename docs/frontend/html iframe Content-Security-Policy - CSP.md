@@ -1,4 +1,4 @@
-# html iframe Content-Security-Policy (CSP)
+# html iframe Content-Security-Policy - CSP
 
 > iframe 사용 시 브라우저에게 보안 정책을 설정하는 방법
 >

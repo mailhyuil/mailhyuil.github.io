@@ -1,4 +1,4 @@
-# Nuxt built-in composables
+# nuxt built-in composables
 
 ## useAppConfig
 

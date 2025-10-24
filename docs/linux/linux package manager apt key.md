@@ -1,4 +1,4 @@
-# linux package apt key
+# linux package manager apt key
 
 > 공식 저장소에 있는 패키지는 이미 gpg 검증이 되어있음
 >

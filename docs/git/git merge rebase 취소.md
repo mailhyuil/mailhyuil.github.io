@@ -1,4 +1,4 @@
-# git rebase 에러 시
+# git merge rebase 취소
 
 ```sh
 git rebase --abort

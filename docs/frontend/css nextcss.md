@@ -1,4 +1,4 @@
-# nextcss
+# css nextcss
 
 ## install
 

@@ -1,4 +1,4 @@
-# browser Cookie
+# L7 http headers Cookie
 
 > 쿠키는 서버를 위한 일종의 저장소다.
 >

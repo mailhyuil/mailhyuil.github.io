@@ -1,4 +1,4 @@
-# LoadBalancer
+# kube object Service LoadBalancer
 
 > 외부 IP를 할당 받는다 (클라우드 업체의 로드밸러서와 연동)
 >

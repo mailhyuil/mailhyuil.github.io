@@ -1,4 +1,4 @@
-# postgresql function pg_stat
+# postgres function pg_stat - 성능 측정
 
 ```sh
 pg_stat_bgwriter # 백그라운드 라이터의 통계 정보를 제공합니다.

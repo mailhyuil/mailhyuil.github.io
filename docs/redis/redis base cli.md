@@ -1,4 +1,4 @@
-# redis-cli
+# redis base cli
 
 ## install
 

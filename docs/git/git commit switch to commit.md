@@ -1,4 +1,4 @@
-# git switch to commit
+# git commit switch to commit
 
 > branch를 새로 파는 방식으로 접근
 

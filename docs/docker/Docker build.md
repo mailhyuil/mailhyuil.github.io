@@ -1,4 +1,4 @@
-# Docker image build
+# Docker build
 
 ```bash
 docker build -t 이미지_이름 .

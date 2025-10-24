@@ -1,4 +1,4 @@
-# rxjs operator concatWith
+# rxjs join with concatWith
 
 ```js
 import { fromEvent, map, take, concatWith } from "rxjs";

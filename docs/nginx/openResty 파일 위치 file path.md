@@ -1,4 +1,4 @@
-# OpenResty 파일 경로 file path
+# openResty 파일 위치 file path
 
 ## nginx config
 

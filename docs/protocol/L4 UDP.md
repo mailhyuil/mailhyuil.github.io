@@ -1,4 +1,4 @@
-# UDP (User Datagram Protocol)
+# L4 UDP
 
 > UDP는 매우 단순한 프로토콜, 단순히 데이터를 wrapping하고, IP에게 전달하는 역할만 한다.
 >

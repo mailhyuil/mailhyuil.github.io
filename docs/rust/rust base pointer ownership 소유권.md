@@ -1,4 +1,4 @@
-# 소유권
+# rust base pointer ownership 소유권
 
 > 소유권을 가지고 있는 변수 = 소유자
 >

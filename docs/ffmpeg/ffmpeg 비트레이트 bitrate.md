@@ -1,4 +1,4 @@
-# ffmpeg bitrate 비트레이트
+# ffmpeg 비트레이트 bitrate
 
 > 비트레이트란 1초에 해당하는 동영상에 얼마의 비트(bit) 수를 집어 넣느냐를 의미합니다.
 >

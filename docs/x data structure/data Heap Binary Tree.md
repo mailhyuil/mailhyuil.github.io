@@ -1,4 +1,4 @@
-# Heap Binary Tree
+# data Heap Binary Tree
 
 > 최솟값 혹은 최댓값을 빠르게 찾아내는 자료구조
 >

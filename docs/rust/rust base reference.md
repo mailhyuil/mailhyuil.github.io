@@ -1,4 +1,4 @@
-# 참조
+# rust base reference
 
 > 값의 소유권을 넘기는 대신 개체에 대한 참조자(reference)를 인자로 사용
 >

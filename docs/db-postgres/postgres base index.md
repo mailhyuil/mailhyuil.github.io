@@ -1,4 +1,4 @@
-# postgres index
+# postgres base index
 
 > row_id와 page id를 가지고 있어서 원하는 row를 가진 page에 빠르게 접근할 수 있다.
 >

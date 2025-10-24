@@ -1,4 +1,4 @@
-# angular Signals
+# angular signal
 
 > 기존 ChangeDetectionStrategy는 변화를 감지하면 모든 컴포넌트를 다시 렌더링한다.
 >

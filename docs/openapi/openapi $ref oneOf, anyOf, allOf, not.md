@@ -1,4 +1,4 @@
-# openapi oneOf, anyOf, allOf, not
+# openapi $ref oneOf, anyOf, allOf, not
 
 > 모델 상속, nested 구조, 조건부 스키마를 정의할 때 사용
 

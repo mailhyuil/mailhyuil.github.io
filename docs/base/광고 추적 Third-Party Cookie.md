@@ -1,4 +1,4 @@
-# Third Party Cookie
+# 광고 추적 Third-Party Cookie
 
 > 다른 도메인으로부터 설정된 쿠키
 >

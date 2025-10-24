@@ -1,4 +1,4 @@
-# algorithm modulo 연산 (%)
+# algorithm 나머지 연산 - 모듈로 연산
 
 > 모듈로 연산
 >

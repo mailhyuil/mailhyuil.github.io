@@ -1,4 +1,4 @@
-# angular base component paginator
+# angular component paginator
 
 ## paginator.component.ts
 

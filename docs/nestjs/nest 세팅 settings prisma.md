@@ -1,4 +1,4 @@
-# prisma
+# nest 세팅 settings prisma
 
 ## install
 

@@ -1,4 +1,4 @@
-# swc plugin
+# compile swc plugin
 
 ## main.ts
 

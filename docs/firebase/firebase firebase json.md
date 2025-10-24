@@ -1,4 +1,4 @@
-# firebase.json
+# firebase firebase json
 
 ```json
 {

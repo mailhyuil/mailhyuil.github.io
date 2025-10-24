@@ -1,4 +1,4 @@
-# typescript tsconfig.json 파일 포함 또는 제외
+# typescript tsconfig files & include & exclude
 
 ```json
 {

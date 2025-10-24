@@ -1,4 +1,4 @@
-# npm ci
+# npm install ci
 
 > package-lock.json 파일을 사용하여 정확한 버전의 종속성을 설치
 >

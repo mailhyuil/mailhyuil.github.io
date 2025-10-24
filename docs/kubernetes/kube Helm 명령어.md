@@ -1,4 +1,4 @@
-# Helm 명령어
+# kube Helm 명령어
 
 ## repository 관련 명령어
 

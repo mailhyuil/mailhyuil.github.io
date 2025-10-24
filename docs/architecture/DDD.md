@@ -1,4 +1,4 @@
-# DDD (Domain Driven Design)
+# DDD
 
 ## Domain / Subdomain
 

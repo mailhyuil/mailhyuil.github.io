@@ -1,4 +1,4 @@
-# retry pattern
+# x retry pattern
 
 > 에러 발생 시 재시도하는 패턴
 

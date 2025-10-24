@@ -1,4 +1,4 @@
-# kubernetes service
+# kube object Service
 
 > 같은 성격의 pod들을 묶어서 외부에 노출 시킬 수 있는 단일 엔드포인트(ClusterIp / Virtual IP)를 생성
 >

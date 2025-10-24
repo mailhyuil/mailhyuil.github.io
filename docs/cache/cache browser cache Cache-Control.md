@@ -1,4 +1,4 @@
-# cache browser Cache-Control
+# cache browser cache Cache-Control
 
 > 캐시 명령을 내리는 주체는 API 서버다!
 >

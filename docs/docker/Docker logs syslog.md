@@ -1,4 +1,4 @@
-# docker logs syslog
+# Docker logs syslog
 
 ```sh
 docker run --name nginx -d --log-driver=syslog --log-opt tag="my-nginx" nginx

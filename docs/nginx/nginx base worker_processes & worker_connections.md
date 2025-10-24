@@ -1,4 +1,4 @@
-# nginx base worker_process
+# nginx base worker_processes & worker_connections
 
 ## worker_processes
 

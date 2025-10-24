@@ -1,4 +1,4 @@
-# next lazy loading (dynamic, import)
+# next lazy load - dynamic, import
 
 ## dynamic
 

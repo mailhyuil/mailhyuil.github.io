@@ -1,4 +1,4 @@
-# process stdin stdout stderr
+# nodejs module process stdin & stdout & stderr
 
 ```js
 const process = require("process");

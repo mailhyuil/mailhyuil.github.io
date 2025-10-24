@@ -1,4 +1,4 @@
-# livenessProbe
+# kube HealthCheck livenessProbe
 
 > self-healing을 위한 설정
 >

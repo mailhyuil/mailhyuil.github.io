@@ -1,4 +1,4 @@
-# http multipart
+# L7 http multipart
 
 > smtp 프로토콜과 유사하게 MIME을 사용하여 여러 종류의 데이터를 하나의 메시지에 담아 전송할 수 있다.
 >

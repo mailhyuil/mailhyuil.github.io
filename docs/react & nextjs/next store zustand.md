@@ -1,4 +1,4 @@
-# Zustand
+# next store zustand
 
 ## install
 

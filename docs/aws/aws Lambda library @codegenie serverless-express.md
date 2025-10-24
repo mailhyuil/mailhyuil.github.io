@@ -1,1 +1,1 @@
-# Lambda ApiGateway library @codegenie serverless-express
+# aws Lambda library @codegenie serverless-express

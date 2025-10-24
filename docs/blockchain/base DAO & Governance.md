@@ -1,4 +1,4 @@
-# DAO & Governance
+# base DAO & Governance
 
 > 탈중앙화 자율 조직
 >

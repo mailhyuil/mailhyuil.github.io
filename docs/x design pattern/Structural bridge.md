@@ -1,4 +1,4 @@
-# Bridge pattern
+# Structural bridge
 
 > 하나의 객체의 속성을 클래스 이름으로 표현하면 그 조합이 기하급수적으로 늘어나 관리가 어려워진다. (RedCircle, BlueSquare, GreenCircle...)
 >

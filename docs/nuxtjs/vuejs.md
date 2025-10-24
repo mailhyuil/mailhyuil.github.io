@@ -1,4 +1,4 @@
-# vue.js
+# vuejs
 
 ## install
 

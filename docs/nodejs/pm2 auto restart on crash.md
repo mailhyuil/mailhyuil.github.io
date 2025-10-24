@@ -1,4 +1,4 @@
-# pm2 save (auto restart)
+# pm2 auto restart on crash
 
 ```js
 module.exports = {

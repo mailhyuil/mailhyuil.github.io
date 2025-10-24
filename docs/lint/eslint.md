@@ -1,4 +1,4 @@
-# js eslint
+# eslint
 
 > eslint-plugin은 규칙을 정의한 패키지이고, eslint-config는 plugin을 묶어놓은 패키지이다.
 

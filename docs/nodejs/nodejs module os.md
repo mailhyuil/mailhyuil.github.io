@@ -1,4 +1,4 @@
-# os
+# nodejs module os
 
 > 운영체제 정보를 가져올 수 있는 모듈
 

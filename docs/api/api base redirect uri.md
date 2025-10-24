@@ -1,4 +1,4 @@
-# api redirect_uri
+# api base redirect uri
 
 > 악의적인 외부로의 리다이렉트와 같은 공격을 방지하기 위해 사용
 >

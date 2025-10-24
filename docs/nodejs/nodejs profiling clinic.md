@@ -1,4 +1,4 @@
-# node clinic
+# nodejs profiling clinic
 
 ## install
 

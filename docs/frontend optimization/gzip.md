@@ -1,4 +1,4 @@
-# gzip 배포
+# gzip
 
 > 빌드된 각각 파일을 gzip으로 압축 (e.g. app.js.gz, document.js.gz)
 >

@@ -1,4 +1,4 @@
-# docker compose openvpn
+# docker-compose yaml openvpn
 
 ## docker-compose.yml
 

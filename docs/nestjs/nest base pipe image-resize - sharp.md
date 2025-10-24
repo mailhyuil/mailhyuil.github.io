@@ -1,4 +1,4 @@
-# nest image resize (sharp)
+# nest base pipe image-resize - sharp
 
 > large, medium, small을 배열로 반환하는 이유
 >

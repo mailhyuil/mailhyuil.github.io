@@ -1,4 +1,4 @@
-# kube Storage PersistentVolumes (PV)
+# kube Storage Volume object PersistentVolumes
 
 > 디스크 스토리지들을 용량, 액세스 모드, 볼륨의 수명주기 등을 기반으로 모아놓은 것이다. (disk pool)
 >

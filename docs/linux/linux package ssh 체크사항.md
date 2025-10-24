@@ -1,4 +1,4 @@
-# ssh
+# linux package ssh 체크사항
 
 1. 공인 IP 혹은 사설망 내에 있다면 사설 IP로 접속 (휴대폰 X)
 2. SSH 켜져 있는지 확인하기 (config에서 켜야함)

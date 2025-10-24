@@ -1,4 +1,4 @@
-# postgres replication slots
+# postgres replication slot
 
 > 기본적으로 WAL은 Primary에서 더 이상 사용되지 않게 되면 재사용됨. (overwrite)
 >

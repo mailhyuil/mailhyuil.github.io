@@ -1,4 +1,4 @@
-# angular event stopPropagation
+# angular event propagate
 
 ## ts
 

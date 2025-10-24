@@ -1,4 +1,4 @@
-# linux package manager snap
+# linux package manager snap - Ubuntu
 
 > Ubuntu Linux distribution에서 개발한 패키지 매니저
 >

@@ -1,4 +1,4 @@
-# webpack loader prerender-loader
+# bundle webpack loader html prerender-loader
 
 ## install
 

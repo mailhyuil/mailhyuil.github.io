@@ -1,4 +1,4 @@
-# rem & em
+# css rem & em
 
 > rem은 최상단 폰트의 기본 사이즈 (default : 16px)
 >

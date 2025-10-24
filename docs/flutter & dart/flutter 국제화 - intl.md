@@ -1,4 +1,4 @@
-# flutter 국제화 (intl)
+# flutter 국제화 - intl
 
 > dart code -> generate arb -> translate arb to dart
 

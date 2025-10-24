@@ -1,4 +1,4 @@
-# angular 세팅 setting
+# angular 세팅 settings
 
 ## install
 

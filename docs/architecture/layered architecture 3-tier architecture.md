@@ -1,4 +1,4 @@
-# 3-tier architecture
+# layered architecture 3-tier architecture
 
 > layered architecture의 일종
 >

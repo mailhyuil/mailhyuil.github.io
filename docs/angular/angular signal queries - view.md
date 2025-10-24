@@ -1,4 +1,4 @@
-# angular signal queries (view)
+# angular signal queries - view
 
 ```ts
 // @ViewChild

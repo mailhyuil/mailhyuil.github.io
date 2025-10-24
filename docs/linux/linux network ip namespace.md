@@ -1,4 +1,4 @@
-# linux network namespace
+# linux network ip namespace
 
 > container 내부와 host에서 다른 PID를 가지고 있는 같은 프로세스
 >

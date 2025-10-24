@@ -1,4 +1,4 @@
-# rxjs filter type guard
+# rxjs filtering filter typeguard
 
 ```ts
 this.actions$.pipe(

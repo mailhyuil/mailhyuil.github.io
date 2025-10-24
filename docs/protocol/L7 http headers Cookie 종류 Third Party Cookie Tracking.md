@@ -1,4 +1,4 @@
-# browser Cookie 종류 Third Party Cookie Tracking
+# L7 http headers Cookie 종류 Third Party Cookie Tracking
 
 ## scenario
 

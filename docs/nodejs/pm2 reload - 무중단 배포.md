@@ -1,4 +1,4 @@
-# pm2 reload
+# pm2 reload - 무중단 배포
 
 > restart 시에는 서버가 내려가는 시간이 있지만, reload는 내려가지 않고 재시작한다.
 >

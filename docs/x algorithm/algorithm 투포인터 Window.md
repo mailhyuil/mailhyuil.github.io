@@ -1,4 +1,4 @@
-# Window
+# algorithm 투포인터 Window
 
 ## Fixed Window Counter
 

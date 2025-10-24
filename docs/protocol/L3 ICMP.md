@@ -1,4 +1,4 @@
-# ICMP (인터넷 제어 메시지 프로토콜) (Internet Control Message Protocol)
+# L3 ICMP
 
 > IP의 보조 역할
 >

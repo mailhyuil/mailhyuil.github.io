@@ -1,4 +1,4 @@
-# typescript tsconfig.json
+# typescript tsconfig
 
 > tsconfig.json이 있는 디렉토리가 프로젝트의 루트 디렉토리가 된다.
 >

@@ -1,4 +1,4 @@
-# nestjs Etag
+# nest base decorator Etag
 
 > nestjs는 etag를 자동으로 생성해줍니다.
 

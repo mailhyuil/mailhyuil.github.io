@@ -1,4 +1,4 @@
-# angular dynamic meta tag
+# angular base provider Meta
 
 ```ts
 import { Meta, Title } from "@angular/platform-browser";

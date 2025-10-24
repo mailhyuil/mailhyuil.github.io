@@ -1,4 +1,4 @@
-# flutter 광고
+# ad google AdMob flutter admob_flutter
 
 > CPM : Cost Per Mille // 1000번 노출당 수익
 >

@@ -1,4 +1,4 @@
-# postgreSQL type UUID
+# postgres type UUID
 
 ## UUID란?
 

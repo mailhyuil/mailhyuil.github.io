@@ -1,4 +1,4 @@
-# Lambda layer Image Resize
+# aws Lambda Image Resize
 
 1. Lambda 생성
    > memory 512MB, timeout 5s

@@ -1,4 +1,4 @@
-# swap memory (스왑 메모리)
+# linux base swap memory - 스왑 메모리
 
 > RAM의 용량이 부족할 때 사용할 수 있는 대체 메모리
 >

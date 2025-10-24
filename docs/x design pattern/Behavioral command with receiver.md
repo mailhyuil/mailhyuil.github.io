@@ -1,4 +1,4 @@
-# design pattern Command Pattern With Receiver
+# Behavioral command with receiver
 
 ```ts
 interface Command {

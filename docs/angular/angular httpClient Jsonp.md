@@ -1,4 +1,4 @@
-# httpClient Jsonp (json with padding)
+# angular httpClient Jsonp
 
 > cors로 인해 어쩔 수 없이 발생하는 이슈(cross domain issue)를 해결(우회)하기 위해 사용한다.
 >

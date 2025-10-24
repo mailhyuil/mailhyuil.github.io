@@ -1,4 +1,4 @@
-# linux base Systemd vs SysVinit
+# linux init 초기화 시스템 Systemd vs SysVinit
 
 > pstree 명령어로 어떤 초기화 시스템을 사용하는지 확인 가능
 >

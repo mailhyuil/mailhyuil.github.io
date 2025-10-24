@@ -1,4 +1,4 @@
-# angular pipe
+# angular base pipe
 
 > template내에서 함수를 사용하면 change Detection이 발생할 때마다 함수가 동작해버림
 >

@@ -1,4 +1,4 @@
-# cargo
+# rust package cargo
 
 > 러스트의 빌드 시스템이자 패키지 관리자
 

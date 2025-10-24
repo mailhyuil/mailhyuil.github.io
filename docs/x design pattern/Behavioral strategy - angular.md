@@ -1,4 +1,4 @@
-# angular strategy pattern
+# Behavioral strategy - angular
 
 ## payment.service.ts
 

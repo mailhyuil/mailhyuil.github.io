@@ -1,4 +1,4 @@
-# rxjs transformation buffer
+# rxjs transformation buffer copy
 
 > notifierObservable이 값을 방출하기 전까지 값을 모은다.
 

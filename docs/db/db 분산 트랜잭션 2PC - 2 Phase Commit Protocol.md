@@ -1,4 +1,4 @@
-# 분산 트랜잭션 2PC (2 Phase Commit Protocol)
+# db 분산 트랜잭션 2PC - 2 Phase Commit Protocol
 
 > 단일 DB가 아닌 여러 DB를 사용하는 경우 분산 트랜잭션 처리하기 위한 프로토콜
 >

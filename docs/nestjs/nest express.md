@@ -1,4 +1,4 @@
-# express on NestJs
+# nest express
 
 > @Res() @Req()를 사용하여 express 객체에 접근할 수 있다. (fastify 프레임워크로 전환할 때 문제가 될 수 있다)
 >

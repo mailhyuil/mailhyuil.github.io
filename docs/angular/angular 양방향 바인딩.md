@@ -1,4 +1,4 @@
-# 양방향 바인딩
+# angular 양방향 바인딩
 
 > FormsModule을 import 해야함
 

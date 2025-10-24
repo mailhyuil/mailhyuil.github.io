@@ -1,4 +1,4 @@
-# docker daemon
+# Docker daemon
 
 > Docker는 client (CLI) 와 server (daemon) 으로 구성되어 있다.
 >

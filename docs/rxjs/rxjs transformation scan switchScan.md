@@ -1,1 +1,1 @@
-# rxjs scan switchScan
+# rxjs transformation scan switchScan

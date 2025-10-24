@@ -1,4 +1,4 @@
-# browser Cookie SameSite
+# L7 http headers Cookie options SameSite
 
 > 다른 도메인에서 Request를 보내거나 Redirect를 사용하는 경우 쿠키를 전송하지 않는 옵션
 >

@@ -1,4 +1,4 @@
-# nginx server sent events (SSE)
+# nginx server sent events - SSE
 
 > nginx는 프록시 서버에 요청에는 http/1.0을 사용하고 Connection: close 헤더를 사용하게 됩니다.
 >

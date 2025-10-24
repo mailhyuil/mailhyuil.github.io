@@ -1,4 +1,4 @@
-# db base Row Store vs Column Store
+# db base 행 기반 vs 열 기반
 
 ## Row Store (행 기반)
 

@@ -1,4 +1,4 @@
-# Feature Flags Pattern
+# x Feature Flags Pattern
 
 > runtime에 flag를 통해 기능을 동적으로 추가하거나 제거할 때 사용하는 패턴
 >

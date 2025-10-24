@@ -1,4 +1,4 @@
-# c++ pointer unique pointer
+# c++ base pointer smart pointer unique pointer
 
 > 특정 객체에 유일한 소유권을 부여하는 포인터 객체를 unique_ptr 라고 합니다.
 

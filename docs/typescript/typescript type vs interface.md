@@ -1,4 +1,4 @@
-# type & interface
+# typescript type vs interface
 
 > type 사용을 우선시해라
 >

@@ -1,4 +1,4 @@
-# db binary log 바이너리 로그 (WAL)
+# db binary log 바이너리 로그 & WAL
 
 > 데이터 변경사항들에 대한 정보를 포함하는 로그 파일의 세트
 >

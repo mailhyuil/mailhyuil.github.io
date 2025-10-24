@@ -1,4 +1,4 @@
-# gsap ScrollTrigger options pin
+# animation gsap scrollTrigger options pin
 
 > 특정 element를 스크롤이 진행되는 동안 고정시킨다
 

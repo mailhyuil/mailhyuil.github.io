@@ -1,4 +1,4 @@
-# angular route RouteReuseStrategy
+# angular route strategy RouteReuseStrategy
 
 > list 페이지 등 사용자가 다시 방문을 자주 하는 페이지에 대해 재사용을 하여 성능을 향상시킬 수 있다.
 >

@@ -1,4 +1,4 @@
-# nest global
+# nest base global
 
 > main.ts에서 useGlobal~를 사용하면 application 단에서 global을 사용
 >

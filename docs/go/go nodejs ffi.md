@@ -1,4 +1,4 @@
-# go nodejs ffi (Foreign Function Interface)
+# go nodejs ffi
 
 ## main.go
 

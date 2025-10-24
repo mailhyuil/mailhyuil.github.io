@@ -1,4 +1,4 @@
-# Git
+# git config
 
 ## git 설치
 

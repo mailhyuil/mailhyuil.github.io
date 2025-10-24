@@ -1,4 +1,4 @@
-# nginx proxy_pass docker container container name
+# nginx directive proxy_pass docker container container name
 
 ## nginx.conf
 

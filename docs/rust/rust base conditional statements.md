@@ -1,4 +1,4 @@
-# 조건 제어
+# rust base conditional statements
 
 ## if
 

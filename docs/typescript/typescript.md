@@ -1,4 +1,4 @@
-# typescript (타입스크립트)
+# typescript
 
 > ts -트랜스파일링-> js -번들링-> main.js -> deploy
 

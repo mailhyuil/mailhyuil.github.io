@@ -1,4 +1,4 @@
-# Docker image letsencrypt certbot
+# docker-compose yaml letsencrypt certbot
 
 > 최초 한번은 init-letsencrypt.sh로 실행시켜주기
 

@@ -1,4 +1,4 @@
-# nest CQRS Command
+# nest advanced cqrs command
 
 > 일반 커맨드 패턴이 아닌 커맨드 버스 패턴
 >

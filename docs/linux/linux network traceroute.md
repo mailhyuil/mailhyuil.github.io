@@ -1,4 +1,4 @@
-# linux cmd traceroute
+# linux network traceroute
 
 > 목적지까지의 경로를 추적하는 명령어
 

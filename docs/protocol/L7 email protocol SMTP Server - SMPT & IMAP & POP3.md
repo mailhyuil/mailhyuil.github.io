@@ -1,4 +1,4 @@
-# email SMTP Server
+# L7 email protocol SMTP Server - SMPT & IMAP & POP3
 
 > 메일의 발신과 수신을 담당하는 서버
 >

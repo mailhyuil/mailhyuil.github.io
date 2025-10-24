@@ -1,4 +1,4 @@
-# prometheus architecture
+# prometheus base architecture
 
 ## 구조
 

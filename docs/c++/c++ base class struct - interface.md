@@ -1,4 +1,4 @@
-# c++ struct interface
+# c++ base class struct - interface
 
 > struct와 pure virtual 함수를 사용하여 인터페이스를 만들 수 있다.
 

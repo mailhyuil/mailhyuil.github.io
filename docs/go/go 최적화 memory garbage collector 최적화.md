@@ -1,4 +1,4 @@
-# go memory garbage collector 최적화
+# go 최적화 memory garbage collector 최적화
 
 1. 할당을 줄여라
    > 가능하면 스택을 사용하도록 설계

@@ -1,4 +1,4 @@
-# docker-compose postgres replication
+# docker-compose yaml postgres replication
 
 ## init.sql
 

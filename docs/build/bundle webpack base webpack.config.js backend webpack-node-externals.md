@@ -1,4 +1,4 @@
-# bundle webpack backend server
+# bundle webpack base webpack.config.js backend webpack-node-externals
 
 > node_modules를 externals로 설정하여 번들링하지 않도록 설정한다.
 >

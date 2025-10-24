@@ -1,4 +1,4 @@
-# nodejs FFI (Foreign Function Interface)
+# nodejs CPU Bound Binding FFI - Foreign Function Interface
 
 > C/C++로 작성된 라이브러리를 nodejs에서 사용할 수 있도록 하는 인터페이스
 >

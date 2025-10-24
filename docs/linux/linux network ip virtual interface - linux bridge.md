@@ -1,4 +1,4 @@
-# linux network ip virtual interface (linux bridge)
+# linux network ip virtual interface - linux bridge
 
 ## usage
 

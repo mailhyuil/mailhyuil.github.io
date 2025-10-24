@@ -1,4 +1,4 @@
-# prisma query 최적화 n+1
+# prisma query N+1 Problem
 
 > N+1 쿼리란, ORM을 사용 시 연관된 데이터를 조회하기 위해서 발생하는 불필요한 쿼리의 패턴을 의미한다.
 >

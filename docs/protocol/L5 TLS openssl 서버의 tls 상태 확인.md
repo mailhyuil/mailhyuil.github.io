@@ -1,4 +1,4 @@
-# TLS openssl 서버의 tls 상태 확인
+# L5 TLS openssl 서버의 tls 상태 확인
 
 ```sh
 openssl s_client -connect seo-dev.dep.team:443 -alpn h2

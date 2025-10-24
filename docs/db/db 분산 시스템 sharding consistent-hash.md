@@ -1,4 +1,4 @@
-# db sharding consistent-hash
+# db 분산 시스템 sharding consistent-hash
 
 > 노드의 수가 3개인 경우 hashFunc(key) % 3 으로 노드를 선택하여 요청
 >

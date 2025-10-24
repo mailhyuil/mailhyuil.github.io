@@ -1,4 +1,4 @@
-# Redis Streams
+# redis Redis Streams
 
 > list와 sorted set의 장점을 결합한 데이터 구조
 >

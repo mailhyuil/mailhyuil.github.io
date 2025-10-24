@@ -1,4 +1,4 @@
-# Self-Signed Certificate
+# L5 TLS certificate crt - Certificate Self-Signed
 
 > CSR을 보내서 인증서를 받는 것이 아니라, 인증서를 직접 만드는 것
 >

@@ -1,4 +1,4 @@
-# openvpn
+# aws vpc openVPN
 
 > ami marketplace에서 openvpn 선택
 >

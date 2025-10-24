@@ -1,4 +1,4 @@
-# wasm (WebAssembly)
+# wasm - WebAssembly
 
 > 컴파일 언어를 통해 빌드된 바이너리코드를 브라우저에서 직접 실행할 수 있는 기술
 >

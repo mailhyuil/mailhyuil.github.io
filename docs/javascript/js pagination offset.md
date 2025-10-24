@@ -1,4 +1,4 @@
-# js offset pagination
+# js pagination offset
 
 > 다양한 정렬 방식을 사용 가능
 >

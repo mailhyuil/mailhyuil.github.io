@@ -1,4 +1,4 @@
-# catchError
+# rxjs error handling catchError
 
 > error를 미리 잡아서 가공하고 넘기는 용도
 

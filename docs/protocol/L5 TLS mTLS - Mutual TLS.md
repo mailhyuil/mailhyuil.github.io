@@ -1,4 +1,4 @@
-# TLS mTLS (Mutual TLS)
+# L5 TLS mTLS - Mutual TLS
 
 > 서버뿐만 아니라 클라이언트도 인증서를 제공하여 신원을 증명함
 >

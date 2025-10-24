@@ -1,4 +1,4 @@
-# http chunk
+# L7 http chunk
 
 > http가 동적으로 생성되는 자원을 전송하기 위해 사용하는 방식이다. (e.g. 스트림)
 >

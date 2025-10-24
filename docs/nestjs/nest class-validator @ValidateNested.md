@@ -1,4 +1,4 @@
-# class-validator @ValidateNested
+# nest class-validator @ValidateNested
 
 ```ts
 class CreatePostDto {

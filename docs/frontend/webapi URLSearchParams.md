@@ -1,4 +1,4 @@
-# URLSearchParams
+# webapi URLSearchParams
 
 > 쿼리스트링을 조합하거나 가져오는 용도
 >

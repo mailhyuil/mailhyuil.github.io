@@ -1,4 +1,4 @@
-# ffmpeg
+# ffmpeg 설치
 
 ## install
 

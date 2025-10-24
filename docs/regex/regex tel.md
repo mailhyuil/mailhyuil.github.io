@@ -1,4 +1,4 @@
-# tel 정규식
+# regex tel
 
 ```ts
 const tel = "010-12345678";

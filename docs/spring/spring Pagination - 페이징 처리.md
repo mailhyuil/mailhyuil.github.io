@@ -1,4 +1,4 @@
-# Pagination (페이징 처리)
+# spring Pagination - 페이징 처리
 
 ## pagination 처리용 객체
 

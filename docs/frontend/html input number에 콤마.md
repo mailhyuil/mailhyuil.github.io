@@ -1,4 +1,4 @@
-# number에 콤마
+# html input number에 콤마
 
 ## number 콤마 삽입
 

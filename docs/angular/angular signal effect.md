@@ -1,4 +1,4 @@
-# angular Signals effect
+# angular signal effect
 
 > computed와 비슷하지만 다른 signal들을 계속 감시한다.
 >

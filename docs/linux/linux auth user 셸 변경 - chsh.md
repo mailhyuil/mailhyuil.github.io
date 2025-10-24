@@ -1,4 +1,4 @@
-# linux user 쉘 변경
+# linux auth user 셸 변경 - chsh
 
 ```sh
 chsh -s <shell> <username>

@@ -1,4 +1,4 @@
-# scss 변수 ($)
+# scss 변수 - $
 
 ```scss
 /* SCSS */

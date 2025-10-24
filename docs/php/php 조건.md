@@ -1,4 +1,4 @@
-# php conditional
+# php 조건
 
 ```php
 if (condition) {

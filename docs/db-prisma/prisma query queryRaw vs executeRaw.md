@@ -1,4 +1,4 @@
-# queryRaw vs executeRaw
+# prisma query queryRaw vs executeRaw
 
 > queryRaw는 쿼리를 실행 후 데이터 베이스 레코드를 리턴
 >

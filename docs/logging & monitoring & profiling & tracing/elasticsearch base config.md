@@ -1,4 +1,4 @@
-# ELK elasticsearch config
+# elasticsearch base config
 
 ## elasticsearch.yml
 

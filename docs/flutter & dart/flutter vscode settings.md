@@ -1,4 +1,4 @@
-# flutter settings.json
+# flutter vscode settings
 
 # vscode settings.json
 

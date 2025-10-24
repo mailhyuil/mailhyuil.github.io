@@ -1,4 +1,4 @@
-# nest base error
+# nest base filter exception custom
 
 > nest는 HttpError를 정의하는 HttpException을 제공한다.
 

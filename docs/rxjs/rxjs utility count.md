@@ -1,4 +1,4 @@
-# rxjs count
+# rxjs utility count
 
 ```js
 const source$ = of(1, 2, 3);

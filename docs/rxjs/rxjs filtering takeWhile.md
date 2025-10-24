@@ -1,4 +1,4 @@
-# rxjs takeWhile
+# rxjs filtering takeWhile
 
 ```ts
 import { fromEvent, takeWhile } from "rxjs";

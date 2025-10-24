@@ -1,4 +1,4 @@
-# aws s3 CORS
+# aws storage S3 Permissions CORS
 
 ```json
 [

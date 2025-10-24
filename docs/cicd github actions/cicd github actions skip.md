@@ -1,4 +1,4 @@
-# github actions skip
+# cicd github actions skip
 
 > commit message에
 >

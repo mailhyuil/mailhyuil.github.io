@@ -1,4 +1,4 @@
-# nest file busboy
+# nest file upload stream - busboy + ffmpeg copy
 
 ```ts
 import { Controller, Get, Post, Req, Res, StreamableFile } from "@nestjs/common";

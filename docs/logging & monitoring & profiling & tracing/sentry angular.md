@@ -1,4 +1,4 @@
-# angular sentry
+# sentry angular
 
 > sentry 회원가입 후 설정
 

@@ -1,4 +1,4 @@
-# kube Troubleshooting ControlPlane (MasterNode)
+# kube Troubleshooting MasterNode - ControlPlane
 
 > controller-manager, scheduler-manager, etcd, api-server, matrics-server, core-dns, docker-daemon, kubelet 확인
 

@@ -1,4 +1,4 @@
-# http 3 (QUIC)
+# L7 http 3 - QUIC
 
 > http over QUIC (UDP with Congestion Control)
 >

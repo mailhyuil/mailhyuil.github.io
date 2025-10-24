@@ -1,4 +1,4 @@
-# js URL
+# webapi URL createObjectURL
 
 > document내에 오브젝트를 저장하고 그것을 참조하는 URL을 생성
 

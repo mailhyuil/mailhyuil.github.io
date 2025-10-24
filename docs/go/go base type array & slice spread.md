@@ -1,4 +1,4 @@
-# go base array & slice spread
+# go base type array & slice spread
 
 > array나 slice를 함수의 인자로 넘길 때 사용 가능
 

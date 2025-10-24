@@ -1,4 +1,4 @@
-# httpClient responseType
+# angular httpClient responseType
 
 > 어떤 타입으로 응답을 받을 것인지 설정한다.
 >

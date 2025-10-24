@@ -1,4 +1,4 @@
-# window navigator copy to clipboard
+# webapi navigator clipboard
 
 ```js
 copyToClipboard() {

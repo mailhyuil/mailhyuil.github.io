@@ -1,4 +1,4 @@
-# nginx conf.d vs sites-available, sites-enabled
+# nginx config conf.d vs sites-available & sites-enabled
 
 ## conf.d
 

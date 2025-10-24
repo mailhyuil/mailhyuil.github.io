@@ -1,4 +1,4 @@
-# OpenResty ngx module
+# openResty ngx module
 
 ```lua
 ngx.say('hello, world') -- client response로 전송 (자동 줄바꿈)

@@ -1,4 +1,4 @@
-# kube Security Context
+# kube Auth Security Context
 
 > pod나 container를 무슨 권한으로 실행할 것인지 정의
 >

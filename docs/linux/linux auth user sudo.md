@@ -1,4 +1,4 @@
-# linux sudo
+# linux auth user sudo
 
 > sudo는 root 권한을 임시로 사용할 수 있는 그룹이다.
 >

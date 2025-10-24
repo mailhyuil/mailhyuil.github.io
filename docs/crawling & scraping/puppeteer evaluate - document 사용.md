@@ -1,4 +1,4 @@
-# puppeteer evaluate (document 사용)
+# puppeteer evaluate - document 사용
 
 > 값을 반환하는 evaluate 함수
 >

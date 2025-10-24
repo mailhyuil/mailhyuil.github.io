@@ -1,4 +1,4 @@
-# git pull 전략
+# git merge pull 전략
 
 ## default
 

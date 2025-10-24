@@ -1,4 +1,4 @@
-# Abstract factory pattern
+# Creational abstract factory
 
 > 관련된 객체집합(Product Family)을 일관성 있게 묶어서 한번에 생성하는 인터페이스를 제공하여 구현
 

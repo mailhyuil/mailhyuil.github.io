@@ -1,4 +1,4 @@
-# angular form component input-select
+# angular component select
 
 ## InputSelectItemComponent
 

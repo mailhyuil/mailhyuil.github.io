@@ -1,4 +1,4 @@
-# nginx $host$request_uri
+# nginx 변수 $host$request_uri
 
 ## $host
 

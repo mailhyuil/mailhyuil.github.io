@@ -1,4 +1,4 @@
-# algorithm Retry (Backoff Strategies)
+# algorithm Retry - Backoff Strategies
 
 > Backoff: retry 로직에서 실패 시 즉시 재시도하지 않고 일정 시간 대기 후 재시도하는 알고리즘
 >

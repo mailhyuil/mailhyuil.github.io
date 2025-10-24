@@ -1,4 +1,4 @@
-# Docker host.docker.internal
+# Docker network host.docker.internal
 
 > host의 localhost를 사용할 수 있다
 >

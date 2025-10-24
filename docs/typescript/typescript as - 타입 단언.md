@@ -1,4 +1,4 @@
-# as type assertion
+# typescript as - 타입 단언
 
 > as Type 형태로 사용
 >

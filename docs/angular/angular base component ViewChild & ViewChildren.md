@@ -1,4 +1,4 @@
-# angular ViewChild & ViewChildren
+# angular base component ViewChild & ViewChildren
 
 ```ts
 @ViewChild('ele') ele: ElementRef<HtmlDivElement>;

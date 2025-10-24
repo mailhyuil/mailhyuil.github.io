@@ -1,4 +1,4 @@
-# proxy cache nginx cache
+# nginx cache
 
 ## 캐시 활성화
 

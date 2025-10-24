@@ -1,4 +1,4 @@
-# visitor
+# Behavioral visitor
 
 > 실제 로직을 가지고 있는 객체(Visitor)가 로직을 적용할 객체(Element)를 방문하면서 실행하는 패턴이다.
 >

@@ -1,4 +1,4 @@
-# aws ECR (Elastic Container Registry)
+# aws ECR
 
 > registry 생성 : `<project_name>/<image_name>:<tag>`
 

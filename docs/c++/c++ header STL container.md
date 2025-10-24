@@ -1,4 +1,4 @@
-# c++ header container
+# c++ header STL container
 
 > container란 collection과 같은 의미
 >

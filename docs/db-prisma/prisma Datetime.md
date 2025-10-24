@@ -1,4 +1,4 @@
-# prisma date
+# prisma Datetime
 
 > prisma는 UTC만 지원한다. (@createdAt @updatedAt을 사용하면 UTC 시간으로 생성)
 >

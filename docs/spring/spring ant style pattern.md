@@ -1,4 +1,4 @@
-# ant style pattern & wildcards
+# spring ant style pattern
 
 > apache ant에서 사용하는 파일 매칭 패턴
 >

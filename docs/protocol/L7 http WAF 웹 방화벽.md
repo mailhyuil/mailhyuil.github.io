@@ -1,4 +1,4 @@
-# http WAF (Web Application Firewall) 웹 방화벽
+# L7 http WAF 웹 방화벽
 
 > 단순 방화벽(FW)은 TCP/IP 레벨에 포함된 정보들을 기반으로 차단 룰을 설정
 >

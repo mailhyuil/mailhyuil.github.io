@@ -1,4 +1,4 @@
-# angular control-flow prettier
+# angular 17 control-flow prettier
 
 > "prettier": "3.3.3"
 

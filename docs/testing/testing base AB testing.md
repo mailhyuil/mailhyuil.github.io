@@ -1,4 +1,4 @@
-# testing AB testing
+# testing base AB testing
 
 > 같은 기능의 두 가지 버전을 비교하여 더 나은 버전을 선택하기 위한 테스트
 >

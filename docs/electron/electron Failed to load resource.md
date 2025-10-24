@@ -1,4 +1,4 @@
-# electron Failed to load resource: net::ERR_FILE_NOT_FOUND
+# electron Failed to load resource
 
 ```html
 <base href="./" />

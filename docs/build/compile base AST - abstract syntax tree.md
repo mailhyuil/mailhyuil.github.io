@@ -1,4 +1,4 @@
-# AST (abstract syntax tree)
+# compile base AST - abstract syntax tree
 
 > parsing된 코드를 설명하는 data structure
 >

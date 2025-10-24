@@ -1,4 +1,4 @@
-# kafka transactional outbox pattern
+# kafka error handling Transactional Outbox Pattern
 
 > outbox란 웹 메일에서 보낸 편지함을 의미
 >

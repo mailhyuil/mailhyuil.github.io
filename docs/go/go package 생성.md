@@ -1,4 +1,4 @@
-# go package
+# go package 생성
 
 > go mod init 후 진행
 >

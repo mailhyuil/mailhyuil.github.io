@@ -1,4 +1,4 @@
-# dayjs 한글
+# js Date dayjs 한글
 
 ```js
 import "dayjs/locale/ko";

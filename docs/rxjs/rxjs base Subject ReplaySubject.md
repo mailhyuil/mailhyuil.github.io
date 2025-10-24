@@ -1,4 +1,4 @@
-# ReplaySubject
+# rxjs base Subject ReplaySubject
 
 > ReplaySubject는 bufferSize 개의 이벤트를 저장해 '처음부터 다시 방출'
 >

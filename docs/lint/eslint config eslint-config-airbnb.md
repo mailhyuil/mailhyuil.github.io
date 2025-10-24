@@ -1,4 +1,4 @@
-# eslint eslint-config-airbnb
+# eslint config eslint-config-airbnb
 
 > 2015년 airbnb에서 만든 오픈소스 eslint 설정
 >

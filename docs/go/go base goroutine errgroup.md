@@ -1,4 +1,4 @@
-# go package errgroup
+# go base goroutine errgroup
 
 ## install
 

@@ -1,4 +1,4 @@
-# react Form react-hook-form
+# react form react-hook-form
 
 ## install
 

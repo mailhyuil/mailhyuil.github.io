@@ -1,4 +1,4 @@
-# tsx (TypeScript Execute)
+# typescript compile tsx - ts-node
 
 > ts-node의 대체 라이브러리
 >

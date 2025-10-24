@@ -1,4 +1,4 @@
-# c++ header fstream
+# c++ header stream fstream & ifstream & ofstream
 
 > file stream
 

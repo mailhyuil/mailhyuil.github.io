@@ -1,4 +1,4 @@
-# go func
+# go base func
 
 ```go
 func test(str string) (int, string) {

@@ -1,4 +1,4 @@
-# go package Makefile
+# go cli Makefile
 
 > script 자동화 도구 (package.json의 scripts와 유사)
 

@@ -1,4 +1,4 @@
-# dayjs duration
+# js Date dayjs duration
 
 ```ts
 import dayjs from "dayjs";

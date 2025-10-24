@@ -1,4 +1,4 @@
-# watch
+# angular watch
 
 > rxjs Subject를 사용
 

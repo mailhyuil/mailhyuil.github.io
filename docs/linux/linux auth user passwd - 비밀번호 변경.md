@@ -1,4 +1,4 @@
-# linux cmd passwd
+# linux auth user passwd - 비밀번호 변경
 
 > 유저의 비밀번호를 변경하는 명령어
 

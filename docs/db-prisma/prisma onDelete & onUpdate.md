@@ -1,4 +1,4 @@
-# prsima OnDelete & OnUpdate
+# prisma onDelete & onUpdate
 
 ```
 Cascade // 같이 삭제

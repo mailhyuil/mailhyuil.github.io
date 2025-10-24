@@ -1,4 +1,4 @@
-# cache Etag
+# cache browser cache etag
 
 > Express.js는 기본적으로 모든 응답에 Etag를 자동으로 생성해서 헤더에 추가한다.
 >

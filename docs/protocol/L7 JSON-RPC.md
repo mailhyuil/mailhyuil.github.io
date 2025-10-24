@@ -1,4 +1,4 @@
-# base JSON-RPC
+# L7 JSON-RPC
 
 > JSON-RPC 2.0 message format / RPC protocol
 >

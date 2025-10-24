@@ -1,4 +1,4 @@
-# 마우스 우클릭 context menu
+# ui 마우스 우클릭 context menu
 
 > contextmenu 이벤트 사용
 > contextmenu 이벤트는 마우스 우클릭 시 발생하는 이벤트이다.

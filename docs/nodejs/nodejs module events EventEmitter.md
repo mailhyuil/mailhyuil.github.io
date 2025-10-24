@@ -1,4 +1,4 @@
-# nodejs event
+# nodejs module events EventEmitter
 
 ```js
 const EventEmitter = require('events')

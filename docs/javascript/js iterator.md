@@ -1,4 +1,4 @@
-# js Iterator
+# js iterator
 
 > Symbol.iterator를 구현한 객체를 이터러블 객체라고 한다.
 

@@ -1,4 +1,4 @@
-# kubernetes 클러스터 구조
+# kube base 클러스터 구조
 
 > Master Node와 Worker Node로 구성되어 있다.
 

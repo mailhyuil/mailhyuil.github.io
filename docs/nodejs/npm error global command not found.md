@@ -1,4 +1,4 @@
-# npm global command not found
+# npm error global command not found
 
 ```sh
 mkdir ~/.npm-global

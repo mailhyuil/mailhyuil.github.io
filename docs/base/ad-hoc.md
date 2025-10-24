@@ -1,4 +1,4 @@
-# base ad-hoc
+# ad-hoc
 
 > for this particular purpose
 >

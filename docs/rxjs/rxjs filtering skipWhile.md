@@ -1,1 +1,1 @@
-# rxjs skipWhile
+# rxjs filtering skipWhile

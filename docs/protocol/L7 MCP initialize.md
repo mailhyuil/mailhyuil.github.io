@@ -1,4 +1,4 @@
-# base MCP init
+# L7 MCP initialize
 
 ## 3 way handshake
 

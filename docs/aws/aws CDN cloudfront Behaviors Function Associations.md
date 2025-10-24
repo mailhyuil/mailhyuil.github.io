@@ -1,4 +1,4 @@
-# aws cloudfront Behavior Function Associations
+# aws CDN cloudfront Behaviors Function Associations
 
 ## Viewer Request
 

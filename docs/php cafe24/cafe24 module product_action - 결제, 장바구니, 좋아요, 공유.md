@@ -1,4 +1,4 @@
-# cafe24 module product_action
+# cafe24 module product_action - 결제, 장바구니, 좋아요, 공유
 
 ```html
 <div module="product_action">

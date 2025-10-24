@@ -1,4 +1,4 @@
-# nest decorator 내에서 Inject
+# nest base decorator 내에서 Inject
 
 ```ts
 import { Inject } from "@nestjs/common";

@@ -1,4 +1,4 @@
-# AbortController
+# nodejs module 내장객체 global AbortController
 
 > Promise-based API를 사용한 비동기 작업을 취소할 수 있는 객체
 >

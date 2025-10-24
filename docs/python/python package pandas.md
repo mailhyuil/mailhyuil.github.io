@@ -1,4 +1,4 @@
-# pandas
+# python package pandas
 
 > Numpy 기반으로 개발된 데이터 분석도구
 >

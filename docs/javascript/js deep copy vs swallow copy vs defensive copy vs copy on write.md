@@ -1,4 +1,4 @@
-# js deep copy & swallow copy & defensive copy & copy on write
+# js deep copy vs swallow copy vs defensive copy vs copy on write
 
 ## swallow copy
 

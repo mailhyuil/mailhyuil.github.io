@@ -1,4 +1,4 @@
-# jest config js
+# testing jest config js
 
 > jest.config.js 파일 방식
 >

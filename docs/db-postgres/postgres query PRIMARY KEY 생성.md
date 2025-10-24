@@ -1,4 +1,4 @@
-# postgres primary key
+# postgres query PRIMARY KEY 생성
 
 ## auto_increment
 

@@ -1,4 +1,4 @@
-# docker-compose kafka
+# docker-compose yaml kafka
 
 ## docker-compose.yaml
 

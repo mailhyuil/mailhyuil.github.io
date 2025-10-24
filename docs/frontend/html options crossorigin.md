@@ -1,4 +1,4 @@
-# html crossorigin
+# html options crossorigin
 
 > link, script, img, 등의 요소에 crossorigin 속성을 사용하여 CORS를 활성화할 수 있다.
 >

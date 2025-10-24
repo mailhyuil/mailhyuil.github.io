@@ -1,4 +1,4 @@
-# 러스트 라이프타임
+# rust base pointer lifetime
 
 > 허상 포인터를 방지하기 위한 러스트의 기능
 >

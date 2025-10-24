@@ -1,4 +1,4 @@
-# BehaviorSubject
+# rxjs base Subject BehaviorSubject
 
 > subscribe 될때 가장 최신의 .next 이벤트를 전달합니다.
 >

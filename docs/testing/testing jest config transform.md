@@ -1,4 +1,4 @@
-# testing jest config options transform
+# testing jest config transform
 
 > if you use some syntax not supported by Node out of the box (such as JSX, TypeScript, Vue templates) then you'll need to transform that code into plain JavaScript
 >

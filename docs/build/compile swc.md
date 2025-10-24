@@ -1,4 +1,4 @@
-# swc (Speedy Web Compiler)
+# compile swc
 
 > Rust-based compiler
 

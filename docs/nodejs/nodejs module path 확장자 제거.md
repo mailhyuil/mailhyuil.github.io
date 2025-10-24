@@ -1,4 +1,4 @@
-# nodejs module path 확장자 제거 (remove filename extension)
+# nodejs module path 확장자 제거
 
 ```js
 const path = require("path");

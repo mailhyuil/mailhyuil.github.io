@@ -1,4 +1,4 @@
-# go base struct
+# go base type struct
 
 > go에는 object, class가 없다. 대신 struct를 사용한다.
 >

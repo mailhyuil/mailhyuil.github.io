@@ -1,4 +1,4 @@
-# go type assertion 타입단언
+# go base type type assertion - 타입 단언
 
 > interface 타입을 구체적인 타입으로 변환하는 방법
 >

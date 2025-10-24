@@ -1,4 +1,4 @@
-# nest base module moduleRef methods
+# nest base module moduleRef
 
 ## usage
 

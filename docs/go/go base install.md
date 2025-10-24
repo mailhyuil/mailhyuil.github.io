@@ -1,4 +1,4 @@
-# go install
+# go base install
 
 ```sh
 # Download the installer

@@ -1,4 +1,4 @@
-# nest bcyrpt
+# nest bcrypt
 
 ## install
 

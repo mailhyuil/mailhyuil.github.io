@@ -1,4 +1,4 @@
-# process & thread
+# process & thread 프로세스 & 스레드
 
 ## process
 

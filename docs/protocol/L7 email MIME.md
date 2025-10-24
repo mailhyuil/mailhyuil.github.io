@@ -1,4 +1,4 @@
-# email MIME (Multipurpose Internet Mail Extensions)
+# L7 email MIME
 
 > SMTP는 ASCII 문자만을 전송할 수 있기 때문에, 이메일에 첨부파일을 보내기 위해 MIME 표준이 만들어졌다.
 >

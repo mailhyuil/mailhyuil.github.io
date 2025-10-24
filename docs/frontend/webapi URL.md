@@ -1,4 +1,4 @@
-# js URL
+# webapi URL
 
 > url을 string 타입으로 사용하면 query string 변경 같은 작업을 사용자가 직접 해야한다.
 >

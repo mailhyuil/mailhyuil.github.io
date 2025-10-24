@@ -1,4 +1,4 @@
-# linux package bash-completion
+# linux pacakge bash-completion
 
 ## install
 

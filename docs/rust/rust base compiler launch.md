@@ -1,4 +1,4 @@
-# launch
+# rust base compiler launch
 
 > launch.json 설정파일을 읽어서 자동으로 빌드 런을 할 수 있다.
 >

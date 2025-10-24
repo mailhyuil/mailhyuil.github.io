@@ -1,4 +1,4 @@
-# db query Set Operators (UNION, INTERSECT, EXCEPT)
+# db query Set Operators - UNION, INTERSECT, EXCEPT
 
 ## UNION
 

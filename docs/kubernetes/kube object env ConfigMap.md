@@ -1,4 +1,4 @@
-# kubernetes ConfigMap
+# kube object env ConfigMap
 
 > 개발, 테스트, 운영의 설정 파일들을 관리
 >

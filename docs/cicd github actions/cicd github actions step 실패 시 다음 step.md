@@ -1,4 +1,4 @@
-# github actions step 실패 시 다음 step
+# cicd github actions step 실패 시 다음 step
 
 ```yaml
 steps:

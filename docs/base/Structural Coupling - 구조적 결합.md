@@ -1,4 +1,4 @@
-# Structural Coupling (구조적 결합)
+# Structural Coupling - 구조적 결합
 
 > 하나의 코드를 수정하면 다른 코드에 영향을 미치는 현상
 >

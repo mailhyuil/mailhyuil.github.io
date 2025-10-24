@@ -1,4 +1,4 @@
-# kustomize
+# kubectl kustomize
 
 > kubectl 에 내장된 기능
 >

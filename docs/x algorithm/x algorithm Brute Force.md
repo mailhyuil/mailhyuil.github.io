@@ -1,4 +1,4 @@
-# Brute Force
+# x algorithm Brute Force
 
 > 무식한 힘 알고리즘
 >

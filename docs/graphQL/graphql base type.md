@@ -1,4 +1,4 @@
-# graphql type
+# graphql base type
 
 ```gql
 # scalar type

@@ -1,4 +1,4 @@
-# 1급 함수 vs 고차 함수
+# first class vs higher order - 1급 함수 vs 고차 함수
 
 ## 1급 함수
 

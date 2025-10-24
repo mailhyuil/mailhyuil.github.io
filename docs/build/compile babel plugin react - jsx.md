@@ -1,4 +1,4 @@
-# babel plugin react (jsx)
+# compile babel plugin react - jsx
 
 ## usage
 

@@ -1,4 +1,4 @@
-# UUID 생성
+# java UUID 생성
 
 ```java
 String id = UUID.randomUUID().toString();

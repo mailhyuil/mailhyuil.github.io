@@ -1,4 +1,4 @@
-# array length check
+# js array 빈 배열인지 확인
 
 ```js
 if (obj && obj.arr && obj.arr.length > 0) {

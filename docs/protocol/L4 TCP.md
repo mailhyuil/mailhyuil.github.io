@@ -1,4 +1,4 @@
-# TCP (Transmission Control Protocol)
+# L4 TCP
 
 ## 신뢰성 있는 통신
 

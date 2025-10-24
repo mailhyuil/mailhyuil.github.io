@@ -1,4 +1,4 @@
-# fromEvent
+# rxjs creation fromEvent
 
 > 이벤트로부터 observable 객체 생성
 >

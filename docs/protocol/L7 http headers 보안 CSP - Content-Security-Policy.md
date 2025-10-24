@@ -1,4 +1,4 @@
-# http headers 보안 Content-Security-Policy (CSP)
+# L7 http headers 보안 CSP - Content-Security-Policy
 
 > 웹 전체 리소스 로딩/실행 정책을 제어하는 보안 헤더
 >

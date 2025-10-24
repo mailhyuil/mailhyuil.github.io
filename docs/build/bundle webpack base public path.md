@@ -1,4 +1,4 @@
-# webpack public path
+# bundle webpack base public path
 
 ## webpack.config.js
 

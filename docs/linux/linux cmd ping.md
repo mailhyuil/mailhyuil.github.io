@@ -1,4 +1,4 @@
-# ping
+# linux cmd ping
 
 > ping은 ICMP 프로토콜을 사용한다.
 >

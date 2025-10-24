@@ -1,4 +1,4 @@
-# tailwindcss + ionic
+# ionic tailwindcss
 
 ## project.json
 

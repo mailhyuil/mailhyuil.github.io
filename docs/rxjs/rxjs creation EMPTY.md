@@ -1,4 +1,4 @@
-# rxjs EMPTY
+# rxjs creation EMPTY
 
 > A simple Observable that emits no items to the Observer and immediately emits a complete notification.
 >

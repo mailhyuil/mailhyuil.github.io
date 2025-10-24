@@ -1,4 +1,4 @@
-# typescript tsconfig paths
+# typescript tsconfig compilerOptions paths
 
 > baseUrl을 기준으로 상대경로를 이용해서 설정
 >

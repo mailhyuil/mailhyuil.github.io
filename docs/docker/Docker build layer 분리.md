@@ -1,4 +1,4 @@
-# docker build 레이어 분리
+# Docker build layer 분리
 
 > > 빌드 속도 향상
 

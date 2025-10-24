@@ -1,4 +1,4 @@
-# tailwindcss 단어 줄바꿈 break-keep
+# tailwindcss break-keep 단어 줄바꿈
 
 > Chinese/Japanese/Korean (CJK) text에만 적용됨
 >

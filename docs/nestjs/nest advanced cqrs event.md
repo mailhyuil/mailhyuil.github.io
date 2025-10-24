@@ -1,4 +1,4 @@
-# nest CQRS Event
+# nest advanced cqrs event
 
 ## Event
 

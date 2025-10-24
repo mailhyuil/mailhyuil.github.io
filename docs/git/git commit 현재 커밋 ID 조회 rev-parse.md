@@ -1,4 +1,4 @@
-# git rev-parse 현재 커밋 ID 조회
+# git commit 현재 커밋 ID 조회 rev-parse
 
 ```sh
 # 현재 커밋 ID 조회

@@ -1,4 +1,4 @@
-# css multi background images
+# css multi background-image
 
 ```html
 <div

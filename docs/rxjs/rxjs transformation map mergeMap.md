@@ -1,4 +1,4 @@
-# rxjs map mergeMap
+# rxjs transformation map mergeMap
 
 > outer가 값을 방출할 때마다 inner를 구독합니다.
 >

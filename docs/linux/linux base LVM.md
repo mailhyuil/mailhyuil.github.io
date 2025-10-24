@@ -1,1 +1,1 @@
-# linux LVM (Logical Volume Manager)
+# linux base LVM

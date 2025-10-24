@@ -1,4 +1,4 @@
-# postgres MVCC (Multi Version Concurrency Control)
+# postgres config autovacuum MVCC
 
 > A single rows has multiple versions.
 >

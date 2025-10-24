@@ -1,3 +1,3 @@
-# httpClient HttpRequest
+# angular httpClient HttpResponse
 
 > angular에서 제공하는 Response 객체

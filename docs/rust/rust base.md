@@ -1,4 +1,4 @@
-# 기초
+# rust base
 
 > iterator, collection, 스칼라 타입, 컴파운드 타입을 잘 구분해라
 

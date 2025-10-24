@@ -1,4 +1,4 @@
-# lodash creation partial
+# lodash creation partial & partialRight
 
 > 함수의 인자를 받아서 함수를 반환한다. (부분 적용 함수)
 

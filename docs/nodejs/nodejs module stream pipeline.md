@@ -1,4 +1,4 @@
-# stream pipeline
+# nodejs module stream pipeline
 
 > 스트림들을 묶어주는 역할
 >

@@ -1,4 +1,4 @@
-# jest mock functions
+# testing jest fn mock instance
 
 > .mock 프로퍼티를 사용하여 함수의 호출 정보를 확인할 수 있다.
 

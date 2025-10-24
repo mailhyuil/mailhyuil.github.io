@@ -1,4 +1,4 @@
-# redis type Set
+# redis type Set SSCAN
 
 > Set에는 대용량 데이터가 담겨있을 수 있다
 >

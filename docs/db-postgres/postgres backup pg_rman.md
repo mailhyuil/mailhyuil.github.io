@@ -1,4 +1,4 @@
-# postgres pg_rman
+# postgres backup pg_rman
 
 > rman : Recovery Manager
 

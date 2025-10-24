@@ -1,4 +1,4 @@
-# ng-container
+# angular ng-container
 
 > ng-container는 DOM, CSS에 영향을 주지 않는다.
 
@@ -15,7 +15,7 @@
 
 > template을 재사용하는 용도로 사용할 수 있다.
 
-```
-<ng-container *ngTemplateOutlet="”template”"></ng-container>
-<ng-template #template> Hello!</ng-template>
+```html
+<ng-container *ngTemplateOutlet="template"></ng-container>
+<ng-template #template>Hello!</ng-template>
 ```

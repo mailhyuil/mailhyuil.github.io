@@ -1,4 +1,4 @@
-# interpreter
+# Behavioral interpreter
 
 ## 구조
 

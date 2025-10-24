@@ -1,4 +1,4 @@
-# WebAPI IntersectionObserver
+# webapi Observer IntersectionObserver
 
 > root 로 정의된 Element 기준으로 Target Element 의 노출, 비노출 여부를 결정한다.
 >

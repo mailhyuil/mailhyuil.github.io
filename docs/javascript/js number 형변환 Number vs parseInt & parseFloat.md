@@ -1,4 +1,4 @@
-# js Number vs parseInt & parseFloat
+# js number 형변환 Number vs parseInt & parseFloat
 
 > parseInt와 parseFloat는 동작이 제멋대로인 경우가 많아 Number를 사용하는 것이 좋다.
 

@@ -1,4 +1,4 @@
-# SourceBuffer & AudioBuffer & VideoFrame
+# js binary data Buffer SourceBuffer & AudioBuffer & VideoFrame
 
 > ArrayBuffer를 각 도메인에 최적화된 데이터로 다루기 위한 객체
 >

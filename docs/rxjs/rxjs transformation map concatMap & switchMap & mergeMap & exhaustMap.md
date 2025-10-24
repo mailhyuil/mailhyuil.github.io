@@ -1,4 +1,4 @@
-# rxjs operator map switchMap & concatMap & mergeMap & exhaustMap
+# rxjs transformation map concatMap & switchMap & mergeMap & exhaustMap
 
 > inner observable을 구독
 >

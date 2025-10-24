@@ -1,4 +1,4 @@
-# linux base 환경변수 유지하기
+# linux base 환경변수 전역 환경변수
 
 > /etc/environment 파일에 등록
 

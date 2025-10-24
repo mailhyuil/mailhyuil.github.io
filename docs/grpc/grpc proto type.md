@@ -1,4 +1,4 @@
-# grpc proto
+# grpc proto type
 
 ## primitive types
 

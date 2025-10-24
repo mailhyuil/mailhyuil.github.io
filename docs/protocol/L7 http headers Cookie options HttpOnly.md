@@ -1,4 +1,4 @@
-# browser Cookie HttpOnly
+# L7 http headers Cookie options HttpOnly
 
 > 브라우저에서 쿠키의 값을 읽을 수 없도록 하는 옵션
 >

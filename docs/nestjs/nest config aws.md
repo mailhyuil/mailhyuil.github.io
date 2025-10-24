@@ -1,4 +1,4 @@
-# nestjs config aws
+# nest config aws
 
 ```ts
 // config/secrets.config.ts

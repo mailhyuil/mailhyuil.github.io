@@ -1,4 +1,4 @@
-# c++ base compiler =default
+# c++ base class 생성자 =default
 
 > 컴파일러에게 기본 생성자를 만들라고 알려주는 키워드
 

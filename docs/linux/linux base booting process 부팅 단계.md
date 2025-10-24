@@ -1,4 +1,4 @@
-# linux base booting process
+# linux base booting process 부팅 단계
 
 # BIOS (Basic Input Output System)
 

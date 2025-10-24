@@ -1,4 +1,4 @@
-# go base receiver
+# go base func receiver
 
 > 대부분 pointer를 사용하고 특별한 경우(struct가 작은 경우, 읽기전용)일때만 value를 사용한다.
 >

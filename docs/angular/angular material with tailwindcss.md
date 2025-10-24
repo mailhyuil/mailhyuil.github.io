@@ -1,4 +1,4 @@
-# angular material tailwindcss와 함께 사용
+# angular material with tailwindcss
 
 > important 설정으로 tailwindcss가 우선적용되도록 함
 

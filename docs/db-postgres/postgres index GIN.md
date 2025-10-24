@@ -1,1 +1,1 @@
-# postgres GIN index (Generalized INverted index)
+# postgres index GIN

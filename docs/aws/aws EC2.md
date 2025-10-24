@@ -31,7 +31,7 @@ sudo systemctl start nginx
 ## pscp로 EC2 서버에 파일 업로드
 
 ```bash
-# pscp.exe 다운로드
+# aws EC2
 # pscp -i ppk_path file_path username@ip:path
 ./pscp.exe -i ./hyuil.ppk ./ROOT.war ubuntu@3.34.191.96:/home/ubuntu/ROOT.war
 ```

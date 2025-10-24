@@ -1,4 +1,4 @@
-# linux package perf (performance)
+# linux profile cpu perf - performance
 
 > cpu 사용량, cache miss, branch misprediction, 메모리 접근 (load, store), system call 추적, context switch, 인터럽트 등을 분석하는 도구
 

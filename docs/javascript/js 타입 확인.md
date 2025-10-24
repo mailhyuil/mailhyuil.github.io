@@ -1,4 +1,4 @@
-# javascript type 확인
+# js 타입 확인
 
 ```js
 typeof "" === "string";

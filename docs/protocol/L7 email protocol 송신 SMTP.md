@@ -1,4 +1,4 @@
-# email SMTP (Simple Mail Transfer Protocol)
+# L7 email protocol 송신 SMTP
 
 > 받는 사람의 SMTP 서버와 보내는 사람의 SMTP 서버가 통신하여 "메일을 전송"하는 프로토콜
 >

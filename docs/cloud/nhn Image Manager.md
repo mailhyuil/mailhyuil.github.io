@@ -1,4 +1,4 @@
-# NHN Cloud Image Manager
+# nhn Image Manager
 
 > 폴더 생성 -\> 옵션 생성 (small, medium, large)
 >

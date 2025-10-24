@@ -1,4 +1,4 @@
-# nx 세팅
+# nx 세팅 setting
 
 > angular custom webpack 설정
 >

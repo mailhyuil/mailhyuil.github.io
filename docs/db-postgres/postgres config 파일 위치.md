@@ -1,4 +1,4 @@
-# postgres postgresql.conf 위치
+# postgres config 파일 위치
 
 > /var/lib/postgresql/data
 

@@ -1,4 +1,4 @@
-# http SOP (Same-Origin-Policy)
+# L7 http headers 보안 SOP - Same-Origin-Policy
 
 > 브라우저에서 다른 Origin의 리소스를 받는 것을 제한하여, XSS 및 CSRF 공격을 방지하는 보안 정책
 >

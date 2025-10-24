@@ -1,4 +1,4 @@
-# addEventListener & removeEventListener
+# event addEventListener & removeEventListener
 
 > 반드시 removeEventListener를 사용하여 이벤트를 제거해야 한다.
 >

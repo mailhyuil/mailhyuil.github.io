@@ -1,4 +1,4 @@
-# util
+# nodejs module util
 
 > 유용한 보조 기능을 모아 놓은 모듈
 

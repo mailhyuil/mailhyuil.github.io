@@ -1,4 +1,4 @@
-# gsap scrollTo
+# animation gsap ScrollTo
 
 > 주의사항: css의 scroll-behavior: smooth !important; 속성을 함께쓰면 속도를 제어할 수 없어진다.
 

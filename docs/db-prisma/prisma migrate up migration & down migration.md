@@ -1,4 +1,4 @@
-# prisma down migrations & up migrations
+# prisma migrate up migration & down migration
 
 ## up migrations
 

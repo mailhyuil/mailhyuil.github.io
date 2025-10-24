@@ -1,4 +1,4 @@
-# nodejs json module
+# nodejs module json
 
 > import 문으로 json을 가져오게끔하는것
 

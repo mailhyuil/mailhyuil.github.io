@@ -1,4 +1,4 @@
-# postgres COPY TO/FROM WITH
+# postgres query COPY
 
 > import, export 기능 수행
 >

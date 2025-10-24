@@ -1,4 +1,4 @@
-# nodejs event-loop process.nextTick
+# nodejs event loop process.nextTick()
 
 > nextTickQueue will be processed after the current operation is completed, regardless of the current phase of the event loop.
 >

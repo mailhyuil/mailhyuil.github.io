@@ -1,4 +1,4 @@
-# angular Signals resource
+# angular signal resource
 
 > Most signal APIs are synchronous (signal, computed, input, etc)
 >

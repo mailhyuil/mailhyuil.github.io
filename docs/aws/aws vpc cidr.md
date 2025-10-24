@@ -1,4 +1,4 @@
-# vpc cidr
+# aws vpc cidr
 
 > cidr가 작을 수록 네트워크가 크다.
 

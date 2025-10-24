@@ -1,4 +1,4 @@
-# docker-compose cluster auto scaling
+# docker-compose deploy replicas auto scale
 
 ## scale.sh
 

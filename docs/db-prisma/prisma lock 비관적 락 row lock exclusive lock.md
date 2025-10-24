@@ -1,4 +1,4 @@
-# prisma lock exclusive lock
+# prisma lock 비관적 락 row lock exclusive lock
 
 > prisma는 아직 lock을 지원하지 않기 때문에 $queryRaw를 사용해야 한다.
 >

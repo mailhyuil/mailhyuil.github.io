@@ -1,4 +1,4 @@
-# js composition (has a)
+# js composition - has a
 
 ```js
 class Obj {

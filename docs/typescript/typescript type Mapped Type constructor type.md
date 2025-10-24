@@ -1,4 +1,4 @@
-# typescript type constructor type
+# typescript type Mapped Type constructor type
 
 ## type
 

@@ -1,4 +1,4 @@
-# kube nginx nodejs
+# kube manifest nginx
 
 ```yaml
 apiVersion: apps/v1

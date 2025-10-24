@@ -1,4 +1,4 @@
-# email DNS MX 레코드
+# L7 email DNS MX 레코드
 
 > DNS '메일 교환'(MX) 레코드는 이메일을 메일 서버로 보냅니다.
 >

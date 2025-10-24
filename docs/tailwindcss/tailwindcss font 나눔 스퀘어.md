@@ -1,4 +1,4 @@
-# tailwindcss font nanum round
+# tailwindcss font 나눔 스퀘어
 
 > font-family 이름을 하나로 통일
 >

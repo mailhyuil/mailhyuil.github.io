@@ -1,4 +1,4 @@
-# git pull
+# git merge pull
 
 > git pull은 git fetch + git merge FETCH_HEAD를 한번에 실행하는 것과 같습니다.
 

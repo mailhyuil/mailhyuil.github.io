@@ -1,4 +1,4 @@
-# aws eks
+# aws EKS
 
 > eks 생성 -> config -> kubectl
 

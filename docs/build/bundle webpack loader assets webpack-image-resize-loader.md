@@ -1,4 +1,4 @@
-# webpack-image-resize-loader
+# bundle webpack loader assets webpack-image-resize-loader
 
 ## install
 

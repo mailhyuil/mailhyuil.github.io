@@ -1,4 +1,4 @@
-# bandWidth & Throughput 대역폭 & 네트워크 출력
+# base bandwidth - 대역폭 & throughput - 네트워크 출력
 
 > 대역폭이 파이프의 구멍크기라면 네트워크 출력은 파이프를 통과하는 물의 양이다.
 >

@@ -1,4 +1,4 @@
-# 로드 밸런서
+# aws vpc load balancer - 로드 밸런서
 
 > 다른 가용영역에 public ip 두개 필요
 

@@ -1,4 +1,4 @@
-# popup 하루동안 보지 않기
+# ui popup 하루동안 보지 않기
 
 ## popup
 

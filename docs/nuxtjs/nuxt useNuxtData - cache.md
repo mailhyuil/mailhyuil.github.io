@@ -1,4 +1,4 @@
-# nuxt useNuxtData
+# nuxt useNuxtData - cache
 
 > useAsyncData, useLazyAsyncData, useFetch, useLazyFetch는 데이터를 캐시한다
 >

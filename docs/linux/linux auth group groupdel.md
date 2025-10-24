@@ -1,4 +1,4 @@
-# linux cmd groupdel
+# linux auth group groupdel
 
 ```sh
 groupdel <groupname>

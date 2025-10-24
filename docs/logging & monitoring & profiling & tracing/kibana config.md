@@ -1,4 +1,4 @@
-# ELK kibana config
+# kibana config
 
 ## kibana.yml
 

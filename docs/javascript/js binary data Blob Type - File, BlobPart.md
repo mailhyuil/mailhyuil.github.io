@@ -1,4 +1,4 @@
-# js Blob
+# js binary data Blob Type - File, BlobPart
 
 > 브라우저 환경에서 사용하는 객체
 >

@@ -1,4 +1,4 @@
-# go Prefork
+# go 최적화 cpu Prefork
 
 > 앱 실행 시 미리 fork()를 통해 프로세스를 생성하여 요청을 처리하는 방식
 

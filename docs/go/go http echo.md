@@ -1,4 +1,4 @@
-# go echo
+# go http echo
 
 ## install
 

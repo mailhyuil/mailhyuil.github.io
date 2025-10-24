@@ -1,4 +1,4 @@
-# AWS Amazon Q Developer
+# aws Amazon Q Developer
 
 ## 개요
 

@@ -1,4 +1,4 @@
-# hacking tools crunch
+# hacking tools crunch - wordlist
 
 ```sh
 # crunch [min] [max] [charset] -t [pattern] -o [output_file_name]

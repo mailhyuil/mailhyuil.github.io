@@ -1,4 +1,4 @@
-# c++ static_cast vs dynamic_cast
+# c++ base type static_cast vs dynamic_cast
 
 > `*_cast<new_type>(expression)` 으로 사용
 

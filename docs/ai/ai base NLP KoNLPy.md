@@ -1,4 +1,4 @@
-# ai base NLP KoNLPy (코엔엘파이)
+# ai base NLP KoNLPy
 
 > 한국어 자연어 처리 모듈
 >

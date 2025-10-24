@@ -1,4 +1,4 @@
-# ELK beats filebeat config
+# log-agent filebeat config
 
 > https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-reference-yml.html
 

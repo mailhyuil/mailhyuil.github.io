@@ -1,4 +1,4 @@
-# prisma field encryption
+# prisma encryption - prisma-field-encryption
 
 ## install
 

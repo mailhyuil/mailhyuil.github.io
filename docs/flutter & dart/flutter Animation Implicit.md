@@ -1,4 +1,4 @@
-# flutter Animation Implicit (암시적 애니메이션)
+# flutter Animation Implicit
 
 > 애니메이션이란 하나의 상태에서 다른 상태로 변환하는 것
 >

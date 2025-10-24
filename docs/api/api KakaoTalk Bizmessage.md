@@ -1,4 +1,4 @@
-# Kakao Bizmessage
+# api KakaoTalk Bizmessage
 
 > kakao developer에서 알림톡 템플릿 생성 필요
 >

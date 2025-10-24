@@ -1,4 +1,4 @@
-# kubernetes Label
+# kube PodScheduling Label
 
 > 오브젝트에 label을 지정하고
 >

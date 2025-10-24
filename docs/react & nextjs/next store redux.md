@@ -1,4 +1,4 @@
-# redux
+# next store redux
 
 > state가 readonly로 state를 변화시키는 방법은 reducer함수 뿐이라 디버깅 용이
 >

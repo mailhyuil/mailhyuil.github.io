@@ -1,4 +1,4 @@
-# Linked List
+# data linked list
 
 > LinkedList도 일종의 Graph 자료구조다. (단순 연결 리스트(Singly Linked List))
 

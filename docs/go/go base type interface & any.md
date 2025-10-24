@@ -1,4 +1,4 @@
-# go base interface & any
+# go base type interface & any
 
 > interface는 어떠한 타입도 포함할 수 있는 타입이다.
 >

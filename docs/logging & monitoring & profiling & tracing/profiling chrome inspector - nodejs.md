@@ -1,4 +1,4 @@
-# profiling node
+# profiling chrome inspector - nodejs
 
 > chrome inspector로 profiling 하기
 

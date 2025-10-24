@@ -1,4 +1,4 @@
-# npm publish typescript 지원
+# npm 라이브러리 - library 배포 typescript 지원
 
 ## install
 

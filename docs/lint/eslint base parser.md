@@ -1,4 +1,4 @@
-# eslint parser
+# eslint base parser
 
 > abstract syntax tree를 분석하여 코드를 검사하는 도구
 

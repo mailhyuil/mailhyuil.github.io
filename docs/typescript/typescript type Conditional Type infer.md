@@ -1,4 +1,4 @@
-# typescript type extends & infer
+# typescript type Conditional Type infer
 
 > U 가 T로부터 추론 가능한 타입이면 참, 아니면 거짓
 >

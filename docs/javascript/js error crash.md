@@ -1,4 +1,4 @@
-# js error process crash 프로세스가 멈추는 경우
+# js error crash
 
 > 예외가 처리되지 않는 경우(catch) 프로세스는 멈춘다.
 >

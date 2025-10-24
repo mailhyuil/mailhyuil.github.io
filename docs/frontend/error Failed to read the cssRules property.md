@@ -1,4 +1,4 @@
-# Uncaught DOMException: Failed to read the 'cssRules' property
+# error Failed to read the cssRules property
 
 > chrome에서 stylesheet에서도 cors를 추가함
 >

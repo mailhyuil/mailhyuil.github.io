@@ -1,4 +1,4 @@
-# L7 WebRTC (Web Real-Time Communication)
+# L7 WebRTC
 
 ## NAT
 

@@ -1,4 +1,4 @@
-# encrypt Age
+# encrypt 데이터 & 파일 Age
 
 > GPG를 대체하는 현대 암호화 방식으로 Age를 사용한다.
 >

@@ -1,1 +1,1 @@
-# postgres utility pg_cli
+# postgres utility pg_ctl

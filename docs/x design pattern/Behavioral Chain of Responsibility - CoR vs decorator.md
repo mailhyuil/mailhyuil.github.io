@@ -1,4 +1,4 @@
-# design pattern CoR vs Decorator
+# Behavioral Chain of Responsibility - CoR vs decorator
 
 ```txt
 I generally think of the Decorator as "adding" to some thing, where as Chain of Responsiblity is more like handling something thing.

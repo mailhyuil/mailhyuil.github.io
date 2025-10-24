@@ -1,4 +1,4 @@
-# kubernetes Ingress settings
+# kube object Ingress settings
 
 ## create namespace
 

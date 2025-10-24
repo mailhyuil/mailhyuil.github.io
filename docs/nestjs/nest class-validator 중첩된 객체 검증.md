@@ -1,4 +1,4 @@
-# class-validator 중첩된 객체 검증
+# nest class-validator 중첩된 객체 검증
 
 > 중첩된 객체를 검증하기 위해서는 @ValidateNested() 데코레이터를 사용해야 합니다.
 

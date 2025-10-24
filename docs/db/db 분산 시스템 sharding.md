@@ -1,4 +1,4 @@
-# db sharding (샤딩)
+# db 분산 시스템 sharding
 
 > shard = 조각, 파편
 >

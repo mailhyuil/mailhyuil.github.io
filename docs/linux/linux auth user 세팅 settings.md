@@ -1,4 +1,4 @@
-# linux cmd w & who & whoami & users & logname & id
+# linux auth user 세팅 settings
 
 ```sh
 [소유자]:[그룹]

@@ -1,4 +1,4 @@
-# nest Exception filters HttpExceptionFilter
+# nest base filter exception HttpExceptionFilter
 
 ## http-exception.filter.ts
 

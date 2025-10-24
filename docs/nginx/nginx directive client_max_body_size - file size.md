@@ -1,4 +1,4 @@
-# nginx client_max_body_size (file size)
+# nginx directive client_max_body_size - file size
 
 > nginx.conf
 

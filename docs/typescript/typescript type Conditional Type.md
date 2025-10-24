@@ -1,4 +1,4 @@
-# typescript conditional type 조건부 타입
+# typescript type Conditional Type
 
 > 조건부 타입(conditional type)이란 입력된 제네릭 타입에 따라 타입을 결정 기능을 말한다.
 >

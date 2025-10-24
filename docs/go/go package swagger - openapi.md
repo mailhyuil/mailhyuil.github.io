@@ -1,4 +1,4 @@
-# go package swagger (openapi)
+# go package swagger - openapi
 
 ## install
 

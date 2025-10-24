@@ -1,4 +1,4 @@
-# http RestAPI PUT
+# L7 http method PUT
 
 > 리소스를 특정한 위치에 정의한다라는 의도
 >

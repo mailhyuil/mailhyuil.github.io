@@ -1,4 +1,4 @@
-# Connection Server (커넥션 서버)
+# Connection Server - 커넥션 서버
 
 > 커넥션만을 위한 서버를 분리
 >

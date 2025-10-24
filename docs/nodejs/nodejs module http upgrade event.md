@@ -1,4 +1,4 @@
-# nodejs http upgrade event
+# nodejs module http upgrade event
 
 > http 요청이 websocket, http/2 또는 다른 프로토콜로 업그레이드 되는 경우 발생
 >

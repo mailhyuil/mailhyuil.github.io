@@ -1,4 +1,4 @@
-# pub-sub
+# Behavioral pub-sub
 
 > 옵저버 패턴과 유사하다
 >

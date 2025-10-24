@@ -1,4 +1,4 @@
-# k9s
+# kube tool k9s
 
 ## install
 

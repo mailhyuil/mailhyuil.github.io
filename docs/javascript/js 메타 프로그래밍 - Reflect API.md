@@ -1,4 +1,4 @@
-# js 메타 프로그래밍 (Reflect API)
+# js 메타 프로그래밍 - Reflect API
 
 > 메타데이터를 다룰 수 있는 내장 객체
 >

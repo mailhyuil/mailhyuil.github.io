@@ -1,4 +1,4 @@
-# linux package ssh JumpHost
+# linux package ssh jump host
 
 > ssh proxy 서버를 사용하는 구조
 >

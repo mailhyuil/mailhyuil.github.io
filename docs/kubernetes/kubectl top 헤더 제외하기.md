@@ -1,4 +1,4 @@
-# 헤더 제외하기
+# kubectl top 헤더 제외하기
 
 > --no-headers=true
 

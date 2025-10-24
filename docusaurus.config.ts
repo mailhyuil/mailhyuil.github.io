@@ -107,6 +107,11 @@ const config: Config = {
           label: "GitHub",
           position: "right",
         },
+        {
+          href: "https://www.youtube.com/@LameRhino3D",
+          label: "YouTube",
+          position: "right",
+        },
       ],
     },
     footer: {
@@ -126,7 +131,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Recipe Blog Project by Mailhyuil.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Blog Project by Mailhyuil.`,
     },
     prism: {
       theme: prismThemes.github,

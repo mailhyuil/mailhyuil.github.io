@@ -1,4 +1,4 @@
-# vuejs + html canvas
+# html canvas + vue
 
 ## app.vue
 

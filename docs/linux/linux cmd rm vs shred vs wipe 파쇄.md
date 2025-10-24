@@ -1,4 +1,4 @@
-# linux cmd shred
+# linux cmd rm vs shred vs wipe 파쇄
 
 > 파일을 안전하게 삭제
 >

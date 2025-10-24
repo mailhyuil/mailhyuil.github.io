@@ -1,4 +1,4 @@
-# angular base component editor (quill)
+# angular component editor - quill
 
 ## install
 

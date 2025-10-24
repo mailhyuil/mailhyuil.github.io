@@ -1,4 +1,4 @@
-# npm publish commonjs 지원
+# npm 라이브러리 - library 배포 commonjs 지원
 
 ## package.json
 

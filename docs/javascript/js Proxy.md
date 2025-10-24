@@ -1,4 +1,4 @@
-# js AOP Proxy
+# js Proxy
 
 > target을 handler에 있는 trap을 이용하여 가공한다.
 >

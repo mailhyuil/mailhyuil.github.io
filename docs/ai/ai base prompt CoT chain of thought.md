@@ -1,1 +1,1 @@
-# ai base chain of thought (CoT)
+# ai base prompt CoT chain of thought

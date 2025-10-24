@@ -1,4 +1,4 @@
-# plainToInstance & instanceToPlain
+# nest class-transformer plainToInstance & instanceToPlain
 
 > class === instance
 >

@@ -1,4 +1,4 @@
-# DDoS (Distribution Denial of Service)
+# hacking attack DDoS attack
 
 > 분산 서비스 거부 : 서버에 부하가 생겨 서비스를 제공하지 못하는 상태
 >

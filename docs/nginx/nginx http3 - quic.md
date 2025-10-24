@@ -1,4 +1,4 @@
-# nginx http3 (quic)
+# nginx http3 - quic
 
 > --with-http_v3_module 필요
 >

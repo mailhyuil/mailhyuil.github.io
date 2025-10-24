@@ -1,4 +1,4 @@
-# nestjs jwt
+# nest auth jwt
 
 > [jwt.io](https://jwt.io/)
 >

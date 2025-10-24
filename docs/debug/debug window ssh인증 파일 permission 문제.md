@@ -1,4 +1,4 @@
-# Windows에서의 ssh 인증 파일 permission 문제
+# debug window ssh인증 파일 permission 문제
 
 ```sh
 오른쪽 클릭 -> 속성 -> 보안 -> 고급 -> 상속 사용 안 함 -> 보안 주체 선택 -> 계정 입력 -> 권한 부여

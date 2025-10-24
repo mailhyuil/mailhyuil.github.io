@@ -1,4 +1,4 @@
-# nodejs event-loop libuv thread pool (worker thread / background thread)
+# nodejs event loop libuv thread pool - worker thread, background thread
 
 > nodejs는 대부분의 cpu 작업을 main thread 수행하지만 몇가지 작업은 background thread에서 수행한다.
 >

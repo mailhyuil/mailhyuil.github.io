@@ -1,4 +1,4 @@
-# python uv
+# python package manager uv
 
 > Rust로 작성된 패키지 관리자
 

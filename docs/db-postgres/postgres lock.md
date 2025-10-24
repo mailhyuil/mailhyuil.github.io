@@ -1,4 +1,4 @@
-# postgres base lock
+# postgres lock
 
 ## TABLE-LEVEL LOCK
 

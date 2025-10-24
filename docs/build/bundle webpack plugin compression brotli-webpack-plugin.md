@@ -1,4 +1,4 @@
-# webpack loader brotli-webpack-plugin
+# bundle webpack plugin compression brotli-webpack-plugin
 
 > assets를 Brotli 알고리즘을 사용하여 압축해주는 플러그인
 >

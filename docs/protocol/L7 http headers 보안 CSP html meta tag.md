@@ -1,4 +1,4 @@
-# http headers 보안 Content-Security-Policy (CSP)
+# L7 http headers 보안 CSP html meta tag
 
 > 다른 보안 헤더와 달리 csp는 head의 meta 태그에 설정할 수 있다.
 >

@@ -1,4 +1,4 @@
-# aws 세팅 settings
+# aws base 세팅 settings
 
 1. root 계정 생성
 2. budget 생성

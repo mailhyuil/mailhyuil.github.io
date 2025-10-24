@@ -1,4 +1,4 @@
-# google-ads
+# ad google - Ads & AdSense & AdMob
 
 > 구들 애드워즈 : 광고주가 광고를 게제하고 관리하기 위한 광고 플랫폼
 >

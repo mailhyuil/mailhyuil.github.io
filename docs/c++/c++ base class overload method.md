@@ -1,4 +1,4 @@
-# c++ base overload method
+# c++ base class overload method
 
 > c에서는 오버로드 기능을 제공하지 않지만 c++은 제공한다.
 >

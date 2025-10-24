@@ -1,4 +1,4 @@
-# tailwindcss container custom
+# tailwindcss container inner-container & outer-container
 
 ## tailwind.config.js
 

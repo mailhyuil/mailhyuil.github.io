@@ -1,4 +1,4 @@
-# merge + mergeMap
+# rxjs creation join merge + mergeMap
 
 > update$나 forceReload$가 발생하면 getDataOnce()를 실행한다.
 

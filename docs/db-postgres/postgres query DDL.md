@@ -1,4 +1,4 @@
-# postgreSQL DDL (Data Definition Language)
+# postgres query DDL
 
 > 데이터를 정의하는 명령어
 >

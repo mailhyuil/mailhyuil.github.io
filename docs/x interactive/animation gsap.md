@@ -1,4 +1,4 @@
-# GSAP (greenSock)
+# animation gsap
 
 ## install
 

@@ -1,4 +1,4 @@
-# FileSizePipe
+# html input filesize - bytesToHumansize
 
 ```js
 function bytesToHumanSize(bytes: number | undefined) {

@@ -1,4 +1,4 @@
-# ArrayBuffer ArrayBufferView
+# js binary data Buffer ArrayBuffer DataView & TypedArray
 
 > ArrayBuffer는 브라우저와 Node.js 모두에서 사용할 수 있는 원시 바이너리 데이터 버퍼 (Buffer는 Nodejs에서만 사용 가능)
 >

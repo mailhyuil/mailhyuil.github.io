@@ -1,4 +1,4 @@
-# tsc plugin
+# compile tsc plugin
 
 ## main.ts
 

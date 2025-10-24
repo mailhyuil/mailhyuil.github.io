@@ -1,4 +1,4 @@
-# prisma lock usecase 사용 예시
+# db 동시성 제어 lock usecase 사용 예시
 
 ## FOR SHARE
 

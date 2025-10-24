@@ -1,4 +1,4 @@
-# GitOps
+# cicd ArgoCD GitOps
 
 > 기존의 문제점은 인프라와 소프트웨어 관리가 분리되어 생긴다는 점
 > GitOps는 인프라와 소프트웨어를 함께 관리

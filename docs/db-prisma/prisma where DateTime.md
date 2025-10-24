@@ -1,4 +1,4 @@
-# prisma where date
+# prisma where DateTime
 
 ```js
 createdAt: {

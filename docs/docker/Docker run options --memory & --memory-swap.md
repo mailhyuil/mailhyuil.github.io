@@ -1,4 +1,4 @@
-# docker run options --memory & --memory-swap
+# Docker run options --memory & --memory-swap
 
 > 메모리가 50m 초과 시 kernel이 컨테이너를 종료, 그 후 restart policy에 따른다.
 >

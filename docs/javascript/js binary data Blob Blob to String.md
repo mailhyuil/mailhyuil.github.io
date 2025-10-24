@@ -1,4 +1,4 @@
-# Blob to String
+# js binary data Blob Blob to String
 
 ```js
 const blob = new Blob(["hello, world"], { type: "text/plain" });

@@ -1,4 +1,4 @@
-# browser Cookie 종류
+# L7 http headers Cookie 종류
 
 ## Session Cookie
 

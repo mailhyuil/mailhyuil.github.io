@@ -1,4 +1,4 @@
-# pubic subnet & private subnet
+# cloud public subnet & private subnet
 
 > Public subnet과 private subnet 간에 NAT(Network Address Translation)를 구성
 >

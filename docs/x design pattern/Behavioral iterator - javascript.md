@@ -1,4 +1,4 @@
-# iterator
+# Behavioral iterator - javascript
 
 ```ts
 // generator 함수는 generator 객체를 반환한다. (generator 객체는 "iterator" 객체이다.)

@@ -1,4 +1,4 @@
-# mitt
+# nuxt mitt
 
 > emit을 전역으로 관리
 

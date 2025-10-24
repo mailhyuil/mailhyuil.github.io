@@ -1,4 +1,4 @@
-# nodejs child_process os 명령어 실행
+# nodejs module multicore child_process os 명령어 실행
 
 ```ts
 const { exec } = require("child_process");

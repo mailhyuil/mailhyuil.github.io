@@ -1,4 +1,4 @@
-# angular pwa webpush 웹푸시
+# angular worker service worker webpush 웹 푸시 - PWA
 
 > web-push를 사용하여 pushSubscription을 생성하고 서버에 저장
 >

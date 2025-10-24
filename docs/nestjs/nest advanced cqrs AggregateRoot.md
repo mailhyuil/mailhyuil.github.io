@@ -1,4 +1,4 @@
-# nest cqrs AggregateRoot
+# nest advanced cqrs AggregateRoot
 
 ```ts
 import { AggregateRoot } from "@nestjs/cqrs";

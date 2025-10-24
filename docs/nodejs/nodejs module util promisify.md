@@ -1,4 +1,4 @@
-# util promisify
+# nodejs module util promisify
 
 > 콜백패턴 기반의 내장 모듈 함수를 프로미스 기반으로 변경해주는 함수
 >

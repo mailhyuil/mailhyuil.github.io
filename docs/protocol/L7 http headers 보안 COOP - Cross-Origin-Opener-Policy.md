@@ -1,4 +1,4 @@
-# http headers 보안 Cross-Origin-Opener-Policy (COOP)
+# L7 http headers 보안 COOP - Cross-Origin-Opener-Policy
 
 > 다른 Origin의 리소스를 window 객체나 iframe이 참조하지 못하게 하는 정책
 >

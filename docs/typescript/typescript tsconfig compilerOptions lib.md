@@ -1,4 +1,4 @@
-# typescript lib
+# typescript tsconfig compilerOptions lib
 
 > typescript는 built-in JS APIs의 type 정의만 가지고 있다.
 >

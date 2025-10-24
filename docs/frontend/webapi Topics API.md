@@ -1,4 +1,4 @@
-# webapi Topics API (FLoC)
+# webapi Topics API
 
 > 써드파티 쿠키 제한의 대안으로 구글의 Privacy Sandbox 프로젝트가 제안한 FLoC(Federated Learning of Cohorts)
 >

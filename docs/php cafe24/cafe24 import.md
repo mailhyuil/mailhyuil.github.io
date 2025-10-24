@@ -1,4 +1,4 @@
-# cafe34 import
+# cafe24 import
 
 ```html
 <!--@css(/path/to/global.css)-->

@@ -1,4 +1,4 @@
-# nodejs chokidar
+# nodejs module fs watch chokidar
 
 > fs.watch의 문제점을 해결한 라이브러리
 

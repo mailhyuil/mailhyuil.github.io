@@ -1,4 +1,4 @@
-# Host Object Pattern
+# x Host Object Pattern
 
 > host 객체(계층)을 통해 다른 객체에 접근할 수 있도록 한다.
 >

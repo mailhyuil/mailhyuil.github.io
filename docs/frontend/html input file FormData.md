@@ -1,4 +1,4 @@
-# FormData
+# html input file FormData
 
 > form을 쉽게 보내도록 도와주는 객체
 >

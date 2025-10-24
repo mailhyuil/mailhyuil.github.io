@@ -1,4 +1,4 @@
-# nginx set_real_ip_from
+# nginx module real ip - set_real_ip_from, real_ip_header
 
 > proxy 사용 시 set_real_ip_from `<proxy-ip>` 설정을 통해 ip 추출 시 proxy ip를 건너띄고 실제 client ip를 추출할 수 있다.
 

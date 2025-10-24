@@ -1,4 +1,4 @@
-# duplex stream
+# nodejs module stream interface duplex
 
 > 양방향 스트림
 >

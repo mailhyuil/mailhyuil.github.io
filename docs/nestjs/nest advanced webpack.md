@@ -1,4 +1,4 @@
-# nestjs advanced webpack
+# nest advanced webpack
 
 ## nest-cli.json
 

@@ -1,4 +1,4 @@
-# angular Validator css class
+# angular form Validator css selector - CSS 셀렉터
 
 > angular는 폼의 상태에 따라 css class를 적용한다.
 >

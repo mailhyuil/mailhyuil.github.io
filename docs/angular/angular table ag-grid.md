@@ -1,4 +1,4 @@
-# angular ag-grid
+# angular table ag-grid
 
 ## install
 

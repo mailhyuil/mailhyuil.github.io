@@ -1,4 +1,4 @@
-# input file object-to-formdata
+# html input file object-to-formdata
 
 > boolean과 number는 string으로 변환됩니다.
 

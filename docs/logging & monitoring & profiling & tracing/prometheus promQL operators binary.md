@@ -1,4 +1,4 @@
-# prometheus promQL binary operators
+# prometheus promQL operators binary
 
 ## Arithmetic operators
 

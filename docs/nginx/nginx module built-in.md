@@ -1,4 +1,4 @@
-# nginx module (built-in)
+# nginx module built-in
 
 ## http_ssl_module
 

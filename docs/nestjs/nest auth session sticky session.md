@@ -1,4 +1,4 @@
-# nest session sticky session
+# nest auth session sticky session
 
 ## ip_hash 방식
 

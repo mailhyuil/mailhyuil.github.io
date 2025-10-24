@@ -1,4 +1,4 @@
-# TLS (Transport Layer Security)
+# L5 TLS
 
 > 보안 소켓 계층 (Secure Sockets Layer)을 이르는 말로 독립적인 프로토콜 계층
 >

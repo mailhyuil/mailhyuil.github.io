@@ -1,4 +1,4 @@
-# Docker run --add-host
+# Docker run options --add-host
 
 > 컨테이너의 /etc/hosts 파일에 호스트를 추가한다.
 

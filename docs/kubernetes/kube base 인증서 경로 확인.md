@@ -1,4 +1,4 @@
-# kubernetes 인증서 경로
+# kube base 인증서 경로 확인
 
 ```sh
 ps -ef | grep kube | grep <option_name> 으로 인증서 경로 확인

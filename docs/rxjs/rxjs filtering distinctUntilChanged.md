@@ -1,4 +1,4 @@
-# distinctUntilChanged
+# rxjs filtering distinctUntilChanged
 
 ```js
 import { of, distinctUntilChanged } from "rxjs";

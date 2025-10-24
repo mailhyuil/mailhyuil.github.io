@@ -1,4 +1,4 @@
-# MCP mcp-framework server
+# L7 MCP mcp-framework server
 
 ## install
 

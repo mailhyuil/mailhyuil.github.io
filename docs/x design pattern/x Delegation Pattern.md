@@ -1,4 +1,4 @@
-# design pattern Delegation Pattern
+# x Delegation Pattern
 
 > The delegate (host/delegating object) is a helper object, but with the original context.
 >

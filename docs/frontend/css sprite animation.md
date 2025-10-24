@@ -1,4 +1,4 @@
-# css Sprite sheet animation
+# css sprite animation
 
 ```html
 <div

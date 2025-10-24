@@ -1,4 +1,4 @@
-# nest DiscoveryModule
+# nest base DiscoveryModule
 
 > nestjs에서 제공하는 모듈
 >

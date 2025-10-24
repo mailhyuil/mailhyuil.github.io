@@ -1,4 +1,4 @@
-# angular gsap
+# angular animation gsap
 
 ## install
 

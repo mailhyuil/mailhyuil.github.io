@@ -1,4 +1,4 @@
-# ffmpeg 다운로드 MPEG-DASH (M4S)
+# ffmpeg MPEG-DASH - M4S 다운로드
 
 ```sh
 mkdir ./audio

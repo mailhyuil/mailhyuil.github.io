@@ -1,4 +1,4 @@
-# git branch 추가
+# git branch
 
 > 브랜치를 나누지 않으면, 여러 사람이 commit 할 경우에 충돌이 날 수 있다.
 >

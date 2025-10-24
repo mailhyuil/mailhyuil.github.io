@@ -1,4 +1,4 @@
-# curl @
+# linux package curl @
 
 > 파일의 내용을 전부 붙여넣기
 

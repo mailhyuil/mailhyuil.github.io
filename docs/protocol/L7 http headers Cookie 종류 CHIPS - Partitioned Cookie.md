@@ -1,4 +1,4 @@
-# browser Cookie 종류 CHIPS (Partitioned Cookie)
+# L7 http headers Cookie 종류 CHIPS - Partitioned Cookie
 
 > third-party cookie를 이용해 다른 사이트에서 사용자를 추적하는 것을 방지하기 위한 방법
 >

@@ -1,4 +1,4 @@
-# kube v1.33 (Octarine)
+# kube base v1.33 - Octarine
 
 > 2025년 4월 23일 업데이트된 쿠버네티스 버전
 

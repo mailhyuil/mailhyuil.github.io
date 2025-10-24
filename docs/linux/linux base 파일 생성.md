@@ -1,4 +1,4 @@
-# linux 파일 생성
+# linux base 파일 생성
 
 ## echo 사용
 

@@ -1,4 +1,4 @@
-# gsap scrollTrigger timeline
+# animation gsap scrollTrigger timeline
 
 > gsap.timeline을 사용하여 구현하는 방법
 

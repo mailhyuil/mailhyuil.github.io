@@ -1,4 +1,4 @@
-# rxjs distinct
+# rxjs filtering distinct
 
 ## distinct
 

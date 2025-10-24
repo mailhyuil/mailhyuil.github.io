@@ -1,4 +1,4 @@
-# c++ const vs constexpr
+# c++ base keyword const vs constexpr
 
 ## const
 

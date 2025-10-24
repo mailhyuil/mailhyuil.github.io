@@ -1,4 +1,4 @@
-# webpack 번들 분석하기
+# bundle webpack plugin webpack-bundle-analyzer - 번들 분석하기
 
 > stats.json 파일 생성
 >

@@ -1,4 +1,4 @@
-# nginx ip X-Forwarded-For
+# nginx X-Forwarded-For Original IP - $remote_addr, $proxy_add_x_forwarded_for
 
 ```conf
 # client에서 x-forwarded-for header에 ip를 넣지 않았을 경우

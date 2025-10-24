@@ -1,4 +1,4 @@
-# tsc AST ts-morph
+# compile tsc AST ts-morph
 
 ## install
 

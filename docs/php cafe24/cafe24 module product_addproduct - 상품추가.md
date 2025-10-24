@@ -1,4 +1,4 @@
-# cafe24 module product_addproduct
+# cafe24 module product_addproduct - 상품추가
 
 ```html
 <div module="product_addproduct">

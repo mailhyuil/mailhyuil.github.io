@@ -1,4 +1,4 @@
-# go base interface Generic
+# go base type Generic
 
 ## Strict
 

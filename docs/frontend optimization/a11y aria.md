@@ -1,4 +1,4 @@
-# a11y aria (Accessible Rich Internet Applications)
+# a11y aria
 
 > Accessible Rich Internet Applications라는 뜻으로 웹 페이지의 접근성을 높이기 위한 WAI-ARIA 라는 표준을 말한다.
 

@@ -1,4 +1,4 @@
-# github actions .env 파일 생성
+# cicd github actions .env 생성
 
 > github setting에서 secret으로 저장해 두기
 

@@ -1,4 +1,4 @@
-# angular input 값 제한
+# angular form component input 값 제한
 
 > ngModelChange 대신 input 이벤트를 사용하여 input 값 제한하기
 

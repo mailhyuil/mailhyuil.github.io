@@ -1,4 +1,4 @@
-# SPA Optimization
+# SPA optimization
 
 > angular, react, vue 최적화 방법
 

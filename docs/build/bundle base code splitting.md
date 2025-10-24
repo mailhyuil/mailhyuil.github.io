@@ -1,4 +1,4 @@
-# code splitting
+# bundle base code splitting
 
 > 코드를 하나의 번들코드로 만들지 않고 작은 코드로 분할 하는 것
 >

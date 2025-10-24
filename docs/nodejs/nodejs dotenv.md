@@ -1,4 +1,4 @@
-# dotenv
+# nodejs dotenv
 
 > .env 파일을 생성하여 민감한 정보를 환경변수로 넣기
 >

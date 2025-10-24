@@ -1,4 +1,4 @@
-# design pattern Command Pattern
+# Behavioral command
 
 ```ts
 interface Command {

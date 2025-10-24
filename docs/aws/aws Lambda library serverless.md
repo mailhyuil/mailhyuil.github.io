@@ -1,4 +1,4 @@
-# aws lambda library serverless
+# aws Lambda library serverless
 
 ## install
 

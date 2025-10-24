@@ -1,4 +1,4 @@
-# git merge & rebase
+# git merge rebase
 
 > merge는 두 브랜치를 합치는 것이고, rebase는 브랜치를 다른 브랜치에 놓는 것이다.
 >

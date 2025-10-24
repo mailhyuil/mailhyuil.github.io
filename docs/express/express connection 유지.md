@@ -1,4 +1,4 @@
-# http connection 유지
+# express connection 유지
 
 > 브라우저에서 Connection: keep-alive 헤더를 보내면 nodejs 서버는 자동으로 5초간 연결을 유지
 >

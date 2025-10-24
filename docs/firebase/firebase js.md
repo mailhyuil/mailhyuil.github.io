@@ -1,4 +1,4 @@
-# firebase
+# firebase js
 
 [firebase reference](https://firebase.google.com/docs/reference)
 

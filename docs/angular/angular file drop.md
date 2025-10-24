@@ -1,4 +1,4 @@
-# angular event drop
+# angular file drop
 
 > event의 DataTransfer 객체는 드래그 앤 드롭 작업 중에 드래그되고 있는 데이터를 보관하기 위해 사용됩니다.
 

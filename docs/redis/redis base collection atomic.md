@@ -1,4 +1,4 @@
-# redis collection atomic
+# redis base collection atomic
 
 > redis의 collection은 atomic하게 동작한다.
 >

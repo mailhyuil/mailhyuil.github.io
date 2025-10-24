@@ -1,4 +1,4 @@
-# web worker vs service worker
+# webapi Web Worker vs Service Worker
 
 > 백그라운드에서 작업을 실행하는 공통점
 >

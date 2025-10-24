@@ -1,4 +1,4 @@
-# 시스템 호출 (System call)
+# linux kernel syscall - system call
 
 > 시스콜은 운영 체제의 커널이 제공하는 서비스에 대해, 응용 프로그램의 요청에 따라 커널에 접근하기 위한 인터페이스
 >

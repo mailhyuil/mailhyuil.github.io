@@ -1,4 +1,4 @@
-# strategy pattern
+# Behavioral strategy
 
 > 실행 중에 알고리즘(로직)을 선택할 수 있게 하는 행위 소프트웨어 디자인 패턴
 >

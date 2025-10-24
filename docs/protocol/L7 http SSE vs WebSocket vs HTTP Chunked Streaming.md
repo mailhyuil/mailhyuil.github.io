@@ -1,4 +1,4 @@
-# http SSE vs WebSocket vs HTTP Chunked Streaming
+# L7 http SSE vs WebSocket vs HTTP Chunked Streaming
 
 > 속도는 똑같음
 >

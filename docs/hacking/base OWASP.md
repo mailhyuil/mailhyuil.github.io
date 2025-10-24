@@ -1,4 +1,4 @@
-# OWASP (Open Web Application Security Project)
+# base OWASP
 
 > 웹 애플리케이션 보안 프로젝트
 >

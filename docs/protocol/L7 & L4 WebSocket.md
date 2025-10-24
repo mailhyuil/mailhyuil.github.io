@@ -1,4 +1,4 @@
-# L4 WebSocket
+# L7 & L4 WebSocket
 
 > 웹소켓은 L7이고 L4에 의존한다.
 >

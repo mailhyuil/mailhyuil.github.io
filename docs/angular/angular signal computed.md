@@ -1,4 +1,4 @@
-# angular Signals computed
+# angular signal computed
 
 > computed는 읽기 전용이다.
 

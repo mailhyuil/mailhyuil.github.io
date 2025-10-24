@@ -1,4 +1,4 @@
-# lodash creation curry
+# lodash creation curry & curryRight
 
 > 함수를 받아서 인자를 받을 때까지 기다리는 함수를 반환한다. (커링 함수)
 

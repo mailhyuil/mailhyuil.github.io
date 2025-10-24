@@ -1,4 +1,4 @@
-# flutter MediaQuery
+# flutter MediaQuery - screen size
 
 ```dart
 MediaQuery.of(context).size             //앱 화면 크기 size  Ex> Size(360.0, 692.0)

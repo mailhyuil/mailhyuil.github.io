@@ -1,4 +1,4 @@
-# c++ iostream
+# c++ header stream iostream & istream & ostream
 
 > c++의 모든 입출력 클래스는 ios_base 클래스를 상속받는다.
 

@@ -1,4 +1,4 @@
-# go base 비교 연산
+# go base 비교 연산자
 
 ```go
 <

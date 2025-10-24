@@ -1,4 +1,4 @@
-# rxjs throttle
+# rxjs filtering throttle
 
 ```js
 

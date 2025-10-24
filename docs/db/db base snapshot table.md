@@ -1,4 +1,4 @@
-# db base snapshot
+# db base snapshot table
 
 > 악성유저등의 이유로 데이터를 저장해야하는 경우가 있을 수 있다. 이때 스냅샷 테이블을 사용하면 이전 데이터를 저장할 수 있다.
 >

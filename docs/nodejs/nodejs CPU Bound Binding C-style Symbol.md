@@ -1,4 +1,4 @@
-# nodejs C-style Symbol
+# nodejs CPU Bound Binding C-style Symbol
 
 > C 언어 방식의 이름 규칙과 호출 규약으로 export된 심볼 (mangling 없는 C 형식 심볼)
 >

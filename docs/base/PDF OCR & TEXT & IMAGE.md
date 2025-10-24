@@ -1,4 +1,4 @@
-# PDF OCR(Optical Character Recognition, 광학 문자 인식) & TEXT & IMAGE
+# PDF OCR & TEXT & IMAGE
 
 ### 텍스트 기반 PDF
 

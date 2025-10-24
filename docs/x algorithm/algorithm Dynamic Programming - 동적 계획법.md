@@ -1,4 +1,4 @@
-# Dynamic Programming (동적 계획법)
+# algorithm Dynamic Programming - 동적 계획법
 
 > 메모리를 더 사용해서 시간 복잡도를 개선
 

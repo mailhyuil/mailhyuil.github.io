@@ -1,4 +1,4 @@
-# aws Subnet
+# aws vpc subnet
 
 ## public subnet
 

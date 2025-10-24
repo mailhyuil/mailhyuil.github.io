@@ -1,4 +1,4 @@
-# protocol L3 Host-Only vs NAT vs Bridge
+# L3 Host-Only vs NAT vs Bridge
 
 > 네트워크 가상화 설정 방식
 

@@ -1,4 +1,4 @@
-# openssl dgst
+# L5 TLS openssl dgst - hash
 
 > digest(해시)를 생성하는 명령어
 >

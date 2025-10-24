@@ -1,4 +1,4 @@
-# nginx root & alias
+# nginx directive root & alias
 
 ## root
 

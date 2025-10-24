@@ -1,4 +1,4 @@
-# Spring Mybatis 세팅 순서!
+# spring Mybatis
 
 ## pom.xml
 

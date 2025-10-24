@@ -1,4 +1,4 @@
-# nginx proxy_pass docker container host.docker.internal
+# nginx directive proxy_pass docker container host.docker.internal
 
 ## nginx.conf
 

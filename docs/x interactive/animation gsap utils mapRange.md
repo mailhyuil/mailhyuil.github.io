@@ -1,4 +1,4 @@
-# gsap mapRange
+# animation gsap utils mapRange
 
 > 최소값 최대값의 범위를 재조정
 

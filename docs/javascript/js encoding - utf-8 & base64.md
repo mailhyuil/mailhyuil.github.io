@@ -1,4 +1,4 @@
-# js encoding
+# js encoding - utf-8 & base64
 
 > 이미 인코딩된 데이터 -> utf-8 바이너로 데이터로 변환 -> 다시 인코딩
 

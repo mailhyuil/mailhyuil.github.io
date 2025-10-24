@@ -1,4 +1,4 @@
-# Spring Security (스프링시큐리티)
+# Spring Security - 스프링 시큐리티
 
 ## web.xml filter 추가
 

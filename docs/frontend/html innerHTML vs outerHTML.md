@@ -1,4 +1,4 @@
-# innerHTML vs outerHTML
+# html innerHTML vs outerHTML
 
 > innerHTML html 요소 내의 텍스트만 추가
 >

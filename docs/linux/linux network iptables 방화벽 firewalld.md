@@ -1,4 +1,4 @@
-# linux network firewall firewalld (redhat 계열)
+# linux network iptables 방화벽 firewalld
 
 ## install
 

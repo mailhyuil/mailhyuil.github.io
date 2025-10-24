@@ -1,4 +1,4 @@
-# template callback pattern (템플릿 콜백 패턴)
+# Behavioral template callback - 템플릿 콜백
 
 > callback 함수를 매개변수로 넘겨서 미리 설계해놓은 템플릿 함수내에서 실행시키는 패턴
 >

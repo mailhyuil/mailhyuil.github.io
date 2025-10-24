@@ -1,4 +1,4 @@
-# shellscript deploy with rollback
+# linux shellscript deploy with rollback
 
 ```sh
 #!/bin/bash

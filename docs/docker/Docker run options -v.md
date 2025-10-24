@@ -1,4 +1,4 @@
-# docker run options volume mount
+# Docker run options -v
 
 ```bash
 # 특정 볼륨을 마운트

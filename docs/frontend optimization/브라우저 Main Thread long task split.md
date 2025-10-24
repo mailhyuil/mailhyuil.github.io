@@ -1,4 +1,4 @@
-# long task split
+# 브라우저 Main Thread long task split
 
 ```js
 // 같은 함수에 감싸져 있으면 하나의 태스크로 실행됨

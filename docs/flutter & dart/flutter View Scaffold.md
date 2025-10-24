@@ -1,4 +1,4 @@
-# flutter Scaffold
+# flutter View Scaffold
 
 > 기본적인 앱에서 디자인적인 뼈대를 구성하는 위젯
 >

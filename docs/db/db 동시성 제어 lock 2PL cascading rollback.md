@@ -1,4 +1,4 @@
-# 2 phase locking cascading rollback
+# db 동시성 제어 lock 2PL cascading rollback
 
 > 트랜잭션이 롤백될 때, 그 트랜잭션에 의존하고 있던 다른 트랜잭션들 역시 연쇄적으로 롤백되는 상황을 뜻한다.
 >

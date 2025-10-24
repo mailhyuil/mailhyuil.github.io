@@ -1,4 +1,4 @@
-# nginx timeouts
+# nginx base timeouts
 
 > 0값은 timeout을 무제한으로 설정한다.
 

@@ -1,4 +1,4 @@
-# IPC (Inter Process Communication)
+# linux base IPC - Inter Process Communication
 
 > pipe, named pipe, message queue, semaphore, shared memory, socket 종류가 있음
 >

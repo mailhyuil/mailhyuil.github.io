@@ -1,4 +1,4 @@
-# Change Data Capture (CDC)
+# x CDC - Change Data Capture
 
 > 변경된 데이터를 사용하여 동작을 취할 수 있도록 데이터를 결정하고 추적하기 위해 사용되는 여러 소프트웨어 디자인 패턴들의 모임
 >

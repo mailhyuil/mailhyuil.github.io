@@ -1,4 +1,4 @@
-# curl
+# linux package curl
 
 ## install
 

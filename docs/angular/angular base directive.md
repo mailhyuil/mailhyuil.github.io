@@ -1,4 +1,4 @@
-# angular directive
+# angular base directive
 
 > component와 directive의 차이점은 view(template)을 가지고 있는지의 여부이다.
 >

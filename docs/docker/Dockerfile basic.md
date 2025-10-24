@@ -7,7 +7,7 @@
 > > > package-lock.json 파일도 함께 복사해야 캐시를 사용할 수 있다.
 
 ```Dockerfile
-# 변수 선언
+# Dockerfile basic
 ARG VERSION=lts-alpine
 
 # 베이스 이미지

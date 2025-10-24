@@ -1,4 +1,4 @@
-# node load testing artillery
+# load testing artillery
 
 ## install
 

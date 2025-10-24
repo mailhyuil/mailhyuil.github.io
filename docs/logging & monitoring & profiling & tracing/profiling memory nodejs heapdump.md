@@ -1,4 +1,4 @@
-# profiling nodejs heapdump
+# profiling memory nodejs heapdump
 
 > v8 엔진의 heap 메모리 덤프를 떠서 분석하는 방법
 

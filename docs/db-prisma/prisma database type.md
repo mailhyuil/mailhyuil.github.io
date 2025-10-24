@@ -1,4 +1,4 @@
-# prisma database 타입
+# prisma database type
 
 ```prisma
 title String @db.VarChar(20)

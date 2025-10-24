@@ -1,4 +1,4 @@
-# go GOMAXPROCS
+# go 최적화 cpu GOMAXPROCS
 
 > 최대 CPU 코어 수를 제한
 >

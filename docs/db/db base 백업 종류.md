@@ -1,4 +1,4 @@
-# 백업 종류
+# db base 백업 종류
 
 ```sh
 Full backup # 전체 백업

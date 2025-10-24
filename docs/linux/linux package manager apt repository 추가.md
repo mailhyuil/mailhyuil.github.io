@@ -1,4 +1,4 @@
-# linux package apt 저장소 추가
+# linux package manager apt repository 추가
 
 ## add-apt-repository 를 사용하는 방법
 

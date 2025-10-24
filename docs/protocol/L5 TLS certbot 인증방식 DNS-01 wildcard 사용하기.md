@@ -1,4 +1,4 @@
-# certbot wildcard
+# L5 TLS certbot 인증방식 DNS-01 wildcard 사용하기
 
 > --server https://acme-v02.api.letsencrypt.org/directory 옵션을 사용하여야 wildcard 인증서를 발급할 수 있습니다.
 >

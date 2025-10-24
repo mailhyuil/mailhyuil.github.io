@@ -1,4 +1,4 @@
-# Redirection
+# linux base 표준 스트림 Redirection
 
 > 표준 스트림을 다른 곳으로 재지정하는 것
 >

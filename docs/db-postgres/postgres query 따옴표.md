@@ -1,4 +1,4 @@
-# postgres 따옴표
+# postgres query 따옴표
 
 ## 작은 따옴표 ('')
 

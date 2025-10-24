@@ -1,4 +1,4 @@
-# 이진 검색 트리
+# data tree binary search tree
 
 > 이진트리는 key와 value를 가지고 있어야 한다.
 >

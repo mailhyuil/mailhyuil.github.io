@@ -1,4 +1,4 @@
-# null vs undefined
+# js null vs undefined
 
 > null은 값이 없다는 뜻
 >

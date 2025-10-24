@@ -1,4 +1,4 @@
-# bastion host
+# aws vpc openVPN & bastion host
 
 > 요새 호스트
 >

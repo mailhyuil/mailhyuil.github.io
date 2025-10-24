@@ -1,4 +1,4 @@
-# go type initialize new & make
+# go base type initialize new & make
 
 > go에서는 객체를 생성할 때 new와 make를 사용한다.
 

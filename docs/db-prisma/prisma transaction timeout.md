@@ -1,4 +1,4 @@
-# prisma transaction timeout.md
+# prisma transaction timeout
 
 > The maximum amount of time the interactive transaction can run before being canceled and rolled back.
 >

@@ -1,4 +1,4 @@
-# ffmpeg option
+# ffmpeg 옵션
 
 ```sh
 # input (filepath, url ...)

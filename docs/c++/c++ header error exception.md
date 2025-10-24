@@ -1,4 +1,4 @@
-# c++ header exception
+# c++ header error exception
 
 ```cpp
 #include <exception>

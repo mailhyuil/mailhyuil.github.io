@@ -1,4 +1,4 @@
-# creational object pool
+# Creational object pool
 
 > js에서는 기본으로 프로토타입 패턴을 사용하기 때문에 필요없다.
 

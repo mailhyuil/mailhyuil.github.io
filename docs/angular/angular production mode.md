@@ -1,4 +1,4 @@
-# angular prod mode
+# angular production mode
 
 ## main.ts
 

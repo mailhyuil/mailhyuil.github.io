@@ -1,4 +1,4 @@
-# 부분집합(Subset) Bitmask
+# x algorithm 부분집합 - Subset, Bitmask
 
 > 비트 연산을 이용하여 집합을 표현하는 기법
 >

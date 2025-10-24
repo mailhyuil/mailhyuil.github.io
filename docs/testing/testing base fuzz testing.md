@@ -1,4 +1,4 @@
-# fuzz testing
+# testing base fuzz testing
 
 > 비정상적인 데이터를 어플리케이션에 전달하여 에러를 유도하는 테스트
 >

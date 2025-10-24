@@ -1,4 +1,4 @@
-# matter.js + angular
+# matterjs + angular
 
 ## install
 

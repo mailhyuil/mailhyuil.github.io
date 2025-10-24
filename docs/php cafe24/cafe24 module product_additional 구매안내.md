@@ -1,4 +1,4 @@
-# cafe24 module breadcrumb
+# cafe24 module product_additional 구매안내
 
 ```html
 <div module="product_additional">

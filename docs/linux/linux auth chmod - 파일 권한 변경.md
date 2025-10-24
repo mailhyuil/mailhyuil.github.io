@@ -1,4 +1,4 @@
-# linux auth chmod
+# linux auth chmod - 파일 권한 변경
 
 > 부모 디렉토리의 권한에 x가 있어야 하위 디렉토리를 접근,탐색 가능하다.
 

@@ -1,4 +1,4 @@
-# Angular route ActivatedRoute url 얻기
+# angular route ActivatedRoute url 얻기
 
 ```ts
 getRouteUrl(route: ActivatedRouteSnapshot): string {

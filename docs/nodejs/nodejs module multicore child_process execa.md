@@ -1,4 +1,4 @@
-# nodejs module child_process execa
+# nodejs module multicore child_process execa
 
 > child_process로 구현된 라이브러리
 >

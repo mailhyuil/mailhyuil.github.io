@@ -1,4 +1,4 @@
-# cookie options Domain & Path
+# L7 http headers Cookie options Domain & Path
 
 > 쿠키를 전송할 서버에 대해 제한을 두는 옵션
 

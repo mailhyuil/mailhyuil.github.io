@@ -1,4 +1,4 @@
-# prisma lock share lock
+# prisma lock 비관적 락 row lock share lock
 
 > prisma는 아직 lock을 지원하지 않기 때문에 $queryRaw를 사용해야 한다.
 >

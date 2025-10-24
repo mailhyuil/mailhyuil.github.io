@@ -1,4 +1,4 @@
-# point-events
+# css point-events - click 무시
 
 > 요소를 통과시킬 수 있다. (클릭, 드래그 ..)
 

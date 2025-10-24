@@ -1,4 +1,4 @@
-# flutter Video
+# flutter feature VideoPlayer
 
 ## install
 

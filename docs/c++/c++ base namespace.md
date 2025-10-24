@@ -1,4 +1,4 @@
-# c++ namespace
+# c++ base namespace
 
 > std는 C++ 표준 라이브러리에 있는 모든 것들이 포함된 namespace이다.
 

@@ -1,1 +1,1 @@
-# rxjs takeLast
+# rxjs filtering takeLast

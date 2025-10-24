@@ -1,4 +1,4 @@
-# lodash 지연 평가
+# lodash base 지연 평가 lazy evaluation
 
 > 함수에 모든 배열을 다 넘기지 않고 하나의 값씩 넘겨서 연산
 >

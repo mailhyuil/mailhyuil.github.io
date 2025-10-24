@@ -1,4 +1,4 @@
-# Message Broker (메시지 브로커)
+# Message Broker - 메시지 브로커
 
 > Message Broker란 Publisher로부터 전달받은 메시지를 Subscriber로 전달해주는 중간 역할
 >

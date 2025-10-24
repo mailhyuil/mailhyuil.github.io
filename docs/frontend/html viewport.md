@@ -1,4 +1,4 @@
-# viewport
+# html viewport
 
 > 웹페이지를 사용자가 보는 영역
 >

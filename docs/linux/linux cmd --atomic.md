@@ -1,3 +1,3 @@
-# --atomic
+# linux cmd --atomic
 
 > 실행 중 실패 시 롤백하는 기능

@@ -1,4 +1,4 @@
-# nest interceptor LoggingInterceptor
+# nest base interceptor LogInterceptor
 
 ## 구현
 

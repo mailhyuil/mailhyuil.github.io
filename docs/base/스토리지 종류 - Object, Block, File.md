@@ -1,4 +1,4 @@
-# 스토리지 (Object, Block, File)
+# 스토리지 종류 - Object, Block, File
 
 ## 오브젝트 스토리지
 

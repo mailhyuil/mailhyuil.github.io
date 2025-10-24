@@ -1,4 +1,4 @@
-# algorithm greedy (탐욕 알고리즘)
+# algorithm Greedy algorithm - 탐욕 알고리즘
 
 > '현재 주어진 조건' 중 '최선의 조건'을 골라내는 알고리즘
 >

@@ -1,4 +1,4 @@
-# Deployment vs StatefulSet vs DaemonSet
+# kube object Deployment vs StatefulSet vs DaemonSet
 
 ## Deployment
 

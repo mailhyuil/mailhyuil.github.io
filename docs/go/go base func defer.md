@@ -1,4 +1,4 @@
-# go base defer
+# go base func defer
 
 > defer는 함수가 종료될 때 실행되는 함수를 등록하는 기능이다. 주로 리소스 해제, 파일 닫기 등에 사용된다.
 >

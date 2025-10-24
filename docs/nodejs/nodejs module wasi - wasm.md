@@ -1,4 +1,4 @@
-# nodejs module wasi (WebAssembly System Interface)
+# nodejs module wasi - wasm
 
 > node 20 이상부터 내장된 wasm 모듈
 >

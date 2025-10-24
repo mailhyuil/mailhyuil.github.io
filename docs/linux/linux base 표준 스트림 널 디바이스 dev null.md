@@ -1,4 +1,4 @@
-# linux base > /dev/null
+# linux base 표준 스트림 널 디바이스 dev null
 
 > /dev/null은 리눅스에서 표준 출력을 버리는 특수 파일이다.
 >

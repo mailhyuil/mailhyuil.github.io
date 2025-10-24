@@ -1,4 +1,4 @@
-# nestjs decorator cache-control
+# nest base decorator CacheControl
 
 ```ts
 import { applyDecorators, Header } from "@nestjs/common";

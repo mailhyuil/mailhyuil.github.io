@@ -1,4 +1,4 @@
-# Navigation timing 최적화
+# 브라우저 네비게이션 타이밍 최적화 - Navigation Timing
 
 > domContentLoadedEventStart -> domContentLoadedEventEnd -> loadEventStart -> loadEventEnd 순으로 브라우저가 html을 파싱하는 과정을 거친다.
 >

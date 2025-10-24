@@ -1,4 +1,4 @@
-# ai base vector database (vector store)
+# ai base Vector Database - Vector Store
 
 > 임베딩한 벡터를 저장하는 데이터베이스
 >

@@ -1,4 +1,4 @@
-# bundle webpack base shimming
+# bundle webpack plugin built-in ProvidePlugin - shimming
 
 > 코드에 존재하지만 로드되지 않은 모듈을 대신 로드해주는 기능
 

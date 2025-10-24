@@ -1,4 +1,4 @@
-# git repository
+# git branch repository
 
 ## local repository
 

@@ -1,4 +1,4 @@
-# browserslist
+# base browserslist
 
 > 지원하는 브라우저에 관한 쿼리를 작성하면
 >

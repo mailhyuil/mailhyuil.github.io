@@ -1,4 +1,4 @@
-# rust IO
+# rust base io
 
 ```rs
 use std::io::stdin;

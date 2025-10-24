@@ -1,4 +1,4 @@
-# Lambda layer Image Resize on Demand
+# aws Lambda Image Resize on Demand
 
 1. S3 버킷 생성
 

@@ -1,4 +1,4 @@
-# image cache busting
+# html image cache busting
 
 > 브라우저는 img, script 태그등을 cors 처리하지 않는다
 >

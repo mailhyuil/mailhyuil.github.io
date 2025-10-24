@@ -1,4 +1,4 @@
-# typescript decorator reflect-metadata
+# js Reflect reflect-metadata
 
 > javascript의 Reflect API를 수정하여 메타 데이터를 저장할 수 있게 해주는 라이브러리
 >

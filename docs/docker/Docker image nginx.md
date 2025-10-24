@@ -1,4 +1,4 @@
-# docker nginx
+# Docker image nginx
 
 ## run
 

@@ -1,4 +1,4 @@
-# kubectl alias
+# kubectl shortcut alias 생성
 
 > ~/.bashrc 에 추가
 

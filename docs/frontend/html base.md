@@ -1,4 +1,4 @@
-# html base tag
+# html base
 
 > The browser uses the `<base href>` value to prefix relative URLs when referencing CSS files, scripts, and images.
 >

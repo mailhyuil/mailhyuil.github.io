@@ -1,4 +1,4 @@
-# ISO 27001 vs ISMS-P (ISMS + PIMS)
+# ISO 27001 vs ISMS-p 인증
 
 > 정보보안 인증제도
 

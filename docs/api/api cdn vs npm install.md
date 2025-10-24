@@ -1,4 +1,4 @@
-# API CDN vs NPM install
+# api cdn vs npm install
 
 ## CDN
 

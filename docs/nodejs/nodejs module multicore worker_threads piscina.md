@@ -1,4 +1,4 @@
-# piscina
+# nodejs module multicore worker_threads piscina
 
 > nodejs용 워커 스레드 풀 라이브러리
 

@@ -1,4 +1,4 @@
-# call & apply & bind
+# js context 실행컨텍스트 call & apply & bind
 
 > this는 실행 컨텍스트의 thisValue를 가리킨다. (기본으로 실행컨텍스트의 thisValue는 전역객체(window or global)을 가리킨다.)
 >

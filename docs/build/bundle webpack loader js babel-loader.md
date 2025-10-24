@@ -1,4 +1,4 @@
-# webpack loader babel-loader
+# bundle webpack loader js babel-loader
 
 ## install
 

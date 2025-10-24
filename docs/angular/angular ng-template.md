@@ -1,4 +1,4 @@
-# ng-container && ng-template
+# angular ng-template
 
 > view를 재사용하거나 참조하기 위해 사용한다.
 >

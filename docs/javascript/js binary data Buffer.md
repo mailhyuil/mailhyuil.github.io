@@ -1,4 +1,4 @@
-# js buffer
+# js binary data Buffer
 
 > 자바스크립트의 버퍼란 "특정 크기의 메모리 공간"에 "바이너리 데이터"를 저장해두는 객체
 >

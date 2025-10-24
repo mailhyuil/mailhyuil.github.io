@@ -1,4 +1,4 @@
-# js try catch
+# js error try catch
 
 > try catch를 남용하지 말아라
 >

@@ -1,4 +1,4 @@
-# linux user thread & kernel thread
+# linux base thread user-level & kernel-level
 
 > 유저 스레드는 각 작업을 논리적으로 분리하는 역할이고
 >

@@ -1,4 +1,4 @@
-# EventSource
+# webapi SSE EventSource
 
 > server-sent events를 위한 인터페이스
 >

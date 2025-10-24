@@ -1,4 +1,4 @@
-# chain of responsibility (책임 연쇄 패턴)
+# Behavioral Chain of Responsibility - CoR example ResyncStrategy
 
 ## core
 

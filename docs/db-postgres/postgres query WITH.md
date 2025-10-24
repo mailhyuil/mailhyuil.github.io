@@ -1,4 +1,4 @@
-# postgres with
+# postgres query WITH
 
 > CTE는 Common Table Expression으로 간단하게 쿼리 결과를 일시적으로 저장하여 테이블처럼 사용하는 것입니다.
 >

@@ -1,1 +1,1 @@
-# kubernetes CNI Flannel
+# kube CNI Flannel

@@ -1,4 +1,4 @@
-# linux cmd ln 링크파일(link file)
+# linux cmd ln 링크파일- linkfile
 
 > window에서 테스트하면 안됨 (윈도우는 링크파일을 다르게 처리함)
 >

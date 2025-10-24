@@ -1,4 +1,4 @@
-# item-stretch
+# tailwindcss item-stretch
 
 > items를 부모 요소 크기에 맞게 늘려준다.
 

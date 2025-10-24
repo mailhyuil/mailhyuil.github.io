@@ -1,4 +1,4 @@
-# template callback
+# Behavioral template callback
 
 > 전략 패턴의 변형으로 DI (Dependency injection) 의존성 주입에서 사용하는 특별한 전략 패턴
 

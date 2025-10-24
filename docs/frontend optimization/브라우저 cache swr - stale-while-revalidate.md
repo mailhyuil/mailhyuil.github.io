@@ -1,4 +1,4 @@
-# 브라우저 cache swr
+# 브라우저 cache swr - stale-while-revalidate
 
 > stale-while-revalidate을 사용한 fetch 라이브러리
 >

@@ -1,4 +1,4 @@
-# http headers 보안 XSS (Cross-Site Scripting)
+# L7 http headers 보안 공격 XSS
 
 > 사용자의 앱에 악성 스크립트를 삽입하여 사용자의 정보를 탈취하는 공격
 >

@@ -1,4 +1,4 @@
-# js Async Iterator
+# js iterator async iterator
 
 > 비동기적으로 들어오는 데이터를 필요에 따라 처리할 수 있는 패턴
 >

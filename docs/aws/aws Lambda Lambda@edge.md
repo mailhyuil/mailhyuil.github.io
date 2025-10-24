@@ -1,4 +1,4 @@
-# aws Lambda@Edge
+# aws Lambda Lambda@edge
 
 > cloudfront에서 실행되는 Lambda
 >

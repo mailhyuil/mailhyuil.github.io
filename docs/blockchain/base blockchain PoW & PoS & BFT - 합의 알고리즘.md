@@ -1,4 +1,4 @@
-# base blockchain PoW & PoS & BFT (합의 알고리즘 Consensus Algorithm)
+# base blockchain PoW & PoS & BFT - 합의 알고리즘
 
 ## PoW (Proof of Work)
 

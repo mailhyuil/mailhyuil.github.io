@@ -1,4 +1,4 @@
-# angular counter directive
+# angular base directive counter
 
 ```ts
 import { AfterViewInit, Directive, ElementRef } from "@angular/core";

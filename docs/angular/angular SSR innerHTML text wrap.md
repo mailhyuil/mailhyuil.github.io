@@ -1,4 +1,4 @@
-# angular ssr innerHTML text wrap
+# angular SSR innerHTML text wrap
 
 > style="word-break: break-word"
 

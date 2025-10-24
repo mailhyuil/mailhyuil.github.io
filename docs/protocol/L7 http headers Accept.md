@@ -1,4 +1,4 @@
-# http MIME Accept
+# L7 http headers Accept
 
 > 클라이언트가 서버에게 자신이 처리할 수 있는 리소스의 타입을 명시한다. (압축, 언어, 등등)
 >

@@ -1,4 +1,4 @@
-# tailwindcss 반응형 font-size
+# tailwindcss responsive 반응형
 
 > rem은 root의 font-size를 기준으로 한다.
 >

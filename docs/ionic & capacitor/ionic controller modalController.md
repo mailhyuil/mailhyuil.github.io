@@ -1,4 +1,4 @@
-# ionic modalController
+# ionic controller modalController
 
 ## page.component.ts
 

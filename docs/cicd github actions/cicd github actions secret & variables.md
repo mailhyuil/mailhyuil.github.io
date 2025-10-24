@@ -1,4 +1,4 @@
-# cicd github actions secret
+# cicd github actions secret & variables
 
 > github repository -> settings -> secrets 에서 설정
 

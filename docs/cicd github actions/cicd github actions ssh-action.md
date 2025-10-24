@@ -1,4 +1,4 @@
-# cicd github actions ssh
+# cicd github actions ssh-action
 
 > appleboy/ssh-action@v1.0.0 사용
 

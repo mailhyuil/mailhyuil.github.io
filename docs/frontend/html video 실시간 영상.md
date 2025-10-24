@@ -1,4 +1,4 @@
-# video 실시간 영상
+# html video 실시간 영상
 
 ```js
 async function getMedia() {

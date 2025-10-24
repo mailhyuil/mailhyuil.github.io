@@ -1,4 +1,4 @@
-# postgreSQL DDL TYPE ENUM
+# postgres query DDL TYPE ENUM
 
 > 인덱스를 정의하는 명령어
 

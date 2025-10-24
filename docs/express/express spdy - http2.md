@@ -1,4 +1,4 @@
-# express spdy (http2)
+# express spdy - http2
 
 > 스피디
 >

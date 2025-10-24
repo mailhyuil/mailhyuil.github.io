@@ -1,4 +1,4 @@
-# dayjs
+# js Date dayjs
 
 > momentjs의 경량화 버전
 >

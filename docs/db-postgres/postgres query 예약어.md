@@ -1,4 +1,4 @@
-# postgreSQL 예약어
+# postgres query 예약어
 
 > string은 ''로 감싸고, 예약어는 ""로 감싼다.
 >

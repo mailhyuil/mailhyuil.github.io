@@ -1,4 +1,4 @@
-# angular dynamic component
+# angular base component dynamic component
 
 > ng-template 의 위치에 viewContainerRef로 넣는 방법
 >

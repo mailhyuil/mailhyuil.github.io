@@ -1,4 +1,4 @@
-# rxjs observable fromFetch
+# rxjs creation fromFetch
 
 ```js
 import { fromFetch } from "rxjs/fetch";

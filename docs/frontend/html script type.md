@@ -1,4 +1,4 @@
-# html script type module
+# html script type
 
 > 브라우저가 script를 자동으로 esmodule로 인식한다.
 >

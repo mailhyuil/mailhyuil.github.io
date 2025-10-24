@@ -1,4 +1,4 @@
-# dayjs 비교
+# js Date dayjs 비교
 
 > isSame은 연도까지 같이 비교한다.
 >

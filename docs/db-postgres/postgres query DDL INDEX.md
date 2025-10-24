@@ -1,4 +1,4 @@
-# postgreSQL DDL INDEX
+# postgres query DDL INDEX
 
 > 인덱스를 정의하는 명령어
 

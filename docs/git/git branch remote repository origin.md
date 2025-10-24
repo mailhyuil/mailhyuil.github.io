@@ -1,4 +1,4 @@
-# git origin
+# git branch remote repository origin
 
 > 원격 저장소 URL의 alias
 >

@@ -1,4 +1,4 @@
-# js 에러 핸들링
+# js error handling
 
 > `<https://httpstst.us/500>` 에러던져주는 api
 

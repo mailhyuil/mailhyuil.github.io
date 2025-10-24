@@ -1,4 +1,4 @@
-# ai base NLP Models (Natural Language Processing)
+# ai base NLP - 자연어 처리
 
 > 컴퓨터 프로그램이 인간의 언어를 해석하는 데 사용할 수 있는 방법
 >

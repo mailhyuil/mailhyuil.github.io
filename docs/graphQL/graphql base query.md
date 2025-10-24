@@ -1,4 +1,4 @@
-# graphql query
+# graphql base query
 
 ## Query
 

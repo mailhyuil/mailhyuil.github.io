@@ -1,4 +1,4 @@
-# nest eventEmitter
+# nest event-emitter
 
 > 책임을 분리하기 위해 사용
 

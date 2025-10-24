@@ -1,4 +1,4 @@
-# angular dynamic title
+# angular base provider Title
 
 ```ts
 import { Meta, Title } from "@angular/platform-browser";

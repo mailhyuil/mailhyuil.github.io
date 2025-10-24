@@ -1,4 +1,4 @@
-# aws Lambda SAM (Serverless Application Model)
+# aws Lambda SAM
 
 > AWS Lambda 함수와 관련 리소스를 정의하고 배포하기 위한 오픈 소스 프레임워크
 >

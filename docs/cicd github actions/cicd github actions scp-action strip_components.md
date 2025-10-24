@@ -1,4 +1,4 @@
-# cicd github actions scp strip_components
+# cicd github actions scp-action strip_components
 
 > source의 상위 디렉토리를 제거하는 옵션
 >

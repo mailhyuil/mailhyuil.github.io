@@ -1,4 +1,4 @@
-# Routing Router
+# L3 Routing Router & Modem
 
 > 패킷(데이터그램)을 목적지까지 전달하는 기능을 하는 장비
 >

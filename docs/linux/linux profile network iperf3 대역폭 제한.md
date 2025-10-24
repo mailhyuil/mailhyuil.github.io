@@ -1,4 +1,4 @@
-# linux package iperf3 대역폭 제한하기
+# linux profile network iperf3 대역폭 제한
 
 ```sh
 iperf3 -c [서버 IP] -u -b [속도]

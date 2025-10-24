@@ -1,4 +1,4 @@
-# git HEAD & FETCH_HEAD & ORIG_HEAD
+# git commit HEAD & FETCH_HEAD & ORIG_HEAD
 
 ## HEAD
 

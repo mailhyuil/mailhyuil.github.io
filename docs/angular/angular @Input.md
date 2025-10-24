@@ -1,4 +1,4 @@
-# angular @Input()
+# angular @Input
 
 ```ts
 @Input({required:true})

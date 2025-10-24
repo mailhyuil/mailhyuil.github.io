@@ -1,4 +1,4 @@
-# nest elasticsearch
+# nest advanced elasticsearch
 
 ## install
 

@@ -1,4 +1,4 @@
-# browser Cookie 종류 Signed Cookie
+# L7 http headers Cookie 종류 Signed Cookie
 
 > 시크릿을 사용해서 시그니처를 생성한 쿠키
 >

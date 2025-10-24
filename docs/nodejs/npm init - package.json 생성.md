@@ -1,4 +1,4 @@
-# npm package 생성
+# npm init - package.json 생성
 
 ```sh
 npm init

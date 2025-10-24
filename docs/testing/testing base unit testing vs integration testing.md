@@ -1,4 +1,4 @@
-# testing unit testing vs integration testing
+# testing base unit testing vs integration testing
 
 ```txt
 Integration tests tell you whether it's working. Unit tests tell you what isn't working. So long as everything is working, you "don't need" the unit tests - but once something is wrong, it's very nice to have the unit test point you directly to the problem. As you say, they serve different purposes; it's good to have both.

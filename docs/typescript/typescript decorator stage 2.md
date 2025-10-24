@@ -1,4 +1,4 @@
-# decorator stage 2
+# typescript decorator stage 2
 
 > Decorator 패턴 처럼 메소드를 감싼다.
 >

@@ -1,4 +1,4 @@
-# MCP List
+# MCP Server List
 
 ## Context7
 

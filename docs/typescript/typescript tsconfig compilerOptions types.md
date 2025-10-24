@@ -1,4 +1,4 @@
-# typescript tsconfig.json types
+# typescript tsconfig compilerOptions types
 
 > 기본으로 모든 node_modules/@types/\*는 전부 컴파일 시 포함된다.
 >

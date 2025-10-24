@@ -1,4 +1,4 @@
-# js v8 최적화 profiling
+# js 최적화 - v8 engine profiling
 
 ```sh
 node --trace-opt --trace-deopt --trace-inlining myScript.js

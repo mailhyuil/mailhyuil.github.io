@@ -1,4 +1,4 @@
-# nuxt page transition 오류
+# nuxt page transition 버그
 
 ## app.vue 변경
 

@@ -1,4 +1,4 @@
-# angular 내에서 querySelector
+# angular querySelector
 
 > 권장되지 않는다
 >

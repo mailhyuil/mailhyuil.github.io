@@ -1,4 +1,4 @@
-# linux service 생성
+# linux init systemd 유닛 파일
 
 > /etc/systemd/system/\*.service 파일 생성
 

@@ -1,4 +1,4 @@
-# yup
+# vee-validate yup
 
 ## yup array
 

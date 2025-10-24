@@ -1,4 +1,4 @@
-# flutter RefreshIndicator
+# flutter feature RefreshIndicator
 
 > 전체 위젯을 RefreshIndicator로 감싸서 사용
 

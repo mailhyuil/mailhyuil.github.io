@@ -1,4 +1,4 @@
-# build pipeline
+# base build pipeline
 
 > loader는 assets를 전처리하여 webpack이 번들링을 할 수 있도록 한다.
 >

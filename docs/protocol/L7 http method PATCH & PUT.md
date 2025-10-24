@@ -1,4 +1,4 @@
-# RestAPI PUT vs PATCH
+# L7 http method PATCH & PUT
 
 > put은 항상 멱등성을 가져야하고, patch는 멱등성을 가질 수 도 있고 가지지 않을 수도 있다.
 >

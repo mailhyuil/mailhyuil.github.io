@@ -1,4 +1,4 @@
-# python 제어 반복
+# python base if & for & while
 
 > 들여쓰기 사용
 

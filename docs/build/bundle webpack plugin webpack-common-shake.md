@@ -1,4 +1,4 @@
-# webpack plugin webpack-common-shake
+# bundle webpack plugin webpack-common-shake
 
 > commonjs도 tree shaking을 해주는 플러그인
 >

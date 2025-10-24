@@ -1,4 +1,4 @@
-# object key, value 추가
+# js object property 추가 & 삭제
 
 ```js
 // 추가

@@ -1,4 +1,4 @@
-# typescript tsconfig null check & array length check
+# typescript tsconfig compilerOptions null check & array length check
 
 ```json
 {

@@ -1,4 +1,4 @@
-# WebAPI ResizeObserver
+# webapi Observer ResizeObserver
 
 > element의 크기 변화를 감지
 

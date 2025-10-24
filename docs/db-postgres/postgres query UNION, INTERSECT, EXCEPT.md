@@ -1,4 +1,4 @@
-# postgres query UNION INTERSECT EXCEPT
+# postgres query UNION, INTERSECT, EXCEPT
 
 ```sql
 -- UNION /// 중복 제거하고 모든 행을 합쳐서 보여줌

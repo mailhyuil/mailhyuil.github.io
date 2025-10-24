@@ -1,4 +1,4 @@
-# postgres 설치된 extension 보기
+# postgres utility psql 설치된 extension 확인
 
 ```
 \dx

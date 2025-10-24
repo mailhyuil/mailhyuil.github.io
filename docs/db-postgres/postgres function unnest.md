@@ -1,4 +1,4 @@
-# postgreSQL unnest
+# postgres function unnest
 
 > 배열을 행으로 바꾸어 준다
 >

@@ -1,4 +1,4 @@
-# nest custom decorator
+# nest base decorator
 
 > context에 접근해야한다면 interceptor, guard를 applyDecorators로 만들어서 사용하자.
 

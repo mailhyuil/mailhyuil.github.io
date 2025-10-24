@@ -1,4 +1,4 @@
-# Content-Disposition
+# L7 http headers MIME Content-Disposition
 
 > 컨텐츠의 기질/성향을 알려주는 속성
 >

@@ -1,4 +1,4 @@
-# babel polyfill
+# compile babel polyfill
 
 > promise, async, await 등등의 최신 문법을 사용하기 위해
 

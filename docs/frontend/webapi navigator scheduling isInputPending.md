@@ -1,4 +1,4 @@
-# navigator.scheduling.isInputPending()
+# webapi navigator scheduling isInputPending
 
 > check whether there are pending input events in the event queue
 >

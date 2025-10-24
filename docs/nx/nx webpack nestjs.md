@@ -1,4 +1,4 @@
-# nx webpack nest
+# nx webpack nestjs
 
 ## project.json
 

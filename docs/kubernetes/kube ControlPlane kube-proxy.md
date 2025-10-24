@@ -1,4 +1,4 @@
-# kube-proxy
+# kube ControlPlane kube-proxy
 
 > 각 노드에서 실행되는 네트워크 프록시
 >

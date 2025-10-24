@@ -1,4 +1,4 @@
-# 코드 종류 (byte, native, text, binary)
+# 코드 종류 - byte, native, text, binary
 
 ## 소스 코드 vs 바이트 코드 vs 네이티브 코드
 

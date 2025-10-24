@@ -1,4 +1,4 @@
-# linux base gpg (GNU Privacy Guard) options
+# linux package gnupg - gpg options
 
 ```sh
 gpg --gen-key # 대칭키 생성

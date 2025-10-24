@@ -1,4 +1,4 @@
-# nest base custom provider (외부 api로 service 생성)
+# nest base provider custom provider - 외부 api로 service 생성
 
 ## some.provider.ts
 

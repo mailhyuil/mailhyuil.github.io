@@ -1,4 +1,4 @@
-# nuxt internationalization
+# nuxt i18n
 
 > internationalization
 

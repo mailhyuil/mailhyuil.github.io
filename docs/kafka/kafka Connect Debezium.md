@@ -1,4 +1,4 @@
-# Debezium (디비지움)
+# kafka Connect Debezium
 
 > CDC (Change Data Capture)를 위한 오픈소스 플랫폼
 >

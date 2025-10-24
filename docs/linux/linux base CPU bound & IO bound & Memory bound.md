@@ -1,4 +1,4 @@
-# CPU bound & I/O bound
+# linux base CPU bound & IO bound & Memory bound
 
 > 만약 100% cpu bound problem이라면 multi-threading으로는 문제를 해결할 수 없다.
 >

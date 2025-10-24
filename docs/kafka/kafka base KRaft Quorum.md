@@ -1,4 +1,4 @@
-# kafka base KRaft Quorum (쿼럼 / 동의)
+# kafka base KRaft Quorum
 
 > 리더 선출과 데이터 복제의 안정성을 보장
 >

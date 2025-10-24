@@ -1,4 +1,4 @@
-# testing e2e frontend cypress (angular)
+# testing e2e frontend cypress - angular
 
 ```sh
 # install

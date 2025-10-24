@@ -1,4 +1,4 @@
-# WOL (Wake-on LAN)
+# L2 WOL - Wake-on LAN
 
 > 패킷을 이용해 원격으로 컴퓨터를 부팅하는 기술.
 >

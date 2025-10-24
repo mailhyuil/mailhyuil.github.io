@@ -1,4 +1,4 @@
-# MCP nodejs
+# L7 MCP sdk client
 
 ## install
 

@@ -1,4 +1,4 @@
-# observer
+# Behavioral observer
 
 ## 구조
 

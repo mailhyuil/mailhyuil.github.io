@@ -1,4 +1,4 @@
-# tailwindcss has()
+# tailwindcss has
 
 > 자식의 상태에 따라 부모의 스타일을 변경할 수 있습니다.
 

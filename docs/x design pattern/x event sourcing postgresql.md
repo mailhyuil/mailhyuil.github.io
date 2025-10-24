@@ -1,4 +1,4 @@
-# event sourcing with postgresql
+# x event sourcing postgresql
 
 > user table과 user_event table을 만들어서 event sourcing을 구현
 

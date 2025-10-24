@@ -1,4 +1,4 @@
-# webpack css-loader
+# bundle webpack loader css-loader
 
 > webpack은 js, json 파일만 이해한다. 다른 assets는 이해할 수 없다
 >

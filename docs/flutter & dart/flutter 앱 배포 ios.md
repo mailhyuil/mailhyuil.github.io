@@ -1,4 +1,4 @@
-# flutter 앱배포 ios
+# flutter 앱 배포 ios
 
 > apple store에 배포하기 위한 과정
 

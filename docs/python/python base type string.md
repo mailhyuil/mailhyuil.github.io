@@ -1,4 +1,4 @@
-# string
+# python base type string
 
 > string은 immutable
 

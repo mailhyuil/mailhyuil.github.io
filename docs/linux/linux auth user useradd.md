@@ -1,4 +1,4 @@
-# linux cmd useradd
+# linux auth user useradd
 
 ```sh
 # 사용자 생성

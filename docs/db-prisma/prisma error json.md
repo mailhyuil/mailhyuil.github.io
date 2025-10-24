@@ -1,4 +1,4 @@
-# prisma json 'NullableJsonNullValueInput | InputJsonValue' 에러
+# prisma error json
 
 > 타입이 json이 아닌 dto class라서 발생하는 에러
 >

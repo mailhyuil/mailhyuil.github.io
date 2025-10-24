@@ -1,4 +1,4 @@
-# shell script if
+# linux shellscript for
 
 ```sh
 #!/bin/bash

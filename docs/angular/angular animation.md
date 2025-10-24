@@ -1,4 +1,4 @@
-# angular animations
+# angular animation
 
 > state machine의 개념을 사용하여 상태에 따라 다른 애니메이션을 적용할 수 있다.
 

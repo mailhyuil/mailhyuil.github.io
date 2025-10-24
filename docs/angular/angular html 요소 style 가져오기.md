@@ -1,4 +1,4 @@
-# angualar style 가져오기
+# angular html 요소 style 가져오기
 
 > getComputedStyle(ele)
 >

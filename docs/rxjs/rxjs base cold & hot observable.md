@@ -1,4 +1,4 @@
-# cold & hot publisher(observable)
+# rxjs base cold & hot observable
 
 ## cold
 

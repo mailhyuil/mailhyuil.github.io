@@ -1,4 +1,4 @@
-# postgres WAL (Write-Ahead Logging) (transaction log)
+# postgres WAL
 
 > db에서 발생하는 모든 연산은 WAL과 메모리 버퍼(16MB)에 같이 기록되고, 메모리 버퍼가 꽉 차거나 트랜잭션이 종료 또는 시스템 종료 시 WAL에 기록된 로그를 디스크에 저장한다.
 >

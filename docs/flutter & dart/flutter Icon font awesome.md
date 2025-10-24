@@ -1,4 +1,4 @@
-# flutter font awesome
+# flutter Icon font awesome
 
 ## install
 

@@ -1,4 +1,4 @@
-# SpringMVC + JPA
+# Spring MVC + JPA
 
 - pom.xml 에 추가
 

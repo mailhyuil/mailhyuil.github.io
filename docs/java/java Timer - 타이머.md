@@ -1,4 +1,4 @@
-# Timer (타이머)
+# java Timer - 타이머
 
 ```java
 private Timer timer; // Timer 생성

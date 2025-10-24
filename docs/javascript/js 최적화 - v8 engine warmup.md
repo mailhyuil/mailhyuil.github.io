@@ -1,4 +1,4 @@
-# js v8 최적화 warmup
+# js 최적화 - v8 engine warmup
 
 > 자주 호출되는 함수를 미리 여러번 돌려서 미리 최적화 시키는 것을 warmup이라고 한다.
 >

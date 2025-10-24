@@ -1,4 +1,4 @@
-# terraform HCL
+# terraform HCL 언어
 
 > terraform 전용 언어
 >

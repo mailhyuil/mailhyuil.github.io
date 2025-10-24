@@ -1,4 +1,4 @@
-# webAPI sessionStorage vs localStorage
+# webapi sessionStorage vs localStorage
 
 > 간단한 text 데이터를 저장할 수 있는 storage
 

@@ -1,4 +1,4 @@
-# 압축 gunzip & gzip
+# linux cmd 압축 gunzip & gzip
 
 > gunzip 또는 gzip으로 압축을 풀 수 있음
 >

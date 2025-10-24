@@ -1,4 +1,4 @@
-# mongo shell
+# mongo cli
 
 ## install
 

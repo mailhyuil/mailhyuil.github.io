@@ -1,4 +1,4 @@
-# kubernetes hostPath
+# kube Storage Volume hostPath
 
 > 노드(호스트)의 디스크 저장
 >

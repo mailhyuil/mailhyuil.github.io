@@ -1,4 +1,4 @@
-# babel nestjs
+# compile babel nestjs
 
 ## install
 

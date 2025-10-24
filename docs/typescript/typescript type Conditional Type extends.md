@@ -1,4 +1,4 @@
-# typescript type extends & infer
+# typescript type Conditional Type extends
 
 ## extends
 

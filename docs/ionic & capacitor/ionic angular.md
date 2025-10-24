@@ -1,4 +1,4 @@
-# angular ionic
+# ionic angular
 
 ## install
 

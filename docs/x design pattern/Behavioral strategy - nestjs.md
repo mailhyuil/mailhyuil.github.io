@@ -1,4 +1,4 @@
-# nestjs strategy pattern
+# Behavioral strategy - nestjs
 
 > role이 MEMBER인 경우와 ADMIN인 경우에 따라 다른 로직을 수행하는 예제
 

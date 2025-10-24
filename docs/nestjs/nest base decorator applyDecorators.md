@@ -1,4 +1,4 @@
-# nest base decorator custom decorator 기존 데이터 수정
+# nest base decorator applyDecorators
 
 > ClassDecorator, MethodDecorator를 합성할 수 있는 함수
 

@@ -1,4 +1,4 @@
-# bundle webpack backend server
+# bundle webpack base webpack.config.js backend
 
 > target을 node로 설정하여 webpack이 fs, path 등의 내장 모듈을 건드리지 않도록 설정한다.
 >

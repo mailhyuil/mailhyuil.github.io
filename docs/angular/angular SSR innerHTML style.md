@@ -1,4 +1,4 @@
-# angular SSR innerHtml style
+# angular SSR innerHTML style
 
 > style이 바로 적용되지 않기 때문에 layout shifting이 발생
 

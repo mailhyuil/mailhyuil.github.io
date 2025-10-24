@@ -1,4 +1,4 @@
-# robots.txt
+# robots txt
 
 > 크롤링 및 스크래핑 허용 여부를 설정하는 파일
 

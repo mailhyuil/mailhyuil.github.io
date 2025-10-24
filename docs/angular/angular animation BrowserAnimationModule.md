@@ -1,4 +1,4 @@
-# angular animations BrowserAnimationModule
+# angular animation BrowserAnimationModule
 
 > BrowserAnimationModule은 앵귤러 애플리케이션의 애니메이션을 구현하기 위해 사용하는 모듈로 브라우저에서 애니메이션을 처리하기 위한 기능을 제공합니다.
 >

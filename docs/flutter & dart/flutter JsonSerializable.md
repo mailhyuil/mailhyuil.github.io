@@ -1,4 +1,4 @@
-# flutter JsonSerialiable
+# flutter JsonSerializable
 
 > 중대형 프로젝트에서 사용
 >

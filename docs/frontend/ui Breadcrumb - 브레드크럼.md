@@ -1,4 +1,4 @@
-# Breadcrumb(브레드크럼)
+# ui Breadcrumb - 브레드크럼
 
 > 일반적으로 사이트의 header와 기본 컨텐츠 사이에 배치되는 탐색 보조 도구
 >

@@ -1,4 +1,4 @@
-# angular dynamic component
+# angular base component dynamic component example
 
 ```ts
   ngAfterViewInit(): void {

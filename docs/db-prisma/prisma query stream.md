@@ -1,4 +1,4 @@
-# prisma stream
+# prisma query stream
 
 ## custom stream
 

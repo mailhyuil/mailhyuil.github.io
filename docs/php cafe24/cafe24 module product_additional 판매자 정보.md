@@ -1,4 +1,4 @@
-# cafe24 module breadcrumb
+# cafe24 module product_additional 판매자 정보
 
 ```html
 <div module="product_additional">

@@ -1,4 +1,4 @@
-# immutable object vs mutable object
+# Mutation immutable object vs mutable object
 
 > mutable object = 조립식 컴퓨터
 >

@@ -1,4 +1,4 @@
-# nodejs module stream with promise (axios)
+# nodejs module stream with Promise - axios
 
 ```ts
 const promise = new Promise<void>((resolve, reject) => {

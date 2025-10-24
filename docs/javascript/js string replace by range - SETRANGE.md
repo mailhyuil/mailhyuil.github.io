@@ -1,4 +1,4 @@
-# js string replace by range (SETRANGE)
+# js string replace by range - SETRANGE
 
 ```js
 function setRange(str, start, end, substitute) {

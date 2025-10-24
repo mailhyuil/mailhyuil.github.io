@@ -1,4 +1,4 @@
-# Math
+# js Math
 
 ```js
 Math.pow(2, 10); // 2의 10승 : 1024

@@ -1,4 +1,4 @@
-# ELK logstash
+# log-agent logstash
 
 > fluentd, fluentbit, filebeat로 대체 가능
 >

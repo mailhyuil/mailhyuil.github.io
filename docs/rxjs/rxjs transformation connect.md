@@ -1,4 +1,4 @@
-# rxjs operator connect
+# rxjs transformation connect
 
 ```js
 import { of, tap, connect, merge, map, filter } from "rxjs";

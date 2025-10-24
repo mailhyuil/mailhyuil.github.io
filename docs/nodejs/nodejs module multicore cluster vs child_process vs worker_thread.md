@@ -1,4 +1,4 @@
-# node module cluster vs child_process vs worker_threads
+# nodejs module multicore cluster vs child_process vs worker_thread
 
 > worker_threads, child_process는 둘 다 멀티 코어를 활용할 수 있다.
 >

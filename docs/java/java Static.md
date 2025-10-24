@@ -1,4 +1,4 @@
-# Static
+# java Static
 
 > 메소드 영역(Static 영역)에 저장
 >

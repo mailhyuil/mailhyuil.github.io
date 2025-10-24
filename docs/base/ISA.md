@@ -1,4 +1,4 @@
-# ISA (Instruction set architecture)
+# ISA
 
 > CPU의 언어
 >

@@ -1,4 +1,4 @@
-# js 소수점 연산
+# js number 소수점 연산
 
 > js의 number는 double 형이다.
 >

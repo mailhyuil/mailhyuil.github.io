@@ -1,4 +1,4 @@
-# angular i18n (국제화)
+# angular i18n - 국제화
 
 ## install
 

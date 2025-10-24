@@ -1,4 +1,4 @@
-# Heap Array
+# data Heap Array
 
 ```
 루트 노드의 위치 인덱스의 값은 1

@@ -1,4 +1,4 @@
-# nginx base directive stream
+# nginx directive stream
 
 > tcp
 

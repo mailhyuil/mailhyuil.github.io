@@ -1,4 +1,4 @@
-# electron auto-launch
+# electron auto launch
 
 ```js
 App.application.setLoginItemSettings({

@@ -1,4 +1,4 @@
-# js v8 최적화 단계
+# js 최적화 - v8 engine 단계
 
 > Interpreter = Ignition
 >

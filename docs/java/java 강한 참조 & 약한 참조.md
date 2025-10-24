@@ -1,4 +1,4 @@
-# 강한 참조 & 약한 참조
+# java 강한 참조 & 약한 참조
 
 ## 강한 참조 (Strong Reference)
 

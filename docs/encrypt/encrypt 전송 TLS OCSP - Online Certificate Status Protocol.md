@@ -1,4 +1,4 @@
-# TLS OCSP (Online Certificate Status Protocol)
+# encrypt 전송 TLS OCSP - Online Certificate Status Protocol
 
 ## OCSP의 기본 동작 방식
 

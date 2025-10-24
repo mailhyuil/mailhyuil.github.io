@@ -1,4 +1,4 @@
-# HTML Semantic Tag
+# html semantic tag - html 시맨틱 태그
 
 > semantic tag 사용 시 크롤러가 더 쉽고 정확하게 페이지를 이해할 수 있다.
 >

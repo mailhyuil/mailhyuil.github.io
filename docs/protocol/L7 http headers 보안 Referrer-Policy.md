@@ -1,4 +1,4 @@
-# Referrer-Policy
+# L7 http headers 보안 Referrer-Policy
 
 > HTTP 리퍼러(HTTP Referrer)는 요청이 발생한 `<protocol>://<host>:<port><path><query><fragment>`을 의미한다.
 >

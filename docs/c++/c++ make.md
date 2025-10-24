@@ -1,4 +1,4 @@
-# c++ make & Makefile
+# c++ make
 
 > script를 미리 작성하여 자동화시키는 파일
 >

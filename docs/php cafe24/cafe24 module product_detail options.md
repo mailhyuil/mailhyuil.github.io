@@ -1,4 +1,4 @@
-# cafe24 module product options
+# cafe24 module product_detail options
 
 ```html
 <ul>

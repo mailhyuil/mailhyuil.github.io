@@ -1,4 +1,4 @@
-# tailwindcss 4
+# tailwindcss4 config
 
 ## global.css
 

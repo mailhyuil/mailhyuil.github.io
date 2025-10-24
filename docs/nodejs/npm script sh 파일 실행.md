@@ -1,4 +1,4 @@
-# package.json sh 파일 실행
+# npm script sh 파일 실행
 
 > bash로 실행
 

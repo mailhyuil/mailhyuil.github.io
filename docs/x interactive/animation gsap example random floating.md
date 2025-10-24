@@ -1,4 +1,4 @@
-# gsap random floating
+# animation gsap example random floating
 
 ```js
 const arr = gsap.utils.toArray(".hi");

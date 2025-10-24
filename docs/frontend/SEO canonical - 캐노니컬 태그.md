@@ -1,4 +1,4 @@
-# SEO 캐노니컬 태그 (canonical)
+# SEO canonical - 캐노니컬 태그
 
 > url 주소가 다양할 수 있는 경우
 >

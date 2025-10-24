@@ -1,4 +1,4 @@
-# go pprof
+# go 최적화 cpu pprof
 
 > CPU 사용량, 메모리 사용량, goroutine, 블로킹, 할당량 등 전부 분석 가능
 >

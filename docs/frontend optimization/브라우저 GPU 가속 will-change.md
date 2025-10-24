@@ -1,4 +1,4 @@
-# 브라우저 will-change
+# 브라우저 GPU 가속 will-change
 
 [will-change-update](https://github.com/operasoftware/devopera/pull/330)
 

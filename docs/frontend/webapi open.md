@@ -1,4 +1,4 @@
-# popup
+# webapi open
 
 > window.open()으로 새로운 브라우저 창이나 탭을 열 수 있음
 >

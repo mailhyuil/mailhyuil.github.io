@@ -1,4 +1,4 @@
-# BFF pattern (Backend For Frontend)
+# BFF pattern - Backend For Frontend
 
 > frontend 의 로직을 실행하는 서버 (BFF 서버)
 >

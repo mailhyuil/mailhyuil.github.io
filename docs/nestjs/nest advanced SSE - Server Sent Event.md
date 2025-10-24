@@ -1,4 +1,4 @@
-# nest server sent event
+# nest advanced SSE - Server Sent Event
 
 > sse 핸들러는 접속한 모두에게 영향을 미친다
 >

@@ -1,4 +1,4 @@
-# git pull config
+# git merge pull 전략 config
 
 > 그냥 pull을 할 경우 merge FETCH_HEAD를 사용하는데
 >

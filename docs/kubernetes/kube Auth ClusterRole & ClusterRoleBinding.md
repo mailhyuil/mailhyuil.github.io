@@ -1,4 +1,4 @@
-# kubernetes Authorization ClusterRole & ClusterRoleBinding
+# kube Auth ClusterRole & ClusterRoleBinding
 
 > 순서 : user or serviceaccount 생성 -> clusterrole 생성 -> clusterrolebinding 생성
 >

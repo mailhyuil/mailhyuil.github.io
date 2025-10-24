@@ -1,4 +1,4 @@
-# angular ErrorHandler HttpErrorHandler
+# angular base ErrorHandler HttpErrorHandler
 
 > httpClient에서 발생하는 에러를 잡아서 처리하는 핸들러
 

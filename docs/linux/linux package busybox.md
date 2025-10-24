@@ -1,4 +1,4 @@
-# linux busybox
+# linux package busybox
 
 > 단일 바이너리로 패키징된 핵심 Unix 유틸리티 모음 (ls, cat, mkdir...)
 >

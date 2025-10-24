@@ -1,4 +1,4 @@
-# WebAPI MutationObserver
+# webapi Observer MutationObserver
 
 > DOM 요소의 변경을 감지
 

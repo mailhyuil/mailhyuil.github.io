@@ -1,4 +1,4 @@
-# design pattern CoR example Express
+# Behavioral Chain of Responsibility - CoR example express
 
 ```ts
 import express, { RequestHandler } from "express";

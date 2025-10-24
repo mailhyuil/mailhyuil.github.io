@@ -1,4 +1,4 @@
-# 리눅스 셸 변수
+# linux shellscript 변수
 
 ```sh
 $$ : 쉘의 프로세스 번호 (pid)

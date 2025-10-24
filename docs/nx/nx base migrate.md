@@ -1,4 +1,4 @@
-# nx upgrade
+# nx base migrate
 
 ```sh
 nx migrate latest # same as nx migrate nx@latest

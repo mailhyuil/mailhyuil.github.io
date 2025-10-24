@@ -1,4 +1,4 @@
-# scp vs sftp
+# linux package scp vs sftp
 
 ![](./img/scpsftp.png)
 

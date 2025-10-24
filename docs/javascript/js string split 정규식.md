@@ -1,4 +1,4 @@
-# js split 정규식
+# js string split 정규식
 
 ```js
 // 원래 텍스트

@@ -1,4 +1,4 @@
-# angular urlToFile (fetch image or file)
+# angular urlToFile - fetch image or file
 
 > img, script 등의 일부 태그는 CORS를 제한하지 않는다.
 >

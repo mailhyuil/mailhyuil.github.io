@@ -1,4 +1,4 @@
-# flutter Inherited Widget
+# flutter State Inherited Widget
 
 > 최상위 위젯에 있는 데이터를 최하위 위젯이 사용하고 싶다면 Props Drilling을 해야한다.
 >

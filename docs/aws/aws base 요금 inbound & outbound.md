@@ -1,4 +1,4 @@
-# aws 요금 inbound & outbound
+# aws base 요금 inbound & outbound
 
 ## inbound
 

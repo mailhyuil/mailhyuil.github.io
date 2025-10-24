@@ -1,4 +1,4 @@
-# nest CQRS saga
+# nest advanced cqrs saga
 
 > 이벤트를 listening하고 있다가 Command를 Trigger하는 역할
 

@@ -1,4 +1,4 @@
-# flutter Provider
+# flutter State Provider
 
 > InheritedWidget와 ChangeNotifier를 결합하여 사용하기 쉽게 만든 패키지
 

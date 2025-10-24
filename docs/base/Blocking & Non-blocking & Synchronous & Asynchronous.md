@@ -1,4 +1,4 @@
-# Blocking, Non-Blocking, Synchronous, Asynchronous
+# Blocking & Non-blocking & Synchronous & Asynchronous
 
 > 순차적으로 작업이 처리되어야 한다면 동기 혹은 논블로킹 방식을 사용해야한다.
 >

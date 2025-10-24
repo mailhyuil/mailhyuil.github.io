@@ -1,4 +1,4 @@
-# php loop
+# php 반복
 
 ```php
 while (condition is true) {

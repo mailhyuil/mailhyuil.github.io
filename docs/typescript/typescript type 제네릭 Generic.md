@@ -1,4 +1,4 @@
-# typescript 제네릭 타입
+# typescript type 제네릭 Generic
 
 ## 컴포넌트를 재사용하기 위해 사용
 

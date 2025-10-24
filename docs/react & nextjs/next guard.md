@@ -1,4 +1,4 @@
-# next guard auth-guard
+# next guard
 
 > react에서는 컴포넌트로 감싸는 방식으로 decorator를 구현할 수 있다.
 

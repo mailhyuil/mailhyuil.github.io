@@ -1,4 +1,4 @@
-# js json escape sequence
+# js JSON escape sequence
 
 > json string에는 escape sequence 두개있어야한다.
 >

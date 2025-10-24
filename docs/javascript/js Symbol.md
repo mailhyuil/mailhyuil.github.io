@@ -1,4 +1,4 @@
-# Symbol
+# js Symbol
 
 > ES6에 추가된 변경 불가능한 원시 타입
 >

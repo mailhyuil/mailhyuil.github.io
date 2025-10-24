@@ -1,4 +1,4 @@
-# gsap timeline label
+# animation gsap timeline label
 
 > addLabel("label_name")을 중간에 삽입하면 play("label_name")으로 라벨 밑부터 시작가능
 

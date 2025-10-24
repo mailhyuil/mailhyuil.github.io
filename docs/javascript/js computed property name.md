@@ -1,4 +1,4 @@
-# js computed property name (key)
+# js computed property name
 
 > property key에 []를 넣으면 key를 동적으로 결정할 수 있다.
 

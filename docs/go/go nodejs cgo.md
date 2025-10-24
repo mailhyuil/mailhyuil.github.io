@@ -1,4 +1,4 @@
-# go nodejs ffi
+# go nodejs cgo
 
 > C를 import 시 Go가 cgo모드로 빌드된다. (cgo 활성화)
 >

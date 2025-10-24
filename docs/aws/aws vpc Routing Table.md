@@ -1,4 +1,4 @@
-# aws Routing Table
+# aws vpc Routing Table
 
 > VPC를 생성 시 기본 라우팅 테이블이 생성된다.
 >

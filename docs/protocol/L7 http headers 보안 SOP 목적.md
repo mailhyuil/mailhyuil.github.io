@@ -1,4 +1,4 @@
-# http SOP 목적
+# L7 http headers 보안 SOP 목적
 
 > SOP는 클라이언트의 브라우저 상에서 다른 Origin으로부터의 요청을 제한하는 역할을 한다.
 >

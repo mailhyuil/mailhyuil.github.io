@@ -1,4 +1,4 @@
-# http Headers Cache-Control
+# L7 http headers Cache-Control
 
 > 브라우저에게 캐시를 어떻게 사용할지 지시하는 지시자
 >

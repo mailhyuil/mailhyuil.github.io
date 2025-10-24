@@ -1,4 +1,4 @@
-# babel
+# compile babel
 
 > js의 문법을 변환해주는 트랜스파일러
 

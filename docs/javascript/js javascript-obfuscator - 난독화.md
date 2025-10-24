@@ -1,4 +1,4 @@
-# js javascript-obfuscator (난독화)
+# js javascript-obfuscator - 난독화
 
 ## install
 

@@ -1,4 +1,4 @@
-# linux shellscript $() & ${}
+# linux shellscript ${} vs $
 
 ## $()
 

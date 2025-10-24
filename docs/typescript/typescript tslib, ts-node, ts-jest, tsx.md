@@ -1,4 +1,4 @@
-# typescript tslib, ts-patch, ts-node, ts-jest
+# typescript tslib, ts-node, ts-jest, tsx
 
 ## ts-node / tsx
 

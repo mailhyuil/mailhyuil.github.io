@@ -1,4 +1,4 @@
-# docker buildx
+# Docker buildx
 
 > 멀티 플랫폼 이미지 빌드를 위한 도구
 

@@ -1,4 +1,4 @@
-# bfg
+# git 파일 삭제 bfg
 
 ## install
 

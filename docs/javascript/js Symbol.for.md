@@ -1,4 +1,4 @@
-# Symbol.for
+# js Symbol.for
 
 > Symbol()로 symbol을 생성하면 항상 다른 값의 symbol이 생성된다
 >

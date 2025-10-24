@@ -1,4 +1,4 @@
-# angular interceptor cookie
+# angular base interceptor cookie
 
 > cookie는 set할 수 없다 header에 대신 set해라
 

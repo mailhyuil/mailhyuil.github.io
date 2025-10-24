@@ -1,4 +1,4 @@
-# base capability negotiation
+# base Capability Negotiation
 
 > client와 server가 서로가 지원하는 프로토콜, 통신 기술, 데이터 형식을 미리 협의하는 과정
 >

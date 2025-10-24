@@ -1,4 +1,4 @@
-# prisma contains case insensitive
+# prisma where contains case insensitive
 
 ```ts
 {

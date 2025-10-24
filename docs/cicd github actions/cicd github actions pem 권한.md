@@ -1,4 +1,4 @@
-# github actions create pem
+# cicd github actions pem 권한
 
 > self-host 사용 시 권한 문제 해결
 

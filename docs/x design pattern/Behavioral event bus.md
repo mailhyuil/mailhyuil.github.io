@@ -1,4 +1,4 @@
-# event bus (Event Channel)
+# Behavioral event bus
 
 > broker, message broker, event bus, event channel 등 다양한 이름으로 불린다.
 >

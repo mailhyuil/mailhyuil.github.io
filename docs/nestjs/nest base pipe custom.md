@@ -1,4 +1,4 @@
-# nest pipe custom
+# nest base pipe custom
 
 ```ts
 import { PipeTransform, Injectable, ArgumentMetadata } from "@nestjs/common";

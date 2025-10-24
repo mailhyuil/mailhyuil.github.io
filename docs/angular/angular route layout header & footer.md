@@ -1,4 +1,4 @@
-# angular layout header & footer
+# angular route layout header & footer
 
 ## layout.component.html
 

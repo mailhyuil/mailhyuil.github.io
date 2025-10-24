@@ -1,4 +1,4 @@
-# prototype
+# Creational prototype
 
 > Creational Design Pattern
 

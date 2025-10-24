@@ -1,4 +1,4 @@
-# webpack loader sass-loader
+# bundle webpack loader css sass-loader
 
 ## install
 

@@ -1,4 +1,4 @@
-# primary key unique string id
+# db primary key unique id generator
 
 ```txt
 ulid - a 26 character sortable

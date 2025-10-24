@@ -1,4 +1,4 @@
-# angular test pipe
+# testing angular pipe
 
 > pipe.transform()을 사용
 

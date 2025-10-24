@@ -1,4 +1,4 @@
-# checksum 체크섬
+# base 체크섬 checksum
 
 > 중복 검사의 한 형태
 >

@@ -1,4 +1,4 @@
-# rxjs observable forkJoin
+# rxjs creation join array forkJoin
 
 > source를 array로 받음 /// forkJoin([a$, b$])
 

@@ -1,4 +1,4 @@
-# SSL/TLS CA
+# L5 TLS certificate CA - Certificate Authority
 
 > Certificate Authority / Root Certificate
 >

@@ -1,4 +1,4 @@
-# Builder Pattern
+# Creational builder
 
 > Builder만 쓰는 경우 / Builder와 Director를 함께 쓰는 경우가 있다.
 >

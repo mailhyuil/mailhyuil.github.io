@@ -1,4 +1,4 @@
-# http MIME Content-Encoding & Transfer-Encoding
+# L7 http headers MIME Content-Encoding & Transfer-Encoding
 
 > 두 인코딩이 동시 적용되면 전송 인코딩이 디코딩된 후 컨텐츠 인코딩이 디코딩된다.
 

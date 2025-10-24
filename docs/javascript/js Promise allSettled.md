@@ -1,4 +1,4 @@
-# Promise.allSettled
+# js Promise allSettled
 
 > Promise.all은 하나라도 reject되면 전부 reject됨
 >

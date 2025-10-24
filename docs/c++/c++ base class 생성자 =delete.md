@@ -1,4 +1,4 @@
-# c++ base compiler =delete
+# c++ base class 생성자 =delete
 
 > 컴파일러에게 이 생성자는 사용하지 말라고 알려주는 키워드
 

@@ -1,4 +1,4 @@
-# db ACID
+# db base ACID
 
 ```sh
 Atomicity # 원자성

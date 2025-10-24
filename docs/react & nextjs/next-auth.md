@@ -1,4 +1,4 @@
-# next-auth.js
+# next-auth
 
 ## install
 

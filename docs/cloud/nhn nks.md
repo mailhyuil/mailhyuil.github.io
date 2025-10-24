@@ -1,4 +1,4 @@
-# nks 순서
+# nhn nks
 
 1. NKS 생성
 2. kubeconfig.yaml 다운로드 \> .kube/config로 덮어쓰기

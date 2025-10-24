@@ -1,4 +1,4 @@
-# Servlet (서블릿)
+# spring Servlet - 서블릿
 
 > HTTP 프로토콜을 지원하는 _javax.servlet.http.HttpServlet_ 클래스를 상속하여 *서블릿 컨테이너*에 의해서 실행 및 관리
 >

@@ -1,4 +1,4 @@
-# Jasypt(Java Simplified Encryption)를 사용한 프로퍼티 암호화
+# spring Jasypt를 사용한 프로퍼티 암호화
 
 1. denpendencies
 

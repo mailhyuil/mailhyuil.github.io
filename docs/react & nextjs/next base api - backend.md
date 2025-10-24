@@ -1,4 +1,4 @@
-# next base api (backend)
+# next base api - backend
 
 ## app/api/hello/route.ts
 

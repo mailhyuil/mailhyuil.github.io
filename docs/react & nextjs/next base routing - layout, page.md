@@ -1,4 +1,4 @@
-# next routing (layout, page)
+# next base routing - layout, page
 
 > 각 dir에는 page.tsx가 존재
 >

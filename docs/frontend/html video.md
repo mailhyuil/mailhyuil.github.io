@@ -1,4 +1,4 @@
-# video
+# html video
 
 > 가능한 webm을 사용하되 호환성이나 fallback을 위해 mp4도 함께 제공한다.
 >

@@ -1,4 +1,4 @@
-# index.d.ts
+# typescript index.d.ts
 
 > 타입 정의 파일
 >

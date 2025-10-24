@@ -1,4 +1,4 @@
-# angular LOCALE_ID
+# angular base token LOCALE_ID
 
 > 전체 앱에 대한 로케일을 설정합니다.
 >

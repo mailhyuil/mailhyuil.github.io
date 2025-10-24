@@ -1,4 +1,4 @@
-# php variable
+# php 변수
 
 ```php
 $x = 5;

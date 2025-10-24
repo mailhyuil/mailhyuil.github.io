@@ -1,4 +1,4 @@
-# typescript decorator descriptor getter setter
+# typescript descriptor getter setter
 
 ```ts
 const user = {

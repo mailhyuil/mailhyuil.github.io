@@ -1,4 +1,4 @@
-# layer의 종류
+# 브라우저 Layer
 
 > paint layer(render layer), graphics layer
 

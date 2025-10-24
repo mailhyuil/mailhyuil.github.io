@@ -1,4 +1,4 @@
-# nest decorator toss AOP
+# nest base decorator toss nestjs-aop
 
 ## install
 

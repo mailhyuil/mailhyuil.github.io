@@ -1,4 +1,4 @@
-# SEO sitemap
+# SEO sitemap.xml
 
 > 웹사이트에 있는 모든 중요한 URL 목록을 담은 파일
 >

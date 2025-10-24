@@ -1,4 +1,4 @@
-# go chi
+# go http chi
 
 ## install
 

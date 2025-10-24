@@ -1,4 +1,4 @@
-# proxy
+# Structural proxy
 
 > 객체의 행동을 대신 수행해 줌
 >

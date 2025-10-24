@@ -1,4 +1,4 @@
-# nest redirect decorator
+# nest redirect
 
 ## Redirect
 

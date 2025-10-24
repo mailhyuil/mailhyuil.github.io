@@ -1,4 +1,4 @@
-# linux port
+# linux network port 확인
 
 ```sh
 netstat -ano | grep :port

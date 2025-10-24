@@ -1,4 +1,4 @@
-# danfojs
+# 확률 & 통계 danfojs
 
 ## install
 

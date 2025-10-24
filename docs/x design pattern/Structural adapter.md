@@ -1,4 +1,4 @@
-# adapter
+# Structural adapter
 
 > 클래스를 호환시켜주고 재사용하기 위해 사용
 >

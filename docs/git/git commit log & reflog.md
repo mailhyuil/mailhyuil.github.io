@@ -1,4 +1,4 @@
-# git log & reflog
+# git commit log & reflog
 
 > 커밋 기록을 조회
 >

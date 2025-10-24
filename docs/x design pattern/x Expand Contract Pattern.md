@@ -1,4 +1,4 @@
-# Expand-Contract Pattern
+# x Expand Contract Pattern
 
 > database를 migration 하거나 앱의 로직을 변경할 때 사용하는 패턴
 >

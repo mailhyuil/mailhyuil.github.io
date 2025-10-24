@@ -1,4 +1,4 @@
-# go base array & slice
+# go base type array & slice
 
 > array: [num]type{}
 >

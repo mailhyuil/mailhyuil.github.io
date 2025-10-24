@@ -1,4 +1,4 @@
-# angular SSR island architecture (analogjs + astro)
+# angular SSR island architecture - analogjs + astro
 
 > static한 부분은 SSR로, 동적인 부분은 CSR로 처리하는 아키텍처
 >

@@ -1,4 +1,4 @@
-# nest app-routing
+# nest routing
 
 > url에 자동으로 path를 붙여준다
 

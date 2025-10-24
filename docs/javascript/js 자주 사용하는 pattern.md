@@ -1,4 +1,4 @@
-# js design pattern
+# js 자주 사용하는 pattern
 
 ## callback pattern
 

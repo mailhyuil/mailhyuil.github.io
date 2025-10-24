@@ -1,4 +1,4 @@
-# rxjs asyncScheduler
+# rxjs utility asyncScheduler
 
 > setTimeout & setInterval : asyncScheduler
 >

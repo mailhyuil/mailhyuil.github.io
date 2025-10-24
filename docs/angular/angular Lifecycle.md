@@ -1,4 +1,4 @@
-# lifecycle hooks
+# angular Lifecycle
 
 > ~Init은 처음 한번만 호출되고, ~Checked는 계속 호출된다
 >

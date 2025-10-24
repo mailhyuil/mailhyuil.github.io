@@ -1,4 +1,4 @@
-# TLS OCSP stapling (Online Certificate Status Protocol)
+# L5 TLS OCSP stapling
 
 > 클라이언트는 인증서를 받은 후 인증서를 CA 기관에 직접 요청하여 인증서를 검증한다.
 >

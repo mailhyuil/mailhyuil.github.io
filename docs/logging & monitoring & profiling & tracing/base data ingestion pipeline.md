@@ -1,4 +1,4 @@
-# data ingestion pipeline
+# base data ingestion pipeline
 
 > 데이터 수집 파이프라인
 >

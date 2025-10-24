@@ -1,4 +1,4 @@
-# rxjs partition
+# rxjs creation join partition
 
 ```js
 import { of, partition } from "rxjs";

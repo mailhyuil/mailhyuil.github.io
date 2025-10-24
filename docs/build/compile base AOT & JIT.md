@@ -1,4 +1,4 @@
-# AOT vs JIT
+# compile base AOT & JIT
 
 ## AOT (Ahead of Time) Compilation
 

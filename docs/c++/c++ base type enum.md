@@ -1,4 +1,4 @@
-# c++ enum
+# c++ base type enum
 
 ```cpp
 #include <iostream>

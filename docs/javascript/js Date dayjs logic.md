@@ -1,4 +1,4 @@
-# dayjs logic
+# js Date dayjs logic
 
 ```ts
 let currentDate = dayjs(startDate);

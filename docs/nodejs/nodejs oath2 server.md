@@ -1,4 +1,4 @@
-# nodejs oauth2 서버
+# nodejs oath2 server
 
 ## install
 

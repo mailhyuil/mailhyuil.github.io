@@ -1,4 +1,4 @@
-# JPA
+# spring JPA
 
 ## pom.xml
 

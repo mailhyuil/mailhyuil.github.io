@@ -1,4 +1,4 @@
-# base transformer
+# compile base stages transformer
 
 > transformer란 코드를 받아서 코드를 리턴하는 함수이다.
 >

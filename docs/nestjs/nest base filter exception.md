@@ -1,4 +1,4 @@
-# nest Exception filters
+# nest base filter exception
 
 > nestjs의 에러 스키마는 기본으로 \{statusCode, message, error\}로 구성되어있다.
 >

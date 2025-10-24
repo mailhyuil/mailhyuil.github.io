@@ -1,4 +1,4 @@
-# node worker_threads
+# nodejs module multicore worker_threads
 
 > worker_threads의 가장 중요한 목표는 I/O 작업이 아닌 CPU 집약적인 작업의 퍼포먼스를 향상시키는 겁니다.
 >

@@ -1,4 +1,4 @@
-# GSAP (greenSock) options stagger
+# animation gsap options stagger
 
 > 사전적 의미: (진행되는 일에) 시차를 두다
 >

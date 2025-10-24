@@ -1,4 +1,4 @@
-# nodejs event-loop phase
+# nodejs event loop phase
 
 > 각 phase마다 해당 phase의 queue에 있는 콜백 함수를 메인스레드로 가져와서 실행한다.
 >

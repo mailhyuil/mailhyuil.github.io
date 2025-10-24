@@ -1,4 +1,4 @@
-# nest testing service
+# testing nestjs Service
 
 > prisma의 now() 사용 시 createdAt을 [Function: mockConstructor]로 대체해버리기 때문에 명시적으로 new Date()로 대체해줘야 한다.
 >

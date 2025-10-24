@@ -1,4 +1,4 @@
-# typescript custom decorator
+# typescript decorator custom decorator
 
 > @Function을 사용하면 인자로 Constructor를 받는다.
 >

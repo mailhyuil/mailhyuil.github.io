@@ -1,4 +1,4 @@
-# encrypt key asc (ASCII-armored)
+# encrypt key asc
 
 > PEM (Privacy Enhanced Mail) 포맷으로 인코딩된 ASCII 텍스트
 >

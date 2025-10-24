@@ -1,4 +1,4 @@
-# Javamail
+# spring JavaMail
 
 - pom.xl
 

@@ -1,4 +1,4 @@
-# nginx base directive
+# nginx directive
 
 ## simple directive
 

@@ -1,4 +1,4 @@
-# npm link & pack & install
+# npm 라이브러리 - library 배포 link & pack & install
 
 > library를 개발할 때 library가 업데이트 될 때마다 다시 배포하고, main app에서 다시 설치하는 것이 번거롭다. 이런 경우 npm link를 사용하면 된다.
 >

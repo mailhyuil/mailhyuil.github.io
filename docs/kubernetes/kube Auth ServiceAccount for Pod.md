@@ -1,4 +1,4 @@
-# Service Account for Pod
+# kube Auth ServiceAccount for Pod
 
 > Pod가 kubernetes API 서버에 접근할 때 인증 (Pod가 가지고 있는 인증)
 >

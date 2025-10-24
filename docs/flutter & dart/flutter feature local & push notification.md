@@ -1,4 +1,4 @@
-# flutter local & push notification
+# flutter feature local & push notification
 
 > local notification : 앱 자체에서 발생하는 알림
 >

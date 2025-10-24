@@ -1,4 +1,4 @@
-# npm api
+# api library
 
 > OpenAPI로부터 SDK를 생성하기 위해 사용하는 라이브러리
 

@@ -1,4 +1,4 @@
-# ux Above the Fold / Below the Fold
+# ux Above the Fold & Below the Fold
 
 ## Above the Fold
 

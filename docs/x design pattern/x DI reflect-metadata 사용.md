@@ -1,4 +1,4 @@
-# DI reflect-metadata 사용
+# x DI reflect-metadata 사용
 
 ## install
 

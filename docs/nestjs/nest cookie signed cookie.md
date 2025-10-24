@@ -1,4 +1,4 @@
-# nest signed cookie
+# nest cookie signed cookie
 
 > 시크릿을 사용해서 시그니처를 생성한 쿠키
 >

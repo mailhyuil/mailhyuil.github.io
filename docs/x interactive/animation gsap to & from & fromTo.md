@@ -1,4 +1,4 @@
-# gsap to
+# animation gsap to & from & fromTo
 
 ## to
 

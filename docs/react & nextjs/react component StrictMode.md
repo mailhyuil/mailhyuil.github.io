@@ -1,1 +1,1 @@
-# next component StrictMode
+# react component StrictMode

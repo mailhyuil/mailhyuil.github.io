@@ -1,4 +1,4 @@
-# base RTT (Round-Trip Time)
+# base RTT
 
 > 왕복 시간
 >

@@ -1,3 +1,3 @@
-# window.origin
+# webapi location origin
 
 > window.location.origin

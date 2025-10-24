@@ -1,4 +1,4 @@
-# TCP 연결 & 해제
+# L4 TCP 연결 & 해제 - Handshake
 
 ## 연결 (3-way handshake)
 

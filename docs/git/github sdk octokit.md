@@ -1,4 +1,4 @@
-# github toolkit octokit
+# github sdk octokit
 
 > octokit이란 github api를 다룰 수 있는 client library
 

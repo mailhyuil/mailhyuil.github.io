@@ -1,4 +1,4 @@
-# go 최적화 escape analysis
+# go 최적화 memory escape analysis
 
 > **escape analysis(이스케이프 분석)**는 Go 컴파일러가 "이 값은 힙(heap)에 할당해야 할까, 스택(stack)에 할당해도 될까?" 를 판단하는 과정
 >

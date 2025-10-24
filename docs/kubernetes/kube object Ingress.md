@@ -1,4 +1,4 @@
-# kubernetes Ingress
+# kube object Ingress
 
 > L7 스위치 역할을 논리적으로 수행
 >

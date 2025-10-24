@@ -1,4 +1,4 @@
-# linux top
+# linux profile top
 
 > cpu & memory 확인
 

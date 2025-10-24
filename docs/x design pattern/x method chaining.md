@@ -1,4 +1,4 @@
-# method chaining
+# x method chaining
 
 ```ts
 class Person {

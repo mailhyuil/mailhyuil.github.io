@@ -1,4 +1,4 @@
-# nest testing e2e backend supertest
+# testing e2e backend supertest
 
 > endpoint 단위로 테스트
 >

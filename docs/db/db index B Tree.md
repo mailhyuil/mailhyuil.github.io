@@ -1,4 +1,4 @@
-# db base B Tree
+# db index B Tree
 
 ## B Tree
 

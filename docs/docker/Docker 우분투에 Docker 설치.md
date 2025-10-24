@@ -1,4 +1,4 @@
-# Docker 설치
+# Docker 우분투에 Docker 설치
 
 ```sh
 #!/bin/bash

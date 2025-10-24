@@ -1,4 +1,4 @@
-# frontend open graph protocol
+# SEO open graph
 
 ```html
 <meta name="og:title" content="Title" />

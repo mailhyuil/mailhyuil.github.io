@@ -1,4 +1,4 @@
-# Lambda layer
+# aws Lambda layer
 
 > layer에 등록된 파일은 /opt 경로에 마운트됨
 >

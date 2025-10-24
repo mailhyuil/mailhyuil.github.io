@@ -1,4 +1,4 @@
-# bitwise operation usecase
+# bitwise opertaion usecase
 
 ```sh
 1. bit fields

@@ -1,4 +1,4 @@
-# http headers 보안 X-Frame-Options
+# L7 http headers 보안 X-Frame-Options
 
 > 내 웹사이트를 다른 웹사이트가 iframe으로 사용할 수 없게 하는 옵션
 >

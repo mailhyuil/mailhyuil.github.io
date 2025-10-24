@@ -1,4 +1,4 @@
-# openapi auth
+# openapi security, securitySchemes - auth
 
 > components.securitySchemes + security 조합으로 정의
 

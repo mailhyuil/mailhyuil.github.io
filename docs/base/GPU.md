@@ -1,4 +1,4 @@
-# GPU (Graphics Processing Unit)
+# GPU
 
 > 병렬처리를 위해 설계된 전용 프로세서
 >

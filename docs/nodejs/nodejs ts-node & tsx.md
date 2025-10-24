@@ -1,4 +1,4 @@
-# nodejs ts-node
+# nodejs ts-node & tsx
 
 > It JIT transforms TypeScript into JavaScript, enabling you to directly execute TypeScript on Node.js without precompiling.
 >

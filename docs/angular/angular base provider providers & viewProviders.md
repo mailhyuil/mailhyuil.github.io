@@ -1,4 +1,4 @@
-# angular providers & viewProviders
+# angular base provider providers & viewProviders
 
 ## providers
 

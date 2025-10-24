@@ -1,4 +1,4 @@
-# grpc grpc-web
+# grpc grpc-web - browser
 
 ## install
 

@@ -1,4 +1,4 @@
-# input number 버튼 없애기
+# html input number 버튼 없애기
 
 > 전역으로 선언
 

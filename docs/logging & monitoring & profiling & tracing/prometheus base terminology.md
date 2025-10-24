@@ -1,4 +1,4 @@
-# prometheus 용어
+# prometheus base terminology
 
 ## alert
 

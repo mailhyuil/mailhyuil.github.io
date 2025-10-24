@@ -1,4 +1,4 @@
-# 스트리밍 Range
+# x 스트리밍 Range
 
 ```js
 app.get("/video.mp4", (req, res) => {

@@ -1,4 +1,4 @@
-# webpack optimization splitChunks all & async & initial
+# bundle webpack optimization splitChunks chunks - all & async & initial
 
 ## async (default)
 

@@ -1,4 +1,4 @@
-# npm library 개발
+# npm 라이브러리 - library 배포 로컬 개발
 
 1. library 배포 폴더를 npm link (e.g. npm link ./dist/ng-libs)
    > npm link를 사용하면 자동으로 global로 설치된다.

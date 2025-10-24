@@ -1,4 +1,4 @@
-# ArrayBuffer to String
+# js binary data Buffer ArrayBuffer ArrayBuffer to String & String to ArrayBuffer
 
 ```js
 function ab2str(buf) {

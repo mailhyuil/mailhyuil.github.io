@@ -1,4 +1,4 @@
-# js range map 함수
+# js utils range map 함수
 
 ```js
 function mapRange(value, minInput, maxInput, minOutput, maxOutput) {

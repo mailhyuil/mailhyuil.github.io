@@ -1,4 +1,4 @@
-# renovate.json
+# renovate
 
 > 디펜던시들을 업데이트 자동화, 최신화
 

@@ -1,4 +1,4 @@
-# InvalidTokenException
+# nest base filter exception InvalidTokenException
 
 ```ts
 import { HttpException } from "@nestjs/common";

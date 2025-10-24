@@ -1,4 +1,4 @@
-# node module https
+# nodejs module https
 
 > nginx를 사용하지 않고 nodejs로 tls를 사용할 수 있다.
 >

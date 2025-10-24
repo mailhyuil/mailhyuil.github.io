@@ -1,4 +1,4 @@
-# docker entrypoint & command
+# Docker entrypoint & command
 
 > [entrypoint] [command]
 >

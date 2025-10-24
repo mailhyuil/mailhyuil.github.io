@@ -1,4 +1,4 @@
-# github sdk
+# github sdk actions
 
 > github actions를 다루는 client library
 

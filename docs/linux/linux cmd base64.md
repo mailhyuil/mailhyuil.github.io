@@ -1,4 +1,4 @@
-# linux base64
+# linux cmd base64
 
 ```sh
 echo hello | base64

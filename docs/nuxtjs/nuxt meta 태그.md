@@ -1,4 +1,4 @@
-# META TAG
+# nuxt meta 태그
 
 > SEO에 활용
 

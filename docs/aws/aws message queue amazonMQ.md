@@ -1,4 +1,4 @@
-# aws message queue AmazonMQ
+# aws message queue amazonMQ
 
 > 아마존 클라우드의 관리형 메시지 브로커 서비스
 >

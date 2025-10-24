@@ -1,4 +1,4 @@
-# js error throw vs return
+# typescript error throw vs return
 
 ## throw (exception approach)
 

@@ -1,4 +1,4 @@
-# nodejs cluster
+# nodejs module multicore cluster
 
 > multi processing을 구현
 >

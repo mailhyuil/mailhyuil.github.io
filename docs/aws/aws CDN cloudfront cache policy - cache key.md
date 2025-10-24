@@ -1,4 +1,4 @@
-# aws cloudfront cache policy
+# aws CDN cloudfront cache policy - cache key
 
 > Cache Key란 캐시된 모든 오브젝트가 가지고 있는 유니크한 키
 >

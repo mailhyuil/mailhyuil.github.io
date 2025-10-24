@@ -1,4 +1,4 @@
-# 브라우저 main tread blocking
+# 브라우저 Main Thread Blocking
 
 ## DOM 조작
 

@@ -1,4 +1,4 @@
-# jitter
+# algorithm jitter
 
 ```js
 function jitter(value, range) {

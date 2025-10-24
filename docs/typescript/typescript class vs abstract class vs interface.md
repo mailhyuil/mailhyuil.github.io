@@ -1,4 +1,4 @@
-# class vs abstract class vs interface
+# typescript class vs abstract class vs interface
 
 > typescript는 interface 뿐만 아니라 class, abstract class도 implements할 수 있다. 이렇게 사용하면 interface와 똑같이 동작한다.
 

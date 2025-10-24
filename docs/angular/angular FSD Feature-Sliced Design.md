@@ -1,4 +1,4 @@
-# angular FSD (Feature-Sliced Design)
+# angular FSD Feature-Sliced Design
 
 ## app/
 

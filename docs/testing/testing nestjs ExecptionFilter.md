@@ -1,4 +1,4 @@
-# testing nestjs ExceptionFilter
+# testing nestjs ExecptionFilter
 
 ```ts
 import { createMock } from "@golevelup/ts-jest";

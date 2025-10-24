@@ -1,4 +1,4 @@
-# npm publish
+# npm 라이브러리 - library 배포 esbuild로 esm & cjs & ts 한번에
 
 ## install
 

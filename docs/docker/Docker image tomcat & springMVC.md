@@ -1,4 +1,4 @@
-# docker tomcat & springMVC
+# Docker image tomcat & springMVC
 
 ## run
 

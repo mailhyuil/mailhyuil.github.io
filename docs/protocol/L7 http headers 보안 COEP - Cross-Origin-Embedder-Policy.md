@@ -1,4 +1,4 @@
-# http headers 보안 Cross-Origin-Embedder-Policy (COEP)
+# L7 http headers 보안 COEP - Cross-Origin-Embedder-Policy
 
 > 웹사이트가 다른 출처에서의 리소스를 로드하도록 허용하는 조건을 설정
 >

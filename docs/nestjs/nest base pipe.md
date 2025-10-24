@@ -1,4 +1,4 @@
-# pipe
+# nest base pipe
 
 > input data(param, query, body)를 변환하거나 검증하는 코드를 분리할 수 있다.
 >

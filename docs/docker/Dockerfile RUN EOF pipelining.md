@@ -1,4 +1,4 @@
-# Dockerfile RUN pipeline
+# Dockerfile RUN EOF pipelining
 
 ```Dockerfile
 RUN <<EOF

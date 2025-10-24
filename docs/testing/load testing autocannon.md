@@ -1,4 +1,4 @@
-# node load testing autocannon
+# load testing autocannon
 
 ## install
 

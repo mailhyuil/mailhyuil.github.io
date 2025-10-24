@@ -1,4 +1,4 @@
-# Homomorpic Encryption (동형암호화)
+# encrypt Homomorphic
 
 > 암호화된 상태의 데이터를 계산할 수 있는 암호화 방식
 >

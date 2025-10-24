@@ -1,4 +1,4 @@
-# nest OAuth 2.0 & OpenID Connect (OIDC) PKCE (Proof Key for Code Exchange)
+# nest auth OAuth 2.0 & OpenID Connect - OIDC PKCE - Proof Key for Code Exchange
 
 > OAuth 2.0의 보안 취약점(인증 코드 가로채기)를 보완하기 위한 PKCE(Proof Key for Code Exchange)를 사용한 OpenID Connect(OIDC) 인증 방식
 >

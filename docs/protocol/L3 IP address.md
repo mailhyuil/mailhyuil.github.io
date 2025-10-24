@@ -1,4 +1,4 @@
-# ip address
+# L3 IP address
 
 ## 공인ip vs 사설 ip
 

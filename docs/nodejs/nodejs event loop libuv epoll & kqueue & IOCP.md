@@ -1,4 +1,4 @@
-# nodejs event-loop epoll & kqueue & IOCP
+# nodejs event loop libuv epoll & kqueue & IOCP
 
 > 각 운영체제의 네이티브 I/O Event Notification Interface (linux=epoll, macOS=kqueue, windows=IOCP)를 추상화한 구현체
 >

@@ -1,4 +1,4 @@
-# aws-sdk sns
+# aws-sdk dynamodb
 
 ## install
 

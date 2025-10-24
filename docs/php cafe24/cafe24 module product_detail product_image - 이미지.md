@@ -1,4 +1,4 @@
-# cafe24 module product_image
+# cafe24 module product_detail product_image - 이미지
 
 > product_detail 모듈내에서 사용
 >

@@ -1,4 +1,4 @@
-# github actions 기본 변수
+# cicd github actions context
 
 [github-actions-context-document](https://docs.github.com/ko/actions/learn-github-actions/contexts)
 

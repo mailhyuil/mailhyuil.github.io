@@ -1,4 +1,4 @@
-# nodejs stream Readable Stream
+# nodejs module stream interface readable
 
 ```js
 const rs = fs.createReadStream("file_path", { encoding: "utf8" });

@@ -1,4 +1,4 @@
-# docker run options
+# Docker run options
 
 ```sh
 -i # stdin을 활성화, 명령어를 넣을 수 있게 됨

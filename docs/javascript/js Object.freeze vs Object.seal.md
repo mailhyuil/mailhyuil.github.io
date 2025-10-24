@@ -1,4 +1,4 @@
-# js Object.seal vs Object.freeze
+# js Object.freeze vs Object.seal
 
 ## Object.seal
 

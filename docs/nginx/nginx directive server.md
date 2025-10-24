@@ -1,4 +1,4 @@
-# nginx base directive server
+# nginx directive server
 
 ```conf
 

@@ -1,4 +1,4 @@
-# MVCC Serialization Anomaly
+# db 동시성 제어 MVCC Serialization Anomaly
 
 > MVCC 모델은 물리적인 serialization을 할 수 없기 때문에 Serialization Anomaly(직렬화 이상)가 발생할 수 있다.
 >

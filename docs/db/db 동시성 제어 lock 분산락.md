@@ -1,4 +1,4 @@
-# db transaction lock Distributed Lock (분산 락)
+# db 동시성 제어 lock 분산락
 
 > 서버가 여러대인 상황에서 동일한 데이터에 대한 동기화를 보장하기 위해 사용한다.
 >

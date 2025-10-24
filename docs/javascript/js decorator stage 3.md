@@ -1,4 +1,4 @@
-# decorator stage 3
+# js decorator stage 3
 
 > Decorator 패턴 처럼 메소드를 감싼다.
 >

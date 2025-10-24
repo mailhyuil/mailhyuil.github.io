@@ -1,4 +1,4 @@
-# class-transformer default value
+# nest class-transformer default value
 
 ```js
 class SomeDTO {

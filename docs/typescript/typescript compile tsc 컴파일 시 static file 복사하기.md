@@ -1,4 +1,4 @@
-# typescript tsc 컴파일 시 static file 복사하기
+# typescript compile tsc 컴파일 시 static file 복사하기
 
 ```json
 {

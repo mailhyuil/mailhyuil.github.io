@@ -1,4 +1,4 @@
-# typescript ReturnType
+# typescript type Mapped Type ReturnType
 
 > 함수 Type의 반환 타입으로 구성된 타입을 생성합니다.
 

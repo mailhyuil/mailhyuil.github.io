@@ -1,4 +1,4 @@
-# browser Cookie
+# L7 http headers Cookie options
 
 ## HttpOnly
 

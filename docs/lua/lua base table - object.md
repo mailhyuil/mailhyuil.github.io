@@ -1,4 +1,4 @@
-# lua base table
+# lua base table - object
 
 ```lua
 local user = {

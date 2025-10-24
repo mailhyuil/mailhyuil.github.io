@@ -1,4 +1,4 @@
-# nginx base directive events
+# nginx directive events
 
 > connection processing에 관한 설정 값들을 정의하는 곳
 

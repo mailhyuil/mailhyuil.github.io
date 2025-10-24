@@ -5,7 +5,7 @@ ARG NODE_VERSION=lts
 
 FROM node:${NODE_VERSION}-alpine AS builder
 
-# bcrypt 사용 시 의존성 설치
+# Dockerfile nx nestjs + prisma
 RUN apt-get update && apt-get install -y \
   python3 make g++ \
   && rm -rf /var/lib/apt/lists/*

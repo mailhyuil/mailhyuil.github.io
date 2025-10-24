@@ -1,4 +1,4 @@
-# nest 세팅
+# nest 세팅 settings
 
 ## install
 

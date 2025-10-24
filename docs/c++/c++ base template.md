@@ -1,4 +1,4 @@
-# c++ generic template class
+# c++ base template
 
 > c++에서 제네릭을 구현하는 방법
 >

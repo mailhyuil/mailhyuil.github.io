@@ -1,4 +1,4 @@
-# js Error cause
+# js error cause
 
 > 에러를 유발한 다른 에러를 지목하는 옵션
 >

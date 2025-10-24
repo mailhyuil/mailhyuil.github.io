@@ -1,4 +1,4 @@
-# IP packet
+# L3 IP packet
 
 ## 구조
 

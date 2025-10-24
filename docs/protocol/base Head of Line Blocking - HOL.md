@@ -1,4 +1,4 @@
-# Head of Line Blocking (HOL)
+# base Head of Line Blocking - HOL
 
 > 순차적인 스트림 데이터 전송 시 앞의 데이터가 유실되거나 지연되면 뒤의 데이터도 함께 지연되는 현상
 >

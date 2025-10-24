@@ -1,4 +1,4 @@
-# angular form ValidatorFn
+# angular form Validator ValidatorFn
 
 ## interface
 

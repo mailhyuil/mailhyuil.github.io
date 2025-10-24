@@ -1,4 +1,4 @@
-# kube-scheduler
+# kube ControlPlane kube-scheduler
 
 > 여기서 스케줄은 시간이 아니라 위치를 스케줄하는 것이다.
 >

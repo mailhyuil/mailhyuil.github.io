@@ -1,4 +1,4 @@
-# flutter toast
+# flutter UI toast
 
 ## install
 

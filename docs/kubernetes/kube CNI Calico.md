@@ -1,4 +1,4 @@
-# kubernetes Calico
+# kube CNI Calico
 
 > 쿠버네티스 클러스터에서 네트워크 정책을 구현하기 위한 오픈 소스 프로젝트
 >

@@ -1,4 +1,4 @@
-# nestjs jwt refresh token rotation
+# nest auth jwt refresh-token rotation
 
 > Refresh Token은 보통 한 번 발급되면 만료 기간(예: 30일) 동안 동일한 값이 유지됨.
 >

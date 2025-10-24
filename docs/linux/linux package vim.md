@@ -1,4 +1,4 @@
-# vim
+# linux package vim
 
 ## install
 

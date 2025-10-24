@@ -1,4 +1,4 @@
-# kubernetes emptyDir
+# kube Storage Volume emptyDir
 
 > 파드내에서 컨테이너간에 파일을 공유할 때 사용하는 임시 저장소
 >

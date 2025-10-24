@@ -1,4 +1,4 @@
-# babel typescript
+# compile babel typescript
 
 > babel은 컴파일 시 타입검사를 할 수 없고 index.d.ts를 생성할 수 없다.
 >

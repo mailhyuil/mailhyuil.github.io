@@ -1,4 +1,4 @@
-# aws-sdk SES (simple email service)
+# aws-sdk SES
 
 ## install
 

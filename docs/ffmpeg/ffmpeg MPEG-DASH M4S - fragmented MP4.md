@@ -1,4 +1,4 @@
-# ffmpeg fragmented MP4
+# ffmpeg MPEG-DASH M4S - fragmented MP4
 
 > 스트리밍형식으로 만들어진 mp4 일정사이즈마다 잘라서 재생이 가능
 >

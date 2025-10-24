@@ -1,4 +1,4 @@
-# path
+# nodejs module path
 
 > 운영체제별로 경로 구분자가 다르기 때문에 사용해야한다.
 >

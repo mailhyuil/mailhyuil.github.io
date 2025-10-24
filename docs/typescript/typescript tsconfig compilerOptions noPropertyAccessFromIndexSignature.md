@@ -1,4 +1,4 @@
-# typescript tsconfig noPropertyAccessFromIndexSignature
+# typescript tsconfig compilerOptions noPropertyAccessFromIndexSignature
 
 > type에 없는 property에 접근할 때 에러를 발생시키는 옵션
 >

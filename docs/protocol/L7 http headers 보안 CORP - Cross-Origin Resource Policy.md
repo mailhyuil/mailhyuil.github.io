@@ -1,4 +1,4 @@
-# http headers 보안 Cross-Origin-Resource-Policy (CORP)
+# L7 http headers 보안 CORP - Cross-Origin Resource Policy
 
 > 다른 출처의 사이트에서 "정적 리소스"를 불러오는 것을 제어
 >

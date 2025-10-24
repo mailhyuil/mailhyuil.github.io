@@ -1,4 +1,4 @@
-# linux history
+# linux cmd history
 
 ```sh
 # show histories

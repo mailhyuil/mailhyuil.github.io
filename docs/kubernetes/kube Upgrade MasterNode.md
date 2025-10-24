@@ -1,4 +1,4 @@
-# kubernetes upgrade
+# kube Upgrade MasterNode
 
 > kubelet : Pod와 Container 시작과 같은 작업을 수행하는 컴포넌트
 >

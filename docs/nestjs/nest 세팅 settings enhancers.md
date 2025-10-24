@@ -1,4 +1,4 @@
-# nest main.ts 세팅 enhancers
+# nest 세팅 settings enhancers
 
 ## error.ts
 

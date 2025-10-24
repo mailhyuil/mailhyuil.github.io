@@ -1,4 +1,4 @@
-# kubernetes go-template
+# kube Helm go-template
 
 > values.yaml에 설정값 추가
 >

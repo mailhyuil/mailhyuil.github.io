@@ -1,4 +1,4 @@
-# Spring Reactor (스프링 리액터)
+# Spring Reactor
 
 ## pom.xml
 

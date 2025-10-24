@@ -1,4 +1,4 @@
-# nodejs timers
+# nodejs module timers
 
 > timers 모듈은 setTimeout, setInterval, setImmediate, clearTimeout, clearInterval, clearImmediate 함수를 제공한다. (global 객체에 바인딩되어 있음)
 >

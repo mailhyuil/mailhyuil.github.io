@@ -1,4 +1,4 @@
-# angular test
+# testing angular
 
 ## test 파일 생성
 

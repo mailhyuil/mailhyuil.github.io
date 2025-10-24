@@ -1,4 +1,4 @@
-# http SOP CORS (Cross-Origin Resource Sharing) 교차 출처 리소스 공유
+# L7 http headers 보안 SOP CORS
 
 > SOP 정책에서 다른 Origin을 허용하는 방법
 

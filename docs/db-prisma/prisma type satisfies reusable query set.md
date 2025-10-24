@@ -1,4 +1,4 @@
-# prisma reusable query set
+# prisma type satisfies reusable query set
 
 > 자주 사용되는 query를 모아두고 재사용 (DRY 원칙)
 

@@ -1,4 +1,4 @@
-# grpc bi-directional streaming
+# grpc 통신 방식 bi-directional streaming
 
 ## proto
 

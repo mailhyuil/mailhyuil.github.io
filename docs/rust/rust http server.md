@@ -1,4 +1,4 @@
-# 러스트 웹서버
+# rust http server
 
 > tcp 통신으로 주소에 바인딩해서 듣기
 >

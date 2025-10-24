@@ -1,4 +1,4 @@
-# go type error custom
+# go base error handling error type custom
 
 ```go
 type MyError struct {

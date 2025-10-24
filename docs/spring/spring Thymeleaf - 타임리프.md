@@ -1,4 +1,4 @@
-# Thymeleaf (타임리프)
+# spring Thymeleaf - 타임리프
 
 - 자동완성 플러그인
   `http://www.thymeleaf.org/eclipse-plugin-update-site/`

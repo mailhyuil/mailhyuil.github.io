@@ -1,4 +1,4 @@
-# angular route PreloadStrategy
+# angular route strategy PreloadStrategy
 
 > route의 loadComponent, loadChildren를 미리 로드할지를 결정
 

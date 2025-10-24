@@ -1,4 +1,4 @@
-# rxjs combineLatestAll
+# rxjs join combineLatestAll
 
 > outer observable을 구독
 

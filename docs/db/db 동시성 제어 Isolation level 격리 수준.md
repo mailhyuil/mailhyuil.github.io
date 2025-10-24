@@ -1,4 +1,4 @@
-# db transaction isolation level
+# db 동시성 제어 Isolation level 격리 수준
 
 > ANSI/ISO SQL standard 에서 정의한 표준
 >

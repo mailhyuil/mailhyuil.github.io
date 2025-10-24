@@ -1,4 +1,4 @@
-# Observable vs Promise
+# rxjs base observable vs promise
 
 ## Observable
 

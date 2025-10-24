@@ -1,4 +1,4 @@
-# nx generate packagejson
+# nx webpack generatePackageJson
 
 > server 를 빌드 할때 package.json만들기
 >

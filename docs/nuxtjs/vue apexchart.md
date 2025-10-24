@@ -1,4 +1,4 @@
-# vue apexChart
+# vue apexchart
 
 ## install
 

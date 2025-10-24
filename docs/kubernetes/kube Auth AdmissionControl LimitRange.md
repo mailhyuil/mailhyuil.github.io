@@ -1,4 +1,4 @@
-# LimitRange
+# kube Auth AdmissionControl LimitRange
 
 > 네임스페이스 내에서 파드나 컨테이너는 네임스페이스의 ResourceQuota에 정의된 만큼의 CPU와 메모리를 사용할 수 있음
 >

@@ -1,4 +1,4 @@
-# angular lint
+# eslint plugin rxjs-angular & rxjs
 
 ## install
 

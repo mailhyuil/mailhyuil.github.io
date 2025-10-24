@@ -1,4 +1,4 @@
-# profiling browser app
+# profiling chrome browser app
 
 > devtool -> memory or performance
 >

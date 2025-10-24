@@ -1,4 +1,4 @@
-# http headers MIME Content-Length
+# L7 http headers MIME Content-Length
 
 > 옥텟 단위
 >

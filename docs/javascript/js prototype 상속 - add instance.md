@@ -1,4 +1,4 @@
-# js prototype 상속
+# js prototype 상속 - add instance
 
 ```js
 Object.setPrototypeOf(user, User.prototype);

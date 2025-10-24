@@ -1,4 +1,4 @@
-# angular APP_INITIALIZER
+# angular base token APP_INITIALIZER
 
 > useFactory는 function을 반환하는 함수이다.
 

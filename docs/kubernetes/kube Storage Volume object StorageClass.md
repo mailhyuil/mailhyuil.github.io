@@ -1,4 +1,4 @@
-# kube Storage PersistentVolumes (PV)
+# kube Storage Volume object StorageClass
 
 > Cloud 환경에서는 PersistentVolume을 요청하지 않고 다이나믹 프로비저닝을 사용한다.
 >

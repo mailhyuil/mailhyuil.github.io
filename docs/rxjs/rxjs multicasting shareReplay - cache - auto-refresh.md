@@ -1,4 +1,4 @@
-# rxjs shareReplay cache
+# rxjs multicasting shareReplay - cache - auto-refresh
 
 > timer를 사용
 

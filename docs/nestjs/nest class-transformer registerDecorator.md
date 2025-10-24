@@ -1,4 +1,4 @@
-# class-validator registerDecorator
+# nest class-transformer registerDecorator
 
 ```ts
 import { registerDecorator, ValidationOptions, ValidationArguments } from "class-validator";

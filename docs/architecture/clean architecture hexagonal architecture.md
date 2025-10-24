@@ -1,4 +1,4 @@
-# hexagonal architecture (ports and adapters)
+# clean architecture hexagonal architecture
 
 > inbound와 outbound 트래픽를 분리하는 패턴
 >

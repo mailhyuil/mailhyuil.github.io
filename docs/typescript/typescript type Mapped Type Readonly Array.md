@@ -1,4 +1,4 @@
-# typescript type Readonly Array
+# typescript type Mapped Type Readonly Array
 
 ```ts
 const immutableArr1 = [1, 2, 3] as const;

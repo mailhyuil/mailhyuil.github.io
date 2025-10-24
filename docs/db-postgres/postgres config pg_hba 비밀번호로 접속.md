@@ -1,4 +1,4 @@
-# postgres config 비밀번호로 접속
+# postgres config pg_hba 비밀번호로 접속
 
 ## pg_hba.conf
 

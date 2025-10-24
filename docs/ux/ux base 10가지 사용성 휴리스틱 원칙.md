@@ -1,4 +1,4 @@
-# 10가지 사용성 휴리스틱 원칙
+# ux base 10가지 사용성 휴리스틱 원칙
 
 ## 1. Visibility of system status
 

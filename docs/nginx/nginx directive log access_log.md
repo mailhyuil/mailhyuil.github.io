@@ -1,4 +1,4 @@
-# nginx log
+# nginx directive log access_log
 
 ## 로그 포멧
 

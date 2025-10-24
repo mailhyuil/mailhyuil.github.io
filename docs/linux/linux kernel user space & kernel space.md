@@ -1,4 +1,4 @@
-# linux base user space & kernel space
+# linux kernel user space & kernel space
 
 ## user space
 

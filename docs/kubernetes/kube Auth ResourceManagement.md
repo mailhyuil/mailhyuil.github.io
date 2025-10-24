@@ -1,4 +1,4 @@
-# kube Resource
+# kube Auth ResourceManagement
 
 ## Resource Requests
 

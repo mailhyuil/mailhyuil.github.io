@@ -1,4 +1,4 @@
-# postgres query batch query
+# postgres query batch query & bulk query
 
 ## 다중 value문 사용
 

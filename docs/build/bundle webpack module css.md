@@ -1,4 +1,4 @@
-# webpack css module
+# bundle webpack module css
 
 > css를 js module로 변환
 >

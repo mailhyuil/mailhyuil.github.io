@@ -1,4 +1,4 @@
-# 결제 (PG) API
+# 결제- PG API
 
 > PG = Payment Gateway (전자결제대행사)
 >

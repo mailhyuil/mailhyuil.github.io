@@ -1,4 +1,4 @@
-# prisma retrieve relations
+# prisma relation Fluent API
 
 > find 후 posts() 호출
 

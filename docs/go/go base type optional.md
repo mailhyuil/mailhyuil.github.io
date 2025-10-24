@@ -1,4 +1,4 @@
-# go base optional
+# go base type optional
 
 > go에는 optional이 없다.
 >

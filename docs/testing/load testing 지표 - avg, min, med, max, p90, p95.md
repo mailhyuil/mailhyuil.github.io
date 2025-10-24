@@ -1,4 +1,4 @@
-# load testing k6 p(90) & p(95)
+# load testing 지표 - avg, min, med, max, p90, p95
 
 > load testing 값을 측정시 전체의 평균값으로 판단하지 않고 90%, 95%의 값으로 성능을 판단한다.
 >

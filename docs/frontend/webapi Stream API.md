@@ -1,4 +1,4 @@
-# Stream
+# webapi Stream API
 
 > HTTP의 Stream 응답을 실시간으로 처리할 수 있다
 >

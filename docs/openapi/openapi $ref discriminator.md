@@ -1,4 +1,4 @@
-# openapi discriminator
+# openapi $ref discriminator
 
 > OpenAPI에서 다형성(polymorphism) 구현할 때 쓰는 핵심 기술
 >

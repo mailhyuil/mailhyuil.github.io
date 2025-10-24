@@ -1,4 +1,4 @@
-# nestjs async provider
+# nest base provider async provider
 
 > the application start should be delayed until one or more asynchronous tasks are completed. For example, you may not want to start accepting requests until the connection with the database has been established. You can achieve this using asynchronous providers.
 >

@@ -1,4 +1,4 @@
-# Resumable File uploads (tus)
+# Resumable File uploads - tus
 
 ## HEAD
 

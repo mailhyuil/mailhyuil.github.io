@@ -1,4 +1,4 @@
-# postgres DML (Data Manipulation Language) (CRUD)
+# postgres query DML - CRUD
 
 ```sql
 -- 데이터 삽입

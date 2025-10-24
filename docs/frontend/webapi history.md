@@ -1,4 +1,4 @@
-# history
+# webapi history
 
 > 브라우저의 히스토리를 담고있는 객체
 >

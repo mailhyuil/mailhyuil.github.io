@@ -1,4 +1,4 @@
-# linux DNS hosts
+# linux network DNS hosts
 
 > 리눅스 os에서 /etc/hosts 파일을 우선적으로 참고하여 name을 ip로 바꿉니다.
 >

@@ -1,4 +1,4 @@
-# nest DiscoveryModule ExplorerService
+# nest base DiscoveryModule ExplorerService - DiscoveryService
 
 ## app.module.ts
 

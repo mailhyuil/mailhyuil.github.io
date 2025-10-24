@@ -1,4 +1,4 @@
-# prisma 예약 번호 increment
+# prisma custom id - 예약 번호
 
 > 사용자 정의 함수 생성
 

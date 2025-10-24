@@ -1,4 +1,4 @@
-# nginx log
+# nginx directive log
 
 ## log 보기 커맨드
 

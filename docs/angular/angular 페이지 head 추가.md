@@ -1,4 +1,4 @@
-# angular 페이지에 head 추가
+# angular 페이지 head 추가
 
 ```ts
 export class Component {

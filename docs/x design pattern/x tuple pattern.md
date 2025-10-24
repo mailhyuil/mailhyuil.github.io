@@ -1,4 +1,4 @@
-# tuple pattern
+# x tuple pattern
 
 > 배열 내에 값만 쓰거나 혹은 다른 options을 같이 쓰는 도록 설계하는 패턴
 >

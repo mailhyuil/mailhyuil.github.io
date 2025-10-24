@@ -1,4 +1,4 @@
-# nest graphQL
+# graphql nestjs code first
 
 > @nestjs/graphql의 데코레이터로 모델을 정의
 >

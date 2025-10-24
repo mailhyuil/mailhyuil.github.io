@@ -1,4 +1,4 @@
-# typescript tsconfig allowSyntheticDefaultImports
+# typescript tsconfig compilerOptions allowSyntheticDefaultImports
 
 > module에 명시적으로 default가 없는 경우
 >

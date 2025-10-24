@@ -1,4 +1,4 @@
-# File upload (서버에 파일 업로드)
+# spring File upload - 서버에 파일 업로드
 
 1. pom.xml
 

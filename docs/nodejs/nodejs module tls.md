@@ -1,4 +1,4 @@
-# node module tls
+# nodejs module tls
 
 > tls encryption layer를 구현하는 모듈
 >

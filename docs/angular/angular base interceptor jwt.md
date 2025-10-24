@@ -1,4 +1,4 @@
-# angular jwt logic
+# angular base interceptor jwt
 
 1. login
 2. 서버에서 accessToken 리턴

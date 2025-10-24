@@ -1,4 +1,4 @@
-# image Rendered Size & Intrinsic Size & DPR (devicePixelRatio)
+# image Rendered Size & Intrinsic Size & DPR - devicePixelRatio
 
 ## Rendered Size
 

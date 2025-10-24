@@ -1,4 +1,4 @@
-# aws cloudfront cache
+# aws CDN cloudfront cache
 
 ## hit
 

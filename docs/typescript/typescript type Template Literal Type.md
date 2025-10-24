@@ -1,4 +1,4 @@
-# typescript template literal type
+# typescript type Template Literal Type
 
 > template literal를 활용해 반복되는 타입정의를 쉽게할 수 있다.
 

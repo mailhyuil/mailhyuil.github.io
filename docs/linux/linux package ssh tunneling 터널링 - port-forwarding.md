@@ -1,4 +1,4 @@
-# ssh 터널링 (port-forwarding)
+# linux package ssh tunneling 터널링 - port-forwarding
 
 ## 옵션
 

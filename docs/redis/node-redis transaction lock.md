@@ -1,4 +1,4 @@
-# redis base transaction lock
+# node-redis transaction lock
 
 > 실제로는 redlock을 사용해야한다.
 

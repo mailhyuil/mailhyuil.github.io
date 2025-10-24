@@ -1,4 +1,4 @@
-# Docker run 하나의 작업만 실행하고 없애기 (fargate 방식)
+# Docker run 하나의 작업만 실행하고 없애기 - fargate 방식
 
 ```sh
 docker run --rm -v $PWD:$CONTAINER_PATH <image> <command>

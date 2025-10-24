@@ -1,4 +1,4 @@
-# L4 TCP flow control
+# L4 TCP flow control - 흐름 제어
 
 > 송신측의 속도가 수신측의 처리 속도보다 빠르면 문제가 발생 (receive buffer가 가득차면 더 이상 연결을 받지 않음)
 >

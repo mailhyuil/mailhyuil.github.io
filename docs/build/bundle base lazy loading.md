@@ -1,4 +1,4 @@
-# lazy loading
+# bundle base lazy loading
 
 > code splitting과 dynamic imports를 사용하여 필요한 모듈만 로드하는 방법
 >

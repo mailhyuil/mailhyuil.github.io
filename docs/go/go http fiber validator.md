@@ -1,4 +1,4 @@
-# go fiber validator
+# go http fiber validator
 
 ## install
 

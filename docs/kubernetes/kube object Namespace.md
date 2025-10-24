@@ -1,4 +1,4 @@
-# kubernetes namespace
+# kube object Namespace
 
 > kubectl get 명령을 하면 현재 namespace의 리소스만 보여준다. (기본 default)
 

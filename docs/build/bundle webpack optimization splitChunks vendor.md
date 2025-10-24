@@ -1,4 +1,4 @@
-# webpack splitChunks vendor
+# bundle webpack optimization splitChunks vendor
 
 > 청크간에 겹치는 패키지들을 별도의 파일로 추출해주는 코드
 >

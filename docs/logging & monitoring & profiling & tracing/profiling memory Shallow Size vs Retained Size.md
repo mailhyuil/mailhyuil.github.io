@@ -1,4 +1,4 @@
-# profiling Shallow Size vs Retained Size
+# profiling memory Shallow Size vs Retained Size
 
 > Shallow Size 크기에 대비하여 Retained Size가 크다면 메모리 누수를 의심해볼 수 있다.
 

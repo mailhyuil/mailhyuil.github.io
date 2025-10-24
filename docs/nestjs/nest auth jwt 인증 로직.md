@@ -1,4 +1,4 @@
-# nestjs jwt
+# nest auth jwt 인증 로직
 
 ## auth.dto.ts
 

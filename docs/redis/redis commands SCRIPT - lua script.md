@@ -1,4 +1,4 @@
-# redis base transaction lua script
+# redis commands SCRIPT - lua script
 
 > redis에서 지원하지 않는 기능을 구현할 때 사용 (over fetching 방지)
 >

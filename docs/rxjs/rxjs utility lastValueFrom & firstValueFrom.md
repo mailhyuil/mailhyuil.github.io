@@ -1,4 +1,4 @@
-# rxjs lastValueFrom & firstValueFrom
+# rxjs utility lastValueFrom & firstValueFrom
 
 > complete까지 기다렸다가 마지막 값 또는 첫번째 값을 Promise로 리턴
 >

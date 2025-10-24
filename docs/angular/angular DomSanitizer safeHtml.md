@@ -1,4 +1,4 @@
-# angular DomSanitizer SafeHtml
+# angular DomSanitizer safeHtml
 
 > angular는 기본으로 모든 xss 공격에 대한 sanitize를 제공한다.
 >

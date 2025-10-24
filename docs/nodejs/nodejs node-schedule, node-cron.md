@@ -1,3 +1,3 @@
-# node-schedule, node-cron
+# nodejs node-schedule, node-cron
 
 > batch job

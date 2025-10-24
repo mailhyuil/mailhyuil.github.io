@@ -1,4 +1,4 @@
-# postgres config postgresql.conf
+# postgres config postgresql
 
 ```conf
 ## Connecting

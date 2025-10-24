@@ -1,4 +1,4 @@
-# typescript is
+# typescript type narrowing type guard is
 
 > 매개변수를 Type으로 보라는 뜻
 >

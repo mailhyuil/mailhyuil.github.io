@@ -1,4 +1,4 @@
-# js 문자열 자르기
+# js string substring 문자열 자르기
 
 > slice와 사용법이 같다.
 

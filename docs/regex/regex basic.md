@@ -1,4 +1,4 @@
-# regix basic
+# regex basic
 
 > /pattern/flags
 

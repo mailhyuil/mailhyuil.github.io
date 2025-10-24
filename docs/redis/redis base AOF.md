@@ -1,1 +1,1 @@
-# redis base AOF (Append Only File)
+# redis base AOF

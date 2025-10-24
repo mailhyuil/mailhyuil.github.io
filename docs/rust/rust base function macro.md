@@ -1,4 +1,4 @@
-# rust base macro
+# rust base function macro
 
 > 컴파일 시에 코드를 변환, 확장하는 함수
 >

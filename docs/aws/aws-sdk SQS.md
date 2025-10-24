@@ -1,4 +1,4 @@
-# aws-sdk sqs
+# aws-sdk SQS
 
 ## install
 

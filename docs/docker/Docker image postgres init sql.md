@@ -1,4 +1,4 @@
-# postgres init sql
+# Docker image postgres init sql
 
 > postgres는 실행 시 /docker-entrypoint-initdb.d/에 있는 sql 파일을 실행한다.
 

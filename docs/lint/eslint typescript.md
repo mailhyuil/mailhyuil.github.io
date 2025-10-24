@@ -1,4 +1,4 @@
-# typescript eslint
+# eslint typescript
 
 ## install
 

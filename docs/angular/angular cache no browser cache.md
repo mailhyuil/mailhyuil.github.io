@@ -1,4 +1,4 @@
-# angular no browser cache
+# angular cache no browser cache
 
 > index.html 에 meta로 설정하거나 httpClient에 header로 설정하여 브라우저 캐시를 막을 수 있다.
 

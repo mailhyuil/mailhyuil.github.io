@@ -1,4 +1,4 @@
-# format!
+# rust base format
 
 ```rs
 format!("Hello");                 // => "Hello"

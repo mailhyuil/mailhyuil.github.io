@@ -1,4 +1,4 @@
-# 감지
+# algorithm Detection 감지
 
 > 프록시 : 실시간 감지 / 동기적 감지
 >

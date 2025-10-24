@@ -1,4 +1,4 @@
-# flutter Flame
+# flutter Interactive Flame
 
 ## install
 

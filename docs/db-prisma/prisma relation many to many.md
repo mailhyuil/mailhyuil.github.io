@@ -1,4 +1,4 @@
-# prisma relation many to many junction table
+# prisma relation many to many
 
 ## explicit
 

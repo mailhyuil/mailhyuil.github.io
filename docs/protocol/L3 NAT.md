@@ -1,4 +1,4 @@
-# NAT (Network Address Translation)
+# L3 NAT
 
 > Network Address Translation
 >

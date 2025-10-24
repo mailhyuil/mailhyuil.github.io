@@ -1,4 +1,4 @@
-# Enum (열거형)
+# java Enum - 열거형
 
 ```java
 public enum Level {

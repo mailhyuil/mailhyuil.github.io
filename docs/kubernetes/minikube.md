@@ -1,4 +1,4 @@
-# kubernetes minikube
+# minikube
 
 ## 명령어
 

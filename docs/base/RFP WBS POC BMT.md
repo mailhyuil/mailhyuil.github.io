@@ -1,4 +1,4 @@
-# RFP, WBS, POC, BMT
+# RFP WBS POC BMT
 
 ## RFP
 

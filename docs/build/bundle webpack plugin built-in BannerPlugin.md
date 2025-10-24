@@ -1,4 +1,4 @@
-# webpack plugin ignorePlugin
+# bundle webpack plugin built-in BannerPlugin
 
 > 생성된 각 청크의 상단에 배너를 추가합니다.
 

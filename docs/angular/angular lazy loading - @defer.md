@@ -1,4 +1,4 @@
-# angular lazy loading (@defer)
+# angular lazy loading - @defer
 
 > component를 Lazy Loading하는 방법 중 하나 (다른 하나는 loadComponent)
 

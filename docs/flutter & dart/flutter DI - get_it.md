@@ -1,4 +1,4 @@
-# flutter DI (get_it)
+# flutter DI - get_it
 
 > get_it : flutter에서 의존성 주입을 위한 패키지
 

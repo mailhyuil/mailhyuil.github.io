@@ -1,4 +1,4 @@
-# linux cmd `cat <<EOF pipelining`
+# linux cmd cat EOF
 
 ## `cat <<EOF pipelining`
 

@@ -1,4 +1,4 @@
-# postgres Stream (Batch 작업)
+# postgres cursor Stream - Batch 작업
 
 > query해야하는 데이터가 너무 많다면 한번에 다 조회할 경우 메모리 부족이 생길 수 있다.
 >

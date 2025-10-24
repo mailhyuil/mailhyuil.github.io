@@ -1,4 +1,4 @@
-# browser Cookie Secure
+# L7 http headers Cookie options Secure
 
 > HTTPS 프로토콜을 사용하는 경우에만 쿠키를 전송하는 옵션
 >

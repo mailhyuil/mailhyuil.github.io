@@ -1,4 +1,4 @@
-# nest advanced SSE 재연결 (Last-Event-Id)
+# nest advanced SSE 재연결 - Last-Event-ID
 
 > Sse는 데이터 이벤트마다 0부터 시작하는 id를 부여함 (network tap을 통해 확인 가능)
 >

@@ -1,4 +1,4 @@
-# angular guard CanDeactivate
+# angular base guard CanDeactivate
 
 > 페이지에서 벗어날 때 실행되는 가드
 >

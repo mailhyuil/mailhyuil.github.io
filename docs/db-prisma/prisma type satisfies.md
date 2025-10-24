@@ -1,4 +1,4 @@
-# prisma satisfies
+# prisma type satisfies
 
 ```ts
 const where = {

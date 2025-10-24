@@ -1,4 +1,4 @@
-# trait
+# rust base class trait
 
 > 인터페이스와 비슷하다.
 

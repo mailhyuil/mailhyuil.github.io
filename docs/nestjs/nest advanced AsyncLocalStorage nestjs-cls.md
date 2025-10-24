@@ -1,4 +1,4 @@
-# nest advanced AsyncLocalStorage nestjs-cls (continuation-local storage)
+# nest advanced AsyncLocalStorage nestjs-cls
 
 > AsyncLocalStorage를 쉽게 사용할 수 있도록 도와주는 패키지
 >

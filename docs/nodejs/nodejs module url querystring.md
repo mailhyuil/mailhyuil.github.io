@@ -1,4 +1,4 @@
-# querystring
+# nodejs module url querystring
 
 > URL 객체의 쿼리와 관련있는 모듈
 

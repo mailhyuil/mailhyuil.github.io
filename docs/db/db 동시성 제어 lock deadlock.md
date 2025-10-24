@@ -1,4 +1,4 @@
-# db transaction lock Dead lock (데드 락)
+# db 동시성 제어 lock deadlock
 
 > 두 개 이상의 트랜잭션이 서로 상대방의 락을 기다리고 있어 무한 대기 상태에 빠지는 현상
 >

@@ -1,4 +1,4 @@
-# js every
+# js array every
 
 > forEach문을 사용해서 validate를 하지말고 every를 사용해라
 >

@@ -1,4 +1,4 @@
-# OpenResty lua directives
+# openResty lua directives
 
 ## access_by_lua_block
 

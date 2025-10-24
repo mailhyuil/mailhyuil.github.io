@@ -1,4 +1,4 @@
-# nest decorator DiscoveryModule DiscoveryService & MetadataScanner
+# nest base DiscoveryModule MetadataScanner
 
 > 데코레이터에서 Provider를 사용할 경우 Provider를 무조건 주입하고 있어야한다.
 >

@@ -1,4 +1,4 @@
-# tcp connection pooling
+# L4 TCP connection pooling
 
 > connection pooling은 사용자가 connection 연결을 열린 상태로 유지하는 데 사용되는 방법이다.
 >

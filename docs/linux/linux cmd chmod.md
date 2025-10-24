@@ -1,4 +1,4 @@
-# linux chmod
+# linux cmd chmod
 
 > 777은 사용 지양 (모든 권한이 부여된 상태)
 >

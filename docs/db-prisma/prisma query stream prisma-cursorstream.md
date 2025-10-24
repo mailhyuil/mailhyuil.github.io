@@ -1,4 +1,4 @@
-# prisma-cursorstream
+# prisma query stream prisma-cursorstream
 
 ## install
 

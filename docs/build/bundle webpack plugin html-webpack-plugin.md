@@ -1,4 +1,4 @@
-# webpack plugin html-webpack-plugin
+# bundle webpack plugin html-webpack-plugin
 
 > 웹팩 번들링 과정 중에 index.html 파일을 생성하고 번들된 자원을 자동으로 삽입해준다.
 >

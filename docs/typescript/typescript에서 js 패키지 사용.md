@@ -1,4 +1,4 @@
-# typescript에서 js 사용
+# typescript에서 js 패키지 사용
 
 > javascript로 작성된 파일은 타입지정이 안되어있기에 에러가 발생한다
 >

@@ -1,4 +1,4 @@
-# CRT & CSR (Certificate Signing Request)
+# L5 TLS certificate csr - Certificate Signing Request
 
 > CSR : 인증서(crt 파일)를 만들기 위한 요청서
 >

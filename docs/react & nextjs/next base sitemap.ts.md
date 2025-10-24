@@ -1,4 +1,4 @@
-# next sitemap
+# next base sitemap.ts
 
 ## app/sitemap.ts
 

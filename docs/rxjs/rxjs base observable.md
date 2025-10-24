@@ -1,4 +1,4 @@
-# Observable
+# rxjs base observable
 
 > Observer에게 값을 전달
 >

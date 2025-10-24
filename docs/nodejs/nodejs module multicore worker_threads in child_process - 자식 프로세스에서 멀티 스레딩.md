@@ -1,4 +1,4 @@
-# node worker_threads in child_process (자식 프로세스에서 멀티 스레딩)
+# nodejs module multicore worker_threads in child_process - 자식 프로세스에서 멀티 스레딩
 
 > 자식 프로세스를 생성하고 그 안에서 worker_threads를 사용하여 멀티 스레딩을 구현하는 방법
 >

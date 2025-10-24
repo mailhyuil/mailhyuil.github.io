@@ -1,4 +1,4 @@
-# nodejs testing jest-extended
+# testing jest-extended
 
 ## install
 

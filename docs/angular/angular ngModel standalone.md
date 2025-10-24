@@ -1,4 +1,4 @@
-# angular standalone ngModel
+# angular ngModel standalone
 
 > formGroup 안에 들어있지만 formControl으로는 사용하지 않을 때
 

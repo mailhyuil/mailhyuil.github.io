@@ -1,4 +1,4 @@
-# nest provider
+# nest base provider
 
 > service, repository, factory... 비즈니스 로직을 처리하는 클래스
 >

@@ -1,4 +1,4 @@
-# ngx-quicklink
+# angular route strategy QuicklinkStrategy
 
 > It provides router preloading strategy which automatically downloads the lazy-loaded modules associated with all the visible links on the screen.
 >

@@ -1,4 +1,4 @@
-# nx route path 분리 (/admin)
+# nx webpack route path 분리 - admin
 
 ## admin/package.json
 

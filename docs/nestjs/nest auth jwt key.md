@@ -1,4 +1,4 @@
-# nestjs jwt key
+# nest auth jwt key
 
 ## 대칭 암호화 사용
 

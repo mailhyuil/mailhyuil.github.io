@@ -1,4 +1,4 @@
-# insertion sort (삽입 정렬)
+# algorithm sort 삽입정렬- insertion sort
 
 > 선택 정렬, 버블 정렬보다 빠르다.
 >

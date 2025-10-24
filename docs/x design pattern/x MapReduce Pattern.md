@@ -1,4 +1,4 @@
-# MapReduce Pattern
+# x MapReduce Pattern
 
 > input text를 단어별로 카운트하는 예시
 

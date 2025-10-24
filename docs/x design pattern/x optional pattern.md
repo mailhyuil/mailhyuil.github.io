@@ -1,4 +1,4 @@
-# Option Type Pattern
+# x optional pattern
 
 > 값이 없는 상태를 null로 표현 시 발생하는 에러
 >

@@ -1,4 +1,4 @@
-# logical replica
+# db 분산 시스템 cluster replication logical replica
 
 ```txt
 테이블 단위 복제 → 특정 테이블만 선택적으로 복제 가능

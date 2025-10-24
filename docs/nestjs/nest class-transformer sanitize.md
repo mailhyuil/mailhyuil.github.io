@@ -1,4 +1,4 @@
-# nestjs class-transformer sanitize
+# nest class-transformer sanitize
 
 > @Expose()를 해야 노출된다.
 

@@ -1,4 +1,4 @@
-# rxjs observeOn & subscribeOn
+# rxjs utility observeOn & subscribeOn
 
 ```js
 observeOn(asyncScheduler);

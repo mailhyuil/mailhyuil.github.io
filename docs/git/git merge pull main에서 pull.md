@@ -1,4 +1,4 @@
-# git main에서 pull
+# git merge pull main에서 pull
 
 ```sh
 git pull origin main

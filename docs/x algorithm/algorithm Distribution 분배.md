@@ -1,4 +1,4 @@
-# 분배 기법
+# algorithm Distribution 분배
 
 ## Weighted Distribution
 

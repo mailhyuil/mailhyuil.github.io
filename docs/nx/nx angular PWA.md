@@ -1,4 +1,4 @@
-# nx angular pwa
+# nx angular PWA
 
 ## install
 

@@ -1,4 +1,4 @@
-# nx 환경분리
+# nx base 환경분리
 
 > project.json 파일의 configurations에 local 추가
 >

@@ -1,4 +1,4 @@
-# prometheus promQL aggregation operators
+# prometheus promQL operators aggregation
 
 ```sh
 sum(node_memory_MemTotal_bytes)

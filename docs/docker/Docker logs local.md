@@ -1,4 +1,4 @@
-# docker logs local
+# Docker logs local
 
 ## /etc/docker/daemon.json
 

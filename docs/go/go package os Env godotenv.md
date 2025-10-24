@@ -1,4 +1,4 @@
-# go base env
+# go package os Env godotenv
 
 ## install
 

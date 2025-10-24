@@ -1,4 +1,4 @@
-# http pipelining
+# L7 http pipelining
 
 > 요청 -> 응답 -> 요청 -> 응답 -> 요청 -> 응답 이 아닌
 >

@@ -1,4 +1,4 @@
-# nx
+# nx base install
 
 > nx project에서는 npm 이나 nx 명령어만 사용
 >

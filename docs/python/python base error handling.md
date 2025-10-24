@@ -1,4 +1,4 @@
-# python 예외처리
+# python base error handling
 
 ```py
 try:

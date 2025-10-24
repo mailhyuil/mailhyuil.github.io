@@ -1,4 +1,4 @@
-# algorithm js technique
+# x algorithm technique
 
 ## 파일 읽기
 

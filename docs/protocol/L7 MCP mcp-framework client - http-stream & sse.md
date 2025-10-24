@@ -1,4 +1,4 @@
-# MCP mcp-framework client
+# L7 MCP mcp-framework client - http-stream & sse
 
 ## http-stream-client
 

@@ -1,4 +1,4 @@
-# api method
+# api base method
 
 > 메소드를 확인해서 행동을 예측해라
 >

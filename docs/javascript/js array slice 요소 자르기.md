@@ -1,4 +1,4 @@
-# js slice & splice
+# js array slice 요소 자르기
 
 > 시간복잡도 O(n)
 >

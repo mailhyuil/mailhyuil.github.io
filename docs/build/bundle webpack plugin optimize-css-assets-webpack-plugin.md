@@ -1,4 +1,4 @@
-# webpack plugin optimize-css-assets-webpack-plugin
+# bundle webpack plugin optimize-css-assets-webpack-plugin
 
 > css를 minify 해주는 플러그인
 

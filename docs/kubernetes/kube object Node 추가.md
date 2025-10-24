@@ -1,4 +1,4 @@
-# kube object Nodes 추가
+# kube object Node 추가
 
 ## 추가할 node에 Docker, kubeadm, kubelet 설치
 

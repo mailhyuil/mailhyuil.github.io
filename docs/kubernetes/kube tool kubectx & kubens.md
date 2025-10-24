@@ -1,4 +1,4 @@
-# kubectx & kubens
+# kube tool kubectx & kubens
 
 ## install
 

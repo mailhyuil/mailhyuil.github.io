@@ -1,4 +1,4 @@
-# postgres EXPLAIN scan
+# postgres 실행계획 EXPLAIN scan
 
 ## seq scan
 

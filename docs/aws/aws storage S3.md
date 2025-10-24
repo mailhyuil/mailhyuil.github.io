@@ -1,4 +1,4 @@
-# S3 (Simple Storage Service)
+# aws storage S3
 
 > 최고의 확장성, 데이터 가용성, 보안 및 성능을 제공하는 객체 스토리지 서비스
 >

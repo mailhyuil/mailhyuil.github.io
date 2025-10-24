@@ -1,4 +1,4 @@
-# angular script CDN 객체 불러오기
+# angular script cdn 객체 불러오기
 
 ## index.html
 

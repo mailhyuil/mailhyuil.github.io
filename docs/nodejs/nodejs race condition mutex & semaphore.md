@@ -1,4 +1,4 @@
-# nodejs Mutex & Semaphore
+# nodejs race condition mutex & semaphore
 
 > 여러 스레드 또는 프로세스가 공유 자원에 접근할 때, 동시에 접근하는 것을 막기 위한 방법
 >

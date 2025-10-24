@@ -1,4 +1,4 @@
-# localhost(127.0.0.1) vs 0.0.0.0
+# L3 IP localhost - 127.0.0.1 vs 0.0.0.0
 
 ## localhost (127.0.0.1)
 

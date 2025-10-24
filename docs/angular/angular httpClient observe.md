@@ -1,4 +1,4 @@
-# httpClient observe
+# angular httpClient observe
 
 > 응답을 어디까지 받을 것인지 설정한다.
 >

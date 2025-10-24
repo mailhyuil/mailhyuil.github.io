@@ -1,4 +1,4 @@
-# testing jest coverage report
+# testing jest coverage
 
 ## jest.config.ts
 

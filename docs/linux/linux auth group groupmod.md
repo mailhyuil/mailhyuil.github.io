@@ -1,4 +1,4 @@
-# linux cmd groupmod
+# linux auth group groupmod
 
 ```sh
 # gid를 1001로 변경

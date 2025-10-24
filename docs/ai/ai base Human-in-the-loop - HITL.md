@@ -1,4 +1,4 @@
-# ai base Human-in-the-loop (HITL)
+# ai base Human-in-the-loop - HITL
 
 > ai에게 모든 일을 맡기는 것이 아니라
 >

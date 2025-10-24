@@ -1,4 +1,4 @@
-# nest cache in-memory
+# nest cache-manager
 
 > cache-manager는 기본으로 in-memory 캐시를 사용한다.
 >

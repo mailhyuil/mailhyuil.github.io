@@ -1,4 +1,4 @@
-# iterator
+# Behavioral iterator
 
 ```ts
 function range(start: number, end: number, step = 1) {

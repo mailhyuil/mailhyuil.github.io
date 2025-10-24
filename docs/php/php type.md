@@ -1,4 +1,4 @@
-# php base type
+# php type
 
 ```php
 # string

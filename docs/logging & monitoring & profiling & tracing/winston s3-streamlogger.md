@@ -1,4 +1,4 @@
-# winston s3-steamlogger
+# winston s3-streamlogger
 
 ## install
 

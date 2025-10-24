@@ -1,4 +1,4 @@
-# github actions
+# cicd github actions
 
 ## 순서
 

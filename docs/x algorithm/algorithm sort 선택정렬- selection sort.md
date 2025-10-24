@@ -1,4 +1,4 @@
-# selection sort (선택 정렬)
+# algorithm sort 선택정렬- selection sort
 
 ```js
 const arr = [1, 3, 24, 3, 24, 2, 3, 5, 1];

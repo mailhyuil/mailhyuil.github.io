@@ -1,4 +1,4 @@
-# git remote
+# git branch remote repository
 
 > 원격 저장소를 관리하는 명령어
 

@@ -1,4 +1,4 @@
-# nginx base gzip
+# nginx module zip gzip
 
 ```conf
 http {

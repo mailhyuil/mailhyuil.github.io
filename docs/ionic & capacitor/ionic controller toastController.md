@@ -1,4 +1,4 @@
-# ionic toastController
+# ionic controller toastController
 
 ```ts
 import { Injectable } from "@angular/core";

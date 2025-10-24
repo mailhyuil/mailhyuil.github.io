@@ -1,4 +1,4 @@
-# go base array & slice 얕은 복사
+# go base type array & slice copy - 얕은 복사 & 깊은 복사
 
 ## 얕은 복사
 

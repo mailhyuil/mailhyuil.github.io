@@ -1,4 +1,4 @@
-# focus & blur event
+# event focus & blur
 
 > focus는 포커스를 받을 때, blur는 포커스를 잃을 때
 

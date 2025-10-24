@@ -1,4 +1,4 @@
-# postgreSQL DCL (Data Control Language)
+# postgres query DCL - User & Role
 
 > 데이터에 대한 접근 권한을 제어하는 명령어
 >

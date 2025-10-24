@@ -1,4 +1,4 @@
-# linux RAID (Redundant Array of Independent Disks)
+# linux base RAID
 
 > 여러 개의 독립적인 디스크를 하나의 논리적인 유닛으로 묶어서, 데이터 보안, 성능을 끌어올리는 개념
 >

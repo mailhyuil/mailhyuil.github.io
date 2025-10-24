@@ -1,4 +1,4 @@
-# MappedType
+# typescript type Mapped Type
 
 ## Readonly\<T>
 

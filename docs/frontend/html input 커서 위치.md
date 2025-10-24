@@ -1,4 +1,4 @@
-# input 커서 위치
+# html input 커서 위치
 
 ```
 .selectionStart

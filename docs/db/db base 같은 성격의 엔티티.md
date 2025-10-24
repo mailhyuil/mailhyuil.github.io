@@ -1,4 +1,4 @@
-# 같은 성격의 엔티티
+# db base 같은 성격의 엔티티
 
 > db 같은 profile이라도 userProfile과 masterProfile 처럼 성격이 다르다면 분리하고
 >

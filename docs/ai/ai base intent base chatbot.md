@@ -1,4 +1,4 @@
-# chatgpt intent base chatbot
+# ai base intent base chatbot
 
 > 사용자의 의도(intent)를 파악하여 적절한 답변을 제공하는 챗봇
 >

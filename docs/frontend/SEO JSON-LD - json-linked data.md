@@ -1,4 +1,4 @@
-# SEO JSON-LD (json-linked data)
+# SEO JSON-LD - json-linked data
 
 > 구조화된 데이터를 제공하는 방법
 >

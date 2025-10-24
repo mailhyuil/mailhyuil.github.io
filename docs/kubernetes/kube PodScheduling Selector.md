@@ -1,4 +1,4 @@
-# kubernetes Selector
+# kube PodScheduling Selector
 
 > metadata.label은 오브젝트의 label을 지정
 >

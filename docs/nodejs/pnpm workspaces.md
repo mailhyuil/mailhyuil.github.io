@@ -1,4 +1,4 @@
-# nodejs pnpm workspaces
+# pnpm workspaces
 
 > root에 pnpm-workspace.yaml이 필요
 

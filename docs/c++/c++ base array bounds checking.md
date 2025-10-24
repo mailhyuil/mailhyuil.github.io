@@ -1,4 +1,4 @@
-# c++ array bounds checking
+# c++ base array bounds checking
 
 > c/c++은 array bounds checking을 하지 않는다.
 >

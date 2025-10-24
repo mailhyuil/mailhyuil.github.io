@@ -1,1 +1,1 @@
-# EFK fluentd
+# log-agent fluentd

@@ -1,4 +1,4 @@
-# next middleware
+# next base middleware.ts
 
 > server side에서 요청과 응답을 중간에서 가로채는 역할을 하는 기능
 >

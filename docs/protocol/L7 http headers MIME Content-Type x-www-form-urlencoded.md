@@ -1,4 +1,4 @@
-# L7 http headers MIME Content-Type application/x-www-form-urlencoded
+# L7 http headers MIME Content-Type x-www-form-urlencoded
 
 > html form을 통한 POST 전송 방식 중 가장 기본이 되는 content-type
 >

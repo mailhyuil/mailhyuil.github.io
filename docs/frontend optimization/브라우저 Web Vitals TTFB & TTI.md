@@ -1,4 +1,4 @@
-# TTFB & TTI
+# 브라우저 Web Vitals TTFB & TTI
 
 ## TTFB (time to first byte)
 

@@ -1,4 +1,4 @@
-# input file
+# html input file
 
 > input.files는 fileList 배열을 리턴 (readonly 속성)
 

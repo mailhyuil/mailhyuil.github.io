@@ -1,4 +1,4 @@
-# go base type
+# go base type custom
 
 > custom type을 정의할 수 있다.
 

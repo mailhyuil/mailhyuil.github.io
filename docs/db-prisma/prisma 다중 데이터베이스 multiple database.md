@@ -1,4 +1,4 @@
-# prisma database 분리
+# prisma 다중 데이터베이스 multiple database
 
 ## prisma.schema
 

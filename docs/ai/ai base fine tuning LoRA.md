@@ -1,4 +1,4 @@
-# python api LoRA
+# ai base fine tuning LoRA
 
 ## install
 

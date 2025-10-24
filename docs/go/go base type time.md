@@ -1,4 +1,4 @@
-# go time
+# go base type time
 
 ```go
 time.Now() // 현재 시간을 반환한다. (time.Time)

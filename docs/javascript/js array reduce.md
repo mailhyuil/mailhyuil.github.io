@@ -1,4 +1,4 @@
-# js reduce
+# js array reduce
 
 > 그 전에 리턴된 값, 현재값이 중요
 >

@@ -1,4 +1,4 @@
-# nestjs decorator Cacheable in-memory cache
+# nest base decorator Cacheable in-memory cache
 
 ## app.module.ts
 

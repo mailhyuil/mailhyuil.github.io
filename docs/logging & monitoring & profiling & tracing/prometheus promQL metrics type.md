@@ -1,4 +1,4 @@
-# prometheus base metrics type
+# prometheus promQL metrics type
 
 ## counter
 

@@ -1,4 +1,4 @@
-# Peering Gateway
+# aws vpc Peering Gateway
 
 > 서로 다른 두개의 vpc는 통신이 불가능하다.
 >

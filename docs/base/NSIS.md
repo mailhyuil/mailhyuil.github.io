@@ -1,4 +1,4 @@
-# NSIS (Nullsoft Scriptable Install System)
+# NSIS
 
 > Windows 플랫폼에서 개발자가 인스톨러를 구축할 수 있도록 도와주는 도구
 >

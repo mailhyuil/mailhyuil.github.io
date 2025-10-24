@@ -1,4 +1,4 @@
-# webpack loader raw-loader
+# bundle webpack loader assets raw-loader
 
 > txt같은 파일을 문자열로 변환한다.
 >

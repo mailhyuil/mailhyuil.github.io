@@ -1,4 +1,4 @@
-# tcp socket
+# L4 Socket & Socker Pair
 
 > 소켓이란 운영체제(OS)가 제공하는 네트워크 입출력 인터페이스
 >

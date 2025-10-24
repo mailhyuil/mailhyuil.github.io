@@ -1,4 +1,4 @@
-# docker platform (os)
+# Docker platform - os - mac
 
 > Docker는 컨테이너를 실행할 때, 호스트의 CPU 아키텍처에 맞는 이미지를 자동으로 선택하려고 함.
 >

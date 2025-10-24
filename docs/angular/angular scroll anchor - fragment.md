@@ -1,4 +1,4 @@
-# angular scroll anchor (fragment)
+# angular scroll anchor - fragment
 
 > fragment를 사용해서 원하는 section으로 스크롤을 이동시킬 수 있다.
 

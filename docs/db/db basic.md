@@ -1,4 +1,4 @@
-# database
+# db basic
 
 ## 특징
 

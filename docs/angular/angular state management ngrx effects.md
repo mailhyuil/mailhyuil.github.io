@@ -1,4 +1,4 @@
-# ngrx effects
+# angular state management ngrx effects
 
 > 비동기로 동작하는 service의 task를 action을 통해 호출, dispatch한다. (ajax, websocket, ...)
 >

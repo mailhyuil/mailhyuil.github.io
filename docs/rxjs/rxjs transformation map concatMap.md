@@ -1,4 +1,4 @@
-# rxjs map concatMap
+# rxjs transformation map concatMap
 
 > outer가 값을 방출할 때마다 buffer에 저장 및 inner를 구독이 끝나면 buffer에 저장된 다음 값에 대해 inner를 구독합니다.
 >

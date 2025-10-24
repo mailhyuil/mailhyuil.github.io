@@ -1,4 +1,4 @@
-# babel plugin preset-react
+# compile babel preset-react
 
 > 내부적으로 @babel/plugin-syntax-jsx, @babel/plugin-transform-react-jsx, @babel/plugin-transform-react-display-name 플러그인이 포함되어 있다.
 

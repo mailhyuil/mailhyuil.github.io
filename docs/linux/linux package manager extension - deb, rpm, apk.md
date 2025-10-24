@@ -1,4 +1,4 @@
-# linux base deb & rpm
+# linux package manager extension - deb, rpm, apk
 
 ## .deb
 

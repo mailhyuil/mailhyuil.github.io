@@ -1,4 +1,4 @@
-# logging architecture
+# base log architecture
 
 ## logger
 

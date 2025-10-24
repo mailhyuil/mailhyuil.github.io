@@ -1,4 +1,4 @@
-# npm publish
+# npm 라이브러리 - library 배포
 
 > commonjs 로 만든 패키지는 esm으로 사용 가능
 >

@@ -1,1 +1,1 @@
-# c++ header queue
+# c++ header STL container queue

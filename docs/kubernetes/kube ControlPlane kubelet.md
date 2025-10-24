@@ -1,4 +1,4 @@
-# kubernetes kublet
+# kube ControlPlane kubelet
 
 > 각 노드에서 동작하는 agent
 >

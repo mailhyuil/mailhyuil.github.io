@@ -1,4 +1,4 @@
-# background & foreground
+# linux cmd backgroud & foreground
 
 ```sh
 jobs # 백그라운드로 실행중인 작업 목록 확인

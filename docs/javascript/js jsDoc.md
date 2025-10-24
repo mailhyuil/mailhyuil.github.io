@@ -1,4 +1,4 @@
-# JSDoc
+# js jsDoc
 
 > @ts-check를 주석으로 추가하면 바닐라 자바스크립트 소스코드에서도 TypeScript처럼 타입 및 에러 체크가 가능하다.
 >

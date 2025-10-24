@@ -1,4 +1,4 @@
-# js cursor pagination
+# js pagination cursor.md
 
 > key(cursor === id)
 >

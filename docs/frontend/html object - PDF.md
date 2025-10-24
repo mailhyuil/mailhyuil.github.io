@@ -1,4 +1,4 @@
-# html object (PDF)
+# html object - PDF
 
 > PDF 파일을 웹 페이지에 삽입하는 방법
 

@@ -1,4 +1,4 @@
-# postgres autovaccume
+# postgres config autovacuum
 
 > postgres의 모든 데이터는 tuple이라는 형태로 저장된다.
 >

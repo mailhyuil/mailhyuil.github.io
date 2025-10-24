@@ -1,4 +1,4 @@
-# nestjs base interceptor Serialize
+# nest base interceptor Serialize
 
 > controller 에서 return한 entity를 DTO로 변환해주는 interceptor decorator
 >

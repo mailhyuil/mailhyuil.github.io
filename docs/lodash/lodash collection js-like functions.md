@@ -1,4 +1,4 @@
-# lodash collection functions
+# lodash collection js-like functions
 
 > collection functions는 배열과 객체 둘 다에 사용할 수 있는 함수들이다.
 

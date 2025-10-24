@@ -1,3 +1,3 @@
-# Route 53 Health Check
+# aws DNS Route53 Health Check
 
 > Route53이 주기적으로 리소스의 상태를 확인하여 비정상적인 리소스를 감지하고, 이를 기반으로 트래픽을 다른 정상적인 리소스로 라우팅하는 기능입니다.

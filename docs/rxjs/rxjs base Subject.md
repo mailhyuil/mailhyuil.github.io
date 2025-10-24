@@ -1,4 +1,4 @@
-# rxjs subject
+# rxjs base Subject
 
 > Observer이면서 Observable이다.
 >

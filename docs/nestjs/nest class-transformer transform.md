@@ -1,4 +1,4 @@
-# nestjs class-transformer transform
+# nest class-transformer transform
 
 > @Expose()를 해야 노출된다.
 

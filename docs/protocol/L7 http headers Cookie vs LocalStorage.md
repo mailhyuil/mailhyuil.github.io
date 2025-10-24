@@ -1,4 +1,4 @@
-# cookie & localStorage
+# L7 http headers Cookie vs LocalStorage
 
 ## cookie
 

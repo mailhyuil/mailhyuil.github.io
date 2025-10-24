@@ -1,4 +1,4 @@
-# git fetch
+# git merge fetch
 
 > 최신 메타데이터 정보를 확인하라는 명령을 전달합니다.
 >

@@ -1,4 +1,4 @@
-# aws message Kinesis
+# aws message stream Kinesis
 
 > real-time data streaming service
 >

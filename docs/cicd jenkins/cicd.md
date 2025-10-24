@@ -1,4 +1,4 @@
-# CI/CD
+# cicd
 
 > github actions, jenkins CI, travis CI
 

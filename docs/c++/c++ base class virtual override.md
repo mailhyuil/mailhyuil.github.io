@@ -1,4 +1,4 @@
-# c++ class override
+# c++ base class virtual override
 
 > 가상 함수 재정의 실수를 막기 위해서 사용하는 키워드
 

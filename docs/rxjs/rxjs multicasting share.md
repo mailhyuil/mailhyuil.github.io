@@ -1,4 +1,4 @@
-# rxjs share
+# rxjs multicasting share
 
 > 하나의 Observable을 여러 구독자에게 공유한다.
 

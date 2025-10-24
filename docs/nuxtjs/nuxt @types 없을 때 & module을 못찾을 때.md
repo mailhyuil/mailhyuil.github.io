@@ -1,4 +1,4 @@
-# nuxt 모듈을 못찾을 때
+# nuxt @types 없을 때 & module을 못찾을 때
 
 > @types declare 파일이 없어서 못찾는 거
 

@@ -1,4 +1,4 @@
-# git branch rename
+# git branch rename 이름 변경
 
 ```sh
 # 현재 브랜치 변경

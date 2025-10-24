@@ -1,4 +1,4 @@
-# nest mailer nestmailer
+# nest email nestmailer
 
 > nodemailer 를 wrapping한 라이브러리
 >

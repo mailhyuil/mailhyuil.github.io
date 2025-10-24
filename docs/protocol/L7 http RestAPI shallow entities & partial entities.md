@@ -1,4 +1,4 @@
-# RestApi shallow entities & partial entities
+# L7 http RestAPI shallow entities & partial entities
 
 > entity가 가지고 있는 field 중 id만 혹은 일부만을 리턴하는 것
 >

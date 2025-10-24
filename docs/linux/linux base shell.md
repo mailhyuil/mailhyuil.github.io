@@ -1,4 +1,4 @@
-# Shell (셸)
+# linux base shell
 
 > 리눅스 시스템에서 명령어를 입력하는 장소
 >

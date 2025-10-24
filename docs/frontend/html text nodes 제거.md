@@ -1,4 +1,4 @@
-# text nodes 제거
+# html text nodes 제거
 
 > childNodes를 사용하면 text node도 포함되어 있음
 >

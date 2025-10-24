@@ -1,4 +1,4 @@
-# go package pgx
+# go package postgres - pgx
 
 ## install
 

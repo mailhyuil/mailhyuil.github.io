@@ -1,4 +1,4 @@
-# Null Object Pattern
+# x Null Object Pattern
 
 > 값이 없음을 명확하게 나타내기 위한 객체
 >

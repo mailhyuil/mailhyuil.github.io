@@ -1,4 +1,4 @@
-# nest testing interceptor
+# testing nestjs interceptor
 
 ```ts
 import { createMock } from "@golevelup/ts-jest";

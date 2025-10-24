@@ -1,4 +1,4 @@
-# nginx temp dir
+# nginx directive temp dir
 
 > default: /var/cache/nginx/
 

@@ -1,4 +1,4 @@
-# tcp segment
+# L4 TCP segment
 
 > tcp는 애플리케이션 계층으로부터 받은 데이터를 스트림으로 읽어들이지만
 >

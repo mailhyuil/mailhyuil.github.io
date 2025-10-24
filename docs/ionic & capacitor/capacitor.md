@@ -1,4 +1,4 @@
-# Capacitor
+# capacitor
 
 > The Native Bridge for Cross-Platform Web Apps
 >

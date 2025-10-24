@@ -1,4 +1,4 @@
-# CoreDNS & kube-dns
+# kube ControlPlane CoreDNS & kube-dns
 
 > 쿠버네티스는 CoreDNS를 DNS server로 사용한다.
 >

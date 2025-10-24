@@ -1,4 +1,4 @@
-# XDR (external data representation)
+# L7 NFS XDR
 
 > 외부 데이터 표현 방식
 >

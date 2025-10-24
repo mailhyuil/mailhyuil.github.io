@@ -1,4 +1,4 @@
-# X-Forwarded-For
+# L7 http headers MIME X-Forwarded-For
 
 > express의 req.ip는 맨 왼쪽의 ip를 사용
 

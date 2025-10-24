@@ -1,4 +1,4 @@
-# nestjs assets
+# nest static assets 파일 읽기
 
 ## src/assets
 

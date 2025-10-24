@@ -1,4 +1,4 @@
-# angular form async validator
+# angular form Validator AsyncValidatorFn
 
 > 비동기 태스크를 사용해서 유효성 검사를 수행 (e.g. httpClient 요청)
 

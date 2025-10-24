@@ -1,4 +1,4 @@
-# nest interceptor pre & post
+# nest base interceptor pre & post
 
 > interceptor는 pre-interceptor와 post-interceptor로 나뉜다.
 

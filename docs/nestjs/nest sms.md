@@ -1,4 +1,4 @@
-# nest SMS
+# nest sms
 
 ```js
 import { HttpService } from '@nestjs/axios';

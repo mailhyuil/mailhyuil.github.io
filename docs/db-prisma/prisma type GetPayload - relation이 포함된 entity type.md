@@ -1,4 +1,4 @@
-# prisma satisfies
+# prisma type GetPayload - relation이 포함된 entity type
 
 ```ts
 import { PrismaClient, Prisma } from "@prisma/client";

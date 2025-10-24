@@ -1,4 +1,4 @@
-# design pattern blackboard pattern
+# x Blackboard Pattern
 
 ```ts
 // This is the blackboard class that will hold all of the information

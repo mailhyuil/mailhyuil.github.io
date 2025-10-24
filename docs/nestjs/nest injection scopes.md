@@ -1,4 +1,4 @@
-# nestjs Injection scopes
+# nest injection scopes
 
 ## constructor-based
 

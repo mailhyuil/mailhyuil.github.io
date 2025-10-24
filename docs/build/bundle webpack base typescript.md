@@ -1,4 +1,4 @@
-# webpack typescript
+# bundle webpack base typescript
 
 ## install
 

@@ -1,4 +1,4 @@
-# kubernetes Node
+# kube object Node
 
 > node === 컴퓨터, 서버 컴퓨터
 >

@@ -1,4 +1,4 @@
-# python venv
+# python package manager pip legacy venv
 
 > npm의 node_modules처럼 python의 패키지들을 프로젝트별로 관리할 수 있는 가상환경을 만들어보자.
 >

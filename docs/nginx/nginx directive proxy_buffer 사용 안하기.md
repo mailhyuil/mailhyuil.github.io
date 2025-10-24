@@ -1,4 +1,4 @@
-# nginx proxy_temp 사용 안하기
+# nginx directive proxy_buffer 사용 안하기
 
 > 기본적으로 Nginx는 프록시 서버에서 수신한 응답을 디스크나 메모리에 버퍼링하여 클라이언트로 전송합니다.
 >

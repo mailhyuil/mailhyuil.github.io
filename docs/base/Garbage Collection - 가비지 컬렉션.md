@@ -1,4 +1,4 @@
-# Garbage Collection (가비지 컬렉션)
+# Garbage Collection - 가비지 컬렉션
 
 ## STW (Stop The World)
 

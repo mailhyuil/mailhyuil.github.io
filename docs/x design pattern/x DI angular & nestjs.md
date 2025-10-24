@@ -1,4 +1,4 @@
-# DI
+# x DI angular & nestjs
 
 > component, provider, controller.. 에 필요한 "바뀔 수 있는" 의존성의 인터페이스를 정의하고, Injection하여 사용하기
 

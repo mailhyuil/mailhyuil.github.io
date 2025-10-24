@@ -1,4 +1,4 @@
-# 캐시 버스팅 (cache busting)
+# cache cache busting
 
 > 저장된 캐시 파일을 무효화하는 것
 >

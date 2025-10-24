@@ -1,4 +1,4 @@
-# email POP3 (Post Office Protocol 3)
+# L7 email protocol 수신 POP3
 
 > 이메일 받아서 기기에 저장하는 프로토콜
 >

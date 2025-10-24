@@ -1,4 +1,4 @@
-# nodejs event-loop setImmediate or setTimeout
+# nodejs event loop main thread 작업 나누기
 
 > main thread에서 무거운 작업을 하면 이벤트 루프를 block하게 된다
 >

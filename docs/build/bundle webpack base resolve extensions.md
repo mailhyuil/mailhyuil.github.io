@@ -1,4 +1,4 @@
-# bundle webpack resolve extensions
+# bundle webpack base resolve extensions
 
 > webpack의 기본 확장자 : .js, .json
 >

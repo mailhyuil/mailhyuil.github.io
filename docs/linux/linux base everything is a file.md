@@ -1,4 +1,4 @@
-# linux everything is a file
+# linux base everything is a file
 
 > 유닉스는 모든 것은 파일이라는 철학을 따른다.
 >

@@ -1,4 +1,4 @@
-# stream pipeline
+# nodejs module stream interface transform
 
 > 입력받은 스트림을 변환 후 리턴하는 스트림
 >

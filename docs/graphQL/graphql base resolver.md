@@ -1,4 +1,4 @@
-# graphql resolver
+# graphql base resolver
 
 ## type 정의
 

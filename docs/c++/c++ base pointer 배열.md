@@ -1,4 +1,4 @@
-# c++ pointer 배열
+# c++ base pointer 배열
 
 > 단순히 배열 요소에 접근할 때는 첫번째 방법
 >

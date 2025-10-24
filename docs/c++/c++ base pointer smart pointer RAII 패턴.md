@@ -1,4 +1,4 @@
-# c++ pointer RAII 패턴
+# c++ base pointer smart pointer RAII 패턴
 
 > Resource acquisition is initialization
 >

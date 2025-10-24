@@ -1,4 +1,4 @@
-# Promise
+# js Promise
 
 > await는 블로킹이다
 >

@@ -1,4 +1,4 @@
-# nest jwt scenario
+# nest auth jwt scenario
 
 > jwt의 핵심은 상태를 클라이언트가 가지고 있다는 것이다.
 >

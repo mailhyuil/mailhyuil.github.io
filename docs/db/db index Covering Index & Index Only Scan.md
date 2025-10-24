@@ -1,4 +1,4 @@
-# Covering Index & Index Only Scan
+# db index Covering Index & Index Only Scan
 
 > 쿼리를 충족시키는데 필요한 모든 데이터를 갖고 있는 인덱스
 >

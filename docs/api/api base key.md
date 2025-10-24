@@ -1,4 +1,4 @@
-# api key
+# api base key
 
 ## Access Key
 

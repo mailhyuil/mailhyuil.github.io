@@ -1,4 +1,4 @@
-# pivot index
+# algorithm pivot index
 
 > 중앙값을 찾는 방법
 >

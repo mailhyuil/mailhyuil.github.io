@@ -1,4 +1,4 @@
-# http CORS (Cross-Origin Resource Sharing) 교차 출처 리소스 공유
+# L7 http headers 보안 CORS - Cross-Origin Resource Sharing
 
 > 브라우저는 SOP로 인해 다른 Origin의 리소스에 ajax 요청을 보낼 수 없다.
 >

@@ -1,4 +1,4 @@
-# c++ pointer shared pointer
+# c++ base pointer smart pointer shared pointer
 
 > 참조한 모든 객체가 소멸되면 원본이 소멸
 

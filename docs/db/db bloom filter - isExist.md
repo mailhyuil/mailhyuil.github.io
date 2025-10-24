@@ -1,4 +1,4 @@
-# db bloom filter (isExist)
+# db bloom filter - isExist
 
 > 레코드가 존재하는지 여부를 빠르게 확인하기 위한 자료구조
 >

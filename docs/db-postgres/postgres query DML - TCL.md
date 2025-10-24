@@ -1,4 +1,4 @@
-# postgreSQL TCL (Transaction Control Language)
+# postgres query DML - TCL
 
 > 트랜젝션을 제어하는 명령어
 >

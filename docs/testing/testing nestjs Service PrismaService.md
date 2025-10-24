@@ -1,4 +1,4 @@
-# nest testing prisma
+# testing nestjs Service PrismaService
 
 ## install
 

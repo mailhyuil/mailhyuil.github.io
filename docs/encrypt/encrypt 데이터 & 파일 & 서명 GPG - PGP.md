@@ -1,4 +1,4 @@
-# encrypt GPG (GNU Privacy Guard) (PGP)
+# encrypt 데이터 & 파일 & 서명 GPG - PGP
 
 > 문서, 이메일, 파일 같은 정적인 것을 암호화하고 서명하는 데 최적화된 비동기 비대칭 암호화 방식
 >

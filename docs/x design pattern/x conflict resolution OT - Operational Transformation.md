@@ -1,4 +1,4 @@
-# 동기화 패턴 OT (Operational Transformation)
+# x conflict resolution OT - Operational Transformation
 
 [ot-visualization](https://operational-transformation.github.io/)
 

@@ -1,4 +1,4 @@
-# postgres WAL restore
+# postgres WAL archive restore
 
 ## 순서
 

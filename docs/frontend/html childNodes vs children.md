@@ -1,4 +1,4 @@
-# childNodes vs children
+# html childNodes vs children
 
 > childNodes는 요소 외의 주석과 같은 것들도 포함함
 >

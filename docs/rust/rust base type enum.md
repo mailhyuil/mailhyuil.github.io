@@ -1,4 +1,4 @@
-# enum
+# rust base type enum
 
 ```rs
 enum IpAddrKind {

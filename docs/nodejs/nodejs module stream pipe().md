@@ -1,4 +1,4 @@
-# nodejs stream pipe()
+# nodejs module stream pipe()
 
 > WriteStream 과 ReadStream의 메소드이다.
 >

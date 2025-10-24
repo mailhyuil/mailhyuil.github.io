@@ -1,4 +1,4 @@
-# webpack filename
+# bundle webpack base filename
 
 ```sh
 [absolute-resource-path] # The absolute filename

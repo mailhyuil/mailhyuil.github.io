@@ -1,4 +1,4 @@
-# self
+# rust base self
 
 > 함수의 첫번째 인자로 self를 받거나 안 받을 수 있다.
 

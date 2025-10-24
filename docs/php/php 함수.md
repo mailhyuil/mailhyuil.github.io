@@ -1,4 +1,4 @@
-# php function
+# php 함수
 
 ```php
 function add($x, $y) {

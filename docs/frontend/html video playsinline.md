@@ -1,4 +1,4 @@
-# video playsinline
+# html video playsinline
 
 > 비디오가 모바일 환경에서 전체화면으로 재생되지 않고 인라인으로 재생되도록 설정
 

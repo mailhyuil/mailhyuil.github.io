@@ -1,4 +1,4 @@
-# alpine & slim & slim-stretch
+# linux base alpine & slim
 
 ## alpine
 

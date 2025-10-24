@@ -1,4 +1,4 @@
-# nestjs jwt header 또는 payload만 검증하는 방법
+# nest auth jwt header 또는 payload만 검증하는 법
 
 > 온점(.)을 기준으로 헤더는 0번째, 페이로드는 1번째, 시그니처는 2번째에 위치한다.
 >

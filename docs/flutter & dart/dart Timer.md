@@ -1,4 +1,4 @@
-# flutter Timer
+# dart Timer
 
 > Timer(Duration()) // setTimeout
 >

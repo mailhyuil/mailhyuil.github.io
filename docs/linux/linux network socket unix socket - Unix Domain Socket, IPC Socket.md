@@ -1,4 +1,4 @@
-# linux base Unix Domain Socket (Unix Socket, IPC Socket)
+# linux network socket unix socket - Unix Domain Socket, IPC Socket
 
 > 로컬 프로세스간 통신을 할 수 있는 Unix 소켓 (IPC 소켓)
 >

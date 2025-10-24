@@ -1,4 +1,4 @@
-# system input & output
+# nodejs module readline system input & output
 
 > node `<filename>`으로 run
 

@@ -1,4 +1,4 @@
-# array splice 요소 삭제
+# js array splice 요소 삭제
 
 ## 특정 인덱스의 요소 삭제
 

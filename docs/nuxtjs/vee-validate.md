@@ -1,4 +1,4 @@
-# vee-validate & yup
+# vee-validate
 
 > vue의 validate 라이브러리
 >

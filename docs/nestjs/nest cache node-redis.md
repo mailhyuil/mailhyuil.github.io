@@ -1,4 +1,4 @@
-# nest cache redis redisClient 사용
+# nest cache node-redis
 
 > CacheModule을 사용하면 외부 저장소로 redis를 사용할 수 있지만 사용할 수 있는 메소드가 한정되어 있다.
 >

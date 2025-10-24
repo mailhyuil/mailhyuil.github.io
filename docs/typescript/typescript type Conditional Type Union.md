@@ -1,4 +1,4 @@
-# typescript conditional type Union
+# typescript type Conditional Type Union
 
 > 프로퍼티의 Value에 따라서 다른 프로퍼티를 가지는 타입은 Union 타입으로 정의할 수 있다.
 

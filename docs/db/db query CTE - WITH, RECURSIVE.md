@@ -1,4 +1,4 @@
-# db query CTE (Common Table Expression)
+# db query CTE - WITH, RECURSIVE
 
 > Subquery와 비슷하지만 가독성이 좋고 재사용이 가능합니다.
 >

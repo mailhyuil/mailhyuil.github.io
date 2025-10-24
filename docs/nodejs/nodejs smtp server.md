@@ -1,4 +1,4 @@
-# node smtp
+# nodejs smtp server
 
 ## install
 

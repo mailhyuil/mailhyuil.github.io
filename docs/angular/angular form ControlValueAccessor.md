@@ -1,4 +1,4 @@
-# angular ControlValueAccessor
+# angular form ControlValueAccessor
 
 > forms API와 native element를 연결하는 브릿지 역할을 하는 인터페이스
 >

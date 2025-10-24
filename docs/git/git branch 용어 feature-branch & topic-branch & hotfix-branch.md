@@ -1,4 +1,4 @@
-# git branch 용어
+# git branch 용어 feature-branch & topic-branch & hotfix-branch
 
 ## feature-branch & topic-branch
 

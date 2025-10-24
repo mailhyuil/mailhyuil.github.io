@@ -1,4 +1,4 @@
-# c++ base template variadic template (가변 길이 템플릿)
+# c++ base template variadic template - 가변 길이 템플릿
 
 > typename... 를 사용하여 가변 길이 템플릿을 사용할 수 있다.
 >

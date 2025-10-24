@@ -1,4 +1,4 @@
-# jwt
+# JWT
 
 ## public key
 

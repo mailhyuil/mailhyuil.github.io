@@ -1,4 +1,4 @@
-# Subject vs EventEmitter
+# rxjs base Subject vs EventEmitter
 
 ## 타겟 환경
 

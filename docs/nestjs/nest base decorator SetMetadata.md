@@ -1,4 +1,4 @@
-# nest SetMetadata
+# nest base decorator SetMetadata
 
 ## usage
 

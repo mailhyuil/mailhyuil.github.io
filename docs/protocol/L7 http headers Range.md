@@ -1,4 +1,4 @@
-# http headers Range
+# L7 http headers Range
 
 > body의 일부분만 요청한다.
 >

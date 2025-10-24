@@ -1,4 +1,4 @@
-# angular SSG (static site generation) (pre-rendering)
+# angular SSG - pre-rendering
 
 > Time to First Byte (TTFB)를 줄이기 위해 사용
 >

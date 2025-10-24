@@ -1,4 +1,4 @@
-# next base actions
+# next base SSR actions
 
 > 서버에서 실행하는 함수
 

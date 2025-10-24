@@ -13,7 +13,7 @@ docker network create private --internal
 docker run --name frontend -d --network public -p 80:80 wbitt/network-multitool
 docker run --name backend -d --network private wbitt/network-multitool
 
-# docker network connect <network> <container>
+# Docker network public & private
 docker network connect public backend
 
 docker container inspect frontend | grep -i ipaddress

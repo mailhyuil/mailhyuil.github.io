@@ -1,4 +1,4 @@
-# next base loading
+# next base loading.ts
 
 ## loading.ts
 

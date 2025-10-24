@@ -1,4 +1,4 @@
-# nodejs glob
+# nodejs glob - shell pattern matching
 
 > Shell Pattern Matching 기능을 사용해서 파일을 읽어올 수 있는 모듈
 >

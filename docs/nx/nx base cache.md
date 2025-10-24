@@ -1,4 +1,4 @@
-# nx cache
+# nx base cache
 
 ## nx.json
 

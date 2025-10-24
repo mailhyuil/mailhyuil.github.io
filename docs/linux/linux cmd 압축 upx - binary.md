@@ -1,4 +1,4 @@
-# upx
+# linux cmd 압축 upx - binary
 
 > 바이너리 파일을 압축하여 용량을 줄이는 방법
 >

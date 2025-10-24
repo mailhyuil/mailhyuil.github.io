@@ -1,4 +1,4 @@
-# nest sentry
+# sentry nestjs
 
 > 에러 로그를 slack으로 전송하는 방법
 

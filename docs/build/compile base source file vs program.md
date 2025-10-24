@@ -1,4 +1,4 @@
-# tsc program
+# compile base source file vs program
 
 > a collection of one or more entrypoint source files which consume one or more modules.
 >

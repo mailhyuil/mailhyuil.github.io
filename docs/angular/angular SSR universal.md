@@ -1,4 +1,4 @@
-# angular universal
+# angular SSR universal
 
 > 사이트에 처음 접속하는 home 화면이라면 최소한의 데이터만 받아서 데이터 받는 시간을 줄여야한다.
 >

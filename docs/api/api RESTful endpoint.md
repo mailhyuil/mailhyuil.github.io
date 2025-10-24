@@ -1,4 +1,4 @@
-# RESTful url
+# api RESTful endpoint
 
 > 복수형을 사용하자
 >

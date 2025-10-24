@@ -1,4 +1,4 @@
-# db cardinality 카디널리티
+# db index cardinality 카디널리티
 
 > 카디널리티 : 값의 고유성을 나타내는 척도
 >

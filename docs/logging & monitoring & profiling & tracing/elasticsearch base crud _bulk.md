@@ -1,4 +1,4 @@
-# ELK elasticsearch crud \_bulk
+# elasticsearch base crud _bulk
 
 > POST명령으로 여러 명령을 배치로 실행할 수 있다.
 >

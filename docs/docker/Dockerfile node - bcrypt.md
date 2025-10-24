@@ -1,4 +1,4 @@
-# Dockerfile node (bcrypt)
+# Dockerfile node - bcrypt
 
 > bcrypt는 의존성을 필요로 하기 때문에 빌드 스테이지에서 의존성 설치 후 빌드
 

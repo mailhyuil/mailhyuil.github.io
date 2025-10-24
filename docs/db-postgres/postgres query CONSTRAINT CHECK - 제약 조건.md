@@ -1,4 +1,4 @@
-# postgres CONSTRAINT (제약 조건)
+# postgres query CONSTRAINT CHECK - 제약 조건
 
 ## PRIMARY KEY
 

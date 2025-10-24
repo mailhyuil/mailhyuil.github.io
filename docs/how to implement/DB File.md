@@ -1,4 +1,4 @@
-# how to implement file
+# DB File
 
 ```prisma
 model File {

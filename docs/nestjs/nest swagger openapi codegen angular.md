@@ -1,4 +1,4 @@
-# Swagger Codegen angular
+# nest swagger openapi codegen angular
 
 > document.yaml or document.json을 읽고 코드로 생성해준다.
 >

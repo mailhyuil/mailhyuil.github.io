@@ -1,4 +1,4 @@
-# git 파일 삭제 (git-filter-repo)
+# git 파일 삭제 git-filter-repo
 
 ## install
 

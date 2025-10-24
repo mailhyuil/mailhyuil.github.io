@@ -1,4 +1,4 @@
-# cafe24 module product_quantity (수량 기입)
+# cafe24 module product_detail quantity - 수량 기입
 
 ```html
 <dl module="product_quantity">

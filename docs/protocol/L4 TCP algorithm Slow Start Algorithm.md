@@ -1,4 +1,4 @@
-# TCP Slow Start Algorithm
+# L4 TCP algorithm Slow Start Algorithm
 
 > 서버에서 한 번에 얼마나 많은 패킷을 송신할 수 있는지 결정하는 알고리즘
 >

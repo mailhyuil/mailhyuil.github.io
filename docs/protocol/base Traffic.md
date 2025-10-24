@@ -1,4 +1,4 @@
-# NETWORK Traffic
+# base Traffic
 
 > 데이터가 전송되고 이동하는 양
 >

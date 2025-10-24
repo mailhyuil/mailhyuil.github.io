@@ -1,4 +1,4 @@
-# puppeteer JsHandle
+# puppeteer handle JsHandle
 
 > ElementHandle은 DOM 요소를 가지는 wrapper
 >

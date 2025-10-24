@@ -1,1 +1,1 @@
-# tsc AST ts-query
+# compile tsc AST ts-query

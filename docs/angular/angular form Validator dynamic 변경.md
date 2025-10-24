@@ -1,4 +1,4 @@
-# angular form validator dynamic 변경
+# angular form Validator dynamic 변경
 
 > updateValueAndValidity를 해줘야 변경이 적용됨
 

@@ -1,4 +1,4 @@
-# kube TroubleShooting logs
+# kube Troubleshooting logs
 
 ## kubectl describe
 

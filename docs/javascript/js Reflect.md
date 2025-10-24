@@ -1,4 +1,4 @@
-# js AOP Reflect
+# js Reflect
 
 > Object 내장 메소드를 대체하고 Proxy를 보조하기 위한 API
 >

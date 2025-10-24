@@ -1,4 +1,4 @@
-# aws SSM (Systems Manager)
+# aws env SSM - Systems Manager
 
 > AWS Systems Manager(SSM)는 AWS 리소스 및 온프레미스 서버를 관리하기 위한 통합 관리 서비스입니다. SSM을 사용하면 인스턴스 구성, 소프트웨어 배포, 패치 관리, 자동화된 작업 실행 등을 중앙에서 관리할 수 있습니다.
 >

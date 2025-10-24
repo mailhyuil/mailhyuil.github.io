@@ -1,4 +1,4 @@
-# db 정규화
+# db base 정규화
 
 > 정규형 = Normal Form = NF
 >

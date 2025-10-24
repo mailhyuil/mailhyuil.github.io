@@ -1,4 +1,4 @@
-# nx budgets
+# nx webpack budgets
 
 > 성능 문제가 해결하기가 너무 어려워지기 전에 경고하는 것
 >

@@ -1,4 +1,4 @@
-# rxjs filter
+# rxjs filtering filter 값이 들어올 때까지 기다리기
 
 > 값이 null일 경우, 값이 들어올때 까지 기다리는 방법
 

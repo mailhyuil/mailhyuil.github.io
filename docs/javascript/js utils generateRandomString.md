@@ -1,4 +1,4 @@
-# js generateRandomString
+# js utils generateRandomString
 
 ```js
 generateRandomString() {

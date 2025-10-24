@@ -1,4 +1,4 @@
-# webpack preload prefetch
+# bundle webpack base preload prefetch
 
 > dynamic import에 주석 추가
 

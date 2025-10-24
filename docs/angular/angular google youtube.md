@@ -1,4 +1,4 @@
-# angular youtube
+# angular google youtube
 
 ## install
 

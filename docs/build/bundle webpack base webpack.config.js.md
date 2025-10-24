@@ -1,4 +1,4 @@
-# webpack.config.js
+# bundle webpack base webpack.config.js
 
 > 기본이 frontend app을 위한 설정
 >

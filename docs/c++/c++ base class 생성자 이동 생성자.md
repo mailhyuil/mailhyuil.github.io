@@ -1,4 +1,4 @@
-# c++ base class 이동 생성자
+# c++ base class 생성자 이동 생성자
 
 > rvalue 레퍼런스를 사용
 >

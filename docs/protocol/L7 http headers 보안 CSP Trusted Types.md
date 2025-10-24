@@ -1,4 +1,4 @@
-# http headers 보안 Trusted Types
+# L7 http headers 보안 CSP Trusted Types
 
 > XSS 공격을 방지하기 위해서 브라우저에서 trustedType을 생성 후 그 trusted type이 아닌 경우에 csp를 활용해 차단할 수 있다.
 

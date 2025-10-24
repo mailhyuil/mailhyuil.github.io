@@ -1,4 +1,4 @@
-# node-redis
+# node-redis Sorted Set
 
 > node-redis에서는 member를 value라고 부른다.
 

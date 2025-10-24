@@ -1,4 +1,4 @@
-# next base error comp/error.tsx
+# next base error error.tsx
 
 ## app/comp/error.tsx
 

@@ -1,4 +1,4 @@
-# RestApi relationships
+# L7 http RestAPI relationships
 
 ## endpoint
 

@@ -1,4 +1,4 @@
-# nestjs error handling
+# nest error handling
 
 ## error.ts
 

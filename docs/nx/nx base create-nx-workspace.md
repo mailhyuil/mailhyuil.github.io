@@ -1,4 +1,4 @@
-# create-nx-workspace
+# nx base create-nx-workspace
 
 ## usage
 

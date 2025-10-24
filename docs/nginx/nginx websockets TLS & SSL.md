@@ -1,4 +1,4 @@
-# nginx websocket
+# nginx websockets TLS & SSL
 
 ```conf
 http {

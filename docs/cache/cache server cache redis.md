@@ -1,4 +1,4 @@
-# cache server redis
+# cache server cache redis
 
 ## install
 

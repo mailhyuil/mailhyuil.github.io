@@ -1,4 +1,4 @@
-# MCP transport
+# L7 MCP transport
 
 ## stdio
 

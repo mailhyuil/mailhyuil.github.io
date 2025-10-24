@@ -9,7 +9,7 @@
 ## install
 
 ```sh
-# remote-server
+# linux package scp
 apt install openssh-server -y
 
 # client

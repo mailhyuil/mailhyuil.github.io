@@ -1,4 +1,4 @@
-# angular signal input
+# angular signal input & model
 
 ## input
 

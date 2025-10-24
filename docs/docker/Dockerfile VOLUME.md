@@ -1,4 +1,4 @@
-# Dockerfile volume
+# Dockerfile VOLUME
 
 > run 할 때 반드시 -v 옵션으로 명시해야 함
 

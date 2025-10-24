@@ -1,4 +1,4 @@
-# ELK logstash config logstash
+# log-agent logstash config
 
 ## logstash.yml
 

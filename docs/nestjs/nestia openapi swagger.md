@@ -1,4 +1,4 @@
-# nestia swagger
+# nestia openapi swagger
 
 ## nestia.config.ts
 

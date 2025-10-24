@@ -1,4 +1,4 @@
-# 유니코드 UTF-8 vs UTF-16
+# 유니코드 UTF-8 vs UTF-16 vs UTF-32
 
 > UTF란 유니코드를 인코딩하는 방식
 >

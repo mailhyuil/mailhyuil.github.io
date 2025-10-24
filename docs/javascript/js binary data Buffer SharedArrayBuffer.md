@@ -1,4 +1,4 @@
-# SharedArrayBuffer
+# js binary data Buffer SharedArrayBuffer
 
 > ArrayBuffer와 비슷하지만 여러 스레드 간에 공유할 수 있는 버퍼 (worker_threads에서 사용)
 

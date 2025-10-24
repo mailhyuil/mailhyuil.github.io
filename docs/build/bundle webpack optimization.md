@@ -1,4 +1,4 @@
-# webpack optimization
+# bundle webpack optimization
 
 ## providedExports
 

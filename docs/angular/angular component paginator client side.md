@@ -1,4 +1,4 @@
-# angular client side paginator
+# angular component paginator client side
 
 ## install
 

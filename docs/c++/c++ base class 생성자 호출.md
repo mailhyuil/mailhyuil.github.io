@@ -1,4 +1,4 @@
-# c++ class 생성자 호출
+# c++ base class 생성자 호출
 
 ```cpp
 User user1; // 기본 생성자 호출

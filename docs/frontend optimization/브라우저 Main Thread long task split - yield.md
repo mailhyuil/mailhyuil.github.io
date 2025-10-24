@@ -1,4 +1,4 @@
-# front optimization yield
+# 브라우저 Main Thread long task split - yield
 
 > long task를 나누는 방법
 >

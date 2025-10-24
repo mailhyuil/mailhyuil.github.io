@@ -1,4 +1,4 @@
-# Nuxt Layout
+# nuxt layouts
 
 1. layouts 폴더 생성
 2. default.vue 파일 생성

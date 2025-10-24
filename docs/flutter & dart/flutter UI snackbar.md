@@ -1,4 +1,4 @@
-# flutter snackbar
+# flutter UI snackbar
 
 ```dart
 ScaffoldMessenger.of(context).showSnackBar(

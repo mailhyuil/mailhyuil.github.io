@@ -1,4 +1,4 @@
-# Element.animate()
+# webapi Element.animate
 
 > css keyframes animation
 >

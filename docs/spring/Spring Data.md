@@ -1,4 +1,4 @@
-# spring-data
+# Spring Data
 
 1. pom.xml
 

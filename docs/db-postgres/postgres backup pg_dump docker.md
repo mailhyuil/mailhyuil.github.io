@@ -1,4 +1,4 @@
-# postgres backup pg_backup docker
+# postgres backup pg_dump docker
 
 ```bash
 # sql로 백업

@@ -1,4 +1,4 @@
-# http headers 보안 CSRF
+# L7 http headers 보안 공격 CSRF
 
 > CSRF란 Cross-Site Request Forgery의 약자로, 사용자가 의도하지 않은 요청을 보내는 공격을 말한다.
 >

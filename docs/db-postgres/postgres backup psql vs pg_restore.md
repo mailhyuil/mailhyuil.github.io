@@ -1,4 +1,4 @@
-# postgres recovery psql vs pg_restore
+# postgres backup psql vs pg_restore
 
 ```sh
 # sql 파일로 복원

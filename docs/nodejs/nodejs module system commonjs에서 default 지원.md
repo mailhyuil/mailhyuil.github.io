@@ -1,4 +1,4 @@
-# nodejs module system commonjs에서 default를 지원
+# nodejs module system commonjs에서 default 지원
 
 > Babel과 같은 트랜스파일러는 ES6 모듈을 CommonJS 모듈로 변환할 때, ES6의 default 내보내기를 지원하기 위해 \_\_esModule 속성을 추가합니다.
 >

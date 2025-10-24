@@ -1,4 +1,4 @@
-# javascript switch vs object
+# js switch vs object map
 
 > The two methods perform pretty much the same in modern browsers, with the switch statement being 20-30% faster than the lookup table.
 >

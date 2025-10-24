@@ -1,4 +1,4 @@
-# rxjs operator retry
+# rxjs error handling retry
 
 ```js
 import { interval, mergeMap, throwError, of, retry } from "rxjs";

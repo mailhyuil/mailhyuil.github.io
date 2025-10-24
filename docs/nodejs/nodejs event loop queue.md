@@ -1,4 +1,4 @@
-# nodejs event-loop queue
+# nodejs event loop queue
 
 > queue에는 완료된 콜백 함수들이 libuv에 의해 등록되어진다.
 

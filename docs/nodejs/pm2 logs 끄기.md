@@ -1,4 +1,4 @@
-# pm2 로그 끄기
+# pm2 logs 끄기
 
 > "/dev/null" 또는 NULL 사용
 

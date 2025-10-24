@@ -1,4 +1,4 @@
-# class-validator
+# nest class-validator
 
 > dto를 유효성 검사하는 라이브러리
 >

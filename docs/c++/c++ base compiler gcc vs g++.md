@@ -1,4 +1,4 @@
-# c++ compiler gcc vs g++
+# c++ base compiler gcc vs g++
 
 > C++언어로 작성된 .cpp 파일을 GCC로 컴파일시
 >

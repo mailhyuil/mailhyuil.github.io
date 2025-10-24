@@ -1,4 +1,4 @@
-# cookie
+# spring cookie
 
 ## 쿠키 생성
 

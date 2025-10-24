@@ -1,4 +1,4 @@
-# gsap snap
+# animation gsap options snap
 
 > built-in plugin
 >

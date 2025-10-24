@@ -1,4 +1,4 @@
-# webpack url-loader & file-loader
+# bundle webpack loader assets file-loader & url-loader
 
 > image, font 등을 번들링할 때 사용한다.
 >

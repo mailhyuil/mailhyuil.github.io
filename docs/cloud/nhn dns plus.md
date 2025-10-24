@@ -1,4 +1,4 @@
-# NHN DNS Plus
+# nhn dns plus
 
 > aws의 Route53과 같은 서비스
 >

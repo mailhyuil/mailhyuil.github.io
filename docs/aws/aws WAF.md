@@ -1,4 +1,4 @@
-# aws WAF (Web Application Firewall)
+# aws WAF
 
 ## Web ACL (Access Control List) 생성
 

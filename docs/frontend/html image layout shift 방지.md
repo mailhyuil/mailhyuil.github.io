@@ -1,4 +1,4 @@
-# html image layout shifting 방지
+# html image layout shift 방지
 
 > aspect 사용
 

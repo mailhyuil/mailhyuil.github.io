@@ -1,4 +1,4 @@
-# swiper items 변경
+# angular swiper items 동적으로 변경
 
 > if문을 사용해서 show를 false로 설정해서 items를 변경하고 다시 show를 true로
 >

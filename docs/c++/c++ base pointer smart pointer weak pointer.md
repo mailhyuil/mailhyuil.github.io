@@ -1,4 +1,4 @@
-# c++ pointer weak pointer
+# c++ base pointer smart pointer weak pointer
 
 > 객체가 소멸되면 weak_ptr의 참조도 소멸
 >

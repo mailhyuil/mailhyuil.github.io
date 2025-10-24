@@ -1,4 +1,4 @@
-# cicd github actions scp
+# cicd github actions scp-action
 
 > rename 불가능 (mv 커맨드를 통해서 rename 해라)
 >

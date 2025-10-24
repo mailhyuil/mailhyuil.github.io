@@ -1,4 +1,4 @@
-# textarea 줄바꿈
+# html input textarea 줄바꿈
 
 ```js
 const sendBtnElement = document.querySelector(".btn-send");

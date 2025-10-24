@@ -1,4 +1,4 @@
-# keydown event
+# event keydown
 
 > event.key 로 누른 키를 알 수 있다
 

@@ -1,4 +1,4 @@
-# angular PWA
+# angular worker service worker - PWA
 
 ## install
 

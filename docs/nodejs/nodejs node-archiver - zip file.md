@@ -1,4 +1,4 @@
-# nodejs node-archiver (zip files)
+# nodejs node-archiver - zip file
 
 > 파일의 크기가 큰 경우 highWaterMark 를 설정하여 buffer size 를 늘려야 한다.
 >

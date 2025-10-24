@@ -1,4 +1,4 @@
-# rxjs map switchMap
+# rxjs transformation map switchMap
 
 > outer가 값을 방출할 때마다 inner를 구독하고, 이전 구독을 unsubscribe합니다.
 >

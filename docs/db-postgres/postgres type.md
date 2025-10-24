@@ -1,4 +1,4 @@
-# postgreSQL type
+# postgres type
 
 ## 문자열
 

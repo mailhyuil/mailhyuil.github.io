@@ -1,4 +1,4 @@
-# nodejs Native Addon
+# nodejs CPU Bound Binding Native Addon
 
 > Native란 기계어 즉 바이너리 코드로 작성된 프로그램을 의미한다. (c, c++, rust, golang 등)
 >

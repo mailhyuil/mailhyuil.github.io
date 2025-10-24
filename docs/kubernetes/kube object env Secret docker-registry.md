@@ -1,4 +1,4 @@
-# kube object Secret docker-registry
+# kube object env Secret docker-registry
 
 > docker-registry의 인증정보를 저장하는 kube object
 

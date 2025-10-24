@@ -1,4 +1,4 @@
-# angular file uploader component
+# angular component file-upload
 
 ## interface
 

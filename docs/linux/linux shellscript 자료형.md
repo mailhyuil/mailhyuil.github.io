@@ -1,4 +1,4 @@
-# shell script 자료형
+# linux shellscript 자료형
 
 ## 배열
 

@@ -1,4 +1,4 @@
-# nest base DI sub-trees
+# nest base module DI & DI sub-trees
 
 > nestjs는 기본으로 DI tree가 하나가 있고
 >

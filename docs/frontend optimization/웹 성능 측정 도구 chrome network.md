@@ -1,4 +1,4 @@
-# chrome network
+# 웹 성능 측정 도구 chrome network
 
 ## waterfall
 

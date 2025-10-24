@@ -1,4 +1,4 @@
-# git 되돌리기
+# git commit 되돌리기 reset & revert
 
 > reset : 커밋이 로컬에만 존재하는 경우
 >

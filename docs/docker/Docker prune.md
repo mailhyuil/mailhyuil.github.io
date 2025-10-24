@@ -1,4 +1,4 @@
-# Docker 사용하지 않는 이미지 삭제
+# Docker prune
 
 ```sh
 # y/n 물어보지 않고 바로 삭제
