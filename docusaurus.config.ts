@@ -11,8 +11,8 @@ const config: Config = {
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    experimental_faster: true,
   },
-
   // Set the production url of your site here
   url: "https://mailhyuil.github.com",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -24,7 +24,8 @@ const config: Config = {
   organizationName: "mailhyuil", // Usually your GitHub org/user name.
   projectName: "mailhyuil.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
-  onBrokenLinks: "warn",
+  onBrokenLinks: "log",
+  onBrokenMarkdownLinks: "log",
   trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
@@ -69,14 +70,11 @@ const config: Config = {
     algolia: {
       // The application ID provided by Algolia
       appId: "APFE520P0M",
-
       // Public API key: it is safe to commit it
       apiKey: "e253c2d43efed27309e3168c0e1c37f3",
-
       indexName: "mailhyuil-recipes",
-
       // Optional: see doc section below
-      contextualSearch: true,
+      contextualSearch: false,
 
       // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
       replaceSearchResultPathname: {
