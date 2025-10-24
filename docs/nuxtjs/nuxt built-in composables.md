@@ -10,11 +10,11 @@
 
 ## useFetch
 
-> useAsyncData 와 $fetch의 Wrapper
+> useAsyncData 와 `$fetch`의 Wrapper
 >
 > > fetch와 사용법은 같다
 > >
-> > > option {pick:[]}을 이용해서 원하는 데이터만 추출할 수 있다.
+> > > `option {pick:[]}`을 이용해서 원하는 데이터만 추출할 수 있다.
 
 ### 옵션 lazy
 
@@ -26,12 +26,11 @@
 > > >
 > > > > true 상태면 loading.. 을 띄울 수 있다.
 
-```
+```ts
 const getMovies = async () => {
-  const { data } = await useFetch(
-    `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=year/`,
-    { pick: ["data"] }
-  );
+  const { data } = await useFetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=year/`, {
+    pick: ["data"],
+  });
   console.log(data);
 };
 ```
@@ -46,13 +45,13 @@ const getMovies = async () => {
 
 #### pending property 뽑기
 
-```
-const {pending, data} = await useFetch();
+```ts
+const { pending, data } = await useFetch();
 ```
 
 #### template에서 사용
 
-```
+```html
 <div v-if="pending">Loading....</div>
 <div v-else v-for="i of data?.data.movies">
   <h1>{{ i.id }}</h1>
@@ -79,7 +78,7 @@ const {pending, data} = await useFetch();
 
 ## useHead
 
-> 커스텀 <head/>를 추가할 수 있다
+> 커스텀 `<head/>`를 추가할 수 있다
 
 ## useHydration
 
@@ -121,10 +120,10 @@ const {pending, data} = await useFetch();
 >
 > > 대신 Pinia를 많이 사용
 
-```
+```ts
 // In one component
-const sharedState = useState('share-this', 'default value');
+const sharedState = useState("share-this", "default value");
 
 // In another component
-const alsoSharedState = useState('share-this');
+const alsoSharedState = useState("share-this");
 ```

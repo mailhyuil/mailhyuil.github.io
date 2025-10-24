@@ -1,6 +1,6 @@
-# linux cmd cat <<EOF pipelining
+# linux cmd `cat <<EOF pipelining`
 
-## cat <<EOF pipelining
+## `cat <<EOF pipelining`
 
 ```sh
 cat <<EOF
@@ -8,7 +8,7 @@ hello
 EOF
 ```
 
-## cat <<EOF pipelining with filename
+## `cat <<EOF pipelining with filename`
 
 ```sh
 cat <<EOF > hello.txt

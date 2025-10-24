@@ -10,9 +10,9 @@
   - StaticApplicationContext
   - GenericApplicationContext
   - GenericXmlApplicationContext
-    ![](/img/ApplicationContext.jpg)
+    ![](./img/ApplicationContext.jpg)
   - `WebApplicationContext`
-    ![](/img/WebApplicationContext.jpg)
+    ![](./img/WebApplicationContext.jpg)
 
 ## POJO
 

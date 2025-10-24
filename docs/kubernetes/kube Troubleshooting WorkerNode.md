@@ -10,7 +10,7 @@
 > >
 > > CNI는 pod의 네트워크를 지원한다.
 > >
-> > > ssh <worker-node-name> 로 문제가 이 있는 worker node에 접속
+> > > `ssh <worker-node-name>` 로 문제가 이 있는 worker node에 접속
 
 ## 도커 데몬 확인
 

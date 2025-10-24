@@ -10,5 +10,5 @@
 
 ## 결제 과정
 
-![](/img/pg.png)
-![](/img/pg2.png)
+![](./img/pg.png)
+![](./img/pg2.png)

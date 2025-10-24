@@ -13,7 +13,7 @@
 롤백
 ```
 
-![](/img/hypervisor&container.png)
+![](./img/hypervisor&container.png)
 
 ## 명령어
 

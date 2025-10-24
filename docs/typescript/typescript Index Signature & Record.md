@@ -18,7 +18,7 @@ console.log(foo["Hello"]); // World
 { [key: string | number]: string }
 ```
 
-## Record<Key, Type>
+## `Record<Key, Type>`
 
 > key값에 string을 사용할 수 있다.
 

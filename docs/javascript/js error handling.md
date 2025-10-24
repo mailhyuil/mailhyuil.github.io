@@ -1,6 +1,6 @@
 # js 에러 핸들링
 
-> <https://httpstst.us/500> 에러던져주는 api
+> `<https://httpstst.us/500>` 에러던져주는 api
 
 ## Uncaught Error
 

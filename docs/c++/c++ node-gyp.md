@@ -4,11 +4,11 @@
 >
 > > 로컬 컴퓨터에서 설치된 Python, make, clang을 사용
 > >
-> > > <node.h> path
+> > > `<node.h> path`
 > > >
-> > > (윈도우: C:\Users\<UserName>\AppData\Local\node-gyp\Cache\<NodeVersion>\include\node)
+> > > (윈도우: `C:\Users\<UserName>\AppData\Local\node-gyp\Cache\<NodeVersion>\include\node`)
 > > >
-> > > (맥: /usr/local/include/node)
+> > > (맥: `/usr/local/include/node`)
 
 ## install
 

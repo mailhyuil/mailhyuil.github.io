@@ -18,7 +18,7 @@ print_type_of(&s); // type 프린트
 
 ## parse()
 
-> parse::<i32>(); 형태로 사용
+> `parse::<i32>();` 형태로 사용
 
 ## split_whitespace()
 
@@ -34,9 +34,9 @@ print_type_of(&s); // type 프린트
 
 > iterator를 모아준다!!
 >
-> > <String>이면 단일 String으로
+> > `<String>`이면 단일 String으로
 > >
-> > > <Vec>이면 Vec으로 모아준다
+> > > `<Vec>`이면 Vec으로 모아준다
 
 ```rs
 let v = vec![1,2,3,4,54];

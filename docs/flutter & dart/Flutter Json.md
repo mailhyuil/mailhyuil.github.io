@@ -31,7 +31,7 @@ void main() {
 
 ## fromJson, toJson
 
-> jsonDecode 되어 Map<String, dynamic> 타입을 Model의 타입으로 변환
+> jsonDecode 되어 `Map<String, dynamic>` 타입을 Model의 타입으로 변환
 
 ```dart
 import 'package:cloud_firestore/cloud_firestore.dart';

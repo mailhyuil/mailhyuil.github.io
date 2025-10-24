@@ -4,7 +4,7 @@
 >
 > > rootMargin 이 있으면, threshold 계산할 때, rootMargin 영역 만큼 더 계산한다.
 > >
-> > > threshold 를 number 나 Array<number> 로 정의할 수 있다. 정의하지 않는다면 기본값은 0 이다.
+> > > threshold 를 number 나 `Array<number>` 로 정의할 수 있다. 정의하지 않는다면 기본값은 0 이다.
 
 ## terms
 

@@ -8,7 +8,7 @@
 
 > 값 ? 값 : else 로 외워라
 
-## {'값' : boolean}
+## \{'값' : boolean\}
 
 > boolean이 참일 시 값을 할당
 

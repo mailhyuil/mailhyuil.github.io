@@ -2,7 +2,7 @@
 
 > trusted-ca-file, cert-file, key-file 인증서가 필요
 >
-> > ps -ef | grep kube | grep <option_name> 으로 인증서 경로 확인
+> > `ps -ef | grep kube | grep <option_name>` 으로 인증서 경로 확인
 > >
 > > > ETCDCTL_API=3 는 version을 명시하는 것
 

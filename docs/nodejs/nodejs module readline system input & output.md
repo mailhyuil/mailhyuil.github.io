@@ -1,6 +1,6 @@
 # system input & output
 
-> node <filename>으로 run
+> node `<filename>`으로 run
 
 ## 한줄 입력
 

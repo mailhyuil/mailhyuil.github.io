@@ -8,7 +8,7 @@
 > > >
 > > > > goroutine내에서 변경한 값을 리턴하기 위해서는 channel 또는 pointer를 써야한다.
 > > > >
-> > > > > <- ch이 호출된 경우 ch에 값이 들어올 때까지 blocking된다.
+> > > > > \<- ch이 호출된 경우 ch에 값이 들어올 때까지 blocking된다.
 
 ## split long task
 
@@ -40,23 +40,23 @@ func longTask(){
 package main
 
 import (
-	"fmt"
+ "fmt"
 )
 
 func main() {
-	ch := make(chan int)
-	for i := 0; i < 100000; i++ { // 병렬로 처리
-		go func() {
+ ch := make(chan int)
+ for i := 0; i < 100000; i++ { // 병렬로 처리
+  go func() {
             // ...logic...
-			ch <- 1
-		}()
-	}
+   ch <- 1
+  }()
+ }
 
-	count := 0
-	for i := 0; i < 100000; i++ {
-		count += <-ch // 먼저 온 것부터 처리
-	}
+ count := 0
+ for i := 0; i < 100000; i++ {
+  count += <-ch // 먼저 온 것부터 처리
+ }
 
-	fmt.Println(count) // 100000 기대
+ fmt.Println(count) // 100000 기대
 }
 ```

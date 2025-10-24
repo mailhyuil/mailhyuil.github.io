@@ -1,6 +1,6 @@
 # scp vs sftp
 
-![](/img/scpsftp.png)
+![](./img/scpsftp.png)
 
 ## scp
 

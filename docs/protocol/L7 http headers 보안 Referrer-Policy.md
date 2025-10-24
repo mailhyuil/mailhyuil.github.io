@@ -1,6 +1,6 @@
 # Referrer-Policy
 
-> HTTP 리퍼러(HTTP Referrer)는 요청이 발생한 <protocol>://<host>:<port><path><query><fragment>을 의미한다.
+> HTTP 리퍼러(HTTP Referrer)는 요청이 발생한 `<protocol>://<host>:<port><path><query><fragment>`을 의미한다.
 >
 > > The HTTP Referrer-Policy 헤더는 referrer의 정보를 얼마나 요청에 포함시킬 것인지를 결정한다.
 > >

@@ -74,4 +74,4 @@ public class LifeCycleServlet extends HttpServlet {
 }
 ```
 
-![](/img/servlet.png)
+![](./img/servlet.png)

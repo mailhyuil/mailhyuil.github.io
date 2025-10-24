@@ -21,7 +21,7 @@ ENTRYPOINT ["node", "main.js"]
 >
 > 명령어를 직접 입력하면 CMD는 무시됨
 >
-> > e.g. docker run my_app <CMD>
+> > e.g. docker run my_app \<CMD>
 
 ```dockerfile
 # array

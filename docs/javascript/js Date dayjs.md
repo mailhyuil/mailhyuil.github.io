@@ -7,7 +7,7 @@
 ## install
 
 ```sh
-yarn add dayjs
+npm i dayjs
 ```
 
 ## format()
@@ -103,7 +103,7 @@ date1.diff(date2, "year"); // 1
 
 ## isBefore() && isAfter && isSame()
 
-> <, >, === 로직과 비슷하다고 생각하면 된다
+> `<`, `>`, `===` 로직과 비슷하다고 생각하면 된다
 
 ```js
 var date = dayjs("2021-10-11");
@@ -113,7 +113,7 @@ date.isSame("2021-10-11"); // true
 
 ### IsSameOrBefore && IsSameOrAfter && IsBetween plugin
 
-> <=, >=, between
+> `<=`, `>=`, `between`
 
 ```js
 const isSameOrBefore = require("dayjs/plugin/isSameOrBefore");
@@ -126,7 +126,7 @@ const isBetween = require("dayjs/plugin/isBetween");
 dayjs.extend(isBetween);
 ```
 
-# dayjs hour min
+## dayjs hour min
 
 ```js
 dayjs().hour(23).minute(59).toDate(),

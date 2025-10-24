@@ -6,7 +6,7 @@
 
 ## 회복 가능한 에러 (recoverable error)
 
-### Result<T, E>
+### `Result<T, E>`
 
 ## 회복 불가능한 에러 (unrecoverable error)
 

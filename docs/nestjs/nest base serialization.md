@@ -8,9 +8,9 @@
 > >
 > > e.g. Error 객체를 json으로 직렬화한다.
 > >
-> > > binary -[serialize]-> json -[serialize]-> dto -[serialize]-> domain model -[serialize]-> entity -[serialize]-> db
+> > > `binary -[serialize]-> json -[serialize]-> dto -[serialize]-> domain model -[serialize]-> entity -[serialize]-> db`
 > > >
-> > > binary <-[deserialize]- json <-[deserialize]- dto <-[deserialize]- domain model <-[deserialize]- entity <-[deserialize]- db
+> > > `binary <-[deserialize]- json <-[deserialize]- dto <-[deserialize]- domain model <-[deserialize]- entity <-[deserialize]- db`
 > > >
 > > > > serialization을 위한 라이브러리로는 class-transformer, zod 등이 있다
 > > > >

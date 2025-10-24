@@ -16,7 +16,7 @@ resources:
   - service.yaml
 ```
 
-## kubectl kustomize <kustomize_directory>
+## kubectl kustomize \<kustomize_directory\>
 
 ```sh
 kubectl kustomize ./kustomize # dry-run으로 실행됨

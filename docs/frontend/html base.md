@@ -1,6 +1,6 @@
 # html base tag
 
-> The browser uses the <base href> value to prefix relative URLs when referencing CSS files, scripts, and images.
+> The browser uses the `<base href>` value to prefix relative URLs when referencing CSS files, scripts, and images.
 >
 > > 브라우저는 CSS, JS, Image.. 의 파일을 찾을 때 base의 href값을 prefix로 사용
 > >

@@ -1,6 +1,6 @@
 # Dockerfile platform 지정
 
-- FROM --platform=linux/amd64 <image_name> 사용
+- `FROM --platform=linux/amd64 <image_name>` 사용
 
 ```Dockerfile
 ARG NODE_VERSION=lts

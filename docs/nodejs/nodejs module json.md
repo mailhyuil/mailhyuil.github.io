@@ -4,7 +4,7 @@
 
 ## json module 활성화
 
-> assert { type: "json" }
+> `assert { type: "json" }`
 >
 > > typescript 사용 시 tsconfig에 "resolveJsonModule": true,를 추가
 

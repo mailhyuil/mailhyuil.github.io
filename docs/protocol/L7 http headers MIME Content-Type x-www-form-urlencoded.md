@@ -6,10 +6,10 @@
 > >
 > > > 앱에서 해당 타입으로 해당 POST 요청의 body에 대한 인코딩이 되는지 여부를 확인할 필요가 있다.
 > > >
-> > > e.g. express.urlencoded({extended: true})
+> > > e.g. `express.urlencoded({extended: true})`
 
 ## URL Encoding
 
-> key=value&key=value&key=value
+> `key=value&key=value&key=value`
 >
-> > 데이터의 특수 문자나 공백과 같은 부분이 url 인코딩 규칙[RFC1738]에 따라 인코딩 됩니다. 특정 문자들은 '%' 기호와 그 문자의 ASCII 코드를 표시하여 인코딩 된다.
+> > 데이터의 특수 문자나 공백과 같은 부분이 url `인코딩 규칙[RFC1738]`에 따라 인코딩 됩니다. 특정 문자들은 `%` 기호와 그 문자의 ASCII 코드를 표시하여 인코딩 된다.

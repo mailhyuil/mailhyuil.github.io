@@ -1,6 +1,6 @@
 # c++ static_cast vs dynamic_cast
 
-> \*\_cast<new_type>(expression) 으로 사용
+> `*_cast<new_type>(expression)` 으로 사용
 
 ## static_cast
 

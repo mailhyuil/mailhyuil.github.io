@@ -6,7 +6,7 @@
 echo hello > hello.txt
 ```
 
-## cat <<EOF pipelining
+## cat \<\<EOF pipelining
 
 ```sh
 cat <<EOF
@@ -14,7 +14,7 @@ hello
 EOF
 ```
 
-## cat <<EOF pipelining with filename
+## cat \<\<EOF pipelining with filename
 
 ```sh
 cat <<EOF > hello.txt
@@ -22,7 +22,7 @@ hello
 EOF
 ```
 
-## cat <<EOF pipelining shortcut
+## cat \<\<EOF pipelining shortcut
 
 ```sh
 cat > hello.txt

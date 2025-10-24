@@ -39,18 +39,18 @@
 2. next()에 데이터 넣기
 
 ```js
-const observable = new Observable((observer) => {
+const observable = new Observable(observer => {
   fs.readFile("README.md", "utf-8", (err, data) => {
     observer.next(data);
   });
 });
 ```
 
-3. .subscribe({next:콜백, complete:콜백, error:콜백})
+3. `.subscribe({next:콜백, complete:콜백, error:콜백})`
 
 ```js
 observable.subscribe({
-  next: (data) => {
+  next: data => {
     console.log(data);
   },
 });

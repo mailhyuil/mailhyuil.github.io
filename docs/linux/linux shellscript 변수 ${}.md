@@ -18,7 +18,7 @@ echo "${USERNAME}이 바보" # hyuil이 바보
 
 ## default value
 
-> ${KEY:-VALUE}
+> `${KEY:-VALUE}`
 
 ```sh
 echo ${USERNAME:-"default_name"} # USERNAME이 없으면 default 출력

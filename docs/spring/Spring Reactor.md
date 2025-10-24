@@ -1,4 +1,4 @@
-# Reactor (스프링 리액터)
+# Spring Reactor (스프링 리액터)
 
 ## pom.xml
 
@@ -41,11 +41,11 @@
 
 ## Observer pattern
 
-- Publisher(Provider)
+- `Publisher(Provider)`
   `Flux` `Mono`
-- Subscriber(Consumer) // Publisher에게 데이터를 받을 객체
-- Subscription(Message) // Publisher가 보내는 데이터
-- Processor<T,R> // Publisher이면서 Subscriber T: Processor가 생산하는 원소타입 R: Processor가 소비하는 원소타입
+- `Subscriber(Consumer)` // Publisher에게 데이터를 받을 객체
+- `Subscription(Message)` // Publisher가 보내는 데이터
+- `Processor<T,R> // Publisher이면서 Subscriber T: Processor`가 생산하는 원소타입 `R: Processor`가 소비하는 원소타입
 
 ```java
 Subscriber<Integer> subscriber = new Subscriber<>() {

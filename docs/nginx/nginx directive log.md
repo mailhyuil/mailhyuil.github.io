@@ -20,7 +20,7 @@ http {
 
 ## 개별로그
 
-> 개별로그를 저장할 디렉토리 생성 sudo mkdir /var/log/nginx/<server 이름>
+> 개별로그를 저장할 디렉토리 생성 `sudo mkdir /var/log/nginx/<server 이름>`
 >
 > > server블록 안에 다음을 추가
 

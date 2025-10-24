@@ -86,7 +86,7 @@ cd ./dist/my-lib && npm publish --access=public # public 패키지로 publish
 
 ## secondary entry point
 
-### /projects/my-lib/<component-name>
+### `/projects/my-lib/<component-name>`
 
 ```txt
 my-lib
@@ -105,7 +105,7 @@ my-lib
   ├──package.json
 ```
 
-### /projects/my-lib/<component-name>/ng-package.json
+### `/projects/my-lib/<component-name>/ng-package.json`
 
 > dest를 없애준다.
 

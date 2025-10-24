@@ -23,7 +23,7 @@ GET
 
 # TLS 핸드셰이크
 
-![](/img/ssl.png)
+![](./img/ssl.png)
 
 1. Client hello
 

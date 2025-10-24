@@ -1,6 +1,6 @@
 # Spring Security Basic
 
-![](/img/spring_security.jpg)
+![](./img/spring_security.jpg)
 
 ## UserDetails Interface
 

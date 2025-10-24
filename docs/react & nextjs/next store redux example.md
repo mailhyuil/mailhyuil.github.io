@@ -1,6 +1,6 @@
 # react redux
 
-> App <-> Provider <- Store <- Reducer(State / Actions)
+> App `<->` Provider `<-` Store `<-` Reducer(State / Actions)
 
 ## Reducer(State / Actions)
 

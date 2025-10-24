@@ -6,7 +6,7 @@
 > >
 > > > 만약 출력 경로가 없다면, 터미널로 출력된다
 
-## <
+## \<
 
 > 리눅스의 "default"
 >
@@ -20,7 +20,7 @@ cat hello.txt
 cat < hello.txt
 ```
 
-## >
+## \>
 
 > 표준 출력 스트림의 도착지점을 파일로 설정
 >
@@ -32,7 +32,7 @@ cat < hello.txt
 echo "hello world" > hello.txt
 ```
 
-## >>
+## \>\>
 
 > 파일 맨 뒤에 추가
 
@@ -40,7 +40,7 @@ echo "hello world" > hello.txt
 echo "hello world 2" >> hello.txt
 ```
 
-## 2>
+## 2\>
 
 > 표준 에러 스트림을 사용
 >
@@ -50,7 +50,7 @@ echo "hello world 2" >> hello.txt
 ls -l /bin/usr 2> ls-error.txt
 ```
 
-## 2>&1
+## 2\>&1
 
 > 표준에러를 표준출력으로 redirection 하라는 의미
 >

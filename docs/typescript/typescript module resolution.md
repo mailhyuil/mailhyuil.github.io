@@ -6,11 +6,11 @@
 >
 > > node로 되어있으면 node.js의 모듈 해석 방식을 따르고 classic으로 되어있으면 전통적인 모듈 해석 방식을 따른다.
 > >
-> > > 주어진 경로의 <package_name>.d.ts를 찾고
+> > > 주어진 경로의 `<package_name>.d.ts`를 찾고
 > > >
 > > > 없으면 package.json의 types 필드를 확인하여 이동하여 찾는다
 > > >
-> > > 전부 없으면 node_modules/@types/<package_name>.d.ts 를 찾음
+> > > 전부 없으면 `node_modules/@types/<package_name>.d.ts` 를 찾음
 
 ## node
 

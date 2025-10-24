@@ -1,6 +1,6 @@
 # aws ECR (Elastic Container Registry)
 
-> registry 생성 : <project_name>/<image_name>:<tag>
+> registry 생성 : `<project_name>/<image_name>:<tag>`
 
 ## Login
 

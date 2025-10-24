@@ -6,4 +6,4 @@
 
 ## CSR : 데이터를 클라이언트에서 가져온다. (fetch가 완료되지 않은 상태 -> fetch 완료)
 
-## <ClientOnly> : 감싼 영역을 CSR 한다. 서버가 가지고 있지 않은 것들은 ClientOnly해야한다. (e.g. window 객체)
+## \<ClientOnly> : 감싼 영역을 CSR 한다. 서버가 가지고 있지 않은 것들은 ClientOnly해야한다. (e.g. window 객체)

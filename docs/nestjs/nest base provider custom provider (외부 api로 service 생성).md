@@ -4,7 +4,7 @@
 
 > useFactory 내에서 api client를 init 후 return
 >
-> > type이 없는 경우 ReturnType<typeof [CLIENT_생성_함수]>로 type 생성
+> > type이 없는 경우 `ReturnType<typeof [CLIENT_생성_함수]>`로 type 생성
 
 ```ts
 import { createClient } from "some-api-client";

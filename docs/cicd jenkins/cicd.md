@@ -2,4 +2,4 @@
 
 > github actions, jenkins CI, travis CI
 
-![](/img/cicd.png)
+![](./img/cicd.png)

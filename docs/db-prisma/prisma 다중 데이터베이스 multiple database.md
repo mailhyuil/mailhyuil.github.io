@@ -4,9 +4,9 @@
 
 > 두개 생성
 >
-> > prisma/<project-name-a>/prisma.schema
+> > `prisma/<project-name-a>/prisma.schema`
 > >
-> > prisma/<project-name-b>/prisma.schema
+> > `prisma/<project-name-b>/prisma.schema`
 
 ```prisma
 generator client {
@@ -22,7 +22,7 @@ datasource db {
 
 ## prisma migrate & generate
 
-> node_modules/@prisma/client/<project-name> 으로 prisma client가 생성됨
+> `node_modules/@prisma/client/<project-name>` 으로 prisma client가 생성됨
 
 ## service
 

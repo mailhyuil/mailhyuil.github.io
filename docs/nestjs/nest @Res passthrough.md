@@ -6,7 +6,7 @@
 > >
 > > > (e.g. interceptor, filter, pipe, guard, @HttpCode, @Header...)
 > >
-> > > @Res({ passthrough: true })를 사용하면 표준 응답처리 미들웨어를 거치게 된다.
+> > > `@Res({ passthrough: true })`를 사용하면 표준 응답처리 미들웨어를 거치게 된다.
 
 ```ts
 @Get()
