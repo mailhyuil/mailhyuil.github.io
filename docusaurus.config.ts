@@ -5,9 +5,9 @@ import { themes as prismThemes } from "prism-react-renderer";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Mailhyuil Blog",
-  tagline: "Hyuil's Personal Blog",
-  favicon: "img/favicon.ico",
+  title: "Mailhyuil's Recipes",
+  tagline: "Hyuil's Personal Recipe Collection",
+  favicon: "img/favicon.png",
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -21,8 +21,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "github/mailhyuil", // Usually your GitHub org/user name.
+  projectName: "my-blog", // Usually your repo name.
 
   onBrokenLinks: "throw",
 
@@ -43,20 +43,20 @@ const config: Config = {
           sidebarCollapsed: true,
           sidebarCollapsible: true,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ["rss", "atom"],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          // Useful options to enforce blogging best practices
-          onInlineTags: "warn",
-          onInlineAuthors: "warn",
-          onUntruncatedBlogPosts: "warn",
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   feedOptions: {
+        //     type: ["rss", "atom"],
+        //     xslt: true,
+        //   },
+        //   // Please change this to your repo.
+        //   // Remove this to remove the "edit this page" links.
+        //   editUrl: "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+        //   // Useful options to enforce blogging best practices
+        //   onInlineTags: "warn",
+        //   onInlineAuthors: "warn",
+        //   onUntruncatedBlogPosts: "warn",
+        // },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -93,7 +93,7 @@ const config: Config = {
       insights: false,
     },
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/logo.webp",
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -106,7 +106,7 @@ const config: Config = {
       title: "Mailhyuil Blog",
       logo: {
         alt: "Mailhyuil Blog Logo",
-        src: "img/logo.svg",
+        src: "img/logo.webp",
       },
       items: [
         {
@@ -115,7 +115,7 @@ const config: Config = {
           position: "left",
           label: "Recipes",
         },
-        { to: "/blog", label: "Blog", position: "left" },
+        // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/mailhyuil",
           label: "GitHub",
@@ -140,7 +140,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Recipe Blog Project by Mailhyuil.`,
     },
     prism: {
       theme: prismThemes.github,
