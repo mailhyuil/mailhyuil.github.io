@@ -131,7 +131,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Blog Project by Mailhyuil.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Mailhyuil. All Rights Reserved.`,
     },
     prism: {
       theme: prismThemes.github,
