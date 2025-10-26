@@ -3,15 +3,25 @@
 ## install
 
 ```sh
-npm i @openai/agents-openai
+npm i @openai/agents
 ```
 
-## create agent
+## Terminology
 
-```js
-import { createOpenAIAgent } from "@openai/agents-openai";
+### Agent
 
-const agent = createOpenAIAgent({
-  model: "gpt-4o-mini",
-});
-```
+> LLMs
+
+### Handoff
+
+> interactions
+
+### Guardrail
+
+> controls
+
+## Steps
+
+1. Create an instance of Agent
+2. Use with trace() to track the agent
+3. Call runner.run() to run the agent

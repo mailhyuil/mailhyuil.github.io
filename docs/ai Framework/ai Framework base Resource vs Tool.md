@@ -1,4 +1,4 @@
-# Resource vs Tool
+# ai AI Framework base Resource vs Tool
 
 ## Resource
 
