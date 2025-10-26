@@ -5,11 +5,9 @@
 ```sh
 pip install -U "huggingface_hub[cli]"
 
-huggingface-cli login
+hf auth login
 
-huggingface-cli repo create my-repo
+hf upload --path my-ts-chatbot
 
-huggingface-cli upload --path my-repo
-
-huggingface-cli download --path my-repo
+hf download --path my-ts-chatbot
 ```
