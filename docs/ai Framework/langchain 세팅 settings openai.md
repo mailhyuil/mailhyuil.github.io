@@ -6,6 +6,7 @@
 npm i langchain
 npm i @langchain/core
 npm i @langchain/openai
+npm i @langchain/community
 
 # client polyfill
 npm i web-streams-polyfill@4

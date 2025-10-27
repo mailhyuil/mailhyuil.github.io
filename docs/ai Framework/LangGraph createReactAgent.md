@@ -1,4 +1,4 @@
-# langchain LangGraph createReactAgent
+# LangGraph createReactAgent
 
 ```ts
 // agent.ts

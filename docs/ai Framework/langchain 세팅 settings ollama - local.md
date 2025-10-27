@@ -3,7 +3,11 @@
 ## install
 
 ```sh
-npm i langchain @langchain/core @langchain/ollama
+npm i langchain
+npm i @langchain/core
+npm i @langchain/community
+
+npm i @langchain/ollama
 ```
 
 ## usage

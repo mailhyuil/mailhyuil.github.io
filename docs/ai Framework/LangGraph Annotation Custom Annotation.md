@@ -1,4 +1,4 @@
-# langchain LangGraph Annotation Custom Annotation
+# LangGraph Annotation Custom Annotation
 
 ```ts
 import { BaseMessage } from "@langchain/core/messages";
