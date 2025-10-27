@@ -1,14 +1,30 @@
 # cursor IDE
 
-## .cursor 폴더
+## .cursor/rules/\*.mdc or client(server)/.cursor/rules/\*.mdc
 
-| 파일                   | 역할                                                        |
-| ---------------------- | ----------------------------------------------------------- |
-| `.cursor/rules.json`   | "스타일 가이드 + 아키텍처 원칙" = AI용 eslint/prettier 개념 |
-| `.cursor/context.json` | 항상 공유되는 핵심 파일 세트(예: src/ + docs/API)           |
-| `.cursor/memory.json`  | LLM이 “학습한” 장기 패턴. 프로젝트 특성 기억                |
-| `.cursor/prompts/*.md` | 커스텀 프롬프트 레시피 저장                                 |
-| `.cursorignore`        | Git의 `.gitignore` 처럼, AI가 안 읽게 하는 필터             |
+### Rule type
+
+| Rule type       | Description                                                                |
+| --------------- | -------------------------------------------------------------------------- |
+| Always          | 항상 모델 컨텍스트에 포함돼                                                |
+| Auto Attachment | glob 패턴과 일치하는 파일이 참조될 때 포함돼                               |
+| Agent Requested | AI가 포함 여부를 결정할 수 있도록 제공돼. description은 반드시 제공해야 해 |
+| Manual          | @ruleName을 사용해 명시적으로 언급된 경우에만 포함돼                       |
+
+### Rule syntax
+
+```mdc
+---
+description: RPC 서비스 보일러플레이트
+globs:
+alwaysApply: false
+---
+
+- 서비스를 정의할 때는 내부 RPC 패턴을 사용해
+- 서비스 이름은 항상 snake_case를 사용해
+
+@service-template.ts
+```
 
 ## 단축키
 
@@ -29,3 +45,7 @@
 > @extension (확장자)
 >
 > > 확장자 내의 파일 목록
+
+## .cursorrules (legacy)
+
+> 기존 커서룰 방식
