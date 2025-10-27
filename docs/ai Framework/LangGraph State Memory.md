@@ -15,7 +15,7 @@ const model = new ChatOpenAI({
 });
 
 const checkpointer = new MemorySaver();
-const thread_id = `test-${Date.now() + "-" + Math.random()}`;
+const threadId = `test-${Date.now() + "-" + Math.random()}`;
 
 const callModel = async (state: typeof MessagesAnnotation.State) => {
   const response = await model.invoke(state.messages);
@@ -30,14 +30,15 @@ await this.graph.invoke(
   {
     messages: [new HumanMessage("My name is Sangbaek")],
   },
-  { configurable: { thread_id } },
+  { configurable: { threadId } },
 );
 const result = await this.graph.invoke(
   {
     messages: [new HumanMessage("What is my name?")],
   },
-  { configurable: { thread_id } },
+  { configurable: { threadId } },
 );
 console.log(result.messages[result.messages.length - 1].content);
 // your name is Sangbaek
+await checkpointer.deleteThread(threadId);
 ```
