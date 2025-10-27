@@ -1,4 +1,4 @@
-# LangGraph base
+# LangGraph terminology
 
 ## StateGraph (builder)
 
@@ -16,17 +16,23 @@ const workflow = new StateGraph(MessagesAnnotation)
   .addConditionalEdges("agent", shouldContinue);
 ```
 
-## Annotation
+## Annotation / State (Runtime State)
 
-> State의 스키마 + 병합 규칙(reducer) + 기본값(default)까지 포함한 “State 정의자”
+> Annotation이란 State를 정의하는 객체
 >
-> > MessagesAnnotation: 메시지 상태를 정의하는 어노테이션
-
-## State (Runtime State)
-
-> Annotation을 사용하여 정의된 상태를 저장하는 객체
+> > State의 스키마 + 병합 규칙(reducer) + 기본값(default)까지 포함한 “State 정의자”
 
 ## Node
+
+> 노드는 상태를 변경하는 함수
+
+## Edge
+
+> 엣지는 노드 간의 연결을 나타내며, 노드 간의 이동을 제어
+>
+> > 'agent', 'tools', '\_\_start\_\_', '\_\_end\_\_' 등의 값을 사용해서 특정 노드로 이동
+> >
+> > > `import {START, END} from "@langchain/langgraph";`
 
 ## interrupt
 
@@ -51,7 +57,5 @@ await graph.stream(new Command({ resume: "answer 1" }));
 await graph.stream(new Command({ resume: "answer 2" }));
 // Final result: { myKey: "answer 1 answer 2" }
 ```
-
-## Edge
 
 ## Compile

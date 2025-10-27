@@ -25,98 +25,79 @@
 ## define a new graph
 
 ```ts
+import { AIMessage, HumanMessage } from "@langchain/core/messages";
+import { MemorySaver, MessagesAnnotation, StateGraph } from "@langchain/langgraph";
 import { ToolNode } from "@langchain/langgraph/prebuilt";
-import { tool } from "@langchain/core/tools";
 import { ChatOpenAI } from "@langchain/openai";
-import { HumanMessage, AIMessage } from "@langchain/core/messages";
-import { StateGraph, MessagesAnnotation } from "@langchain/langgraph";
+import { inputDataTool } from "./helpers/input-data";
+import { pushTool } from "./helpers/push";
 
-const sayHi = tool(
-  ({ name }: { name: string }): void => {
-    console.log(`Hi, ${name}!`);
-  },
-  {
-    name: "sayHi",
-    description: "say Hi with user's name if provided",
-    // input schema
-    schema: z.object({
-      name: z.string(),
-    }),
-  },
-);
-
-const sayGoodbye = tool(
-  ({ name }: { name: string }): void => {
-    console.log(`Hi, ${name}!`);
-  },
-  {
-    name: "sayGoodbye",
-    description: "say goodbye with user's name if provided",
-    // input schema
-    schema: z.object({
-      name: z.string(),
-    }),
-  },
-);
-
-// Define the tools for the agent to use
-const tools = [sayHi, sayGoodbye];
+/** ---- 0) Tools & Model ---- **/
+const tools = [pushTool, inputDataTool];
 const toolNode = new ToolNode(tools);
 
-// Create a model and give it access to the tools
 const model = new ChatOpenAI({
   model: "gpt-4o-mini",
   temperature: 0,
 }).bindTools(tools);
 
-// 계속할지 말지 결정하는 함수 정의
+/** ---- 1) Routing ---- **/
 function shouldContinue({ messages }: typeof MessagesAnnotation.State) {
-  const lastMessage = messages[messages.length - 1] as AIMessage;
-  // 도구 호출이 있으면 "tools" 노드로 라우팅
-  if (lastMessage.tool_calls?.length) {
-    return "tools";
-  }
-  // 그렇지 않으면 특수한 "__end__" 노드를 사용하여 멈춤
+  console.log("shouldContinue");
+  const last = messages[messages.length - 1] as AIMessage;
+  if (last.tool_calls?.length) return "tools";
   return "__end__";
 }
 
-// 모델을 호출하는 함수 정의
-async function callModel(state: typeof MessagesAnnotation.State) {
+/** ---- 2) Model call ---- **/
+async function callModel(state: typeof MessagesAnnotation.State): Promise<typeof MessagesAnnotation.State> {
+  console.log("callModel");
   const response = await model.invoke(state.messages);
-  // 기존 목록에 추가되기 때문에 목록을 반환
   return { messages: [response] };
 }
 
-// Define a new graph
+/** ---- 4) 그래프 빌드 ---- **/
+const checkpointer = new MemorySaver(); // 재개를 위해 필수
 const workflow = new StateGraph(MessagesAnnotation)
   .addNode("agent", callModel)
-  .addEdge("__start__", "agent") // __start__ is a special name for the entrypoint
   .addNode("tools", toolNode)
-  .addEdge("tools", "agent")
-  .addConditionalEdges("agent", shouldContinue);
+  .addEdge("__start__", "agent") // 시작 → 입력 대기 노드
+  .addEdge("tools", "agent") // shouldContinue 함수에 따라 툴 노드 또는 종료 노드로 이동
+  .addConditionalEdges("agent", shouldContinue); // 에이전트 실행 후 툴 실행 여부에 따라 툴 노드 또는 종료 노드로 이동
 
-// Finally, we compile it into a LangChain Runnable.
-const app = workflow.compile();
-```
+const app = workflow.compile({ checkpointer });
 
-## use the graph
+/** ---- 5) 터미널에서 입력 받아 재개하기 ---- **/
+const thread_id = "demo-" + Math.random().toString(36).slice(2);
 
-```ts
-// 첫번째 사용자 메시지를 실행 첫번째 노드로 이동
-const finalState = await app.invoke({
-  messages: [new HumanMessage("Hi, My name is John")],
-});
+const systemPrompt = `
+You are an assistant that can use tools.
 
-console.log(finalState.messages[finalState.messages.length - 1].content);
-// Hi, John!
+Your goal:
+- If user asks to send a notification but name, email, or message is missing, 
+  you MUST call the tool "input-data-tool" to ask the user for that info.
+- Once you have all of them, call the tool "push-tool" to send the notification.
+- Do NOT ask the user directly in text. Use the tools.
+`;
 
-// 다음 사용자 메시지가 오면 이전 상태를 기억해두고 있다가 그 다음 노드로 이동
-const nextState = await app.invoke({
-  // Including the messages from the previous run gives the LLM context.
-  // This way it knows we're asking about the weather in NY
-  messages: [...finalState.messages, new HumanMessage("Goodbye")],
-});
+async function work(message: string) {
+  for await (const _ of await app.stream(
+    { messages: [new AIMessage(systemPrompt), new HumanMessage(message)] },
+    { configurable: { thread_id } },
+  )) {
+    if (_.agent) {
+      console.log(_.agent.messages[_.agent.messages.length - 1].content);
+    }
+  }
 
-console.log(nextState.messages[nextState.messages.length - 1].content);
-// Goodbye, John!
+  const finalState = await app.getState({ configurable: { thread_id } });
+  const values: typeof MessagesAnnotation.State = finalState.values;
+  const last = values.messages[values.messages.length - 1];
+  console.log("\n=== FINAL ===\n" + last.content + "\n");
+}
+
+function main() {
+  work("Would you push a notification to the user?");
+}
+main();
 ```
