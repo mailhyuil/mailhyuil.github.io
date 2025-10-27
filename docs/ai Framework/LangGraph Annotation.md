@@ -1,4 +1,4 @@
-# langchain LangGraph Annotation
+# LangGraph Annotation
 
 > 각 노드(State)에서 상태를 설명하는 메타데이터
 >
