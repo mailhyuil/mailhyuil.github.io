@@ -7,8 +7,14 @@
 ```ts
 import { createAgent } from "langchain";
 
+const model = new ChatOpenAI({
+  model: "gpt-4o-mini",
+  temperature: 0,
+  maxTokens: 1000,
+});
+
 const agent = createAgent({
-  model: "anthropic:claude-sonnet-4-5",
+  model: model, // 또는 string으로 입력 가능 "anthropic:claude-sonnet-4-5",
   tools: [getWeather],
   systemPrompt: "You are a helpful assistant.",
 });
