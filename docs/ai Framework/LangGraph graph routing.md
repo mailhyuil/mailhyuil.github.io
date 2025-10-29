@@ -1,4 +1,4 @@
-# LangGraph graph routing
+# LangGraph graph Routing
 
 ## addConditionalEdges
 
