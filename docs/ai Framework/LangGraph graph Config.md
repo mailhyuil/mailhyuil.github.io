@@ -1,4 +1,4 @@
-# LangGraph config
+# LangGraph graph Config
 
 > thread_id를 넣어서 상태를 유지할 수 있게 도와준다.
 >
