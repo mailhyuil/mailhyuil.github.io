@@ -1,8 +1,10 @@
 # LangGraph graph Runtime Context
 
-> StateGraph 두번째 인자로 ContextSchema를 전달하여 런타임 컨텍스트를 정의할 수 있다.
+> 한번 run할 때 유지되는 컨텍스트, configurable과 다르게 한번 run이 끝나면 초기화된다. (configurable은 thread_id만 있다면 계속 유지된다.)
 >
-> > Nodes, Tools, 미들웨어에서 두번째 매개변수로 접근 가능
+> > StateGraph 두번째 인자로 ContextSchema를 전달하여 런타임 컨텍스트를 정의할 수 있다.
+> >
+> > > Nodes, Tools, 미들웨어에서 두번째 매개변수로 접근 가능
 
 ```ts
 import { Annotation } from "@langchain/langgraph";

@@ -1,4 +1,4 @@
-# LangGraph custom agent
+# LangGraph graph Graph API
 
 ```ts
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
