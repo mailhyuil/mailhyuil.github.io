@@ -1,4 +1,4 @@
-# LangGraph MCP Adaptor
+# langchain MCP
 
 ## install
 
@@ -29,7 +29,7 @@ const client = new MultiServerMCPClient({
 
 const tools = await client.getTools();
 const agent = createAgent({
-  model: "anthropic:claude-sonnet-4-5",
+  model: "claude-sonnet-4-5-20250929",
   tools,
 });
 
