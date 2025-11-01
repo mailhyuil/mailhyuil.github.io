@@ -1,4 +1,4 @@
-# LangGraph Runtime
+# langchain Runtime
 
 > createAgent는 내부적으로 LangGraph 런타임 위에서 돈다. 이때 Runtime 객체가 주입
 >

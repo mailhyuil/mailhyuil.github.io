@@ -167,6 +167,8 @@ async function bootstrap() {
   app.set("trust proxy", true);
   /** Global Prefix */
   app.setGlobalPrefix("api");
+  /** Shutdown Hooks */
+  app.enableShutdownHooks();
   /** Versioning */
   app.enableVersioning({
     type: VersioningType.URI,
