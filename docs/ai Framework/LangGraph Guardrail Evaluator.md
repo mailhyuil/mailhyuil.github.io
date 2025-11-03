@@ -1,4 +1,4 @@
-# LangGraph Evaluator
+# LangGraph Guardrail Evaluator
 
 ## evaluator-annotation.ts
 
