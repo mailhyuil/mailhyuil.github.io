@@ -15,7 +15,7 @@
   background-color: #fff;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0 0 50px 0 rgba(255, 196, 164, 0.596);
+  box-shadow: 0 0 40px 0 #ffe8bf80, 0 0 80px 0 #ffb8e079;
 }
 
 .content {
@@ -31,4 +31,16 @@
   background: linear-gradient(to right, #eb2193, #fc9f0a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] {
+  .main {
+    background-color: #1c1c1b;
+  }
+}
+
+[data-theme="light"] {
+  .main {
+    background-color: #ffffff;
+  }
 }
