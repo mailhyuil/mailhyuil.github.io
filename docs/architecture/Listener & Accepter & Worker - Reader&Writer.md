@@ -18,15 +18,15 @@
 
 ### Single Listener, Single Accepter, Single Worker
 
-nodejs는 **하나의 프로세스**가 모든 Listener, Accepter, Worker 일을 처리
+Node.js는 **하나의 프로세스**가 모든 Listener, Accepter, Worker 일을 처리
 
 ### Single Listener, Single Accepter, Multiple Worker
 
-memcached는 **multi-threading**을 사용하여 여러 worker가 동시에 작업을 수행
+Memcached는 **하나의 리스너 스레드**가 있고, **여러 Worker 스레드**가 동시에 요청을 처리한다.
 
 ### Single Listener, Multiple Acceptor, Multiple Worker
 
-nginx가 listening후 로드밸런싱을 통해 여러 worker가 동시에 작업을 수행
+nginx(accept_mutex on; 사용)가 listening 후 여러 Acceptor가 동시에 요청을 수락한다.
 
 ### Multiple Listener, Multiple Acceptor, Multiple Worker
 
