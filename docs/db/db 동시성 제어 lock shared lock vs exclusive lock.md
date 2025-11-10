@@ -15,6 +15,10 @@
 > > Exclusive lock이 걸려있으면 Shared lock을 획득할 수 없다.
 > >
 > > > FOR SHARE 로 획득
+> > >
+> > > > 만약 최종 예약 단계를 Shared Lock으로 구현한다면 유저 한명이 더 예약 단계에 돌입 시 첫번째 예약이 blocking 상태에 있게 됨
+> > > >
+> > > > 두번째 유저가 예약 시도 시 deadlock 발생하고 첫번째 유저는 성공 (하지만 계속 기다려야하니 이렇게 구현하면 안됨)
 
 ```sql
 -- transaction 1
