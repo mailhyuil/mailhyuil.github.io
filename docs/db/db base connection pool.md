@@ -11,9 +11,9 @@
 ## 일반적인 커넥션 풀 설정 가이드
 
 ```txt
-서버 스펙	        추천 max_connections 값
-2코어/4GB RAM	   10~30
-4코어/8GB RAM	   30~50
+서버 스펙           추천 max_connections 값
+2코어/4GB RAM      10~30
+4코어/8GB RAM      30~50
 8코어/16GB RAM     50~100
 16코어이상/100이상   (테스트 필요)
 ```

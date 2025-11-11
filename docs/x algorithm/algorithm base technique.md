@@ -15,17 +15,21 @@ const line2 = parseInt(lines[1]);
 ## console에서 입력받기
 
 ```js
-const rl = require("readline").createInterface({
+const readline = require("readline");
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const input: string[] = [];
-rl.on("line", (line: string) => {
+const input = [];
+
+rl.on("line", line => {
   // 입력창에 enter칠때마다 호출
   input.push(line);
   console.log(input);
-}).on("close", () => {
+});
+
+rl.on("close", () => {
   // ctrl + D를 하면 호출
   console.log(input);
   process.exit();
@@ -95,7 +99,7 @@ if (!visited["A"]) {
 >
 > > if로 조건을 걸어서 불필요한 탐색을 줄이기
 
-## 반복문 내에서는 반드시 조건문을 고려해라!
+## 반복문 내에서는 반드시 조건문을 고려해라
 
 ## object를 key로 쓰기 기법
 
