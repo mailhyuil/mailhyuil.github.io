@@ -5,28 +5,23 @@
 > > 병합정렬은 stable 하지만, 퀵 정렬은 unstable 하다.
 
 ```js
-const quickSort = function (arr) {
-  if (arr.length <= 1) return arr; // 탈출 조건
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
 
-  const pivot = arr[0];
+  const pivot = arr[Math.floor(arr.length / 2)];
   const left = [];
+  const equal = [];
   const right = [];
 
-  for (let i = 1; i < arr.length; i++) {
-    // pivot index를 기준으로 왼쪽, 오른쪽으로 나누기
-    if (arr[i] <= pivot) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
-    }
+  for (let ele of arr) {
+    if (ele < pivot) left.push(ele);
+    else if (ele > pivot) right.push(ele);
+    else equal.push(ele);
   }
 
-  const lSorted = quickSort(left);
-  const rSorted = quickSort(right);
-  return [...lSorted, pivot, ...rSorted];
-};
+  return [...quickSort(left), ...equal, ...quickSort(right)];
+}
 
-const arr = [2, 3, 4, 5, 2, 3, 3, 4, 5, 2, 34, 4, 23, 4, 2];
-
+const arr = [2, 3, 4, 55, 12, 3, 10, 4, 1, 2, 34, 4, 23, 4, 2];
 console.log(quickSort(arr));
 ```

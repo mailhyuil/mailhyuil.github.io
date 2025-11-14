@@ -6,7 +6,7 @@
 > >
 > > > [1, 2, 3, 4, 5, 6, 7] (good) // [1, 2, 3, 4, 100, 101, 102] (bad)
 
-```
+```txt
 보간 공식: pos = low + ((value - arr[low]) * (high - low)) / (arr[high] - arr[low])
 
 low: 탐색 범위의 시작 인덱스
