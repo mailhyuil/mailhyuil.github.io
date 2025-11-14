@@ -1,4 +1,4 @@
-# algorithm sort 병합정렬- merge sort
+# algorithm sort 병합정렬 - merge sort
 
 > 가장 많이 사용되는 정렬
 >

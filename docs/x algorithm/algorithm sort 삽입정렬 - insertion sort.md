@@ -1,4 +1,4 @@
-# algorithm sort 삽입정렬- insertion sort
+# algorithm sort 삽입정렬 - insertion sort
 
 cur 값을 왼쪽으로 이동시키며 자기보다 작은 값을 만나면 그 위치에서 멈춘다.
 

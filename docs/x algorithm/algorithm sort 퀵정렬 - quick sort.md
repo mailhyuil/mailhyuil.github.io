@@ -1,4 +1,4 @@
-# algorithm sort 퀵정렬
+# algorithm sort 퀵정렬 - quick sort
 
 > pivot index를 사용
 >

@@ -1,4 +1,4 @@
-# algorithm sort 선택정렬- selection sort
+# algorithm sort 선택정렬 - selection sort
 
 start부터 뒤에 있는 모든 요소를 선형탐색하여 가장 작은 요소를 찾은 후 start와 스와프 그리고 이것을 반복한다.
 
