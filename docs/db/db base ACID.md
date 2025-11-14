@@ -10,6 +10,8 @@ Durability # 지속성
 ## 원자성 (Atomicity)
 
 > 전부 다 성공하거나 전부 다 실패해야 한다.
+>
+> > Transaction 내의 작업은 하나라도 실패하면 전부 실패한다.
 
 ## 정합성/일관성 (Consistency)
 

@@ -8,7 +8,7 @@
 > >
 > > > Paint : 레이아웃을 그리는 것
 > > >
-> > > > Reflow → Repaint → Composite순으로 렌더링에 대한 비용이 낮다.
+> > > > Reflow → Repaint → Composite순으로 렌더링 비용이 낮아진다.
 > > > >
 > > > > Reflow가 일어나면 다음 단계인 Repaint도 같이 발생한다.
 
@@ -60,13 +60,15 @@ text-decoration
 >
 > > composite-only properties : opacity, transform
 > >
-> > > GPU를 사용하여 레이아웃을 계산하고 그리는 것
+> > > GPU를 사용하여 Composite를 수행한다.
 > > >
 > > > > 항상 GPU를 사용하는 것은 아니다. (GPU를 사용할 수 없는 경우도 있다.)
 > > > >
-> > > > will-change 를 사용해서 브라우저에게 GPU를 사용할 것을 알려줄 수 있다.
+> > > > will-change를 사용해서 브라우저에게 GPU를 사용할 것을 알려줄 수 있다.
 > > > >
 > > > > will-change의 사용이 끝날시에는 다시 auto로 초기화 해줘야 한다.
+> > > >
+> > > > will-change는 미리 GPU 레이어를 할당하므로 너무 많이 사용하면 메모리 사용량이 급증할 수 있다. 애니메이션이 끝난 후에는 반드시 auto로 되돌려야 한다.”
 
 ```txt
 transform

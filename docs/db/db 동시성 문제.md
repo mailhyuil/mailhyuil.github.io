@@ -1,7 +1,7 @@
 # db 동시성 문제
 
-- Read Transaction: dirty read, non-repeatable read, phantom read, read skew
-- Write Transaction: dirty write, lost update, write skew
+- **Read Transaction**: dirty read, non-repeatable read, phantom read, read skew
+- **Write Transaction**: dirty write, lost update, write skew
 
 ## Dirty write (더티 라이트)
 
@@ -128,11 +128,13 @@ await this.prisma.$transaction(
 
 ## Write Skew (라이트 스큐)
 
-> 두개의 트랜잭션이 한정된 데이터를 "동시에 성공적으로 업데이트"하는 경우
+> 두개의 트랜잭션이 한정된 두개의 데이터를 "동시에 성공적으로 업데이트"하는 경우
 >
-> > e.g. Double Booking Problem, 좌석 예약, 재고 관리 등
+> > e.g. 같은 날짜에 연차를 사용이 불가능한 조건에서 두명의 사용자가 연차를 사용하려고 할 때
 > >
-> > > 해결: Serializable, 2PL(2 Phase Locking)(FOR UPDATE)
+> > > 해결: Serializable
+> > >
+> > > 또는 X-Lock을 통해서도 해결 가능
 
 ```ts
 const id = "1234";
@@ -142,7 +144,7 @@ await this.prisma.$transaction(
   async tx => {
     const count = await tx.employ.count({
       where: { shiftId, dayoff: true },
-    }); //* Serializable를 사용 또는 이 부분에서 FOR UPDATE를 사용하면 write skew를 방지할 수 있다.
+    }); //* Serializable를 사용
 
     if (count >= 2) throw new Error("하루에 두명 이상 연차를 사용할 수 없습니다.");
 

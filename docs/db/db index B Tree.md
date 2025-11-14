@@ -1,5 +1,7 @@
 # db index B Tree
 
+정렬된 데이터에 빠르게 접근할 수 있는 자료구조
+
 ## B Tree
 
 > Node = Disk Page
@@ -27,7 +29,5 @@ Node:element Node:element Node:element
 > > value는 leaf node에만 저장
 > >
 > > > leaf node는 doubly linked list로 연결되어 있음
-
-```sh
-
-```
+> > >
+> > > > B+Tree는 리프 노드에만 데이터를 저장하고, 리프 노드들이 연결 리스트로 연결되어 있어서 범위 조회(BETWEEN, > 등)가 훨씬 효율적

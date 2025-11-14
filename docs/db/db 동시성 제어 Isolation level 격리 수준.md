@@ -5,6 +5,8 @@
 > > level에 따라서 RDBMS가 LOCK 전략이 달라짐
 > >
 > > > 격리 수준이 높을수록 동시성이 감소 (Lock을 더 많이 검) (성능 저하)
+> > >
+> > > > 데이터 무결성이 아니라 “읽기 시점의 일관성 문제” 가 핵심이면 락보다 isolation level 로 해결
 
 ## Read uncommitted
 

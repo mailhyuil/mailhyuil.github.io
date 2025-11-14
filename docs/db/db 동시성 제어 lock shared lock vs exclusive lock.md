@@ -2,19 +2,23 @@
 
 > 주의
 >
-> > lock이 걸려있어도 insert는 가능하다. (lock은 기존 데이터들에게만 걸리기 때문에 새로 추가되는 값에는 의미가 없기 때문이다)
+> > shared/exclusive lock이 걸려있어도 다른 데이터를 추가하는 insert는 가능하다. (row-level lock)
 > >
-> > exclusive lock이 걸려있어도 insert되는 데이터가 기존 데이터와 관련이 없다면 insert는 가능하다.
+> > > `SELECT \* FROM table_name where age > 30 FOR SHARE;` 이런 SELECT 쿼리에 영향을 줄 수 있다.
+> > >
+> > > > exclusive lock이 걸려있어도 insert되는 데이터가 기존 데이터와 관련이 없다면 insert는 가능하다.
 
 ## Shared Lock (공유 락, S Lock, Read Lock)
 
-> 게임을 예로 들면 여러 플레이어가 동시에 사용할 수 있는 방어 기술이다.
+> 읽기 가능, 수정 불가능
 >
-> > 상대방이 플레이어를 볼 수 있지만 (read o), 공격할 수 없다. (write x)
+> > Exclusive lock이 걸려있으면 Shared lock을 획득할 수 없다.
 > >
-> > > Shared lock을 획득하기 위해서는 해당 값에 다른 배타락이 있어도 된다.
+> > > FOR SHARE 로 획득
 > > >
-> > > > FOR SHARE 로 획득
+> > > > 만약 최종 예약 단계를 Shared Lock으로 구현한다면 유저 한명이 더 예약 단계에 돌입 시 첫번째 예약이 blocking 상태에 있게 됨
+> > > >
+> > > > 두번째 유저가 예약 시도 시 deadlock 발생하고 첫번째 유저는 성공 (하지만 계속 기다려야하니 이렇게 구현하면 안됨)
 
 ```sql
 -- transaction 1
@@ -33,13 +37,15 @@ COMMIT;
 
 ## Exclusive Lock (배타 락, X Lock, Write Lock)
 
-> 오직 한 플레이어만 사용할 수 있는 은신 기술
+> 읽기 불가능 / 쓰기 불가능
 >
-> > 다른 플레이어가 볼 수도 없고 공격할 수도 없다. (read x, write x)
+> > Exclusive lock을 획득하기 위해서는 해당 값에 어떤한 Shared lock도 없어야한다.
 > >
-> > > Exclusive lock을 획득하기 위해서는 해당 값에 어떤한 공유락도 없어야한다.
+> > > FOR UPDATE 로 획득
 > > >
-> > > > FOR UPDATE 로 획득 (row-level lock)
+> > > > 이 row를 다른 트랜젝션이 읽기 조차 못하게 해야하는 경우 : 좌석 예약 최종 단계 (확정 또는 취소할때까지 다른 사용자가 예약 못하게 해야하는 경우)
+> > > >
+> > > > 다른 유저가 같은 좌석으로 예약 시도하는 경우 server는 blocking 상태에 있음 (timeout으로 처리해서 다른 유저가 예약중입니다.. 필요)
 
 ```sql
 -- transaction 1

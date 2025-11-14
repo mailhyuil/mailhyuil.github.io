@@ -1,11 +1,46 @@
-.bg {
+.main {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  background-image: url("/img/background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #1c1c1b;
   flex: 1;
+}
+
+.hyuil {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 0 40px 0 #ffe8bf80, 0 0 80px 0 #ffb8e079;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gradientText {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #eb2193, #fc9f0a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] {
+  .main {
+    background-color: #1c1c1b;
+  }
+}
+
+[data-theme="light"] {
+  .main {
+    background-color: #ffffff;
+  }
 }
