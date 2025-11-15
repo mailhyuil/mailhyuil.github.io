@@ -1,4 +1,4 @@
-# algorithm sort 버블정렬 - bubble sort
+# algorithm sort x 버블정렬 - bubble sort
 
 ```js
 function swap(arr, i, j) {
