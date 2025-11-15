@@ -1,4 +1,4 @@
-# algorithm 분할 정복
+# algorithm divide and conquer - 분할 정복
 
 > 커다란 문제를 더 이상 쪼갤 수 없을만큼 분할하여 정복하고 다시 조합하는 과정
 >

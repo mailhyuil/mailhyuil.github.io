@@ -7,17 +7,29 @@
 ## example
 
 ```js
-function permutation(arr, selectNumber) {
-  const results = [];
-  if (selectNumber === 1) return arr.map(value => [value]);
-  arr.forEach((fixed, index, origin) => {
-    const rest = origin.slice(index + 1);
-    const combinations = permutation(rest, selectNumber - 1);
-    const attached = combinations.map(combination => [fixed, ...combination]);
-    results.push(...attached);
-  });
-  return results;
-}
+function permute(nums) {
+  const result = [];
+  const used = Array(nums.length).fill(false);
 
-console.log(permutation([1, 2, 3], 2));
+  function dfs(path) {
+    if (path.length === nums.length) {
+      result.push([...path]);
+      return;
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+      if (used[i]) continue;
+      used[i] = true;
+      path.push(nums[i]);
+
+      dfs(path);
+
+      path.pop();
+      used[i] = false;
+    }
+  }
+
+  dfs([]);
+  return result;
+}
 ```
