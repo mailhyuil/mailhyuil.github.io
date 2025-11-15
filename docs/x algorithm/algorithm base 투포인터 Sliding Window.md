@@ -1,4 +1,7 @@
-# algorithm 투포인터 Window
+# algorithm 투포인터 Sliding Window
+
+- Fixed Window: 윈도우가 고정된 크기를 유지하는 경우
+- Dynamic Window: 윈도우가 동적으로 변경되는 경우
 
 ## Fixed Window Counter
 

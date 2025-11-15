@@ -20,14 +20,13 @@
 
 ```js
 function recur(){
-  if () return '' // conquer된 상태
+  // conquer된 상태 (base case)
+  if () return ''
 
   // divide 로직
-
   const res = recur()
 
   // combine 로직
-
   return res
 }
 ```

@@ -1,14 +1,18 @@
 # algorithm sort 퀵정렬 - quick sort
 
-> pivot index를 사용
->
-> > 병합정렬은 stable 하지만, 퀵 정렬은 unstable 하다.
+random한 pivot index를 사용하여 분할하는 정렬 알고리즘
+
+- 평균 시간복잡도 O(n log n)으로 안정적이다.
+- 분할이 잘 되면 병합정렬보다 빠르다.
+- 최악의 경우 O(n^2)이 될 수 있다.
+- In-Place Algorithm으로 공간복잡도가 낮다. (공간복잡도 O(1))
+- 같은 값을 가진 요소들의 순서가 유지되지 않는 unstable sort 이다.
 
 ```js
 function quickSort(arr) {
   if (arr.length <= 1) return arr;
 
-  const pivot = arr[Math.floor(arr.length / 2)];
+  const pivot = arr[Math.floor(Math.random() * arr.length)]; // 랜덤한 값을 선택하여 사용
   const left = [];
   const equal = [];
   const right = [];

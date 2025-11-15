@@ -9,31 +9,35 @@
 ## 구현
 
 ```js
-// BFS 메서드 정의
-function bfs(graph, start, visited) {
-  queue = new Queue();
-  queue.enqueue(start);
-  // 현재 노드를 방문 처리
+function bfs(start, graph) {
+  const visited = Array(graph.length).fill(false);
+  const queue = [];
+  let head = 0;
+
+  // 초기값
   visited[start] = true;
-  // 큐가 빌 때까지 반복
-  while (queue.getLength() != 0) {
-    // 큐에서 하나의 원소를 뽑아 출력하기
-    v = queue.dequeue();
-    console.log(v);
-    // 아직 방문하지 않은 인접한 원소들을 큐에 삽입
-    for (i of graph[v]) {
-      if (!visited[i]) {
-        queue.enqueue(i);
-        visited[i] = true;
+  queue.push(start);
+
+  while (head < queue.length) {
+    const node = queue[head++];
+    console.log("visit:", node);
+
+    for (const next of graph[node]) {
+      if (!visited[next]) {
+        visited[next] = true;
+        queue.push(next);
       }
     }
   }
 }
 
-// 각 노드가 연결된 정보를 표현
-const graph = [[], [2, 3, 4], [1], [1, 5, 6], [1, 7], [3, 8], [3], [4], [5]]; // 간편한 구현을 위해서 0번 노드를 사용하지 않는다..
-// 각 노드가 방문된 정보를 표현
-const visited = Array(9).fill(false);
-// 정의된 BFS 함수 호출
-bfs(graph, 1, visited);
+const graph = [
+  [1], // 0
+  [0, 2, 3], // 1
+  [1, 4], // 2
+  [1, 4], // 3
+  [2, 3], // 4
+];
+
+bfs(0, graph);
 ```
