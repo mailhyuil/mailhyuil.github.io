@@ -14,11 +14,9 @@
 
 ## 점화식
 
-> 인접한 항을 사용해서 현재 값을 결정하는 관계식을 의미
->
-> > 최적 부분 구조를 만족한다 === 점화식으로 표현 할 수 있다.
-> >
-> > > 피보나치 수열의 점화식 => 𝑎𝑛 = 𝑎𝑛−1 + 𝑎𝑛−2 (𝑎1 = 1, 𝑎2 = 1)
+- 인접한 항을 사용해서 현재 값을 결정하는 관계식을 의미
+- 최적 부분 구조를 만족한다 === 점화식으로 표현 할 수 있다. (피보나치 수열의 점화식 => 𝑎𝑛 = 𝑎𝑛−1 + 𝑎𝑛−2 (𝑎1 = 1, 𝑎2 = 1))
+- DP Table의 인덱스를 순회하며 Math.min, Math.max 등을 사용하여 최적의 값을 계산하여 최적의 값을 찾으면 update한다.
 
 ## 상향식 (Bottom-Up)
 
@@ -27,22 +25,22 @@
 - 반복문을 이용해 초기 항부터 계산
 
 ```js
-function fib(n) {
-  if (n == 1 || n == 2) return 1; // 탈출 조건
+function fib(n: number): string {
+  if (n == 1 || n == 2) return "1"; // 탈출 조건
 
   // 한번 계산된 결과를 메모이제이션(Memoization)하기 위한 DP 테이블 초기화
   const memo = new Array(n + 1).fill(0);
   // 첫 번째 피보나치 수와 두 번째 피보나치 수는 1
-  memo[1] = 1;
-  memo[2] = 1;
+  memo[0] = 0n;
+  memo[1] = 1n;
   // 피보나치 함수(Fibonacci Function) 반복문으로 구현(바텀업 다이나믹 프로그래밍)
-  for (let i = 3; i <= n; i++) {
+  for (let i = 2; i <= n; i++) {
     memo[i] = memo[i - 1] + memo[i - 2];
   }
-  return memo[n];
+  return memo[n].toString();
 }
 
-console.log(fib(10));
+console.log(fib(90));
 ```
 
 ## 하향식 (Top-Down)

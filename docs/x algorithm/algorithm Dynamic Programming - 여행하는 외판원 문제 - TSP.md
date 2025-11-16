@@ -1,4 +1,6 @@
-# algorithm 그래프순회 여행하는 외판원
+# algorithm Dynamic Programming - 여행하는 외판원 문제 - Traveling Salesman problem (TSP)
+
+NP-Hard 문제 중 하나
 
 ```js
 const N = 4;
