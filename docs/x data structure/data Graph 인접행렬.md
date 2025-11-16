@@ -1,4 +1,4 @@
-# data Graph 인접행렬
+# data graph 인접행렬
 
 > 인접 행렬 방식은 이차원 배열로 각 노드 간의 연결 여부를 저장합니다.
 >
@@ -44,8 +44,8 @@ class Country {
   }
 
   addRoad(from: string, to: string) {
-    const fromIndex = this.cities.findIndex((city) => city.name === from);
-    const toIndex = this.cities.findIndex((city) => city.name === to);
+    const fromIndex = this.cities.findIndex(city => city.name === from);
+    const toIndex = this.cities.findIndex(city => city.name === to);
     if (fromIndex >= 0 && toIndex >= 0) {
       this.roadMatrix[fromIndex][toIndex] = true;
       this.roadMatrix[toIndex][fromIndex] = true;

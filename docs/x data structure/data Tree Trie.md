@@ -1,4 +1,4 @@
-# data Tree Trie
+# data tree Trie
 
 > 단어 검색, 자동 완성, 문자열 정렬, 철자 검사, 사전 등에 사용
 

@@ -1,4 +1,4 @@
-# data Graph 인접리스트
+# data graph 인접리스트
 
 > 인접 리스트 방식은 각 노드마다 인접한 노드의 연결 정보를 리스트(List)에 저장합니다.
 >
@@ -24,8 +24,8 @@ class Country {
     this.cities.push(new City(name));
   }
   addRoad(from: string, to: string) {
-    const fromCity = this.cities.find((city) => city.name === from);
-    const toCity = this.cities.find((city) => city.name === to);
+    const fromCity = this.cities.find(city => city.name === from);
+    const toCity = this.cities.find(city => city.name === to);
     if (fromCity && toCity) {
       fromCity.roads.push(toCity);
     }

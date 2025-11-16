@@ -1,4 +1,4 @@
-# data HashMap- Hashtable
+# data HashMap - Hashtable
 
 1. key와 value를 입력
 2. key를 해시해서 무작위 이진 해시값을 리턴하면 그 값을 정수로 변환 (이진 해시 값을 16진수로 변환 -> 16진수 문자열을 정수로 변환)
