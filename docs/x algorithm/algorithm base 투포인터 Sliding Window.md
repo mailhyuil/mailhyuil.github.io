@@ -1,5 +1,6 @@
 # algorithm 투포인터 Sliding Window
 
+- **연속된 값**을 효율적으로 다루는 알고리즘
 - Fixed Window: 윈도우가 고정된 크기를 유지하는 경우
 - Dynamic Window: 윈도우가 동적으로 변경되는 경우
 

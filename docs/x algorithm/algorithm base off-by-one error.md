@@ -47,4 +47,8 @@ const dp = Array.from({ length: N + 1 }, () => Array(M + 1).fill(0));
 // 슬라이딩 윈도우
 // left, right 둘 다 "포함"인 구간일 때
 const len = right - left + 1;
+
+// 배열 중간 인덱스 추가 / 삭제
+arr.splice(index, 1); // 중간 인덱스 값 삭제
+arr.splice(index, 0, value); // 중간 인덱스에 값 추가
 ```

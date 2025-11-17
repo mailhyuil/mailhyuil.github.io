@@ -1,10 +1,11 @@
 # algorithm 그래프순회 BFS - Breadth First Search
 
 - 너비 우선 탐색
-- 그래프 완전 탐색 알고리즘
-- '그래프 자료구조(리스트(2차원 배열))'에 대해서 '큐 자료구조'로 구현
+- Queue 자료구조를 사용
+- 최단거리를 구하는 알고리즘
+- 재귀보다는 반복문으로 구현하는게 더 직관적이다.
 
-## 구현
+## 반복문 구현
 
 ```js
 function bfs(start, graph) {
@@ -18,8 +19,6 @@ function bfs(start, graph) {
 
   while (head < queue.length) {
     const node = queue[head++];
-    console.log("visit:", node);
-
     for (const next of graph[node]) {
       if (!visited[next]) {
         visited[next] = true;

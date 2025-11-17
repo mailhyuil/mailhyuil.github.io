@@ -6,25 +6,42 @@
 - 배열 앞부분이 안 쓰이는 공간이 되지만, V8 엔진은 head 포인터 증가를 매우 잘 처리해서 메모리 누수 거의 없음.
 
 ```js
-class Queue {
-  private arr: any[] = [];
+class Queue<T> {
+  private arr: T[] = [];
   private head = 0;
-
-  enqueue(value: any) {
-    this.arr.push(value);       // O(1)
-  }
-
-  dequeue() {
-    if (this.head >= this.arr.length) return null;
-    return this.arr[this.head++]; // O(1)
-  }
-
-  peek() {
-    return this.arr[this.head];
-  }
 
   get length() {
     return this.arr.length - this.head;
   }
+
+  enqueue(value: T) { // O(1)
+    this.arr.push(value);
+  }
+
+  dequeue(): T | null { // O(1)
+    if (this.isEmpty()) return null;
+    return this.arr[this.head++];
+  }
+
+  peek(): T | null {
+    return this.isEmpty() ? null : this.arr[this.head];
+  }
+
+  clear() {
+    this.arr = [];
+    this.head = 0;
+  }
+
+  isEmpty() {
+    return this.head >= this.arr.length;
+  }
+
+  compact() { // 메모리 최적화
+    if (this.head > 0) {
+      this.arr = this.arr.slice(this.head);
+      this.head = 0;
+    }
+  }
 }
+
 ```
