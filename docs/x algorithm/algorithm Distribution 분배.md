@@ -2,9 +2,8 @@
 
 ## Weighted Distribution
 
-> 난수를 이용해서 선택을 결정한다.
->
-> > weight대신 다른 값을 사용가능 (e.g. latency...)
+- 난수를 이용해서 선택을 결정한다.
+- weight대신 다른 값을 사용가능 (e.g. latency...)
 
 ```js
 const servers = [
