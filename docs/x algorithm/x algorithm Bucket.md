@@ -2,6 +2,13 @@
 
 ## Leaky Bucket
 
+사용처:  
+Amazon MWS (Marketplace Web Service)  
+NGINX  
+Uber-go rate limiter  
+Shopify  
+Guava RateLimiter
+
 ```js
 class LeakyBucket {
   constructor(maxRequestPerSec) {
@@ -38,17 +45,12 @@ class LeakyBucket {
 }
 ```
 
-### usage 중인 플랫폼
-
-```
-Amazon MWS(Maketplace WEb Service)
-NGINX
-Uber-go rate limiter
-Shopify
-Guava RateLimiter
-```
-
 ## Token Bucket
+
+사용처:  
+AWS : API Gateway, EC2, EBS, CPU Credit  
+Spring Cloud Netflix Zuul  
+Bucket4j
 
 ```js
 class TokenBucket {
@@ -81,12 +83,4 @@ class TokenBucket {
     return Math.floor(Date.now() / 1000);
   }
 }
-```
-
-### usage 중인 플랫폼
-
-```
-AWS : API Gateway, EC2, EBS, CPU Credit
-Spring Cloud Netflix Zuul
-Bucket4j
 ```

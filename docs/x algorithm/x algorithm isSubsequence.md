@@ -1,6 +1,6 @@
 # x algorithm isSubsequence
 
-두 문자열이 주어졌을 때 첫번째 문자열이 두번째 문자열의 부분 문자열인지 단, 순서가 바뀌지 않아야 한다. O(n+m)
+- 두 문자열이 주어졌을 때 첫번째 문자열이 두번째 문자열의 부분 문자열인지 단, 순서가 바뀌지 않아야 한다. O(n+m)
 
 ```js
 function isSubsequence(str1, str2) {
