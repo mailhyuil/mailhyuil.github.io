@@ -1,4 +1,4 @@
-# algorithm swap
+# algorithm base swap
 
 ## 기존 스타일
 

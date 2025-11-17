@@ -1,4 +1,4 @@
-# algorithm 재귀 merge
+# algorithm base 재귀 merge
 
 > 두 리스트의 맨 앞의 값 중 작은값을 현재 스코프(함수)에 남겨두고 재귀로 들어간다.
 

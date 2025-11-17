@@ -1,4 +1,4 @@
-# algorithm normalization 정규화
+# algorithm base normalization 정규화
 
 > 데이터를 가공하여 검색 및 조작을 용이하게 하기 위한 전처리(Preprocessing)
 >

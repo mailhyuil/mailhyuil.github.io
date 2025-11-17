@@ -1,4 +1,4 @@
-# algorithm Big O 계산
+# algorithm base Big O 계산
 
 1억 번 연산하는데 걸리는 시간 1~5초
 

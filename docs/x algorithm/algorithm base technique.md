@@ -1,4 +1,4 @@
-# x algorithm technique
+# algorithm base technique
 
 ## 파일 읽기
 

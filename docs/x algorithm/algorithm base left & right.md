@@ -1,4 +1,4 @@
-# algorithm left & right
+# algorithm base left & right
 
 > left < right / start < end / head < tail
 >

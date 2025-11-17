@@ -1,4 +1,4 @@
-# algorithm 비트 연산
+# algorithm base 비트 연산
 
 ```js
 a & b; // AND 연산

@@ -1,4 +1,4 @@
-# algorithm 재귀 구조
+# algorithm base 재귀 구조
 
 > 탈출조건에 다가가기 위한 연산
 >

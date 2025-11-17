@@ -1,51 +1,71 @@
-# algorithm 투포인터 Sliding Window
+# algorithm base 투포인터 Sliding Window
 
 - **연속된 값**을 효율적으로 다루는 알고리즘
 - Fixed Window: 윈도우가 고정된 크기를 유지하는 경우
 - Dynamic Window: 윈도우가 동적으로 변경되는 경우
 
-## Fixed Window Counter
-
-> express-rate-limit
+## Fixed Window
 
 ```js
-class FixedWindowCounter {
-  constructor(maxRequestPerSec, windowSizeInMs) {
-    this.windows = new Map();
-    this.maxRequestPerSec = maxRequestPerSec;
-    this.windowSizeInMs = windowSizeInMs;
+function maxSubarraySum(arr, window) {
+  if (!arr.length) return false;
+  if (arr.length < window) return null;
+
+  let sum = 0;
+
+  for (let i = 0; i < window; i++) {
+    sum += arr[i];
   }
 
-  allow() {
-    const windowKey = Math.floor(Date.now() / this.windowSizeInMs);
-    if (!this.windows.has(windowKey)) {
-      this.windows.set(windowKey, new AtomicInteger(0));
+  let maxSum = sum;
+
+  let start = window;
+
+  while (start < arr.length) {
+    sum = sum + arr[start] - arr[start - window];
+    if (sum > maxSum) {
+      maxSum = sum;
     }
-    return this.windows.get(windowKey).incrementAndGet() <= this.maxRequestPerSec;
+    start++;
   }
 
-  toString() {
-    let sb = "";
-    for (const [windowKey, atomicInteger] of this.windows.entries()) {
-      sb += windowKey + " --> " + atomicInteger + "\n";
-    }
-    return sb;
-  }
+  return maxSum;
 }
 
-class AtomicInteger {
-  constructor(value) {
-    this.value = value || 0;
+console.log(maxSubarraySum([1, 2, 3, 4, 5], 3));
+```
+
+## Dynamic Window
+
+```js
+function findLongestSubstring(str) {
+  const seen = {}; // 각 문자 마지막 인덱스 저장
+  let start = 0; // 현재 윈도우의 시작 인덱스
+  let maxLen = 0; // 지금까지 찾은 최대 길이
+
+  for (let end = 0; end < str.length; end++) {
+    const endChar = str[end];
+
+    // end pointer가 가리키는 글자가 seen 안에 있고 윈도우(start-end) 안에 있다면 endChar은 새로운 중복된 글자라는 것
+    if (seen[endChar] >= start) {
+      // start를 중복아 안되는 지점으로 이동
+      start = seen[endChar] + 1;
+    }
+
+    // 현재 문자 위치 갱신
+    seen[endChar] = end;
+
+    // 윈도우 길이 갱신
+    const windowLen = end - start + 1;
+    if (windowLen > maxLen) {
+      maxLen = windowLen;
+    }
   }
 
-  incrementAndGet() {
-    return ++this.value;
-  }
-
-  toString() {
-    return this.value.toString();
-  }
+  return maxLen;
 }
+
+console.log(findLongestSubstring("itisawesome"));
 ```
 
 ## Sliding Window Log

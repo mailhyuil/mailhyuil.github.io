@@ -1,1 +1,1 @@
-# algorithm 지연평가
+# algorithm base 지연평가

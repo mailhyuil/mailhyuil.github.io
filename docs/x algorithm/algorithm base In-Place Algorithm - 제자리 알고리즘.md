@@ -1,4 +1,4 @@
-# algorithm In-Place Algorithm - 제자리 알고리즘
+# algorithm base In-Place Algorithm - 제자리 알고리즘
 
 > In-Place Algorithm = 제자리 알고리즘
 >

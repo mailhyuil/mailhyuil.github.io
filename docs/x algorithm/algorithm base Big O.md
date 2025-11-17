@@ -1,4 +1,4 @@
-# algorithm Big O
+# algorithm base Big O
 
 > 시간 복잡도와 공간 복잡도를 표현하는 방법
 

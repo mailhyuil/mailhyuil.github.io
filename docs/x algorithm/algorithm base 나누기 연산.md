@@ -1,4 +1,4 @@
-# algorithm 나누기 연산
+# algorithm base 나누기 연산
 
 ## 배열을 n개씩 나누기
 

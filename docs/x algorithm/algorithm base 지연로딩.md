@@ -1,4 +1,4 @@
-# algorithm 지연로딩
+# algorithm base 지연로딩
 
 > 프록시를 사용
 
