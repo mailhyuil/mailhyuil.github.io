@@ -57,13 +57,10 @@ function traverse(graph, start) {
 
     if (!visited[node]) {
       visited[node] = true;
-
-      // 연결된 노드를 스택에 추가
-      // 순서를 그대로 유지하려면 뒤집어서 push 가능
       for (let i = graph[node].length - 1; i >= 0; i--) {
         const next = graph[node][i];
         if (!visited[next]) {
-          stack.push(next);
+          stack.push(next); // 연결된 노드를 스택에 추가
         }
       }
     }

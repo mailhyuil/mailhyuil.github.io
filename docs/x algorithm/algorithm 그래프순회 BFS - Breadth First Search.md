@@ -8,24 +8,31 @@
 ## 반복문 구현
 
 ```js
-function bfs(start, graph) {
+function bfs(start, target, graph) {
   const visited = Array(graph.length).fill(false);
+  const dist = Array(graph.length).fill(-1);
   const queue = [];
   let head = 0;
 
-  // 초기값
   visited[start] = true;
+  dist[start] = 0;
   queue.push(start);
 
   while (head < queue.length) {
     const node = queue[head++];
+
+    if (node === target) return dist[node]; // target 도달하면 바로 반환
+
     for (const next of graph[node]) {
       if (!visited[next]) {
         visited[next] = true;
+        dist[next] = dist[node] + 1;
         queue.push(next);
       }
     }
   }
+
+  return -1; // target 도달 불가
 }
 
 const graph = [
@@ -36,5 +43,7 @@ const graph = [
   [2, 3], // 4
 ];
 
-bfs(0, graph);
+console.log(bfs(0, 4, graph)); // 출력: 3
+console.log(bfs(0, 3, graph)); // 출력: 2
+console.log(bfs(0, 0, graph)); // 출력: 0
 ```
