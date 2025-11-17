@@ -110,3 +110,23 @@ console.log(simulateMoves(5, ["R", "R", "D", "D", "L", "U"]));
 ## 해시 기반 처리
 
 ## 유니온파인드
+
+## Substring/Subarray
+
+순서o 연속o
+
+## Subsequence
+
+순서o 연속x
+
+## Subset
+
+순서x 연속x
+
+## Combination
+
+조합
+
+## Permutation
+
+순열
