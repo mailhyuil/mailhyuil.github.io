@@ -6,6 +6,8 @@
 
 ## 전위 순회 (pre-order traversal)
 
+- 트리 복사, serialize
+
 ```txt
     1
    / \
@@ -27,6 +29,8 @@ function preOrder(callback: any) {
 ```
 
 ## 중위 순회 (in-order traversal)
+
+- BST 문제 대부분
 
 ```txt
     2
@@ -50,6 +54,8 @@ function inOrder(callback: any) {
 
 ## 후위 순회 (post-order traversal)
 
+- subtree 계산, 트리 삭제
+
 ```txt
     1
    / \
@@ -71,6 +77,8 @@ function postOrder(callback: any) {
 ```
 
 ## 층별 순회 (level-order traversal)
+
+- 레벨 기반 문제
 
 ```txt
     1
