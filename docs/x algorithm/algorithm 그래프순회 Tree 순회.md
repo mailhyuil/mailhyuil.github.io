@@ -6,8 +6,13 @@
 
 ## 전위 순회 (pre-order traversal)
 
-![전위순회-1](./img/전위순회-1.png)
-![전위순회-2](./img/전위순회-2.png)
+```txt
+    1
+   / \
+  2   3
+
+Preorder: 1, 2, 3
+```
 
 ```ts
 function preOrder(callback: any) {
@@ -23,8 +28,13 @@ function preOrder(callback: any) {
 
 ## 중위 순회 (in-order traversal)
 
-![중위순회-1](./img/중위순회-1.png)
-![중위순회-2](./img/중위순회-2.png)
+```txt
+    2
+   / \
+  1   3
+
+Inorder: 1, 2, 3
+```
 
 ```ts
 function inOrder(callback: any) {
@@ -40,8 +50,13 @@ function inOrder(callback: any) {
 
 ## 후위 순회 (post-order traversal)
 
-![후위순회-1](./img/후위순회-1.png)
-![후위순회-2](./img/후위순회-2.png)
+```txt
+    1
+   / \
+  2   3
+
+Postorder: 2, 3, 1
+```
 
 ```ts
 function postOrder(callback: any) {
@@ -57,7 +72,15 @@ function postOrder(callback: any) {
 
 ## 층별 순회 (level-order traversal)
 
-![레벨순회](./img/레벨순회.png)
+```txt
+    1
+   / \
+  2   3
+ / \
+4   5
+
+Level order: 1, 2, 3, 4, 5
+```
 
 ```ts
 function levelOrder(callback: any) {
