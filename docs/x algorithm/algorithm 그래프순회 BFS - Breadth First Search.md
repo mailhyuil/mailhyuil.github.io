@@ -1,16 +1,17 @@
 # algorithm 그래프순회 BFS - Breadth First Search
 
 - 너비 우선 탐색
-- Queue 자료구조를 사용
+- **Queue 자료구조**를 사용
 - 최단거리를 구하는 알고리즘
 - 재귀보다는 반복문으로 구현하는게 더 직관적이다.
+- O(V + E)
 
 ## 반복문 구현
 
 ```js
 function bfs(start, target, graph) {
-  const visited = Array(graph.length).fill(false);
-  const dist = Array(graph.length).fill(-1);
+  const visited = Array(graph.length).fill(false); // 방문 배열
+  const dist = Array(graph.length).fill(-1); // 거리 배열
   const queue = [];
   let head = 0;
 
@@ -26,7 +27,7 @@ function bfs(start, target, graph) {
     for (const next of graph[node]) {
       if (!visited[next]) {
         visited[next] = true;
-        dist[next] = dist[node] + 1;
+        dist[next] = dist[node] + 1; // 거리 = 이전 노드의 거리 + 1
         queue.push(next);
       }
     }
