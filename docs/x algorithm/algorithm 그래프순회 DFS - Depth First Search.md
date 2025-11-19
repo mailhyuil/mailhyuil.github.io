@@ -1,36 +1,17 @@
 # algorithm 그래프순회 DFS - Depth First Search
 
 - 깊이 우선 탐색
-- Stack 자료구조를 사용
+- **Stack 자료구조** 또는 **재귀구조**를 사용
 - 완전 탐색 알고리즘 (BFS는 레벨 전체를 메모리에 저장하기 때문에 완전 탐색에 알맞지 않음)
 - 백트래킹이 필요할 시 사용
 - 확인한 노드는 방문처리하고 방문하지 않은 노드를 탐색한다.
+- O(V + E)
 
 ## 재귀 구현
 
 ```js
-function traverse(graph, start) {
-  // 각 노드가 방문된 정보를 표현
-  const visited = Array(graph.length).fill(false);
-  // DFS 메서드 정의
-  function dfs(graph, start) {
-    // 현재 노드를 방문 처리
-    visited[start] = true;
-    // 현재 노드와 연결된 다른 노드를 재귀적으로 방문
-    for (const i of graph[start]) {
-      if (!visited[i]) {
-        dfs(graph, i);
-      }
-    }
-  }
-
-  dfs(graph, start);
-  return visited;
-}
-
-// 각 노드가 연결된 정보를 표현
 const graph = [
-  [], // 간편한 구현을 위해서 0번 노드를 사용하지 않는다.. (1-based)
+  [1], // 0
   [2, 3, 4], // 1
   [1], // 2
   [1, 5, 6], // 3
@@ -41,8 +22,47 @@ const graph = [
   [5], // 8
 ];
 
-// 정의된 DFS 함수 호출
-console.log(traverse(graph, 4));
+const visited = Array(graph.length).fill(false); // 방문 배열
+
+function dfs(graph, start) {
+  visited[start] = true; // 현재 노드를 방문 처리
+  for (const i of graph[start]) {
+    if (!visited[i]) {
+      dfs(graph, i); // 방문하지 않은 노드를 start로 재귀호출
+    }
+  }
+}
+
+dfs(graph, 0);
+
+console.log(visited);
+```
+
+## 백트래킹
+
+```js
+// n: 전체 수, k: 선택할 수
+function findCombinationOfTarget(n, target) {
+  const res = [];
+  const path = [];
+  function dfs(start, sum) {
+    if (sum > target) return; // pruning
+    if (sum === target) {
+      res.push([...path]);
+      return;
+    }
+    for (let i = start; i <= n; i++) {
+      path.push(i);
+      dfs(i + 1, sum + i);
+      path.pop(); // backtracking
+    }
+  }
+  dfs(1, 0);
+  return res;
+}
+console.log(findCombinationOfTarget(10, 10));
+
+// 출력: [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
 ```
 
 ## 반복문 구현

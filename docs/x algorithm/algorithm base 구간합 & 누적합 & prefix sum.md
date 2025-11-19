@@ -4,15 +4,16 @@
 - 배열의 맨 앞부터 특정 위치까지의 합을 "미리 구해 놓은 테이블"을 사용
 - `접두사테이블[right] - 접두사테이블[left - 1]`로 **구간합(누적합)**을 구할 수 있다.
 
-```txt
-접두사테이블:
-prefixSum[i] = prefixSum[i - 1] + data[i]
+```js
+const data = [1, 1, 1, 3, 45, 2, 3, 431, 213, 3, 1];
+const prefixSum = [data[0]];
 
-구간합:
-prefixSum[right] - prefixSum[left - 1]
+for (let i = 1; i < data.length; i++) {
+  prefixSum[i] = prefixSum[i - 1] + data[i];
+}
 
-누적합:
-prefixSum[i]
+console.log(prefixSum[2]); // 0~2 누적합
+console.log(prefixSum[5] - prefixSum[3 - 1]); // 3~5 구간합
 ```
 
 ## example
