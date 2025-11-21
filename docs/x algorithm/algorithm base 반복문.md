@@ -62,7 +62,19 @@ while (start <= end) {
 while (i < left.length && j < right.length) {}
 ```
 
-## for and for
+## for and for (브루트포스)
+
+```js
+for (let i = 0; i < arr.length - 2; i++) {
+  for (let j = i + 1; j < arr.length - 1; j++) {
+    for (let k = j + 1; k < arr.length; k++) {
+      // do something
+    }
+  }
+}
+```
+
+## for and for (DP)
 
 - bottom-up DP 문제
 - Triangle Sum
