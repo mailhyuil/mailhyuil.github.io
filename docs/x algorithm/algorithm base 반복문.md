@@ -173,3 +173,16 @@ for (let i = 0; i < nums.length; i++) {
   stack.push(i);
 }
 ```
+
+## 비트마스크
+
+```js
+for (let mask = 0; mask < 1 << n; mask++) {
+  // mask는 현재 상태
+  for (let i = 0; i < n; i++) {
+    if (mask & (1 << i)) {
+      // i번 요소 포함
+    }
+  }
+}
+```
