@@ -18,10 +18,11 @@ pivot을 기준으로 작은 값들을 왼쪽 그룹에, 큰 값들을 오른쪽
 
 ```js
 function partition(arr, left, right) {
-  const pivot = arr[Math.floor((left + right) / 2)]; // 왼쪽 마커와 오른쪽 마커 사이의 pivot 마커 생성 (랜덤 인덱스)
+  const pivot = left + Math.floor(Math.random() * (right - left + 1)); // 왼쪽 마커와 오른쪽 마커 사이의 pivot 마커 생성 (랜덤 인덱스)
+  const pivotValue = arr[pivot];
   while (true) {
-    while (arr[left] < pivot) left++; // 왼쪽 마커가 피봇 수 이상인 곳에서 멈춤
-    while (arr[right] > pivot) right--; // 오른쪽 마커가 피봇 수 이하인 곳에서 멈춤
+    while (arr[left] < pivotValue) left++; // 왼쪽 마커가 피봇 수 이상인 곳에서 멈춤
+    while (arr[right] > pivotValue) right--; // 오른쪽 마커가 피봇 수 이하인 곳에서 멈춤
 
     if (left >= right) return right; // 오른쪽 마커가 왼쪽 마커와 같거나 크면 리턴
 
