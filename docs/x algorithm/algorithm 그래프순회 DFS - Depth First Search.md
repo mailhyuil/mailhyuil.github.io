@@ -52,8 +52,11 @@ function findCombinationOfTarget(n, target) {
       return;
     }
     for (let i = start; i <= n; i++) {
+      // 1. 선택하는 경우
       path.push(i);
       dfs(i + 1, sum + i);
+
+      // 2. 선택하지 않는 경우
       path.pop(); // backtracking
     }
   }
