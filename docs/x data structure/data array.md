@@ -1,14 +1,12 @@
 # data array
 
-> 메모리내에 연속적으로 할당되는 자료구조
->
-> > 컴퓨터 과학에서는 Array라고 부르고
-> >
-> > > 수학에서는 Vector라고 부른다.
+- 메모리내에 연속적으로 할당되는 자료구조
+- 컴퓨터 과학에서는 Array라고 부르고
+- 수학에서는 Vector라고 부른다.
 
 ## concat (concatenate)
 
-> 배열들을 이어붙이기
+- 배열들을 이어붙이기
 
 ## slice(left, right)
 
@@ -31,12 +29,12 @@ for (let i = 0; i < arr2.length; i++) {
 
 ## stack
 
-> linked list로 구현할 때 삽입과 삭제에 O(1)
+- linked list로 구현할 때 삽입과 삭제에 O(1)
 
 ### push
 
-> O(1)
+- O(1)
 
 ### pop
 
-> O(1)
+- O(1)

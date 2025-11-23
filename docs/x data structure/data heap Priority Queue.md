@@ -1,4 +1,4 @@
-# data queue Priority Queue - 우선순위 큐
+# data heap Priority Queue - 우선순위 큐
 
 > 우선순위를 기준으로 데이터를 추출하는 자료구조
 >
