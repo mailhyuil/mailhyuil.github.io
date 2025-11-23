@@ -1,6 +1,6 @@
 # algorithm base Big O
 
-> 시간 복잡도와 공간 복잡도를 표현하는 방법
+시간 복잡도와 공간 복잡도를 표현하는 방법
 
 ## 시간 복잡도
 
@@ -17,6 +17,5 @@ function sum(n) {
 
 ## 공간 복잡도
 
-> primitive = O(1)
->
-> > string, object = O(n)
+- primitive = O(1)
+- string, object = O(n)

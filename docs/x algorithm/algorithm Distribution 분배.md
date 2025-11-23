@@ -35,9 +35,8 @@ console.log("Selected Server:", selectedServer);
 
 ## latency Distribution
 
-> 난수를 이용해서 선택을 결정한다.
->
-> > 확률 계산! = 선택한 대상 / (비교대상 + 비교대상 + 비교대상)
+- 난수를 이용해서 선택을 결정한다.
+- 확률 계산! = 선택한 대상 / (비교대상 + 비교대상 + 비교대상)
 
 ```js
 // 서버 응답 지연 시간
