@@ -1,5 +1,7 @@
 # nest error handling
 
+- `Nestjs Exception Filter`를 사용하려면 반드시 Promise(firstValueFrom, lastValueFrom)을 사용하거나 Observable을 반환하는 함수를 사용해야 한다.
+
 ## error.ts
 
 ```ts
