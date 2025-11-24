@@ -1,8 +1,7 @@
-# data tree binary search tree - 이진 탐색 트리
+# data tree binary search tree (BST) - 이진 탐색 트리
 
-> 이진트리는 key와 value를 가지고 있어야 한다.
->
-> > 이진 트리 구조는 항상 정렬이 되어있어야 한다.
+- 큰 수는 오른쪽에 존재
+- 이진 트리 구조는 항상 정렬이 되어있어야 한다.
 
 ```ts
 class BinarySearchTree {
@@ -43,19 +42,14 @@ class BinarySearchTree {
     }
   }
   // tree의 value값을 탐색합니다.
-  contains(value: number): boolean | undefined {
+  contains(value: number): boolean {
     // 찾는 value값이 노드의 value와 일치한다면, true를 리턴합니다.
-    if (value === this.value) {
-      return true;
-    }
+    if (value === this.value) return true;
     // 찾는 value값이 노드의 value 보다 작다면, 왼쪽에서 contains의 재귀를 진행합니다.
-    if (value < this.value) {
-      return !!(this.left && this.left.contains(value));
-    }
+    if (value < this.value) return this.left ? this.left.contains(value) : false;
     // 찾는 value값이 노드의 value 보다 크다면, 오른쪽에서 contains의 재귀를 진행합니다.
-    if (value > this.value) {
-      return !!(this.right && this.right.contains(value));
-    }
+    if (value > this.value) return this.right ? this.right.contains(value) : false;
+    return false;
   }
   //tree를 전위 순회 합니다.
   preorder(callback: any) {

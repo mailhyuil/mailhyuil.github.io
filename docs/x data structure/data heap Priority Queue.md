@@ -1,10 +1,8 @@
 # data heap Priority Queue - 우선순위 큐
 
-> 우선순위를 기준으로 데이터를 추출하는 자료구조
->
-> > 최대 힙 자료구조를 통해서 구현
-> >
-> > > 힙이 큐가 인큐(Enqueue), 디큐(dequeue)를 할 때 보조하는 역할
+- 우선순위를 기준으로 데이터를 추출하는 자료구조
+- 최대 힙 자료구조를 통해서 구현
+- 힙이 큐가 인큐(Enqueue), 디큐(dequeue)를 할 때 보조하는 역할
 
 ```js
 export class PriorityQueue {

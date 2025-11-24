@@ -18,12 +18,12 @@ Preorder: 1, 2, 3
 
 ```ts
 function preOrder(callback: any) {
-  callback(this.value);
+  callback(this.value); // 1
   if (this.left) {
-    this.left.preOrder(callback);
+    this.left.preOrder(callback); // 2
   }
   if (this.right) {
-    this.right.preOrder(callback);
+    this.right.preOrder(callback); // 3
   }
 }
 ```
@@ -31,6 +31,7 @@ function preOrder(callback: any) {
 ## 중위 순회 (in-order traversal)
 
 - BST 문제 대부분
+- 결과가 오름차순 정렬된 리스트로 나옴
 
 ```txt
     2
@@ -43,18 +44,19 @@ Inorder: 1, 2, 3
 ```ts
 function inOrder(callback: any) {
   if (this.left) {
-    this.left.inOrder(callback);
+    this.left.inOrder(callback); // 1
   }
-  callback(this.value);
+  callback(this.value); // 2
   if (this.right) {
-    this.right.inOrder(callback);
+    this.right.inOrder(callback); // 3
   }
 }
 ```
 
 ## 후위 순회 (post-order traversal)
 
-- subtree 계산, 트리 삭제
+- 트리 삭제
+- subtree 계산
 
 ```txt
     1
@@ -67,18 +69,18 @@ Postorder: 2, 3, 1
 ```ts
 function postOrder(callback: any) {
   if (this.left) {
-    this.left.postOrder(callback);
+    this.left.postOrder(callback); // 1
   }
   if (this.right) {
-    this.right.postOrder(callback);
+    this.right.postOrder(callback); // 2
   }
-  callback(this.value);
+  callback(this.value); // 3
 }
 ```
 
 ## 층별 순회 (level-order traversal)
 
-- 레벨 기반 문제
+- 완전이진트리 기반 자료구조(힙)에서 필수
 
 ```txt
     1
@@ -97,9 +99,9 @@ function levelOrder(callback: any) {
 
   while (queue.length > 0) {
     const node = queue.shift();
-    callback(node.value);
-    if (node.left) queue.push(node.left);
-    if (node.right) queue.push(node.right);
+    callback(node.value); // 1
+    if (node.left) queue.push(node.left); // 2
+    if (node.right) queue.push(node.right); // 3
   }
 }
 ```
