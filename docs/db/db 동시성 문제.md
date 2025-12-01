@@ -5,15 +5,13 @@
 
 ## Dirty write (더티 라이트)
 
-> 커밋하지 않아도 데이터가 영구적으로 변경되는 현상
->
-> > 모든 RDBMS의 transaction은 이 현상을 방지하고 있다.
+- 커밋하지 않아도 데이터가 영구적으로 변경되는 현상
+- 모든 RDBMS의 transaction은 이 현상을 방지하고 있다.
 
 ## Dirty Read (더티 리드)
 
-> 다른 트랜잭션이 커밋하지 않은 데이터가 읽을 수 있게되면 롤백되었을 때 데이터 불일치가 발생
->
-> > 해결: Read Committed
+- 다른 트랜잭션이 커밋하지 않은 데이터가 읽을 수 있게되면 롤백되었을 때 데이터 불일치가 발생
+- 해결: Read Committed
 
 ```ts
 await this.prisma.$transaction(async tx => {
@@ -32,11 +30,9 @@ await this.prisma.$transaction(async tx => {
 
 ## Non-Repeatable Read (같은 데이터를 반복해서 읽기가 불가능) (반복적으로 읽은 데이터가 같은 데이터가 아닐 수 있다)
 
-> 한 트랜잭션에서 반복해서 같은 데이터를 읽는 중간에 다른 트랜잭션이 그 데이터를 변경하고 커밋한다면 다른 값이 읽히는 현상
->
-> > 트랜잭션 내에서 읽은 후 커밋되기 전에 다른 트랜잭션이 수정(UPDATE)한다면 발생
-> >
-> > > 해결: Repeatable Read
+- 한 트랜잭션에서 반복해서 같은 데이터를 읽는 중간에 다른 트랜잭션이 그 데이터를 변경하고 커밋한다면 다른 값이 읽히는 현상
+- 트랜잭션 내에서 읽은 후 커밋되기 전에 다른 트랜잭션이 수정(UPDATE)한다면 발생
+- 해결: Repeatable Read
 
 ```ts
 await this.prisma.$transaction(
@@ -55,11 +51,9 @@ await this.prisma.$transaction(
 
 ## Phantom Read (팬텀 리드) (값이 유령처럼 나타나거나 사라지는 현상)
 
-> 트랜잭션 중간에 값이 생겨나거나 사라지는 현상
->
-> > 트랜잭션 내에서 읽은 후 커밋되기 전에 다른 트랜잭션이 추가(INSERT) 또는 삭제(DELETE)한다면 발생
-> >
-> > > 해결: Serializable, Repeatable Read in Postgres
+- 트랜잭션 중간에 값이 생겨나거나 사라지는 현상
+- 트랜잭션 내에서 읽은 후 커밋되기 전에 다른 트랜잭션이 추가(INSERT) 또는 삭제(DELETE)한다면 발생
+- 해결: Serializable, Repeatable Read in Postgres
 
 ```ts
 await this.prisma.$transaction(
@@ -79,13 +73,10 @@ await this.prisma.$transaction(
 
 ## Lost Update (로스트 업데이트)
 
-> 다른 트랜잭션이 업데이트한 데이터를 덮어쓰는 수준
->
-> > 트랜잭션 내에서 업데이트한 데이터를 커밋하기 전에 다른 트랜잭션이 업데이트한다면 발생
-> >
-> > > write skew의 특수한 케이스
-> > >
-> > > > 해결: Serializable, Snapshot
+- 다른 트랜잭션이 업데이트한 데이터를 덮어쓰는 수준
+- 트랜잭션 내에서 업데이트한 데이터를 커밋하기 전에 다른 트랜잭션이 업데이트한다면 발생
+- write skew의 특수한 케이스
+- 해결: Serializable, Snapshot
 
 ```ts
 const seatId = 1;
@@ -107,11 +98,9 @@ await this.prisma.$transaction(
 
 ## Read Skew (리드 스큐)
 
-> 한 트랜잭션이 데이터베이스를 읽을 때 다른 트랜잭션이 커밋한 데이터가 나타나는 현상
->
-> > non-repeatable-read와 비슷하지만, 두개의 다른 쿼리를 수행할 때 발생하는 것 (e.g. A, B를 읽고 A+B를 계산하는 경우)
-> >
-> > > 해결: Repeatable Read, Serializable
+- 여러 개의 row를 읽었는데 각각 다른 시점의 스냅샷에서 읽혀서 데이터 일관성이 깨짐
+- non-repeatable-read은 같은 row를 읽을 때 발생, read skew는 두개의 다른 row에 대한 쿼리를 수행할 때 발생하는 것 (e.g. A, B를 읽고 A+B를 계산하는 경우)
+- 해결: Repeatable Read, Serializable
 
 ```ts
 await this.prisma.$transaction(
@@ -128,13 +117,10 @@ await this.prisma.$transaction(
 
 ## Write Skew (라이트 스큐)
 
-> 두개의 트랜잭션이 한정된 두개의 데이터를 "동시에 성공적으로 업데이트"하는 경우
->
-> > e.g. 같은 날짜에 연차를 사용이 불가능한 조건에서 두명의 사용자가 연차를 사용하려고 할 때
-> >
-> > > 해결: Serializable
-> > >
-> > > 또는 X-Lock을 통해서도 해결 가능
+- 두개의 트랜잭션이 한정된 두개의 데이터를 "동시에 성공적으로 업데이트"하는 경우
+- e.g. 같은 날짜에 연차를 사용이 불가능한 조건에서 두명의 사용자가 연차를 사용하려고 할 때
+- 해결: Serializable
+- 또는 X-Lock을 통해서도 해결 가능
 
 ```ts
 const id = "1234";
@@ -163,6 +149,5 @@ await this.prisma.$transaction(
 
 ## Deadlock (데드락)
 
-> 동시성 충돌을 방지하기 위해서 Lock을 사용하는데 서로가 서로의 자원을 대기하게 되어 무한 대기 상태에 빠지는 현상
->
-> > 해결: timeout, retry, deadlock detection
+- 동시성 충돌을 방지하기 위해서 Lock을 사용하는데 서로가 서로의 자원을 대기하게 되어 무한 대기 상태에 빠지는 현상
+- 해결: timeout, retry, deadlock detection
