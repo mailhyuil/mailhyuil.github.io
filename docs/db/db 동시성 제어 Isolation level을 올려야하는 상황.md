@@ -1,8 +1,7 @@
 # db 동시성 제어 Isolation level을 올려야하는 상황
 
-> 기본으로 Read Committed를 사용하고, 특정 상황에 따라 다른 Isolation level을 사용해야한다.
->
-> > database의 설계에 따라 다르다는 것을 인지하고 있어야 한다.
+- 기본으로 Read Committed를 사용하고, 특정 상황에 따라 다른 Isolation level을 사용해야한다.
+- database의 설계에 따라 다르다는 것을 인지하고 있어야 한다.
 
 ## Repeatable Read
 
