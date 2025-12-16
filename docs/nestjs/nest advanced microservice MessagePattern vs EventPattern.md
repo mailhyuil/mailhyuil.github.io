@@ -1,14 +1,13 @@
 # nest advanced microservice MessagePattern vs EventPattern
 
+Event Driven 방식은 응답을 반환하지 않고 Message Driven 방식은 응답을 반환한다.
+
 ## @EventPattern
 
-> 이벤트 방식
->
-> > 요청을 받아도 응답을 반환하지 않아도 됨
-> >
-> > > 비동기 처리에 사용
-> > >
-> > > > client.emit()와 사용
+- 이벤트 방식
+- **요청을 받아도 응답을 반환하지 않아도 됨**
+- 비동기 처리에 사용
+- `client.emit()` 사용
 
 ```ts
 import { Controller, Get, OnModuleInit } from "@nestjs/common";
@@ -33,13 +32,10 @@ export class AppController {
 
 ## @MessagePattern
 
-> Request-Reply 패턴 사용 시
->
-> > 프로듀서가 요청을 보낸 후 reply 토픽을 구독하고 있으면 컨슈머가 topic을 처리후 비동기 적으로 reply 토픽에 응답을 반환
-> >
-> > > client.send()와 사용
-> > >
-> > > > client.subscribeToResponseOf()을 통해 reply topic을 구독해야함
+- **Request-Reply** 패턴 사용 시
+- 프로듀서가 요청을 보낸 후 reply 토픽을 구독하고 있으면 **컨슈머가 topic을 처리 후 비동기 적으로 reply 토픽에 응답을 반환**
+- `client.send()` 사용
+- `client.subscribeToResponseOf()`을 통해 reply topic을 구독해야함
 
 ```ts
 import { Controller } from "@nestjs/common";
