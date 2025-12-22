@@ -1,6 +1,6 @@
 # js 데코레이터 패턴
 
-> 깔끔히 기능 늘리기
+깔끔하게 기능 늘리기
 
 ```ts
 class Obj {
@@ -35,7 +35,7 @@ console.log(d.getSome());
 ```js
 const pipe =
   (...fns) =>
-  (x) =>
+  x =>
     fns.reduce((y, f) => f(y), x);
 
 const obj = () => {
@@ -43,7 +43,7 @@ const obj = () => {
   return units;
 };
 
-const decorator = (baseObj) => {
+const decorator = baseObj => {
   const units = ["b"];
   return [...baseObj, ...units];
 };
