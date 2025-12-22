@@ -1,8 +1,7 @@
 # PII (Personally Identifiable Information)
 
-> 개인을 식별할 수 있는 정보
->
-> > 개인정보보호법에 따라 관리되어야 하는 정보
+- 개인을 식별할 수 있는 정보
+- 개인정보보호법에 따라 관리되어야 하는 정보
 
 ## types
 
