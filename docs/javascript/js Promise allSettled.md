@@ -1,19 +1,17 @@
 # js Promise allSettled
 
-> Promise.all은 하나라도 reject되면 전부 reject됨
->
-> > Promise.allSettled는 하나가 reject되어도 나머지를 받을 수 있다
-> >
-> > > 트랜잭션은 allSettled를 사용해야 한다
+- Promise.all은 여러개의 프로미스 중 하나라도 reject가 발생하면 전부 reject 된다.
+- Promise.allSettled는 하나의 프로미스가 reject 발생하더라도 나머지 프로미스는 정상적으로 처리된다.
+- 트랜잭션은 allSettled를 사용해야 한다
 
 ## result
 
 ```js
 [
-  {status: 'fulfilled', value: ...응답...},
-  {status: 'fulfilled', value: ...응답...},
-  {status: 'rejected', reason: ...에러 객체...}
-]
+  { status: "fulfilled", value: data },
+  { status: "fulfilled", value: data },
+  { status: "rejected", reason: error },
+];
 ```
 
 ## Promise.all을 사용하면 안되는 이유
@@ -31,10 +29,10 @@ try {
   await connection.rollback();
 }
 /*
-1. Transaction started;
-2. Queries queued to execution;
-3. One query failed;
-4. Transaction rolled back;
-5. Some slow queries executed after transaction rollback.
+  1. Transaction started.
+  2. Queries queued to execution.
+  3. One query failed.
+  4. Transaction rolled back.
+  5. Some slow queries executed after transaction rollback.
 */
 ```
