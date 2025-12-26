@@ -1,6 +1,6 @@
-# js Promise anti pattern
+# js Promise anti-pattern
 
-> deferred antipattern
+> deferred anti-pattern
 >
 > > Promise를 Promise로 감싸지 마라 그냥 then chaining 하면 된다.
 
@@ -10,13 +10,14 @@
 >
 > > promise then chaining을 사용할 수 없게된다.
 
-```
+```js
 function getStuffDone(param) {
-  return new Promise(function(resolve, reject) {
-    myPromiseFn(param+1)
-      .then(function(val) {
+  return new Promise(function (resolve, reject) {
+    myPromiseFn(param + 1)
+      .then(function (val) {
         resolve(val);
-      }).catch(function(err) {
+      })
+      .catch(function (err) {
         reject(err);
       });
   });
@@ -27,9 +28,9 @@ function getStuffDone(param) {
 
 > 그냥 바로 써라
 
-```
-function getStuffDone(param){
-    return myPromiseFn(param+1); // much nicer, right?
+```js
+function getStuffDone(param) {
+  return myPromiseFn(param + 1); // much nicer, right?
 }
 ```
 
@@ -39,15 +40,15 @@ function getStuffDone(param){
 >
 > > You might have to use a deferred object when wrapping a callback API that doesn't follow the standard convention.
 
-```
+```js
 function load() {
-    return new Promise(function(resolve, reject) {
-        window.onload = resolve;
-    });
+  return new Promise(function (resolve, reject) {
+    window.onload = resolve;
+  });
 }
 
 // use
-load().then(function() {
-    // Do things after onload
+load().then(function () {
+  // Do things after onload
 });
 ```
