@@ -1,6 +1,6 @@
 # claude code claude code template
 
-- https://www.aitmpl.com/
+- `https://www.aitmpl.com/`
 
 ## install
 

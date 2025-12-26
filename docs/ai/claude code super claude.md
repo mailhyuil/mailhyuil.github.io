@@ -1,6 +1,6 @@
 # claude code super claude
 
-- https://superclaude.org/
+- `https://superclaude.org/`
 
 ## commands
 
