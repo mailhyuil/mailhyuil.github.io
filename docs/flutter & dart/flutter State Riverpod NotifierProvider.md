@@ -1,28 +1,27 @@
-## NotifierProvider
+# flutter State Riverpod NotifierProvider
 
-> build 메소드에서 초기화
->
-> > state로 접근 (e.g. state.name)
+- build 메소드에서 초기화
+- state로 접근 (e.g. state.name)
 
 ```dart
-class User {
+class UserState {
   name: String;
   age: int;
-  User({required this.name, required this.age});
+  UserState({required this.name, required this.age});
 }
 
-class SomeNotifier extends Notifier<User> {
+class SomeNotifier extends Notifier<UserState> {
 
   @override
   SomeNotifier build(){
-    return User(
+    return UserState(
       name: 'hyuil',
       age: 2,
     );
   }
 
   void increaseAge(){
-    state = User(
+    state = UserState(
       name: state.name,
       age: state.age + 1,
     );
@@ -30,7 +29,7 @@ class SomeNotifier extends Notifier<User> {
 
   void setName(String value){
     // 값을 변경시에는 새로운 참조값 할당해주기
-    state = User(
+    state = UserState(
       name: value,
       age: state.age,
     );
@@ -38,7 +37,7 @@ class SomeNotifier extends Notifier<User> {
 }
 
 // Provider 생성
-final someNotifierProvider = NotifierProvider<SomeNotifier, User>(() => SomeNotifier());
+final someNotifierProvider = NotifierProvider<SomeNotifier, UserState>(() => SomeNotifier());
 ```
 
 ## ConsumerWidget
@@ -62,9 +61,8 @@ class SomeScreen extends ConsumerWidget {
 
 ## ConsumerStatefulWidget
 
-> WidgetRef ref 없이 바로 접근 가능
->
-> > StatefulWidget에서는 context에 바로 접근 가능한 것과 마찬가지다.
+- WidgetRef ref 없이 바로 접근 가능
+- StatefulWidget에서는 context에 바로 접근 가능한 것과 마찬가지다.
 
 ```dart
 class SomeScreen extends ConsumerStatefulWidget {

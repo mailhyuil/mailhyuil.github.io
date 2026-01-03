@@ -1,26 +1,26 @@
-## AsyncNotifierProvider
+# flutter State Riverpod AsyncNotifierProvider
 
-> 비동기로 데이터를 받아올 때 사용
->
-> > state = AsyncValue.data(value) 로 데이터 변경 // state = value는 사용 불가
+- 비동기로 데이터를 받아올 때 사용
+- `state = AsyncValue.data(value)` 로 데이터 변경
+- `state = value`는 사용 불가
 
 ```dart
-class User {
+class UserState {
   name: String;
   age: int;
-  User({required this.name, required this.age});
+  UserState({required this.name, required this.age});
 }
 
-class SomeAsyncNotifier extends AsyncNotifier<List<User>> {
-  List<User> _list = [];
+class SomeAsyncNotifier extends AsyncNotifier<List<UserState>> {
+  List<UserState> _list = [];
 
   @override
-  FutureOr<List<User>> build() async {
+  FutureOr<List<UserState>> build() async {
     await Future.delayed(Duration(seconds: 3));
     return _list;
   }
 
-  void addUser(User user) {
+  void addUser(UserState user) {
     state = AsyncValue.loading(); // 값을 받아올 때까지 로딩 상태로 변경
     await Future.delayed(Duration(seconds: 3));
     _list = [..._list, user];
@@ -29,7 +29,7 @@ class SomeAsyncNotifier extends AsyncNotifier<List<User>> {
 }
 
 // Provider 생성
-final someAsyncNotifierProvider = AsyncNotifierProvider<SomeAsyncNotifier, List<User>>(() => SomeAsyncNotifier());
+final someAsyncNotifierProvider = AsyncNotifierProvider<SomeAsyncNotifier, List<UserState>>(() => SomeAsyncNotifier());
 ```
 
 ## ConsumerStatefulWidget

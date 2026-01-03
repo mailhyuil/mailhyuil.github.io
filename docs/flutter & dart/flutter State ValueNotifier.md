@@ -1,6 +1,6 @@
 # flutter State ValueNotifier
 
-> 하나의 값만 관심이 있다면 사용
+하나의 값만 관심이 있다면 사용
 
 ## Notifier class
 

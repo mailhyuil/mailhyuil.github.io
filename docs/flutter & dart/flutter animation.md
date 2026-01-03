@@ -1,4 +1,4 @@
-# flutter animation
+# flutter Animation
 
 > curve : easeIn, boundInOut 같은 거
 
