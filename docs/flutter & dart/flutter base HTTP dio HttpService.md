@@ -1,10 +1,10 @@
-# flutter base HttpService
+# flutter base HTTP dio HttpService
 
 ## install
 
 ```sh
 flutter pub add dio
-flutter pub add get_it
+flutter pub add get_it # 의존성 주입을 위한 패키지 (service locator)
 ```
 
 ## main.ts

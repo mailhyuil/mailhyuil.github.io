@@ -1,8 +1,10 @@
 # flutter Router GoRouter
 
-> Router v2
->
-> > url로 접근 가능
+- 딥링크(푸시 클릭 → 특정 화면)
+- 웹 지원(URL 동기화)
+- 중첩 네비게이션(BottomNav 탭마다 스택 유지)
+- 가드/리다이렉트(AuthGate, PurchaseGate)
+- 라우팅을 “상태”로 관리하고 싶음(Riverpod과 궁합 좋음)
 
 ## install
 
@@ -10,16 +12,24 @@
 flutter pub add go_router
 ```
 
-## config
+## main.dart
 
 ```dart
-MaterialApp.router(
-  routerConfig: _router,
-);
+import 'package:go_router/go_router.dart';
+
+void main() {
+  runApp(
+    MaterialApp.router(
+      routerConfig: router,
+    ),
+  );
+}
 ```
 
+## router/router.dart
+
 ```dart
-final _router = GoRouter(
+final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
