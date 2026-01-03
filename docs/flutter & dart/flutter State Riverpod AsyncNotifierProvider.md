@@ -32,11 +32,10 @@ class SomeAsyncNotifier extends AsyncNotifier<List<UserState>> {
 final someAsyncNotifierProvider = AsyncNotifierProvider<SomeAsyncNotifier, List<UserState>>(() => SomeAsyncNotifier());
 ```
 
-## ConsumerStatefulWidget
+## ConsumerStatefulWidget에서 사용
 
-> StatefulWidget에서는 WidgetRef ref 없이 바로 접근 가능
->
-> > ref.watch().when 을 사용해서 listen
+- StatefulWidget에서는 WidgetRef ref 없이 바로 접근 가능
+- ref.watch().when 을 사용해서 listen
 
 ```dart
 class SomeScreen extends ConsumerStatefulWidget {

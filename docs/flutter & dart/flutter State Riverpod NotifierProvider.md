@@ -40,9 +40,9 @@ class SomeNotifier extends Notifier<UserState> {
 final someNotifierProvider = NotifierProvider<SomeNotifier, UserState>(() => SomeNotifier());
 ```
 
-## ConsumerWidget
+## ConsumerWidget에서 사용
 
-> WidgetRef ref로 접근
+- WidgetRef ref로 접근
 
 ```dart
 class SomeScreen extends ConsumerWidget {
@@ -59,7 +59,7 @@ class SomeScreen extends ConsumerWidget {
 }
 ```
 
-## ConsumerStatefulWidget
+## ConsumerStatefulWidget에서 사용
 
 - WidgetRef ref 없이 바로 접근 가능
 - StatefulWidget에서는 context에 바로 접근 가능한 것과 마찬가지다.

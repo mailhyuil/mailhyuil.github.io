@@ -1,8 +1,7 @@
 # flutter base FutureBuilder
 
-> Future를 가지고 간단히 UI 업데이트 에러처리를 하기 위해서 사용
->
-> > snapshot.data / snapshot.hasData / snapshot.error / snapshot.connectionState
+- Future를 가지고 간단히 UI 업데이트 에러처리를 하기 위해서 사용
+- snapshot.data / snapshot.hasData / snapshot.error / snapshot.connectionState
 
 ```dart
 FutureBuilder(

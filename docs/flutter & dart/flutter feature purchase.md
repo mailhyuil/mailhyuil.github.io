@@ -1,4 +1,4 @@
-# flutter payment
+# flutter feature purchase
 
 ## install
 
