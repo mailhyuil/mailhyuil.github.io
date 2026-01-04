@@ -1,18 +1,22 @@
 # flutter State Riverpod
 
-| Riverpod      | Angular                       | 설명                        |
-| ------------- | ----------------------------- | --------------------------- |
-| State         | Component State / Model       | 템플릿이 그리는 순수 데이터 |
-| Notifier      | Service / Store               | 상태를 관리하는 로직 계층   |
-| Provider      | Injector + Store 등록         | 객체 생성, 보관, 연결       |
-| ref.watch     | async pipe / change detection | 상태 변경 시 UI 업데이트    |
-| ref.read      | service method call           | 단순 액션 호출              |
-| ref.listen    | Effect / Subscription         | 사이드 이펙트 처리          |
-| ------------- | ----------------------------- | --------------------------- |
-| AsyncValue    | Observable state              | 비동기 상태 관리            |
-| AsyncNotifier | Service + HttpClient          | 비동기 상태 관리 로직 계층  |
-| ref.watch     | async pipe                    | 상태 변경 시 UI 업데이트    |
-| ref.listen    | effect / subscription         | 사이드 이펙트 처리          |
+| Riverpod                | Angular                       | 설명                                   |
+| ----------------------- | ----------------------------- | -------------------------------------- |
+| State                   | Component State / Model       | 템플릿이 그리는 순수 데이터            |
+| Notifier                | Service / Store               | 상태를 관리하는 로직 계층              |
+| Provider                | Injector + Store 등록         | 객체 생성, 보관, 연결                  |
+| ref.watch               | async pipe / change detection | 상태 변경 시 UI 업데이트               |
+| ref.read                | service method call           | 단순 액션 호출                         |
+| ref.listen              | Effect / Subscription         | 사이드 이펙트 처리                     |
+| -------------           | ----------------------------- | ---------------------------            |
+| AsyncNotifier           | Service + HttpClient          | 비동기 상태 관리 로직 계층             |
+| AsyncValue              | Observable                    | 비동기 상태 관리                       |
+| AsyncValue.when         | Observable.subscribe          | 상태 변경 시 UI 업데이트               |
+| AsyncValue.maybeWhen    | Observable.subscribe          | 일부 상태만 처리하고 나머지는 fallback |
+| AsyncValue.whenOrNull   | Observable.subscribe          | 필요한 상태만 처리, 나머지는 null      |
+| AsyncValue.value        | Observable.subscribe          | data 상태면 값 반환                    |
+| AsyncValue.valueOrNull  | Observable.subscribe          | data 상태면 값 반환                    |
+| AsyncValue.requireValue | Observable.subscribe          | data 상태가 아니면 에러                |
 
 ## 1. Provider의 기본 타입들 (Foundation)
 
