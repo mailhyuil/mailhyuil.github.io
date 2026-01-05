@@ -2,17 +2,23 @@
 
 ## Stateless
 
-> 필요한 data가 없는 위젯
+- 필요한 data가 없는 위젯
+- riverpod의 ConsumerWidget은 StatelessWidget을 상속받는다.
 
-```txt
-StatelessWidget
+```dart
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
 ```
 
 ## Stateful
 
-> data가 필요한 위젯
->
-> > data가 변경될 때마다 화면을 다시 그려야 하는 위젯
+- state가 필요한 위젯
+- state가 변경될 때마다 화면을 다시 그려야 하는 위젯
+- riverpod의 ConsumerStatefulWidget은 StatefulWidget을 상속받는다.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -41,7 +47,7 @@ class CounterScreenState extends State<CounterScreen> {
 }
 ```
 
-## setState(() {})
+### setState(() {})
 
 ```dart
 void onPressed() {

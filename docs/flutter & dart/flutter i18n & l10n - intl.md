@@ -6,6 +6,8 @@
 
 ```sh
 flutter pub add intl
+
+flutter gen-l10n
 ```
 
 ## messages.dart

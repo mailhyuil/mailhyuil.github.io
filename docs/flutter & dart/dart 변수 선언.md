@@ -18,10 +18,9 @@ final String name = "홍길동";
 // js에서 const를 사용하면 선언시 값을 넣어줘야 하지만 dart에서는 late를 사용해 나중에 값을 넣어줘도 된다
 late final String name = "홍길동";
 
-// const 선언 (상수 선언)
+// const 선언 (컴파일 타임에 상수로 선언)
 // js의 const와 다르다
 // 값을 이미 알고있는 것
-// 컴파일 타임에 상수로 선언
 const taxAmount = 15;
 const priceAmount = 30;
 var totalAmount = taxAmount + priceAmount;

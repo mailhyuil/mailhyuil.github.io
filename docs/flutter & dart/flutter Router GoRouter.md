@@ -56,9 +56,15 @@ final router = GoRouter(
 ## usage
 
 ```dart
-context.go('/test');
+context.go('/test'); // 스택을 완전히 교체
 context.go('/test/1');
-context.goNamed();
-context.push('/test');
+context.goNamed(
+  'home',
+  pathParameters: {'id': '123'},
+  queryParameters: {'tab': 'info'},
+);
+
+context.push('/test'); // 스택에 쌓아올림
+context.pushReplacement('/home'); // 현재 스택을 교체
 context.pop();
 ```
