@@ -13,11 +13,11 @@ flutter pub add freezed --dev
 flutter pub add build_runner --dev
 
 # 한번 빌드
-flutter pub run build_runner build
+dart run build_runner build
 # 자동 빌드
-flutter pub run build_runner watch
+dart run build_runner watch
 # 충돌 발생 시
-flutter pub run build_runner build --delete-conflicting-outputs
+dart run build_runner build --delete-conflicting-outputs
 ```
 
 ## user_model.dart
@@ -93,4 +93,10 @@ sealed class ApiState<T> with _$ApiState<T> {
 //   success: (data) => Text(data.toString()),
 //   error: (msg) => Text(msg),
 // );
+```
+
+## Getter
+
+```dart
+User._(); // private named constructor 넣어주기
 ```
