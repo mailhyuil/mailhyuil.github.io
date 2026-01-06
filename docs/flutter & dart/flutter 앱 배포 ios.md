@@ -10,7 +10,7 @@
 
 ## Apple Connect
 
-> Bundle ID : com.tistory.app
+> Bundle ID : com.mailhyuil.app
 >
 > > SKU (재고관리코드) : 내가 식별하기 위한 임의의 코드 (e.g. MY_APP_2021_02)
 

@@ -24,13 +24,15 @@ flutter pub add flutter_secure_storage
 # logging
 flutter pub add logger
 
-# --dev (codegen / lint)
-flutter pub add flutter_lints --dev
-flutter pub add build_runner --dev
-flutter pub add json_serializable --dev
-
-# annotation (runtime)
+# json_serializable + freezed
 flutter pub add json_annotation
+flutter pub add freezed_annotation
+flutter pub add json_serializable --dev
+flutter pub add freezed --dev
+flutter pub add build_runner --dev
+
+# lint
+flutter pub add flutter_lints --dev
 
 ##### optional packages #####
 
