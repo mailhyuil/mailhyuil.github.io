@@ -1,6 +1,11 @@
-# firebase firestore
+# firebase firestore - Cloud Firestore
 
-> 콘솔 -> firestore -> 데이터베이스 생성
+- NoSQL 실시간 데이터베이스 (Cloud Firestore)
+- 실시간 동기화 지원
+- 로컬 캐시 우선(Local-first)
+- 네트워크 없어도 즉시 응답
+- 연결되면 자동 동기화
+- 모바일 앱 개발에 적합
 
 ## install
 
@@ -11,15 +16,31 @@ ng add @angular/fire
 
 ## CRUD
 
-> firestore.collection(collectionName).doc(docId).method()
->
-> > addDoc, getDocs, updateDoc, deleteDoc, doc, collection, collectionData
+- `const ref = firestore.collection(collectionName).doc(docId);`
+- `ref.add(data);`
+- `ref.get();`
+- `ref.update(data);`
+- `ref.delete();`
+- `ref.doc(docId);`
+- `ref.collection(collectionName);`
+- `ref.collectionData();`
 
 ```ts
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { Component, inject } from "@angular/core";
-import { Firestore, Timestamp, addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, setDoc } from "@angular/fire/firestore";
+import {
+  Firestore,
+  Timestamp,
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  setDoc,
+} from "@angular/fire/firestore";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
@@ -52,7 +73,7 @@ export class HomePage {
     // Fetch all memos from the Firestore collection, ordered by createdAt timestamp
     const q = query(collection(this.firestore, this.collectionName), orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
-    this.memos = querySnapshot.docs.map((doc) => ({
+    this.memos = querySnapshot.docs.map(doc => ({
       id: doc.id,
       content: doc.data()["content"],
       createdAt: doc.data()["createdAt"],
