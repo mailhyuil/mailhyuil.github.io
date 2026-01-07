@@ -1,0 +1,10 @@
+{
+  "label": "GCP & Firebase",
+  "position": 27,
+  "link": {
+    "type": "generated-index",
+    "description": "Google Cloud Platform (GCP) and Firebase backend services, authentication, database, storage, and hosting."
+  },
+  "collapsed": true,
+  "collapsible": true
+}
