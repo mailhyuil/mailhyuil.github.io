@@ -17,20 +17,19 @@
 | AsyncValue.value        | Observable.subscribe          | data 상태면 값 반환                    |
 | AsyncValue.valueOrNull  | Observable.subscribe          | data 상태면 값 반환                    |
 | AsyncValue.requireValue | Observable.subscribe          | data 상태가 아니면 에러                |
+| AsyncValue.guard        | -                             | -                                      |
 
 ## 1. Provider의 기본 타입들 (Foundation)
 
 ### Provider
 
-- 값 또는 객체 제공 (Repository, Service)
-- 상태 변화 없음
-- Dependency Injection 용도
+- 읽기 전용 값을 제공
+- **Dependency Injection 용도**
 
 ### StateProvider
 
-- 매우 단순한 상태 관리
+- 상태 변경 가능한 값을 제공
 - int, bool, enum 등에 적합
-- 로컬 UI 상태에 사용
 
 ## 2. 비동기 전용 Provider
 
@@ -39,22 +38,26 @@
 - 1회성 비동기 데이터 fetch
 - 자동 캐싱
 - 로딩 및 에러 상태 자동 관리
+- 단순 조회용
 
 ### StreamProvider
 
 - Stream 기반 상태 관리
+- 실시간으로 값이 계속 바뀌는 데이터에 적합
 - socket, firestore 같은 실시간 데이터에 적합
 
 ## 3. 현대 Riverpod의 중심
 
 ### Notifier
 
+- angular의 service와 비슷한 역할
 - 동기 상태 관리
 - immutable state 기반
 - 비즈니스 로직 중심
 
 ### AsyncNotifier
 
+- angular의 service + http와 비슷한 역할
 - 비동기 상태 관리의 표준
 - loading, error, data lifecycle 포함
 - refresh, mutation, retry 구현에 유리

@@ -1,5 +1,7 @@
 # flutter error
 
+- presentError, reportError, dumpErrorToConsole
+
 ## try catch
 
 ```dart
