@@ -7,4 +7,7 @@
 
 ```sh
 flutter pub add firebase_database
+
+# console에서 realtime database 생성 후
+flutterfire configure
 ```
