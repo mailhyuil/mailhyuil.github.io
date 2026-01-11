@@ -1,5 +1,6 @@
 # flutter State Riverpod NotifierProvider
 
+- angular의 Service라고 생각
 - build 메소드에서 초기화
 - state로 접근 (e.g. state.name)
 

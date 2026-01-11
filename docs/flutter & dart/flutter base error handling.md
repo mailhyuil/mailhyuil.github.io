@@ -1,4 +1,4 @@
-# flutter error
+# flutter error handling
 
 ## Sync/Async Error Handler
 
@@ -50,7 +50,6 @@ final class GlobalErrorHandler extends ProviderObserver {
     // Crashlytics / Sentry 등 리포팅 가능
   }
 }
-
 ```
 
 ### observer 등록
