@@ -11,6 +11,9 @@ flutter pub add go_router
 
 # state management
 flutter pub add flutter_riverpod
+dart pub add riverpod_annotation
+dart pub add riverpod_generator --dev
+dart pub add riverpod_devtools
 
 # http
 flutter pub add dio

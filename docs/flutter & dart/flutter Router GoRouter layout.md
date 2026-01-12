@@ -4,7 +4,7 @@
 
 ## main.dart
 
-````dart
+```dart
 final router = GoRouter(
   routes: [
     ShellRoute(
@@ -27,5 +27,3 @@ final router = GoRouter(
   ],
 );
 ```
-
-````
