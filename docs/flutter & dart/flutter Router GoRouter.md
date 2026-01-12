@@ -6,6 +6,14 @@
 - 가드/리다이렉트(AuthGate, PurchaseGate)
 - 라우팅을 “상태”로 관리하고 싶음(Riverpod과 궁합 좋음)
 
+## Route Types
+
+```txt
+GoRoute: 기본 라우트, 상태없음, 페이지 이, dispose 발생동
+ShellRoute: 공통UI를 감싸는 layout용, 상태없음, dispose 발생
+StatefulShellRoute: IndexedStack 기반, 탭별 Navigator + State 유지, 바텀탭 정석, MatchingPage 같은 탭 페이지가 dispose 안 됨
+```
+
 ## install
 
 ```sh

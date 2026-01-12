@@ -1,6 +1,6 @@
 # flutter Router GoRouter layout
 
-- ShellRoute를 사용하여 레이아웃을 관리
+- ShellRoute 또는 StatefulShellRoute를 사용하여 레이아웃을 관리
 
 ## main.dart
 
