@@ -1,4 +1,4 @@
-# dart Mixin
+# dart class Mixin
 
 - 클래스들에 특정 기능을 끼워넣기 위해 사용합니다. (객체 생성 불가)
 - extends = is-a 관계
