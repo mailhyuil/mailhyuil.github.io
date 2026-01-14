@@ -1,5 +1,6 @@
 # flutter base Controller
 
+- Listenable을 상속한 Notifier의 일종
 - 데이터와 UI 간의 상호작용을 제어하는 역할을 하는 클래스들
 - UI 위젯(TextField, Animation)이 있고 그 값, 상태를 가져오고나 변경할 때!!!
 - UI 위젯에 등록하는 과정이 있음 (e.g. TextField(controller: \_controller), Tween(begin: 0, end: 1).animate(\_controller))

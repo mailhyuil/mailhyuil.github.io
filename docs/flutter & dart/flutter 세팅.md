@@ -10,7 +10,8 @@ flutter pub add flutter_dotenv
 flutter pub add go_router
 
 # state management
-flutter pub add flutter_riverpod
+dart pub add hooks_riverpod
+dart pub add flutter_hooks
 dart pub add riverpod_annotation
 dart pub add riverpod_generator --dev
 dart pub add riverpod_devtools
