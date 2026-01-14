@@ -45,10 +45,14 @@ Future<String> cached(CachedRef ref) async {
 
 ## Notifier / AsyncNotifier
 
+- build에서 state를 초기화하여 반환
+- state를 변경하려면 state = 새로운 값 으로 변경
+- ValueNotifier는 값, AsyncNotifier는 `Future<T>` 타입을 반환한다.
+
 ```dart
-// Notifier
+// ValueNotifier
 @riverpod
-class Counter extends _$Counter {
+class Counter extends _$Counter<State> {
   @override
   int build() => 0;
 
@@ -59,7 +63,7 @@ class Counter extends _$Counter {
 
 // AsyncNotifier
 @riverpod
-class UserController extends _$UserController {
+class User extends _$User<State> {
   @override
   Future<User?> build() async {
     final auth = ref.watch(authStateProvider).value;

@@ -2,7 +2,7 @@
 
 - Listenable을 상속받은 클래스
 - ScrollController, AnimationController, StreamController 도 Notifier의 일종이다.
-- Angular의 BehaviorSubject
+- Angular의 BehaviorSubject와 같다
 
 ## ValueNotifier
 
