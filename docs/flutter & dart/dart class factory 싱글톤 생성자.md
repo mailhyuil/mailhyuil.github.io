@@ -1,10 +1,8 @@
-# dart factory 생성자
+# dart class factory 싱글톤 생성자
 
-> Use the factory keyword when implementing a constructor that doesn’t always create a new instance of its class
->
-> > 새로운 인스턴스를 생성하지 않는 생성자, 싱글톤 패턴을 구현할 때 사용
-> >
-> > > \_cache (Map type), \_internal 등의 private 변수를 사용하여 싱글톤 패턴을 구현할 수 있음
+- 새로운 인스턴스를 생성하지 않는 생성자, 싱글톤 패턴을 구현할 때 사용
+- \_cache (Map type), \_internal 등의 private 변수를 사용하여 싱글톤 패턴을 구현할 수 있음
+- Use the factory keyword when implementing a constructor that doesn’t always create a new instance of its class
 
 ```dart
 class Logger {
