@@ -4,7 +4,7 @@
 - Angular의 AfterViewInit과 유사
 
 ```dart
-class MyPageState extends State<MyPage> with WidgetsBindingObserver {
+class MyPageState extends State<MyPage> {
   @override
   void initState() {
     super.initState();

@@ -1,4 +1,4 @@
-# flutter base commands
+# flutter base cli
 
 ```sh
 flutter run

@@ -1,12 +1,13 @@
 # Flutter base Json
 
-> fromJson, toJson 구현
->
-> > 소규모 프로젝트에서는 직접 구현 (jsonDecode, jsonEncode)
-> >
-> > > 중대형 프로젝트에서는 코드 생성 패키지를 사용 (json_serializable)
+- Json을 Dart가 이해할 수 있는 자료구조(Map<String, dynamic>)로 변환
+- dio, firebase SDK.. 라이브러리에서 대신 수행해준다.
+- 라이브러리를 사용하지 않을 시에는 직접 수행해야한다.
 
-## jsonDecode, jsonEncode
+## encode / decode
+
+- json.decode -> jsonDecode
+- json.encode -> jsonEncode
 
 ```dart
 import 'dart:convert';
@@ -31,7 +32,7 @@ void main() {
 
 ## fromJson, toJson
 
-> jsonDecode 되어 `Map<String, dynamic>` 타입을 Model의 타입으로 변환
+- jsonDecode 되어 `Map<String, dynamic>` 타입을 Model(Object)의 타입으로 변환
 
 ```dart
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -68,12 +69,4 @@ class UserModel {
     };
   }
 }
-```
-
-```dart
-Map<String, dynamic> userMap = jsonDecode(jsonString);
-var user = User.fromJson(userMap);
-
-print('Howdy, ${user.name}!');
-print('We sent the verification link to ${user.email}.');
 ```
