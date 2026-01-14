@@ -1,6 +1,14 @@
 # flutter base lifecycle
 
-## App
+```txt
+initState
+didChangeDependencies
+build
+didUpdateWidget
+dispose
+```
+
+## Flutter L
 
 1. main()
 2. runApp()
