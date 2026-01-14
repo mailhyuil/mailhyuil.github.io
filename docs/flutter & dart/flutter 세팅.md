@@ -4,10 +4,10 @@
 
 ```sh
 # env
-flutter pub add flutter_dotenv
+dart pub add flutter_dotenv
 
 # router
-flutter pub add go_router
+dart pub add go_router
 
 # state management
 dart pub add hooks_riverpod
@@ -17,43 +17,88 @@ dart pub add riverpod_generator --dev
 dart pub add riverpod_devtools
 
 # http
-flutter pub add dio
+dart pub add dio
 
 # local storage (simple)
-flutter pub add shared_preferences
+dart pub add shared_preferences
 
 # secure storage (tokens etc.)
-flutter pub add flutter_secure_storage
+dart pub add flutter_secure_storage
 
 # logging
-flutter pub add logger
+dart pub add logger
 
 # json_serializable + freezed
-flutter pub add json_annotation
-flutter pub add freezed_annotation
-flutter pub add json_serializable --dev
-flutter pub add freezed --dev
-flutter pub add build_runner --dev
+dart pub add json_annotation
+dart pub add freezed_annotation
+dart pub add json_serializable --dev
+dart pub add freezed --dev
+dart pub add build_runner --dev
 
 # lint
-flutter pub add flutter_lints --dev
+dart pub add flutter_lints --dev
 
-##### optional packages #####
+# image
+dart pub add cached_network_image
+dart pub add image_picker
+
+# 외부 URL 실행
+dart pub add url_launcher
+
+# 네트워크 상태 감지
+dart pub add connectivity_plus
+
+# svg
+dart pub add flutter_svg
+
+# skeleton
+dart pub add shimmer
+
+# animation
+dart pub add animations
+
+# util
+dart pub add collection # firstOrNull, mapIndexed, groupBy
+
+# 권한
+dart pub add permission_handler
+################################ optional packages #################################
 
 # uuid
-flutter pub add uuid
+dart pub add uuid
+
+# scroll
+dart pub add scrollable_positioned_list # 특정 index로 이동 가능
+dart pub add flutter_slidable # 👉 리스트 아이템 옆으로 밀어서 액션
+dart pub add pull_to_refresh # 당겨서 새로고침 기본 RefreshIndicator보다 커스터마이징 쉬움
+dart pub add infinite_scroll_pagination # 무한 스크롤 기능 (커서 기반 페이지네이션)
+
+# file
+dart pub add file_picker
+
+# local sql
+dart pub add sqflite
+
+# local no-sql
+dart pub add hive
+dart pub add isar
 
 # supabase (backend & database)
-flutter pub add supabase_flutter
+dart pub add supabase_flutter
 
 # revenuecat (in-app purchases)
-flutter pub add purchases_flutter
+dart pub add purchases_flutter
 
 # firebase
-flutter pub add firebase_core
-flutter pub add firebase_auth
-flutter pub add cloud_firestore
+dart pub add firebase_core
+dart pub add firebase_auth # auth
+dart pub add cloud_firestore # firestore
+dart pub add firebase_database # realtime database
+dart pub add firebase_messaging # push notification
 
-# document
-flutter pub add path_provider
+# 앱 내부 디렉토리 경로 제공 documents / cache / temp (파일 저장 / 이미지 캐시 직접 관리)
+dart pub add path_provider
+
+# 국제 전화번호
+dart pub add intl_phone_number_input
 ```

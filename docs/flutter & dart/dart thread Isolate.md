@@ -1,0 +1,20 @@
+# dart thread Isolate
+
+- nodejs의 worker_threads와 유사한 개념
+- 완전히 독립된 실행 컨텍스트를 제공하는 가벼운 실행 단위
+- 스레드와 달리 Isolate은 메모리와 CPU 자원을 분리된 방식으로 사용하며, 각각의 Isolate은 고유한 메모리 공간에서 실행됩니다.
+
+```dart
+void isolateEntry(SendPort sendPort) {
+  sendPort.send('Hello from isolate');
+}
+
+void main() async {
+  final receivePort = ReceivePort();
+  await Isolate.spawn(isolateEntry, receivePort.sendPort);
+
+  receivePort.listen((msg) {
+    print(msg);
+  });
+}
+```
