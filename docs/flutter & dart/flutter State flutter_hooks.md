@@ -1,5 +1,8 @@
 # flutter base lifecycle flutter_hooks
 
+- flutter_hooks는 훅을 사용하여 상태를 관리하는 라이브러리입니다.
+- riverpod는 Global State를 관리하고 Hooks는 Local State를 관리합니다.
+
 ## install
 
 ```sh
