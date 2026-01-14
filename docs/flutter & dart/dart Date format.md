@@ -2,7 +2,7 @@
 
 ## install
 
-```
+```sh
 flutter pub add intl
 ```
 

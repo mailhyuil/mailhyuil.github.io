@@ -1,4 +1,4 @@
-# dart Vector
+# dart type Vector
 
 ## Classes
 

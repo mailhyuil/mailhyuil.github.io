@@ -1,4 +1,4 @@
-# dart Future
+# dart type Future
 
 > js의 Promise와 같은 API
 

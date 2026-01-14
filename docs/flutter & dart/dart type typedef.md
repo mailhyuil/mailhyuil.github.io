@@ -1,4 +1,4 @@
-# dart typedef
+# dart type typedef
 
 > typescript의 interface, type alias와 비슷한 기능
 

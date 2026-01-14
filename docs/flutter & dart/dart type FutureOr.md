@@ -1,4 +1,4 @@
-# dart FutureOr
+# dart type FutureOr
 
 ```dart
 // data가 Future<T> 또는 T 타입일 수 있다

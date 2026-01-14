@@ -1,4 +1,4 @@
-# dart enum
+# dart type enum
 
 ```dart
 enum Status {

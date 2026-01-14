@@ -3,7 +3,10 @@
 ## 변수 선언
 
 ```dart
+// 타입 추론
 var name = "홍길동";
+
+// 타입 명시
 String name = "홍길동";
 
 // 상수 선언
@@ -28,19 +31,9 @@ var totalAmount = taxAmount + priceAmount;
 var totalAmount = 15 + 30;
 ```
 
-## dynamic
-
-> 변수의 타입이 바뀌어도 할당이 가능
-
-```dart
-dynamic name = "hyuil";
-
-name = 0; // okay
-```
-
 ## null safety
 
-> null로 인해서 발생하는 런타임 에러를 방지하기 위해 컴파일 이전에 에러를 내는 것
+null로 인해서 발생하는 런타임 에러를 방지하기 위해 컴파일 이전에 에러를 내는 것
 
 ```dart
 String name = '홍길동';
