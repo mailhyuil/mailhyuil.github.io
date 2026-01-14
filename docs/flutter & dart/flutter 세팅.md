@@ -101,4 +101,7 @@ dart pub add path_provider
 
 # 국제 전화번호
 dart pub add intl_phone_number_input
+
+# validation
+dart pub add flutter_form_builder
 ```
