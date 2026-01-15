@@ -4,13 +4,12 @@
 
 ```sh
 flutter clean
-rm -rf ios/Pods ios/Podfile.lock
-rm -rf ~/Library/Developer/Xcode/DerivedData
+rm -rf ios/Pods ios/Podfile.lock ios/.symlinks ios/Flutter/Flutter.podspec
+flutter pub get
+
 cd ios
-pod repo update
-pod install
+pod install --repo-update
 cd ..
-flutter build ios
 ```
 
 ## android
