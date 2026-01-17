@@ -1,8 +1,9 @@
 # ad google AdMob flutter admob_flutter
 
-> CPM : Cost Per Mille // 1000번 노출당 수익
->
-> > CPC : Cost Per Click // 1번 클릭당 수익
+- CPM (Cost Per Mille)  
+  1000번 노출당 수익
+- CPC (Cost Per Click)  
+  1번 클릭당 수익
 
 ## prepare
 
