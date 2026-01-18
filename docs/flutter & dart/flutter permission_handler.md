@@ -1,5 +1,7 @@
 # flutter permission_handler
 
+- permission_handler는 권한 상태 조회 / 요청 UI만 수행한다.
+
 ## install
 
 ```sh

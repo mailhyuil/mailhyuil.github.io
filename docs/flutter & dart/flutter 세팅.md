@@ -105,6 +105,9 @@ dart pub add firebase_storage # storage
 dart pub add firebase_crashlytics # crashlytics
 dart pub add geoflutterfire_plus # location
 
+# location
+dart pub add geolocator
+
 # 앱 내부 디렉토리 경로 제공 documents / cache / temp (파일 저장 / 이미지 캐시 직접 관리)
 dart pub add path_provider
 
