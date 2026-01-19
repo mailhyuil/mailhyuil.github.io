@@ -7,6 +7,9 @@ dart pub add slang
 dart pub add slang_flutter
 
 dart pub add slang_build_runner --dev
+
+dart run slang
+dart run slang clean
 ```
 
 ## slang.yaml
@@ -19,10 +22,15 @@ input_file_pattern: .i18n.json # .i18n.json으로 끝나는 모든 파일을 읽
 output_directory: lib/i18n
 output_file_name: strings.g.dart
 output_format: dart
-namespaces: true # 파일별로 네임스페이스를 생성 (예: t.countries.kr)
+
+# 파일별로 네임스페이스를 생성 (예: t.countries.kr)
+namespaces: true
+# _default_.i18n.json 파일을 기본 언어로 사용
+# countries.i18n.json 파일을 국가별 언어로 사용
+# languages.i18n.json 파일을 언어별 언어로 사용
 ```
 
-## lib/i18n/en.i18n.json
+## lib/i18n/_default_en.i18n.json
 
 ```json
 {
@@ -30,7 +38,7 @@ namespaces: true # 파일별로 네임스페이스를 생성 (예: t.countries.k
 }
 ```
 
-## lib/i18n/ko.i18n.json
+## lib/i18n/_default_ko.i18n.json
 
 ```json
 {

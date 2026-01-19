@@ -61,6 +61,11 @@ dart pub add collection # firstOrNull, mapIndexed, groupBy
 # 권한
 dart pub add permission_handler
 
+# i18n & l10n
+dart pub add slang
+dart pub add slang_flutter
+dart pub add slang_build_runner --dev
+
 ################################ optional packages #################################
 
 # uuid
