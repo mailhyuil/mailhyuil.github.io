@@ -317,33 +317,3 @@ class AdController extends _$AdController {
 }
 ```
 
-## usage
-
-```dart
-late final AdManager adManager;
-
-@override
-void initState() {
-  super.initState();
-  adManager = AdManager()..init();
-}
-
-@override
-void dispose() {
-  adManager.dispose();
-  super.dispose();
-}
-
-BannerAdWidget(size: AdmobBannerSize.BANNER)
-TextButton(
-  onPressed: () async {
-    final shown = await adManager.showInterstitial();
-    if (!shown) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('광고 로딩 중')),
-      );
-    }
-  },
-  child: const Text('전면 광고'),
-),
-```

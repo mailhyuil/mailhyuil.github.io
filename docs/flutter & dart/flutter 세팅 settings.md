@@ -105,6 +105,8 @@ dart pub add firebase_storage # storage
 dart pub add firebase_crashlytics # crashlytics
 dart pub add geoflutterfire_plus # location
 dart pub add firebase_in_app_messaging # in-app messaging
+dart pub add firebase_analytics # google analytics
+dart pub add firebase_remote_config # remote config
 
 # location
 dart pub add geolocator
