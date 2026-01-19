@@ -1,47 +1,142 @@
-# flutter WebView
+# flutter Webview
 
-- 웹뷰(WebView)는 네이티브 앱에 내재되어 있는 웹 브라우저
-- 웹뷰를 사용하면 웹 콘텐츠를 네이티브 앱 뷰와 같이 사용자에게 보여줄 수 있다.
-- 일반 웹 브라우저와 달리 웹뷰에는 주소창, 새로고침, 즐겨찾기와 같은 기능은 없고 단순히 웹페이지만 보여준다.
+- 앱내에서 특정 기능은 웹화면으로 보여지게 하는 기능 (e.g. 카카오톡에서 링크를 클릭하면 웹으로 이동, 결제시 웹으로 이동)
+- 기본적인 “웹 페이지 띄우기 / JS 실행” → flutter_webview로 가능
+- 엔진 내부 설정, 보안, 쿠키, 미디어, 디버깅 → OS별로 다름
 
-## OS별 클래스
+## install
 
-### 안드로이드
+```sh
+flutter pub add webview_flutter
 
-WebView 클래스
-
-```java
-public class WebView
-extends AbsoluteLayout implements ViewTreeObserver.OnGlobalFocusChangeListener, ViewGroup.OnHierarchyChangeListener
+flutter pub add webview_flutter_android
+flutter pub add webview_flutter_wkwebview
 ```
 
-### IOS
+## android/app/build.gradle
 
-WKWebView 클래스
+> minSdkVersion 19 이상 필요
 
-```swift
-import UIKit
-import WebKit
-
-
-class ViewController: UIViewController, WKUIDelegate {
-
-    var webView: WKWebView!
-
-    override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        view = webView
-    }
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let myURL = URL(string:"https://www.apple.com")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+```gradle
+android {
+    defaultConfig {
+        minSdkVersion 19
     }
 }
+```
+
+## usage
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+class WebViewPage extends StatefulWidget {
+  const WebViewPage({super.key, required this.url});
+  final String url;
+
+  @override
+  State<WebViewPage> createState() => _WebViewPageState();
+}
+
+class _WebViewPageState extends State<WebViewPage> {
+  late final WebViewController controller;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted) // JS 허용
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageStarted: (_) => setState(() => isLoading = true),
+          onPageFinished: (_) => setState(() => isLoading = false),
+          onWebResourceError: (err) {
+            debugPrint('Web error: ${err.description}');
+          },
+          // 특정 도메인만 허용 같은 제어도 가능
+          // onNavigationRequest: (request) {
+          //   if (!request.url.startsWith('https://example.com')) {
+          //     return NavigationDecision.prevent;
+          //   }
+          //   return NavigationDecision.navigate;
+          // },
+        ),
+      )
+      ..loadRequest(Uri.parse(widget.url));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('WebView'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () => controller.reload(),
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          WebViewWidget(controller: controller),
+          if (isLoading)
+            const Center(child: CircularProgressIndicator()),
+        ],
+      ),
+    );
+  }
+}
+```
+
+## route
+
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (_) => const WebViewPage(url: 'https://example.com'),
+  ),
+);
+```
+
+## JS -> Flutter 통신
+
+```dart
+//js
+App.postMessage(JSON.stringify({ type: "open_notice", id: 123 }));
+
+//flutter
+controller.addJavaScriptChannel(
+  'App',
+  onMessageReceived: (JavaScriptMessage msg) {
+    debugPrint('JS says: ${msg.message}');
+    // 예: {"type":"open_notice","id":123}
+  },
+);
+```
+
+## Flutter -> JS 통신
+
+```dart
+// flutter에서 js 실행
+await controller.runJavaScript("""
+  window.showPopup?.("공지", "서버 점검 안내");
+""");
+
+// flutter에서 html 로드
+final html = """
+<!doctype html>
+<html>
+<body>
+  <h1>공지</h1>
+  <button onclick="App.postMessage('clicked')">앱에 알리기</button>
+</body>
+</html>
+""";
+
+await controller.loadHtmlString(html);
 ```

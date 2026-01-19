@@ -104,6 +104,7 @@ dart pub add firebase_messaging # push notification
 dart pub add firebase_storage # storage
 dart pub add firebase_crashlytics # crashlytics
 dart pub add geoflutterfire_plus # location
+dart pub add firebase_in_app_messaging # in-app messaging
 
 # location
 dart pub add geolocator
