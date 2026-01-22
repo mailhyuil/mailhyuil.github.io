@@ -16,7 +16,7 @@ keytool -genkey -v -keystore <path>.jks -storetype <type> -keyalg <alg> -keysize
 
 ```sh
 # sha1/sha256 확인
-keytool -list -v -keystore ./debug.keystore -alias androiddebugkey -storepass android -keypass android
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
 ```
 
 ## 배포용 키 해시

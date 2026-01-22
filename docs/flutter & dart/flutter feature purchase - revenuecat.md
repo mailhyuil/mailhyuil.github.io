@@ -92,7 +92,59 @@ try {
 }
 ```
 
-## usage
+## paywall
 
 ```dart
+import 'package:flutter/material.dart';
+import 'package:purchases_flutter/models/offering_wrapper.dart';
+import 'package:purchases_ui_flutter/purchases_ui_flutter.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'purchase_service.g.dart';
+
+class PurchaseService {
+  Future<void> showPaywall(BuildContext context) async {
+    final result = await RevenueCatUI.presentPaywall();
+    switch (result) {
+      case PaywallResult.purchased:
+        // 결제 성공
+        break;
+      case PaywallResult.cancelled:
+        // 유저가 닫음
+        break;
+      case PaywallResult.restored:
+        // 복원
+        break;
+      default:
+        break;
+    }
+  }
+
+  Future<void> showPaywallWithOffering(
+    BuildContext context,
+    String offeringIdentifier,
+  ) async {
+    final result = await RevenueCatUI.presentPaywall(
+      offering: Offering(offeringIdentifier, 'packages: []', {}, []),
+    );
+    switch (result) {
+      case PaywallResult.purchased:
+        // 결제 성공
+        break;
+      case PaywallResult.cancelled:
+        // 유저가 닫음
+        break;
+      case PaywallResult.restored:
+        // 복원
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+@riverpod
+PurchaseService purchaseService(Ref ref) {
+  return PurchaseService();
+}
 ```

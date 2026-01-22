@@ -66,6 +66,9 @@ dart pub add slang
 dart pub add slang_flutter
 dart pub add slang_build_runner --dev
 
+# toast
+dart pub add flutter_styled_toast
+
 ################################ optional packages #################################
 
 # uuid

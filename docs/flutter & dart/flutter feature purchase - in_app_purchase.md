@@ -2,6 +2,6 @@
 
 ## install
 
-```
+```sh
 flutter pub add in_app_purchase
 ```
