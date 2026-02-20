@@ -2,8 +2,8 @@
 
 ```sh
 # secret
-firebase functions:secret:set UPSTASH_REDIS_REST_TOKEN
-firebase functions:secret:get UPSTASH_REDIS_REST_TOKEN
+firebase functions:secrets:set UPSTASH_REDIS_REST_TOKEN
+firebase functions:secrets:get UPSTASH_REDIS_REST_TOKEN
 ```
 
 ## ts

@@ -1,4 +1,4 @@
-# flutter ads google AdMob
+# flutter ads AppLovin
 
 ## prepare
 

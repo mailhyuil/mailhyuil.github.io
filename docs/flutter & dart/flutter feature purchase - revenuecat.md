@@ -148,3 +148,20 @@ PurchaseService purchaseService(Ref ref) {
   return PurchaseService();
 }
 ```
+
+## 구독여부확인
+
+상품(product) ↔ 권한(entitlement) 매핑
+
+```dart
+final customerInfo = await Purchases.getCustomerInfo();
+
+// activeSubscriptions 로 확인하는 법
+final isSubscribed = customerInfo.activeSubscriptions.isNotEmpty;
+// entitlements 로 확인하는 법
+final isSubscribed =
+    customerInfo.entitlements.active.isNotEmpty;
+// pro 여부 확인
+final isPro =
+    customerInfo.entitlements.active.containsKey('someapp-pro');
+```

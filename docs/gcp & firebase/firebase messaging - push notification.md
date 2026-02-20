@@ -4,7 +4,7 @@
 
 ```sh
 flutter pub add firebase_messaging
-flutter pub add flutter_local_notifications # 포그라운드에서도 “알림 배너” 띄우려면
+# flutter pub add flutter_local_notifications # 포그라운드에서도 “알림 배너” 띄우려면 (toast 사용으로 대체)
 ```
 
 ## android setting
