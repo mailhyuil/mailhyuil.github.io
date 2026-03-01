@@ -2,13 +2,13 @@
 
 ## prompt versioning
 
-프롬프트 바꾸면:
-답변 톤 바뀜
-hallucination 패턴 바뀜
-비용/토큰 사용량 바뀜
-버전 관리 안 하면?
-→ “왜 갑자기 품질 떨어졌지?” 추적 불가.
-prompt_version: v1.3.2 같은 메타 저장
+- 프롬프트 바꾸면:
+  1. 답변 톤 바뀜
+  2. hallucination 패턴 바뀜
+  3. 비용/토큰 사용량 바뀜
+- 버전 관리 안 하면?  
+  1. “왜 갑자기 품질 떨어졌지?” 추적 불가.
+   > prompt_version: v1.3.2 같은 메타 저장
 
 ```json
 {
@@ -18,7 +18,7 @@ prompt_version: v1.3.2 같은 메타 저장
 }
 ```
 
-# token cost tracking
+## token cost tracking
 
 token 사용량 추적
 LLM은 토큰 기반 과금.
