@@ -6,9 +6,25 @@
 
 ```sh
 pnpm approve-builds
+
+# install 시 무시
+pnpm install --frozen-lockfile --ignore-scripts=false
+
+# 설정 끄기
+pnpm config set ignore-scripts false
+# 설정 확인
+pnpm config get ignore-scripts
 ```
 
-## onlyBuiltDependencies
+## `.npmrc` 에서 설정
+
+```sh
+# .npmrc
+ignore-scripts=false
+auto-install-peers=true
+```
+
+## 특정 패키지의 script만 허용하기 (onlyBuiltDependencies)
 
 > package.json 또는 pnpm-workspace.yaml에 `onlyBuiltDependencies`가 설정되어 있는 경우 요구를 하지 않음
 
