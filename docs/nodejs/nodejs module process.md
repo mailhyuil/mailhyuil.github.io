@@ -1,6 +1,6 @@
 # nodejs module process
 
-```
+```txt
 process.argv
 process.env
 process.exit()

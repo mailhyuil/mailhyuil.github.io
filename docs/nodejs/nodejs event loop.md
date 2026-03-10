@@ -1,8 +1,7 @@
 # nodejs event loop
 
-> 이벤트 루프는 각 queue에 등록된 콜백 함수를 main thread로 가져오는 역할
->
-> > 이벤트 루프의 각 반복을 "틱(tick)"이라고 합니다.
+- 이벤트 루프는 각 queue에 등록된 콜백 함수를 main thread로 가져오는 역할
+- 이벤트 루프의 각 반복을 "틱(tick)"이라고 합니다.
 
 ## 순서
 

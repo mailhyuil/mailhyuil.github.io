@@ -2,7 +2,7 @@
 
 > queue에는 완료된 콜백 함수들이 libuv에 의해 등록되어진다.
 
-### nextTick queue
+## nextTick queue
 
 > 단 한개만 존재
 >
@@ -10,7 +10,7 @@
 > >
 > > > 각 phase 시작 전에 이 next tick queue를 전부 비운다.
 
-### microtask queue
+## microtask queue
 
 > 단 한개만 존재
 >
@@ -18,7 +18,7 @@
 > >
 > > > 각 phase 시작 전에 이 microtask queue를 전부 비운다.
 
-### macrotask queue
+## macrotask queue
 
 > 각 phase마다 전용 macrotask queue가 존재한다.
 >
