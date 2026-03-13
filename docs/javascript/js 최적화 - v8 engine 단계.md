@@ -1,12 +1,9 @@
 # js 최적화 - v8 engine 단계
 
-> Interpreter = Ignition
->
-> Non-Optimized JIT Compiler = SparkPlug
->
-> SSA (Static Single Assignment) Based JIT Compiler = Maglev
->
-> Optimized JIT Compiler = TurboFan
+- Interpreter = Ignition
+- Non-Optimized JIT Compiler = SparkPlug
+- SSA (Static Single Assignment) Based JIT Compiler = Maglev
+- Optimized JIT Compiler = TurboFan
 
 1. Parsing -> AST 생성
    > 자바스크립트 코드를 파싱해서 AST(구문 트리)로 변환함
