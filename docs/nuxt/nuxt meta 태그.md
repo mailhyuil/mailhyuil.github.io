@@ -2,7 +2,26 @@
 
 > SEO에 활용
 
-## template 안에 설정
+## useHead
+
+```ts
+useHead({
+  title: "",
+});
+```
+
+## useSeoMeta
+
+```ts
+useSeoMeta({
+  title: "상품 상세 페이지",
+  ogTitle: "세일 중인 상품!",
+  description: "지금 바로 확인하세요.",
+  ogImage: "/images/product.jpg",
+});
+```
+
+### template 안에 설정하는 방식도 있음
 
 ```vue
 <template>
@@ -14,23 +33,20 @@
 </template>
 ```
 
-## useHead
+## definePageMeta
 
-```ts
-useHead({
-  title: "",
-});
-```
-
-## define
+해당 페이지의 라우팅, 레이아웃, 미들웨어 등 Nuxt 앱 자체의 동작을 정의
 
 ```ts
 definePageMeta({
-  title: "AI 링크",
+  layout: "custom", // 커스텀 레이아웃 사용
+  middleware: "auth", // 인증 미들웨어 적용
+  pageTransition: false, // 페이지 전환 애니메이션 끄기
+  alias: ["/old-path"], // 다른 URL로도 접근 가능하게 설정
 });
 ```
 
-## nuxt.config.ts
+## nuxt.config.ts에서 전역으로 설정하는 방식
 
 ```ts
 export default defineNuxtConfig({
