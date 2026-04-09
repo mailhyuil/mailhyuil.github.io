@@ -1,7 +1,7 @@
 # nuxt middleware
 
-페이지 이동 시 실행되는 함수  
-`*.global.ts`파일 명이면 전체 적용
+- 페이지 이동 시 실행되는 함수
+- `*.global.ts`파일 명이면 전체 적용
 
 ## `middlewares/*.ts`
 

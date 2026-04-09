@@ -15,7 +15,7 @@ const res = await useApi<{ accessToken: string }>("/auth/login", {
 });
 
 // accessToken cookie에 token 담기
-const _accessToken = useCookie("avirtual_access_token");
+const _accessToken = useCookie("access_token");
 _accessToken.value = res.accessToken;
 
 // userProfile 가져오기 헤더에 Bearer 토큰 담아서 요청

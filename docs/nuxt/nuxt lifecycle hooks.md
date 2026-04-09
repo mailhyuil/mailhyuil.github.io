@@ -1,6 +1,6 @@
 # nuxt lifecycle hooks
 
-[Nuxt Lifecycle Hooks](https://nuxt.com/docs/api/advanced/hooks)
+서버의 라이프사이클이 필요시 사용
 
 ## nuxt.config
 

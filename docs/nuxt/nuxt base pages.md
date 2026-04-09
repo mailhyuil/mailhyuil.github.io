@@ -1,7 +1,20 @@
 # nuxt pages
 
-## [id]
+## 동적라우팅
 
-1. [id] 폴더 생성
-2. index, update 파일 생성
-3. /post/1 /post/1/update 방식
+- useRoute().params.id로 id값 가져오기
+
+```txt
+pages/posts/[id].vue → /posts/1, /posts/abc
+
+pages/users/[userId]/settings.vue → /users/123/settings
+```
+
+## 포괄적 라우팅
+
+- 특정 경로 아래의 모든 하위 경로를 한 파일에서 처리하고 싶을 때
+- useRoute().params.slug는 배열 형태(['a', 'b', 'c'])로 들어옵니다.
+
+```txt
+pages/[...slug].vue → /a, /a/b, /a/b/c
+```
