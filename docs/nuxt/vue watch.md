@@ -1,8 +1,6 @@
 # vue watch
 
-deep
-
-> 객체의 프로퍼티가 변하는지도 확인하기
+사이드 이펙트가 필요한 경우 watch를 사용한다.
 
 ## single ref
 

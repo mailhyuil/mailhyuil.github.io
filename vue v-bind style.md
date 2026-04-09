@@ -1,4 +1,10 @@
-# vue styleMap
+# vue v-bind style
+
+```html
+<div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+```
+
+## styleMap 만들기
 
 ```ts
 const styleMap = ref<{[key:string]:string}>({
