@@ -7,32 +7,47 @@
 - update:modelValue 혹은 update:변수명 emits으로 업데이트 할 수 있다.
 
 ```vue
+<!-- 일반 방식 -->
+<MyInput v-model="value" />
+<MyInput :modelValue="value" @update:modelValue="value = $event" />
+<!-- named 방식 -->
+<MyInput v-model:title="title" />
+<MyInput :title="title" @update:title="title = $event" />
+```
+
+## parent
+
+```vue
 <template>
   <div>
     <input v-model="searchText" />
 
     <!-- 위의 코드와 밑의 코드는 같다 -->
-    <input :value="searchText" @input="searchText = $event.target.value" />
-
+    <!-- <input :value="searchText" @input="searchText = $event.target.value" /> -->
     <!-- 컴포넌트일 시 -->
-    <CustomInput :modelValue="searchText" @update:modelValue="newValue => (searchText = newValue)" />
+    <!-- <CustomInput :modelValue="searchText" @update:modelValue="newValue => (searchText = newValue)" /> -->
   </div>
 </template>
 ```
 
+## child
+
 ```ts
+// 일반 방식
 const props = defineProps<{
   modelValue: string;
 }>();
-
+// emit 선언
 const emits = defineEmits(["update:modelValue"]);
+// emit 사용
 emits("update:modelValue", "안녕"); // 따옴표 모양이 같아야한다 "" 안됨
-```
 
-```txt
-v-model="" === modelValue
-update:modelValue
-
-v-model:title === title
-update:title
+// named 방식
+const props = defineProps<{
+  title: string;
+}>();
+// emit 선언
+const emits = defineEmits(["update:title"]);
+// emit 사용
+emits("update:title", "안녕");
 ```
