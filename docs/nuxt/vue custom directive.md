@@ -3,6 +3,23 @@
 - vueApp 인스턴스로 directive를 등록할 수 있다.
 - nuxtApp.vueApp으로 vue 인스턴스를 가져올 수 있다.
 
+## vue에서 등록
+
+```vue
+<script setup>
+// v-focus라는 이름을 사용하려면 변수명을 vFocus로 짓습니다.
+const vFocus = {
+  mounted: el => el.focus(),
+};
+</script>
+
+<template>
+  <input v-focus />
+</template>
+```
+
+## nuxt에서 전역 등록
+
 ```ts
 import { Directive } from "nuxt/dist/app/compat/capi";
 
@@ -41,6 +58,6 @@ export default defineNuxtPlugin(app => {
 });
 ```
 
-```ts
-v-scroll="{ segment: segment, items: segmentItems, anchor: 2, change }"
+```html
+<div v-scroll="{ segment: segment, items: segmentItems, anchor: 2, change }" />
 ```

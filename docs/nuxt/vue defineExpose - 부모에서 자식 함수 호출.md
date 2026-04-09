@@ -5,8 +5,12 @@
 ## child
 
 ```ts
+const internalCount = ref(0);
+const increment = () => internalCount.value++;
+
 defineExpose({
-  childFn,
+  increment, // 외부에서 자식.value.increment() 호출 가능
+  internalCount,
 });
 ```
 
@@ -14,5 +18,5 @@ defineExpose({
 
 ```ts
 const child = ref();
-child.value.childFn();
+child.value.increment();
 ```
