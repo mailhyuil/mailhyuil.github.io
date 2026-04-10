@@ -6,6 +6,7 @@
 
 ```txt
 pages/posts/[id].vue → /posts/1, /posts/abc
+pages/posts/[[id]].vue → /posts, /posts/1, /posts/abc
 
 pages/users/[userId]/settings.vue → /users/123/settings
 ```
@@ -17,4 +18,11 @@ pages/users/[userId]/settings.vue → /users/123/settings
 
 ```txt
 pages/[...slug].vue → /a, /a/b, /a/b/c
+```
+
+## client & server page
+
+```txt
+*.client.vue → 클라이언트에서만 렌더링되는 페이지
+*.server.vue → 서버에서만 렌더링되는 페이지
 ```
