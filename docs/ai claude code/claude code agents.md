@@ -9,14 +9,6 @@
 # Follow instructions in CLAUDE.md
 ```
 
-## docs
-
-참고 문서, 메모리 문서
-
-```sh
-
-```
-
 ## .claude/agents
 
 역할 분리, 스킬 등
@@ -32,4 +24,12 @@ disallowedTools: Write, Edit
 ---
 
 에이전트의 역할, 전문성 및 동작을 설명하는 상세한 시스템 프롬프트입니다.
+```
+
+## docs
+
+참고 문서, 메모리 문서
+
+```sh
+
 ```
