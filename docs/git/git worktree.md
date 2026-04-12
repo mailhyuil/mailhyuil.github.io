@@ -4,6 +4,7 @@
 
 ```sh
 git worktree add <path> [<branch>]
+git worktree add <path> -b [<branch>] # 체크아웃과 브랜치 생성 동시에
 # git worktree add ../new-worktree main
 # cd ../new-worktree
 # git checkout some-branch
@@ -21,17 +22,26 @@ git worktree prune
 git worktree repair
 ```
 
+## workflow
+
+```sh
+# 브랜치마다 워크트리 생성 후 각자 PR 날리기
+git worktree add ../auth feature/auth
+git add .
+git commit -m "feat: auth"
+git push origin feature/auth
+
+# 브랜치마다 워크트리 생성 후 작업 후 integration branch에서 merge 후 PR 날리기
+git worktree add ../auth feature/auth
+git add .
+git commit -m "feat: auth"
+git checkout integration
+git merge feature/auth
+git push origin integration
+```
+
 ## 참고
 
 ```sh
 git worktree add ../test main --detach # 두 워크트리는 같은 브랜치를 체크아웃할 수 없다. --detach 옵션을 사용하여 브랜치가 없는 상태로 워크트리를 추가할 수 있다.
-```
-
-## 빠르게
-
-```sh
-git worktree add ../auth -b feature/auth
-# ../auth 폴더 생성
-# feature/auth 브랜치 생성
-# 그 브랜치로 체크아웃
 ```
