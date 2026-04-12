@@ -3,12 +3,18 @@
 동일한 git 저장소에 여러 개의 독립된 작업 디렉토리를 갖을 수 있게 해준다.
 
 ```sh
-git worktree add <path> [<branch>]
-git worktree add <path> -b [<branch>] # 체크아웃과 브랜치 생성 동시에
-# git worktree add ../new-worktree main
-# cd ../new-worktree
+git worktree add <path> [<new-branch>] # 이미 존재하는 브랜치에 워크트리 추가
+git worktree add <path> -b [<new-branch>] # 브랜치 생성하면서 워크트리 추가
+# git worktree add ../test -b sangbaek/test
+# cd ../test
 # git checkout some-branch
 # ..working
+
+# .worktreeinclude # 워크트리 생성시 .gitignore, .worktreeinclude에 동시에 명시된 파일만 복사
+node_modules
+.env.local
+.cache
+dist
 
 # 워크트리 조회
 git worktree list
