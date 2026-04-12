@@ -8,7 +8,7 @@
 
 ### variable.tf
 
-```
+```tf
 variable "env" {
     type = string
     default = dev
@@ -17,7 +17,7 @@ variable "env" {
 
 ### usage
 
-```
+```tf
 tags = {
     Name = "default_vpc_${var.env}"
 }
@@ -33,7 +33,7 @@ tags = {
 
 ### local.tf
 
-```
+```tf
 locals {
     az_a = "ap-northeast-2a"
     az_c = "ap-northeast-2c"
@@ -42,7 +42,7 @@ locals {
 
 ### usage
 
-```
+```tf
 availabilty_zone = local.az_a
 ```
 
@@ -52,7 +52,7 @@ availabilty_zone = local.az_a
 
 ### output.tf
 
-```
+```tf
 output "vpc_id" {
     value = aws_vpc.default.id
 }
@@ -60,7 +60,7 @@ output "vpc_id" {
 
 ### main.tf
 
-```
+```tf
 resource "aws_vpc" "default" { # 이 리소스의 id 값이 output에 저장 됨
 
 }

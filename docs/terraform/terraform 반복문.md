@@ -2,7 +2,7 @@
 
 ## count
 
-```
+```tf
 module "personal_custom_vpc" {
     count = 2
     source = "./custom_vpc"
@@ -12,7 +12,7 @@ module "personal_custom_vpc" {
 
 ## for_each
 
-```
+```tf
 variable "names" {
     type = list(string)
     default = ["me", "someone"]
@@ -27,7 +27,7 @@ module "personal_custom_vpc" {
 
 ## for
 
-```
+```tf
 variable "names" {
     type = list(string)
     default = ["me", "someone"]

@@ -2,7 +2,7 @@
 
 > script 파일을 실행하기 위해 사용
 
-```
+```tf
 provisioner "remote-exec" {
     scripts = [
         "${path.module}/files/update-apt.sh",

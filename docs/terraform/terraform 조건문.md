@@ -10,7 +10,7 @@
 
 > env가 prd일 때는 생성 안되게 하기
 
-```
+```tf
 variable "envs" {
     type = list(string)
     default = ["dev", "prd", ""]
@@ -21,9 +21,7 @@ module "vpc_list" {
     source = "./custom_vpc"
     env = each.key
 }
-```
 
-```
 resource "aws_subnet" "public_subnet_1" {
     count = var.env == "prd" ? 0 : 1
 }
