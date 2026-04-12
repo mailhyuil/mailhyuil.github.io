@@ -1,5 +1,11 @@
 # worktree workflow
 
+```sh
+claude -w feature-auth
+claude -w # 이름 자동 생성
+# claude --worktree feature-auth
+```
+
 ## git worktree로 여러 브랜치를 동시에 작업하기
 
 ```sh

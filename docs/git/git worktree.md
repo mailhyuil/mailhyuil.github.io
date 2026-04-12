@@ -26,3 +26,12 @@ git worktree repair
 ```sh
 git worktree add ../test main --detach # 두 워크트리는 같은 브랜치를 체크아웃할 수 없다. --detach 옵션을 사용하여 브랜치가 없는 상태로 워크트리를 추가할 수 있다.
 ```
+
+## 빠르게
+
+```sh
+git worktree add ../auth -b feature/auth
+# ../auth 폴더 생성
+# feature/auth 브랜치 생성
+# 그 브랜치로 체크아웃
+```
