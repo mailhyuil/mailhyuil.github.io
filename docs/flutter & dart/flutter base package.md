@@ -20,7 +20,7 @@ dependencies를 직접 추가
 
 ## package 불러오기
 
-import 구문 사용
+`import` 구문 사용
 
 ```dart
 import 'package:http/http.dart' as http;

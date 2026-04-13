@@ -1,6 +1,6 @@
 # Flutter base Json
 
-- Json을 Dart가 이해할 수 있는 자료구조(Map<String, dynamic>)로 변환
+- Json을 Dart가 이해할 수 있는 자료구조(`Map<String, dynamic>`)로 변환
 - dio, firebase SDK.. 라이브러리에서 대신 수행해준다.
 - 라이브러리를 사용하지 않을 시에는 직접 수행해야한다.
 

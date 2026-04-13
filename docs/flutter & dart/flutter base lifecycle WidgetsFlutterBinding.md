@@ -1,7 +1,7 @@
 # flutter base lifecycle WidgetsFlutterBinding
 
 - WidgetsBinding이란 dart 코드와 native 코드를 연결하는 역할을 한다.
-- Dart(Widgets) <-> Flutter Engine <-> NativeOS
+- Dart(Widgets) `<->` Flutter Engine `<->` NativeOS
 - NativeOS에서 온 이벤트를 Dart로 전달하거나 Dart에서 NativeOS로 이벤트를 전달하는 역할을 한다.
 
 ## WidgetsFlutterBinding

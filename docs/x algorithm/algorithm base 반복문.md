@@ -41,7 +41,7 @@ for (let i = 1; i < arr.length; i++) {
 }
 ```
 
-## start <= end
+## `start <= end`
 
 - 이진탐색
 
@@ -177,7 +177,7 @@ for (let i = 0; i < nums.length; i++) {
 ## 비트마스크
 
 - 부분집합/조합 문제
-- 원소가 n개인 집합의 부분집합 개수 = 2ⁿ = (1 << n)
+- 원소가 n개인 집합의 부분집합 개수 = `2ⁿ = (1 << n)`
 
 ```js
 for (let mask = 0; mask < 1 << n; mask++) {

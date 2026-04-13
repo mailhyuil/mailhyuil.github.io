@@ -25,7 +25,12 @@ const config: Config = {
   projectName: "mailhyuil.github.io", // Usually your repo name.
   deploymentBranch: "gh-pages",
   onBrokenLinks: "log",
-  onBrokenMarkdownLinks: "log",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownImages: "log",
+      onBrokenMarkdownLinks: "log",
+    },
+  },
   trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
