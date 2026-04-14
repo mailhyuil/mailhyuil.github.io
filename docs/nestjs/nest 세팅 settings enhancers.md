@@ -325,8 +325,23 @@ export class PrismaExceptionUnwrapInterceptor implements NestInterceptor {
 
 ## prisma-exception.filter.ts
 
-```ts
+- db에러는 HttpException으로 변환
+- PrismaExceptionFilter를 구축하여
 
+```ts
+switch (error.code) {
+  case "P2025": // "An operation failed because it depends on one or more records that were required but not found. {cause}"
+    return new NotFoundException("데이터 없음");
+
+  case "P2002": // "Unique constraint failed on the {constraint}"
+    return new ConflictException("이미 존재");
+
+  case "P2003": // "Foreign key constraint failed on the field: {field_name}"
+    return new BadRequestException("잘못된 참조");
+
+  default:
+    return error; // 그대로 던짐
+}
 ```
 
 ## winston.logger.ts
