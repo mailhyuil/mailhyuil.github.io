@@ -2,8 +2,10 @@
 
 ## install
 
+- nestjs 프로젝트 내에서 실행
+
 ```sh
-npx nestia setup
+npx nestia setup --manager pnpm
 ```
 
 ## user.dto.ts

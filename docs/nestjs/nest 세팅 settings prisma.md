@@ -3,8 +3,8 @@
 ## install
 
 ```sh
-npm i -D prisma
-npm i @prisma/client
+pnpm add -D prisma
+pnpm add @prisma/client @prisma/adapter-pg pg
 ```
 
 ## init
@@ -12,20 +12,19 @@ npm i @prisma/client
 > schema.prisma 파일 생성
 
 ```sh
-npx prisma init
+pnpm dlx prisma init --output ../src/generated/prisma
+pnpm dlx create-db
 ```
 
 ## schema.prisma
 
 ```prisma
 generator client {
-  provider = "prisma-client-js"
-  previewFeatures = ["relationJoins", "prismaSchemaFolder", "omitApi"]
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
-
 datasource db {
-  provider = "mysql"
-  url      = "mysql://<admin>:<password>@localhost:3306/mydb" // admin, password 입력
+  provider = "postgresql"
 }
 
 model User {
@@ -34,14 +33,13 @@ model User {
   name  String?
   posts Post[]
 }
-
 model Post {
-  id        Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   title     String
   content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+  published Boolean? @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
 }
 ```
 
@@ -52,13 +50,17 @@ model Post {
 > > prisma.service.ts
 
 ```ts
-import { Injectable, OnModuleInit } from "@nestjs/common";
-import { PrismaClient } from "@prisma/client";
+import { Injectable } from "@nestjs/common";
+import { PrismaClient } from "./generated/prisma/client.js";
+import { PrismaPg } from "@prisma/adapter-pg";
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit {
-  async onModuleInit() {
-    await this.$connect();
+export class PrismaService extends PrismaClient {
+  constructor() {
+    const adapter = new PrismaPg({
+      connectionString: process.env.DATABASE_URL as string,
+    });
+    super({ adapter });
   }
 }
 ```

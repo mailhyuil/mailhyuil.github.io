@@ -340,7 +340,7 @@ switch (error.code) {
     return new BadRequestException("잘못된 참조");
 
   default:
-    return error; // 그대로 던짐
+    return error; // 그대로 던짐 컨텍스트 로깅 후 InternalServerErrorException로 다시 던지기
 }
 ```
 

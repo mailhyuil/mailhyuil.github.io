@@ -1,0 +1,10 @@
+{
+  "label": "Neo4J",
+  "position": 42,
+  "link": {
+    "type": "generated-index",
+    "description": "Neo4J Graph Database"
+  },
+  "collapsed": true,
+  "collapsible": true
+}

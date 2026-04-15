@@ -51,6 +51,9 @@ npm i cache-manager
 # prisma
 npm i -D prisma
 npm i @prisma/client
+npm i @prisma/adapter-pg
+npm i pg
+# prisma optional
 npm i prisma-error-enum
 npm i prisma-extension-soft-delete
 # event
