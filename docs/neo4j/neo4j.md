@@ -16,6 +16,7 @@ docker run \
   -e NEO4J_AUTH=neo4j/password \
   -d neo4j:5
 
+# 볼륨 등 추가
 docker run \
   --name neo4j \
   -p 7474:7474 \
